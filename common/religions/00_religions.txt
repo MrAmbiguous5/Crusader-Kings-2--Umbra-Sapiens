@@ -2004,8 +2004,10 @@ pagan_group = {
 		can_demand_religious_conversion = no
 	}
 	
-	hellenic_pagan_reformed = {
+	hellenic_pagan = {
 		graphical_culture = hellenicgfx
+		has_coa_on_barony_only = yes
+		crusade_cb = crusade
 		alternate_start = { always = no }
 		interface_skin = { hellenic_interface }
 
@@ -2017,62 +2019,47 @@ pagan_group = {
 		high_god_name = GOD_JUPITER
 		
 		god_names = {
-			GOD_JUPITER GOD_NEPTUNE GOD_PLUTO GOD_JUNO GOD_CERES GOD_MINERVA GOD_MARS GOD_VULCAN GOD_VENUS GOD_APOLLO GOD_DIANA GOD_VESTA
+			GOD_JUPITER GOD_NEPTUNE GOD_PLUTO GOD_JUNO GOD_CERES GOD_MINERVA GOD_MARS GOD_VULCAN GOD_VENUS GOD_APOLLO GOD_DIANA GOD_VESTA GOD_BACCHUS GOD_MERCURY
 		}
 		evil_god_names = {
-			GOD_SATURN GOD_BACCHUS GOD_PLUTO GOD_MERCURY
+			GOD_SATURN
 		}
 		# Zeus, Hera, Poseidon, Demeter, Athena, Apollo, Artemis, Ares, Aphrodite, Hephaestus, Hermes, and either Hestia or Dionysus.
 		crusade_name = GREAT_HOLY_WAR
 		scripture_name = THE_LEGENDS
 		priest_title = AUGUR
 		
-		priests_can_marry = no
+		priests_can_marry = yes
 		priests_can_inherit = no
 		female_temple_holders = yes
+		can_grant_invasion_cb = invasion
+		can_retire_to_monastery = yes
+		can_call_crusade = yes
+		can_excommunicate = yes
+		max_wives = 100
+		allow_viking_invasion = yes
+		raised_vassal_opinion_loss = no
+		landed_kin_prestige_bonus = yes
+		join_crusade_if_bordering_hostile = yes
+		hard_to_convert = yes
+		uses_jizya_tax = yes
+		allow_looting = yes		
+		pre_reformed = yes
 		
 		can_call_crusade = yes
 		join_crusade_if_bordering_hostile = yes
 		
 		religious_clothing_head = 12
 		religious_clothing_priest = 11
-		
-		allow_in_ruler_designer = no
-	}
-	hellenic_pagan = {
-		graphical_culture = hellenicgfx
-		alternate_start = { has_alternate_start_parameter = { key = religion value = full_random } }
-		interface_skin = { hellenic_interface }
-		
-		#pre_reformed = yes
-		reformed = hellenic_pagan_reformed
 
-		icon = 37
-		heresy_icon = 14
+		intermarry = christian
+		intermarry = muslim
+		intermarry = indian_group
+		intermarry = pagan_group
+		intermarry = zoroastrian_group
+		intermarry = jewish_group
 		
-		color = { 0.6 0.2 0.1 }
-		
-		high_god_name = GOD_JUPITER
-		
-		god_names = {
-			GOD_JUPITER GOD_NEPTUNE GOD_PLUTO GOD_JUNO GOD_CERES GOD_MINERVA GOD_MARS GOD_VULCAN GOD_VENUS GOD_APOLLO GOD_DIANA GOD_VESTA
-		}
-		evil_god_names = {
-			GOD_SATURN GOD_BACCHUS GOD_PLUTO GOD_MERCURY
-		}
-		
-		crusade_name = GREAT_HOLY_WAR
-		scripture_name = THE_LEGENDS
-		priest_title = AUGUR
-		
-		priests_can_marry = no
-		priests_can_inherit = no
-		female_temple_holders = yes
-		
-		religious_clothing_head = 12
-		religious_clothing_priest = 11
-		
-		can_demand_religious_conversion = no
+		allow_in_ruler_designer = yes
 	}
 	
 	bon_reformed = {

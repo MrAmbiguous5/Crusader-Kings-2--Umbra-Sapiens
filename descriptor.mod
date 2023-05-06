@@ -1,5 +1,5 @@
-name="Umbra Sapiens: Umbra Spherae 2.1.6"
-archive="mod/umbra_sapiens.zip"
+name="Crusader-Kings-2--Umbra-Sapiens"
+archive="mod/Crusader-Kings-2--Umbra-Sapiens"
 dependencies=
 {
 	Umbra Spherae-Reborn 
