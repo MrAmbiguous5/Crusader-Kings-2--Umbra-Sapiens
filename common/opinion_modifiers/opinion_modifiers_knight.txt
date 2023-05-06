@@ -1,0 +1,23 @@
+opinion_courtly_refused = {
+	opinion = -15
+	years = 10
+}
+opinion_courting = {
+	opinion = 0
+}
+opinion_courtly_attracted = {
+	opinion = 10
+	months = 30
+}
+opinion_courtly_repelled = {
+	opinion = -10
+	months = 12
+}
+opinion_courtly_yearning = {
+	opinion = 10
+	months = 18
+}
+opinion_courtly_lover = {
+	opinion = 30
+	months = 1200
+}

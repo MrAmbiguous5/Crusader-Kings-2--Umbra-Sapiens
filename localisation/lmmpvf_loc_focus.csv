@@ -1,0 +1,44 @@
+#;;;;;;;;;;;;;;x
+#§
+############
+## EVENTS ##
+############
+# General
+EVTOPT_GoalMoreOptions;More Options;;;;;;;;;;;;;x
+# lmmpvf_focus.1
+EVTDESC_ChooseFactionFocus_lmmpvf_focus.1;Greatness is achieved by constant and unyielding focus. I shall focus my attention and efforts on...;;;;;;;;;;;;;x
+#EVTOPTA_lmmpvf_focus.1;Continue with current focus;;;;;;;;;;;;;x
+EVTOPT_NoFocusAvailable_lmmpvf_focus.1;No Focus Available;;;;;;;;;;;;;x
+EVTDESC_NoGoalAvailable;We have accomplished everything possible in our current focus on [lmmpvf_GetFactionFocus]. It is time to rest, think, plan and wait until more opportunities present themselves.;;;;;;;;;;;;;x
+EVTOPT_NoGoalAvailable;No Goal;;;;;;;;;;;;;x
+EVTOPT_FocusGlory_lmmpvf_focus.1;Glory;;;;;;;;;;;;;x
+EVTOPT_FocusPropserity_lmmpvf_focus.1;Prosperity;;;;;;;;;;;;;x
+EVTOPT_FocusFaith_lmmpvf_focus.1;Faith;;;;;;;;;;;;;x
+#
+EVTDESC_ChooseGoalGlory;The glory of my house and my name is of paramount importance and definitely comes before everything else! The bards shall sing of my house's accomplishments. All that remains is to choose a goal to focus on for the time being.;;;;;;;;;;;;;x
+EVTOPT_GoalAttackNeighboringRealm;Attack a Neighboring Realm;;;;;;;;;;;;;x
+EVTOPT_GoalOustForeignersFromRealm;Oust Foreigners from Realm;;;;;;;;;;;;;x
+EVTOPT_GoalImprovePublicImage;Improve Public Image;;;;;;;;;;;;;x
+#
+EVTDESC_ChooseGoalProsperity;No realm can survive for long without a consistent focus on its prosperity - for prosperity does not come of its own accord but rather only as the sweet fruit of continuous labors. With my efforts the realm shall flourish! Now is the time to choose a goal for the next few years.;;;;;;;;;;;;;x
+EVTOPT_GoalEstablishTradeRoute;Establish a Trade Route;;;;;;;;;;;;;x
+EVTOPT_GoalEstablishSettlement;Establish a New Settlement;;;;;;;;;;;;;x
+EVTOPT_GoalIncreaseProsperity;Increase Realm Prosperity;;;;;;;;;;;;;x
+#
+EVTDESC_ChooseGoalFaith;Nothing material can gain more importance in my heart because it is full of the desire to serve the true faith. I believe [Root.Religion.GetHighGodNameCap] shall accept my efforts and guide my choice for the best goal in the faith's service.;;;;;;;;;;;;;x
+EVTOPT_GoalAttackInfidelRealm;Attack an Infidel Realm;;;;;;;;;;;;;x
+EVTOPT_GoalOustInfidelsFromRealm;Oust Infidels from Realm;;;;;;;;;;;;;x
+EVTOPT_GoalConvertProvince;Convert a Province to the [Root.Religion.GetName] Faith;;;;;;;;;;;;;x
+
+lmmpvf_ctt_available_goals;Available Goals:\n\n;;;;;;;;;;;;;x
+lmmpvf_ctt_available_goal_attack_neighboring_realm;(§G*§!) Attack a Neighboring Realm;;;;;;;;;;;;;x
+lmmpvf_ctt_available_goal_oust_foreigners_from_realm;(§G*§!) Oust Foreigners from Realm;;;;;;;;;;;;;x
+lmmpvf_ctt_available_goal_improve_public_image;(§G*§!) Improve Public Image;;;;;;;;;;;;;x
+
+lmmpvf_ctt_available_goal_establish_trade_route;(§G*§!) Establish Trade Route;;;;;;;;;;;;;x
+lmmpvf_ctt_available_goal_establish_settlement;(§G*§!) Establish a New Settlement;;;;;;;;;;;;;x
+lmmpvf_ctt_available_goal_increase_prosperity;(§G*§!) Increase Prosperity;;;;;;;;;;;;;x
+
+lmmpvf_ctt_available_goal_attack_infidel_realm;(§G*§!) Attack an Infidel Realm;;;;;;;;;;;;;x
+lmmpvf_ctt_available_goal_oust_infidels_from_realm;(§G*§!) Oust Infidels from Realm;;;;;;;;;;;;;x
+lmmpvf_ctt_available_goal_convert_province_religion;(§G*§!) Convert Province Religion;;;;;;;;;;;;;x

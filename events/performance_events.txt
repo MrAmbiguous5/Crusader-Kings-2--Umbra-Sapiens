@@ -1,0 +1,25 @@
+namespace = performanceevents
+#Kill primitive unlanded
+	character_event = {
+	id = performanceevents.1
+	hide_window = yes
+	ai = yes
+	mean_time_to_happen = {
+	days = 1
+	}
+	trigger = {
+	is_married = no
+	is_consort =no
+	independent = no
+	is_ruler = no 
+	is_lowborn = yes
+	liege = { government = primitive_government } 
+	}
+	immediate = {	
+	death = {
+    death_reason = death_suicide
+    killer = ROOT
+	}
+	}
+	}
+	

@@ -1,0 +1,98 @@
+namespace = vassalize_count
+character_event = {
+	id = vassalize_count.250001
+	desc = vassalize_count.250001.desc
+	picture = "GFX_evt_castle_construction"
+	is_triggered_only = yes
+	
+	immediate = {
+	while = {
+		limit = {
+			any_demesne_title = {
+				real_tier = count
+				location = {
+					NOT = {	has_province_flag = keep_it }
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_title = {
+					tier = count
+					location = {
+						NOT = {	has_province_flag = keep_it }
+					}
+				}
+				OR = {
+					has_law = enatic_succession
+					has_law = enatic_cognatic_succession
+					has_law = true_cognatic_succession
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				female = yes
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				remove_trait = ambitious
+				liege = {
+					random_demesne_title = {
+						limit = {
+							real_tier = count
+							location = {
+								NOT = {	has_province_flag = keep_it }
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_title = {
+					tier = count
+					location = {
+						NOT = {	has_province_flag = keep_it }
+					}
+				}
+				NOR = {
+					has_law = enatic_succession
+					has_law = enatic_cognatic_succession
+					has_law = true_cognatic_succession
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				female = no
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				remove_trait = ambitious
+				liege = {
+					random_demesne_title = {
+						limit = {
+							real_tier = count
+							location = {
+								NOT = {	has_province_flag = keep_it }
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	}
+
+	option = {
+		name = vassalize_count.250001.opta
+	}
+}

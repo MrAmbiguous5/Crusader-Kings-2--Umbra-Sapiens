@@ -1,0 +1,572 @@
+decisions = {
+	convert_to_burgundian = {
+		is_high_prio = yes
+		desc = convert_to_burgundian
+		potential = {
+			is_playable = yes
+			OR = {
+				culture = frankish
+				culture = occitan
+			}
+			capital_scope = { culture = burgundian }
+		}
+
+		allow = {
+			OR = {
+				culture = frankish
+				culture = occitan
+			}
+		}
+
+		effect = {
+			culture = burgundian
+			any_courtier = {
+				limit = {
+					OR = {
+						culture = frankish
+						culture = occitan
+					}
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = burgundian
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_tuscan = {
+		is_high_prio = yes
+		desc = convert_to_tuscan
+		potential = {
+			is_playable = yes
+			culture = italian
+			capital_scope = { culture = tuscan }
+		}
+
+		allow = {
+			culture = italian
+		}
+
+		effect = {
+			culture = tuscan
+			any_courtier = {
+				limit = {
+					culture = italian
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = tuscan
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_ligurian = {
+		is_high_prio = yes
+		desc = convert_to_ligurian
+		potential = {
+			is_playable = yes
+			culture = italian
+			capital_scope = { culture = ligurian }
+		}
+
+		allow = {
+			culture = italian
+		}
+
+		effect = {
+			culture = ligurian
+			any_courtier = {
+				limit = {
+					culture = italian
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = ligurian
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_sicilian = {
+		is_high_prio = yes
+		desc = convert_to_sicilian
+		potential = {
+			is_playable = yes
+			OR = {
+				culture = italian
+				culture = norman
+			}
+			capital_scope = { culture = sicilian }
+		}
+
+		allow = {
+			OR = {
+				culture = italian
+				culture = norman
+			}
+		}
+
+		effect = {
+			culture = sicilian
+			any_courtier = {
+				limit = {
+					OR = {
+						culture = italian
+						culture = norman
+					}
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = sicilian
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_venetian = {
+		is_high_prio = yes
+		desc = convert_to_venetian
+		potential = {
+			is_playable = yes
+			culture = italian
+			capital_scope = { culture = venetian }
+		}
+
+		allow = {
+			culture = italian
+		}
+
+		effect = {
+			culture = venetian
+			any_courtier = {
+				limit = {
+					culture = italian
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = venetian
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_neapolitan = {
+		is_high_prio = yes
+		desc = convert_to_neapolitan
+		potential = {
+			is_playable = yes
+			culture = italian
+			capital_scope = { culture = neapolitan }
+		}
+
+		allow = {
+			culture = italian
+		}
+
+		effect = {
+			culture = neapolitan
+			any_courtier = {
+				limit = {
+					culture = italian
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = neapolitan
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_piedmontese = {
+		is_high_prio = yes
+		desc = convert_to_piedmontese
+		potential = {
+			is_playable = yes
+			culture = italian
+			capital_scope = { culture = piedmontese }
+		}
+
+		allow = {
+			culture = italian
+		}
+
+		effect = {
+			culture = piedmontese
+			any_courtier = {
+				limit = {
+					culture = italian
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = piedmontese
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_romagnan = {
+		is_high_prio = yes
+		desc = convert_to_romagnan
+		potential = {
+			is_playable = yes
+			culture = italian
+			capital_scope = { culture = romagnan }
+		}
+
+		allow = {
+			culture = italian
+		}
+
+		effect = {
+			culture = romagnan
+			any_courtier = {
+				limit = {
+					culture = italian
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = romagnan
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_sardinian = {
+		is_high_prio = yes
+		desc = convert_to_sardinian
+		potential = {
+			is_playable = yes
+			culture = italian
+			capital_scope = { culture = sardinian }
+		}
+
+		allow = {
+			culture = italian
+		}
+
+		effect = {
+			culture = sardinian
+			any_courtier = {
+				limit = {
+					culture = italian
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = sardinian
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_umbrian = {
+		is_high_prio = yes
+		desc = convert_to_umbrian
+		potential = {
+			is_playable = yes
+			culture = italian
+			capital_scope = { culture = umbrian }
+		}
+
+		allow = {
+			culture = italian
+		}
+
+		effect = {
+			culture = umbrian
+			any_courtier = {
+				limit = {
+					culture = italian
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = umbrian
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_aragonese = {
+		is_high_prio = yes
+		desc = convert_to_aragonese
+		potential = {
+			is_playable = yes
+			culture = castillan
+			capital_scope = { culture = aragonese }
+		}
+
+		allow = {
+			culture = castillan
+		}
+
+		effect = {
+			culture = aragonese
+			any_courtier = {
+				limit = {
+					culture = castillan
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = aragonese
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_galician = {
+		is_high_prio = yes
+		desc = convert_to_galician
+		potential = {
+			is_playable = yes
+			OR = {
+				culture = castillan
+				culture = portuguese
+			}
+			capital_scope = { culture = galician }
+		}
+
+		allow = {
+			OR = {
+				culture = castillan
+				culture = portuguese
+			}
+		}
+
+		effect = {
+			culture = galician
+			any_courtier = {
+				limit = {
+					OR = {
+						culture = castillan
+						culture = portuguese
+					}
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = galician
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_leonese = {
+		is_high_prio = yes
+		desc = convert_to_leonese
+		potential = {
+			is_playable = yes
+			culture = castillan
+			capital_scope = { culture = leonese }
+		}
+
+		allow = {
+			culture = castillan
+		}
+
+		effect = {
+			culture = leonese
+			any_courtier = {
+				limit = {
+					culture = castillan
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = leonese
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_lombard = {
+		is_high_prio = yes
+		desc = convert_to_lombard
+		potential = {
+			is_playable = yes
+			culture = italian
+			capital_scope = { culture = new_lombard }
+		}
+
+		allow = {
+			culture = italian
+		}
+
+		effect = {
+			culture = new_lombard
+			any_courtier = {
+				limit = {
+					culture = italian
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = new_lombard
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_gascon = {
+		is_high_prio = yes
+		desc = convert_to_gascon
+		potential = {
+			is_playable = yes
+			culture = occitan
+			capital_scope = { culture = gascon }
+		}
+
+		allow = {
+			culture = occitan
+		}
+
+		effect = {
+			culture = gascon
+			any_courtier = {
+				limit = {
+					culture = occitan
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = gascon
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	convert_to_silesian = {
+		is_high_prio = yes
+		desc = convert_to_silesian
+		potential = {
+			is_playable = yes
+			culture = polish
+			capital_scope = { culture = silesian }
+		}
+
+		allow = {
+			culture = polish
+		}
+
+		effect = {
+			culture = silesian
+			any_courtier = {
+				limit = {
+					culture = polish
+					employer = {
+						character = ROOT
+					}
+					dynasty = ROOT
+				}
+				culture = silesian
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

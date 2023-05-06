@@ -1,0 +1,115 @@
+#spawn Amazonian fighter
+narrative_event = { 
+	title = EVTTITLAmzCul.401
+	id = AmzCul.401
+	desc = EVTDESCAmzCul.401
+	picture = GFX_evt_battle
+	border = GFX_event_narrative_frame_war
+	
+	mean_time_to_happen = {
+		years = 80
+	}
+	
+	trigger = {
+		is_alive = yes
+		ai = no
+		is_female = yes
+		war = no
+		OR = { 
+			culture = themiskyran_amz
+			culture = valkyrie_amz
+			culture = scythian_amz
+			culture = parthian_amz
+			culture = kushite_amz
+			culture = carthaginian_amz
+			culture = etruscan_amz
+			culture = pritani_amz
+			culture = illyrian_amz
+		}
+		NOT = {
+			has_character_flag = amazonian_lady_flag
+		}
+	}
+	
+	immediate = {
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = NONE
+			female = yes
+			age = 16
+			religion = ROOT
+			culture = ROOT
+			trait = brave
+			trait = norse_tattoo_2
+			trait = fair
+			attributes = {
+				martial = 10
+				intrigue = 8
+				diplomacy = 8
+				stewardship = 5
+			}
+		}
+		new_character = {
+			save_event_target_as = soldier_target
+			remove_trait = brilliant_strategist
+			remove_trait = misguided_warrior
+			remove_trait = tough_soldier
+			remove_trait = skilled_tactician
+			remove_trait = dull
+			remove_all_negative_congenital_traits_effect = yes
+			set_immune_to_pruning = yes
+			random = {
+				chance = 50
+				add_trait = fair
+			}
+			random = {
+				chance = 10
+				add_trait = strong
+			}
+			random = {
+				chance = 10
+				add_trait = genius
+			}
+			random = {
+				chance = 40
+				add_trait = quick
+			}
+			random_list = {
+				50 = { 
+					add_trait = brilliant_strategist
+				}
+				30 = { 
+					add_trait = skilled_tactician
+				}
+				20 = { 
+					add_trait = tough_soldier
+				}
+			}
+
+		}
+	}
+
+	option = {	#join me
+		name = EVTOPTAAmzCul.401
+		event_target:soldier_target = {
+			prestige = 50
+			add_friend = ROOT
+		}
+		set_character_flag = amazonian_lady_flag
+	}
+	option = {	#only free
+		name = EVTOPTBAmzCul.401
+		event_target:soldier_target = {
+			prestige = -20
+		}
+		set_character_flag = amazonian_lady_flag
+	}
+	option = { #prison
+		name = EVTOPTCAmzCul.401
+		event_target:soldier_target = {
+			prisoner = yes
+			prestige = -50
+		}
+		set_character_flag = amazonian_lady_flag
+	}
+}

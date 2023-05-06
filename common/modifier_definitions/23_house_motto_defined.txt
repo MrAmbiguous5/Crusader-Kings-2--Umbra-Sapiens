@@ -1,0 +1,297 @@
+house_motto_01_modifier = {
+	show_value = no
+}
+house_motto_02_modifier = {
+	show_value = no
+}
+house_motto_03_modifier = {
+	show_value = no
+}
+house_motto_04_modifier = {
+	show_value = no
+}
+house_motto_05_modifier = {
+	show_value = no
+}
+house_motto_06_modifier = {
+	show_value = no
+}
+house_motto_07_modifier = {
+	show_value = no
+}
+house_motto_08_modifier = {
+	show_value = no
+}
+house_motto_09_modifier = {
+	show_value = no
+}
+house_motto_10_modifier = {
+	show_value = no
+}
+house_motto_11_modifier = {
+	show_value = no
+}
+house_motto_12_modifier = {
+	show_value = no
+}
+house_motto_13_modifier = {
+	show_value = no
+}
+house_motto_14_modifier = {
+	show_value = no
+}
+house_motto_15_modifier = {
+	show_value = no
+}
+house_motto_16_modifier = {
+	show_value = no
+}
+house_motto_17_modifier = {
+	show_value = no
+}
+house_motto_18_modifier = {
+	show_value = no
+}
+house_motto_19_modifier = {
+	show_value = no
+}
+house_motto_20_modifier = {
+	show_value = no
+}
+house_motto_21_modifier = {
+	show_value = no
+}
+house_motto_22_modifier = {
+	show_value = no
+}
+house_motto_23_modifier = {
+	show_value = no
+}
+house_motto_24_modifier = {
+	show_value = no
+}
+house_motto_25_modifier = {
+	show_value = no
+}
+house_motto_26_modifier = {
+	show_value = no
+}
+house_motto_27_modifier = {
+	show_value = no
+}
+house_motto_28_modifier = {
+	show_value = no
+}
+house_motto_29_modifier = {
+	show_value = no
+}
+house_motto_30_modifier = {
+	show_value = no
+}
+house_motto_31_modifier = {
+	show_value = no
+}
+house_motto_32_modifier = {
+	show_value = no
+}
+house_motto_33_modifier = {
+	show_value = no
+}
+house_motto_34_modifier = {
+	show_value = no
+}
+house_motto_35_modifier = {
+	show_value = no
+}
+house_motto_36_modifier = {
+	show_value = no
+}
+house_motto_37_modifier = {
+	show_value = no
+}
+house_motto_38_modifier = {
+	show_value = no
+}
+house_motto_39_modifier = {
+	show_value = no
+}
+house_motto_40_modifier = {
+	show_value = no
+}
+house_motto_41_modifier = {
+	show_value = no
+}
+house_motto_42_modifier = {
+	show_value = no
+}
+house_motto_43_modifier = {
+	show_value = no
+}
+house_motto_44_modifier = {
+	show_value = no
+}
+house_motto_45_modifier = {
+	show_value = no
+}
+house_motto_46_modifier = {
+	show_value = no
+}
+house_motto_47_modifier = {
+	show_value = no
+}
+house_motto_48_modifier = {
+	show_value = no
+}
+house_motto_49_modifier = {
+	show_value = no
+}
+house_motto_50_modifier = {
+	show_value = no
+}
+house_motto_51_modifier = {
+	show_value = no
+}
+house_motto_52_modifier = {
+	show_value = no
+}
+house_motto_53_modifier = {
+	show_value = no
+}
+house_motto_54_modifier = {
+	show_value = no
+}
+house_motto_55_modifier = {
+	show_value = no
+}
+house_motto_56_modifier = {
+	show_value = no
+}
+house_motto_57_modifier = {
+	show_value = no
+}
+house_motto_58_modifier = {
+	show_value = no
+}
+house_motto_59_modifier = {
+	show_value = no
+}
+house_motto_60_modifier = {
+	show_value = no
+}
+house_motto_61_modifier = {
+	show_value = no
+}
+house_motto_62_modifier = {
+	show_value = no
+}
+house_motto_63_modifier = {
+	show_value = no
+}
+house_motto_64_modifier = {
+	show_value = no
+}
+house_motto_65_modifier = {
+	show_value = no
+}
+house_motto_66_modifier = {
+	show_value = no
+}
+house_motto_67_modifier = {
+	show_value = no
+}
+house_motto_68_modifier = {
+	show_value = no
+}
+house_motto_69_modifier = {
+	show_value = no
+}
+house_motto_70_modifier = {
+	show_value = no
+}
+house_motto_71_modifier = {
+	show_value = no
+}
+house_motto_72_modifier = {
+	show_value = no
+}
+house_motto_73_modifier = {
+	show_value = no
+}
+house_motto_74_modifier = {
+	show_value = no
+}
+house_motto_75_modifier = {
+	show_value = no
+}
+house_motto_76_modifier = {
+	show_value = no
+}
+house_motto_77_modifier = {
+	show_value = no
+}
+house_motto_78_modifier = {
+	show_value = no
+}
+house_motto_79_modifier = {
+	show_value = no
+}
+house_motto_80_modifier = {
+	show_value = no
+}
+house_motto_81_modifier = {
+	show_value = no
+}
+house_motto_82_modifier = {
+	show_value = no
+}
+house_motto_83_modifier = {
+	show_value = no
+}
+house_motto_84_modifier = {
+	show_value = no
+}
+house_motto_85_modifier = {
+	show_value = no
+}
+house_motto_86_modifier = {
+	show_value = no
+}
+house_motto_87_modifier = {
+	show_value = no
+}
+house_motto_88_modifier = {
+	show_value = no
+}
+house_motto_89_modifier = {
+	show_value = no
+}
+house_motto_90_modifier = {
+	show_value = no
+}
+house_motto_91_modifier = {
+	show_value = no
+}
+house_motto_92_modifier = {
+	show_value = no
+}
+house_motto_93_modifier = {
+	show_value = no
+}
+house_motto_94_modifier = {
+	show_value = no
+}
+house_motto_95_modifier = {
+	show_value = no
+}
+house_motto_96_modifier = {
+	show_value = no
+}
+house_motto_97_modifier = {
+	show_value = no
+}
+house_motto_98_modifier = {
+	show_value = no
+}
+house_motto_99_modifier = {
+	show_value = no
+}

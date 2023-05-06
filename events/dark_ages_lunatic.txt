@@ -1,0 +1,802 @@
+namespace = darkages
+
+#################################################################################
+#################################################################################
+##
+##		LUNATICS WILL BE LUNATICS!
+##
+#################################################################################
+#################################################################################
+
+character_event = {			#Lunatic setup event
+	id = darkages.72080
+	desc = "EVTDESC1972080"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_diplomacy
+	hide_window = yes
+	
+	
+	trigger = {
+		is_landed = yes
+		trait = lunatic
+		NOT = {	has_character_flag = da_lunatic_setup }
+
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+	
+		random = {
+			chance = 33
+			set_character_flag = da_hardcore_lunatic
+			character_event = { id = darkages.72083 }
+		}
+		
+		set_character_flag = da_lunatic_setup
+		
+		if = {
+			limit = { NOT = { has_character_flag = da_hardcore_lunatic } }
+			character_event = { id = darkages.72084 }			
+		}
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972080"
+	}
+}
+
+# EVENTS THAT HAPPEN WHEN A CHAR IS LUNATIC
+
+character_event = {			#Lunatic event gives insane trait
+	id = darkages.72081
+	title = EVTNAME1972081	
+	desc = "EVTDESC1972081"
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_diplomacy
+	
+	
+	trigger = {
+		is_landed = yes
+		trait = lunatic
+		NOT = { trait = insane }
+		has_character_flag = da_lunatic_setup
+		NOT = { has_character_modifier = da_incapable_character }
+
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+
+		modifier = {
+			factor = 4
+			NOT = { has_character_flag = da_hardcore_lunatic }
+		}	
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972081"
+		
+		add_trait = insane
+		if = {
+			limit = { has_character_flag = da_hardcore_lunatic }		
+			prestige = -250
+		}
+		else = {
+			prestige = -100		
+		}
+		
+		hidden_tooltip = {
+		
+			if = {
+				limit = { has_character_flag = da_hardcore_lunatic }
+				add_character_modifier = {
+					name = da_incapable_character
+					duration = 1825
+					hidden = yes
+				}
+			}
+			else = {
+				add_character_modifier = {
+					name = da_incapable_character
+					duration = 730
+					hidden = yes
+				}				
+			}
+		}
+	}
+}
+
+character_event = {			#Lunatic event removes insane trait
+	id = darkages.72082
+	title = EVTNAME1972082
+	desc = "EVTDESC1972082"
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_diplomacy
+	
+	
+	trigger = {
+		is_landed = yes
+		trait = lunatic
+		trait = insane
+		has_character_flag = da_lunatic_setup
+		NOT = { has_character_modifier = da_incapable_character }
+
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+		
+		modifier = {
+			factor = 1.35
+			has_character_flag = da_hardcore_lunatic
+		}
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972082"
+		
+		remove_trait = insane
+		remove_trait = stressed
+		remove_trait = depressed
+	}
+	
+}
+
+character_event = {			#Player is informed the condition is very serious
+	id = darkages.72083
+	title = EVTNAME1972083
+	desc = "EVTDESC1972083"
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972083"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP20 }
+	}
+	
+}
+
+character_event = {			#Player is informed the condition is mild
+	id = darkages.72084
+	title = EVTNAME1972084
+	desc = "EVTDESC1972084"
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972084"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP21 }		
+	}
+	
+}
+
+############### START OF VARIOUS EFFECTS OF LUNATIC
+
+character_event = {			#EFFECT NUDE
+	id = darkages.72085
+	title = EVTNAME1972085
+	desc = EVTDESC1972085
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_diplomacy
+
+	trigger = {
+		is_landed = yes
+		trait = lunatic
+		trait = insane
+		NOT = { has_character_modifier = da_nude_audience }		
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.5
+			trait = groomed
+		}		
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972085"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP24 }		
+		add_character_modifier = {
+			name = da_nude_audience
+			duration = 1825
+		}
+	}
+	
+}
+
+character_event = {			#EFFECT GIVING GOLD
+	id = darkages.72086
+	title = EVTNAME1972086
+	desc = EVTDESC1972086
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_economy
+
+	trigger = {
+		is_landed = yes
+		trait = lunatic
+		trait = insane
+		NOT = { has_character_modifier = da_spending_spree }
+		treasury = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.5
+			trait = charitable
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972086"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP23 }		
+		add_character_modifier = {
+			name = da_spending_spree
+			duration = 1825
+		}
+		
+		treasury = -200
+		scaled_wealth = -5
+		
+	}
+	
+}
+
+character_event = {			#EFFECT RANDOM ATTACKING COURTIERS
+	id = darkages.72087
+	title = EVTNAME1972087
+	desc = EVTDESC1972087
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+
+	trigger = {
+		is_landed = yes
+		trait = lunatic
+		trait = insane
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.2
+			trait = wroth
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972087"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP22 }
+		random_courtier_or_vassal = {
+			limit = { ai = yes }
+			add_trait = wounded
+			
+			opinion = {
+				modifier = da_attacked_by_liege
+				who = ROOT
+				years = 5
+			}
+			
+		}
+		
+	}
+	
+}
+
+character_event = {			#EFFECT AVOIDS TOUCHING OTHERS
+	id = darkages.72088
+	title = EVTNAME1972088
+	desc = EVTDESC1972088
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_diplomacy
+
+	trigger = {
+		is_landed = yes
+		trait = lunatic
+		trait = insane
+		NOT = { trait = celibate }
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.5
+			trait = chaste
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972088"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP25 }
+
+		add_trait = celibate
+	
+	}
+	
+}
+
+character_event = {			#EFFECT DON'T TALK
+	id = darkages.72089
+	title = EVTNAME1972089
+	desc = EVTDESC1972089
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_diplomacy
+
+	trigger = {
+		is_landed = yes
+		trait = lunatic
+		trait = insane
+		
+		NOT = { has_character_modifier = da_dont_talk }
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.5
+			trait = shy
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972089"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP26 }
+
+		add_character_modifier = {
+			name = da_dont_talk
+			duration = 1825		
+		}
+	
+	}
+	
+}
+
+
+character_event = {			#EFFECT GETS DEPRESSED
+	id = darkages.72090
+	title = EVTNAME1972090
+	desc = EVTDESC1972090
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_intrigue
+
+	trigger = {
+		is_landed = yes
+		trait = lunatic
+		trait = insane
+		NOT = { trait = depressed }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			has_character_flag = da_hardcore_lunatic
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972090"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP27 }
+
+		add_trait = depressed
+	
+	}
+	
+}
+
+character_event = {			#EFFECT GETS STRESSED
+	id = darkages.72091
+	title = EVTNAME1972091
+	desc = EVTDESC1972091
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+
+	trigger = {
+		is_landed = yes
+		trait = lunatic
+		trait = insane
+		NOT = { trait = stressed }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			has_character_flag = da_hardcore_lunatic
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972091"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP27 }
+
+		add_trait = stressed
+	
+	}
+	
+}
+
+character_event = {			#EFFECT SEXUAL ABUSE
+	id = darkages.72092
+	title = EVTNAME1972092
+	desc = EVTDESC1972092
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_intrigue
+
+	trigger = {
+		is_landed = yes
+		trait = insane
+		trait = lunatic
+		NOT = { trait = celibate }
+		is_female = no
+		
+		any_vassal = {
+			is_powerful_vassal = yes			
+			is_female = no
+			is_married = yes		
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 960
+		
+		modifier = {
+			factor = 0.25
+			has_character_flag = da_hardcore_lunatic
+		}
+		modifier = {
+			factor = 0.5
+			trait = hedonist
+		}		
+		modifier = {
+			factor = 0.5
+			trait = lustful
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972092"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP28 }
+
+		add_character_modifier = {
+			name = da_sexual_abuser
+			duration = -1
+		}	
+
+		prestige = -50
+		
+		random_vassal = {
+			limit = {
+				is_powerful_vassal = yes			
+				is_female = no
+				is_married = yes
+			}
+			
+			opinion = {
+				modifier = opinion_hate
+				who = ROOT
+				years = 100
+			}			
+			
+			any_spouse = {
+				limit = {
+					ai = yes
+				}
+				opinion = {
+					modifier = opinion_sexual_abuser
+					who = ROOT
+					years = 100
+				}			
+			
+			}
+			
+		}
+	
+	}
+	
+}
+
+character_event = {			#EFFECT MURDER COURTIER
+	id = darkages.72093
+	title = EVTNAME1972093
+	desc = EVTDESC1972093
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+
+	trigger = {
+		is_landed = yes
+		trait = insane
+		trait = lunatic
+	}
+	
+	mean_time_to_happen = {
+		months = 960
+		
+		modifier = {
+			factor = 0.25
+			has_character_flag = da_hardcore_lunatic
+		}
+		
+		modifier = {
+			factor = 0.20
+			trait = envious
+		}		
+
+		modifier = {
+			factor = 0.33
+			trait = cruel
+		}		
+		
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972093"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP29 }
+
+		prestige = -25
+		
+		random_courtier_or_vassal = {
+			limit = { ai = yes }
+			death = {
+				death_reason = death_murder
+				killer = ROOT
+			}
+		}
+		
+		hidden_tooltip = {
+			change_variable = { which = "da_nutjob_body_count" value = 1 }
+		}
+		
+	}
+	
+}
+
+character_event = {			#PAYBACK - After too many murders of the nutjob type character is killed
+	id = darkages.72094
+	title = EVTNAME1972094
+	desc = EVTDESC1972094
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+
+	trigger = {
+		is_landed = yes
+		check_variable = { which = "da_nutjob_body_count" value = 3 }
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		
+		modifier = {
+			factor = 0.75
+			check_variable = { which = "da_nutjob_body_count" value = 5 }
+		}
+		
+		modifier = {
+			factor = 0.75
+			check_variable = { which = "da_nutjob_body_count" value = 7 }
+		}
+
+		modifier = {
+			factor = 0.75
+			check_variable = { which = "da_nutjob_body_count" value = 9 }
+		}
+		
+		modifier = {
+			factor = 0.75
+			check_variable = { which = "da_nutjob_body_count" value = 11 }
+		}
+		
+		modifier = {
+			factor = 0.75
+			check_variable = { which = "da_nutjob_body_count" value = 13 }
+		}
+
+		modifier = {
+			factor = 0.75
+			check_variable = { which = "da_nutjob_body_count" value = 15 }
+		}		
+		
+		modifier = {
+			factor = 0.75
+			check_variable = { which = "da_nutjob_body_count" value = 17 }
+		}		
+		
+		modifier = {
+			factor = 0.75
+			check_variable = { which = "da_nutjob_body_count" value = 19 }
+		}
+		
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972094"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP30 }
+
+		death = {
+			death_reason = death_murder_unknown
+			killer = ROOT
+		}
+
+	}
+	
+}
+
+character_event = {			#SUICIDE
+	id = darkages.72095
+	title = EVTNAME1972095
+	desc = EVTDESC1972095
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_intrigue
+
+	trigger = {
+		is_landed = yes
+		trait = insane
+		trait = lunatic
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+		
+		modifier = {
+			factor = 0.5
+			has_character_flag = da_hardcore_lunatic
+		}
+		
+		modifier = {
+			factor = 0.5
+			trait = depressed
+		}
+		
+		modifier = {
+			factor = 0.75
+			trait = drunkard
+		}		
+		
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972095"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP31 }
+
+		death = {
+			death_reason = death_suicide
+		}
+
+	}
+	
+}
+
+character_event = {			#CHARACTER EATS HIS OWN HAND
+	id = darkages.72096
+	title = EVTNAME1972096
+	desc = EVTDESC1972096
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_intrigue
+
+	trigger = {
+		is_landed = yes
+		trait = insane
+		trait = lunatic
+		has_character_flag = da_hardcore_lunatic
+		NOT = { has_character_flag = ate_hand }
+	}
+	
+	mean_time_to_happen = {
+		months = 2400
+		
+		modifier = {
+			factor = 0.5
+			trait = gluttonous
+		}
+		
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972096"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP32 }
+
+		add_trait = one_handed
+		add_trait = severely_injured
+		set_character_flag = ate_hand
+
+	}
+	
+}
+
+character_event = {			#CHARACTER RECOVERS FROM MADNESS
+	id = darkages.72097
+	title = EVTNAME1972097
+	desc = EVTDESC1972097
+	picture = GFX_evt_powerful_ruler
+	border = GFX_event_normal_frame_religion
+
+	trigger = {
+		is_landed = yes
+		trait = insane
+		NOT = { trait = lunatic }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972097"
+
+		remove_trait = insane
+		remove_trait = stressed
+		remove_trait = depressed
+
+		clr_character_flag = da_hardcore_lunatic
+		clr_character_flag = da_lunatic_setup
+	}
+	
+}
+

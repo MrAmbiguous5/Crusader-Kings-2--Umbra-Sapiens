@@ -1,0 +1,1465 @@
+# -*- ck2.events -*-
+
+namespace = emf_autolander
+
+
+# emf_autolander.0
+# Title transfer listener for applying Recently Acquired
+#
+# Taps: on_new_holder (grants + territory gained through gain_all_occupied_titles, gain_title, etc.)
+#	   on_new_holder_usurpation (general usurpation)
+#	   on_new_holder_inheritance (inheritance)
+#
+character_event = {
+	id = emf_autolander.0
+	desc = HIDE_EVENT
+	hide_window = yes
+	is_triggered_only = yes
+
+	only_playable = yes
+	ai = no
+
+	trigger = {
+		FROM = {
+			tier = COUNT
+			location = {
+				any_province_holding = {
+					NOT = { holding_type = nomad }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		FROM = {
+			location = {
+				remove_province_modifier = emf_mod_recently_acquired
+				add_province_modifier = { name = emf_mod_recently_acquired duration = 120 }
+			}
+		}
+	}
+
+	option = { name = OK }
+}
+
+# emf_autolander.1 [Player]
+#
+# Recursive event for non-interactive land distribution (multiplayer)
+# This version halts when no longer over demesne limit.
+character_event = {
+	id = emf_autolander.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		over_max_demesne_size = 1
+		any_demesne_title = {
+			tier = COUNT
+			location = {
+				has_province_modifier = emf_mod_recently_acquired
+			}
+			NOT = {
+				ROOT = {
+					capital_scope = {
+						duchy = {
+							de_jure_vassal_or_below = PREVPREVPREV
+						}
+					}
+				}
+			}
+			can_be_given_away = yes
+		}
+	}
+
+	option = {
+		name = OK
+
+		random_demesne_title = {
+			limit = {
+				tier = COUNT
+				location = {
+					has_province_modifier = emf_mod_recently_acquired
+				}
+				NOT = {
+					ROOT = {
+						capital_scope = {
+							duchy = {
+								de_jure_vassal_or_below = PREVPREVPREV
+							}
+						}
+					}
+				}
+				can_be_given_away = yes
+			}
+
+			save_event_target_as = target_county
+			location = { save_event_target_as = target_prov }
+		}
+		
+		if = {
+			limit = {
+				NOR = {
+					has_flag = emf_match_province
+					AND = {
+						religion = event_target:target_prov
+						culture = event_target:target_prov
+					}
+				}
+			}
+			set_flag = emf_pay_governor
+		}
+
+		character_event = { id = emf_autolander.11 } # Create random character & grant
+		
+		clr_flag = emf_pay_governor
+		
+		repeat_event = { id = emf_autolander.1 } # Tail-recurse
+	}
+}
+
+
+# emf_autolander.2 [Player]
+#
+# Recursive event for non-interactive land distribution (multiplayer)
+# This version doesn't care about preserving excess demesne capacity.
+character_event = {
+	id = emf_autolander.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		any_demesne_title = {
+			tier = COUNT
+			location = {
+				has_province_modifier = emf_mod_recently_acquired
+			}
+			NOT = {
+				ROOT = {
+					capital_scope = {
+						duchy = {
+							de_jure_vassal_or_below = PREVPREVPREV
+						}
+					}
+				}
+			}
+			can_be_given_away = yes
+		}
+	}
+
+	option = {
+		name = OK
+
+		random_demesne_title = {
+			limit = {
+				tier = COUNT
+				location = {
+					has_province_modifier = emf_mod_recently_acquired
+				}
+				NOT = {
+					ROOT = {
+						capital_scope = {
+							duchy = {
+								de_jure_vassal_or_below = PREVPREVPREV
+							}
+						}
+					}
+				}
+				can_be_given_away = yes
+			}
+
+			location = { save_event_target_as = target_prov }
+		}
+		
+		if = {
+			limit = {
+				NOR = {
+					has_flag = emf_match_province
+					AND = {
+						religion = event_target:target_prov
+						culture = event_target:target_prov
+					}
+				}
+			}
+			set_flag = emf_pay_governor
+		}
+
+		character_event = { id = emf_autolander.11 } # Create random character & grant
+		
+		clr_flag = emf_pay_governor
+		
+		repeat_event = { id = emf_autolander.2 } # Tail-recurse
+	}
+}
+
+# emf_autolander.3 [Player]
+#
+# County selection (only for interactive/singleplayer mode)
+# Reentrant
+character_event = {
+	id = emf_autolander.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+
+		#log = "emf_autolander.3: ROOT='[Root.GetTitledName]', FROM='[From.GetTitledName]', FROMFROM='[FromFrom.GetTitledName]'"
+
+		if = {
+			limit = {
+				NOT = {
+					any_demesne_title = {
+						tier = COUNT
+						NOT = { has_flag = emf_autolander_spare }
+						location = {
+							has_province_modifier = emf_mod_recently_acquired
+						}
+						NOT = {
+							ROOT = {
+								capital_scope = {
+									duchy = {
+										de_jure_vassal_or_below = PREVPREVPREV
+									}
+								}
+							}
+						}
+						can_be_given_away = yes
+					}
+				}
+			}
+
+			#log = "emf_autolander.3: Iteration DONE"
+
+			# Cleanup. We're done prompting for this round.
+			any_demesne_title = {
+				limit = { tier = COUNT }
+				clr_flag = emf_autolander_spare
+			}
+
+			break = yes
+		}
+
+		random_demesne_title = {
+			limit = {
+				tier = COUNT
+				NOT = { has_flag = emf_autolander_spare }
+				location = {
+					has_province_modifier = emf_mod_recently_acquired
+				}
+				NOT = {
+					ROOT = {
+						capital_scope = {
+							duchy = {
+								de_jure_vassal_or_below = PREVPREVPREV
+							}
+						}
+					}
+				}
+				can_be_given_away = yes
+			}
+
+			save_event_target_as = target_county
+			location = { save_event_target_as = target_prov }
+		}
+
+		#log = "emf_autolander.3: target_county='[target_county.GetFullName]'"
+
+		# Potentially flip the province capital (will change best_fit_character_for_title).
+		# NOTE: Engine should already do it automatically for players.
+		# character_event = { id = emf_autolander.9 }
+
+		event_target:target_county = {
+			if = {
+				limit = { num_fitting_characters_for_title = 2 }
+
+				#log = "emf_autolander.3: num_fitting_characters_for_title >= 2"
+
+				best_fit_character_for_title = {
+					title = PREV			 # The Title we are looking at
+					perspective = ROOT		# From whose perspective we are viewing the title
+					index = 1				 # The index of the character in the list
+
+					if = {
+						limit = { emf_autolander_is_fit_for_grant = yes }
+						save_event_target_as = char_one
+					}
+				}
+				best_fit_character_for_title = {
+					title = PREV			 # The Title we are looking at
+					perspective = ROOT		# From whose perspective we are viewing the title
+					index = 2				 # The index of the character in the list
+
+					if = {
+						limit = {
+							emf_autolander_is_fit_for_grant = yes
+							NOT = { character = event_target:char_one }
+						}
+						save_event_target_as = char_two
+					}
+				}
+				
+				if = {
+					limit = { NOT = { event_target:char_one = { always = yes } } }
+					if = {
+						limit = { event_target:char_two = { always = yes } }
+						#log = "emf_autolander.3: Renaming char_two to char_one (!)"
+						event_target:char_two = { save_event_target_as = char_one }
+						clear_event_target = char_two
+						if = { # Backup
+							limit = { num_fitting_characters_for_title = 3 }
+							best_fit_character_for_title = {
+								title = PREV			 # The Title we are looking at
+								perspective = ROOT		# From whose perspective we are viewing the title
+								index = 3				 # The index of the character in the list
+
+								if = {
+									limit = {
+										emf_autolander_is_fit_for_grant = yes
+										NOT = { character = event_target:char_one }
+									}
+									save_event_target_as = char_two
+								}
+							}
+						}
+					}
+					else_if = { # Backup
+						limit = { num_fitting_characters_for_title = 3 }
+						best_fit_character_for_title = {
+							title = PREV			 # The Title we are looking at
+							perspective = ROOT		# From whose perspective we are viewing the title
+							index = 3				 # The index of the character in the list
+
+							if = {
+								limit = { emf_autolander_is_fit_for_grant = yes }
+								save_event_target_as = char_one
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						NOT = { event_target:char_two = { always = yes } }
+						num_fitting_characters_for_title = 3
+					}
+					best_fit_character_for_title = {
+						title = PREV			 # The Title we are looking at
+						perspective = ROOT		# From whose perspective we are viewing the title
+						index = 3				 # The index of the character in the list
+
+						if = {
+							limit = {
+								emf_autolander_is_fit_for_grant = yes
+								NOT = { character = event_target:char_one }
+							}
+							save_event_target_as = char_two
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { num_fitting_characters_for_title = 1 }
+
+				#log = "emf_autolander.3: num_fitting_characters_for_title == 1"
+
+				best_fit_character_for_title = {
+					title = PREV			 # The Title we are looking at
+					perspective = ROOT		# From whose perspective we are viewing the title
+					index = 1				 # The index of the character in the list
+
+					if = {
+						limit = { emf_autolander_is_fit_for_grant = yes }
+						save_event_target_as = char_one
+					}
+				}
+			}
+		}
+
+		#log = "emf_autolander.3: char_one='[char_one.GetTitledName]'"
+		#log = "emf_autolander.3: char_two='[char_two.GetTitledName]'"
+		
+		repeat_event = { id = emf_autolander.6 } # repeat_event prevents infinite FROM growth
+	}
+}
+
+
+# emf_autolander.6 [Player]
+#
+# Main province prompt event
+character_event = {
+	id = emf_autolander.6
+	desc = emf_autolander.6.desc
+	picture = GFX_evt_small_town
+	is_triggered_only = yes
+
+	hide_from = yes
+	hide_new = yes
+
+	option = {
+		name = emf_autolander.6.opt.a
+
+		hidden_tooltip = {
+			clear_event_target = char_one
+			clear_event_target = char_two
+			# Prompt selection of courtier type & culture-religion combo
+			repeat_event = { id = emf_autolander.20 } # repeat_event prevents infinite FROM growth
+			# emf_autolander.20 or emf_autolander.21 will call emf_autolander.3 after they are done to Repeat
+		}
+	}
+
+	option = {
+		name = emf_autolander.6.opt.b
+		trigger = { event_target:char_one = { NOT = { character = ROOT } } }
+
+		event_target:char_one = {
+			if = {
+				limit = {
+					OR = {
+						is_close_relative = ROOT
+						dynasty = ROOT
+					}
+					is_councillor = yes
+				}
+				custom_tooltip = {
+					text = emf_autolander_ctt_grant_family_councillor
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_close_relative = ROOT
+						dynasty = ROOT
+					}
+				}
+				custom_tooltip = {
+					text = emf_autolander_ctt_grant_family
+				}
+			}
+			else_if = {
+				limit = {
+					is_councillor = yes
+				}
+				custom_tooltip = {
+					text = emf_autolander_ctt_grant_councillor
+				}
+			}
+			else = {
+				custom_tooltip = {
+					text = emf_autolander_ctt_grant_other
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = emf_autolander.10 } # Grant target_county
+			}
+		}
+		hidden_tooltip = {
+			clear_event_target = char_one
+			clear_event_target = char_two
+			repeat_event = { id = emf_autolander.3 } # Repeat, repeat_event prevents infinite FROM growth
+		}
+	}
+
+	option = {
+		name = emf_autolander.6.opt.c
+		trigger = { event_target:char_two = { NOT = { character = ROOT } } }
+
+		event_target:char_two = {
+			if = {
+				limit = {
+					OR = {
+						is_close_relative = ROOT
+						dynasty = ROOT
+					}
+					is_councillor = yes
+				}
+				custom_tooltip = {
+					text = emf_autolander_ctt_grant_family_councillor
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_close_relative = ROOT
+						dynasty = ROOT
+					}
+				}
+				custom_tooltip = {
+					text = emf_autolander_ctt_grant_family
+				}
+			}
+			else_if = {
+				limit = {
+					is_councillor = yes
+				}
+				custom_tooltip = {
+					text = emf_autolander_ctt_grant_councillor
+				}
+			}
+			else = {
+				custom_tooltip = {
+					text = emf_autolander_ctt_grant_other
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = emf_autolander.10 } # Grant target_county
+			}
+		}
+
+		hidden_tooltip = {
+			clear_event_target = char_one
+			clear_event_target = char_two
+			repeat_event = { id = emf_autolander.3 } # Repeat, repeat_event prevents infinite FROM growth
+		}
+	}
+
+	option = {
+		name = emf_autolander.6.opt.d
+
+		hidden_tooltip = {
+			# NOTE: Not removing the emf_mod_recently_acquired in this case to enable multiple runs,
+			# but to avoid an infinite loop of prompts (continually asking about the same provinces
+			# rather than exiting), we flag the county title. A second run will clear all such flags
+			# first, although with the current design, we will leave some flags lingering if there
+			# is no second run (no big deal).
+
+			event_target:target_county = {
+				set_flag = emf_autolander_spare
+			}
+
+			clear_event_target = target_county
+			clear_event_target = char_one
+			clear_event_target = char_two
+			repeat_event = { id = emf_autolander.3 } # Repeat, repeat_event prevents infinite FROM growth
+		}
+	}
+}
+
+# emf_autolander.10 [Grantee]
+#
+# FROM grants event_target:target_county and any minor holdings in it to ROOT
+character_event = {
+	id = emf_autolander.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:target_county = {
+
+			# Grant the capital barony
+			location = {
+				random_province_holding = {
+					limit = {
+						owner = { character = FROM }
+						is_capital = yes
+					}
+					grant_title = ROOT
+				}
+			}
+
+			# Grant the county
+			grant_title = ROOT
+
+			# Grant any remaining minor holdings
+			FROM = {
+				any_demesne_title = {
+					limit = {
+						tier = BARON
+						de_jure_liege = event_target:target_county
+					}
+					grant_title = ROOT
+				}
+			}
+
+			location = {
+				remove_province_modifier = emf_mod_recently_acquired
+			}
+		}
+
+		set_defacto_liege = FROM
+		emf_liege_change = yes
+
+		clear_event_target = target_county
+	}
+}
+
+
+# emf_autolander.11 [Player]
+#
+# Create a random new character and grant them event_target:target_county
+character_event = {
+	id = emf_autolander.11
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		if = {
+			limit = { has_flag = emf_match_province }
+			event_target:target_county = { location = { save_event_target_as = emf_match_culrel } }
+		}
+		else = {
+			save_event_target_as = emf_match_culrel
+		}
+	}
+
+	option = {
+		name = OK
+
+		if = {
+			limit = {
+				OR = {
+					has_flag = emf_military_governor
+					AND = {
+						NOR = {
+							has_flag = emf_priest_governor
+							event_target:target_county = { holding_type = temple }
+						}
+						NOR = {
+							has_flag = emf_steward_governor
+							event_target:target_county = { holding_type = city }
+						}
+					}
+				}
+			}
+			random_list = {
+				50 = {
+					modifier = {
+						factor = 0
+						gender_equality_trigger = no
+						event_target:emf_match_culrel = {
+							NOT = { has_religion_feature = religion_matriarchal }
+							OR = {
+								emf_feminist_religion = no
+								PREV = { emf_antifeminist_religion = yes }
+							}
+						}
+					}
+					create_random_soldier = {
+						random_traits = yes
+						religion = event_target:emf_match_culrel
+						culture = event_target:emf_match_culrel
+						dynasty = random
+						female = yes
+						attributes = {
+							diplomacy = 2
+							martial = 6
+							stewardship = 2
+							intrigue = 2
+							learning = 2
+						}
+					}
+				}
+				50 = {
+					modifier = {
+						factor = 0
+						event_target:emf_match_culrel = { has_religion_feature = religion_matriarchal }
+					}
+					create_random_soldier = {
+						random_traits = yes
+						religion = event_target:emf_match_culrel
+						culture = event_target:emf_match_culrel
+						dynasty = random
+						female = no
+						attributes = {
+							diplomacy = 2
+							martial = 6
+							stewardship = 2
+							intrigue = 2
+							learning = 2
+						}
+					}
+				}
+			}
+			new_character = {
+				remove_trait = dull
+				emf_remove_lifestyle_traits = yes
+				random_list = {
+					1 = { }
+					4 = { change_diplomacy = 1 }
+					6 = { change_diplomacy = 2 }
+					4 = { change_diplomacy = 3 }
+					1 = { change_diplomacy = 4 }
+				}
+				random_list = {
+					1  = { }
+					6  = { change_martial = 1 }
+					15 = { change_martial = 2 }
+					20 = { change_martial = 3 }
+					15 = { change_martial = 4 }
+					6  = { change_martial = 5 }
+					1  = { change_martial = 6 }
+				}
+				random_list = {
+					1 = { }
+					4 = { change_stewardship = 1 }
+					6 = { change_stewardship = 2 }
+					4 = { change_stewardship = 3 }
+					1 = { change_stewardship = 4 }
+				}
+				random_list = {
+					1 = { }
+					4 = { change_intrigue = 1 }
+					6 = { change_intrigue = 2 }
+					4 = { change_intrigue = 3 }
+					1 = { change_intrigue = 4 }
+				}
+				random_list = {
+					1 = { }
+					4 = { change_learning = 1 }
+					6 = { change_learning = 2 }
+					4 = { change_learning = 3 }
+					1 = { change_learning = 4 }
+				}
+				random = {
+					chance = 50
+					if = {
+						limit = { trait = skilled_tactician }
+						random = {
+							chance = 40 # 1 out of 5 skilled_tacticians
+							remove_trait = skilled_tactician
+							add_trait = brilliant_strategist
+						}
+					}
+					else_if = {
+						limit = { trait = tough_soldier }
+						remove_trait = tough_soldier
+						add_trait = skilled_tactician
+					}
+					else_if = {
+						limit = { trait = misguided_warrior }
+						remove_trait = misguided_warrior
+						add_trait = tough_soldier
+					}
+				}
+				random_list = {
+					50 = { }
+					12 = {
+						trigger = { NOT = { trait = duelist } }
+						add_trait = duelist
+					}
+					12 = {
+						trigger = { NOT = { trait = hunter } }
+						add_trait = hunter
+					}
+					12 = {
+						trigger = { NOT = { trait = strategist } }
+						add_trait = strategist
+					}
+					8 = {
+						trigger = { NOT = { trait = robust } }
+						add_trait = robust
+					}
+					3 = { add_scarred_tiered_effect = yes }
+					3 = {
+						trigger = { NOT = { trait = imposing } }
+						add_trait = imposing
+					}
+					2  = {
+						trigger = { NOT = { trait = imposing } }
+						add_trait = imposing
+						add_scarred_tiered_effect = yes
+					}
+				}
+				if = {
+					limit = {
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_inspire_commanders
+							bloodline_is_active_for = PREV
+						}
+					}
+					remove_trait = craven
+					change_diplomacy = 1
+					change_learning = 1
+					change_stewardship = 1
+					change_intrigue = 1
+					change_martial = 1
+					if = {
+						limit = { trait = skilled_tactician }
+						random = {
+							chance = 20
+							remove_trait = skilled_tactician
+							add_trait = brilliant_strategist
+						}
+					}
+					else_if = {
+						limit = { trait = tough_soldier }
+						random = {
+							chance = 50
+							remove_trait = tough_soldier
+							add_trait = skilled_tactician
+						}
+					}
+					else_if = {
+						limit = { trait = misguided_warrior }
+						remove_trait = misguided_warrior
+						add_trait = tough_soldier
+					}
+					random_list = {
+						50 = { }
+						12 = {
+							trigger = { NOT = { trait = duelist } }
+							add_trait = duelist
+						}
+						12 = {
+							trigger = { NOT = { trait = hunter } }
+							add_trait = hunter
+						}
+						12 = {
+							trigger = { NOT = { trait = strategist } }
+							add_trait = strategist
+						}
+						8 = {
+							trigger = { NOT = { trait = robust } }
+							add_trait = robust
+						}
+						3 = { add_scarred_tiered_effect = yes }
+						3 = {
+							trigger = { NOT = { trait = imposing } }
+							add_trait = imposing
+						}
+						2  = {
+							trigger = { NOT = { trait = imposing } }
+							add_trait = imposing
+							add_scarred_tiered_effect = yes
+						}
+					}
+				}
+				if = {
+					limit = { has_dlc = "Reapers" }
+					random = {
+						chance = 3
+						add_trait = one_eyed
+					}
+				}
+				emf_new_character_noble = yes
+				emf_dna_improve_homozygous_recessive_for_intelligence = yes
+				remove_trait = dim
+				remove_trait = slow
+				remove_trait = imbecile
+				emf_dna_improve_homozygous_recessive_for_strength = yes
+				remove_trait = delicate
+				remove_trait = weak
+				save_event_target_as = emf_governor
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_flag = emf_priest_governor
+					AND = {
+						event_target:target_county = { holding_type = temple }
+						NOR = {
+							has_flag = emf_steward_governor
+							event_target:target_county = { holding_type = city }
+						}
+					}
+				}
+			}
+			random_list = {
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							event_target:emf_match_culrel = { religion_allows_female_temple_holders = no }
+							AND = {
+								religion_allows_female_temple_holders = no
+								event_target:emf_match_culrel = { religion_allows_male_temple_holders = yes }
+							}
+						}
+					}
+					create_random_priest = {
+						random_traits = yes
+						religion = event_target:emf_match_culrel
+						culture = event_target:emf_match_culrel
+						dynasty = random
+						female = yes
+						attributes = {
+							diplomacy = 2
+							martial = 2
+							stewardship = 2
+							intrigue = 2
+							learning = 6
+						}
+					}
+				}
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							event_target:emf_match_culrel = { religion_allows_male_temple_holders = no }
+							AND = {
+								religion_allows_male_temple_holders = no
+								event_target:emf_match_culrel = { religion_allows_female_temple_holders = yes }
+							}
+						}
+					}
+					create_random_priest = {
+						random_traits = yes
+						religion = event_target:emf_match_culrel
+						culture = event_target:emf_match_culrel
+						dynasty = random
+						female = no
+						attributes = {
+							diplomacy = 2
+							martial = 2
+							stewardship = 2
+							intrigue = 2
+							learning = 6
+						}
+					}
+				}
+			}
+			new_character = {
+				remove_trait = dull
+				emf_remove_lifestyle_traits = yes
+				random_list = {
+					1 = { }
+					4 = { change_diplomacy = 1 }
+					6 = { change_diplomacy = 2 }
+					4 = { change_diplomacy = 3 }
+					1 = { change_diplomacy = 4 }
+				}
+				random_list = {
+					1 = { }
+					4 = { change_martial = 1 }
+					6 = { change_martial = 2 }
+					4 = { change_martial = 3 }
+					1 = { change_martial = 4 }
+				}
+				random_list = {
+					1 = { }
+					4 = { change_stewardship = 1 }
+					6 = { change_stewardship = 2 }
+					4 = { change_stewardship = 3 }
+					1 = { change_stewardship = 4 }
+				}
+				random_list = {
+					1 = { }
+					4 = { change_intrigue = 1 }
+					6 = { change_intrigue = 2 }
+					4 = { change_intrigue = 3 }
+					1 = { change_intrigue = 4 }
+				}
+				random_list = {
+					1  = { }
+					6  = { change_learning = 1 }
+					15 = { change_learning = 2 }
+					20 = { change_learning = 3 }
+					15 = { change_learning = 4 }
+					6  = { change_learning = 5 }
+					1  = { change_learning = 6 }
+				}
+				random = {
+					chance = 50
+					if = {
+						limit = { trait = scholarly_theologian }
+						random = {
+							chance = 50 # 1 out of 4 scholarly_theologians
+							remove_trait = scholarly_theologian
+							add_trait = mastermind_theologian
+						}
+					}
+					else_if = {
+						limit = { trait = martial_cleric }
+						remove_trait = martial_cleric
+						add_trait = scholarly_theologian
+					}
+					else_if = {
+						limit = { trait = detached_priest }
+						remove_trait = detached_priest
+						add_trait = martial_cleric
+					}
+				}
+				random_list = {
+					60 = { }
+					25 = {
+						trigger = { NOT = { trait = theologian } }
+						add_trait = theologian
+					}
+					15 = {
+						trigger = {
+							NOR = {
+								trait = faqih
+								trait = scholar
+							}
+						}
+						if = {
+							limit = { religion_group = muslim }
+							add_trait = faqih
+						}
+						else = {
+							add_trait = scholar
+						}
+					}
+					15 = {
+						trigger = { NOT = { trait = erudite } }
+						add_trait = erudite
+					}
+					5 = {
+						trigger = { NOT = { trait = shrewd } }
+						add_trait = shrewd
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							religion = cathar
+							religion = bogomilist
+						}
+						religion = ROOT # Since Zealous is removed if religion is not the same as ROOT
+					}
+					remove_trait = incapable
+					remove_trait = cynical
+					remove_trait = lustful
+					add_trait = zealous
+					add_trait = perfecti
+					set_character_flag = consolamentum_taken
+				}
+				
+				#If we have a wonder upgrade with "inpires_learning" flag, the priest will be better
+				if = {
+					limit = { ROOT = { realm_wonder_or_upgrade_has_flag_inspires_learning_trigger = yes } }
+					random_list = { 
+						15 = {
+							if = {
+								limit = { religion_group = muslim }
+								add_trait = faqih
+							}
+							else = {
+								add_trait = scholar
+							}
+							change_learning = 1
+						}
+						10 = {
+							if = {
+								limit = { religion_group = muslim }
+								add_trait = faqih
+							}
+							else = {
+								add_trait = scholar
+							}
+							change_learning = 2
+						}
+						 5 = {
+							if = {
+								limit = { religion_group = muslim }
+								add_trait = faqih
+							}
+							else = {
+								add_trait = scholar
+							}
+							change_learning = 3
+						}
+						10 = {
+							trigger = { NOT = { trait = erudite } }
+							add_trait = erudite
+						}
+						10 = {
+							trigger = { NOT = { trait = physician } }
+							add_trait = physician
+						}
+						10 = {
+							trigger = {
+								NOR = {
+									trait = scholarly_theologian
+									trait = mastermind_theologian
+								}
+							}
+							add_trait = scholarly_theologian
+						}
+						10 = {
+							trigger = { NOT = { trait = mastermind_theologian } }
+							add_trait = mastermind_theologian
+						}
+					}
+					random_list = {
+						50 = {  } # Nothing
+						10 = {
+							trigger = { NOT = { trait = shrewd } }
+							add_trait = shrewd
+						}
+						10 = {
+							trigger = { NOT = { trait = chaste } }
+							add_trait = chaste
+						}
+						10 = {
+							trigger = { NOT = { trait = poet } }
+							add_trait = poet
+						}
+						10 = {
+							trigger = {
+								NOR = {
+									trait = proud
+									trait = humble
+								}
+							}
+							add_trait = proud
+						}
+						10 = {
+							trigger = {
+								NOR = {
+									trait = proud
+									trait = humble
+								}
+							}
+							add_trait = humble
+						}
+					}
+				}
+				
+				emf_new_character_priest = yes
+				emf_dna_improve_homozygous_recessive_for_intelligence = yes
+				remove_trait = dim
+				remove_trait = slow
+				remove_trait = imbecile
+				save_event_target_as = emf_governor
+			}
+		}
+		else = {
+			random_list = {
+				50 = {
+					modifier = {
+						factor = 0
+						gender_equality_trigger = no
+						event_target:emf_match_culrel = {
+							NOT = { has_religion_feature = religion_matriarchal }
+							OR = {
+								emf_feminist_religion = no
+								PREV = { emf_antifeminist_religion = yes }
+							}
+						}
+					}
+					create_random_steward = {
+						random_traits = yes
+						religion = event_target:emf_match_culrel
+						culture = event_target:emf_match_culrel
+						dynasty = random
+						female = yes
+						attributes = {
+							diplomacy = 2
+							martial = 2
+							stewardship = 6
+							intrigue = 2
+							learning = 2
+						}
+					}
+				}
+				50 = {
+					modifier = {
+						factor = 0
+						event_target:emf_match_culrel = { has_religion_feature = religion_matriarchal }
+					}
+					create_random_steward = {
+						random_traits = yes
+						religion = event_target:emf_match_culrel
+						culture = event_target:emf_match_culrel
+						dynasty = random
+						female = no
+						attributes = {
+							diplomacy = 2
+							martial = 2
+							stewardship = 6
+							intrigue = 2
+							learning = 2
+						}
+					}
+				}
+			}
+			new_character = {
+				remove_trait = dull
+				emf_remove_lifestyle_traits = yes
+				random_list = {
+					1 = { }
+					4 = { change_diplomacy = 1 }
+					6 = { change_diplomacy = 2 }
+					4 = { change_diplomacy = 3 }
+					1 = { change_diplomacy = 4 }
+				}
+				random_list = {
+					1 = { }
+					4 = { change_martial = 1 }
+					6 = { change_martial = 2 }
+					4 = { change_martial = 3 }
+					1 = { change_martial = 4 }
+				}
+				random_list = {
+					1  = { }
+					6  = { change_stewardship = 1 }
+					15 = { change_stewardship = 2 }
+					20 = { change_stewardship = 3 }
+					15 = { change_stewardship = 4 }
+					6  = { change_stewardship = 5 }
+					1  = { change_stewardship = 6 }
+				}
+				random_list = {
+					1 = { }
+					4 = { change_intrigue = 1 }
+					6 = { change_intrigue = 2 }
+					4 = { change_intrigue = 3 }
+					1 = { change_intrigue = 4 }
+				}
+				random_list = {
+					1 = { }
+					4 = { change_learning = 1 }
+					6 = { change_learning = 2 }
+					4 = { change_learning = 3 }
+					1 = { change_learning = 4 }
+				}
+				random = {
+					chance = 50
+					if = {
+						limit = { trait = fortune_builder }
+						random = {
+							chance = 50 # 1 out of 4 fortune_builders
+							remove_trait = fortune_builder
+							add_trait = midas_touched
+						}
+					}
+					else_if = {
+						limit = { trait = thrifty_clerk }
+						remove_trait = thrifty_clerk
+						add_trait = fortune_builder
+					}
+					else_if = {
+						limit = { trait = indulgent_wastrel }
+						remove_trait = indulgent_wastrel
+						add_trait = thrifty_clerk
+					}
+				}
+				random_list = {
+					50 = { }
+					15 = {
+						trigger = { NOT = { trait = gardener } }
+						add_trait = gardener
+					}
+					15 = {
+						trigger = { NOT = { trait = architect } }
+						add_trait = architect
+					}
+					15 = {
+						trigger = { NOT = { trait = administrator } }
+						add_trait = administrator
+					}
+					5 = {
+						trigger = { NOT = { trait = shrewd } }
+						add_trait = shrewd
+					}
+				}
+				emf_new_character_steward = yes
+				emf_dna_improve_homozygous_recessive_for_intelligence = yes
+				remove_trait = dim
+				remove_trait = slow
+				remove_trait = imbecile
+				save_event_target_as = emf_governor
+			}
+		}
+
+		event_target:emf_governor = {
+			if = {
+				limit = {
+					NOR = {
+						religion_group = ROOT
+						emf_syncretized_religion_with_ROOT = yes
+					}
+				}
+				ROOT = {
+					trigger_switch = {
+						on_trigger = religion_group
+						christian			= { PREV = { add_trait = sympathy_christendom } }
+						muslim				= { PREV = { add_trait = sympathy_islam } }
+						pagan_group			= { PREV = { add_trait = sympathy_pagans } }
+						zoroastrian_group 	= { PREV = { add_trait = sympathy_zoroastrianism } }
+						jewish_group	  	= { PREV = { add_trait = sympathy_judaism } }
+						indian_group	   	= { PREV = { add_trait = sympathy_indian } }
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { religion = ROOT } }
+				remove_trait = zealous
+			}
+			character_event = { id = emf_autolander.10 } # Grant target_county
+		}
+		if = {
+			limit = { has_flag = emf_pay_governor }
+			transfer_scaled_wealth = {
+				to = event_target:emf_governor
+				value = 0.25
+				min = 25
+				max = 100
+			}
+		}
+
+		clear_event_target = emf_match_culrel
+		clear_event_target = emf_governor
+	}
+}
+
+# emf_autolander.20 -- fired from title decision emf_autolander_grant_county
+character_event = {
+	id = emf_autolander.20
+	desc = emf_autolander.20.desc
+	picture = GFX_evt_small_town
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	show_ROOT = yes
+	hide_from = yes
+
+	option = {
+		name = emf_autolander.20.opt.marshal
+		set_flag = emf_military_governor
+		hidden_tooltip = {
+			if = {
+				limit = {
+					NAND = {
+						religion = event_target:target_prov
+						culture = event_target:target_prov
+					}
+				}
+				repeat_event = { id = emf_autolander.21 } # repeat_event prevents infinite FROM growth
+			}
+			else = {
+				character_event = { id = emf_autolander.11 }
+				clr_flag = emf_military_governor
+				if = {
+					limit = { FROM = { character = ROOT } } # Event originally called from emf_autolander.6
+					repeat_event = { id = emf_autolander.3 } # Repeat, repeat_event prevents infinite FROM growth
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = emf_autolander.20.opt.priest
+		set_flag = emf_priest_governor
+		hidden_tooltip = {
+			if = {
+				limit = {
+					NAND = {
+						religion = event_target:target_prov
+						culture = event_target:target_prov
+					}
+				}
+				repeat_event = { id = emf_autolander.21 } # repeat_event prevents infinite FROM growth
+			}
+			else = {
+				character_event = { id = emf_autolander.11 }
+				clr_flag = emf_priest_governor
+				if = {
+					limit = { FROM = { character = ROOT } } # Event originally called from emf_autolander.6
+					repeat_event = { id = emf_autolander.3 } # Repeat, repeat_event prevents infinite FROM growth
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = emf_autolander.20.opt.steward
+		set_flag = emf_steward_governor
+		hidden_tooltip = {
+			if = {
+				limit = {
+					NAND = {
+						religion = event_target:target_prov
+						culture = event_target:target_prov
+					}
+				}
+				repeat_event = { id = emf_autolander.21 } # repeat_event prevents infinite FROM growth
+			}
+			else = {
+				character_event = { id = emf_autolander.11 }
+				clr_flag = emf_steward_governor
+				if = {
+					limit = { FROM = { character = ROOT } } # Event originally called from emf_autolander.6
+					repeat_event = { id = emf_autolander.3 } # Repeat, repeat_event prevents infinite FROM growth
+				}
+			}
+		}
+	}
+
+	option = {
+		name = CANCEL
+	}
+}
+
+# emf_autolander.21 -- has selected steward vs. military governor for target_county
+character_event = {
+	id = emf_autolander.21
+	desc = emf_autolander.21.desc
+	picture = GFX_evt_small_town
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	show_ROOT = yes
+	hide_from = yes
+
+	option = {
+		name = emf_autolander.21.opt.my_culrel
+		trigger = { NOT = { has_flag = emf_priest_governor } }
+		set_flag = emf_pay_governor
+		tooltip = { scaled_wealth = { value = -0.25 min = -25 } }
+		custom_tooltip = { text = emf_autolander_ctt_pay_governor }
+		if = {
+			limit = {
+				NAND = {
+					scaled_wealth = 0.25
+					wealth = 25
+				}
+			}
+			custom_tooltip = { text = emf_autolander_ctt_negative_gold_warning }
+		}
+		hidden_tooltip = { character_event = { id = emf_autolander.11 } }
+		clr_flag = emf_pay_governor
+	}
+
+	option = {
+		name = emf_autolander.21.opt.prov_culrel
+		trigger = { NOT = { has_flag = emf_priest_governor } }
+		set_flag = emf_match_province
+		custom_tooltip = { text = emf_autolander_ctt_pay_governor_not_required_for_prov_culrel }
+		hidden_tooltip = { character_event = { id = emf_autolander.11 } }
+		clr_flag = emf_match_province
+	}
+	
+	option = {
+		name = emf_autolander.21.opt.my_culrel_priest
+		trigger = { has_flag = emf_priest_governor }
+		set_flag = emf_pay_governor
+		tooltip = { scaled_wealth = { value = -0.25 min = -25 } }
+		custom_tooltip = { text = emf_autolander_ctt_pay_governor }
+		if = {
+			limit = {
+				NAND = {
+					scaled_wealth = 0.25
+					wealth = 25
+				}
+			}
+			custom_tooltip = { text = emf_autolander_ctt_negative_gold_warning }
+		}
+		hidden_tooltip = { character_event = { id = emf_autolander.11 } }
+		clr_flag = emf_pay_governor
+	}
+
+	option = {
+		name = emf_autolander.21.opt.prov_culrel_priest
+		trigger = { has_flag = emf_priest_governor }
+		set_flag = emf_match_province
+		custom_tooltip = { text = emf_autolander_ctt_pay_governor_not_required_for_prov_culrel }
+		hidden_tooltip = { character_event = { id = emf_autolander.11 } }
+		clr_flag = emf_match_province
+	}
+
+	option = {
+		name = CANCEL
+	}
+
+	after = {
+		clr_flag = emf_military_governor
+		clr_flag = emf_priest_governor
+		clr_flag = emf_steward_governor
+		if = {
+			limit = { FROM = { character = ROOT } } # Event originally called from emf_autolander.6
+			repeat_event = { id = emf_autolander.3 } # Repeat, repeat_event prevents infinite FROM growth
+		}
+	}
+}

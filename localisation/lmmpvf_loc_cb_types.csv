@@ -1,0 +1,25 @@
+#;;;;;;;;;;;;;;x
+#§
+#################
+## CASUS BELLI ##
+#################
+cb_name_attack_neighboring_realm;Faction Assisted War for [Title.GetName];;;;;;;;;;;;;x
+war_name_attack_neighboring_realm;Faction of [Actor.GetTitledFirstName]'s War for [Title.GetName];;;;;;;;;;;;;x
+lmmpvf_attack_neighboring_realm_cb_desc;§Y[Root.GetTitledFirstName]§! can use this casus belli to declare war on §Y[From.GetTitledName]§! with the help of [Root.GetHerHis] faction.;;;;;;;;;;;;;x
+cb_name_lmmpvf_oust_foreigners_from_realm;Oust Foreigners;;;;;;;;;;;;;x
+war_name_lmmpvf_oust_foreigners_from_realm;Faction of [Actor.GetTitledFirstName]'s War to Oust Foreigners;;;;;;;;;;;;;x
+lmmpvf_oust_foreigners_from_realm_cb_desc;Foreigners are an blister on the face of §Y[From.Liege.PrimaryTitle.GetName]§! and must be rooted out!;;;;;;;;;;;;;x
+cb_name_attack_infidel_realm;Faction Assisted Holy War for [Title.GetName];;;;;;;;;;;;;x
+war_name_attack_infidel_realm;Faction of [Actor.GetTitledFirstName]'s Holy War for [Title.GetName];;;;;;;;;;;;;x
+lmmpvf_attack_infidel_realm_cb_desc;§Y[Root.GetTitledFirstName]§! can use this casus belli to declare war on the infidel §Y[From.GetTitledName]§! with the help of [Root.GetHerHis] faction.;;;;;;;;;;;;;x
+cb_name_lmmpvf_oust_infidels_from_realm;Oust Infidels;;;;;;;;;;;;;x
+war_name_lmmpvf_oust_infidels_from_realm;Faction of [Actor.GetTitledFirstName]'s War to Oust Infidels;;;;;;;;;;;;;x
+lmmpvf_oust_infidels_from_realm_cb_desc;Infidels are an blister on the face of §Y[From.Liege.PrimaryTitle.GetName]§! and must be rooted out!;;;;;;;;;;;;;x
+cb_name_lmmpvf_establish_tributary_for_liege;Establish Tributary for Liege;;;;;;;;;;;;;x
+war_name_lmmpvf_establish_tributary_for_liege;Faction of [Actor.GetTitledFirstName]'s War to Establish Tributary for Liege;;;;;;;;;;;;;x
+lmmpvf_establish_tributary_for_liege_cb_desc;What could be better for the prosperity of §Y[From.Liege.PrimaryTitle.GetName]§! than foreign exotic goods that come free of cost!;;;;;;;;;;;;;x
+##############
+## TOOLTIPS ##
+##############
+lmmpvf_ctt_faction_members_will_be_called_to_war;All members of the §YFaction of [Root.GetTitledFirstName]§! who have pledged war support AND do not have a non-aggression pact with §Y[From.GetTitledName]§! will be called to war.;;;;;;;;;;;;;x
+lmmpvf_ctt_has_at_least_one_faction_member;Has at least one member in [Root.GetHerHis] faction.;;;;;;;;;;;;;x

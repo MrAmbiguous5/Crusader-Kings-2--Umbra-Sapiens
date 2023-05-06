@@ -1,0 +1,212 @@
+########################################################################################################
+# WARNING: IF YOU DON'T ADD NEW TRAITS LAST (IN THE LAST READ TRAIT FILE), IT WILL BREAK OLD SAVE GAMES!
+########################################################################################################
+rdu_more_options = {
+	ruler_designer_cost = 0
+}
+rdu_one_1 = {
+	ruler_designer_cost = 1
+}
+rdu_one_2 = {
+	ruler_designer_cost = 1
+}
+rdu_one_3 = {
+	ruler_designer_cost = 1
+}
+rdu_one_4 = {
+	ruler_designer_cost = 1
+}
+rdu_one_5 = {
+	ruler_designer_cost = 1
+}
+rdu_one_6 = {
+	ruler_designer_cost = 1
+}
+rdu_one_7 = {
+	ruler_designer_cost = 1
+}
+rdu_one_8 = {
+	ruler_designer_cost = 1
+}
+rdu_one_9 = {
+	ruler_designer_cost = 1
+}
+rdu_one_10 = {
+	ruler_designer_cost = 1
+}
+
+
+
+rdu_five_1 = {
+	ruler_designer_cost = 5
+}
+rdu_five_2 = {
+	ruler_designer_cost = 5
+}
+rdu_five_3 = {
+	ruler_designer_cost = 5
+}
+rdu_five_4 = {
+	ruler_designer_cost = 5
+}
+rdu_five_5 = {
+	ruler_designer_cost = 5
+}
+rdu_five_6 = {
+	ruler_designer_cost = 5
+}
+rdu_five_7 = {
+	ruler_designer_cost = 5
+}
+rdu_five_8 = {
+	ruler_designer_cost = 5
+}
+rdu_five_9 = {
+	ruler_designer_cost = 5
+}
+rdu_five_10 = {
+	ruler_designer_cost = 5
+}
+
+
+rdu_ten_1 = {
+	ruler_designer_cost = 10
+}
+rdu_ten_2 = {
+	ruler_designer_cost = 10
+}
+rdu_ten_3 = {
+	ruler_designer_cost = 10
+}
+rdu_ten_4 = {
+	ruler_designer_cost = 10
+}
+rdu_ten_5 = {
+	ruler_designer_cost = 10
+}
+rdu_ten_6 = {
+	ruler_designer_cost = 10
+}
+rdu_ten_7 = {
+	ruler_designer_cost = 10
+}
+rdu_ten_8 = {
+	ruler_designer_cost = 10
+}
+rdu_ten_9 = {
+	ruler_designer_cost = 10
+}
+rdu_ten_10 = {
+	ruler_designer_cost = 10
+}
+
+rdu_minusone_1 = {
+	ruler_designer_cost = -1
+}
+rdu_minusone_2 = {
+	ruler_designer_cost = -1
+}
+rdu_minusone_3 = {
+	ruler_designer_cost = -1
+}
+rdu_minusone_4 = {
+	ruler_designer_cost = -1
+}
+rdu_minusone_5 = {
+	ruler_designer_cost = -1
+}
+rdu_minusone_6 = {
+	ruler_designer_cost = -1
+}
+rdu_minusone_7 = {
+	ruler_designer_cost = -1
+}
+rdu_minusone_8 = {
+	ruler_designer_cost = -1
+}
+rdu_minusone_9 = {
+	ruler_designer_cost = -1
+}
+rdu_minusone_10 = {
+	ruler_designer_cost = -1
+}
+
+rdu_minusfive_1 = {
+	ruler_designer_cost = -5
+}
+rdu_minusfive_2 = {
+	ruler_designer_cost = -5
+}
+rdu_minusfive_3 = {
+	ruler_designer_cost = -5
+}
+rdu_minusfive_4 = {
+	ruler_designer_cost = -5
+}
+rdu_minusfive_5 = {
+	ruler_designer_cost = -5
+}
+rdu_minusfive_6 = {
+	ruler_designer_cost = -5
+}
+rdu_minusfive_7 = {
+	ruler_designer_cost = -5
+}
+rdu_minusfive_8 = {
+	ruler_designer_cost = -5
+}
+rdu_minusfive_9 = {
+	ruler_designer_cost = -5
+}
+rdu_minusfive_10 = {
+	ruler_designer_cost = -5
+}
+
+
+
+rdu_minusten_1 = {
+	ruler_designer_cost = -10
+}
+rdu_minusten_2 = {
+	ruler_designer_cost = -10
+}
+rdu_minusten_3 = {
+	ruler_designer_cost = -10
+}
+rdu_minusten_4 = {
+	ruler_designer_cost = -10
+}
+rdu_minusten_5 = {
+	ruler_designer_cost = -10
+}
+rdu_minusten_6 = {
+	ruler_designer_cost = -10
+}
+rdu_minusten_7 = {
+	ruler_designer_cost = -10
+}
+rdu_minusten_8 = {
+	ruler_designer_cost = -10
+}
+rdu_minusten_9 = {
+	ruler_designer_cost = -10
+}
+rdu_minusten_10 = {
+	ruler_designer_cost = -10
+}
+
+
+
+rdu_minusfifty_1 = {
+	ruler_designer_cost = -50
+}
+rdu_minusfifty_2 = {
+	ruler_designer_cost = -50
+}
+rdu_minusfifty_3 = {
+	ruler_designer_cost = -50
+}
+
+rdu_minushundred_1 = {
+	ruler_designer_cost = -100
+}

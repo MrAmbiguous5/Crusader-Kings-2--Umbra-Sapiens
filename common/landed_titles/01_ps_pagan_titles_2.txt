@@ -1,0 +1,165 @@
+d_western_isles = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 3
+            texture_internal = 14
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+c_kinda = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 5
+            texture_internal = 1
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+c_skara = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 5
+            texture_internal = 0
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+c_sevede = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 5
+            texture_internal = 3
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_tioharad = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 5
+            texture_internal = 2
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_volhynia = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 5
+            texture_internal = 7
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_minsk = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 5
+            texture_internal = 5
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+k_vladimir = {
+	pagan_coa = {
+	religion = "norse_pagan"
+        template = 0
+        layer = {
+            texture = 5
+            texture_internal = 6
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_vladimir = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 5
+            texture_internal = 6
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_bremen = {
+	pagan_coa = {	
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 49
+            emblem = 0
+            color = 1
+            color = 4
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+c_celle = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 18
+            emblem = 0
+            color = 0
+            color = 4
+            color = 0
+		}
+	religion = "norse_pagan"	
+	}
+}

@@ -1,0 +1,12 @@
+# County Title
+title = c_guam
+
+# Settlements
+max_settlements = 3
+b_guam = tribal
+
+# Misc
+culture = tupinamba
+religion = pagan
+
+# History

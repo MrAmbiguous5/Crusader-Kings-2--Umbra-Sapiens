@@ -1,0 +1,1152 @@
+namespace = AmzCul	
+	narrative_event = {
+		title = EVTTITLAmzCul.201
+		id = AmzCul.201
+		desc = EVTDESCAmzCul.201
+		picture = GFX_evt_homage_hf
+		border = GFX_event_narrative_frame_war
+		portrait = FROM
+				
+		option = {
+			name = EVTOPTAAmzCul.201
+			ai_chance = { factor = 10 }
+			sound_effect = bloodline_added
+			hidden_tooltip = { 
+				capital_scope = { culture = ROOT }
+				any_player = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					character_event = { id = AmzCul.202 days = 3 }
+				}
+			}
+			if = {
+				limit = { culture = themiskyran_amz }
+				create_bloodline = {
+					type = amazonian_legend_themiskyran
+				}
+				add_artifact = themiskyran_spear
+				character_event = { id = AmzCul.2011 days = 5 }
+			}
+			if = {
+				limit = { culture = valkyrie_amz }
+				create_bloodline = {
+					type = amazonian_legend_valkyrie
+				}
+				add_artifact = valkyrian_axe
+				character_event = { id = AmzCul.2011 days = 5 }
+			}
+			if = {
+				limit = { culture = scythian_amz }
+				create_bloodline = {
+					type = amazonian_legend_scythian
+				}
+				add_artifact = scythian_bow
+				character_event = { id = AmzCul.2011 days = 5 }
+			}
+			if = {
+				limit = { culture = parthian_amz }
+				create_bloodline = {
+					type = amazonian_legend_parthian
+				}
+				add_artifact = parthian_bow
+				character_event = { id = AmzCul.2011 days = 5 }
+			}
+			if = {
+				limit = { culture = kushite_amz }
+				create_bloodline = {
+					type = amazonian_legend_kushite
+				}
+				add_artifact = kushite_scimitar
+				character_event = { id = AmzCul.2011 days = 5 }
+			}
+			if = {
+				limit = { culture = carthaginian_amz }
+				create_bloodline = {
+					type = amazonian_legend_carthaginian
+				}
+				add_artifact = carthaginian_spear
+				character_event = { id = AmzCul.2012 days = 5 }	# coastal
+			}
+			if = {
+				limit = { culture = etruscan_amz }
+				create_bloodline = {
+					type = amazonian_legend_etruscan
+				}
+				add_artifact = etruscan_mace
+				character_event = { id = AmzCul.2011 days = 5 }
+			}
+			if = {
+				limit = { culture = pritani_amz }
+				create_bloodline = {
+					type = amazonian_legend_pritani
+				}
+				add_artifact = pritani_sling 
+				character_event = { id = AmzCul.2011 days = 5 }
+			}
+			if = {
+				limit = { culture = illyrian_amz }
+				create_bloodline = {
+					type = amazonian_legend_illyrian
+				}
+				add_artifact = illyrian_axe 
+				character_event = { id = AmzCul.2012 days = 5 } # coastal
+			}
+		}	
+		is_triggered_only = yes
+	}	
+	
+	character_event = {
+		id = AmzCul.2011
+		desc = EVTDESCAmzCul.2011
+		picture = GFX_evt_magnificent_castle
+		border = GFX_event_character_frame_diplomacy
+		
+		is_triggered_only = yes
+		immediate = { sound_effect = building_completed }
+				
+		option = {
+			name = EVTOPTAAmzCul.2011
+			ai_chance = { factor = 10 }
+			if = {
+				limit = { culture = themiskyran_amz }
+				capital_scope = { 
+					add_province_modifier = { 
+						name = themiskyran_imperial_modifier 
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = { culture = valkyrie_amz }
+				capital_scope = { 
+					add_province_modifier = { 
+						name = valkyrie_imperial_modifier 
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = { culture = scythian_amz }
+				capital_scope = { 
+					add_province_modifier = { 
+						name = scythian_imperial_modifier 
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = { culture = parthian_amz }
+				capital_scope = { 
+					add_province_modifier = { 
+						name = parthian_imperial_modifier 
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = { culture = kushite_amz }
+				capital_scope = { 
+					add_province_modifier = { 
+						name = kushite_imperial_modifier 
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = { culture = etruscan_amz }
+				capital_scope = { 
+					add_province_modifier = { 
+						name = etruscan_imperial_modifier 
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = { culture = pritani_amz }
+				capital_scope = { 
+					add_province_modifier = { 
+						name = pritani_imperial_modifier 
+						duration = -1
+					}
+				}
+			}
+			if = {		# in case of moved capital
+				limit = { 
+					capital_scope = {
+						NOT = { culture = ROOT }
+					}
+				}
+				capital_scope = { culture = ROOT }
+			}
+		}	
+	}
+	
+	character_event = {		# for carthage and illyria
+		id = AmzCul.2012
+		desc = EVTDESCAmzCul.2012
+		picture = GFX_evt_busy_trading_dock_republic
+		border = GFX_event_character_frame_diplomacy
+		
+		is_triggered_only = yes
+		immediate = { sound_effect = building_completed }
+				
+		option = {
+			name = EVTOPTAAmzCul.2011
+			ai_chance = { factor = 10 }
+			if = {
+				limit = { culture = carthaginian_amz }
+				capital_scope = { 
+					add_province_modifier = { 
+						name = carthaginian_imperial_modifier 
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = { culture = illyrian_amz }
+				capital_scope = { 
+					add_province_modifier = { 
+						name = illyrian_imperial_modifier 
+						duration = -1
+					}
+				}
+			}
+			if = {		# in case of moved capital
+				limit = { 
+					capital_scope = {
+						NOT = { culture = ROOT }
+					}
+				}
+				capital_scope = { culture = ROOT }
+			}
+		}	
+	}
+
+	narrative_event = {
+		title = EVTTITLAmzCul.202
+		id = AmzCul.202
+		desc = EVTDESCAmzCul.202
+		picture = GFX_evt_homage_hf
+		border = GFX_event_narrative_frame_diplomacy
+		portrait = FROM
+		
+		is_triggered_only = yes
+		
+		option = {
+			name = EVTOPTAAmzCul.202
+			ai_chance = { factor = 10 }
+			trigger = {
+				NOR = {
+					culture = themiskyran_amz
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+			}
+		}	
+		option = {
+			name = EVTOPTBAmzCul.202
+			ai_chance = { factor = 10 }
+			trigger = {
+				OR = {
+					culture = themiskyran_amz
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+			}
+		}
+	}
+	
+	character_event = {		# themiskyran 
+		id = AmzCul.203
+		desc = EVTDESCAmzCul.203
+		picture = GFX_evt_relic_box
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = {
+			years = 3							
+		}
+				
+		trigger = {
+			independent = yes	
+			prisoner = no
+			realm_size = 200
+			war = no
+			NOR = {
+				trait = travelling
+				trait = in_hiding
+			}
+			culture = themiskyran_amz
+			NOT = { 
+				has_global_flag = themiskyran_relic_returned_flag
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_artifact = hippolyta_girdle
+			set_global_flag = themiskyran_relic_returned_flag
+			scaled_wealth = {
+				value = -0.25
+				min = -100
+				max = -500
+			}
+		}
+		option = {
+			name = EVTOPTBAmzCul.203
+			ai_chance = { factor = 0 }
+			set_global_flag = themiskyran_relic_returned_flag
+		}		
+	}
+	
+	character_event = {		# valkyrie 
+		id = AmzCul.204
+		desc = EVTDESCAmzCul.203
+		picture = GFX_evt_relic_box
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = {
+			years = 3							
+		}
+				
+		trigger = {
+			independent = yes	
+			prisoner = no
+			realm_size = 200
+			war = no
+			NOR = {
+				trait = travelling
+				trait = in_hiding
+			}
+			culture = valkyrie_amz
+			NOT = { 
+				has_global_flag = valkyrian_relic_returned_flag
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_artifact = gleaming_torc
+			set_global_flag = valkyrian_relic_returned_flag
+			scaled_wealth = {
+				value = -0.25
+				min = -100
+				max = -500
+			}
+		}
+		option = {
+			name = EVTOPTBAmzCul.203
+			ai_chance = { factor = 0 }
+			set_global_flag = valkyrian_relic_returned_flag
+		}
+	}
+	
+	character_event = {		# scythian 
+		id = AmzCul.205
+		desc = EVTDESCAmzCul.203
+		picture = GFX_evt_relic_box
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = {
+			years = 3							
+		}
+				
+		trigger = {
+			independent = yes	
+			prisoner = no
+			realm_size = 200
+			war = no
+			NOR = {
+				trait = travelling
+				trait = in_hiding
+			}
+			culture = scythian_amz
+			NOT = { 
+				has_global_flag = scythian_relic_returned_flag
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_artifact = scythian_skull
+			set_global_flag = scythian_relic_returned_flag
+			scaled_wealth = {
+				value = -0.25
+				min = -100
+				max = -500
+			}
+		}
+		option = {
+			name = EVTOPTBAmzCul.203
+			ai_chance = { factor = 0 }
+			set_global_flag = scythian_relic_returned_flag
+		}
+	}
+	
+	character_event = {		# parthian 
+		id = AmzCul.206
+		desc = EVTDESCAmzCul.203
+		picture = GFX_evt_relic_box
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = {
+			years = 3							
+		}
+				
+		trigger = {
+			independent = yes	
+			prisoner = no
+			realm_size = 200
+			war = no
+			NOR = {
+				trait = travelling
+				trait = in_hiding
+			}
+			culture = parthian_amz
+			NOT = { 
+				has_global_flag = parthian_relic_returned_flag
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_artifact = parthian_cataphract
+			set_global_flag = parthian_relic_returned_flag
+			scaled_wealth = {
+				value = -0.25
+				min = -100
+				max = -500
+			}
+		}
+		option = {
+			name = EVTOPTBAmzCul.203
+			ai_chance = { factor = 0 }
+			set_global_flag = parthian_relic_returned_flag
+		}
+	}
+	
+	character_event = {		# kushite
+		id = AmzCul.207
+		desc = EVTDESCAmzCul.203
+		picture = GFX_evt_relic_box
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = {
+			years = 3							
+		}
+				
+		trigger = {
+			independent = yes	
+			prisoner = no
+			realm_size = 200
+			war = no
+			NOR = {
+				trait = travelling
+				trait = in_hiding
+			}
+			culture = kushite_amz
+			NOT = { 
+				has_global_flag = kushite_relic_returned_flag
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_artifact = kushite_gem
+			set_global_flag = kushite_relic_returned_flag
+			scaled_wealth = {
+				value = -0.25
+				min = -100
+				max = -500
+			}
+		}
+		option = {
+			name = EVTOPTBAmzCul.203
+			ai_chance = { factor = 0 }
+			set_global_flag = kushite_relic_returned_flag
+		}
+	}
+	
+	character_event = {		# carthaginian
+		id = AmzCul.208
+		desc = EVTDESCAmzCul.203
+		picture = GFX_evt_relic_box
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = {
+			years = 3							
+		}
+				
+		trigger = {
+			independent = yes	
+			prisoner = no
+			realm_size = 200
+			war = no
+			NOR = {
+				trait = travelling
+				trait = in_hiding
+			}
+			culture = carthaginian_amz
+			NOT = { 
+				has_global_flag = carthaginian_relic_returned_flag
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_artifact = dido_veil
+			set_global_flag = carthaginian_relic_returned_flag
+			scaled_wealth = {
+				value = -0.25
+				min = -100
+				max = -500
+			}
+		}	
+		option = {
+			name = EVTOPTBAmzCul.203
+			ai_chance = { factor = 0 }
+			set_global_flag = carthaginian_relic_returned_flag
+		}
+	}
+	
+	character_event = {		# etruscan
+		id = AmzCul.209
+		desc = EVTDESCAmzCul.203
+		picture = GFX_evt_relic_box
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = {
+			years = 3							
+		}
+				
+		trigger = {
+			independent = yes	
+			prisoner = no
+			realm_size = 200
+			war = no
+			NOR = {
+				trait = travelling
+				trait = in_hiding
+			}
+			culture = etruscan_amz
+			NOT = { 
+				has_global_flag = etruscan_relic_returned_flag
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_artifact = etruscan_chalice
+			set_global_flag = etruscan_relic_returned_flag
+			scaled_wealth = {
+				value = -0.25
+				min = -100
+				max = -500
+			}
+		}	
+		option = {
+			name = EVTOPTBAmzCul.203
+			ai_chance = { factor = 0 }
+			set_global_flag = etruscan_relic_returned_flag
+		}
+	}
+	
+	character_event = {		# pritani
+		id = AmzCul.210
+		desc = EVTDESCAmzCul.203
+		picture = GFX_evt_relic_box
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = {
+			years = 3							
+		}
+				
+		trigger = {
+			independent = yes	
+			prisoner = no
+			realm_size = 200
+			war = no
+			NOR = {
+				trait = travelling
+				trait = in_hiding
+			}
+			culture = pritani_amz
+			NOT = { 
+				has_global_flag = pritani_relic_returned_flag
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_artifact = pritani_horn 
+			set_global_flag = pritani_relic_returned_flag
+			scaled_wealth = {
+				value = -0.25
+				min = -100
+				max = -500
+			}
+		}	
+		option = {
+			name = EVTOPTBAmzCul.203
+			ai_chance = { factor = 0 }
+			set_global_flag = pritani_relic_returned_flag
+		}
+	}
+	
+	character_event = {		# illyrian
+		id = AmzCul.211
+		desc = EVTDESCAmzCul.203
+		picture = GFX_evt_relic_box
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = {
+			years = 3							
+		}
+				
+		trigger = {
+			independent = yes	
+			prisoner = no
+			realm_size = 200
+			war = no
+			NOR = {
+				trait = travelling
+				trait = in_hiding
+			}
+			culture = illyrian_amz
+			NOT = { 
+				has_global_flag = illyrian_relic_returned_flag
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_artifact = illyrian_mantle
+			set_global_flag = illyrian_relic_returned_flag
+			scaled_wealth = {
+				value = -0.25
+				min = -100
+				max = -500
+			}
+		}	
+		option = {
+			name = EVTOPTBAmzCul.203
+			ai_chance = { factor = 0 }
+			set_global_flag = illyrian_relic_returned_flag
+		}
+	}
+	
+	
+# applies imperial modifier to territories	
+	province_event = {		# themiskyran
+		id = AmzCul.221
+		hide_window = yes
+				
+		trigger = {
+			culture = themiskyran_amz
+			NOT = { has_province_modifier = themiskyran_imperial_modifier }
+			controller = { 
+				culture = themiskyran_amz
+				OR = {
+					any_liege = { 
+						any_owned_bloodline = {
+							has_bloodline_flag = cultural_saintly_bloodline  
+							bloodline_is_active_for = PREV
+						}
+					}
+					any_owned_bloodline = {
+						has_bloodline_flag = cultural_saintly_bloodline  
+						bloodline_is_active_for = PREV
+					}
+				}
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_province_modifier = { 
+				name = themiskyran_imperial_modifier 
+				duration = -1
+			}
+		}
+	}
+	
+	province_event = {		# valkyrie
+		id = AmzCul.222
+		hide_window = yes
+				
+		trigger = {
+			culture = valkyrie_amz
+			NOT = { has_province_modifier = valkyrie_imperial_modifier }
+			controller = { 
+				culture = valkyrie_amz
+				OR = {
+					any_liege = { 
+						any_owned_bloodline = {
+							has_bloodline_flag = cultural_saintly_bloodline  
+							bloodline_is_active_for = PREV
+						}
+					}
+					any_owned_bloodline = {
+						has_bloodline_flag = cultural_saintly_bloodline  
+						bloodline_is_active_for = PREV
+					}
+				}
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_province_modifier = { 
+				name = valkyrie_imperial_modifier 
+				duration = -1
+			}
+		}
+	}
+	
+	province_event = {		# scythian
+		id = AmzCul.223
+		hide_window = yes
+				
+		trigger = {
+			culture = scythian_amz
+			NOT = { has_province_modifier = scythian_imperial_modifier }
+			controller = { 
+				culture = scythian_amz
+				OR = {
+					any_liege = { 
+						any_owned_bloodline = {
+							has_bloodline_flag = cultural_saintly_bloodline  
+							bloodline_is_active_for = PREV
+						}
+					}
+					any_owned_bloodline = {
+						has_bloodline_flag = cultural_saintly_bloodline  
+						bloodline_is_active_for = PREV
+					}
+				}
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_province_modifier = { 
+				name = scythian_imperial_modifier 
+				duration = -1
+			}
+		}
+	}
+	
+	province_event = {		# parthian
+		id = AmzCul.224
+		hide_window = yes
+				
+		trigger = {
+			culture = parthian_amz
+			NOT = { has_province_modifier = parthian_imperial_modifier }
+			controller = { 
+				culture = parthian_amz
+				OR = {
+					any_liege = { 
+						any_owned_bloodline = {
+							has_bloodline_flag = cultural_saintly_bloodline  
+							bloodline_is_active_for = PREV
+						}
+					}
+					any_owned_bloodline = {
+						has_bloodline_flag = cultural_saintly_bloodline  
+						bloodline_is_active_for = PREV
+					}
+				}
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_province_modifier = { 
+				name = parthian_imperial_modifier 
+				duration = -1
+			}
+		}
+	}
+	
+	province_event = {		# kushite
+		id = AmzCul.225
+		hide_window = yes
+				
+		trigger = {
+			culture = kushite_amz
+			NOT = { has_province_modifier = themiskyran_imperial_modifier }
+			controller = { 
+				culture = kushite_amz
+				OR = {
+					any_liege = { 
+						any_owned_bloodline = {
+							has_bloodline_flag = cultural_saintly_bloodline
+							bloodline_is_active_for = PREV
+						}
+					}
+					any_owned_bloodline = {
+						has_bloodline_flag = cultural_saintly_bloodline  
+						bloodline_is_active_for = PREV
+					}
+				}
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_province_modifier = { 
+				name = kushite_imperial_modifier 
+				duration = -1
+			}
+		}
+	}
+	
+	province_event = {		# carthaginian
+		id = AmzCul.226
+		hide_window = yes
+				
+		trigger = {
+			culture = carthaginian_amz
+			port = yes
+			NOT = { has_province_modifier = carthaginian_imperial_modifier }
+			controller = { 
+				culture = carthaginian_amz
+				OR = {
+					any_liege = { 
+						any_owned_bloodline = {
+							has_bloodline_flag = cultural_saintly_bloodline
+							bloodline_is_active_for = PREV
+						}
+					}
+					any_owned_bloodline = {
+						has_bloodline_flag = cultural_saintly_bloodline  
+						bloodline_is_active_for = PREV
+					}
+				}
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_province_modifier = { 
+				name = carthaginian_imperial_modifier 
+				duration = -1
+			}
+		}
+	}
+	
+	province_event = {		# etruscan
+		id = AmzCul.227
+		hide_window = yes
+				
+		trigger = {
+			culture = etruscan_amz
+			NOT = { has_province_modifier = etruscan_imperial_modifier }
+			controller = { 
+				culture = etruscan_amz
+				OR = {
+					any_liege = { 
+						any_owned_bloodline = {
+							has_bloodline_flag = cultural_saintly_bloodline
+							bloodline_is_active_for = PREV
+						}
+					}
+					any_owned_bloodline = {
+						has_bloodline_flag = cultural_saintly_bloodline  
+						bloodline_is_active_for = PREV
+					}
+				}
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_province_modifier = { 
+				name = etruscan_imperial_modifier 
+				duration = -1
+			}
+		}
+	}
+	
+	province_event = {		# pritani
+		id = AmzCul.228
+		hide_window = yes
+				
+		trigger = {
+			culture = pritani_amz
+			NOT = { has_province_modifier = pritani_imperial_modifier }
+			controller = { 
+				culture = pritani_amz
+				OR = {
+					any_liege = { 
+						any_owned_bloodline = {
+							has_bloodline_flag = cultural_saintly_bloodline
+							bloodline_is_active_for = PREV
+						}
+					}
+					any_owned_bloodline = {
+						has_bloodline_flag = cultural_saintly_bloodline  
+						bloodline_is_active_for = PREV
+					}
+				}
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_province_modifier = { 
+				name = pritani_imperial_modifier 
+				duration = -1
+			}
+		}
+	}
+	
+	province_event = {		# illyrian
+		id = AmzCul.229
+		hide_window = yes
+				
+		trigger = {
+			culture = illyrian_amz
+			port = yes
+			NOT = { has_province_modifier = illyrian_imperial_modifier }
+			controller = { 
+				culture = illyrian_amz
+				OR = {
+					any_liege = { 
+						any_owned_bloodline = {
+							has_bloodline_flag = cultural_saintly_bloodline
+							bloodline_is_active_for = PREV
+						}
+					}
+					any_owned_bloodline = {
+						has_bloodline_flag = cultural_saintly_bloodline  
+						bloodline_is_active_for = PREV
+					}
+				}
+			}
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			add_province_modifier = { 
+				name = illyrian_imperial_modifier 
+				duration = -1
+			}
+		}
+	}
+	
+# removes imperial modifier from territories	
+	province_event = {		# themiskyran
+		id = AmzCul.231
+		hide_window = yes
+		
+		mean_time_to_happen = { months = 6 }
+				
+		trigger = {
+			controller = {
+				NOT = { culture = themiskyran_amz }
+			}
+			has_province_modifier = themiskyran_imperial_modifier
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			remove_province_modifier = themiskyran_imperial_modifier 
+		}
+	}
+	
+	province_event = {		# valkyrie
+		id = AmzCul.232
+		hide_window = yes
+				
+		mean_time_to_happen = { months = 6 }
+				
+		trigger = {
+			controller = {
+				NOT = { culture = valkyrie_amz }
+			}
+			has_province_modifier = valkyrie_imperial_modifier
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			remove_province_modifier = valkyrie_imperial_modifier 
+		}
+	}
+	
+	province_event = {		# scythian
+		id = AmzCul.233
+		hide_window = yes
+				
+		mean_time_to_happen = { months = 6 }
+				
+		trigger = {
+			controller = {
+				NOT = { culture = scythian_amz }
+			}
+			has_province_modifier = scythian_imperial_modifier
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			remove_province_modifier = scythian_imperial_modifier 
+		}
+	}
+	
+	province_event = {		# parthian
+		id = AmzCul.234
+		hide_window = yes
+				
+		mean_time_to_happen = { months = 6 }
+				
+		trigger = {
+			controller = {
+				NOT = { culture = parthian_amz }
+			}
+			has_province_modifier = parthian_imperial_modifier
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			remove_province_modifier = parthian_imperial_modifier 
+		}
+	}
+	
+	province_event = {		# kushite
+		id = AmzCul.235
+		hide_window = yes
+				
+		mean_time_to_happen = { months = 6 }
+				
+		trigger = {
+			controller = {
+				NOT = { culture = kushite_amz }
+			}
+			has_province_modifier = kushite_imperial_modifier
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			remove_province_modifier = kushite_imperial_modifier 
+		}
+	}
+	
+	province_event = {		# carthaginian
+		id = AmzCul.236
+		hide_window = yes
+				
+		mean_time_to_happen = { months = 6 }
+				
+		trigger = {
+			OR = {
+				controller = {
+					NOT = { culture = carthaginian_amz }
+				}
+				port = no
+			}
+			has_province_modifier = carthaginian_imperial_modifier
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			remove_province_modifier = carthaginian_imperial_modifier 
+		}
+	}
+	
+	province_event = {		# etruscan
+		id = AmzCul.237
+		hide_window = yes
+				
+		mean_time_to_happen = { months = 6 }
+				
+		trigger = {
+			controller = {
+				NOT = { culture = etruscan_amz }
+			}
+			has_province_modifier = etruscan_imperial_modifier
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			remove_province_modifier = etruscan_imperial_modifier 
+		}
+	}
+	
+	province_event = {		# pritani
+		id = AmzCul.238
+		hide_window = yes
+				
+		mean_time_to_happen = { months = 6 }
+				
+		trigger = {
+			controller = {
+				NOT = { culture = pritani_amz }
+			}
+			has_province_modifier = pritani_imperial_modifier
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			remove_province_modifier = pritani_imperial_modifier 
+		}
+	}
+
+	province_event = {		# illyrian
+		id = AmzCul.239
+		hide_window = yes
+				
+		mean_time_to_happen = { months = 6 }
+				
+		trigger = {
+			controller = {
+				NOT = { culture = illyrian_amz }
+			}
+			has_province_modifier = illyrian_imperial_modifier
+		}
+				
+		option = {
+			name = EVTOPTAAmzCul.203
+			ai_chance = { factor = 10 }
+			remove_province_modifier = illyrian_imperial_modifier 
+		}
+	}
+	

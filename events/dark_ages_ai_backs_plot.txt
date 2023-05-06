@@ -1,0 +1,403 @@
+###############################################################################
+#
+#	INVITE CHARACTER TO PLOT
+#
+##############################################################################
+namespace = darkages
+
+character_event = {		#INVITE CHAR TO PLOT
+	id = darkages.72013
+	desc = EVTDESC1972013
+	picture = GFX_evt_spymaster
+	hide_window = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			has_plot = plot_gain_title
+			has_plot = plot_gain_vassal_title
+			has_plot = plot_kill_character
+			has_plot = plot_kill_spouse
+			has_plot = plot_weaken_fellow_vassal
+			has_plot = plot_gain_liege_title
+			has_plot = plot_gain_fellow_vassal_title
+			has_plot = plot_seize_trade_post
+			has_plot = plot_assassins_collect_debt
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTA1972013	#
+		
+		plot_target_char = {
+			random_realm_character = {
+				limit = {
+					is_adult = yes
+					ai = yes
+					plot_power_contribution = { plotter = ROOT power = 0.025 }
+					NOT = { has_character_modifier = plot_invitation_timer }
+					NOT = { reverse_opinion = { who = PREV value = 25 } }
+				}
+				character_event = { id = darkages.72014 }
+			}
+			
+		}
+
+	}
+
+}
+
+
+character_event = {		# CHAR DECIDES
+	id = darkages.72014	
+	desc = EVTDESC1972014
+	picture = GFX_evt_spymaster
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+	}
+	
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTA1972014	#	AYE
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 1.1
+				trait = deceitful
+			}
+			modifier = {
+				factor = 1.1
+				trait = cruel
+			}	
+			modifier = {
+				factor = 1.5
+				trait = schemer
+			}
+			modifier = {
+				factor = 1.1
+				trait = envious
+			}
+			modifier = {
+				factor = 1.1
+				trait = paranoid
+			}
+			modifier = {
+				factor = 1.1
+				trait = ambitious
+			}	
+			modifier = {
+				factor = 1.1
+				trait = arbitrary
+			}			
+			modifier = {
+				factor = 0
+				NOR = { 
+					trait = deceitful
+					trait = cruel
+					trait = schemer
+					trait = envious
+					trait = paranoid
+					trait = ambitious
+					trait = arbitrary					
+				}
+				FROM = {
+					plot_target_char = {
+						reverse_opinion = { who = ROOT value = 0 }
+						NOT = { reverse_opinion = { who = ROOT value = 25 }	}				
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				opinion = { who = FROM value = 100 }
+			}
+			modifier = {
+				factor = 1.1
+				opinion = { who = FROM value = 75 }
+			}
+			modifier = {
+				factor = 1.1
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.1
+				opinion = { who = FROM value = 25 }
+			}
+			modifier = {
+				factor = 2
+				is_friend = FROM
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = 0 } }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = -9 } }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = -19 } }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = -29 } }
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = -39 } }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = -49 } }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = -59 } }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = -69 } }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = -79 } }
+					}
+				}
+			}			
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = -89 } }
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					plot_target_char = {
+						NOT = { reverse_opinion = { who = ROOT value = -99 } }
+					}
+				}
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = plot_invitation_timer
+			months = 24
+			hidden = yes
+		}		
+		
+		back_plot = FROM
+
+	}
+	
+	
+	
+	option = {
+		name = EVTOPTA69696970	# NAY
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 1.1
+				trait = honest
+			}
+			modifier = {
+				factor = 1.1
+				trait = kind
+			}	
+			modifier = {
+				factor = 1.05
+				trait = craven
+			}
+			modifier = {
+				factor = 1.05
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.1
+				trait = temperate
+			}
+			modifier = {
+				factor = 1.1
+				trait = trusting
+			}
+			modifier = {
+				factor = 1.1
+				trait = content
+			}	
+			modifier = {
+				factor = 1.1
+				trait = just
+			}			
+			modifier = {
+				factor = 1.25
+				OR = { 
+					trait = honest
+					trait = kind
+					trait = temperate
+					trait = trusting
+					trait = content
+					trait = just					
+				}
+				FROM = {
+					plot_target_char = {
+						reverse_opinion = { who = ROOT value = 0 }				
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						reverse_opinion = { who = ROOT value = 10 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						reverse_opinion = { who = ROOT value = 20 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = {
+					plot_target_char = {
+						reverse_opinion = { who = ROOT value = 30 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						reverse_opinion = { who = ROOT value = 40 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = {
+					plot_target_char = {
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				FROM = {
+					plot_target_char = {
+						reverse_opinion = { who = ROOT value = 60 }
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					plot_target_char = {
+						reverse_opinion = { who = ROOT value = 70 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { opinion = { who = FROM value = -24 } }
+			}			
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -49 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -74 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -99 } }
+			}			
+			modifier = {
+				factor = 0
+				NOT = { opinion = { who = FROM value = -74 } }
+				is_rival = FROM	
+				FROM = {
+					plot_target_char = {
+						NOT = { is_rival = ROOT }
+					}
+				}				
+			}		
+			modifier = {
+				factor = 2
+				FROM = {
+					plot_target_char = {
+						is_rival = ROOT
+					}
+				}
+			}
+		}
+		
+		add_character_modifier = {
+			name = plot_invitation_timer
+			months = 24
+			hidden = yes
+		}
+
+	}	
+
+}

@@ -1,0 +1,825 @@
+	d_england_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_england_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_england_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_england_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_england_flag_five = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_england_flag_six = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_england_flag_seven = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_england_flag_eight = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_england_flag_nine = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+
+	d_england_flag_ten = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+
+
+	d_france_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_france_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_france_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_france_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_france_flag_five = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_france_flag_six = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_france_flag_seven = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_france_flag_eight = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_france_flag_nine = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_efrance_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_efrance_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_efrance_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_scotland_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_castille_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_burgundy_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_burgundy_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+
+	d_hre_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_five = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_six = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_seven = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_eight = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_nine = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_ten = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_eleven = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hre_flag_twelve = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_five = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_six = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_seven = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_time_is_a_flat_fucking_circle = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_cookin = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_hospitaller_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_hospitaller_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_hospitaller_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_jerusalem_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_venice_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hungary_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hungary_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hungary_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_hungary_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_bavaria_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_bavaria_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_ireland_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_poland_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_poland_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_poland_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_egypt_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_egypt_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_persia_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_persia_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_aragon_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_aragon_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_visigoth_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_visigoth_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_visigoth_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_visigoth_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_visigoth_flag_five = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_carolingian_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_carolingian_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_mongol_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_mongol_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_mongol_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_mongol_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_mongol_flag_five = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_mongol_flag_six = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_roman_empire_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_roman_empire_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_roman_empire_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_roman_empire_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_roman_empire_flag_five = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_roman_empire_flag_six = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_roman_empire_flag_seven = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_roman_empire_flag_eight = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_roman_empire_flag_nine = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_roman_empire_flag_ten = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_papacy_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_papacy_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_papacy_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_papacy_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_papacy_flag_five = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_ere_flag_nine = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_ere_flag_ten = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_switzerland_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_switzerland_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_arabia_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+    d_antioch_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_french_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_french_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_french_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_french_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_french_flag_five = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_german_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_german_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_german_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_aztec_colony_france = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_aztec_colony_england = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_aztec_colony_spain = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_latin_empire_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_italian_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_italian_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_italian_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_eleven = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_twelve = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_italy_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_italy_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_italy_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_italy_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_italy_flag_five = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_italy_flag_six = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_thirteen = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_ere_flag_fourteen = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_jerusalem_flag_two = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_jerusalem_flag_three = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_jerusalem_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_french_flag_six = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_french_flag_seven = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_french_flag_eight = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_french_flag_nine = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_french_flag_ten = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_german_flag_four = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+	d_sicily_flag_one = {
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}

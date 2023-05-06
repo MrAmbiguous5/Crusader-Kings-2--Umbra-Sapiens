@@ -1,0 +1,116 @@
+namespace = vassalize_outside_baron
+character_event = {
+	id = vassalize_outside_baron.250001
+	desc = vassalize_outside_baron.250001.desc
+	picture = "GFX_evt_castle_construction"
+	is_triggered_only = yes
+	
+	immediate = {
+	while = {
+		limit = {
+			any_realm_province = {
+				NOT = { has_province_flag = keep_it }
+				any_province_holding = {
+					owner = { character = ROOT }
+					holding_type = castle
+					tier = baron
+					NOT = { tier = count }
+					is_capital = no
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_realm_province = {
+					NOT = { has_province_flag = keep_it }
+					any_province_holding = {
+						owner = { character = ROOT }
+						holding_type = castle
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+				OR = {
+					has_law = enatic_succession
+					has_law = enatic_cognatic_succession
+					has_law = true_cognatic_succession
+				}
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = random
+				female = yes
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				if = { limit = { trait = ambitious } remove_trait = ambitious }
+				liege = {
+					random_demesne_title = {
+						limit = {
+							holding_type = castle
+							tier = baron
+							NOT = { tier = count }
+							is_capital = no
+							location = {
+								NOT = { has_province_flag = keep_it }
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_realm_province = {
+					NOT = { has_province_flag = keep_it }
+					any_province_holding = {
+						owner = { character = ROOT }
+						holding_type = castle
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+				NOR = {
+					has_law = enatic_succession
+					has_law = enatic_cognatic_succession
+					has_law = true_cognatic_succession
+				}
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = random
+				female = no
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				if = { limit = { trait = ambitious } remove_trait = ambitious }
+				liege = {
+					random_demesne_title = {
+						limit = {
+							holding_type = castle
+							tier = baron
+							NOT = { tier = count }
+							is_capital = no
+							location = {
+								NOT = { has_province_flag = keep_it }
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	}
+	
+	option = {
+		name = vassalize_outside_baron.250001.opta
+	}
+}

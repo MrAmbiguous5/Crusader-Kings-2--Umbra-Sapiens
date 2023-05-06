@@ -1,0 +1,497 @@
+namespace = equus
+
+#Sin selection
+character_event = {
+    id = equus.1050
+    is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		character_event = { id = equus.1051 }
+		random_list = {
+			1 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = lustful }}
+				}
+				set_character_flag = forgive_lust
+			}
+			1 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = greedy }}
+				}
+				set_character_flag = forgive_greed
+			}
+			1 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = wroth }}
+				}
+				set_character_flag = forgive_wrath
+			}
+			1 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = slothful }}
+				}
+				set_character_flag = forgive_sloth
+			}
+			1 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = possessed }}
+				}
+				set_character_flag = forgive_posession
+			}
+			1 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = envious }}
+				}
+				set_character_flag = forgive_envy
+			}
+			1 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = proud }}
+				}
+				set_character_flag = forgive_pride
+			}
+			1 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = impaler }}
+				}
+				set_character_flag = forgive_impaler
+			}
+			1 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = cruel }}
+				}
+				set_character_flag = forgive_cruelty
+			}
+			1 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = cannibal_trait }}
+				}
+				set_character_flag = forgive_cannibal
+			}
+		}
+	}
+}
+
+
+#Confront sin
+character_event = {
+    id = equus.1051
+    desc = EVTDESC_equus.1051
+    picture = "GFX_evt_bad_news"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1051 #Go easy
+		random_list = {
+			60 = {
+				custom_tooltip = { text = EVTTOOLTIPA_equus.1051 }
+				modifier = { 
+					factor = 1.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = diligent
+				}
+				modifier = { 
+					factor = 1.5
+					trait = patient
+				}
+				modifier = { 
+					factor = 1.5
+					trait = honest
+				}
+				character_event = { id = equus.1052 }
+			}
+			40 = {
+				modifier = { 
+					factor = 1.5
+					trait = slothful
+				}
+				modifier = { 
+					factor = 1.5
+					trait = proud
+				}
+				modifier = { 
+					factor = 1.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = craven
+				}
+				modifier = { 
+					factor = 1.5
+					trait = stubborn
+				}
+				character_event = { id = equus.1053 }
+				custom_tooltip = { text = EVTTOOLTIPC_equus.1051 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1051 #Go hard
+		random_list = {
+			75 = {
+				modifier = { 
+					factor = 1.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = diligent
+				}
+				modifier = { 
+					factor = 1.5
+					trait = patient
+				}
+				modifier = { 
+					factor = 1.5
+					trait = honest
+				}
+				character_event = { id = equus.1054 }
+				custom_tooltip = { text = EVTTOOLTIPB_equus.1051 }
+			}
+			25 = {
+				modifier = { 
+					factor = 1.5
+					trait = slothful
+				}
+				modifier = { 
+					factor = 1.5
+					trait = proud
+				}
+				modifier = { 
+					factor = 1.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = craven
+				}
+				modifier = { 
+					factor = 1.5
+					trait = stubborn
+				}
+				character_event = { id = equus.1055 }
+				custom_tooltip = { text = EVTTOOLTIPD_equus.1051 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_equus.1051 #High learning
+		trigger = {
+			learning = 20 
+		}
+		tooltip_info = learning
+		random_list = {
+			45 = {
+				character_event = { id = equus.1054 }
+				custom_tooltip = { text = EVTTOOLTIPB_equus.1051 }
+				modifier = { 
+					factor = 1.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = diligent
+				}
+				modifier = { 
+					factor = 1.5
+					trait = patient
+				}
+				modifier = { 
+					factor = 1.5
+					trait = honest
+				}
+			}
+			90 = {
+				custom_tooltip = { text = EVTTOOLTIPA_equus.1051 }
+				modifier = { 
+					factor = 1.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = diligent
+				}
+				modifier = { 
+					factor = 1.5
+					trait = patient
+				}
+				modifier = { 
+					factor = 1.5
+					trait = honest
+				}
+				character_event = { id = equus.1052 }
+			}
+			10 = {
+				modifier = { 
+					factor = 1.5
+					trait = slothful
+				}
+				modifier = { 
+					factor = 1.5
+					trait = proud
+				}
+				modifier = { 
+					factor = 1.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = craven
+				}
+				modifier = { 
+					factor = 1.5
+					trait = stubborn
+				}
+				character_event = { id = equus.1053 }
+				custom_tooltip = { text = EVTTOOLTIPC_equus.1051 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1051 #Humble?
+		trigger = {
+			trait = humble
+		}
+		tooltip_info = humble
+		random_list = {
+			35 = {
+				character_event = { id = equus.1054 }
+				custom_tooltip = { text = EVTTOOLTIPB_equus.1051 }
+				modifier = { 
+					factor = 1.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = diligent
+				}
+				modifier = { 
+					factor = 1.5
+					trait = patient
+				}
+				modifier = { 
+					factor = 1.5
+					trait = honest
+				}
+			}
+			70 = {
+				modifier = { 
+					factor = 1.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = diligent
+				}
+				modifier = { 
+					factor = 1.5
+					trait = patient
+				}
+				modifier = { 
+					factor = 1.5
+					trait = honest
+				}
+				character_event = { id = equus.1052 }
+				custom_tooltip = { text = EVTTOOLTIPA_equus.1051 }
+			}
+			30 = {
+				modifier = { 
+					factor = 1.5
+					trait = slothful
+				}
+				modifier = { 
+					factor = 1.5
+					trait = proud
+				}
+				modifier = { 
+					factor = 1.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = craven
+				}
+				modifier = { 
+					factor = 1.5
+					trait = stubborn
+				}
+				character_event = { id = equus.1053 }
+				custom_tooltip = { text = EVTTOOLTIPC_equus.1051 }
+			}
+		}
+	}
+}
+
+#Simple success
+character_event = {
+    id = equus.1052
+    desc = EVTDESC_equus.1052
+    picture = "GFX_evt_religious_exultation"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1052
+		piety = 100
+		if = { 
+			limit = { has_character_flag = forgive_lust }
+			remove_trait = lustful
+			clr_character_flag = forgive_lust
+		}
+		if = { 
+			limit = { has_character_flag = forgive_greed }
+			remove_trait = greedy
+			clr_character_flag = forgive_greed
+		}
+		if = { 
+			limit = { has_character_flag = forgive_wrath }
+			remove_trait = wroth
+			clr_character_flag = forgive_wrath
+		}
+		if = { 
+			limit = { has_character_flag = forgive_sloth }
+			remove_trait = slothful
+			clr_character_flag = forgive_sloth
+		}
+		if = { 
+			limit = { has_character_flag = forgive_posession }
+			remove_trait = possessed
+			clr_character_flag = forgive_posession
+		}
+		if = { 
+			limit = { has_character_flag = forgive_envy }
+			remove_trait = envious
+			clr_character_flag = forgive_envy
+		}
+		if = { 
+			limit = { has_character_flag = forgive_pride }
+			remove_trait = proud
+			clr_character_flag = forgive_pride
+		}
+		if = { 
+			limit = { has_character_flag = forgive_impaler }
+			remove_trait = impaler
+			clr_character_flag = forgive_impaler
+		}
+		if = { 
+			limit = { has_character_flag = forgive_cruelty }
+			remove_trait = cruel
+			clr_character_flag = forgive_cruelty
+		}
+		if = { 
+			limit = { has_character_flag = forgive_cannibal }
+			remove_trait = cannibal_trait
+			clr_character_flag = forgive_cannibal
+		}
+	}
+}
+
+#Simple failure
+character_event = {
+    id = equus.1053
+    desc = EVTDESC_equus.1053
+    picture = "GFX_evt_bad_news"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1053
+		piety = -100
+		add_trait = stressed
+	}
+}
+
+#Big success
+character_event = {
+    id = equus.1054
+    desc = EVTDESC_equus.1054
+    picture = "GFX_evt_religious_exultation"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1054
+		piety = 200
+		if = { 
+			limit = { has_character_flag = forgive_lust }
+			add_trait = chaste
+			clr_character_flag = forgive_lust
+		}
+		if = { 
+			limit = { has_character_flag = forgive_greed }
+			add_trait = charitable
+			clr_character_flag = forgive_greed
+		}
+		if = { 
+			limit = { has_character_flag = forgive_wrath }
+			add_trait = temperate
+			clr_character_flag = forgive_wrath
+		}
+		if = { 
+			limit = { has_character_flag = forgive_sloth }
+			add_trait = diligent
+			clr_character_flag = forgive_sloth
+		}
+		if = { 
+			limit = { has_character_flag = forgive_posession }
+			add_trait = zealous
+			clr_character_flag = forgive_posession
+		}
+		if = { 
+			limit = { has_character_flag = forgive_envy }
+			add_trait = kind
+			clr_character_flag = forgive_envy
+		}
+		if = { 
+			limit = { has_character_flag = forgive_pride }
+			add_trait = humble
+			clr_character_flag = forgive_pride
+		}
+		if = { 
+			limit = { has_character_flag = forgive_impaler }
+			add_trait = kind
+			clr_character_flag = forgive_impaler
+		}
+		if = { 
+			limit = { has_character_flag = forgive_cruelty }
+			add_trait = kind
+			clr_character_flag = forgive_cruelty
+		}
+		if = { 
+			limit = { has_character_flag = forgive_cannibal }
+			add_trait = temperate
+			clr_character_flag = forgive_cannibal
+		}
+	}
+}
+
+#Big failure
+character_event = {
+    id = equus.1055
+    desc = EVTDESC_equus.1055
+    picture = "GFX_evt_bad_news"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1055
+		piety = -200
+		add_trait = depressed
+	}
+}

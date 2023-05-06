@@ -1,0 +1,112 @@
+republic_civil_war = {
+    name = CB_SAVE_REPUBLIC
+    war_name = ROMAN_CIVIL_WAR
+	sprite = 17
+	truce_days = 3650
+	major_revolt = yes
+	allow_whitepeace = no
+	
+	attacker_can_call_allies = no
+	can_ask_to_join_war = no
+	
+	is_independence = yes
+	
+	can_use = {
+		ROOT = {
+			vassal_of = FROM
+		}
+	}
+
+    # scopes go here
+	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
+		if = {
+			limit = { defender = { is_offmap_governor = offmap_china } }
+			attacker = {  
+				sound_effect = china_angered_emperor
+				detract_grace_super_huge_effect = yes 
+			}
+		}
+	}
+	
+	on_success = {
+	    ROOT = {
+			primary_title = {
+				usurp_title = FROM	
+			}
+			give_nickname = nick_the_great
+		}
+		
+		FROM = {
+			prestige = -1000
+			death = { death_reason = death_execution killer = ROOT }
+		}
+		ROOT = {
+			participation_scaled_prestige = 250
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 250 }
+		}
+	}
+	
+	on_fail = {
+		ROOT = {
+			prestige = -100
+		}
+		FROM = {
+			remove_opinion = {
+				who = ROOT
+				modifier = declared_war
+			}
+		}
+	}
+	
+	on_reverse_demand = {
+		ROOT = {
+			prestige = -1000
+			prisoner = FROM
+		}
+		FROM = {
+			participation_scaled_prestige = 50
+			hidden_tooltip = { 
+				if = { 
+					limit = { NOT = { has_opinion_modifier = { modifier = opinion_traitor who = ROOT } } } #Allow free revocation of a title.
+					opinion = {
+						who = ROOT
+						modifier = opinion_traitor
+					}
+				}
+			}
+			narrative_event = { id = CVR.6 }
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { participation_scaled_prestige = 50 }
+		}
+		hidden_tooltip = {
+			any_attacker = {
+				limit = { liege = { character = FROM } }
+				prisoner = FROM
+				disband_event_forces = faction_revolters
+				add_character_modifier = {
+					name = faction_council_power_ultimatum_timer
+					hidden = yes
+					duration = 3650
+				}
+			}
+		}
+	}
+	
+	on_defender_leader_death = {
+		hidden_tooltip = {
+			any_attacker = {
+				letter_event = {
+					id = 251
+				}
+			}
+		}
+		
+		end_war = invalid
+	}
+}    

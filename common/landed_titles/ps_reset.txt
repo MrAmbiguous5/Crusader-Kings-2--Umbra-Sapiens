@@ -1,0 +1,16 @@
+d_qarmatian = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 21
+            emblem = 0
+            color = 5
+            color = 2
+            color = 0
+        }
+		religion="sunni" 
+    }	
+}
+
+	

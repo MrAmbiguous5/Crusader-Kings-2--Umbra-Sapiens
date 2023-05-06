@@ -1,0 +1,6 @@
+spriteTypes = {
+  spriteType = {
+    name = "GFX_form_knights_of_jerusalem"
+    texturefile = "gfx\\interface\\decision_icon_create_knightsofjerusalem.dds"
+  }
+}

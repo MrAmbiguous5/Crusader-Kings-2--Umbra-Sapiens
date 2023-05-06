@@ -1,0 +1,7 @@
+####
+# EVENT TIMERS - AUTONOMOUS
+####
+
+tributary_timer = {
+	icon = 4
+}

@@ -1,0 +1,730 @@
+song = {
+	name = "Dark Souls III - Dragonslayer Armour.ogg"
+	song_name = "Dark Souls III - Dragonslayer Armour"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Dark Souls III - Champions Gravetender and Greatwolf .ogg"
+	song_name = "Dark Souls III - Champions Gravetender and Greatwolf "
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Dark Souls III - Main Theme.ogg"
+	song_name = "Dark Souls III - Main Theme"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Dark Souls III - Slave Knight Gael.ogg"
+	song_name = "Dark Souls III - Slave Knight Gael"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Dark Souls III - Darkeater Midir.ogg"
+	song_name = "Dark Souls III - Darkeater Midir"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - Calling The Inquisition.ogg"
+	song_name = "Dragon Age Inquisition - Calling The Inquisition"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - Journey To Skyhold.ogg"
+	song_name = "Dragon Age Inquisition - Journey To Skyhold"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - Lord Seeker.ogg"
+	song_name = "Dragon Age Inquisition - Lord Seeker"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - Main Theme.ogg"
+	song_name = "Dragon Age Inquisition - Main Theme"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - Return To Skyhold.ogg"
+	song_name = "Dragon Age Inquisition - Return To Skyhold"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - Siege Of Adamant.ogg"
+	song_name = "Dragon Age Inquisition - Siege Of Adamant"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Attila - Hun Theme.ogg"
+	song_name = "Total War Attila - Hun Theme"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { government = nomadic_government}
+			NOT = { government = tribal_government }
+			NOT = { culture = roman}
+			NOT = { culture = greek}
+			NOT = { culture = romano_gallic}
+			NOT = { culture = thraco_roman}
+			NOT = { culture = african_romance}
+			NOT = { culture = romano_hispanic}
+			NOT = { culture = romano_british}
+		}
+	}
+}
+song = {
+	name = "Total War Attila - The Will Of Tengri.ogg"
+	song_name = "Total War Attila - The Will of Tengri"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { government = nomadic_government}
+			NOT = { government = tribal_government }
+		}
+	}
+}
+song = {
+	name = "Total War Attila - Blood For The Sky God.ogg"
+	song_name = "Total War Attila - Blood for the Sky God"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { government = nomadic_government}
+			NOT = { government = tribal_government }
+		}
+	}
+}
+song = {
+	name = "Total War Attila - Legions Of The West.ogg"
+	song_name = "Total War Attila - Legions of the West"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { culture = roman}
+			NOT = { culture = greek}
+			NOT = { culture = romano_gallic}
+			NOT = { culture = thraco_roman}
+			NOT = { culture = african_romance}
+			NOT = { culture = romano_hispanic}
+			NOT = { culture = romano_british}
+		}
+	}
+}
+song = {
+	name = "Total War Attila - Riders Of The East.ogg"
+	song_name = "Total War Attila - Riders of the East"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = muslim }
+			NOT = { religion_group = zoroastrian_group }
+			NOT = { culture_group = iranian }
+		}
+	}
+}
+song = {
+	name = "Total War Attila - Scourge Of God.ogg"
+	song_name = "Total War Attila - Scourge Of God"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { government = nomadic_government}
+			NOT = { government = tribal_government }
+		}
+	}
+}
+song = {
+	name = "Total War Attila - The Red Horse.ogg"
+	song_name = "Total War Attila - The Red Horse"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = zoroastrian_group }
+			NOT = { culture_group = iranian }
+		}
+	}
+}
+song = {
+	name = "Total War Attila - Settlers Of The Apocalypse.ogg"
+	song_name = "Total War Attila - Settlers Of The Apocalypse"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { government = nomadic_government}
+			NOT = { government = tribal_government }
+		}
+	}
+}
+song = {
+	name = "Dragon Age 2 - Main Theme.ogg"
+	song_name = "Dragon Age 2 - Main Theme"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Dragon Age 2 - Mages.ogg"
+	song_name = "Dragon Age 2 - Mages"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - The Elder One.ogg"
+	song_name = "Dragon Age Inquisition - The Elder One"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - Dark Solas Theme.ogg"
+	song_name = "Dragon Age Inquisition - Dark Solas Theme"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - The Descent Main Theme.ogg"
+	song_name = "Dragon Age Inquisition - The Descent Main Theme"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - The Beast Of Beauclair.ogg"
+	song_name = "The Witcher 3 - The Beast Of Beauclair"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = {
+				capital_scope = { region = world_europe }
+			}
+		}
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - Orlais Theme.ogg"
+	song_name = "Dragon Age Inquisition - Orlais Theme"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = {
+				capital_scope = { region = world_europe }
+			}
+		}
+	}
+}
+song = {
+	name = "Dragon Age Inquisition - Wicked Eyes Wicked Hearts.ogg"
+	song_name = "Dragon Age Inquisition - Wicked Eyes Wicked Hearts"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Thrones Of Britannia - Main Theme.ogg"
+	song_name = "Total War Thrones Of Britannia - Main Theme"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Total War Thrones Of Britannia - The Eve Of Battle.ogg"
+	song_name = "Total War Thrones Of Britannia - The Eve Of Battle"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Thrones Of Britannia - Glory and Honor.ogg"
+	song_name = "Total War Thrones Of Britannia - Glory and Honor"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Total War Thrones Of Britannia - War For Albion.ogg"
+	song_name = "Total War Thrones Of Britannia - War For Albion"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+			capital_scope = { region = world_europe }
+		}
+	}
+}
+song = {
+	name = "Total War Thrones Of Britannia - Sea Kings.ogg"
+	song_name = "Total War Thrones Of Britannia - Sea Kings"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Thrones Of Britannia - Show No Mierce.ogg"
+	song_name = "Total War Thrones Of Britannia - Show No Mierce"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Total War Thrones Of Britannia - Show No Mierce.ogg"
+	song_name = "Total War Thrones Of Britannia - Show No Mierce"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Total War Thrones Of Britannia - To Valhalla!.ogg"
+	song_name = "Total War Thrones Of Britannia - To Valhalla!"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Bloodborne - Omen.ogg"
+	song_name = "Bloodborne - Omen"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Bloodborne - The Night Unfurls.ogg"
+	song_name = "Bloodborne - The Night Unfurls"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Bloodborne - Cleric Beast.ogg"
+	song_name = "Bloodborne - Cleric Beast"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Bloodborne - Main Theme.ogg"
+	song_name = "Bloodborne - Main Theme"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Gwent - Main Theme.ogg"
+	song_name = "Gwent - Main Theme"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Gwent - Northern Realms 2.ogg"
+	song_name = "Gwent - Northern Realms 2"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Gwent - Northern Realms 2.ogg"
+	song_name = "Gwent - Northern Realms 2"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Gwent - The Mighty Jarl of Skellige.ogg"
+	song_name = "Gwent - The Mighty Jarl of Skellige"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Gwent - Skellige 2.ogg"
+	song_name = "Gwent - Skellige 2"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Gwent - Skellige 3.ogg"
+	song_name = "Gwent - Skellige 3"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Gwent - Death to Dhoine!.ogg"
+	song_name = "Gwent - Death to Dhoine!"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Kingdom Come Deliverance - Skalitz 1403.ogg"
+	song_name = "Kingdom Come Deliverance - Skalitz 1403"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Kingdom Come Deliverance - People of the Land.ogg"
+	song_name = "Kingdom Come Deliverance - People of the Land"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Kingdom Come Deliverance - The Talmberg Theme.ogg"
+	song_name = "Kingdom Come Deliverance - The Talmberg Theme"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Kingdom Come Deliverance - Sigismunds Army at the Gates.ogg"
+	song_name = "Kingdom Come Deliverance - Sigismunds Army at the Gates"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Kingdom Come Deliverance - Fighting Runt.ogg"
+	song_name = "Kingdom Come Deliverance - Fighting Runt"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Kingdom Come Deliverance - Talmberg Captured.ogg"
+	song_name = "Kingdom Come Deliverance - Talmberg Captured"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Kingdom Come Deliverance - Steph Is Safe.ogg"
+	song_name = "Kingdom Come Deliverance - Steph Is Safe"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Morrowind - Theme Song.ogg"
+	song_name = "Morrowind - Theme Song"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Morrowind - Peaceful Waters.ogg"
+	song_name = "Morrowind - Peaceful Waters"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Morrowind - Knights Charge.ogg"
+	song_name = "Morrowind - Knights Charge"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Morrowind - Over the Next Hill.ogg"
+	song_name = "Morrowind - Over the Next Hill"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Morrowind - The Road Most Traveled.ogg"
+	song_name = "Morrowind - The Road Most Traveled"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Morrowind - Dance of Swords.ogg"
+	song_name = "Morrowind - Dance of Swords"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Morrowind - Silt Sunrise.ogg"
+	song_name = "Morrowind - Silt Sunrise"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "RYSE Son of Rome - Main Theme.ogg"
+	song_name = "RYSE: Son of Rome - Main Theme"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { culture = roman}
+			NOT = { culture = greek}
+			NOT = { culture = romano_gallic}
+			NOT = { culture = thraco_roman}
+			NOT = { culture = african_romance}
+			NOT = { culture = romano_hispanic}
+			NOT = { culture = romano_british}
+		}
+	}
+}
+song = {
+	name = "RYSE Son of Rome - Summers Theme.ogg"
+	song_name = "RYSE: Son of Rome - Summer's Theme"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { culture = roman}
+			NOT = { culture = greek}
+			NOT = { culture = romano_gallic}
+			NOT = { culture = thraco_roman}
+			NOT = { culture = african_romance}
+			NOT = { culture = romano_hispanic}
+			NOT = { culture = romano_british}
+		}
+	}
+}
+song = {
+	name = "RYSE Son of Rome - I am Damocles.ogg"
+	song_name = "RYSE: Son of Rome - I am Damocles"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { culture = roman}
+			NOT = { culture = greek}
+			NOT = { culture = romano_gallic}
+			NOT = { culture = thraco_roman}
+			NOT = { culture = african_romance}
+			NOT = { culture = romano_hispanic}
+			NOT = { culture = romano_british}
+		}
+	}
+}
+song = {
+	name = "RYSE Son of Rome - Son of Rome.ogg"
+	song_name = "RYSE: Son of Rome - Son of Rome"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { culture = roman}
+			NOT = { culture = greek}
+			NOT = { culture = romano_gallic}
+			NOT = { culture = thraco_roman}
+			NOT = { culture = african_romance}
+			NOT = { culture = romano_hispanic}
+			NOT = { culture = romano_british}
+		}
+	}
+}

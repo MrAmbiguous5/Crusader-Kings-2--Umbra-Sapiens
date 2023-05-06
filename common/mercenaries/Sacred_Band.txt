@@ -1,0 +1,6 @@
+sacred_band_composition = {
+    levy_size = 4
+	pikemen = 600
+	heavy_infantry = 300
+	archers = 150
+}

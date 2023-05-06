@@ -1,0 +1,777 @@
+namespace = lmmpvf_faction
+
+# Events to check status. Reserved 1 to 100
+character_event = {
+	id = lmmpvf_faction.1
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	# Do all AI related stuff here
+	option = {
+		
+	}
+	
+	after = {
+		# If goal has not been successful in 10 years
+		if = {
+			limit = {
+				NOR = { 
+					has_character_flag = lmmpvf_goal_success 
+					has_character_flag = lmmpvf_faction_war_underway
+				}
+				had_character_flag = { flag = lmmpvf_goal_set days = 3650 }
+			}
+			set_character_flag = lmmpvf_goal_failure
+		}
+		character_event = { id = lmmpvf_faction.101 } # Fire the meeting event
+	}
+}
+# Yearly faction meeting
+character_event = {
+	id = lmmpvf_faction.101
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	picture = {
+		picture = GFX_evt_war_planning
+		trigger = {
+			#lmmpvf_has_goal_war_trigger = yes
+			OR = {
+				has_character_flag = lmmpvf_goal_attack_neighboring_realm		
+				has_character_flag = lmmpvf_goal_attack_infidel_realm
+				has_character_flag = lmmpvf_goal_oust_foreigners_from_realm
+				has_character_flag = lmmpvf_goal_oust_infidels_from_realm
+			}
+			lmmpvf_has_at_least_one_faction_member_trigger = yes
+		}
+	}
+	
+	picture = {
+		picture = GFX_evt_state_diplomacy
+		trigger = {
+			lmmpvf_has_at_least_one_faction_member_trigger = yes
+			OR = {
+				has_character_flag = lmmpvf_focus_prosperity
+				has_character_flag = lmmpvf_focus_glory
+			}
+			#NOT = { lmmpvf_has_goal_war_trigger = yes }
+			NOR = {
+				has_character_flag = lmmpvf_goal_attack_neighboring_realm		
+				has_character_flag = lmmpvf_goal_attack_infidel_realm
+				has_character_flag = lmmpvf_goal_oust_foreigners_from_realm
+				has_character_flag = lmmpvf_goal_oust_infidels_from_realm
+			}
+		}
+	}
+	
+	picture = {
+		picture = GFX_evt_gathering_of_minds
+		trigger = {
+			lmmpvf_has_at_least_one_faction_member_trigger = yes
+			has_character_flag = lmmpvf_focus_faith
+		}
+	}
+	
+	picture = {
+		picture = GFX_evt_feast
+		trigger = {
+			has_character_flag = lmmpvf_goal_success
+			# NOT = { religion_group = muslim }
+		}
+	}
+	
+	picture = {
+		picture = GFX_evt_bad_news
+		trigger = {
+			NOT = { lmmpvf_has_at_least_one_faction_member_trigger = yes }
+		}
+	}
+	
+	# picture = {
+		# picture = GFX_evt_banquet_hall_feast_muslim
+		# trigger = {
+			# has_character_flag = lmmpvf_goal_success
+			# religion_group = muslim
+		# }
+	# }	
+	
+	picture = {
+		picture = GFX_evt_council
+		trigger = {
+			has_character_flag = lmmpvf_goal_failure
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_NeedMembers_lmmpvf_faction.101
+		trigger = {
+			NOT = { lmmpvf_has_at_least_one_faction_member_trigger = yes }
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_Normal_lmmpvf_faction.101
+		trigger = {
+			lmmpvf_has_at_least_one_faction_member_trigger = yes
+			NOR = {
+				has_character_flag = lmmpvf_goal_success
+				has_character_flag = lmmpvf_goal_failure
+			}
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC_GoalSuccess_lmmpvf_faction.101
+		trigger = {
+			has_character_flag = lmmpvf_goal_success
+			NOT = { has_character_flag = lmmpvf_focus_can_change }
+		}
+	}
+	
+	# desc = {
+		# text = EVTDESC_GoalSuccessCanChangeFocus_lmmpvf_faction.101
+		# trigger = {
+			# has_character_flag = lmmpvf_goal_success
+			# has_character_flag = lmmpvf_focus_can_change
+		# }
+	# }
+	
+	desc = {
+		text = EVTDESC_GoalFailure_lmmpvf_faction.101
+		trigger = {
+			has_character_flag = lmmpvf_goal_failure
+			NOT = { has_character_flag = lmmpvf_focus_can_change }
+		}
+	}
+	
+	# desc = {
+		# text = EVTDESC_GoalFailureCanChangeFocus_lmmpvf_faction.101
+		# trigger = {
+			# has_character_flag = lmmpvf_goal_failure
+			# has_character_flag = lmmpvf_focus_can_change
+		# }
+	# }
+	
+	trigger = {
+		lmmpvf_is_faction_leader_trigger = yes
+	}
+
+	immediate = {
+		trigger_switch = {
+			on_trigger = has_character_flag
+				
+			lmmpvf_focus_glory = {
+				trigger_switch = {
+					on_trigger = has_character_flag
+					
+					lmmpvf_goal_attack_neighboring_realm = {
+						
+					}
+					
+					lmmpvf_goal_oust_foreigners_from_realm = {
+						
+					}
+					
+					lmmpvf_goal_improve_public_image = {
+						set_variable = { which = lmmpvf_skill_check_score value = 0 }
+						# Send event to all faction members to get score
+						liege = {
+							any_vassal = {
+								limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+								character_event = { id = lmmpvf_goal_helper.201 } # Get diplomacy score
+							}
+						}						
+						random = {
+							chance = 10
+							
+							# Chance becomes 40
+							modifier = {
+								factor = 5
+								check_variable = { which = lmmpvf_skill_check_score value = 20 }
+							}
+							# Chance becomes 30
+							modifier = {
+								factor = 3
+								check_variable = { which = lmmpvf_skill_check_score value = 15 }
+								NOT = { check_variable = { which = lmmpvf_skill_check_score value = 20 } }
+							}
+							# Chance becomes 20
+							modifier = {
+								factor = 2
+								check_variable = { which = lmmpvf_skill_check_score value = 10 }
+								NOT = { check_variable = { which = lmmpvf_skill_check_score value = 15 } }
+							}
+							# Chance becomes 0
+							modifier = {
+								factor = 0
+								NOT = { check_variable = { which = lmmpvf_skill_check_score value = 1 } }
+							}
+							set_character_flag = lmmpvf_goal_success
+						}
+					}
+				}
+			}
+			
+			lmmpvf_focus_prosperity = {
+				trigger_switch = {
+					on_trigger = has_character_flag
+					
+					lmmpvf_goal_establish_trade_route = {
+						set_variable = { which = lmmpvf_skill_check_score value = 0 }
+						# Send event to all faction members to get score
+						liege = {
+							any_vassal = {
+								limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+								character_event = { id = lmmpvf_goal_helper.203 } # Get stewardship score
+							}
+						}
+						
+						random = {
+							chance = 10
+							
+							# Chance becomes 40
+							modifier = {
+								factor = 5
+								check_variable = { which = lmmpvf_skill_check_score value = 20 }
+							}
+							# Chance becomes 30
+							modifier = {
+								factor = 3
+								check_variable = { which = lmmpvf_skill_check_score value = 15 }
+								NOT = { check_variable = { which = lmmpvf_skill_check_score value = 20 } }
+							}
+							# Chance becomes 20
+							modifier = {
+								factor = 2
+								check_variable = { which = lmmpvf_skill_check_score value = 10 }
+								NOT = { check_variable = { which = lmmpvf_skill_check_score value = 15 } }
+							}
+							# Chance becomes 0
+							modifier = {
+								factor = 0
+								NOT = { check_variable = { which = lmmpvf_skill_check_score value = 1 } }
+							}
+							
+							set_character_flag = lmmpvf_goal_success
+						}
+					}
+					
+					lmmpvf_goal_establish_settlement = {
+						export_to_variable = { which = lmmpvf_total_wealth value = wealth }
+						liege = {
+							any_vassal = {
+								limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+								character_event = { id = lmmpvf_goal_helper.101 } # Ask for wealth
+							}
+						}
+						change_variable = { which = lmmpvf_total_wealth which = lmmpvf_faction_fund_wealth }
+						if = {
+							limit = {
+								check_variable = { which = lmmpvf_total_wealth value = 800 }								
+							}
+													
+							set_character_flag = lmmpvf_goal_success
+						}
+					}
+					
+					lmmpvf_goal_increase_prosperity = {
+						set_variable = { which = lmmpvf_skill_check_score value = 0 }
+						liege = {
+							any_vassal = {
+								limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+								character_event = { id = lmmpvf_goal_helper.203 } # Calculate score for increasing prosperity
+							}
+						}
+						random = {
+							chance = 10
+							
+							# Chance becomes 40
+							modifier = {
+								factor = 4
+								check_variable = { which = local_lmmifpvf_score value = 20 }
+							}
+							# Chance becomes 30
+							modifier = {
+								factor = 3
+								check_variable = { which = local_lmmifpvf_score value = 15 }
+								NOT = { check_variable = { which = local_lmmifpvf_score value = 20 } }
+							}
+							# Chance becomes 20
+							modifier = {
+								factor = 2
+								check_variable = { which = local_lmmifpvf_score value = 10 }
+								NOT = { check_variable = { which = local_lmmifpvf_score value = 15 } }
+							}
+							# Chance becomes 0
+							modifier = {
+								factor = 0
+								NOT = { check_variable = { which = lmmpvf_skill_check_score value = 1 } }
+							}
+							
+							set_character_flag = lmmpvf_goal_success							
+						}
+					}
+				}
+			}
+			
+			lmmpvf_focus_faith = {
+				trigger_switch = {
+					on_trigger = has_character_flag
+					
+					lmmpvf_goal_attack_infidel_realm = {
+						
+					}
+					
+					# TODO: Allow other vassals in the realm of target's religion_group to join the war 
+					lmmpvf_goal_oust_infidels_from_realm = {
+						
+					}
+					
+					lmmpvf_goal_convert_province_religion = {
+						set_variable = { which = lmmpvf_skill_check_score value = 0 }
+						liege = {
+							any_vassal = {
+								limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+								character_event = { id = lmmpvf_goal_helper.203 } # Get stewardship based score
+								character_event = { id = lmmpvf_goal_helper.205 } # Get learning based score
+							}
+						}
+						# Add effect of religion moral authority to the conversion score
+						if = {
+							limit = { religion_authority = 0.8 }
+							change_variable = { which = lmmpvf_skill_check_score value = 5 }
+						}
+						else_if = {
+							limit = { religion_authority = 0.7 }
+							change_variable = { which = lmmpvf_skill_check_score value = 4 }
+						}
+						else_if = {
+							limit = { religion_authority = 0.6 }
+							change_variable = { which = lmmpvf_skill_check_score value = 3 }
+						}
+						random = {
+							chance = 10
+							
+							# Chance becomes 40
+							modifier = {
+								factor = 4
+								check_variable = { which = lmmpvf_skill_check_score value = 20 }
+							}
+							# Chance becomes 30
+							modifier = {
+								factor = 3
+								check_variable = { which = lmmpvf_skill_check_score value = 15 }
+								NOT = { check_variable = { which = lmmpvf_skill_check_score value = 20 } }
+							}
+							# Chance becomes 20
+							modifier = {
+								factor = 2
+								check_variable = { which = lmmpvf_skill_check_score value = 10 }
+								NOT = { check_variable = { which = lmmpvf_skill_check_score value = 15 } }
+							}
+							# Chance becomes 0
+							modifier = {
+								factor = 0
+								NOT = { lmmpvf_has_at_least_one_faction_member_trigger = yes }
+							}
+							
+							set_character_flag = lmmpvf_goal_success
+						}
+						set_character_flag = lmmpvf_goal_success
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOR = { 
+					has_character_flag = lmmpvf_faction_war_underway 
+					has_character_flag = lmmpvf_goal_success
+				}
+				had_character_flag = { flag = lmmpvf_goal_set days = 3650 }
+			}
+			set_character_flag = lmmpvf_goal_failure
+		}
+		
+		if = {
+			limit = {
+				had_character_flag = { flag = lmmpvf_focus_set days = 3650 }
+			}
+			set_character_flag = lmmpvf_focus_can_change
+		}
+	}
+	
+	option = {
+		name = EVTOPT_NeedMembers_lmmpvf_faction.101
+		trigger = {
+			NOT = { lmmpvf_has_at_least_one_faction_member_trigger = yes }
+			NOR = {
+				has_character_flag = lmmpvf_goal_success
+				has_character_flag = lmmpvf_goal_failure				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPT_AnnounceNewGoal_lmmpvf_faction.101
+		trigger = {
+			NOT = { has_character_flag = lmmpvf_goal_set }
+		}
+		lmmpvf_choose_new_focus_or_goal_effect = yes
+	}
+	
+	option = {
+		name = EVTOPT_ContinueWork_lmmpvf_faction.101
+		trigger = {
+			lmmpvf_has_at_least_one_faction_member_trigger = yes
+			NOR = {				
+				has_character_flag = lmmpvf_goal_success
+				has_character_flag = lmmpvf_goal_failure				
+			}
+			has_character_flag = lmmpvf_goal_set
+		}
+	}
+	
+	option = {
+		name = EVTOPT_AbandonGoal_lmmpvf_faction.101
+		trigger = {
+			ai = no # AI will never abandon goals
+			NOR = {
+				has_character_flag = lmmpvf_goal_success
+				has_character_flag = lmmpvf_goal_failure				
+			}
+			has_character_flag = lmmpvf_goal_set
+		}
+		lmmpvf_save_previous_goal_effect = yes
+		lmmpvf_choose_new_focus_or_goal_effect = yes
+		liege = {
+			show_scope_change = no
+			any_vassal = {
+				show_scope_change = no
+				limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+				opinion = { modifier = lmmpvf_incompetent_faction_leader_opinion who = ROOT }
+				character_event = { id = lmmpvf_faction.102 } # Inform about goal abandonment
+			}
+		}
+		clear_flags_with_prefix = lmmpvf_previous_goal_	
+	}
+	
+	option = {
+		name = EVTOPT_GoalFailure_lmmpvf_faction.101
+		trigger = {
+			has_character_flag = lmmpvf_goal_failure
+		}		
+		log = "LMMPVF - [Root.GetTitledName] failed in goal: [Root.lmmpvf_GetFactionGoal]"
+		liege = {
+			show_scope_change = no
+			any_vassal = {
+				show_scope_change = no
+				limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+				opinion = { modifier = lmmpvf_incompetent_faction_leader_opinion who = ROOT }				
+			}
+		}
+		
+		lmmpvf_inform_members_about_goal_success_or_failure_effect = yes
+		clear_flags_with_prefix = lmmpvf_goal_
+	}
+	
+	option = {
+		name = EVTOPT_GoalSuccess_lmmpvf_faction.101
+		trigger = {
+			has_character_flag = lmmpvf_goal_success
+		}
+		log = "LMMPVF - [Root.GetTitledName] succeeded in goal: [Root.lmmpvf_GetFactionGoal]"
+		liege = {
+			show_scope_change = no
+			any_vassal = {
+				show_scope_change = no
+				limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+				opinion = { modifier = lmmpvf_competent_faction_leader_opinion who = ROOT }
+			}
+		}		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			lmmpvf_focus_glory = {
+				trigger_switch = {
+					on_trigger = has_character_flag
+					
+					# lmmpvf_goal_attack_neighboring_realm = {
+						
+					# }
+					
+					# lmmpvf_goal_oust_foreigners_from_realm = {
+						
+					# }
+					
+					lmmpvf_goal_improve_public_image = {
+						add_character_modifier = { modifier = lmmpvf_improved_public_image_modifier duration = 3650 }						
+					}
+				}
+			}
+			
+			lmmpvf_focus_prosperity = {
+				trigger_switch = {
+					on_trigger = has_character_flag					
+					
+					lmmpvf_goal_establish_trade_route = {
+						any_demesne_province = {
+							add_province_modifier = { name = lmmpvf_faction_trade_route_modifier duration = 5475 }
+						}						
+					}
+					
+					lmmpvf_goal_establish_settlement = {
+						if = {
+							limit = { ai = yes }
+								random_demesne_province = {
+								limit = { has_empty_holding = yes }
+								random_list = {
+									33 = {
+										build_holding = {
+											type = castle
+											holder = ROOT
+										}
+									}
+									33 = {
+										build_holding = {
+											type = city
+											holder = ROOT
+										}
+									}
+									33 = {
+										build_holding = {
+											type = temple
+											holder = ROOT
+										}
+									}
+								}
+							}
+							set_variable = { which = lmmpvf_faction_fund_wealth value = 0 }
+							clear_wealth = yes
+							wealth = 100							
+						}						
+					}
+					
+					lmmpvf_goal_increase_prosperity = {
+						if = {
+							limit = { has_dlc = "Reapers" }
+							any_demesne_province = {
+								limit = { lmmpvf_is_province_eligible_for_prosperity_increase_trigger = yes }
+								lmmpvf_increase_prosperity_effect = yes
+							}							
+						}
+						else = {
+							any_demesne_province = {
+								add_province_modifier = { name = lmmpvf_prospering_modifier days = 3650 }
+							}
+						}						
+					}
+				}
+			}
+			
+			lmmpvf_focus_faith = {
+				trigger_switch = {
+					on_trigger = has_character_flag
+					
+					# lmmpvf_goal_attack_infidel_realm = {
+						
+					# }
+					
+					# lmmpvf_goal_oust_infidels_from_realm = {
+						
+					# }
+					
+					lmmpvf_goal_convert_province_religion = {
+						random_demesne_province = {							
+							limit = { NOT = { religion = ROOT } }
+							religion = ROOT			
+						}						
+					}
+				}
+			}
+		}
+		
+		lmmpvf_inform_members_about_goal_success_or_failure_effect = yes		
+		clear_flags_with_prefix = lmmpvf_goal_
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = {
+		name = EVTOPT_AskForPrestige_lmmpvf_faction.101
+		trigger = {
+			OR = {
+				has_character_flag = lmmpvf_goal_attack_neighboring_realm					
+				has_character_flag = lmmpvf_goal_oust_foreigners_from_realm
+			}
+			lmmpvf_has_at_least_one_faction_member_trigger = yes
+			NOR = { 
+				has_character_flag = lmmpvf_goal_success
+				has_character_flag = lmmpvf_goal_failure 
+			}
+		}
+		hidden_tooltip = {
+			generate_tooltip = no
+			liege = {
+				any_vassal = {
+					limit = { 
+						lmmpvf_is_faction_member_of_ROOT_trigger = yes					
+					}
+					character_event = { id = lmmpvf_goal_helper.103 } # Ask for prestige
+				}
+			}
+			character_event = { id = lmmpvf_goal_helper.104 } # Get results of prestige contribution
+		}
+		
+		ai_chance = {
+			factor = 100
+			
+			modifier = {
+				factor = 0
+				# Ask for war pledge first
+				liege = {
+					any_vassal = {
+						lmmpvf_is_faction_member_of_ROOT_trigger = yes
+						NOT = { has_character_flag = lmmpvf_pledged_war_support_to_@ROOT }
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPT_AskForPiety_lmmpvf_faction.101
+		trigger = {
+			OR = {
+				has_character_flag = lmmpvf_goal_attack_infidel_realm					
+				has_character_flag = lmmpvf_goal_oust_infidels_from_realm
+			}
+			lmmpvf_has_at_least_one_faction_member_trigger = yes
+			NOR = { 
+				has_character_flag = lmmpvf_goal_success
+				has_character_flag = lmmpvf_goal_failure 
+			}
+		}
+		custom_tooltip = {
+			text = lmmpvf_ctt_only_members_of_your_religion_will_be_asked			
+		}
+		hidden_tooltip = {
+			generate_tooltip = no
+			liege = {
+				any_vassal = {
+					limit = { 
+						lmmpvf_is_faction_member_of_ROOT_trigger = yes
+						religion = ROOT
+					}
+					character_event = { id = lmmpvf_goal_helper.105 } # Ask for piety
+				}
+			}
+			character_event = { id = lmmpvf_goal_helper.106 } # Get results of piety contribution
+		}
+		
+		ai_chance = {
+			factor = 100
+			
+			modifier = {
+				factor = 0
+				# Ask for war pledge first
+				liege = {
+					any_vassal = {
+						lmmpvf_is_faction_member_of_ROOT_trigger = yes
+						NOT = { has_character_flag = lmmpvf_pledged_war_support_to_@ROOT }
+					}
+				}
+			}
+		}
+	}
+	
+	# Ask members to pledge war support
+	option = {
+		name = EVTOPT_AskToPledgeWarSupport_lmmpvf_faction.101
+		trigger = {
+			#lmmpvf_has_goal_war_trigger = yes
+			OR = {
+				has_character_flag = lmmpvf_goal_attack_neighboring_realm		
+				has_character_flag = lmmpvf_goal_attack_infidel_realm
+				has_character_flag = lmmpvf_goal_oust_foreigners_from_realm
+				has_character_flag = lmmpvf_goal_oust_infidels_from_realm
+			}
+			lmmpvf_has_at_least_one_faction_member_trigger = yes
+			NOR = { 
+				has_character_flag = lmmpvf_goal_success
+				has_character_flag = lmmpvf_goal_failure 
+			}
+			liege = {
+				any_vassal = {
+					lmmpvf_is_faction_member_of_ROOT_trigger = yes
+					NOT = { has_character_flag = lmmpvf_pledged_war_support_to_@ROOT }
+				}
+			}
+		}
+		
+		hidden_tooltip = {
+			generate_tooltip = no
+			liege = {
+				any_vassal = {
+					limit = { 
+						lmmpvf_is_faction_member_of_ROOT_trigger = yes
+						NOT = { has_character_flag = lmmpvf_pledged_war_support_to_@ROOT }
+					}
+					character_event = { id = lmmpvf_goal_helper.1 } # Ask to pledge war support
+				}
+			}
+			character_event = { id = lmmpvf_goal_helper.2 } # Get results of war pledge
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = {
+		name = EVTOPT_AskForWealth_lmmpvf_faction.101
+		trigger = {			
+			lmmpvf_needs_wealth_contribution_trigger = yes
+			lmmpvf_has_at_least_one_faction_member_trigger = yes
+			NOR = { 
+				has_character_flag = lmmpvf_goal_success
+				has_character_flag = lmmpvf_goal_failure 
+			}	
+		}
+		
+		liege = {
+			any_vassal = {
+				limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+				character_event = { id = lmmpvf_goal_helper.101 } # Ask for wealth contribution
+			}
+		}
+		character_event = { id = lmmpvf_goal_helper.102 } # Get the results of the contribution		
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	after = {
+		lmmpvf_call_meeting_next_year_effect = yes
+	}
+}
+
+# Inform about goal abandonment
+character_event = {
+	id = lmmpvf_faction.102
+	picture = GFX_evt_scandal
+	desc = EVTDESC_LeaderAbandonedGoal_lmmpvf_faction.102
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+		
+	}
+}

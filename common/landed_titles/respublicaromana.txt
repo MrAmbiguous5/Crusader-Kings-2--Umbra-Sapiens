@@ -1,0 +1,205 @@
+k_roman_republic = {
+	color={ 220 20 60 }
+	color2={ 255 215 0 }
+	
+	capital = 333 # Rome
+	
+	short_name = yes
+	
+	title = "CONSUL_TITLE"
+	title_female = "CONSUL_TITLE_FEMALE"
+	
+	purple_born_heirs = no
+	
+	culture = roman
+	#religion = orthodox
+	
+	allow = {
+		always = no # Only created through special event
+	}
+}
+
+k_regnum_romanum = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	capital = 333 # Rome
+	
+	short_name = yes
+	
+	title = "REX_TITLE"
+	title_female = "REX_TITLE_FEMALE"
+	
+	purple_born_heirs = no
+	
+	culture = roman
+	#religion = orthodox
+	
+	allow = {
+		always = no # Only created through special event
+	}
+}
+
+e_western_roman_empire = {
+	color={ 220 20 60 }
+	color2={ 255 255 20 }
+	
+	capital = 333 # Rome
+	
+	short_name = yes
+	
+	title = "IMPERATOR_TITLE"
+	title_female = "IMPERATOR_TITLE_FEMALE"
+	
+	dignity = 10
+	
+	culture = roman
+	
+	has_top_de_jure_capital = yes
+	
+	purple_born_heirs = yes
+	
+	allow = {
+		always = no # Only created through special event
+	}
+}
+
+e_western_roman_empire_pagan = {
+	color={ 220 20 60 }
+	color2={ 255 255 20 }
+	
+	capital = 333 # Rome
+	
+	short_name = yes
+	
+	title = "IMPERATOR_TITLE"
+	title_female = "IMPERATOR_TITLE_FEMALE"
+	
+	dignity = 10
+	
+	culture = roman
+	
+	has_top_de_jure_capital = yes
+	
+	purple_born_heirs = yes
+	
+	allow = {
+		always = no # Only created through special event
+	}
+}
+
+e_roman_empire_pagan = {
+	color={ 143 12 100 }
+	color2={ 255 255 20 }
+	
+	capital = 333 # Rome
+	
+	short_name = yes
+	
+	purple_born_heirs = yes
+	
+	culture = roman
+	#religion = orthodox
+	
+	allow = {
+		always = no # Only created through special event
+	}
+}
+
+e_byzantium_pagan = {
+	color={ 143 12 125 }
+	color2={ 255 255 20 }
+	
+	capital = 496 # Byzantion
+	
+	short_name = yes
+	
+	title = "BASILEUS_TITLE"
+	title_female = "BASILEUS_TITLE_FEMALE"
+	
+	dignity = 10
+	
+	culture = greek
+	
+	has_top_de_jure_capital = yes
+	
+	purple_born_heirs = yes
+	
+    culture = greek
+	#religion = orthodox
+	
+	allow = {
+		always = no # Only created through special event
+	}
+}
+
+e_western_roman_empire_christian = {
+	color={ 220 20 60 }
+	color2={ 255 255 20 }
+	
+	capital = 333 # Rome
+	
+	short_name = yes
+	
+	title = "IMPERATOR_TITLE"
+	title_female = "IMPERATOR_TITLE_FEMALE"
+	
+	dignity = 10
+	
+	culture = roman
+	
+	roman = "Imperium Romanum Occidentale"
+	
+	has_top_de_jure_capital = yes
+	
+	purple_born_heirs = yes
+	
+	allow = {
+		always = no # Only created through special event
+	}
+}
+
+e_roman_empire_christian = {
+	color={ 143 12 100 }
+	color2={ 255 255 20 }
+	
+	capital = 333 # Rome
+	
+	short_name = yes
+	
+	purple_born_heirs = yes
+	
+	culture = roman
+	#religion = orthodox
+	
+	allow = {
+		always = no # Only created through special event
+	}
+}
+
+e_byzantium_christian = {
+	color={ 143 12 125 }
+	color2={ 255 255 20 }
+	
+	capital = 496 # Byzantion
+	
+	short_name = yes
+	
+	title = "BASILEUS_TITLE"
+	title_female = "BASILEUS_TITLE_FEMALE"
+	
+	dignity = 10
+	
+	culture = greek
+	
+	has_top_de_jure_capital = yes
+	
+	purple_born_heirs = yes
+	
+    culture = greek
+	#religion = orthodox
+	
+	allow = {
+		always = no # Only created through special event
+	}
+}	

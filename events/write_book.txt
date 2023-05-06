@@ -1,0 +1,1622 @@
+namespace = equus
+
+#Book start
+character_event = {
+	id = equus.5119
+	desc = EVTDESC_equus.5119
+	picture = "GFX_evt_library"
+	border = GFX_event_normal_frame_war
+	
+	
+	min_age = 16
+	capable_only = yes
+	is_triggered_only = yes
+
+	trigger	= {
+		NOT = { 
+			has_character_flag = writing_k_book 
+		}
+	}
+
+	immediate = {
+		set_variable = { which = "kbook_progress" value = 0 }
+	}
+
+	option = { #Go to inspiration 
+		name = EVTOPTA_equus.5119
+		set_character_flag = writing_k_book
+		character_event = { id = equus.5120 }
+	} 
+}
+
+#Inspiration
+character_event = {
+	id = equus.5120
+	picture = "GFX_evt_library"
+	border = GFX_event_normal_frame_war
+	desc = EVTDESC_equus.5120
+	
+	min_age = 16
+	capable_only = yes
+	is_triggered_only = yes
+
+	option = { #God
+		name = EVTOPTA_equus.5120
+		character_event = { id = equus.5121 days = 90 random = 45 }
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}	
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.5
+						trait = theologian
+					}
+					modifier = {
+						factor = 1.5
+						trait = celibate
+					}
+					change_variable = { which = "kbook_progress" value = 1 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.5
+						trait = theologian
+					}
+					modifier = {
+						factor = 1.5
+						trait = celibate
+					}
+					change_variable = { which = "kbook_progress" value = 0 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.5
+						trait = hedonist
+					}
+					change_variable = { which = "kbook_progress" value = -1 }
+				}
+			}
+		}
+	} 
+	option = { #Lady
+		trigger = {
+			any_friend = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_courtly_lover
+				}
+			}	
+		}
+		name = EVTOPTB_equus.5120
+		character_event = { id = equus.5121 days = 90 random = 45 }
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}	
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = chaste
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					change_variable = { which = "kbook_progress" value = 1 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = chaste
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					change_variable = { which = "kbook_progress" value = 0 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = lustful
+					}
+					modifier = {
+						factor = 1.5
+						trait = gluttonous
+					}
+					modifier = {
+						factor = 1.5
+						trait = proud
+					}
+					change_variable = { which = "kbook_progress" value = -1 }
+				}
+			}
+		}
+	} 
+	option = { #Grandmaster
+		trigger = {
+			is_society_grandmaster = no
+		}
+		name = EVTOPTC_equus.5120
+		character_event = { id = equus.5121 days = 90 random = 45 }
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}	
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = brave
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					change_variable = { which = "kbook_progress" value = 1 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = brave
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					change_variable = { which = "kbook_progress" value = 0 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = craven
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = proud
+					}
+					change_variable = { which = "kbook_progress" value = -1 }
+				}
+			}
+		}
+	} 
+	option = { #Valor
+		name = EVTOPTD_equus.5120
+		character_event = { id = equus.5121 days = 90 random = 45 }
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}	
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = brave
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.5
+						trait = charitable
+					}
+					change_variable = { which = "kbook_progress" value = 1 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = brave
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.5
+						trait = charitable
+					}
+					change_variable = { which = "kbook_progress" value = 0 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = craven
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.5
+						trait = greedy
+					}
+					change_variable = { which = "kbook_progress" value = -1 }
+				}
+			}
+		}
+	} 
+}
+
+#Inspiration
+character_event = {
+	id = equus.5121
+	picture = "GFX_evt_library"
+	border = GFX_event_normal_frame_war
+	desc = EVTDESC_equus.5121
+	
+	min_age = 16
+	capable_only = yes
+	is_triggered_only = yes
+
+	option = { #Member of the Order (not rival)
+		name = EVTOPTA_equus.5121
+		character_event = { id = equus.5122 days = 90 random = 45 }
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { is_rival = ROOT }
+			}
+			save_event_target_as = book_councel
+		}
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						event_target:book_councel = { trait = poet }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = scholar }
+					}	
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = gregarious }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = erudite }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = ambitious }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = diligent }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { diplomacy = 15 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { diplomacy = 20 }
+					}
+					modifier = {
+						factor = 1.25
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = 75
+							}
+						}
+					}
+					modifier = {
+						factor = 1.25
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = 50
+							}
+						}
+					}
+					modifier = {
+						factor = 1.25
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = 25
+							}
+						}
+					}
+					change_variable = { which = "kbook_progress" value = 1 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { event_target:book_councel = { diplomacy = 15 }}
+					}
+					change_variable = { which = "kbook_progress" value = 0 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = content }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = slothful }
+					}
+					modifier = {
+						factor = 0.8
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -25
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -50
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -75
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -100
+							}
+						}
+					}
+					change_variable = { which = "kbook_progress" value = -1 }
+				}
+			}
+		}
+	} 
+	option = { #Friend
+		trigger = {
+			num_of_friends = 1
+		}
+		name = EVTOPTB_equus.5121
+		 
+		character_event = { id = equus.5122 days = 90 random = 45 }
+		random_friend = {
+			save_event_target_as = book_councel
+		}
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						event_target:book_councel = { trait = poet }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = scholar }
+					}	
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = gregarious }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = erudite }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = ambitious }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = diligent }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { diplomacy = 15 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { diplomacy = 20 }
+					}
+					modifier = {
+						factor = 1.25
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = 75
+							}
+						}
+					}
+					modifier = {
+						factor = 1.25
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = 50
+							}
+						}
+					}
+					modifier = {
+						factor = 1.25
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = 25
+							}
+						}
+					}
+					change_variable = { which = "kbook_progress" value = 1 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { event_target:book_councel = { diplomacy = 15 }}
+					}
+					change_variable = { which = "kbook_progress" value = 0 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = content }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = slothful }
+					}
+					modifier = {
+						factor = 0.8
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -25
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -50
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -75
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -100
+							}
+						}
+					}
+					change_variable = { which = "kbook_progress" value = -1 }
+				}
+			}
+		}
+	} 
+	option = { #Most diplomatic non-rival at court
+		name = EVTOPTC_equus.5121
+		 
+		character_event = { id = equus.5122 days = 90 random = 45 }
+		random_courtier_or_vassal = {
+			limit = {
+				diplomacy = 10
+				NOT = { is_rival = ROOT }
+			}
+			save_event_target_as = book_councel
+		}
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						event_target:book_councel = { trait = poet }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = scholar }
+					}	
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = gregarious }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = erudite }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = ambitious }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = diligent }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { diplomacy = 15 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { diplomacy = 20 }
+					}
+					modifier = {
+						factor = 1.25
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = 75
+							}
+						}
+					}
+					modifier = {
+						factor = 1.25
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = 50
+							}
+						}
+					}
+					modifier = {
+						factor = 1.25
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = 25
+							}
+						}
+					}
+					change_variable = { which = "kbook_progress" value = 1 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { event_target:book_councel = { diplomacy = 15 }}
+					}
+					change_variable = { which = "kbook_progress" value = 0 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = content }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:book_councel = { trait = slothful }
+					}
+					modifier = {
+						factor = 0.8
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -25
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -50
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -75
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						event_target:book_councel = {
+							opinion = {
+								who = ROOT
+								value = -100
+							}
+						}
+					}
+					change_variable = { which = "kbook_progress" value = -1 }
+				}
+			}
+		}
+	} 
+}
+
+#Inspiration
+character_event = {
+	id = equus.5122
+	picture = "GFX_evt_library"
+	border = GFX_event_normal_frame_war
+	desc = EVTDESC_equus.5122
+	
+	min_age = 16
+	capable_only = yes
+	is_triggered_only = yes
+
+	option = { #Seclusion
+		name = EVTOPTA_equus.5122
+		character_event = { id = equus.5123 days = 180 random = 90 }
+		add_trait = book_seclusion
+		set_character_flag = backup_book_seclusion
+		hidden_tooltip = {
+			random_list = {
+				30 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}
+					change_variable = { which = "kbook_progress" value = 1 }
+				}	
+				20 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					change_variable = { which = "kbook_progress" value = 0 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 2
+						trait = slothful
+					}
+					#Specific
+					modifier = {
+						factor = 1.5 
+						trait = gregarious
+					}
+					modifier = {
+						factor = 5 
+						trait = stressed
+					}
+					modifier = {
+						factor = 5 
+						trait = drunkard
+					}
+					modifier = {
+						factor = 10
+						trait = depressed
+					}
+					change_variable = { which = "kbook_progress" value = -1 }
+				}
+			}
+		}
+	} 
+	option = { #Partial seclusion
+		name = EVTOPTB_equus.5122
+		 
+		character_event = { id = equus.5123 days = 180 random = 90 }
+		add_character_modifier = {
+			name = partial_book_seclusion
+			duration = -1
+		}
+		hidden_tooltip = {
+			random_list = {
+				25 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					modifier = {
+						factor = 1.25
+						trait = shy
+					}
+					change_variable = { which = "kbook_progress" value = 1 }
+				}	
+				20 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					change_variable = { which = "kbook_progress" value = 0 }
+				}
+				5 = {
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 2
+						trait = slothful
+					}
+					#Specific
+					modifier = {
+						factor = 1.25 
+						trait = gregarious
+					}
+					modifier = {
+						factor = 2.5 
+						trait = stressed
+					}
+					modifier = {
+						factor = 2.5 
+						trait = drunkard
+					}
+					modifier = {
+						factor = 5
+						trait = depressed
+					}
+					change_variable = { which = "kbook_progress" value = -1 }
+				}
+			}
+		}
+	} 
+	option = { #No seclusion
+		name = EVTOPTC_equus.5122
+		 
+		character_event = { id = equus.5123 days = 180 random = 90 }
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}	
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					change_variable = { which = "kbook_progress" value = 1 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					change_variable = { which = "kbook_progress" value = 0 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}
+					#Specific
+					change_variable = { which = "kbook_progress" value = -1 }
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = equus.9122
+	
+	min_age = 16
+	hide_window = yes
+	
+	trigger = {
+		trait = book_seclusion
+		NOT = { has_character_flag = backup_book_seclusion }
+	}
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	immediate = {
+		set_character_flag = backup_book_seclusion
+		liege = { 
+			remove_opinion = {
+				who = ROOT	
+				modifier = opinion_resigned_from_council 
+			} 
+		} 
+		character_event = { id = equus.5123 days = 180 random = 90 }
+	}
+}
+
+#Judgement
+character_event = {
+	id = equus.5123
+	min_age = 16
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = { 
+					is_variable_equal = { which = "kbook_progress" value = 1 }
+					is_variable_equal = { which = "kbook_progress" value = 0 }
+					is_variable_equal = { which = "kbook_progress" value = -1 }
+				}
+			}
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = proud
+					}
+					modifier = {
+						factor = 1.5
+						trait = stubborn
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}
+					set_character_flag = thinks_good
+				}
+				20 = {
+					set_character_flag = thinks_meh
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+				}
+				10 = {
+					set_character_flag = thinks_bad
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					modifier = {
+						factor = 1.5
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 2
+						trait = stressed
+					}
+					modifier = {
+						factor = 4
+						trait = depressed
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = { 
+					is_variable_equal = { which = "kbook_progress" value = 3 }
+					is_variable_equal = { which = "kbook_progress" value = 2 }
+				}
+			}
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 1.5
+						trait = proud
+					}
+					modifier = {
+						factor = 1.5
+						trait = stubborn
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					set_character_flag = thinks_good
+				}
+				10 = {
+					set_character_flag = thinks_meh
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					modifier = {
+						factor = 1.5
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 2
+						trait = depressed
+					}
+				}
+				5 = {
+					set_character_flag = thinks_bad
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					modifier = {
+						factor = 1.5
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 2
+						trait = stressed
+					}
+					modifier = {
+						factor = 4
+						trait = depressed
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = { 
+					is_variable_equal = { which = "kbook_progress" value = -2 }
+					is_variable_equal = { which = "kbook_progress" value = -3 }
+				}
+			}
+			random_list = {
+				5 = {
+					modifier = {
+						factor = 1.5
+						trait = proud
+					}
+					modifier = {
+						factor = 1.5
+						trait = stubborn
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}
+					set_character_flag = thinks_good
+				}
+				10 = {
+					set_character_flag = thinks_meh
+					modifier = {
+						factor = 1.5
+						trait = proud
+					}
+					modifier = {
+						factor = 1.5
+						trait = stubborn
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}
+				}
+				20 = {
+					set_character_flag = thinks_bad
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					modifier = {
+						factor = 1.5
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					modifier = {
+						factor = 2
+						trait = stressed
+					}
+					modifier = {
+						factor = 4
+						trait = depressed
+					}
+				}
+			}
+		}
+		character_event = { id = equus.5124 }
+	}
+}
+
+#Publish?
+character_event = {
+	id = equus.5124
+	desc = {
+		text = EVTDESC_equus_5124_GOOD
+		trigger = {
+			has_character_flag = thinks_good
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_5124_MEH
+		trigger = {
+			has_character_flag = thinks_meh
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_5124_BAD
+		trigger = {
+			has_character_flag = thinks_bad
+		}
+	}
+	picture = "GFX_evt_book_carolingian_script"
+	border = GFX_event_normal_frame_war
+	min_age = 16
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = EVTOPTA_equus.5124 #Yes
+		hide_window = {
+			remove_trait = book_seclusion
+			remove_character_modifier = partial_book_seclusion
+		}
+		clr_character_flag = thinks_good
+		clr_character_flag = thinks_bad
+		clr_character_flag = thinks_meh
+		clr_character_flag = writing_k_book
+		character_event = { id = equus.5125 days = 30 random = 15 }
+	}
+	option = { 
+		name = EVTOPTB_equus.5124 #No
+		clr_character_flag = thinks_good
+		clr_character_flag = thinks_bad
+		clr_character_flag = thinks_meh
+		clr_character_flag = writing_k_book
+		hide_window = {
+			remove_trait = book_seclusion
+			remove_character_modifier = partial_book_seclusion
+		}
+		character_event = { id = equus.5128 }
+	}
+}
+
+#Choose result
+character_event = {
+	id = equus.5125
+	min_age = 16
+	capable_only = yes
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				is_variable_equal = { which = "kbook_progress" value = 3 }
+			}
+			character_event = { id = equus.5126 }
+		}
+		if = {
+			limit = {
+				is_variable_equal = { which = "kbook_progress" value = 2 }
+			}
+			random_list = {
+				66 = {
+					character_event = { id = equus.5126 }
+				}
+				33 = {
+					character_event = { id = equus.5127 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_variable_equal = { which = "kbook_progress" value = 1 }
+			}
+			random_list = {
+				33 = {
+					character_event = { id = equus.5126 }
+				}
+				66 = {
+					character_event = { id = equus.5127 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_variable_equal = { which = "kbook_progress" value = 0 }
+			}
+			character_event = { id = equus.5127 }
+		}
+		if = {
+			limit = {
+				is_variable_equal = { which = "kbook_progress" value = -1 }
+			}
+			random_list = {
+				66 = {
+					character_event = { id = equus.5127 }
+				}
+				33 = {
+					character_event = { id = equus.5129 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_variable_equal = { which = "kbook_progress" value = -2 }
+			}
+			random_list = {
+				33 = {
+					character_event = { id = equus.5127 }
+				}
+				66 = {
+					character_event = { id = equus.5129 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_variable_equal = { which = "kbook_progress" value = -3 }
+			}
+			character_event = { id = equus.5129 }
+		}
+	}
+}
+
+#Great book
+character_event = {
+	id = equus.5126
+	desc = EVTDESC_equus.5126
+	picture = "GFX_evt_book_carolingian_script"
+	border = GFX_event_normal_frame_war
+	min_age = 16
+	capable_only = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		ROOT = { save_event_target_as = writer }
+	}
+	
+	option = { 
+		name = EVTOPTA_equus.5126
+		add_artifact = knight_book 
+		new_artifact = { set_artifact_original_owner = ROOT }
+		clr_character_flag = writing_k_book
+	}
+}
+
+#Good book
+character_event = {             
+    id = equus.5127
+    desc = EVTDESC_equus.5127
+	picture = "GFX_evt_scientist"
+	border = GFX_event_normal_frame_war
+    is_triggered_only = yes
+    option = {
+        name = EVTOPTA_equus.5127
+        prestige = 100
+        add_character_modifier = { name = good_knight_book duration = 3650 }
+		set_character_flag = wrote_k_book
+        clr_character_flag = writing_k_book 
+    }
+}
+
+#Abandon book
+character_event = {             
+    id = equus.5128
+    desc = EVTDESC_equus.5128
+	picture = "GFX_evt_stressed_ruler"
+	border = GFX_event_normal_frame_war
+   is_triggered_only = yes
+    option = {
+        name = EVTOPTA_equus.5128
+		set_character_flag = wrote_k_book
+        clr_character_flag = writing_k_book 
+    }
+}
+
+#Bad book
+character_event = {             
+    id = equus.5129
+    desc = EVTDESC_equus.5129
+	picture = "GFX_evt_bad_news"
+	border = GFX_event_normal_frame_war
+    trigger	= {
+		has_character_flag = writing_k_book
+	}
+	is_triggered_only = yes
+    option = {
+        name = EVTOPTA_equus.5129
+        prestige = -100
+        add_character_modifier = { name = bad_knight_book duration = 3650 }
+		set_character_flag = wrote_k_book
+        clr_character_flag = writing_k_book 
+    }
+}

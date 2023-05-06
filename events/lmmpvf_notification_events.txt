@@ -1,0 +1,43 @@
+namespace = lmmpvf_notification
+
+# Notify liege of faction's focus, stance and goal. Event called when goal is set.
+character_event = {
+	id = lmmpvf_notification.1
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	desc = EVTDESC_NotificationLiegeFactionFocusAndGoal_lmmpvf_notification.1
+	
+	option = {
+		name = OK
+	}
+}
+
+# Notify liege of faction's goal success
+character_event = {
+	id = lmmpvf_notification.2
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	desc = EVTDESC_NotificationLiegeFactionGoalSuccess_lmmpvf_notification.2
+	
+	option = {
+		name = OK
+	}
+}
+
+# Notify liege of faction's goal failure
+character_event = {
+	id = lmmpvf_notification.3
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	desc = EVTDESC_NotificationLiegeFactionGoalFailure_lmmpvf_notification.3
+	
+	option = {
+		name = OK
+	}
+}

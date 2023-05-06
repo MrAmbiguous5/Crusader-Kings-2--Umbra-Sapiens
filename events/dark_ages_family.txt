@@ -1,0 +1,6086 @@
+namespace = darkages
+
+#######################################################################
+
+#########################################################################################
+#
+#	FIND NEW HEIR
+#
+#########################################################################################
+
+#######################################################################
+
+
+
+character_event = { 		#Find new heir - event called from decision
+	id = darkages.72639
+	title = EVTNAME1972639
+	desc = EVTDESC1972639
+	picture = GFX_evt_da_scandal
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972639
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP343 }
+		
+		set_character_flag = da_small_baby
+		
+	
+		hidden_tooltip = {
+			random_list = {
+				3 = {	
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}				
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}
+					modifier = {
+						factor = 1.75
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_chancellor_helped
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_helped
+					}	
+					
+					character_event = { id = darkages.72640 days = 90 random = 90 } 
+				}
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}
+					modifier = {
+						factor = 1.75
+						trait = just
+					}
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spouse_hindered
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_hindered
+					}
+					
+					character_event = { id = darkages.72641 days = 90 random = 90 }			
+				}
+			}	
+		}
+		
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972639
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP344 }
+		
+		set_character_flag = da_kid		
+		
+		hidden_tooltip = {
+			random_list = {
+				2 = {
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}				
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}
+					modifier = {
+						factor = 1.75
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_chancellor_helped
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_helped
+					}
+					
+					character_event = { id = darkages.72640 days = 90 random = 90 } 
+				}
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}
+					modifier = {
+						factor = 1.75
+						trait = just
+					}
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spouse_hindered
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_hindered
+					}
+					
+					character_event = { id = darkages.72641 days = 90 random = 90 }			
+				}
+			}	
+		}		
+	}
+
+	option = {
+		name = EVTOPTC1972639
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP345 }
+		
+		
+		set_character_flag = da_young_adult		
+ 
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}				
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}	
+					modifier = {
+						factor = 1.75
+						trait = deceitful
+					}	
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_chancellor_helped
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_helped
+					}
+					
+					character_event = { id = darkages.72642 days = 90 random = 90 } 
+				}
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}
+					modifier = {
+						factor = 1.75
+						trait = just
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spouse_hindered
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_hindered
+					}
+					
+					character_event = { id = darkages.72641 days = 90 random = 90 }			
+				}
+			}	
+		}
+	}
+
+	after = {
+		clr_character_flag = darkages_spymaster_hindered
+		clr_character_flag = darkages_spymaster_helped			
+		clr_character_flag = darkages_chancellor_helped
+		clr_character_flag = darkages_spouse_hindered			
+	}
+	
+}
+
+character_event = { 		#Character Generator
+	id = darkages.72640
+	title = EVTNAME1972640
+	desc = {
+		trigger = {
+			has_character_flag = da_1
+		}
+		text = EVTDESC1972640_1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = da_2
+		}
+		text = EVTDESC1972640_2
+	}
+	desc = {
+		trigger = {
+			has_character_flag = da_3
+		}
+		text = EVTDESC1972640_3
+	}	
+	desc = {
+		trigger = {
+			has_character_flag = da_4
+		}
+		text = EVTDESC1972640_4
+	}
+	desc = {
+		trigger = {
+			has_character_flag = da_k1
+		}
+		text = EVTDESC1972640_5
+	}	
+	desc = {
+		trigger = {
+			has_character_flag = da_k2
+		}
+		text = EVTDESC1972640_6
+	}	
+	desc = {
+		trigger = {
+			has_character_flag = da_k3
+		}
+		text = EVTDESC1972640_7
+	}	
+	desc = {
+		trigger = {
+			has_character_flag = da_k4
+		}
+		text = EVTDESC1972640_8
+	}	
+	picture = GFX_evt_da_heir
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+	
+		if = {
+			limit = {
+				has_character_flag = da_small_baby
+			}
+			
+			random_list = {
+			
+				1 = {
+					set_character_flag = da_1		#possible illness
+				}
+				
+				2 = {
+					set_character_flag = da_2		#possible bad trait
+				}				
+				
+				1 = {
+					set_character_flag = da_3		#possible good trait
+				}				
+				
+				3 = {
+					set_character_flag = da_4		#normal
+				}				
+			
+			}
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = da_kid
+			}
+			
+			random_list = {
+			
+				1 = {
+					set_character_flag = da_k1		#possible illness
+				}
+				
+				2 = {
+					set_character_flag = da_k2		#possible bad trait
+				}				
+				
+				1 = {
+					set_character_flag = da_k3		#possible good trait
+				}				
+				
+				3 = {
+					set_character_flag = da_k4		#possible normal
+				}				
+			
+			}
+			
+		}		
+
+	}
+	
+	option = {
+		name = EVTOPTA1972640
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }		
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}
+
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_1 = {
+			
+				treasury = -1
+			
+				hidden_tooltip = {
+					create_character = {
+						age = 1
+						dynasty = ROOT
+						female = no
+						religion = ROOT
+						culture = ROOT						
+					}
+				
+					new_character = {
+						set_father = ROOT
+						add_character_modifier = {
+							name = da_fake_heir
+							duration = -1
+						}
+						
+						add_trait = legit_bastard
+						
+						random_list = {
+						
+							5 = {
+							}
+							2 = {
+								add_trait = infirm
+							}
+							2 = {
+								add_trait = ill
+							}
+							2 = {
+								add_trait = blinded
+							}
+							2 = {
+								add_trait = sickly
+							}
+							2 = {
+								random_list = {
+									1 = {
+										add_trait = lunatic
+									}
+									1 = {
+										add_trait = possessed
+									}						
+									1 = {
+										add_trait = paranoid
+									}						
+								}
+							}						
+						
+						}
+					}
+				
+				}
+			}
+			
+			da_2 = {
+				hidden_tooltip = {
+					create_character = {
+						age = 1
+						dynasty = ROOT
+						female = no
+						religion = ROOT
+						culture = ROOT						
+					}
+				
+					new_character = {
+						set_father = ROOT
+						add_character_modifier = {
+							name = da_fake_heir
+							duration = -1
+						}
+						
+						add_trait = legit_bastard
+						
+						random_list = {
+						
+							6 = {
+							}
+							1 = {
+								add_trait = clubfooted
+							}
+							1 = {
+								add_trait = harelip
+							}
+							1 = {
+								add_trait = hunchback
+							}
+							1 = {
+								add_trait = lisp
+							}							
+							1 = {
+								add_trait = stutter
+							}
+							1 = {
+								add_trait = ugly
+							}
+							1 = {
+								add_trait = dwarf
+							}
+							1 = {
+								add_trait = imbecile
+							}
+							1 = {
+								add_trait = inbred
+							}
+						
+						}
+					}
+				
+				}
+			}
+			
+			da_3 = {
+			
+				job_spiritual = {
+					add_favor = ROOT
+				}
+			
+				hidden_tooltip = {
+					create_character = {
+						age = 1
+						dynasty = ROOT
+						female = no
+						religion = ROOT
+						culture = ROOT						
+					}
+				
+					new_character = {
+						set_father = ROOT
+						add_character_modifier = {
+							name = da_fake_heir
+							duration = -1
+						}
+						
+						add_trait = legit_bastard
+						
+						random_list = {
+						
+							4 = {
+							}
+							1 = {
+								add_trait = quick
+							}
+							1 = {
+								add_trait = genius
+							}
+							1 = {
+								add_trait = shrewd
+							}
+							1 = {
+								add_trait = fair
+							}							
+							1 = {
+								add_trait = robust
+							}
+						
+						}
+					}
+				
+				}
+			}
+
+			da_4 = {
+				hidden_tooltip = {
+					create_character = {
+						age = 1
+						dynasty = ROOT
+						female = no
+						religion = ROOT
+						culture = ROOT						
+					}
+				
+					new_character = {
+						set_father = ROOT
+						add_character_modifier = {
+							name = da_fake_heir
+							duration = -1
+						}
+						add_trait = legit_bastard
+						
+					}
+				
+				}
+			}	
+
+			da_k1 = {
+				hidden_tooltip = {
+					create_character = {
+						age = 8
+						dynasty = ROOT
+						female = no
+						religion = ROOT
+						culture = ROOT						
+					}
+				
+					new_character = {
+						set_father = ROOT
+						add_character_modifier = {
+							name = da_fake_heir
+							duration = -1
+						}
+						
+						add_trait = legit_bastard
+						
+						random_list = {
+							1 = {
+								add_trait = affectionate
+							}
+							1 = {
+								add_trait = haughty
+							}							
+							1 = {
+								add_trait = timid
+							}
+							1 = {
+								add_trait = rowdy
+							}
+							1 = {
+								add_trait = willful
+							}
+							1 = {
+								add_trait = brooding
+							}
+							1 = {
+								add_trait = indolent
+							}
+							1 = {
+								add_trait = playful
+							}
+							1 = {
+								add_trait = conscientious
+							}
+							1 = {
+								add_trait = fussy
+							}
+							1 = {
+								add_trait = curious
+							}
+							1 = {
+								add_trait = idolizer
+							}
+							
+							
+						}
+						
+						random_list = {
+							1 = {
+								add_trait = affectionate
+							}
+							1 = {
+								add_trait = haughty
+							}							
+							1 = {
+								add_trait = timid
+							}
+							1 = {
+								add_trait = rowdy
+							}
+							1 = {
+								add_trait = willful
+							}
+							1 = {
+								add_trait = brooding
+							}
+							1 = {
+								add_trait = indolent
+							}
+							1 = {
+								add_trait = playful
+							}
+							1 = {
+								add_trait = conscientious
+							}
+							1 = {
+								add_trait = fussy
+							}
+							1 = {
+								add_trait = curious
+							}
+							1 = {
+								add_trait = idolizer
+							}
+							
+							
+						}
+
+						random_list = {
+							3 = {
+							}
+							1 = {
+								add_trait = lunatic
+							}
+							1 = {
+								add_trait = possessed
+							}						
+							1 = {
+								add_trait = paranoid
+							}						
+							1 = {
+								add_trait = infirm
+							}							
+							1 = {
+								add_trait = ill
+							}													
+						}
+						
+					}
+				
+				}
+			}	
+
+			da_k2 = {
+			
+				if = {
+					limit = { NOT = { trait = one_handed } }
+					add_trait = one_handed
+					add_trait = severely_injured
+				}
+				else = {
+					add_trait = maimed
+					add_trait = severely_injured
+				}
+			
+				hidden_tooltip = {
+					create_character = {
+						age = 8
+						dynasty = ROOT
+						female = no
+						religion = ROOT
+						culture = ROOT						
+					}
+				
+					new_character = {
+						set_father = ROOT
+						add_character_modifier = {
+							name = da_fake_heir
+							duration = -1
+						}
+						
+						add_trait = legit_bastard
+						
+						random_list = {
+							1 = {
+								add_trait = affectionate
+							}
+							1 = {
+								add_trait = haughty
+							}							
+							1 = {
+								add_trait = timid
+							}
+							1 = {
+								add_trait = rowdy
+							}
+							1 = {
+								add_trait = willful
+							}
+							1 = {
+								add_trait = brooding
+							}
+							1 = {
+								add_trait = indolent
+							}
+							1 = {
+								add_trait = playful
+							}
+							1 = {
+								add_trait = conscientious
+							}
+							1 = {
+								add_trait = fussy
+							}
+							1 = {
+								add_trait = curious
+							}
+							1 = {
+								add_trait = idolizer
+							}
+							
+							
+						}
+						
+						random_list = {
+							1 = {
+								add_trait = affectionate
+							}
+							1 = {
+								add_trait = haughty
+							}							
+							1 = {
+								add_trait = timid
+							}
+							1 = {
+								add_trait = rowdy
+							}
+							1 = {
+								add_trait = willful
+							}
+							1 = {
+								add_trait = brooding
+							}
+							1 = {
+								add_trait = indolent
+							}
+							1 = {
+								add_trait = playful
+							}
+							1 = {
+								add_trait = conscientious
+							}
+							1 = {
+								add_trait = fussy
+							}
+							1 = {
+								add_trait = curious
+							}
+							1 = {
+								add_trait = idolizer
+							}
+							
+							
+						}
+
+						random_list = {
+						
+							6 = {
+							}
+							1 = {
+								add_trait = clubfooted
+							}
+							1 = {
+								add_trait = harelip
+							}
+							1 = {
+								add_trait = hunchback
+							}
+							1 = {
+								add_trait = lisp
+							}							
+							1 = {
+								add_trait = stutter
+							}
+							1 = {
+								add_trait = ugly
+							}
+							1 = {
+								add_trait = dwarf
+							}
+							1 = {
+								add_trait = imbecile
+							}
+							1 = {
+								add_trait = inbred
+							}
+						
+						}
+						
+					}
+				
+				}
+			}	
+
+			da_k3 = {
+
+				job_spymaster = {
+					add_favor = ROOT
+				}
+
+				hidden_tooltip = {
+					create_character = {
+						age = 8
+						dynasty = ROOT
+						female = no
+						religion = ROOT
+						culture = ROOT						
+					}
+				
+					new_character = {
+						set_father = ROOT
+						add_character_modifier = {
+							name = da_fake_heir
+							duration = -1
+						}
+						
+						add_trait = legit_bastard
+						
+						random_list = {
+							1 = {
+								add_trait = affectionate
+							}
+							1 = {
+								add_trait = haughty
+							}							
+							1 = {
+								add_trait = timid
+							}
+							1 = {
+								add_trait = rowdy
+							}
+							1 = {
+								add_trait = willful
+							}
+							1 = {
+								add_trait = brooding
+							}
+							1 = {
+								add_trait = indolent
+							}
+							1 = {
+								add_trait = playful
+							}
+							1 = {
+								add_trait = conscientious
+							}
+							1 = {
+								add_trait = fussy
+							}
+							1 = {
+								add_trait = curious
+							}
+							1 = {
+								add_trait = idolizer
+							}
+							
+							
+						}
+						
+						random_list = {
+							1 = {
+								add_trait = affectionate
+							}
+							1 = {
+								add_trait = haughty
+							}							
+							1 = {
+								add_trait = timid
+							}
+							1 = {
+								add_trait = rowdy
+							}
+							1 = {
+								add_trait = willful
+							}
+							1 = {
+								add_trait = brooding
+							}
+							1 = {
+								add_trait = indolent
+							}
+							1 = {
+								add_trait = playful
+							}
+							1 = {
+								add_trait = conscientious
+							}
+							1 = {
+								add_trait = fussy
+							}
+							1 = {
+								add_trait = curious
+							}
+							1 = {
+								add_trait = idolizer
+							}
+							
+							
+						}
+
+						random_list = {
+						
+							4 = {
+							}
+							1 = {
+								add_trait = quick
+							}
+							1 = {
+								add_trait = genius
+							}
+							1 = {
+								add_trait = shrewd
+							}
+							1 = {
+								add_trait = fair
+							}							
+							1 = {
+								add_trait = robust
+							}
+						
+						}
+						
+					}
+				
+				}
+			}
+
+			da_k4 = {
+				hidden_tooltip = {
+					create_character = {
+						age = 8
+						dynasty = ROOT
+						female = no
+						religion = ROOT
+						culture = ROOT						
+					}
+				
+					new_character = {
+						set_father = ROOT
+						add_character_modifier = {
+							name = da_fake_heir
+							duration = -1
+						}
+						
+						add_trait = legit_bastard
+						
+						random_list = {
+							1 = {
+								add_trait = affectionate
+							}
+							1 = {
+								add_trait = haughty
+							}							
+							1 = {
+								add_trait = timid
+							}
+							1 = {
+								add_trait = rowdy
+							}
+							1 = {
+								add_trait = willful
+							}
+							1 = {
+								add_trait = brooding
+							}
+							1 = {
+								add_trait = indolent
+							}
+							1 = {
+								add_trait = playful
+							}
+							1 = {
+								add_trait = conscientious
+							}
+							1 = {
+								add_trait = fussy
+							}
+							1 = {
+								add_trait = curious
+							}
+							1 = {
+								add_trait = idolizer
+							}
+							
+							
+						}
+						
+						random_list = {
+							1 = {
+								add_trait = affectionate
+							}
+							1 = {
+								add_trait = haughty
+							}							
+							1 = {
+								add_trait = timid
+							}
+							1 = {
+								add_trait = rowdy
+							}
+							1 = {
+								add_trait = willful
+							}
+							1 = {
+								add_trait = brooding
+							}
+							1 = {
+								add_trait = indolent
+							}
+							1 = {
+								add_trait = playful
+							}
+							1 = {
+								add_trait = conscientious
+							}
+							1 = {
+								add_trait = fussy
+							}
+							1 = {
+								add_trait = curious
+							}
+							1 = {
+								add_trait = idolizer
+							}
+							
+							
+						}
+
+					}
+				
+				}
+			}			
+			
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972640	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP347 }
+	
+	}
+	
+	after = {
+	
+		clr_character_flag = da_1
+		clr_character_flag = da_2
+		clr_character_flag = da_3
+		clr_character_flag = da_4
+		clr_character_flag = da_k1
+		clr_character_flag = da_k2
+		clr_character_flag = da_k3		
+		clr_character_flag = da_k4
+		clr_character_flag = da_kid
+		clr_character_flag = da_small_baby	
+
+		recalc_succession = yes		
+		
+	}
+	
+}
+
+character_event = { 		#Fail in the quest to find a candidate to be the heir
+	id = darkages.72641
+	title = EVTNAME1972641
+	desc = EVTDESC1972641
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972641
+		
+		random_list = {
+			3 = {
+				add_character_modifier = {
+					name = da_despondent
+					duration = 1095
+				}
+			}
+		
+			1 = {
+				modifier = {
+					factor = 0
+					trait = depressed
+				}
+				add_trait = depressed
+			}
+		}
+		
+		clr_character_flag = da_kid
+		clr_character_flag = da_small_baby	
+		clr_character_flag = da_young_adult			
+		
+	}
+	
+}
+
+character_event = { 		#Event generating adult "son"
+	id = darkages.72642
+	title = EVTNAME1972642
+	desc = {
+		trigger = { has_character_flag = darkages_1 }
+		text = EVTDESC1972642_1
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_2 }
+		text = EVTDESC1972642_2
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_3 }
+		text = EVTDESC1972642_3
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_4 }
+		text = EVTDESC1972642_4
+	} 
+	desc = {
+		trigger = { has_character_flag = darkages_5 }
+		text = EVTDESC1972642_5
+	} 
+	desc = {
+		trigger = { has_character_flag = darkages_6 }
+		text = EVTDESC1972642_6
+	} 
+	desc = {
+		trigger = { has_character_flag = darkages_7 }
+		text = EVTDESC1972642_7
+	} 
+	desc = {
+		trigger = { has_character_flag = darkages_8 }
+		text = EVTDESC1972642_8
+	} 
+	desc = {
+		trigger = { has_character_flag = darkages_9 }
+		text = EVTDESC1972642_9	
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_10 }
+		text = EVTDESC1972642_10	
+	}	
+	picture = GFX_evt_da_court_celebration
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {	#drunkard
+				set_character_flag = darkages_1
+			}
+			1 = {	#bad congenital traits
+				set_character_flag = darkages_2			
+			}
+			1 = {	#Imbecile
+				set_character_flag = darkages_3			
+			}
+			1 = {	#Good congenital traits
+				set_character_flag = darkages_4			
+			}
+			1 = {	#schemer
+				set_character_flag = darkages_5			
+			}
+			1 = {	#strategist
+				set_character_flag = darkages_6			
+			}
+			1 = {	#poet
+				set_character_flag = darkages_7			
+			}
+			1 = {	#assassin
+				set_character_flag = darkages_8			
+			}	
+			1 = {	#dwarf
+				set_character_flag = darkages_9
+			}
+			1 = {	#blinded
+				set_character_flag = darkages_10
+			}			
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972642	#Drunkard
+		trigger = { has_character_flag = darkages_1 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+		
+		hidden_tooltip = {
+		
+			create_character = {
+				age = 18
+				dynasty = ROOT
+				female = no
+				religion = ROOT
+				culture = ROOT
+				random_traits = yes				
+			}
+			new_character = {
+				set_father = ROOT
+				add_character_modifier = {
+					name = da_fake_heir
+					duration = -1
+				}
+				add_trait = legit_bastard				
+				add_trait = drunkard
+			}
+		
+		}
+		
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972642	#Bad congenital traits
+		trigger = { has_character_flag = darkages_2 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+		
+		hidden_tooltip = {
+		
+			create_character = {
+				age = 20
+				dynasty = ROOT
+				female = no
+				religion = ROOT
+				culture = ROOT	
+				random_traits = yes				
+			}
+			
+			new_character = {
+				set_father = ROOT
+				add_character_modifier = {
+					name = da_fake_heir
+					duration = -1
+				}
+				
+				add_trait = legit_bastard
+				
+				random_list = {
+					1 = {
+						add_trait = slow
+					}
+					1 = {
+						add_trait = harelip					
+					}
+					1 = {
+						add_trait = ugly
+					}					
+					
+				}
+				
+				random_list = {
+					2 = {
+						
+					}
+					1 = {
+						add_trait = clubfooted
+					}
+					1 = {
+						add_trait = hunchback			
+					}
+					1 = {
+						add_trait = lisp
+					}					
+					
+				}
+
+				random_list = {
+					3 = {
+						
+					}
+					1 = {
+						add_trait = weak
+					}
+					1 = {
+						add_trait = inbred			
+					}
+					1 = {
+						add_trait = stutter
+					}					
+					
+				}				
+			
+
+			}
+		
+		}
+		
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972642	#Imbecile
+		trigger = { has_character_flag = darkages_3 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+		
+		hidden_tooltip = {
+		
+			create_character = {
+				age = 16
+				dynasty = ROOT
+				female = no
+				religion = ROOT
+				culture = ROOT	
+				random_traits = yes				
+			}
+			
+			new_character = {
+				set_father = ROOT
+				add_character_modifier = {
+					name = da_fake_heir
+					duration = -1
+				}
+				
+				add_trait = legit_bastard
+				add_trait = imbecile
+			}
+		
+		}
+		
+		
+	}
+
+	option = {
+		name = EVTOPTA1972642	#Good congenital traits
+		trigger = { has_character_flag = darkages_4 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+		
+		hidden_tooltip = {
+		
+			create_character = {
+				age = 17
+				dynasty = ROOT
+				female = no
+				religion = ROOT
+				culture = ROOT	
+				random_traits = yes				
+			}
+			
+			new_character = {
+				set_father = ROOT
+				add_character_modifier = {
+					name = da_fake_heir
+					duration = -1
+				}
+				
+				add_trait = legit_bastard
+				
+				random_list = {
+					3 = {
+						add_trait = quick
+					}
+					3 = {
+						add_trait = fair					
+					}
+					1 = {
+						add_trait = genius
+					}					
+				
+				}
+				
+				random_list = {
+					4 = {
+						
+					}
+					1 = {
+						add_trait = strong
+					}
+					1 = {
+						add_trait = shrewd
+					}				
+					
+				}
+
+			}
+
+		
+		}
+		
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972642	#Schemer
+		trigger = { has_character_flag = darkages_5 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+		
+		hidden_tooltip = {
+		
+			create_random_intriguer = {
+				random_traits = yes
+				age = 22
+				dynasty = ROOT
+				female = no
+				religion = ROOT
+				culture = ROOT	
+
+				attributes = {
+					intrigue = 10
+				}
+				
+			}
+			new_character = {
+				set_father = ROOT
+				add_character_modifier = {
+					name = da_fake_heir
+					duration = -1
+				}
+				
+				add_trait = legit_bastard			
+				add_trait = schemer
+			}
+		
+		}
+		
+		
+	}
+
+	option = {
+		name = EVTOPTA1972642	#Strategist
+		trigger = { has_character_flag = darkages_6 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+		
+		hidden_tooltip = {
+		
+			create_random_soldier = {
+				age = 19
+				dynasty = ROOT
+				female = no
+				religion = ROOT
+				culture = ROOT	
+				random_traits = yes
+				
+				attributes = {
+					martial = 10
+				}
+				
+			}
+			new_character = {
+				set_father = ROOT
+				add_character_modifier = {
+					name = da_fake_heir
+					duration = -1
+				}			
+
+				add_trait = legit_bastard			
+				add_trait = strategist
+			}
+		
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972642	#Poet
+		trigger = { has_character_flag = darkages_7 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+		
+		hidden_tooltip = {
+		
+			create_random_diplomat = {
+				age = 17
+				dynasty = ROOT
+				female = no
+				religion = ROOT
+				culture = ROOT	
+				random_traits = no
+			}
+			new_character = {
+				set_father = ROOT
+				add_character_modifier = {
+					name = da_fake_heir
+					duration = -1
+				}			
+				
+				add_trait = legit_bastard			
+				add_trait = poet
+				
+				random_list = {
+					1 = {
+						add_trait = wroth
+					}
+					1 = {
+						add_trait = envious
+					}
+					1 = {
+						add_trait = gluttonous
+					}
+				}
+				
+				random_list = {
+					1 = {
+						add_trait = proud
+					}
+					1 = {
+						add_trait = deceitful
+					}
+					1 = {
+						add_trait = arbitrary
+					}
+				}				
+				
+				random_list = {
+					1 = {
+						add_trait = lustful
+					}
+					1 = {
+						add_trait = greedy
+					}
+					1 = {
+						add_trait = slothful
+					}
+				}				
+				
+			}
+		
+		}		
+		
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972642	#Assassin
+		trigger = { has_character_flag = darkages_8 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+		
+		hidden_tooltip = {
+		
+			create_random_intriguer = {
+				age = 19
+				dynasty = ROOT
+				female = no
+				religion = ROOT
+				culture = ROOT	
+				random_traits = no
+			}
+			new_character = {
+				set_father = ROOT
+				add_character_modifier = {
+					name = da_fake_heir
+					duration = -1
+				}			
+				
+				add_trait = legit_bastard			
+				add_trait = assassin
+				
+				random_list = {
+					1 = {
+						add_trait = patient
+					}
+					1 = {
+						add_trait = kind
+					}
+					1 = {
+						add_trait = temperate
+					}
+				}
+				
+				random_list = {
+					1 = {
+						add_trait = humble
+					}
+					1 = {
+						add_trait = honest
+					}
+					1 = {
+						add_trait = just
+					}
+				}				
+				
+				random_list = {
+					1 = {
+						add_trait = chaste
+					}
+					1 = {
+						add_trait = diligent
+					}
+					1 = {
+						add_trait = charitable
+					}
+				}				
+				
+			}
+		
+		}		
+		
+		
+	}	
+
+	option = {
+		name = EVTOPTA1972642	#Dwarf
+		trigger = { has_character_flag = darkages_9 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+		
+		hidden_tooltip = {
+		
+			create_character = {
+				age = 20
+				dynasty = ROOT
+				female = no
+				religion = ROOT
+				culture = ROOT	
+				random_traits = yes
+			}
+			new_character = {
+				set_father = ROOT
+				add_character_modifier = {
+					name = da_fake_heir
+					duration = -1
+				}			
+				
+				add_trait = legit_bastard			
+				add_trait = dwarf
+			}
+		
+		}		
+		
+		
+	}
+
+	option = {
+		name = EVTOPTA1972642	#blinded
+		trigger = { has_character_flag = darkages_10 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP346 }
+		
+		piety = -50
+		
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_illegitimate_heir
+				months = 120
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+		
+		hidden_tooltip = {
+		
+			create_random_priest = {
+				age = 21
+				dynasty = ROOT
+				female = no
+				religion = ROOT
+				culture = ROOT	
+				random_traits = yes
+				
+				attributes = {
+					learning = 8
+				}				
+			}
+			new_character = {
+				set_father = ROOT
+				add_character_modifier = {
+					name = da_fake_heir
+					duration = -1
+				}
+				
+				add_trait = legit_bastard				
+				add_trait = blinded
+			}
+		
+		}		
+		
+		
+	}		
+	
+	option = {
+		name = EVTOPTB1972642	#Stop this nonsense
+	}
+	
+	after = {
+		clr_character_flag = darkages_1
+		clr_character_flag = darkages_2
+		clr_character_flag = darkages_3
+		clr_character_flag = darkages_4
+		clr_character_flag = darkages_5
+		clr_character_flag = darkages_6
+		clr_character_flag = darkages_7
+		clr_character_flag = darkages_8		
+		clr_character_flag = darkages_9
+		clr_character_flag = darkages_10
+		clr_character_flag = da_young_adult	
+		
+		recalc_succession = yes
+	}
+	
+}
+
+
+character_event = { 		#event to kill character
+	id = darkages.72643
+	title = EVTNAME1972643
+	desc = EVTDESC1972643
+	picture = GFX_evt_da_back_hit
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972643
+		custom_tooltip = {text = DA_CUSTOMTOOLTIP348 }
+		
+		prestige = 50
+		
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 5
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 15
+				}				
+				modifier = {
+					factor = 1.5
+					combat_rating = 30
+				}				
+				modifier = {
+					factor = 1.5
+					combat_rating = 45
+				}				
+				modifier = {
+					factor = 1.5
+					combat_rating = 60
+				}				
+				modifier = {
+					factor = 2
+					combat_rating = 75
+				}				
+				modifier = {
+					factor = 2
+					combat_rating = 90
+				}				
+				modifier = {
+					factor = 3
+					combat_rating = 100
+				}				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP350 }
+			}
+			4 = {
+				add_trait = wounded
+			}
+			1 = {
+				add_trait = maimed
+				add_trait = severely_injured
+			}
+			1 = {
+				add_trait = one_eyed
+			}
+			1 = {
+				add_trait = one_legged
+				add_trait = severely_injured
+			}
+			1 = {
+				add_trait = one_handed
+				add_trait = severely_injured
+			}			
+			7 = {
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}	
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = -5 }
+				}				
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -10 }
+				}				
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -15 }
+				}				
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				modifier = {
+					factor = 2
+					NOT = { combat_rating = -25 }
+				}				
+				modifier = {
+					factor = 3
+					NOT = { combat_rating = -30 }
+				}				
+				death = {
+					death_reason = death_battle
+				}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972643
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP349 }
+
+		if = {
+			limit = {
+				NOT = { treasury = 50 }
+			}
+			
+			treasury = -25
+		
+		}
+		
+		if = {
+			limit = {
+				NOT = { treasury = 100 }
+				treasury = 50
+			}
+			
+			treasury = -40
+		
+		}		
+
+		if = {
+			limit = {
+				NOT = { treasury = 200 }
+				treasury = 100
+			}
+			
+			treasury = -75
+		
+		}
+
+		if = {
+			limit = {
+				NOT = { treasury = 400 }
+				treasury = 200
+			}
+			
+			treasury = -150
+		
+		}	
+
+		if = {
+			limit = {
+				treasury = 400
+			}
+			
+			treasury = -300
+		
+		}		
+		
+		random_list = {
+			9 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 5
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 15
+				}				
+				modifier = {
+					factor = 1.5
+					combat_rating = 30
+				}				
+				modifier = {
+					factor = 1.5
+					combat_rating = 45
+				}				
+				modifier = {
+					factor = 1.5
+					combat_rating = 60
+				}				
+				modifier = {
+					factor = 2
+					combat_rating = 75
+				}				
+				modifier = {
+					factor = 2
+					combat_rating = 90
+				}				
+				modifier = {
+					factor = 3
+					combat_rating = 100
+				}				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP351 }
+			}
+			2 = {
+				add_trait = wounded
+			}
+			1 = {
+				add_trait = maimed
+				add_trait = severely_injured
+			}
+			1 = {
+				add_trait = one_eyed
+			}
+			1 = {
+				add_trait = one_legged
+				add_trait = severely_injured
+			}
+			1 = {
+				add_trait = one_handed
+				add_trait = severely_injured
+			}			
+			5 = {
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}	
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = -5 }
+				}				
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -10 }
+				}				
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -15 }
+				}				
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				modifier = {
+					factor = 2
+					NOT = { combat_rating = -25 }
+				}				
+				modifier = {
+					factor = 3
+					NOT = { combat_rating = -30 }
+				}				
+				death = {
+					death_reason = death_battle
+				}
+			}
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTC1972643
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP352 }	
+		
+		if = {
+			limit = {
+				NOT = { treasury = 50 }
+			}
+			
+			treasury = -50
+		
+		}
+		
+		if = {
+			limit = {
+				NOT = { treasury = 100 }
+				treasury = 50
+			}
+			
+			treasury = -100
+		
+		}		
+
+		if = {
+			limit = {
+				NOT = { treasury = 200 }
+				treasury = 100
+			}
+			
+			treasury = 200
+		
+		}
+
+		if = {
+			limit = {
+				NOT = { treasury = 400 }
+				treasury = 200
+			}
+			
+			treasury = -400
+		
+		}	
+
+		if = {
+			limit = {
+				NOT = { treasury = 600 }
+				treasury = 400
+			}
+			
+			treasury = -550
+		
+		}
+		
+		if = {
+			limit = {
+				NOT = { treasury = 800 }
+				treasury = 600
+			}
+			
+			treasury = -725
+		
+		}
+
+		if = {
+			limit = {
+				NOT = { treasury = 1000 }
+				treasury = 800
+			}
+			
+			treasury = -900
+		
+		}		
+		
+		if = {
+			limit = {
+				treasury = 1000
+			}
+			
+			treasury = -1000
+		
+		}		
+		
+		random = {
+			chance = 5
+			modifier = {
+				factor = 1.33
+				trait = envious
+			}
+			modifier = {
+				factor = 1.33
+				trait = wroth
+			}			
+			modifier = {
+				factor = 1.33
+				trait = slothful
+			}			
+			modifier = {
+				factor = 1.33
+				trait = proud
+			}	
+			modifier = {
+				factor = 1.33
+				trait = greedy
+			}			
+			modifier = {
+				factor = 1.33
+				trait = gluttonous
+			}	
+			modifier = {
+				factor = 1.33
+				trait = lustful
+			}			
+			custom_tooltip = { text = DA_CUSTOMTOOLTIP353 }	
+			death = {
+				death_reason = death_execution_beheading
+			}			
+		}
+		
+	}
+}
+
+
+character_event = { 		#Chancellor helped
+	id = darkages.72644
+	title = EVTNAME1972644
+	desc = EVTDESC1972644
+	picture = GFX_evt_da_private_discussion
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+		job_chancellor = {
+			always = yes
+		}
+	}
+
+	immediate = {
+		job_chancellor = {
+			save_event_target_as = da_chancellor
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972644
+
+		scaled_wealth = { value = -2 min = -200 max = -500 }
+
+		job_chancellor = {
+			add_favor = ROOT
+		}
+		
+		set_character_flag = darkages_chancellor_helped
+
+	}
+	
+	option = {
+		name = EVTOPTB1972644
+
+		job_chancellor = {
+			opinion = {
+				who = ROOT
+				modifier = da_liar
+				months = 48
+			}
+		}
+		
+	}	
+	
+}
+
+character_event = { 		#Spymaster helped
+	id = darkages.72645
+	title = EVTNAME1972645
+	desc = EVTDESC1972645
+	picture = GFX_evt_da_spymaster
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+		job_spymaster = {
+			always = yes
+		}
+	}
+
+	immediate = {
+		job_spymaster = {
+			save_event_target_as = da_spymaster
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972645
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP356 }
+
+		job_spymaster = {
+			add_favor = ROOT
+		}
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.5
+					NOT = { realm_intrigue = 30 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { realm_intrigue = 25 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { realm_intrigue = 20 }
+				}
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP355 }				
+				set_character_flag = darkages_spymaster_hindered
+			}
+			1 = {
+				modifier = {
+					factor = 2
+					realm_intrigue = 35
+				}
+				modifier = {
+					factor = 2
+					realm_intrigue = 40
+				}
+				modifier = {
+					factor = 2
+					realm_intrigue = 45
+				}				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP354 }
+				set_character_flag = darkages_spymaster_helped
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972645
+
+	}	
+	
+}
+
+character_event = { 		#spouse tries to make plan fail
+	id = darkages.72646
+	title = EVTNAME1972646
+	desc = {
+		trigger = { is_female = no }
+		text = EVTDESC1972646_F
+	}
+	desc = {
+		trigger = { is_female = yes }
+		text = EVTDESC1972646_M
+	}	
+	picture = GFX_evt_da_couple_quarrel
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		spouse = {
+			always = yes
+		}
+	}
+
+	immediate = {
+		spouse = {
+			save_event_target_as = da_spouse
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972646
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP357 }	
+		
+		
+		set_character_flag = darkages_spouse_hindered
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_3
+			}
+			
+			hidden_tooltip = { remove_character_modifier = da_lack_harmony_3 }			
+		
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1825
+			}
+		
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_2
+			}
+			
+			remove_character_modifier = da_lack_harmony_2
+			
+			add_character_modifier = {
+				name = da_lack_harmony_3
+				duration = 1095
+			}
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_lack_harmony_1
+			}
+			
+			remove_character_modifier = da_lack_harmony_1
+			
+			add_character_modifier = {
+				name = da_lack_harmony_2
+				duration = 1095
+			}
+		
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_lack_harmony_1
+					has_character_modifier = da_lack_harmony_2
+					has_character_modifier = da_lack_harmony_3	
+				}
+			}
+			
+			add_character_modifier = {
+				name = da_lack_harmony_1
+				duration = 1095
+			}
+		
+		}		
+		
+	}
+	
+}
+
+
+character_event = { 		#Tip event regarding the option to fake a bastard son
+	id = darkages.72647
+	title = EVTNAME1972647
+	desc = {
+		trigger = {
+			NOR = {
+				has_character_flag = darkages_fakeheir_1
+				has_character_flag = darkages_fakeheir_2
+			}		
+		}
+		text = EVTDESC1972647_1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = darkages_fakeheir_1
+			NOT = { has_character_flag = darkages_fakeheir_2 }		
+		}
+		text = EVTDESC1972647_2
+	}
+	desc = {
+		trigger = {
+			has_character_flag = darkages_fakeheir_1
+			has_character_flag = darkages_fakeheir_2
+		}
+		text = EVTDESC1972647_3
+	}	
+	picture = GFX_evt_da_spymaster
+	border = GFX_event_normal_frame_intrigue
+
+	trigger = {
+		
+		is_female = no
+		
+		age = 45
+		NOT = {
+			any_child = {
+				is_female = no
+				count = 1
+			}
+		}		
+	
+		NOR = { 
+			has_character_modifier = da_noheir_warn 
+			has_character_modifier = da_findheir_tmp
+		}		
+
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		add_character_modifier = {
+			name = da_noheir_warn
+			duration = 3650
+			hidden = yes
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972647
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP360 }
+
+		if = {
+			limit = { 
+				has_character_flag = darkages_fakeheir_1
+				NOT = {	has_character_flag = darkages_fakeheir_2 }
+			}
+			set_character_flag = darkages_fakeheir_2
+		}		
+		
+		if = {
+			limit = { 
+				NOR = {
+					has_character_flag = darkages_fakeheir_1
+					has_character_flag = darkages_fakeheir_2
+				}
+			}
+			set_character_flag = darkages_fakeheir_1
+		}
+
+
+	}
+	
+}
+
+
+##########################################################################################################################
+
+
+
+
+#######################################################################################################
+#
+#	INFLUENCE OF PARENTS STATS OVER KIDS STATS
+#
+#######################################################################################################
+
+
+
+
+###########################################################################################################################
+
+
+character_event = { 		#main event to fire from on_action birth that raise/lower stats
+	id = darkages.72648
+	title = EVTNAME1972648
+	desc = EVTDESC1972648
+	picture = GFX_evt_da_darkages
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_game_rule = {
+				name = parents
+				value = off
+			}
+		}
+		OR = {
+			father = {
+				ai = no
+			}
+			mother = {
+				ai = no
+			}			
+		}
+	}
+
+	immediate = {
+
+		#Positives
+
+		#Father
+	
+		if = {
+			limit = {
+				father_even_if_dead = {
+					diplomacy = 15
+					NOT = { diplomacy = 18 }
+				}
+			}	
+			set_character_flag = da_diplo1
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					diplomacy = 18
+					NOT = { diplomacy = 21 }
+				}
+			}	
+			set_character_flag = da_diplo2
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					diplomacy = 21
+				}
+			}	
+			set_character_flag = da_diplo3
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}		
+
+
+		if = {
+			limit = {
+				father_even_if_dead = {
+					martial = 15
+					NOT = { martial = 18 }
+				}
+			}	
+			set_character_flag = da_martial1
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					martial = 18
+					NOT = { martial = 21 }
+				}
+			}	
+			set_character_flag = da_martial2
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					martial = 21
+				}
+			}	
+			set_character_flag = da_martial3
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}
+
+		if = {
+			limit = {
+				father_even_if_dead = {
+					stewardship = 15
+					NOT = { stewardship = 18 }
+				}
+			}	
+			set_character_flag = da_stew1
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					stewardship = 18
+					NOT = { stewardship = 21 }
+				}
+			}	
+			set_character_flag = da_stew2
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					stewardship = 21
+				}
+			}	
+			set_character_flag = da_stew3
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}
+		if = {
+			limit = {
+				father_even_if_dead = {
+					intrigue = 15
+					NOT = { intrigue = 18 }
+				}
+			}	
+			set_character_flag = da_intrigue1
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					intrigue = 18
+					NOT = { intrigue = 21 }
+				}
+			}	
+			set_character_flag = da_intrigue2
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					intrigue = 21
+				}
+			}	
+			set_character_flag = da_intrigue3
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}
+		
+
+		
+
+		if = {
+			limit = {
+				father_even_if_dead = {
+					learning = 15
+					NOT = { learning = 18 }
+				}
+			}	
+			set_character_flag = da_learn1
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					learning = 18
+					NOT = { learning = 21 }
+				}
+			}	
+			set_character_flag = da_learn2
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					learning = 21
+				}
+			}	
+			set_character_flag = da_learn3
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}
+
+
+		#Mother
+
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					diplomacy = 15
+					NOT = { diplomacy = 18 }
+				}
+			}	
+			set_character_flag = da_diplo4
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					diplomacy = 18
+					NOT = { diplomacy = 21 }
+				}
+			}	
+			set_character_flag = da_diplo5
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					diplomacy = 21
+				}
+			}	
+			set_character_flag = da_diplo6
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}		
+
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					martial = 15
+					NOT = { martial = 18 }
+				}
+			}	
+			set_character_flag = da_martial4
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					martial = 18
+					NOT = { martial = 21 }
+				}
+			}	
+			set_character_flag = da_martial5
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					martial = 21
+				}
+			}	
+			set_character_flag = da_martial6
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					stewardship = 15
+					NOT = { stewardship = 18 }
+				}
+			}	
+			set_character_flag = da_stew4
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					stewardship = 18
+					NOT = { stewardship = 21 }
+				}
+			}	
+			set_character_flag = da_stew5
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					stewardship = 21
+				}
+			}	
+			set_character_flag = da_stew6
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					intrigue = 15
+					NOT = { intrigue = 18 }
+				}
+			}	
+			set_character_flag = da_intrigue4
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					intrigue = 18
+					NOT = { intrigue = 21 }
+				}
+			}	
+			set_character_flag = da_intrigue5
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					intrigue = 21
+				}
+			}	
+			set_character_flag = da_intrigue6
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}
+		
+
+		
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					learning = 15
+					NOT = { learning = 18 }
+				}
+			}	
+			set_character_flag = da_learn4
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					learning = 18
+					NOT = { learning = 21 }
+				}
+			}	
+			set_character_flag = da_learn5
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					learning = 21
+				}
+			}	
+			set_character_flag = da_learn6
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}
+
+
+
+		#Negatives
+		
+
+		#Father
+
+		if = {
+			limit = {
+				father_even_if_dead = {
+					NOT = { diplomacy = 6 }
+					diplomacy = 4
+				}
+			}	
+			set_character_flag = da_diplo7
+			character_event = { id = darkages.72654 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					NOT = { diplomacy = 4 }
+					diplomacy = 2
+				}
+			}	
+			set_character_flag = da_diplo8
+			character_event = { id = darkages.72654 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					NOT = { diplomacy = 2 }
+				}
+			}	
+			set_character_flag = da_diplo9
+			character_event = { id = darkages.72654 days = 5110 random = 730 }
+		}		
+
+
+		if = {
+			limit = {
+				father_even_if_dead = {
+					martial = 4
+					NOT = { martial = 6 }
+				}
+			}	
+			set_character_flag = da_martial7
+			character_event = { id = darkages.72655 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					martial = 2
+					NOT = { martial = 4 }
+				}
+			}	
+			set_character_flag = da_martial8
+			character_event = { id = darkages.72655 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					NOT = { martial = 2 }
+				}
+			}	
+			set_character_flag = da_martial9
+			character_event = { id = darkages.72655 days = 5110 random = 730 }
+		}
+
+		if = {
+			limit = {
+				father_even_if_dead = {
+					stewardship = 4
+					NOT = { stewardship = 6 }
+				}
+			}	
+			set_character_flag = da_stew7
+			character_event = { id = darkages.72656 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					stewardship = 2
+					NOT = { stewardship = 4 }
+				}
+			}	
+			set_character_flag = da_stew8
+			character_event = { id = darkages.72656 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					NOT = { stewardship = 2 }
+				}
+			}	
+			set_character_flag = da_stew9
+			character_event = { id = darkages.72656 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					intrigue = 4
+					NOT = { intrigue = 6 }
+				}
+			}	
+			set_character_flag = da_intrigue7
+			character_event = { id = darkages.72657 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					intrigue = 2
+					NOT = { intrigue = 4 }
+				}
+			}	
+			set_character_flag = da_intrigue8
+			character_event = { id = darkages.72657 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					NOT = { intrigue = 2 }
+				}
+			}	
+			set_character_flag = da_intrigue9
+			character_event = { id = darkages.72657 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					learning = 4
+					NOT = { learning = 6 }
+				}
+			}	
+			set_character_flag = da_learn7
+			character_event = { id = darkages.72658 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					learning = 2
+					NOT = { learning = 4 }
+				}
+			}	
+			set_character_flag = da_learn8
+			character_event = { id = darkages.72658 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					NOT = { learning = 2 }
+				}
+			}	
+			set_character_flag = da_learn9
+			character_event = { id = darkages.72658 days = 5110 random = 730 }
+		}
+
+		#Mother
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					NOT = { diplomacy = 6 }
+					diplomacy = 4
+				}
+			}	
+			set_character_flag = da_diplo10
+			character_event = { id = darkages.72654 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					NOT = { diplomacy = 4 }
+					diplomacy = 2
+				}
+			}	
+			set_character_flag = da_diplo11
+			character_event = { id = darkages.72654 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					NOT = { diplomacy = 2 }
+				}
+			}	
+			set_character_flag = da_diplo12
+			character_event = { id = darkages.72654 days = 5110 random = 730 }
+		}		
+
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					martial = 4
+					NOT = { martial = 6 }
+				}
+			}	
+			set_character_flag = da_martial10
+			character_event = { id = darkages.72655 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					martial = 2
+					NOT = { martial = 4 }
+				}
+			}	
+			set_character_flag = da_martial11
+			character_event = { id = darkages.72655 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					NOT = { martial = 2 }
+				}
+			}	
+			set_character_flag = da_martial12
+			character_event = { id = darkages.72655 days = 5110 random = 730 }
+		}
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					stewardship = 4
+					NOT = { stewardship = 6 }
+				}
+			}	
+			set_character_flag = da_stew10
+			character_event = { id = darkages.72656 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					stewardship = 2
+					NOT = { stewardship = 4 }
+				}
+			}	
+			set_character_flag = da_stew11
+			character_event = { id = darkages.72656 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					NOT = { stewardship = 2 }
+				}
+			}	
+			set_character_flag = da_stew12
+			character_event = { id = darkages.72656 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					intrigue = 4
+					NOT = { intrigue = 6 }
+				}
+			}	
+			set_character_flag = da_intrigue10
+			character_event = { id = darkages.72657 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					intrigue = 2
+					NOT = { intrigue = 4 }
+				}
+			}	
+			set_character_flag = da_intrigue11
+			character_event = { id = darkages.72657 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					NOT = { intrigue = 2 }
+				}
+			}	
+			set_character_flag = da_intrigue12
+			character_event = { id = darkages.72657 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					learning = 4
+					NOT = { learning = 6 }
+				}
+			}	
+			set_character_flag = da_learn10
+			character_event = { id = darkages.72658 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					learning = 2
+					NOT = { learning = 4 }
+				}
+			}	
+			set_character_flag = da_learn11
+			character_event = { id = darkages.72658 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					NOT = { learning = 2 }
+				}
+			}	
+			set_character_flag = da_learn12
+			character_event = { id = darkages.72658 days = 5110 random = 730 }
+		}
+
+
+	}
+	
+	
+	
+}
+
+character_event = { 		#Raise Diplomacy
+	id = darkages.72649
+	title = EVTNAME1972649
+	desc = EVTDESC1972649
+	picture = GFX_evt_da_child_reading
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = da_diplo1
+			has_character_flag = da_diplo2
+			has_character_flag = da_diplo3
+			has_character_flag = da_diplo4
+			has_character_flag = da_diplo5
+			has_character_flag = da_diplo6			
+		}	
+	}
+
+	immediate = {
+	
+		if = {
+			limit = {
+				has_game_rule = {
+					name = parents
+					value = verbose
+				}
+			}
+			father = { character_event = { id = darkages.72663 days = 1 } }
+			mother = { character_event = { id = darkages.72663 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972649
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP358 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_diplo1 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_diplomacy = 1 
+					}
+					
+				}
+			}
+			da_diplo2 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_diplomacy = 1 
+					}
+					33 = {
+						change_diplomacy = 2
+					}
+					
+				}
+			}
+			da_diplo3 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_diplomacy = 1 
+					}
+					22 = {
+						change_diplomacy = 2
+					}
+					22 = {
+						change_diplomacy = 3
+					}					
+					
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_diplo4 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_diplomacy = 1 
+					}
+					
+				}
+			}
+			da_diplo5 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_diplomacy = 1 
+					}
+					33 = {
+						change_diplomacy = 2
+					}
+					
+				}
+			}
+			da_diplo6 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_diplomacy = 1 
+					}
+					22 = {
+						change_diplomacy = 2
+					}
+					22 = {
+						change_diplomacy = 3
+					}					
+					
+				}
+			}
+		}
+
+
+	}
+	
+	after = {
+		clr_character_flag = da_diplo1
+		clr_character_flag = da_diplo2
+		clr_character_flag = da_diplo3
+		clr_character_flag = da_diplo4
+		clr_character_flag = da_diplo5
+		clr_character_flag = da_diplo6		
+	}
+	
+}
+
+
+character_event = { 		#Raise Martial
+	id = darkages.72650
+	title = EVTNAME1972650
+	desc = EVTDESC1972650
+	picture = GFX_evt_da_child_reading
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = da_martial1
+			has_character_flag = da_martial2
+			has_character_flag = da_martial3
+			has_character_flag = da_martial4
+			has_character_flag = da_martial5
+			has_character_flag = da_martial6			
+		}	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_game_rule = {
+					name = parents
+					value = verbose
+				}
+			}
+			father = { character_event = { id = darkages.72662 days = 1 } }
+			mother = { character_event = { id = darkages.72662 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972650
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP358 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_martial1 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_martial = 1 
+					}
+					
+				}
+			}
+			da_martial2 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_martial = 1 
+					}
+					33 = {
+						change_martial = 2
+					}
+					
+				}
+			}
+			da_martial3 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_martial = 1 
+					}
+					22 = {
+						change_martial = 2
+					}
+					22 = {
+						change_martial = 3
+					}					
+					
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_martial4 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_martial = 1 
+					}
+					
+				}
+			}
+			da_martial5 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_martial = 1 
+					}
+					33 = {
+						change_martial = 2
+					}
+					
+				}
+			}
+			da_martial6 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_martial = 1 
+					}
+					22 = {
+						change_martial = 2
+					}
+					22 = {
+						change_martial = 3
+					}					
+					
+				}
+			}
+		}
+
+
+	}
+	
+	after = {
+		clr_character_flag = da_martial1
+		clr_character_flag = da_martial2
+		clr_character_flag = da_martial3
+		clr_character_flag = da_martial4
+		clr_character_flag = da_martial5
+		clr_character_flag = da_martial6		
+	}
+	
+}
+
+character_event = { 		#Raise stewardship
+	id = darkages.72651
+	title = EVTNAME1972651
+	desc = EVTDESC1972651
+	picture = GFX_evt_da_child_reading
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+		OR = {
+			has_character_flag = da_stew1
+			has_character_flag = da_stew2
+			has_character_flag = da_stew3
+			has_character_flag = da_stew4
+			has_character_flag = da_stew5
+			has_character_flag = da_stew6			
+		}
+	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_game_rule = {
+					name = parents
+					value = verbose
+				}
+			}
+			father = { character_event = { id = darkages.72661 days = 1 } }
+			mother = { character_event = { id = darkages.72661 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972651
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP358 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_stew1 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_stewardship = 1 
+					}
+					
+				}
+			}
+			da_stew2 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_stewardship = 1 
+					}
+					33 = {
+						change_stewardship = 2
+					}
+					
+				}
+			}
+			da_stew3 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_stewardship = 1 
+					}
+					22 = {
+						change_stewardship = 2
+					}
+					22 = {
+						change_stewardship = 3
+					}					
+					
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_stew4 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_stewardship = 1 
+					}
+					
+				}
+			}
+			da_stew5 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_stewardship = 1 
+					}
+					33 = {
+						change_stewardship = 2
+					}
+					
+				}
+			}
+			da_stew6 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_stewardship = 1 
+					}
+					22 = {
+						change_stewardship= 2
+					}
+					22 = {
+						change_stewardship = 3
+					}					
+					
+				}
+			}
+		}
+
+
+	}
+	
+	after = {
+		clr_character_flag = da_stew1
+		clr_character_flag = da_stew2
+		clr_character_flag = da_stew3
+		clr_character_flag = da_stew4
+		clr_character_flag = da_stew5
+		clr_character_flag = da_stew6		
+	}
+	
+}
+
+
+character_event = { 		#Raise intrigue
+	id = darkages.72652
+	title = EVTNAME1972652
+	desc = EVTDESC1972652
+	picture = GFX_evt_da_child_reading
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+		OR = {
+			has_character_flag = da_intrigue1
+			has_character_flag = da_intrigue2
+			has_character_flag = da_intrigue3
+			has_character_flag = da_intrigue4
+			has_character_flag = da_intrigue5
+			has_character_flag = da_intrigue6			
+		}
+	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_game_rule = {
+					name = parents
+					value = verbose
+				}
+			}
+			father = { character_event = { id = darkages.72660 days = 1 } }
+			mother = { character_event = { id = darkages.72660 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972652
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP358 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_intrigue1 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_intrigue = 1 
+					}
+					
+				}
+			}
+			da_intrigue2 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_intrigue = 1 
+					}
+					33 = {
+						change_intrigue = 2
+					}
+					
+				}
+			}
+			da_intrigue3 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_intrigue = 1 
+					}
+					22 = {
+						change_intrigue = 2
+					}
+					22 = {
+						change_intrigue = 3
+					}					
+					
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_intrigue4 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_intrigue = 1 
+					}
+					
+				}
+			}
+			da_intrigue5 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_intrigue = 1 
+					}
+					33 = {
+						change_intrigue = 2
+					}
+					
+				}
+			}
+			da_intrigue6 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_intrigue = 1 
+					}
+					22 = {
+						change_intrigue = 2
+					}
+					22 = {
+						change_intrigue = 3
+					}					
+					
+				}
+			}
+		}
+
+
+	}
+	
+	after = {
+		clr_character_flag = da_intrigue1
+		clr_character_flag = da_intrigue2
+		clr_character_flag = da_intrigue3
+		clr_character_flag = da_intrigue4
+		clr_character_flag = da_intrigue5
+		clr_character_flag = da_intrigue6		
+	}
+	
+}
+
+
+character_event = { 		#Raise learning
+	id = darkages.72653
+	title = EVTNAME1972653
+	desc = EVTDESC1972653
+	picture = GFX_evt_da_child_reading
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+		OR = {
+			has_character_flag = da_learn1
+			has_character_flag = da_learn2
+			has_character_flag = da_learn3
+			has_character_flag = da_learn4
+			has_character_flag = da_learn5
+			has_character_flag = da_learn6			
+		}
+	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_game_rule = {
+					name = parents
+					value = verbose
+				}
+			}
+			father = { character_event = { id = darkages.72659 days = 1 } }
+			mother = { character_event = { id = darkages.72659 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972653
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP358 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_learn1 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_learning = 1 
+					}
+					
+				}
+			}
+			da_learn2 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_learning = 1 
+					}
+					33 = {
+						change_learning = 2
+					}
+					
+				}
+			}
+			da_learn3 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_learning = 1 
+					}
+					22 = {
+						change_learning = 2
+					}
+					22 = {
+						change_learning = 3
+					}					
+					
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_learn4 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_learning = 1 
+					}
+					
+				}
+			}
+			da_learn5 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_learning = 1 
+					}
+					33 = {
+						change_learning = 2
+					}
+					
+				}
+			}
+			da_learn6 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_learning = 1 
+					}
+					22 = {
+						change_learning = 2
+					}
+					22 = {
+						change_learning = 3
+					}					
+					
+				}
+			}
+		}
+
+
+	}
+	
+	after = {
+		clr_character_flag = da_learn1
+		clr_character_flag = da_learn2
+		clr_character_flag = da_learn3
+		clr_character_flag = da_learn4
+		clr_character_flag = da_learn5
+		clr_character_flag = da_learn6			
+	}
+	
+}
+
+
+
+character_event = { 		#Lower Diplomacy
+	id = darkages.72654
+	title = EVTNAME1972654
+	desc = EVTDESC1972654
+	picture = GFX_evt_da_child_reading
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = da_diplo7
+			has_character_flag = da_diplo8
+			has_character_flag = da_diplo9
+			has_character_flag = da_diplo10
+			has_character_flag = da_diplo11
+			has_character_flag = da_diplo12		
+		}	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_game_rule = {
+					name = parents
+					value = verbose
+				}
+			}
+			father = { character_event = { id = darkages.72668 days = 1 } }
+			mother = { character_event = { id = darkages.72668 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972654
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP359 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_diplo7 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_diplomacy = -1 
+					}
+					
+				}
+			}
+			da_diplo8 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_diplomacy = -1 
+					}
+					33 = {
+						change_diplomacy = -2
+					}
+					
+				}
+			}
+			da_diplo9 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_diplomacy = -1 
+					}
+					22 = {
+						change_diplomacy = -2
+					}
+					22 = {
+						change_diplomacy = -3
+					}					
+					
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_diplo10 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_diplomacy = -1 
+					}
+					
+				}
+			}
+			da_diplo11 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_diplomacy = -1 
+					}
+					33 = {
+						change_diplomacy = -2
+					}
+					
+				}
+			}
+			da_diplo12 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_diplomacy = -1 
+					}
+					22 = {
+						change_diplomacy = -2
+					}
+					22 = {
+						change_diplomacy = -3
+					}					
+					
+				}
+			}
+		}
+
+
+	}
+	
+	after = {
+		clr_character_flag = da_diplo7
+		clr_character_flag = da_diplo8
+		clr_character_flag = da_diplo9
+		clr_character_flag = da_diplo10
+		clr_character_flag = da_diplo11
+		clr_character_flag = da_diplo12	
+	}
+	
+}
+
+
+
+
+character_event = { 		#Lower Martial
+	id = darkages.72655
+	title = EVTNAME1972655
+	desc = EVTDESC1972655
+	picture = GFX_evt_da_child_reading
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = da_martial7
+			has_character_flag = da_martial8
+			has_character_flag = da_martial9
+			has_character_flag = da_martial10
+			has_character_flag = da_martial11
+			has_character_flag = da_martial12		
+		}	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_game_rule = {
+					name = parents
+					value = verbose
+				}
+			}
+			father = { character_event = { id = darkages.72667 days = 1 } }
+			mother = { character_event = { id = darkages.72667 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972655
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP359 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_martial7 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_martial = -1 
+					}
+					
+				}
+			}
+			da_martial8 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_martial = -1 
+					}
+					33 = {
+						change_martial = -2
+					}
+					
+				}
+			}
+			da_martial9 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_martial = -1 
+					}
+					22 = {
+						change_martial = -2
+					}
+					22 = {
+						change_martial = -3
+					}					
+					
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_martial10 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_martial = -1 
+					}
+					
+				}
+			}
+			da_martial11 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_martial= -1 
+					}
+					33 = {
+						change_martial = -2
+					}
+					
+				}
+			}
+			da_martial12 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_martial = -1 
+					}
+					22 = {
+						change_martial = -2
+					}
+					22 = {
+						change_martial = -3
+					}					
+					
+				}
+			}
+		}
+
+
+	}
+	
+	after = {
+		clr_character_flag = da_martial7
+		clr_character_flag = da_martial8
+		clr_character_flag = da_martial9
+		clr_character_flag = da_martial10
+		clr_character_flag = da_martial11
+		clr_character_flag = da_martial12	
+	}
+	
+}
+
+
+
+character_event = { 		#Lower Stewardship
+	id = darkages.72656
+	title = EVTNAME1972656
+	desc = EVTDESC1972656
+	picture = GFX_evt_da_child_reading
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = da_stew7
+			has_character_flag = da_stew8
+			has_character_flag = da_stew9
+			has_character_flag = da_stew10
+			has_character_flag = da_stew11
+			has_character_flag = da_stew12		
+		}	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_game_rule = {
+					name = parents
+					value = verbose
+				}
+			}
+			father = { character_event = { id = darkages.72666 days = 1 } }
+			mother = { character_event = { id = darkages.72666 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972656
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP359 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_stew7 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_stewardship = -1 
+					}
+					
+				}
+			}
+			da_stew8 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_stewardship = -1 
+					}
+					33 = {
+						change_stewardship = -2
+					}
+					
+				}
+			}
+			da_stew9 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_stewardship = -1 
+					}
+					22 = {
+						change_stewardship = -2
+					}
+					22 = {
+						change_stewardship = -3
+					}					
+					
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_stew10 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_stewardship = -1 
+					}
+					
+				}
+			}
+			da_stew11 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_stewardship = -1 
+					}
+					33 = {
+						change_stewardship = -2
+					}
+					
+				}
+			}
+			da_stew12 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_stewardship = -1 
+					}
+					22 = {
+						change_stewardship = -2
+					}
+					22 = {
+						change_stewardship = -3
+					}					
+					
+				}
+			}
+		}
+
+
+	}
+	
+	after = {
+		clr_character_flag = da_stew7
+		clr_character_flag = da_stew8
+		clr_character_flag = da_stew9
+		clr_character_flag = da_stew10
+		clr_character_flag = da_stew11
+		clr_character_flag = da_stew12	
+	}
+	
+}
+
+
+
+
+character_event = { 		#Lower Intrigue
+	id = darkages.72657
+	title = EVTNAME1972657
+	desc = EVTDESC1972657
+	picture = GFX_evt_da_child_reading
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = da_intrigue7
+			has_character_flag = da_intrigue8
+			has_character_flag = da_intrigue9
+			has_character_flag = da_intrigue10
+			has_character_flag = da_intrigue11
+			has_character_flag = da_intrigue12		
+		}	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_game_rule = {
+					name = parents
+					value = verbose
+				}
+			}
+			father = { character_event = { id = darkages.72665 days = 1 } }
+			mother = { character_event = { id = darkages.72665 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972657
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP359 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_intrigue7 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_intrigue = -1 
+					}
+					
+				}
+			}
+			da_intrigue8 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_intrigue = -1 
+					}
+					33 = {
+						change_intrigue = -2
+					}
+					
+				}
+			}
+			da_intrigue9 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_intrigue = -1 
+					}
+					22 = {
+						change_intrigue = -2
+					}
+					22 = {
+						change_intrigue = -3
+					}					
+					
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_intrigue10 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_intrigue = -1 
+					}
+					
+				}
+			}
+			da_intrigue11 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_intrigue = -1 
+					}
+					33 = {
+						change_intrigue = -2
+					}
+					
+				}
+			}
+			da_intrigue12 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_intrigue = -1 
+					}
+					22 = {
+						change_intrigue = -2
+					}
+					22 = {
+						change_intrigue = -3
+					}					
+					
+				}
+			}
+		}
+
+
+	}
+	
+	after = {
+		clr_character_flag = da_intrigue7
+		clr_character_flag = da_intrigue8
+		clr_character_flag = da_intrigue9
+		clr_character_flag = da_intrigue10
+		clr_character_flag = da_intrigue11
+		clr_character_flag = da_intrigue12	
+	}
+	
+}
+
+
+
+
+
+character_event = { 		#Lower Learning
+	id = darkages.72658
+	title = EVTNAME1972658
+	desc = EVTDESC1972658
+	picture = GFX_evt_da_child_reading
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = da_learn7
+			has_character_flag = da_learn8
+			has_character_flag = da_learn9
+			has_character_flag = da_learn10
+			has_character_flag = da_learn11
+			has_character_flag = da_learn12		
+		}	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_game_rule = {
+					name = parents
+					value = verbose
+				}
+			}
+			father = { character_event = { id = darkages.72664 days = 1 } }
+			mother = { character_event = { id = darkages.72664 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972658
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP359 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_learn7 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_learning = -1 
+					}
+					
+				}
+			}
+			da_learn8 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_learning = -1 
+					}
+					33 = {
+						change_learning = -2
+					}
+					
+				}
+			}
+			da_learn9 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_learning = -1 
+					}
+					22 = {
+						change_learning = -2
+					}
+					22 = {
+						change_learning = -3
+					}					
+					
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			da_learn10 = { 
+				random_list = {
+					34 = {
+					}
+					66 = {
+						change_learning = -1 
+					}
+					
+				}
+			}
+			da_learn11 = { 
+				random_list = {
+					34 = {
+					}
+					33 = {
+						change_learning = -1 
+					}
+					33 = {
+						change_learning = -2
+					}
+					
+				}
+			}
+			da_learn12 = { 
+				random_list = {
+					34 = {
+					}
+					22 = {
+						change_learning = -1 
+					}
+					22 = {
+						change_learning = -2
+					}
+					22 = {
+						change_learning = -3
+					}					
+					
+				}
+			}
+		}
+
+
+	}
+	
+	after = {
+		clr_character_flag = da_learn7
+		clr_character_flag = da_learn8
+		clr_character_flag = da_learn9
+		clr_character_flag = da_learn10
+		clr_character_flag = da_learn11
+		clr_character_flag = da_learn12	
+	}
+	
+}
+
+character_event = { 		#Notification event
+	id = darkages.72659
+	title = EVTNAME1972659
+	desc = {
+		trigger = {
+			FROM = { is_female = no }
+		}
+		text = EVTDESC1972659_M
+	}
+	desc = {
+		trigger = {
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC1972659_F
+	}	
+	picture = GFX_evt_da_children_talking
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972659
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP361 }
+		
+	}
+	
+}
+
+character_event = { 		#Notification event
+	id = darkages.72660
+	title = EVTNAME1972660
+	desc = {
+		trigger = {
+			FROM = { is_female = no }
+		}
+		text = EVTDESC1972660_M
+	}
+	desc = {
+		trigger = {
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC1972660_F
+	}	
+	picture = GFX_evt_da_children_talking
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972660
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP361 }
+
+	}
+	
+}
+
+character_event = { 		#Notification event
+	id = darkages.72661
+	title = EVTNAME1972661
+	desc = {
+		trigger = {
+			FROM = { is_female = no }
+		}
+		text = EVTDESC1972661_M
+	}
+	desc = {
+		trigger = {
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC1972661_F
+	}	
+	picture = GFX_evt_da_children_talking
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972661
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP361 }
+
+	}
+	
+}
+
+character_event = { 		#Notification event
+	id = darkages.72662
+	title = EVTNAME1972662
+	desc = {
+		trigger = {
+			FROM = { is_female = no }
+		}
+		text = EVTDESC1972662_M
+	}
+	desc = {
+		trigger = {
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC1972662_F
+	}	
+	picture = GFX_evt_da_children_talking
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972662
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP361 }
+
+	}
+	
+}
+
+character_event = { 		#Notification event
+	id = darkages.72663
+	title = EVTNAME1972663
+	desc = {
+		trigger = {
+			FROM = { is_female = no }
+		}
+		text = EVTDESC1972663_M
+	}
+	desc = {
+		trigger = {
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC1972663_F
+	}	
+	picture = GFX_evt_da_children_talking
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972663
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP361 }
+
+	}
+	
+}
+
+character_event = { 		#Notification event
+	id = darkages.72664
+	title = EVTNAME1972664
+	desc = {
+		trigger = {
+			FROM = { is_female = no }
+		}
+		text = EVTDESC1972664_M
+	}
+	desc = {
+		trigger = {
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC1972664_F
+	}	
+	picture = GFX_evt_da_children_talking
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972664
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP362 }
+
+	}
+	
+}
+
+character_event = { 		#Notification event
+	id = darkages.72665
+	title = EVTNAME1972665
+	desc = {
+		trigger = {
+			FROM = { is_female = no }
+		}
+		text = EVTDESC1972665_M
+	}
+	desc = {
+		trigger = {
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC1972665_F
+	}	
+	picture = GFX_evt_da_children_talking
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972665
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP362 }
+
+	}
+	
+}
+
+character_event = { 		#Notification event
+	id = darkages.72666
+	title = EVTNAME1972666
+	desc = {
+		trigger = {
+			FROM = { is_female = no }
+		}
+		text = EVTDESC1972666_M
+	}
+	desc = {
+		trigger = {
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC1972666_F
+	}	
+	picture = GFX_evt_da_children_talking
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972666
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP362 }
+
+	}
+	
+}
+
+
+character_event = { 		#Notification event
+	id = darkages.72667
+	title = EVTNAME1972667
+	desc = {
+		trigger = {
+			FROM = { is_female = no }
+		}
+		text = EVTDESC1972667_M
+	}
+	desc = {
+		trigger = {
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC1972667_F
+	}	
+	picture = GFX_evt_da_children_talking
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972667
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP362 }
+
+	}
+	
+}
+
+
+character_event = { 		#Notification event
+	id = darkages.72668
+	title = EVTNAME1972668
+	desc = {
+		trigger = {
+			FROM = { is_female = no }
+		}
+		text = EVTDESC1972668_M
+	}
+	desc = {
+		trigger = {
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC1972668_F
+	}	
+	picture = GFX_evt_da_children_talking
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972668
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP362 }
+
+	}
+	
+}
+
+
+####################################
+#
+#	RAISE STATS FOR AI (ONLY POSITIVE AS AI DON'T SELECT SPOUSE BECAUSE OF STATS)
+#
+####################################
+
+
+character_event = { 		#main event to fire from on_action birth that raise stats of the AI where appropriate
+	id = darkages.72671
+	title = EVTNAME1972671
+	desc = EVTDESC1972671
+	picture = GFX_evt_da_darkages
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_game_rule = {
+				name = parents
+				value = off
+			}
+		}
+
+		father = {
+			ai = yes
+		}
+		mother = {
+			ai = yes
+		}			
+
+	}
+
+	immediate = {
+
+		#Positives
+
+		#Father
+	
+		if = {
+			limit = {
+				father_even_if_dead = {
+					diplomacy = 15
+					NOT = { diplomacy = 18 }
+				}
+			}	
+			set_character_flag = da_diplo1
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					diplomacy = 18
+					NOT = { diplomacy = 21 }
+				}
+			}	
+			set_character_flag = da_diplo2
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					diplomacy = 21
+				}
+			}	
+			set_character_flag = da_diplo3
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}		
+
+
+		if = {
+			limit = {
+				father_even_if_dead = {
+					martial = 15
+					NOT = { martial = 18 }
+				}
+			}	
+			set_character_flag = da_martial1
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					martial = 18
+					NOT = { martial = 21 }
+				}
+			}	
+			set_character_flag = da_martial2
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					martial = 21
+				}
+			}	
+			set_character_flag = da_martial3
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}
+
+		if = {
+			limit = {
+				father_even_if_dead = {
+					stewardship = 15
+					NOT = { stewardship = 18 }
+				}
+			}	
+			set_character_flag = da_stew1
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					stewardship = 18
+					NOT = { stewardship = 21 }
+				}
+			}	
+			set_character_flag = da_stew2
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					stewardship = 21
+				}
+			}	
+			set_character_flag = da_stew3
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}
+		if = {
+			limit = {
+				father_even_if_dead = {
+					intrigue = 15
+					NOT = { intrigue = 18 }
+				}
+			}	
+			set_character_flag = da_intrigue1
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					intrigue = 18
+					NOT = { intrigue = 21 }
+				}
+			}	
+			set_character_flag = da_intrigue2
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					intrigue = 21
+				}
+			}	
+			set_character_flag = da_intrigue3
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}
+		
+
+		
+
+		if = {
+			limit = {
+				father_even_if_dead = {
+					learning = 15
+					NOT = { learning = 18 }
+				}
+			}	
+			set_character_flag = da_learn1
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					learning = 18
+					NOT = { learning = 21 }
+				}
+			}	
+			set_character_flag = da_learn2
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				father_even_if_dead = {
+					learning = 21
+				}
+			}	
+			set_character_flag = da_learn3
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}
+
+
+		#Mother
+
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					diplomacy = 15
+					NOT = { diplomacy = 18 }
+				}
+			}	
+			set_character_flag = da_diplo4
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					diplomacy = 18
+					NOT = { diplomacy = 21 }
+				}
+			}	
+			set_character_flag = da_diplo5
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					diplomacy = 21
+				}
+			}	
+			set_character_flag = da_diplo6
+			character_event = { id = darkages.72649 days = 5110 random = 730 }
+		}		
+
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					martial = 15
+					NOT = { martial = 18 }
+				}
+			}	
+			set_character_flag = da_martial4
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					martial = 18
+					NOT = { martial = 21 }
+				}
+			}	
+			set_character_flag = da_martial5
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					martial = 21
+				}
+			}	
+			set_character_flag = da_martial6
+			character_event = { id = darkages.72650 days = 5110 random = 730 }
+		}
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					stewardship = 15
+					NOT = { stewardship = 18 }
+				}
+			}	
+			set_character_flag = da_stew4
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					stewardship = 18
+					NOT = { stewardship = 21 }
+				}
+			}	
+			set_character_flag = da_stew5
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					stewardship = 21
+				}
+			}	
+			set_character_flag = da_stew6
+			character_event = { id = darkages.72651 days = 5110 random = 730 }
+		}
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					intrigue = 15
+					NOT = { intrigue = 18 }
+				}
+			}	
+			set_character_flag = da_intrigue4
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					intrigue = 18
+					NOT = { intrigue = 21 }
+				}
+			}	
+			set_character_flag = da_intrigue5
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					intrigue = 21
+				}
+			}	
+			set_character_flag = da_intrigue6
+			character_event = { id = darkages.72652 days = 5110 random = 730 }
+		}
+		
+
+		
+
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					learning = 15
+					NOT = { learning = 18 }
+				}
+			}	
+			set_character_flag = da_learn4
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					learning = 18
+					NOT = { learning = 21 }
+				}
+			}	
+			set_character_flag = da_learn5
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}		
+		
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					learning = 21
+				}
+			}	
+			set_character_flag = da_learn6
+			character_event = { id = darkages.72653 days = 5110 random = 730 }
+		}
+
+
+	}
+	
+	
+	
+}

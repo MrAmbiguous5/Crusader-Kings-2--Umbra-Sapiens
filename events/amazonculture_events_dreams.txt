@@ -1,0 +1,335 @@
+#Amazonian dream
+	character_event = { # themiskyran
+		id = AmzCul.701
+		desc = EVTDESCAmzCul.701
+		picture = GFX_evt_comet
+		border = GFX_event_normal_frame_intrigue
+		
+		hide_from = yes
+		
+		mean_time_to_happen = {
+			years = 12
+		}
+		
+		trigger = {
+			is_alive = yes
+			is_female = yes
+			is_adult = no
+			age = 6
+			ai = no
+			NOT = { 
+				culture = themiskyran_amz
+			}
+			culture_group = byzantine
+			OR = {
+				NOT = { has_character_flag = amazonian_dream_flag }
+				had_character_flag = { flag = amazonian_dream_flag years = 8 }
+			}
+		}
+		
+		option = {	# cool beans
+			name = EVTOPTAAmzCul.701
+			custom_tooltip = { text = amazon_dream_tt }
+			set_character_flag = amazonian_dream_flag
+		}
+	}
+
+	character_event = { # valkyrie
+		id = AmzCul.702
+		desc = EVTDESCAmzCul.702
+		picture = GFX_evt_comet
+		border = GFX_event_normal_frame_intrigue
+		
+		hide_from = yes
+		
+		mean_time_to_happen = {
+			years = 12
+		}
+		
+		trigger = {
+			is_alive = yes
+			is_female = yes
+			is_adult = no
+			age = 6
+			ai = no
+			NOT = { 
+				culture = valkyrie_amz
+			}
+			culture_group = north_germanic
+			OR = {
+				NOT = { has_character_flag = amazonian_dream_flag }
+				had_character_flag = { flag = amazonian_dream_flag years = 8 }
+			}
+		}
+		
+		option = {	# cool beans
+			name = EVTOPTAAmzCul.702
+			custom_tooltip = { text = amazon_dream_tt }
+			set_character_flag = amazonian_dream_flag
+		}
+	}
+	
+	character_event = { # scythian
+		id = AmzCul.703
+		desc = EVTDESCAmzCul.703
+		picture = GFX_evt_comet
+		border = GFX_event_normal_frame_intrigue
+		
+		hide_from = yes
+		
+		mean_time_to_happen = {
+			years = 12
+		}
+		
+		trigger = {
+			is_alive = yes
+			is_female = yes
+			is_adult = no
+			age = 6
+			ai = no
+			NOT = { 
+				culture = scythian_amz
+			}
+			OR = { 
+				culture_group = east_slavic
+			}
+			OR = {
+				NOT = { has_character_flag = amazonian_dream_flag }
+				had_character_flag = { flag = amazonian_dream_flag years = 8 }
+			}
+		}
+		
+		option = {	# cool beans
+			name = EVTOPTAAmzCul.703
+			custom_tooltip = { text = amazon_dream_tt }
+			set_character_flag = amazonian_dream_flag
+		}
+	}
+	
+	character_event = { # parthian
+		id = AmzCul.704
+		desc = EVTDESCAmzCul.704
+		picture = GFX_evt_comet
+		border = GFX_event_normal_frame_intrigue
+		
+		hide_from = yes
+		
+		mean_time_to_happen = {
+			years = 12
+		}
+		
+		trigger = {
+			is_alive = yes
+			is_female = yes
+			is_adult = no
+			age = 6
+			ai = no
+			NOT = { 
+				culture = parthian_amz
+			}
+			culture_group = iranian 
+			OR = {
+				NOT = { has_character_flag = amazonian_dream_flag }
+				had_character_flag = { flag = amazonian_dream_flag years = 8 }
+			}
+		}
+		
+		option = {	# cool beans
+			name = EVTOPTAAmzCul.704
+			custom_tooltip = { text = amazon_dream_tt }
+			set_character_flag = amazonian_dream_flag
+		}
+	}
+	
+	character_event = { # kushite
+		id = AmzCul.705
+		desc = EVTDESCAmzCul.705
+		picture = GFX_evt_comet
+		border = GFX_event_normal_frame_intrigue
+		
+		hide_from = yes
+		
+		mean_time_to_happen = {
+			years = 12
+		}
+		
+		trigger = {
+			is_alive = yes
+			is_female = yes
+			is_adult = no
+			age = 6
+			ai = no
+			NOT = { 
+				culture = kushite_amz
+			}
+			OR = { 
+				culture = egyptian_arabic 
+				culture_group = east_african
+			}
+			OR = {
+				NOT = { has_character_flag = amazonian_dream_flag }
+				had_character_flag = { flag = amazonian_dream_flag years = 8 }
+			}
+		}
+		
+		option = {	# cool beans
+			name = EVTOPTAAmzCul.705
+			custom_tooltip = { text = amazon_dream_tt }
+			set_character_flag = amazonian_dream_flag
+		}
+	}
+	
+	character_event = { # carthaginian
+		id = AmzCul.706
+		desc = EVTDESCAmzCul.706
+		picture = GFX_evt_comet
+		border = GFX_event_normal_frame_intrigue
+		
+		hide_from = yes
+		
+		mean_time_to_happen = {
+			years = 12
+		}
+		
+		trigger = {
+			is_alive = yes
+			is_female = yes
+			is_adult = no
+			age = 6
+			ai = no
+			NOT = { 
+				culture = carthaginian_amz
+			}
+			OR = { 
+				culture = maghreb_arabic
+				culture = andalusian_arabic
+			}
+			OR = {
+				NOT = { has_character_flag = amazonian_dream_flag }
+				had_character_flag = { flag = amazonian_dream_flag years = 8 }
+			}
+		}
+		
+		option = {	# cool beans
+			name = EVTOPTAAmzCul.706
+			custom_tooltip = { text = amazon_dream_tt }
+			set_character_flag = amazonian_dream_flag
+		}
+	}
+	
+	character_event = { # etruscan
+		id = AmzCul.707
+		desc = EVTDESCAmzCul.707
+		picture = GFX_evt_comet
+		border = GFX_event_normal_frame_intrigue
+		
+		hide_from = yes
+		
+		mean_time_to_happen = {
+			years = 12
+		}
+		
+		trigger = {
+			is_alive = yes
+			is_female = yes
+			is_adult = no
+			age = 6
+			ai = no
+			NOT = { 
+				culture = etruscan_amz
+			}
+			OR = { 
+				culture = italian
+				culture = roman
+				culture = sardinian
+			}
+			OR = {
+				NOT = { has_character_flag = amazonian_dream_flag }
+				had_character_flag = { flag = amazonian_dream_flag years = 8 }
+			}
+		}
+		
+		option = {	# cool beans
+			name = EVTOPTAAmzCul.707
+			custom_tooltip = { text = amazon_dream_tt }
+			set_character_flag = amazonian_dream_flag
+		}
+	}
+	
+	character_event = { # pritani
+		id = AmzCul.708
+		desc = EVTDESCAmzCul.708
+		picture = GFX_evt_comet
+		border = GFX_event_normal_frame_intrigue
+		
+		hide_from = yes
+		
+		mean_time_to_happen = {
+			years = 12
+		}
+		
+		trigger = {
+			is_alive = yes
+			is_female = yes
+			is_adult = no
+			age = 6
+			ai = no
+			NOT = { 
+				culture = pritani_amz
+			}
+			culture_group = celtic
+			OR = {
+				NOT = { has_character_flag = amazonian_dream_flag }
+				had_character_flag = { flag = amazonian_dream_flag years = 8 }
+			}
+		}
+		
+		option = {	# cool beans
+			name = EVTOPTAAmzCul.708
+			custom_tooltip = { text = amazon_dream_tt }
+			set_character_flag = amazonian_dream_flag
+		}
+	}
+	
+	character_event = { # illyrian
+		id = AmzCul.709
+		desc = EVTDESCAmzCul.709
+		picture = GFX_evt_comet
+		border = GFX_event_normal_frame_intrigue
+		
+		hide_from = yes
+		
+		mean_time_to_happen = {
+			years = 12
+		}
+		
+		trigger = {
+			is_alive = yes
+			is_female = yes
+			is_adult = no
+			age = 6
+			ai = no
+			NOT = { 
+				culture = illyrian_amz
+			}
+			OR = {
+				culture = bosnian
+				culture = croatian
+				culture = serbian
+			}
+			OR = {
+				NOT = { has_character_flag = amazonian_dream_flag }
+				had_character_flag = { flag = amazonian_dream_flag years = 8 }
+			}
+		}
+		
+		option = {	# cool beans
+			name = EVTOPTAAmzCul.709
+			custom_tooltip = { text = amazon_dream_tt }
+			set_character_flag = amazonian_dream_flag
+		}
+	}
+	
+	
+
+	

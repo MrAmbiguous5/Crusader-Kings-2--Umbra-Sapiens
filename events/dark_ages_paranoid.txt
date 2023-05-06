@@ -1,0 +1,5689 @@
+namespace = darkages
+
+
+
+character_event = { 		#setup event for the lowest level of trouble
+	id = darkages.72398
+	title = EVTNAME1972398
+	desc = EVTDESC1972398
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_diplomacy
+
+	trigger = {
+		trait = paranoid
+		is_adult = yes
+		has_character_flag = darkages_paranoid_flag
+		
+		NOR = {
+			has_character_modifier = da_paranoid_1
+			has_character_modifier = da_paranoid_2
+			has_character_modifier = da_paranoid_3
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972398
+		
+		add_character_modifier = {
+			name = da_paranoid_1
+			duration = -1
+		}
+		
+	}
+	
+}
+
+character_event = { 		#setup event for the middle level of trouble
+	id = darkages.72399
+	title = EVTNAME1972399
+	desc = EVTDESC1972399
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_diplomacy
+
+	trigger = {
+		has_character_modifier = da_paranoid_1
+		has_character_flag = darkages_paranoid_upgrd_1
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972399
+		
+		remove_character_modifier = da_paranoid_1
+		
+		add_character_modifier = {
+			name = da_paranoid_2
+			duration = -1
+		}
+		
+	}
+	
+}
+
+
+character_event = { 		#setup event for the high level of trouble
+	id = darkages.72400
+	title = EVTNAME1972400
+	desc = EVTDESC1972400
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_diplomacy
+
+	trigger = {
+		has_character_modifier = da_paranoid_2
+		has_character_flag = darkages_paranoid_upgrd_2
+	}
+
+	mean_time_to_happen = {
+		months = 84
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972400
+		
+		remove_character_modifier = da_paranoid_2
+		
+		add_character_modifier = {
+			name = da_paranoid_3
+			duration = -1
+		}
+		
+	}
+	
+}
+
+
+character_event = { 		#maintenance event for when Paranoid trait is cleared
+	id = darkages.72401
+	title = EVTNAME1972401
+	desc = EVTDESC1972401
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_diplomacy
+	hide_window = yes
+
+	trigger = {
+	
+		OR = {
+			has_character_flag = darkages_paranoid_upgrd_2
+			has_character_modifier = da_paranoid_2			
+			has_character_flag = darkages_paranoid_upgrd_1
+			has_character_modifier = da_paranoid_1
+			has_character_modifier = da_paranoid_3			
+		}
+		
+		NOT = { trait = paranoid }
+
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		remove_character_modifier = da_paranoid_1
+		remove_character_modifier = da_paranoid_2
+		remove_character_modifier = da_paranoid_3		
+		clr_character_flag = darkages_paranoid_upgrd_2
+		clr_character_flag = darkages_paranoid_upgrd_1		
+	}
+	
+	option = {
+		name = EVTOPTA1972401
+		
+		
+	}
+	
+}
+
+
+
+############################################################
+#
+#	PARANOID SUSPECTS SPOUSE IS UNFAITHFUL
+#
+############################################################
+
+
+character_event = { 		
+	id = darkages.72402
+	title = EVTNAME1972402
+	desc = {
+		text = EVTDESC1972402_M
+		trigger = {
+			spouse = { is_female = no }
+			event_target:da_unlucky_affair = { is_female = yes }
+		}
+	}
+	desc = {
+		text = EVTDESC1972402_F
+		trigger = {
+			spouse = { is_female = yes }
+			event_target:da_unlucky_affair = { is_female = no }			
+		}
+	}
+	desc = {
+		text = EVTDESC1972402_MH
+		trigger = {
+			spouse = { is_female = no }
+			event_target:da_unlucky_affair = { is_female = no }
+		}
+	}
+	desc = {
+		text = EVTDESC1972402_FH
+		trigger = {
+			spouse = { is_female = yes }
+			event_target:da_unlucky_affair = { is_female = yes }			
+		}
+	}	
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {
+		trait = paranoid
+		has_character_flag = darkages_paranoid_flag		
+		NOT = { has_character_modifier = da_temp_paranoid_attack }
+		is_married = yes
+	}
+
+	mean_time_to_happen = {
+		months = 800
+		
+		modifier = {
+			factor = 0.8
+			has_character_modifier = da_paranoid_1
+		}
+		
+		modifier = {
+			factor = 0.66
+			has_character_modifier = da_paranoid_2
+		}	
+
+		modifier = {
+			factor = 0.5
+			has_character_modifier = da_paranoid_3
+		}		
+		
+	}
+
+	immediate = {
+
+		add_character_modifier = {
+			name = da_temp_paranoid_attack
+			duration = 730
+			hidden = yes
+		}
+		
+		random_courtier_or_vassal = {
+			limit = {
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
+				ai = yes
+				spouse = { NOT = { character = ROOT } }
+			}
+			
+			save_event_target_as = da_unlucky_affair
+			
+		}		
+		
+	}
+	
+	option = {	# Investigate further
+		name = EVTOPTA1972402
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP169 }
+		
+		event_target:da_unlucky_affair = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {	#	Nullifies the suspicion
+					character_event = { id = darkages.72403 days = 60 random = 180 }
+				}
+				1 = {	#	Detects nothing but suspects nevertheless
+					character_event = { id = darkages.72404 days = 60 random = 180 }
+				}
+				1 = {	#	Detects nothing but is sure a love affair is going on
+					character_event = { id = darkages.72405 days = 60 random = 180 }
+				}				
+			}
+		}
+	}
+	
+	option = {	# Restrain
+		name = EVTOPTB1972402	
+		trigger = {
+			NOT = { has_character_modifier = da_paranoid_3 }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP170 }
+		
+		if = {
+			limit = {
+			
+				OR = {
+					NOR = {
+						has_character_modifier = da_paranoid_1
+						has_character_modifier = da_paranoid_2
+						has_character_modifier = da_paranoid_3
+					}
+					
+					has_character_modifier = da_paranoid_1
+					
+				}
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_1
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_2
+			
+		}
+		
+	}
+	
+
+}
+
+
+character_event = { 		#Clear suspicions
+	id = darkages.72403
+	title = EVTNAME1972403
+	desc = {
+		text = EVTDESC1972403_S
+		trigger = {
+			OR = {
+				AND = {
+					spouse = { is_female = no }
+					event_target:da_unlucky_affair = { is_female = yes }
+				}
+				AND = {
+					spouse = { is_female = yes }
+					event_target:da_unlucky_affair = { is_female = no }
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESC1972403_H
+		trigger = {
+			OR = {
+				AND = {
+					spouse = { is_female = no }
+					event_target:da_unlucky_affair = { is_female = no }
+				}
+				AND = {
+					spouse = { is_female = yes }
+					event_target:da_unlucky_affair = { is_female = yes }
+				}
+			}
+		}
+	}	
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972403		
+		
+	}
+	
+}
+
+character_event = { 		#Discovers nothing but continues to suspect
+	id = darkages.72404
+	title = EVTNAME1972404
+	desc = {
+		text = EVTDESC1972404_S
+		trigger = {
+			OR = {
+				AND = {
+					spouse = { is_female = no }
+					event_target:da_unlucky_affair = { is_female = yes }
+				}
+				AND = {
+					spouse = { is_female = yes }
+					event_target:da_unlucky_affair = { is_female = no }
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESC1972404_H
+		trigger = {
+			OR = {
+				AND = {
+					spouse = { is_female = no }
+					event_target:da_unlucky_affair = { is_female = no }
+				}
+				AND = {
+					spouse = { is_female = yes }
+					event_target:da_unlucky_affair = { is_female = yes }
+				}
+			}
+		}
+	}	
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972404	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 15
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 15
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 15
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+	}
+	
+}
+
+
+character_event = { 		#Discovers nothing but is convinced an affair is taking place
+	id = darkages.72405
+	title = EVTNAME1972405
+	desc = {
+		text = EVTDESC1972405_S
+		trigger = {
+			OR = {
+				AND = {
+					spouse = { is_female = no }
+					event_target:da_unlucky_affair = { is_female = yes }
+				}
+				AND = {
+					spouse = { is_female = yes }
+					event_target:da_unlucky_affair = { is_female = no }
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESC1972405_H
+		trigger = {
+			OR = {
+				AND = {
+					spouse = { is_female = no }
+					event_target:da_unlucky_affair = { is_female = no }
+				}
+				AND = {
+					spouse = { is_female = yes }
+					event_target:da_unlucky_affair = { is_female = yes }
+				}
+			}
+		}
+	}	
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972405
+
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 35
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 35
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 35
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 20
+					modifier = {
+						factor = 2
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = envious
+					}
+					modifier = {
+						factor = 3
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72406 }	#Attacks poor courtier
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_affair = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_cuckolded
+				months = 36
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}
+		
+		
+
+
+	}
+	
+}
+
+character_event = { 		#Paranoid attacks poor courtier!
+	id = darkages.72406
+	title = EVTNAME1972406
+	desc = EVTDESC1972406
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972406
+		
+		prestige = -100		
+
+		random_list = {
+			3 = {
+				event_target:da_unlucky_affair = { add_trait = wounded }
+			}
+			1 = {
+				event_target:da_unlucky_affair = { add_trait = incapable }
+			}						
+			2 = {
+				event_target:da_unlucky_affair = {
+					death = {
+						death_reason = death_murder
+						killer = ROOT
+					}
+				}
+			}
+
+		}
+		
+		
+		remove_character_modifier = da_unfounded_suspicions
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 3650
+		}
+		
+	}
+	
+}
+
+
+############################################################
+#
+#	PARANOID SUSPECTS COURTIER HAS SOMETHING AGAINST HIM/HER
+#
+############################################################
+
+character_event = { 		
+	id = darkages.72410
+	title = EVTNAME1972410
+	desc = EVTDESC1972410
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {
+		trait = paranoid
+		has_character_flag = darkages_paranoid_flag		
+		NOT = { has_character_modifier = da_temp_paranoid_attack }
+	}
+
+	mean_time_to_happen = {
+		months = 800
+		
+		modifier = {
+			factor = 0.8
+			has_character_modifier = da_paranoid_1
+		}
+		
+		modifier = {
+			factor = 0.66
+			has_character_modifier = da_paranoid_2
+		}	
+
+		modifier = {
+			factor = 0.5
+			has_character_modifier = da_paranoid_3
+		}		
+		
+	}
+
+	immediate = {
+
+		add_character_modifier = {
+			name = da_temp_paranoid_attack
+			duration = 730
+			hidden = yes
+		}
+		
+		random_courtier = {
+			limit = {
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
+				ai = yes
+			}
+			
+			save_event_target_as = da_unlucky_courtier
+			
+		}		
+		
+	}
+	
+	option = {	# Investigate further
+		name = EVTOPTA1972410
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP175 }
+		
+		event_target:da_unlucky_courtier = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {	#	Nullifies the suspicion
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_courtier = { trait = kind }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_courtier = { trait = just }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_courtier = { trait = honest }
+					}
+					modifier = {
+						factor = 1.5
+						opinion = { who = event_target:da_unlucky_courtier value = 25 }
+					}					
+					character_event = { id = darkages.72411 days = 60 random = 180 }
+				}
+				1 = {	#	Detects nothing but suspects nevertheless
+					character_event = { id = darkages.72412 days = 60 random = 180 }
+				}
+				1 = {	#	Detects nothing but is sure a betrayal is going on
+					modifier = {
+						factor = 1.5
+						has_character_modifier = da_paranoid_1
+					}
+					modifier = {
+						factor = 2
+						has_character_modifier = da_paranoid_2
+					}
+					modifier = {
+						factor = 3
+						has_character_modifier = da_paranoid_3
+					}				
+					modifier = {
+						factor = 1.5
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_courtier = { trait = deceitful }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { opinion = { who = event_target:da_unlucky_courtier value = -24 } }
+					}					
+					character_event = { id = darkages.72413 days = 60 random = 180 }
+				}				
+			}
+		}
+	}
+	
+	option = {	# Restrain
+		name = EVTOPTB1972410
+		trigger = {
+			NOT = { has_character_modifier = da_paranoid_3 }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP170 }
+		
+		if = {
+			limit = {
+			
+				OR = {
+					NOR = {
+						has_character_modifier = da_paranoid_1
+						has_character_modifier = da_paranoid_2
+						has_character_modifier = da_paranoid_3
+					}
+					
+					has_character_modifier = da_paranoid_1
+					
+				}
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_1
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_2
+			
+		}
+		
+	}
+	
+
+}
+
+
+character_event = { 		#Clear suspicions
+	id = darkages.72411
+	title = EVTNAME1972411
+	desc = EVTDESC1972411
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972411	
+		
+	}
+	
+}
+
+character_event = { 		#Finds nothing but continues suspecting
+	id = darkages.72412
+	title = EVTNAME1972412
+	desc = EVTDESC1972412
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_paranoid_3
+				}
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_modifier = da_paranoid_1
+				}
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_2
+				}				
+				set_character_flag = darkages_opt2
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972412	
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP177 }
+		
+		clr_character_flag = darkages_opt1
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 20
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 20
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 20
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972412	
+		trigger = {
+			has_character_flag = darkages_opt2
+		}	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP176 }
+		
+		change_diplomacy = -1
+		
+		clr_character_flag = darkages_opt2	
+	
+	
+	}
+}
+
+
+character_event = { 		#Finds nothing but is sure of guilt
+	id = darkages.72413
+	title = EVTNAME1972413
+	desc = EVTDESC1972413
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_paranoid_3
+				}
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_modifier = da_paranoid_1
+				}
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_2
+				}				
+				set_character_flag = darkages_opt2
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972413	
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP177 }
+		
+		clr_character_flag = darkages_opt1
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 40
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 40
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 40
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 20
+					modifier = {
+						factor = 2
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = envious
+					}
+					modifier = {
+						factor = 3
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72414 }	#Attacks poor courtier
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_courtier = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}		
+		
+
+	}
+	
+	option = {
+		name = EVTOPTA1972413	
+		trigger = {
+			has_character_flag = darkages_opt2
+		}	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP176 }
+		
+		change_diplomacy = -2
+		
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 20
+					modifier = {
+						factor = 2
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = envious
+					}
+					modifier = {
+						factor = 3
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72414 }	#Attacks poor courtier
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_courtier = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}				
+		
+		clr_character_flag = darkages_opt2	
+	
+	
+	}
+}
+
+character_event = { 		#Paranoid attacks poor courtier!
+	id = darkages.72414
+	title = EVTNAME1972414
+	desc = EVTDESC1972414
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972414
+
+		prestige = -100
+
+		random_list = {
+			3 = {
+				event_target:da_unlucky_courtier = { add_trait = wounded }
+			}
+			1 = {
+				event_target:da_unlucky_courtier = { add_trait = incapable }
+			}						
+			2 = {
+				event_target:da_unlucky_courtier = {
+					death = {
+						death_reason = death_murder
+						killer = ROOT
+					}
+				}
+			}
+
+		}
+		
+		
+		remove_character_modifier = da_unfounded_suspicions
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 3650
+		}
+		
+	}
+	
+}
+
+
+###############################################################################################
+#
+#	PARANOID CHARACTER THINKS ONE OF THE COUNCILLORS IS STEALING MONEY
+#
+###############################################################################################
+
+character_event = { 		
+	id = darkages.72415
+	title = EVTNAME1972415
+
+	desc = {
+		text = EVTDESC1972415_CHANCELLOR
+		trigger = {
+			event_target:da_unlucky_voter_money = { has_job_title = job_chancellor }
+		}
+	}
+	
+	desc = {
+		text = EVTDESC1972415_MARSHAL
+		trigger = {
+			event_target:da_unlucky_voter_money = { has_job_title = job_marshal }
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC1972415_TREASURER
+		trigger = {
+			event_target:da_unlucky_voter_money = { has_job_title = job_treasurer }
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC1972415_SPYMASTER
+		trigger = {
+			event_target:da_unlucky_voter_money = { has_job_title = job_spymaster }
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC1972415_SPIRITUAL
+		trigger = {
+			event_target:da_unlucky_voter_money = { has_job_title = job_spiritual }
+		}
+	}	
+
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_economy
+
+	trigger = {
+		trait = paranoid
+		has_character_flag = darkages_paranoid_flag		
+		NOT = { has_character_modifier = da_temp_paranoid_attack }
+		
+		any_voter = {
+			OR = {
+				has_job_title = job_spiritual
+				has_job_title = job_spymaster
+				has_job_title = job_treasurer
+				has_job_title = job_marshal
+				has_job_title = job_chancellor
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 800
+		
+		modifier = {
+			factor = 0.8
+			has_character_modifier = da_paranoid_1
+		}
+		
+		modifier = {
+			factor = 0.66
+			has_character_modifier = da_paranoid_2
+		}	
+
+		modifier = {
+			factor = 0.5
+			has_character_modifier = da_paranoid_3
+		}		
+		
+	}
+
+	immediate = {
+
+		add_character_modifier = {
+			name = da_temp_paranoid_attack
+			duration = 730
+			hidden = yes
+		}
+		
+		random_voter = {
+			limit = { 
+				ai = yes 
+				OR = {
+					has_job_title = job_spiritual
+					has_job_title = job_spymaster
+					has_job_title = job_treasurer
+					has_job_title = job_marshal
+					has_job_title = job_chancellor					
+				}
+			}
+			save_event_target_as = da_unlucky_voter_money
+		}		
+		
+	}
+	
+	option = {	# Investigate further
+		name = EVTOPTA1972410
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP178 }
+		
+		event_target:da_unlucky_voter_money = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {	#	Nullifies the suspicion
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_voter_money = { trait = kind }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_voter_money = { trait = just }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_voter_money = { trait = honest }
+					}
+					modifier = {
+						factor = 3
+						event_target:da_unlucky_voter_money = { trait = charitable }
+					}					
+					modifier = {
+						factor = 1.5
+						opinion = { who = event_target:da_unlucky_voter_money value = 25 }
+					}					
+					character_event = { id = darkages.72416 days = 60 random = 180 }
+				}
+				1 = {	#	Detects nothing but suspects nevertheless
+					character_event = { id = darkages.72417 days = 60 random = 180 }
+				}
+				1 = {	#	Detects nothing but is sure a betrayal is going on
+					modifier = {
+						factor = 1.5
+						has_character_modifier = da_paranoid_1
+					}
+					modifier = {
+						factor = 2
+						has_character_modifier = da_paranoid_2
+					}
+					modifier = {
+						factor = 3
+						has_character_modifier = da_paranoid_3
+					}					
+					modifier = {
+						factor = 1.5
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 3
+						event_target:da_unlucky_voter_money = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_voter_money = { trait = envious }
+					}					
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_voter_money = { trait = deceitful }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { opinion = { who = event_target:da_unlucky_voter_money value = -24 } }
+					}					
+					character_event = { id = darkages.72418 days = 60 random = 180 }
+				}				
+			}
+		}
+	}
+	
+	option = {	# Restrain
+		name = EVTOPTB1972410
+		trigger = {
+			NOT = { has_character_modifier = da_paranoid_3 }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP170 }
+		
+		if = {
+			limit = {
+			
+				OR = {
+					NOR = {
+						has_character_modifier = da_paranoid_1
+						has_character_modifier = da_paranoid_2
+						has_character_modifier = da_paranoid_3
+					}
+					
+					has_character_modifier = da_paranoid_1
+					
+				}
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_1
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_2
+			
+		}
+		
+	}
+	
+	option = {	# Aprehend gold from the character's estates (chancellor)
+		name = EVTOPTC1972415
+		trigger = {
+			event_target:da_unlucky_voter_money = { has_job_title = job_chancellor }		
+			OR = {
+				trait = cruel
+				trait = envious
+				trait = greedy
+				trait = arbitrary
+				trait = deceitful
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP179 }
+		
+		treasury = 125
+		
+		event_target:da_unlucky_voter_money = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+			treasury = -125		
+			
+		}	
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					trait = cruel
+				}
+				add_trait = cruel
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = envious
+				}
+				add_trait = envious
+			}
+			3 = {
+				modifier = {
+					factor = 0
+					trait = greedy
+				}
+				add_trait = greedy
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = arbitrary
+				}
+				add_trait = arbitrary
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = deceitful
+				}
+				add_trait = deceitful
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 1825
+		}		
+	
+	}
+	
+	option = {	# Aprehend gold from the character's estates (marshal)
+		name = EVTOPTD1972415
+		trigger = {
+			event_target:da_unlucky_voter_money = { has_job_title = job_marshal }		
+			OR = {
+				trait = cruel
+				trait = envious
+				trait = greedy
+				trait = arbitrary
+				trait = deceitful
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP179 }
+		
+		treasury = 125
+		
+		event_target:da_unlucky_voter_money = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+			treasury = -125		
+			
+		}	
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					trait = cruel
+				}
+				add_trait = cruel
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = envious
+				}
+				add_trait = envious
+			}
+			3 = {
+				modifier = {
+					factor = 0
+					trait = greedy
+				}
+				add_trait = greedy
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = arbitrary
+				}
+				add_trait = arbitrary
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = deceitful
+				}
+				add_trait = deceitful
+			}
+			1 = {
+
+			}			
+			
+		}
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 1825
+		}		
+	
+	}
+
+	option = {	# Aprehend gold from the character's estates (treasurer)
+		name = EVTOPTE1972415
+		trigger = {
+			event_target:da_unlucky_voter_money = { has_job_title = job_treasurer }		
+			OR = {
+				trait = cruel
+				trait = envious
+				trait = greedy
+				trait = arbitrary
+				trait = deceitful
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP179 }
+		
+		treasury = 125
+		
+		event_target:da_unlucky_voter_money = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+			treasury = -125		
+			
+		}	
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					trait = cruel
+				}
+				add_trait = cruel
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = envious
+				}
+				add_trait = envious
+			}
+			3 = {
+				modifier = {
+					factor = 0
+					trait = greedy
+				}
+				add_trait = greedy
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = arbitrary
+				}
+				add_trait = arbitrary
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = deceitful
+				}
+				add_trait = deceitful
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 1825
+		}		
+	
+	}
+
+	option = {	# Aprehend gold from the character's estates (spymaster)
+		name = EVTOPTF1972415
+		trigger = {
+			event_target:da_unlucky_voter_money = { has_job_title = job_spymaster }		
+			OR = {
+				trait = cruel
+				trait = envious
+				trait = greedy
+				trait = arbitrary
+				trait = deceitful
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP179 }
+		
+		treasury = 125
+		
+		event_target:da_unlucky_voter_money = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+			treasury = -125		
+			
+		}	
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					trait = cruel
+				}
+				add_trait = cruel
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = envious
+				}
+				add_trait = envious
+			}
+			3 = {
+				modifier = {
+					factor = 0
+					trait = greedy
+				}
+				add_trait = greedy
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = arbitrary
+				}
+				add_trait = arbitrary
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = deceitful
+				}
+				add_trait = deceitful
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 1825
+		}		
+	
+	}	
+	
+	option = {	# Aprehend gold from the character's estates (spiritual)
+		name = EVTOPTG1972415
+		trigger = {
+			event_target:da_unlucky_voter_money = { has_job_title = job_spiritual }		
+			OR = {
+				trait = cruel
+				trait = envious
+				trait = greedy
+				trait = arbitrary
+				trait = deceitful
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP179 }
+		
+		treasury = 125
+		
+		event_target:da_unlucky_voter_money = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+			treasury = -125		
+			
+		}	
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					trait = cruel
+				}
+				add_trait = cruel
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = envious
+				}
+				add_trait = envious
+			}
+			3 = {
+				modifier = {
+					factor = 0
+					trait = greedy
+				}
+				add_trait = greedy
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = arbitrary
+				}
+				add_trait = arbitrary
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = deceitful
+				}
+				add_trait = deceitful
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 1825
+		}		
+	
+	}	
+
+}
+
+character_event = { 		#Clear suspicions
+	id = darkages.72416
+	title = EVTNAME1972416
+	desc = EVTDESC1972416
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972416	
+		
+	}
+	
+}
+
+character_event = { 		#Finds nothing but continues suspecting
+	id = darkages.72417
+	title = EVTNAME1972417
+	desc = EVTDESC1972417
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_paranoid_3
+				}
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_modifier = da_paranoid_1
+				}
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_2
+				}				
+				set_character_flag = darkages_opt2
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972417	
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP177 }
+		
+		clr_character_flag = darkages_opt1
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 20
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 20
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}			
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 20
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+
+	}
+	
+	option = {
+		name = EVTOPTA1972417	
+		trigger = {
+			has_character_flag = darkages_opt2
+		}	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP176 }
+		
+		change_martial = -1
+		
+		clr_character_flag = darkages_opt2	
+	
+	
+	}
+}
+
+character_event = { 		#Finds nothing but is sure of guilt
+	id = darkages.72418
+	title = EVTNAME1972418
+	desc = EVTDESC1972418
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_paranoid_3
+				}
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_modifier = da_paranoid_1
+				}
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_2
+				}				
+				set_character_flag = darkages_opt2
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972418	
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP177 }
+		
+		clr_character_flag = darkages_opt1
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 40
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}
+
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 40
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 40
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 20
+					modifier = {
+						factor = 2
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = envious
+					}
+					modifier = {
+						factor = 3
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72419 }	#Attacks poor courtier
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_voter_money = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}		
+		
+
+	}
+	
+	option = {
+		name = EVTOPTA1972418	
+		trigger = {
+			has_character_flag = darkages_opt2
+		}	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP176 }
+		
+		change_martial = -2
+		
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 20
+					modifier = {
+						factor = 2
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = envious
+					}
+					modifier = {
+						factor = 3
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72419 }	#Attacks poor courtier
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_voter_money = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}				
+		
+		clr_character_flag = darkages_opt2	
+	
+	
+	}
+	
+}
+
+character_event = { 		#Paranoid attacks poor courtier!
+	id = darkages.72419
+	title = EVTNAME1972419
+	desc = EVTDESC1972419
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972419
+
+		prestige = -100
+
+		random_list = {
+			3 = {
+				event_target:da_unlucky_voter_money = { add_trait = wounded }
+			}
+			1 = {
+				event_target:da_unlucky_voter_money = { add_trait = incapable }
+			}						
+			2 = {
+				event_target:da_unlucky_voter_money = {
+					death = {
+						death_reason = death_murder
+						killer = ROOT
+					}
+				}
+			}
+
+		}
+		
+		
+		remove_character_modifier = da_unfounded_suspicions
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 3650
+		}
+		
+	}
+	
+}
+
+
+
+###############################################################################################
+#
+#	PARANOID CHARACTER SUSPECTS A VASSAL IS CHEATING HIM/HER IN A GAME OF DICE
+#
+###############################################################################################
+
+character_event = { 		
+	id = darkages.72420
+	title = EVTNAME1972420
+	desc = EVTDESC1972420
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {
+		trait = paranoid
+		has_character_flag = darkages_paranoid_flag		
+		NOT = { has_character_modifier = da_temp_paranoid_attack }
+		any_vassal = {
+			is_adult = yes
+			is_incapable = no
+			prisoner = no
+			ai = yes		
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 800
+		
+		modifier = {
+			factor = 0.8
+			has_character_modifier = da_paranoid_1
+		}
+		
+		modifier = {
+			factor = 0.66
+			has_character_modifier = da_paranoid_2
+		}	
+
+		modifier = {
+			factor = 0.5
+			has_character_modifier = da_paranoid_3
+		}		
+		
+	}
+
+	immediate = {
+
+		add_character_modifier = {
+			name = da_temp_paranoid_attack
+			duration = 730
+			hidden = yes
+		}
+		
+		random_vassal = {
+			limit = {
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
+				ai = yes
+			}
+			
+			save_event_target_as = da_unlucky_gambler
+			
+		}		
+		
+	}
+	
+	option = {	# Investigate further
+		name = EVTOPTA1972420
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP181 }
+		
+		event_target:da_unlucky_gambler = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {	#	Nullifies the suspicion
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_gambler = { trait = kind }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_gambler = { trait = just }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_gambler = { trait = honest }
+					}
+					modifier = {
+						factor = 1.5
+						opinion = { who = event_target:da_unlucky_gambler value = 25 }
+					}					
+					character_event = { id = darkages.72421 days = 60 random = 180 }
+				}
+				1 = {	#	Detects nothing but suspects nevertheless
+					character_event = { id = darkages.72422 days = 60 random = 180 }
+				}
+				1 = {	#	Detects nothing but is sure a betrayal is going on
+					modifier = {
+						factor = 1.5
+						has_character_modifier = da_paranoid_1
+					}
+					modifier = {
+						factor = 2
+						has_character_modifier = da_paranoid_2
+					}
+					modifier = {
+						factor = 3
+						has_character_modifier = da_paranoid_3
+					}				
+					modifier = {
+						factor = 1.5
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 2
+						event_target:da_unlucky_gambler = { trait = deceitful }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { opinion = { who = event_target:da_unlucky_gambler value = -24 } }
+					}					
+					character_event = { id = darkages.72423 days = 60 random = 180 }
+				}				
+			}
+		}
+	}
+	
+	option = {	# Restrain
+		name = EVTOPTB1972420
+		trigger = {
+			NOT = { has_character_modifier = da_paranoid_3 }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP170 }
+		
+		if = {
+			limit = {
+			
+				OR = {
+					NOR = {
+						has_character_modifier = da_paranoid_1
+						has_character_modifier = da_paranoid_2
+						has_character_modifier = da_paranoid_3
+					}
+					
+					has_character_modifier = da_paranoid_1
+					
+				}
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_1
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_2
+			
+		}
+		
+	}
+	
+	option = {	# Cheat 
+		name = EVTOPTC1972420
+		trigger = {
+			NOT = { trait = honest }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP180 }
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {				#WIN THE GAME
+					modifier = {
+						factor = 2.5
+						trait = deceitful
+					}
+					modifier = {
+						factor = 2
+						trait = quick
+					}
+					modifier = {
+						factor = 3
+						trait = genius
+					}
+					modifier = {
+						factor = 2
+						event_target:da_unlucky_gambler = { trait = slow }
+					}
+					modifier = {
+						factor = 3
+						event_target:da_unlucky_gambler = { trait = imbecile }
+					}					
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}				
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}				
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}
+					modifier = {
+						factor = 1.25
+						event_target:da_unlucky_gambler = { NOT = { intrigue = 8 } }
+					}
+					modifier = {
+						factor = 1.35
+						event_target:da_unlucky_gambler = { NOT = { intrigue = 6 } }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_gambler = { NOT = { intrigue = 4 } }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:da_unlucky_gambler = { NOT = { intrigue = 2 } }
+					}					
+					
+
+					character_event = { id = darkages.72424 } #WIN
+					
+				}
+				1 = {		#LOSE THE GAME
+					modifier = {
+						factor = 2.5
+						event_target:da_unlucky_gambler = { trait = deceitful }
+					}
+					modifier = {
+						factor = 2
+						event_target:da_unlucky_gambler = { trait = quick }
+					}
+					modifier = {
+						factor = 3
+						event_target:da_unlucky_gambler = { trait = genius }
+					}
+					modifier = {
+						factor = 2
+						trait = slow
+					}
+					modifier = {
+						factor = 3
+						trait = imbecile
+					}					
+					modifier = {
+						factor = 1.25
+						event_target:da_unlucky_gambler = { intrigue = 12 }
+					}
+					modifier = {
+						factor = 1.35
+						event_target:da_unlucky_gambler = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_gambler = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:da_unlucky_gambler = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}					
+
+					character_event = { id = darkages.72425 } #LOSE			
+				}
+			}
+		}
+
+		if = {
+			limit = { 
+				NOT = { trait = deceitful }
+			}
+			
+			random = {
+				chance = 30
+				add_trait = deceitful
+			}
+		}		
+			
+	}
+
+}
+
+
+
+character_event = { 		#Clear suspicions
+	id = darkages.72421
+	title = EVTNAME1972421
+	desc = EVTDESC1972421
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972411	
+		
+	}
+	
+}
+
+character_event = { 		#Finds nothing but continues suspecting
+	id = darkages.72422
+	title = EVTNAME1972422
+	desc = EVTDESC1972422
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_paranoid_3
+				}
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_modifier = da_paranoid_1
+				}
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_2
+				}				
+				set_character_flag = darkages_opt2
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972422	
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP177 }
+		
+		clr_character_flag = darkages_opt1
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 25
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 25
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}			
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 25
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972422	
+		trigger = {
+			has_character_flag = darkages_opt2
+		}	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP176 }
+		
+		change_stewardship = -1
+		
+		clr_character_flag = darkages_opt2	
+	
+	
+	}
+}
+
+
+character_event = { 		#Finds nothing but is sure of guilt
+	id = darkages.72423
+	title = EVTNAME1972423
+	desc = EVTDESC1972423
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_paranoid_3
+				}
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_modifier = da_paranoid_1
+				}
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_2
+				}				
+				set_character_flag = darkages_opt2
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972423	
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP177 }
+		
+		clr_character_flag = darkages_opt1
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 45
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 45
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 45
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 20
+					modifier = {
+						factor = 2
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = envious
+					}
+					modifier = {
+						factor = 3
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72426 }	#Attacks poor courtier
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_gambler = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}		
+		
+
+	}
+	
+	option = {
+		name = EVTOPTA1972423	
+		trigger = {
+			has_character_flag = darkages_opt2
+		}	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP176 }
+		
+		change_stewardship = -2
+		
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 20
+					modifier = {
+						factor = 2
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = envious
+					}
+					modifier = {
+						factor = 3
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72426 }	#Attacks poor courtier
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_gambler = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}				
+		
+		clr_character_flag = darkages_opt2	
+	
+	
+	}
+	
+	
+}
+
+
+character_event = { 		#Wins the game!
+	id = darkages.72424
+	title = EVTNAME1972424
+	desc = EVTDESC1972424
+	picture = GFX_evt_da_dice
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972424
+		
+		prestige = 25
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 10
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 10
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 10
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+
+	}
+	
+}
+
+
+character_event = { 		#Loses the game!
+	id = darkages.72425
+	title = EVTNAME1972425
+	desc = EVTDESC1972425
+	picture = GFX_evt_da_dice
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972425
+		
+		prestige = -25
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 70
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 70
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 70
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_cheater
+			duration = 1825
+		}
+
+		event_target:da_unlucky_gambler = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}	
+		
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 5
+					modifier = {
+						factor = 2
+						trait = cruel
+					}
+					modifier = {
+						factor = 3.5
+						trait = envious
+					}
+					modifier = {
+						factor = 5
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72427 }	#Attacks poor courtier
+					
+				}
+				
+			}
+			
+		}		
+
+	}
+	
+}
+
+
+character_event = { 		#Paranoid attacks poor courtier!
+	id = darkages.72426
+	title = EVTNAME1972426
+	desc = EVTDESC1972426
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972426
+		
+		prestige = -100		
+
+		random_list = {
+			3 = {
+				event_target:da_unlucky_gambler = { add_trait = wounded }
+			}
+			1 = {
+				event_target:da_unlucky_gambler = { add_trait = incapable }
+			}						
+			2 = {
+				event_target:da_unlucky_gambler = {
+					death = {
+						death_reason = death_murder
+						killer = ROOT
+					}
+				}
+			}
+
+		}
+		
+		
+		remove_character_modifier = da_unfounded_suspicions
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 3650
+		}
+		
+	}
+	
+}
+
+
+
+character_event = { 		#Paranoid attacks poor courtier!
+	id = darkages.72427
+	title = EVTNAME1972427
+	desc = EVTDESC1972427
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972427
+		
+		prestige = -100		
+
+		random_list = {
+			3 = {
+				event_target:da_unlucky_gambler = { add_trait = wounded }
+			}
+			1 = {
+				event_target:da_unlucky_gambler = { add_trait = incapable }
+			}						
+			2 = {
+				event_target:da_unlucky_gambler = {
+					death = {
+						death_reason = death_murder
+						killer = ROOT
+					}
+				}
+			}
+
+		}
+		
+		
+		remove_character_modifier = da_unfounded_suspicions
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 3650
+		}
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+###############################################################################################
+#
+#	PARANOID CHARACTER SUSPECTS A FRIEND IS BETRAYING HIM/HER
+#
+###############################################################################################
+
+character_event = { 		
+	id = darkages.72428
+	title = EVTNAME1972428
+	desc = EVTDESC1972428
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {
+		trait = paranoid
+		has_character_flag = darkages_paranoid_flag		
+		NOT = { has_character_modifier = da_temp_paranoid_attack }
+	}
+
+	mean_time_to_happen = {
+		months = 800
+		
+		modifier = {
+			factor = 0.8
+			has_character_modifier = da_paranoid_1
+		}
+		
+		modifier = {
+			factor = 0.66
+			has_character_modifier = da_paranoid_2
+		}	
+
+		modifier = {
+			factor = 0.5
+			has_character_modifier = da_paranoid_3
+		}		
+		
+	}
+
+	immediate = {
+
+		add_character_modifier = {
+			name = da_temp_paranoid_attack
+			duration = 730
+			hidden = yes
+		}
+		if = {
+			limit = { NOT = { num_of_friends = 1 } }
+		
+			random_courtier_or_vassal = {
+				limit = {
+					NOT = { is_rival = ROOT }
+				}
+				
+				add_friend = ROOT
+				
+				save_event_target_as = da_unlucky_friend
+				
+			}
+		}
+		else = {
+			random_friend = {
+				save_event_target_as = da_unlucky_friend
+			}		
+		}
+		
+	}
+	
+	option = {	# Investigate further
+		name = EVTOPTA1972428
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP183 }
+		
+		event_target:da_unlucky_friend = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {	#	Nullifies the suspicion
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_friend = { trait = kind }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_friend = { trait = just }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_friend = { trait = honest }
+					}
+					modifier = {
+						factor = 3
+						event_target:da_unlucky_friend = { trait = content }
+					}					
+					
+					character_event = { id = darkages.72429 days = 60 random = 180 }
+				}
+				1 = {	#	Detects nothing but suspects nevertheless
+					character_event = { id = darkages.72430 days = 60 random = 180 }
+				}
+				1 = {	#	Detects nothing but is sure a betrayal is going on
+					modifier = {
+						factor = 1.5
+						has_character_modifier = da_paranoid_1
+					}
+					modifier = {
+						factor = 2
+						has_character_modifier = da_paranoid_2
+					}
+					modifier = {
+						factor = 3
+						has_character_modifier = da_paranoid_3
+					}					
+					modifier = {
+						factor = 1.5
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 3
+						event_target:da_unlucky_friend = { trait = ambitious }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_friend = { trait = envious }
+					}					
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_friend = { trait = deceitful }
+					}
+				
+					character_event = { id = darkages.72431 days = 60 random = 180 }
+				}				
+			}
+		}
+		
+	}
+	
+	option = {	# Restrain
+		name = EVTOPTB1972428
+		trigger = {
+			NOT = { has_character_modifier = da_paranoid_3 }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP170 }
+		
+		if = {
+			limit = {
+			
+				OR = {
+					NOR = {
+						has_character_modifier = da_paranoid_1
+						has_character_modifier = da_paranoid_2
+						has_character_modifier = da_paranoid_3
+					}
+					
+					has_character_modifier = da_paranoid_1
+					
+				}
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_1
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_2
+			
+		}
+		
+	}
+	
+	option = {	# Confront
+		name = EVTOPTC1972428
+		trigger = {
+			NOR = { 
+				trait = deceitful 
+				trait = kind
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP184 }
+		
+		hidden_tooltip = {
+			random_list = {
+				3 = {				#EVERYTHING IS SORTED OUT
+					modifier = {
+						factor = 1.75
+						trait = shrewd
+					}
+					modifier = {
+						factor = 1.5
+						has_education_diplomacy_trigger = yes						
+					}
+					modifier = {
+						factor = 1.5
+						opinion = { who = event_target:da_unlucky_friend value = 100 }
+					}
+
+					character_event = { id = darkages.72432 } #ALL OK
+					
+				}
+				2 = {		#ATTACK
+					modifier = {
+						factor = 1.75
+						trait = dull
+					}
+					modifier = {
+						factor = 3
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.5
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.75
+						trait = envious
+					}
+					modifier = {
+						factor = 1.5
+						has_character_modifier = da_paranoid_1
+					}
+					modifier = {
+						factor = 2
+						has_character_modifier = da_paranoid_2
+					}
+					modifier = {
+						factor = 2.5
+						has_character_modifier = da_paranoid_3
+					}					
+
+					character_event = { id = darkages.72433 } #ATTACK!!!!
+				}
+			}
+		}
+
+	}
+
+}
+
+character_event = { 		#Clear suspicions
+	id = darkages.72429
+	title = EVTNAME1972429
+	desc = EVTDESC1972429
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972411	
+		
+		remove_friend = event_target:da_unlucky_friend
+		
+	}
+	
+}
+
+character_event = { 		#Finds nothing but continues suspecting
+	id = darkages.72430
+	title = EVTNAME1972430
+	desc = EVTDESC1972430
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_paranoid_3
+				}
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_modifier = da_paranoid_1
+				}
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_2
+				}				
+				set_character_flag = darkages_opt2
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972430	
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP177 }
+		
+		clr_character_flag = darkages_opt1
+		
+		remove_friend = event_target:da_unlucky_friend		
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 50
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 50
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}			
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 50
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972430	
+		trigger = {
+			has_character_flag = darkages_opt2
+		}	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP176 }
+		
+		remove_friend = event_target:da_unlucky_friend		
+		
+		change_intrigue = -1
+		
+		clr_character_flag = darkages_opt2	
+	
+	
+	}
+}
+
+
+character_event = { 		#Finds nothing but is sure of guilt
+	id = darkages.72431
+	title = EVTNAME1972431
+	desc = EVTDESC1972431
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_paranoid_3
+				}
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_modifier = da_paranoid_1
+				}
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_2
+				}				
+				set_character_flag = darkages_opt2
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972431	
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP177 }
+		
+		clr_character_flag = darkages_opt1
+		
+		remove_friend = event_target:da_unlucky_friend		
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 75
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 75
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 75
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 20
+					modifier = {
+						factor = 2
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = envious
+					}
+					modifier = {
+						factor = 3
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72434 }	#Attacks poor courtier
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_friend = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}		
+		
+
+	}
+	
+	option = {
+		name = EVTOPTA1972431
+		trigger = {
+			has_character_flag = darkages_opt2
+		}	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP176 }
+		
+		remove_friend = event_target:da_unlucky_friend		
+		
+		change_intrigue = -2
+		
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 20
+					modifier = {
+						factor = 2
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = envious
+					}
+					modifier = {
+						factor = 3
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72434 }	#Attacks poor courtier
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_friend = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}				
+		
+		clr_character_flag = darkages_opt2	
+	
+	
+	}
+	
+	
+}
+
+
+character_event = { 		#ALL IS WELL
+	id = darkages.72432
+	title = EVTNAME1972432
+	desc = EVTDESC1972424
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972432
+		
+	}
+	
+}
+
+
+character_event = { 		#ATTACKS POOR FRIEND
+	id = darkages.72433
+	title = EVTNAME1972433
+	desc = EVTDESC1972433
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972433
+		
+		prestige = -100		
+		
+		remove_friend = event_target:da_unlucky_friend
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 90
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 90
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 90
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+		
+		event_target:da_unlucky_friend = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		random_list = {
+			3 = {
+				event_target:da_unlucky_friend = { add_trait = wounded }
+			}
+			1 = {
+				event_target:da_unlucky_friend = { add_trait = incapable }
+			}						
+			2 = {
+				event_target:da_unlucky_friend = {
+					death = {
+						death_reason = death_murder
+						killer = ROOT
+					}
+				}
+			}
+
+		}
+		
+		remove_character_modifier = da_unfounded_suspicions
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 5475
+		}		
+
+	}
+	
+}
+
+
+character_event = { 		#Paranoid attacks poor courtier!
+	id = darkages.72434
+	title = EVTNAME1972434
+	desc = EVTDESC1972434
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972434
+		
+		prestige = -100		
+
+		random_list = {
+			3 = {
+				event_target:da_unlucky_friend = { add_trait = wounded }
+			}
+			1 = {
+				event_target:da_unlucky_friend = { add_trait = incapable }
+			}						
+			2 = {
+				event_target:da_unlucky_friend = {
+					death = {
+						death_reason = death_murder
+						killer = ROOT
+					}
+				}
+			}
+
+		}
+		
+		
+		remove_character_modifier = da_unfounded_suspicions
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 3650
+		}
+		
+	}
+	
+}
+
+
+###############################################################################################
+#
+#	PARANOID CHARACTER SUSPECTS AN ENEMY IS ACTIVELY PLOTTING AGAINST HIM/HER
+#
+###############################################################################################
+
+character_event = { 		
+	id = darkages.72435
+	title = EVTNAME1972435
+	desc = EVTDESC1972435
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {
+		trait = paranoid
+		has_character_flag = darkages_paranoid_flag		
+		NOT = { has_character_modifier = da_temp_paranoid_attack }
+	}
+
+	mean_time_to_happen = {
+		months = 800
+		
+		modifier = {
+			factor = 0.8
+			has_character_modifier = da_paranoid_1
+		}
+		
+		modifier = {
+			factor = 0.66
+			has_character_modifier = da_paranoid_2
+		}	
+
+		modifier = {
+			factor = 0.5
+			has_character_modifier = da_paranoid_3
+		}		
+		
+	}
+
+	immediate = {
+
+		add_character_modifier = {
+			name = da_temp_paranoid_attack
+			duration = 730
+			hidden = yes
+		}
+		if = {
+			limit = { NOT = { num_of_rivals = 1 } }
+		
+			random_vassal = {
+				limit = {
+					NOT = { is_friend = ROOT }
+				}
+				
+				add_rival = ROOT
+				
+				save_event_target_as = da_unlucky_rival
+				
+			}
+		}
+		else = {
+			random_rival = {
+				save_event_target_as = da_unlucky_rival
+			}		
+		}
+		
+	}
+	
+	option = {	# Investigate further
+		name = EVTOPTA1972435
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP183 }
+		
+		event_target:da_unlucky_rival = {
+
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_acting_suspicious
+			}
+			
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {	#	Nullifies the suspicion
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_rival = { trait = kind }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_rival = { trait = just }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_rival = { trait = honest }
+					}
+					modifier = {
+						factor = 3
+						event_target:da_unlucky_rival = { trait = content }
+					}					
+					
+					character_event = { id = darkages.72436 days = 60 random = 180 }
+				}
+				2 = {	#	Detects nothing but suspects nevertheless
+					character_event = { id = darkages.72437 days = 60 random = 180 }
+				}
+				3 = {	#	Detects nothing but is sure a betrayal is going on
+					modifier = {
+						factor = 1.5
+						has_character_modifier = da_paranoid_1
+					}
+					modifier = {
+						factor = 2
+						has_character_modifier = da_paranoid_2
+					}
+					modifier = {
+						factor = 3
+						has_character_modifier = da_paranoid_3
+					}					
+					modifier = {
+						factor = 1.5
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 3
+						event_target:da_unlucky_rival = { trait = ambitious }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_rival = { trait = envious }
+					}					
+					modifier = {
+						factor = 1.5
+						event_target:da_unlucky_rival = { trait = deceitful }
+					}
+				
+					character_event = { id = darkages.72438 days = 60 random = 180 }
+				}				
+			}
+		}
+		
+	}
+	
+	option = {	# Restrain
+		name = EVTOPTB1972435
+		trigger = {
+			NOT = { has_character_modifier = da_paranoid_3 }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP170 }
+		
+		if = {
+			limit = {
+			
+				OR = {
+					NOR = {
+						has_character_modifier = da_paranoid_1
+						has_character_modifier = da_paranoid_2
+						has_character_modifier = da_paranoid_3
+					}
+					
+					has_character_modifier = da_paranoid_1
+					
+				}
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_1
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+			
+			set_character_flag = darkages_paranoid_upgrd_2
+			
+		}
+		
+	}
+	
+	option = {	# Ambush the rival
+		name = EVTOPTC1972435
+		trigger = {
+			NOR = { 
+				trait = just
+				trait = kind
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP185 }
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72439 } #ATTACK!!!!
+		}
+
+	}
+
+}
+
+
+character_event = { 		#Clear suspicions
+	id = darkages.72436
+	title = EVTNAME1972436
+	desc = EVTDESC1972436
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972436
+		
+	}
+	
+}
+
+character_event = { 		#Finds nothing but continues suspecting
+	id = darkages.72437
+	title = EVTNAME1972437
+	desc = EVTDESC1972437
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_paranoid_3
+				}
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_modifier = da_paranoid_1
+				}
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_2
+				}				
+				set_character_flag = darkages_opt2
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972437
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP177 }
+		
+		clr_character_flag = darkages_opt1
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 40
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 40
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}			
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 40
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972437	
+		trigger = {
+			has_character_flag = darkages_opt2
+		}	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP176 }
+		
+		change_learning = -1
+		
+		clr_character_flag = darkages_opt2	
+	
+	
+	}
+}
+
+
+character_event = { 		#Finds nothing but is sure of guilt
+	id = darkages.72438
+	title = EVTNAME1972438
+	desc = EVTDESC1972438
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_paranoid_3
+				}
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_modifier = da_paranoid_1
+				}
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_2
+				}				
+				set_character_flag = darkages_opt2
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972438
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP177 }
+		
+		clr_character_flag = darkages_opt1
+		
+	
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 65
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 65
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 65
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 40
+					modifier = {
+						factor = 1.5
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.25
+						trait = envious
+					}
+					modifier = {
+						factor = 1.75
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72440 }	#Attacks poor rival
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_rival = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}		
+		
+
+	}
+	
+	option = {
+		name = EVTOPTA1972438
+		trigger = {
+			has_character_flag = darkages_opt2
+		}	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP176 }
+		
+		change_learning = -2
+		
+		hidden_tooltip = {
+
+			if = {
+				limit = {
+					has_character_modifier = da_paranoid_3
+				}
+
+				random = {
+					chance = 40
+					modifier = {
+						factor = 1.5
+						trait = cruel
+					}
+					modifier = {
+						factor = 1.25
+						trait = envious
+					}
+					modifier = {
+						factor = 1.75
+						trait = wroth
+					}
+					modifier = {
+						factor = 0.25
+						trait = kind
+					}				
+					modifier = {
+						factor = 0.5
+						trait = humble
+					}				
+					modifier = {
+						factor = 0.75
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.25
+						trait = just
+					}					
+					
+					character_event = { id = darkages.72440 }	#Attacks poor rival
+					
+				}
+				
+			}
+			
+		}
+
+		event_target:da_unlucky_rival = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		add_character_modifier = {
+			name = da_unfounded_suspicions
+			duration = 1825
+		}				
+		
+		clr_character_flag = darkages_opt2	
+	
+	
+	}
+	
+	
+}
+
+
+character_event = { 		#ATTACKS POOR RIVAL
+	id = darkages.72439
+	title = EVTNAME1972439
+	desc = EVTDESC1972439
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972439
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP186 }		
+		prestige = -100		
+		
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_2
+			}
+
+			random = {
+				chance = 90
+				remove_character_modifier = da_paranoid_2				
+				add_character_modifier = {
+					name = da_paranoid_3
+					duration = -1
+				}
+			}
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_modifier = da_paranoid_1
+			}
+
+			random = {
+				chance = 90
+				remove_character_modifier = da_paranoid_1				
+				add_character_modifier = {
+					name = da_paranoid_2
+					duration = -1
+				}
+			}
+			
+		}		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_1
+					has_character_modifier = da_paranoid_2
+					has_character_modifier = da_paranoid_3
+				}				
+			}
+
+			random = {
+				chance = 90
+				add_character_modifier = {
+					name = da_paranoid_1
+					duration = -1
+				}
+			}
+			
+		}
+		
+		event_target:da_unlucky_rival = {
+		
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				months = 72
+			}
+			
+		}
+		
+		random_list = {
+			3 = {
+				add_trait = wounded
+			}
+			1 = {
+				add_trait = incapable
+			}
+			1 = {
+				modifier = {
+					factor = 2.25
+					event_target:da_unlucky_rival = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 2.35
+					event_target:da_unlucky_rival = { combat_rating = 30 }
+				}
+				modifier = {
+					factor = 2.5
+					event_target:da_unlucky_rival = { combat_rating = 50 }
+				}				
+				modifier = {
+					factor = 2.75
+					event_target:da_unlucky_rival = { combat_rating = 70 }
+				}			
+				death = {
+					death_reason = death_duel
+					killer = event_target:da_unlucky_rival
+				}
+			}			
+			4 = {
+				event_target:da_unlucky_rival = { add_trait = wounded }
+			}
+			2 = {
+				event_target:da_unlucky_rival = { add_trait = incapable }
+			}						
+			3 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 10
+				}
+				modifier = {
+					factor = 1.35
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 50
+				}				
+				modifier = {
+					factor = 1.75
+					combat_rating = 70
+				}				
+				event_target:da_unlucky_rival = {
+					death = {
+						death_reason = death_murder
+						killer = ROOT
+					}
+				}
+			}
+
+		}
+		
+		remove_character_modifier = da_unfounded_suspicions
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 5475
+		}		
+
+	}
+	
+}
+
+
+character_event = { 		#Paranoid attacks poor rival!
+	id = darkages.72440
+	title = EVTNAME1972440
+	desc = EVTDESC1972440
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972440
+		
+		prestige = -100		
+
+		random_list = {
+			3 = {
+				event_target:da_unlucky_rival = { add_trait = wounded }
+			}
+			1 = {
+				event_target:da_unlucky_rival = { add_trait = incapable }
+			}						
+			2 = {
+				event_target:da_unlucky_rival = {
+					death = {
+						death_reason = death_murder
+						killer = ROOT
+					}
+				}
+			}
+
+		}
+		
+		
+		remove_character_modifier = da_unfounded_suspicions
+		
+		add_character_modifier = {
+			name = da_insane_behaviour
+			duration = 3650
+		}
+		
+	}
+	
+}
+
+
+
+
+################################################################################################
+#
+#	SOMEONE THINKS THE MADNESS HAS GONE TOO FAR AND TRIES TO KILL THE CHARACTER
+#
+################################################################################################
+
+
+character_event = {			
+	id = darkages.72441
+	title = EVTNAME1972441
+	desc = {
+		text = EVTDESC1972441_1
+		trigger = {
+			has_character_flag = dark_ages_opt1
+		}
+	}
+	desc = {
+		text = EVTDESC1972441_2
+		trigger = {
+			has_character_flag = dark_ages_opt2	
+		}
+	}
+	desc = {
+		text = EVTDESC1972441_3
+		trigger = {
+			has_character_flag = dark_ages_opt3
+		}
+	}
+	picture = GFX_evt_da_assassination
+	border = GFX_event_normal_frame_intrigue
+
+	trigger = {
+		has_character_modifier = da_insane_behaviour
+		NOT = { has_character_modifier = da_recent_paranoid_murder_attempt }
+		
+		any_courtier_or_vassal = {
+			is_adult = yes
+			is_incapable = no
+			prisoner = no
+			NOT = { opinion = { who = ROOT value = 0 } }
+		}
+	
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		
+		modifier = {
+			factor = 0.75
+			has_character_modifier = da_paranoid_1
+		}
+		
+		modifier = {
+			factor = 0.5
+			has_character_modifier = da_paranoid_2
+		}		
+		
+		modifier = {
+			factor = 0.33
+			has_character_modifier = da_paranoid_3
+		}
+		
+		modifier = {
+			factor = 1.25
+			trait = kind
+		}
+		
+		modifier = {
+			factor = 1.25
+			trait = just
+		}		
+		
+		modifier = {
+			factor = 1.25
+			trait = charitable
+		}		
+		
+		modifier = {
+			factor = 0.75
+			trait = cruel
+		}		
+		
+		modifier = {
+			factor = 0.75
+			trait = wroth
+		}		
+		
+		modifier = {
+			factor = 0.75
+			trait = arbitrary
+		}		
+		
+	}
+	
+	immediate = {
+	
+		random_list = {
+			1 = {
+				set_character_flag = dark_ages_opt1
+			}
+			1 = {
+				set_character_flag = dark_ages_opt2
+			}
+			1 = {
+				set_character_flag = dark_ages_opt3
+			}			
+		}
+	
+		random_list = {
+			1 = {
+				add_character_modifier = {
+					name = da_recent_paranoid_murder_attempt
+					duration = 365
+					hidden = yes
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					name = da_recent_paranoid_murder_attempt
+					duration = 730
+					hidden = yes
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					name = da_recent_paranoid_murder_attempt
+					duration = 1095
+					hidden = yes
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					name = da_recent_paranoid_murder_attempt
+					duration = 1460
+					hidden = yes
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					name = da_recent_paranoid_murder_attempt
+					duration = 1825
+					hidden = yes
+				}
+			}
+		}
+		
+		random_courtier_or_vassal = {
+			limit = {
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
+				NOT = { opinion = { who = ROOT value = 0 } }
+			}
+			
+			save_event_target_as = da_murderer_candidate
+		}
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972441"
+		trigger = {
+			has_character_flag = dark_ages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP187 }
+		
+		clr_character_flag = dark_ages_opt1
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = -10 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -25 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -50 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -75 }
+				}	
+				modifier = {
+					factor = 1.5
+					has_education_learning_trigger = yes
+				}
+
+				
+				death = {
+					death_reason = death_murder
+					killer = event_target:da_murderer_candidate
+				}				
+			}
+			5 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 10
+				}
+				modifier = {
+					factor = 1.35
+					combat_rating = 25
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 1.75
+					combat_rating = 75
+				}
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}
+				modifier = {
+					factor = 1.5
+					has_education_martial_trigger = yes
+				}
+
+				opinion = {
+					who = event_target:da_murderer_candidate
+					modifier = 	opinion_murder_attempt
+				}
+				
+			}			
+		}
+
+
+	}
+	
+	option = {
+		name = "EVTOPTB1972441"
+		trigger = {
+			has_character_flag = dark_ages_opt2
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP187 }		
+		
+		clr_character_flag = dark_ages_opt2
+
+		
+		random_list = {
+			6 = {
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = -10 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -25 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -50 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -75 }
+				}	
+				modifier = {
+					factor = 1.5
+					has_education_learning_trigger = yes
+				}
+
+				
+				death = {
+					death_reason = death_murder
+					killer = event_target:da_murderer_candidate
+				}				
+			}
+			7 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 10
+				}
+				modifier = {
+					factor = 1.35
+					combat_rating = 25
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 1.75
+					combat_rating = 75
+				}
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}
+				modifier = {
+					factor = 1.5
+					has_education_martial_trigger = yes
+				}	
+
+				opinion = {
+					who = event_target:da_murderer_candidate
+					modifier = 	opinion_murder_attempt
+				}
+				
+			}			
+		}
+
+
+	}
+
+	option = {
+		name = "EVTOPTC1972441"
+		trigger = {
+			has_character_flag = dark_ages_opt3
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP187 }		
+		
+		clr_character_flag = dark_ages_opt3
+		
+		random_list = {
+			3 = {
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = -10 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -25 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -50 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -75 }
+				}	
+				modifier = {
+					factor = 1.5
+					has_education_learning_trigger = yes
+				}
+
+				
+				death = {
+					death_reason = death_murder
+					killer = event_target:da_murderer_candidate
+				}				
+			}
+			1 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 10
+				}
+				modifier = {
+					factor = 1.35
+					combat_rating = 25
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 1.75
+					combat_rating = 75
+				}
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}
+				modifier = {
+					factor = 1.5
+					has_education_martial_trigger = yes
+				}	
+
+				opinion = {
+					who = event_target:da_murderer_candidate
+					modifier = 	opinion_murder_attempt
+				}
+				
+			}
+			
+		}
+
+
+	}	
+	
+}
+
+
+
+#########################################################################################
+#
+#	INCLUSION OF WARY TRAIT AND ITS CONSEQUENCES
+#
+#########################################################################################
+
+character_event = {		#Shield event that prevents Paranoid to be given freely
+	id = darkages.72562
+	title = EVTNAME1972562
+	desc = EVTDESC1972562
+	picture = GFX_evt_da_love
+	border = GFX_event_normal_frame_religion
+	hide_window = yes
+	
+	trigger = {
+		trait = paranoid
+		NOT = { trait = wary }
+		NOT = { trait = trusting }		
+		NOT = { has_character_flag = darkages_paranoid_flag }
+		NOT = { has_character_flag = da_true_paranoid }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+	
+		set_character_flag = darkages_paranoid_flag
+		
+		random ={
+			chance = 75
+			add_trait = wary
+			remove_trait = paranoid
+			character_event = { id = darkages.72563 }
+		}	
+
+	}
+	
+}
+
+
+character_event = {		#notification of previous event
+	id = darkages.72563
+	title = EVTNAME1972563
+	desc = EVTDESC1972563
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972563"	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP294 }	
+	
+	}
+	
+}
+
+character_event = {		#Event that addresses problem when both wary and paranoid are present in the same character
+	id = darkages.72572
+	title = EVTNAME1972572
+	desc = EVTDESC1972572
+	picture = GFX_evt_da_love
+	border = GFX_event_normal_frame_religion
+	hide_window = yes
+	
+	trigger = {
+		trait = paranoid
+		trait = wary
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972572"	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP295 }
+
+		remove_trait = wary
+	
+	}	
+	
+}
+
+
+###########Now for Trusting
+
+character_event = {		#Event that addresses problem when both trusting and paranoid are present in the same character
+	id = darkages.72573
+	title = EVTNAME1972573
+	desc = EVTDESC1972573
+	picture = GFX_evt_da_love
+	border = GFX_event_normal_frame_religion
+	
+	trigger = {
+		trait = paranoid
+		trait = trusting
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972573"	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP293 }
+		
+		remove_trait = paranoid
+		remove_trait = trusting			
+	
+	}	
+	
+}
+
+
+####################################################################################
+#
+#	DUE TO THE DEARTH OF PARANOID CHARACTERS, 2 EVENTS TO ADD PARANOID
+#
+####################################################################################
+
+character_event = {			#On startup for AI characters to generate Paranoid ones
+	id = darkages.72585
+	title = EVTNAME1972585
+	desc = EVTDESC1972585
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = wary
+		NOT = { has_global_flag = darkages_start }
+		ai = yes
+	}
+
+
+	immediate = {
+		random = {
+			chance = 10
+			
+			remove_trait = wary
+			add_trait = paranoid
+			set_character_flag = darkages_paranoid_flag
+		}
+	}
+
+}
+
+character_event = {			#Event on action yearly to define if a Wary character devolves into Paranoid
+	id = darkages.72586
+	title = EVTNAME1972586
+	desc = EVTDESC1972586
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		trait = wary
+	}
+
+	immediate = {
+		random_list = {
+			799 = {
+				modifier = {
+					factor = 0.5
+					ai = no
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 10
+					trait = stressed
+				}
+				modifier = {
+					factor = 2
+					trait = depressed
+				}				
+				
+				character_event = { id = darkages.72587 }
+				
+			}
+			
+		}
+	}
+
+}
+
+character_event = {			#Called from above
+	id = darkages.72587
+	title = EVTNAME1972587
+	desc = EVTDESC1972587
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972587"	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP306 }
+		
+		remove_trait = wary
+		add_trait = paranoid
+
+		set_character_flag = da_true_paranoid
+	
+	}	
+
+}
+
+
+character_event = {			#Event to make Paranoid trait go away
+	id = darkages.72669
+	title = EVTNAME1972669
+	desc = EVTDESC1972669
+	picture = GFX_evt_da_dementia
+	border = GFX_event_normal_frame_intrigue
+
+	trigger = {
+		has_character_modifier = da_paranoid_1
+		trait = paranoid
+		NOT = { has_character_modifier = da_paranoid_2 }
+		NOT = { has_character_modifier = da_paranoid_3 }
+		NOT = { trait = stressed }
+		NOT = { trait = depressed }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+	}
+
+	immediate = {
+
+	}
+
+
+	
+	option = {
+		name = "EVTOPTA1972669"	
+				
+		remove_trait = paranoid		
+		add_trait = wary
+		
+		hidden_tooltip = {
+			remove_character_modifier = da_paranoid_1
+		}
+	
+	}	
+
+}

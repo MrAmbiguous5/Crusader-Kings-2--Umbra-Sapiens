@@ -1,0 +1,5 @@
+aswaran_composition = {
+    levy_size = 4
+	knights = 1300
+	horse_archers = 450
+}

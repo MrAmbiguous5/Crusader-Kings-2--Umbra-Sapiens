@@ -1,0 +1,21 @@
+123456789 = {
+	name="Molinatti"
+	culture = italian
+}
+123456790 = {
+	used_for_random = no
+	name="Bourschied"
+	culture = irish
+	religion="catholic"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 9
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
+}

@@ -1,0 +1,1374 @@
+# ICONS:
+#
+# Good 			<=> 		Bad
+#
+#  1 - Martial 				- 19
+#  2 - Learning 			- 20
+#  3 - Diplomacy 			- 21
+#  4 - Stewardship 			- 22
+#  5 - Intrigue 			- 23
+#  6 - Money 				- 24
+#  7 - Prestige 			- 25
+#  8 - Piety 				- 26
+#  9 - Titles 				- 27
+# 10 - Council 				- 28 
+# 11 - Laws 				- 29
+# 12 - Tech 				- 30 
+# 13 - Military 			- 31
+# 14 - Plots 				- 32
+# 15 - Messages 			- 33
+# 16 - Diplomatic actions 	- 34
+# 17 - Church 				- 35
+# 18 - Characters 			- 36
+# 37 - Prison 				- 38
+# 39 - Love 				- 40
+# 41 - Death 				- 42
+# 43 - Indian religion 		- 44
+# 45 - Dog					- 65
+# 46 - Cat					- 66
+# 47 - Owl					- 67
+# 48 - Pagan religion       - 49
+# 50 - Staff of Asclepius   - 51
+# 52 - Mystic               - 53
+# 54 - Bonesaw              - 55
+# 56 - Horseshoe            - 57
+# 58 - Parrot				- 68
+# 59 - Ham					- 60
+# 61 - Anchor				- 62
+# 63 - Jewish religion		- 64
+# 69 - Bed					- 70
+# 71 - Wolf					- 72
+# 73 - Raven				- 74
+# 75 - Demon horns			- 76
+# 77 - Trident				- 78
+# 79 - Stars				- 80
+# 81 - Eye					- 82
+# 83 - Test-tubes			- 84
+# 85 - Science flask		- 86
+# 87 - Flower				- 88
+# 89 - Rats		 			- 90
+# 91 - Otter				- 92
+# 93 - Hedgehog				- 94
+# 95 - Taoist				- 96
+# 97 - Paper				- 98
+# 99 - Bamboo Book			- 100
+# 101 - Pagoda				- 102
+# 103 - Firework			- 104
+# 105 - Torch				- 106
+# 107 - Panda				- 108
+# 109 - Dragon				- 110
+# 111 - Eagle				- 112
+# 113 - Pregnancy			- 114
+# 115 - Evil Sword			- 116
+# 117 - Combat Skill		- 118
+# 119 - Broken Bone			- 120
+# 121 - Chicken				- 122
+# 123 - Combat Skill (New)	- 124
+# 125 - Bear 				- 126
+# 127 - Lion 				- 128
+# 129 - Rain Good           - 130
+# 131 - Rain Storm          - 132
+# 133 - Sun   	            - 134
+
+
+
+focused_ruler = {
+	diplomacy = 1
+	martial = 1
+	stewardship = 1
+	intrigue = 1
+	learning = 1
+	icon = 18	
+}
+
+learning = {
+	martial = -2
+	diplomacy = -2
+	stewardship = -2
+	intrigue = -2
+	icon = 20
+}
+
+instability_2 = {
+	local_tax_modifier = -0.20
+	local_revolt_risk = 0.05
+	local_build_time_modifier = 0.5
+	local_build_cost_modifier = 0.25
+	manpower_growth = -0.2
+	icon = 29	
+}
+
+instability_1 = {
+	local_tax_modifier = -0.10
+	local_revolt_risk = 0.03
+	local_build_time_modifier = 0.25
+	local_build_cost_modifier = 0.10
+	manpower_growth = -0.1
+	icon = 29	
+}
+
+stability_1 = {
+	local_tax_modifier = 0.05
+	local_revolt_risk = -0.02
+	local_build_time_modifier = -0.05
+	local_build_cost_modifier = -0.05
+	icon = 11
+}
+
+stability_2 = {
+	local_tax_modifier = 0.10
+	local_revolt_risk = -0.04
+	local_build_time_modifier = -0.10
+	local_build_cost_modifier = -0.10	
+	icon = 11
+}
+
+timer_stability_system = {}
+
+ss_volatility = {
+	icon = 27
+}
+
+ss_punitive_raid = {
+	local_revolt_risk = 0.05
+	icon = 31
+}
+
+ss_funded_rebels = {
+	local_revolt_risk = 0.10
+	icon = 19
+}
+
+ss_crown_focus = {
+}
+
+ss_overseer_cooldown = {
+}
+
+ss_overseer = {
+	monthly_character_prestige = 0.2
+	icon = 9
+}
+ss_mission_cooldown = {
+}
+ss_mod_controlled_rebellion = {
+}
+da_incapable_character = {
+}
+da_nude_audience = {
+	general_opinion = -10
+	icon = 36
+}
+da_spending_spree = {
+	town_opinion = 20
+	icon = 18
+}
+da_dont_talk = {
+	general_opinion = -10
+	icon = 36
+}
+da_sexual_abuser = {
+	general_opinion = -25
+	icon = 36
+}
+da_demesne_agitated = {
+}
+da_agitator_discovered = {
+}
+da_political_victory = {
+	diplomacy = 3
+	icon = 3
+}
+da_politically_beaten = {
+	diplomacy = -3
+	icon = 21
+}
+da_debate_promoted = {
+}
+da_possessed_effect = {
+}
+da_fits_rage = {
+	diplomacy = -3
+	general_opinion = -10	
+	icon = 21
+}
+da_disturbed = {
+	diplomacy = -2
+	martial = -2
+	stewardship = -2
+	intrigue = -2
+	icon = 36
+}
+da_thevoice = {
+	diplomacy = -5
+	martial = -5
+	stewardship = -5
+	intrigue = -5
+	learning = -5
+	icon = 36
+}
+da_speaksvoices = {
+	diplomacy = -1
+	church_opinion = -10
+	icon = 36
+}
+da_stress_temp = {
+}
+da_assassination_timer = {
+}
+da_assassin_timer = {
+}
+da_failed_murderer = {
+	general_opinion = -10
+	icon = 23
+}
+da_framed_timer = {
+}
+da_framed = {
+	general_opinion = -50
+	icon = 34
+}
+plot_invitation_timer = {
+}
+da_easter_celebrated = {
+	church_opinion = 10
+	icon = 17
+}
+da_boring = {
+	diplomacy = -3
+	general_opinion = -5
+	icon = 21	
+}
+da_childish = {
+	diplomacy = -1
+	martial = -1
+	stewardship = -1
+	intrigue = -1
+	learning = -1
+	vassal_opinion = -10
+	liege_opinion = -10
+	icon = 36
+}
+
+da_small_migration = {
+	levy_reinforce_rate = -0.1
+	local_tax_modifier = -0.05
+	disease_defence = -0.05
+	supply_limit = -1
+	icon = 36
+}
+
+da_medium_migration = {
+	levy_reinforce_rate = -0.2
+	local_tax_modifier = -0.10
+	disease_defence = -0.1
+	supply_limit = -2
+	icon = 36
+}
+
+da_large_migration = {
+	levy_reinforce_rate = -0.3
+	local_tax_modifier = -0.20
+	disease_defence = -0.2
+	supply_limit = -3
+	icon = 36
+}
+
+da_very_large_migration = {
+	levy_reinforce_rate = -0.4
+	local_tax_modifier = -0.40
+	disease_defence = -0.33
+	supply_limit = -4
+	icon = 36
+}
+
+da_disruptive_migration = {
+	levy_size = -0.25
+	local_tax_modifier = -0.20	
+	icon = 31
+}
+
+event168_timer = {
+}
+
+da_province_migration_timer = {
+}
+
+da_trade_curtailed = {
+	city_tax_modifier = -0.60
+	castle_tax_modifier = -0.25
+	temple_tax_modifier = -0.40
+	icon = 24
+}
+
+da_influx_miners = {
+	local_tax_modifier = 0.25
+	icon = 6
+}
+
+da_migrant_raids = {
+	city_tax_modifier = -0.75
+	castle_tax_modifier = -0.10
+	temple_tax_modifier = -0.25
+	icon = 19
+}
+
+da_migration_slaves = {
+	city_tax_modifier = 0.5
+	castle_tax_modifier = 0.20
+	temple_tax_modifier = 0.35
+	icon = 19
+}
+
+da_migrant_security = {
+	levy_size = -0.75
+	levy_reinforce_rate = -0.25
+	icon = 31
+}
+
+da_province_raided = {
+	local_tax_modifier = -0.20
+	icon = 24
+}
+
+da_migration_dilemma = {
+}
+
+da_resented_population = {
+	city_tax_modifier = -0.25
+	castle_tax_modifier = -0.10
+	temple_tax_modifier = -0.15
+	supply_limit = -1	
+	levy_size = -0.15
+	icon = 36
+}
+
+da_cruel_measures = {
+	local_revolt_risk = 0.05
+	icon = 38
+}
+
+da_migration_temp_levy = {
+}
+
+da_migration_slavery = {
+	global_tax_modifier = 0.25
+	icon = 6
+}
+
+da_pirate_raid = {
+	local_tax_modifier = -0.65
+	icon = 62
+}
+
+da_pirate_raid_halved = {
+	local_tax_modifier = -0.30
+	icon = 62
+}
+
+da_piracy_sanctioned = {
+	monthly_character_piety = -2
+	diplomacy = -2
+	intrigue = 1
+	icon = 61
+}
+
+da_notorious_pirate = {
+	diplomacy = -5
+	general_opinion = -10
+	
+	icon = 36
+}
+
+da_piracy_temp_1 = {
+}
+
+da_poor_negotiator = {
+	diplomacy = -1
+	vassal_opinion = -10
+	icon = 21
+}
+
+da_shinning_at_court = {
+	diplomacy = 10
+	icon = 3
+}
+
+da_obscured_by_spouse = {
+	diplomacy = -2
+	icon = 21
+}
+
+da_temp_chanc_rec_army = {
+}
+
+da_trade_rights = {
+	city_tax_modifier = -0.45
+	castle_tax_modifier = -0.25
+	temple_tax_modifier = -0.05
+	icon = 24	
+}
+
+da_temp_chancellor_diplomatic_overture = {
+}
+
+da_foreign_loan1 = {
+	city_tax_modifier = -0.10
+	castle_tax_modifier = -0.10
+	temple_tax_modifier = -0.10
+	
+	icon = 22
+}
+
+da_foreign_loan2 = {
+	city_tax_modifier = -0.15
+	castle_tax_modifier = -0.15
+	temple_tax_modifier = -0.15
+	
+	icon = 22
+}
+
+da_foreign_loan3 = {
+	city_tax_modifier = -0.20
+	castle_tax_modifier = -0.20
+	temple_tax_modifier = -0.20
+	
+	icon = 22
+}
+
+da_foreign_loan4 = {
+	city_tax_modifier = -0.25
+	castle_tax_modifier = -0.25
+	temple_tax_modifier = -0.25
+	
+	icon = 22
+}
+
+da_broke = {
+	monthly_character_prestige = -5
+	stewardship = -2
+	diplomacy = -2
+	vassal_opinion = -20
+	
+	icon = 24
+}
+
+da_temp_chancellor_spouse = {
+}
+
+da_impressed_vassals = {
+	vassal_opinion = 5
+	icon = 3
+}
+
+da_great_hunt1 = {
+	general_opinion = 15
+	icon = 125
+}
+
+da_caring_ruler = {
+	global_tax_modifier = 0.20
+	global_revolt_risk = -0.02
+	global_levy_size = 0.10
+	
+	icon = 4
+}
+
+da_great_hunt2 = {
+	general_opinion = 7
+	icon = 125
+}
+
+da_great_hunt3 = {
+	general_opinion = 4
+	icon = 125
+}
+
+da_scornful_ruler = {
+	global_tax_modifier = -0.20
+	global_revolt_risk = 0.02
+	global_levy_size = -0.10
+	
+	icon = 22
+}
+
+da_great_hunt4 = {
+	general_opinion = -15
+	icon = 126
+}
+
+da_international_meeting1 = {
+	general_opinion = 5
+	monthly_character_prestige = 0.2
+	
+	icon = 3
+}
+
+da_international_meeting2 = {
+	general_opinion = -5
+	monthly_character_prestige = -0.2
+	
+	icon = 21
+}
+
+da_temp_chancellor_alliance = {
+}
+
+da_marshal_training1 = {
+	combat_rating = 10
+	icon = 117
+}
+
+da_marshal_training2 = {
+	combat_rating = 20
+	icon = 117
+}
+
+da_marshal_training3 = {
+	combat_rating = 30
+	icon = 117
+}
+
+da_marshal_training4 = {
+	combat_rating = 40
+	icon = 117
+}
+
+da_combat_training = {
+	diplomacy = -1
+	stewardship = -2
+	intrigue = -1
+	learning = -2
+	icon = 118	
+}
+
+da_temp_marshal_train = {
+}
+
+da_temp_marshal_train_heir = {
+}
+
+da_marshal_morale = {
+	land_morale = 0.20
+	land_organisation = 0.20
+	icon = 1
+}
+
+da_temp_marshal_morale = {
+}
+
+da_marshal_tech = {
+	tech_growth_modifier_military = 0.5
+	global_movement_speed = 0.33
+	icon = 12
+}
+
+da_temp_marshal_tech = {
+}
+
+da_temp_doge_election = {
+}
+
+da_exterminated_innocents = {
+	diplomacy = -5
+	general_opinion = -20
+	
+	icon = 34
+}
+
+da_temp_steward_lowprices = {
+}
+
+da_steward_lowprices = {
+	local_build_cost_modifier = -0.33
+	local_build_time_modifier = -0.33
+	
+	icon = 10
+}
+
+da_tyrannical_liege = {
+	local_tax_modifier = -0.20
+	local_revolt_risk = 0.02
+	
+	icon = 36
+}
+
+da_marked_for_development_road_temp = {
+}
+
+da_marked_for_development_temp = {
+}
+
+da_road_network = {
+	city_tax_modifier = 0.30
+	
+	icon = 6
+}
+
+da_road_network_aux = {
+}
+
+da_temp_steward_vassals = {
+}
+
+da_warn1_infamy = {
+}
+
+da_warn2_infamy = {
+}
+
+da_steward_investments = {
+	tax_income = 0.25
+	icon = 6
+}
+
+da_temp_steward_investments = {
+}
+
+da_steward_investments1 = {
+	tax_income = 0.25
+	icon = 6
+}
+
+da_steward_investments2 = {
+	tax_income = -0.25
+	icon = 24
+}
+
+da_wrong_gov = {	#FOR PATRICIANS WITH MORE THAN 1 HOLDING (PALACE)
+	castle_tax_modifier = -0.5
+	temple_tax_modifier = -0.5	
+	castle_levy_size = -0.5
+	temple_levy_size = -0.5	
+	build_cost_modifier = 0.5
+	local_build_time_modifier = 0.5
+	local_revolt_risk = 0.01
+	
+	icon = 27
+}
+
+da_patrician_helped = {
+}
+
+da_doge_helped1 = {
+	city_vassal_tax_modifier = -0.4
+	castle_vassal_tax_modifier = -0.4
+	temple_vassal_tax_modifier = -0.4
+	global_tax_modifier = -0.2
+	icon = 29
+}
+
+da_doge_helped2 = {
+	city_vassal_tax_modifier = -0.5
+	castle_vassal_tax_modifier = -0.5
+	temple_vassal_tax_modifier = -0.5
+	global_tax_modifier = -0.25
+	icon = 29
+}
+
+da_doge_helped3 = {
+	city_vassal_tax_modifier = -0.6
+	castle_vassal_tax_modifier = -0.6
+	temple_vassal_tax_modifier = -0.6
+	global_tax_modifier = -0.3
+	icon = 29
+}
+
+da_doge_helped4 = {
+	city_vassal_tax_modifier = -0.7
+	castle_vassal_tax_modifier = -0.7
+	temple_vassal_tax_modifier = -0.7
+	global_tax_modifier = -0.35
+	icon = 29
+}
+
+da_temp_spymaster_smuggler = {
+}
+
+da_spymaster_smuggler_1 = {
+	monthly_character_wealth = 1
+	icon = 6
+}
+
+da_spymaster_smuggler_2 = {
+	monthly_character_wealth = 2
+	icon = 6
+}
+
+da_spymaster_smuggler_3 = {
+	monthly_character_wealth = 3
+	icon = 6
+}
+
+da_spymaster_smuggler_4 = {
+	monthly_character_wealth = 4
+	icon = 6
+}
+
+da_temp_smuggler_timer = {
+}
+
+da_smuggler_operation_risk_temp = {
+}
+
+da_temp_spymaster_defector = {
+}
+
+da_sucessful_schemer = {
+	martial = 1
+	diplomacy = 1
+	stewardship = 1
+	intrigue = 3
+	learning = 1
+	
+	icon = 5
+}
+
+da_smuggler_individual_temp = {
+}
+
+da_smuggler_individual_timer = {
+}
+
+da_temp_spymaster_blackmail = {
+}
+
+da_temp_steward_roads = {
+}
+
+da_has_been_attacked_temp = {
+}
+
+da_temp_spymaster_piracy = {
+}
+
+da_temp_lordspirit_retreat = {
+}
+
+da_temp_lordspirit_recruit = {
+}
+
+da_ls_teaching_good = {
+	diplomacy = 1
+	martial = 1
+	stewardship = 1
+	intrigue = 1
+	learning = 1
+	
+	icon = 18
+}
+
+da_ls_teaching_vgood = {
+	diplomacy = 2
+	martial = 2
+	stewardship = 2
+	intrigue = 2
+	learning = 2
+	
+	icon = 18
+}
+
+da_ls_teaching_excellent = {
+	diplomacy = 3
+	martial = 3
+	stewardship = 3
+	intrigue = 3
+	learning = 3
+	
+	icon = 18
+}
+
+da_ls_teaching_awful = {
+	diplomacy = -1
+	martial = -1
+	stewardship = -1
+	intrigue = -1
+	learning = -1
+	
+	icon = 18
+}
+
+da_ls_teaching_temp = {
+}
+
+da_ls_religious_head = {
+}
+
+da_hh_praying = {
+	monthly_character_piety = 5
+	
+	icon = 8
+}
+
+da_hh_influence = {
+	monthly_character_prestige = 5
+	
+	icon = 7
+}
+
+da_temp_excommunication_pick = {
+}
+
+da_merc_get_cash = {
+}
+
+da_powermonger = {
+	general_opinion = -10
+	
+	icon = 36
+}
+
+da_patreon_first = {
+}
+
+da_patreon_75 = {
+}
+
+da_patreon_finish = {
+}
+
+da_paranoid_1 = {
+	diplomacy = -2
+	intrigue = -1
+	
+	icon = 36
+}
+
+da_paranoid_2 = {
+	diplomacy = -4
+	intrigue = -2
+	martial = -1
+	
+	icon = 36	
+}
+
+da_paranoid_3 = {
+	diplomacy = -6
+	intrigue = -4
+	martial = -2
+	
+	icon = 36	
+}
+
+da_unfounded_suspicions = {
+	general_opinion = -10
+	
+	icon = 36	
+}
+
+da_insane_behaviour = {
+	general_opinion = -20
+	
+	icon = 36
+
+}
+
+da_temp_paranoid_attack = {
+}
+
+da_failed_negotiator = {
+	vassal_opinion = -5
+	
+	icon = 21	
+}
+
+da_nap_negotiation_temp = {
+}
+
+da_cheater = {
+	diplomacy = -1
+	general_opinion = -5
+	
+	icon = 36	
+}
+
+da_recent_paranoid_murder_attempt = {
+}
+
+da_loan_in_effect = {
+}
+
+da_lending_in_effect = {
+}
+
+da_bankrupt = {
+	monthly_character_prestige = -5
+	stewardship = -5
+	general_opinion = -10
+	
+	icon = 22
+}
+
+da_character_loans_temp = {
+}
+
+da_ai_loan_in_effect = {
+	global_tax_modifier = -0.25
+	icon = 24
+}
+
+da_loan_deceitful = {
+	monthly_character_prestige = -5
+	general_opinion = -10
+	
+	icon = 22
+}
+
+da_player_borrower = {
+}
+
+da_ai_loaner = {
+}
+
+da_control_council_favor = {
+}
+
+da_refusing_sex_advances = {
+	fertility = -0.3
+	
+	icon = 40
+}
+
+da_lack_harmony_1 = {
+	diplomacy = -1
+	martial = -1
+	stewardship = -1
+	intrigue = -1
+	learning = -1
+	
+	icon = 36
+}
+
+da_lack_harmony_2 = {
+	diplomacy = -2
+	martial = -2
+	stewardship = -2
+	intrigue = -2
+	learning = -2
+	
+	icon = 36
+}
+
+da_lack_harmony_3 = {
+	diplomacy = -3
+	martial = -3
+	stewardship = -3
+	intrigue = -3
+	learning = -3
+	
+	icon = 36
+}
+
+da_sexually_aroused = {
+	fertility = 0.3
+	
+	icon = 39	
+}
+
+da_pol_compromised = {
+	diplomacy = -3
+	martial = -3
+	stewardship = -3
+	intrigue = -3
+	
+	icon = 36
+}
+
+da_dynamic_duo = {
+	diplomacy = 4
+	martial = 4
+	stewardship = 4
+	intrigue = 4
+	learning = 4
+	
+	icon = 39
+}
+
+da_incriminate_temp = {
+}
+
+da_framed_courtier_tmp = {
+}
+
+da_manipulative_spouse_tmp = {
+}
+
+da_spouse_manipulator = {
+	diplomacy = -4
+	martial = -4
+	stewardship = -4
+	intrigue = -4
+
+	icon = 40
+}
+
+da_wanderlust = {
+	diplomacy = 1
+	martial = 1
+	stewardship = 1
+	intrigue = 1
+	learning = 1	
+
+	icon = 18
+}
+
+da_weak_ruler = {
+	diplomacy = -1
+	martial = -1
+	stewardship = -1
+	intrigue = -1
+	learning = -1
+	
+	icon = 36
+}
+
+da_persuasive = {
+	diplomacy = 2
+	intrigue = 1
+	general_opinion = 5
+	
+	icon = 3
+}
+
+ss_overseer_liege_temp = {
+}
+
+da_spouse_promised_council_d = {
+}
+
+da_spouse_promised_council_m = {
+}
+
+da_spouse_promised_council_s = {
+}
+
+da_spouse_promised_council_e = {
+}
+
+da_spouse_promised_council_ruler = {
+}
+
+da_spouse_councillor_tmp = {
+}
+
+da_education_spouse_tmp = {
+}
+
+da_murder_payback_temp = {
+}
+
+da_paranoid_safety_measures = {
+	diplomacy = -3
+	martial = -3
+	stewardship = -3
+	intrigue = -3
+	learning = -3
+	
+	general_opinion = -5
+	
+	icon = 23	
+}
+
+da_fearless = {
+	martial = 1
+	
+	general_opinion = 10
+	
+	icon = 18
+}
+
+da_original_framed_marker_temp = {
+}
+
+da_war_iddle_tmp = {
+}
+
+da_unreliable_ally = {
+	diplomacy = -2
+	martial = -1
+	monthly_character_prestige = -3
+	
+	icon = 34
+}
+
+da_war_stability_tmp = {
+}
+
+da_war_stability_prv_tmp = {
+}
+
+da_alliance_tmp = {
+}
+
+da_break_alliance_temp = {
+}
+
+da_master_manipulator = {
+	intrigue = 2
+	
+	icon = 5
+}
+
+da_dip_blunder = {
+	diplomacy = -2
+	monthly_character_prestige = -1
+
+	icon = 21
+
+}
+
+da_invite_court_temp = {
+}
+
+da_power_concession = {
+	diplomacy = -2
+	martial = -2	
+	stewardship = -2	
+	intrigue = -2	
+	learning = -2	
+
+	icon = 36
+
+}
+
+da_estates_g = {
+	tax_income = -1
+	global_levy_size = -0.10
+	monthly_character_prestige = -1
+	
+	icon = 27
+}
+
+da_estates_r = {
+	monthly_character_wealth = 1
+	monthly_character_prestige = 2
+	
+	icon = 9
+}
+
+da_extreme_investments = {
+}
+
+da_heavy_investments = {
+}
+
+da_paranoid_investments = {
+}
+
+da_riddle_done = {
+}
+
+da_riddle_in_effect = {
+}
+
+da_co_timer = {
+	
+}
+da_mastermind = {
+}
+
+da_dud_mastermind = {
+}
+
+da_criminal_master = {
+}
+
+da_information_leak = {
+	intrigue = -3
+	
+	icon = 23
+}
+
+da_travel_favour_tmp = {
+}
+
+da_ungrateful = {
+	diplomacy = -1
+	general_opinion = -10
+	
+	icon = 36
+}
+
+da_politically_compromised = {
+	general_opinion = -5
+	
+	icon = 34	
+}
+
+da_free_access = {
+	local_tax_modifier = -0.25
+	local_revolt_risk = 0.02
+
+	icon = 24
+}
+
+da_monthly_stipend_1 = {
+	monthly_character_wealth = -1
+	icon = 24
+}
+
+da_monthly_stipend_2 = {
+	monthly_character_wealth = -2
+	icon = 24
+}
+
+da_monthly_stipend_3 = {
+	monthly_character_wealth = -4
+	icon = 24
+}
+
+da_monthly_stipend_4 = {
+	monthly_character_wealth = -6
+	icon = 24
+}
+
+da_influence_elections = {
+}
+
+da_intrigue_revealed = {
+	intrigue = -2
+	diplomacy = -1
+	
+	icon = 23
+}
+
+da_criminal_org_tmp = {
+}
+
+da_fake_heir = {
+	general_opinion = -10
+	
+	icon = 36
+}
+
+da_findheir_tmp = {
+}
+
+da_despondent = {
+	diplomacy = -1
+	martial = -1
+	stewardship = -1
+	intrigue = -1
+	learning = -1
+	
+	icon = 36
+}
+
+da_noheir_warn = {
+}
+
+da_poison_relations_temp = {
+}
+
+da_poison_target = {
+}
+
+da_situational_awareness = {
+	combat_rating = 25
+	martial = 2
+	
+	icon = 123
+}
+
+da_picked_combat_training = {
+}
+
+da_relaxed_training = {
+	diplomacy = -1
+	martial = +1
+	stewardship = -1
+	intrigue = -1
+	learning = -1
+	
+	icon = 124
+}
+
+da_intensive_training = {
+	diplomacy = -2
+	martial = +2
+	stewardship = -2
+	intrigue = -2
+	learning = -2
+	
+	icon = 124
+}
+
+da_buy_vote_tmp = {
+}
+
+da_favour_diplomacy_1 = {
+	diplomacy = -1
+	martial = -1
+	stewardship = -1	
+	intrigue = -1
+	learning = -1
+	monthly_character_prestige = -2
+	
+	icon = 28
+}
+
+da_favour_diplomacy_2 = {
+	diplomacy = -2
+	martial = -2
+	stewardship = -2
+	intrigue = -2
+	learning = -2
+	monthly_character_prestige = -4
+	
+	icon = 28
+}
+
+da_regent_1 = {
+}
+
+
+da_regent_2 = {
+}
+
+da_regent_3 = {
+}
+
+da_regent_4 = {
+}
+
+da_regent_5 = {
+}
+
+da_regent_6 = {
+}
+
+da_poor_regent = {
+	general_opinion = -10
+	
+	icon = 36
+}
+
+da_religious_outcast = {
+	church_opinion = -25
+	
+	icon = 35
+}
+
+da_regent_vassals = {
+	vassal_opinion = 20
+	
+	icon = 10
+}
+
+da_regent_church = {
+	church_opinion = 20
+	
+	icon = 17
+}
+
+da_shrewd_investments = {
+	monthly_character_wealth = 2
+
+	icon = 6
+}
+
+da_province_marker = {
+}
+
+da_aux_easter = {
+}

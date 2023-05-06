@@ -1,0 +1,1477 @@
+namespace = AmzCul	
+
+#	RULES FOR THE GIANTS
+#	1	Giant KINGS will only appear on landed independent demonic giants -> gain gear and bloodline
+#	2	Giant LORDS will appear from any
+#			a) giant adventurers, not demonic
+#			b) demonic giants, not adventurer
+#			c) giant descended from either giant KING or LORD
+#			d) rare event where a newborn giant becomes LORD
+#	3	Giant KINGS and LORDS will never convert to an Amazonian culture, nor spawn from one unless born by chance
+#	4	Giant KINGS will convert to pagan, agnatic, when independent AI ruler
+#	5	Giant LORDS born to Amazonian cultures will always become demonic
+#	6	Giant KINGS can reappear if descended from another KING, but get no fanfare
+#	7	Giant LORDS will occasionally become demonic, potential to become KING later
+#	8	Giants of all types are more common after either the first Giant KING is declared or first Legendary Amazonian appears
+#	9	Active Giant KINGS can keep their vassals suppressed, lose ability if inaccessible
+#	10	Giant KINGS will spawn 7 Gallu shieldmaidens
+#	11	Gallu shieldmaidens are made stronger when liege is KING, weaker for a time if KING inaccessible
+#
+#	MATHEMATICALLY SPEAKING
+#	a)	Demonic + LORD + Independent = KING
+#	b)	Giant + Adventurer - Demonic = LORD
+#	c)	Giant + KING forefather - independent = LORD
+#	d)	Giant + KING forefather + independent = KING
+#	e) 	Giant + LORD forefather = LORD
+#	e)	Giant + mtth rng = LORD
+#	f)	Giant + Amz Culture + LORD rng = Demonic
+
+
+
+# giant adventurer/demon becomes a giant lord
+	character_event = { 
+		id = AmzCul.320
+		desc = EVTDESCAmzCul.320
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		trigger = {
+			is_female = no
+			trait = giant
+			NOR = { 
+				trait = giant_lord
+				trait = giant_king
+			}
+			OR = { 
+				has_character_flag = demon_child_non_pagan 
+				trait = adventurer
+			}
+			NOR = { 
+				culture = themiskyran_amz  
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+			has_game_rule = {
+				name = supernatural_events
+				value = unrestricted
+			}
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.320	# gain trait
+			ai_chance = { factor = 10 }
+			add_trait = giant_lord	
+			random_list = {
+				10 = { sound_effect = berserk_male_01 }
+				10 = { sound_effect = berserk_male_02 }
+				10 = { sound_effect = berserk_male_03 }
+			}
+		}		
+	}
+
+# demon becomes a giant king
+	character_event = { 
+		id = AmzCul.321
+		desc = EVTDESCAmzCul.321
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		trigger = {
+			is_female = no
+			war = no
+			age = 16
+			is_landed = yes
+			independent = yes
+			trait = giant
+			NOT = { trait = giant_king }
+			has_character_flag = demon_child_non_pagan
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.321	# gain traits, cool weapon
+			ai_chance = { factor = 10 }
+			add_trait = giant_king	
+			give_nickname = nick_the_giant_king
+			add_trait = heavy_infantry_leader
+			random_list = {
+				25 = { add_trait = aggressive_leader }
+				25 = { add_trait = siege_leader }
+				25 = { add_trait = trickster }
+				25 = { add_trait = unyielding_leader }
+			}
+			random_list = {
+				25 = { add_artifact = axe_tier_4_marauder }
+				25 = { add_artifact = axe_tier_4_ravager }
+				25 = { add_artifact = mace_tier_4_foe_hammer }
+				25 = { add_artifact = mace_tier_4_bone_breaker }
+			}
+			create_bloodline = {
+				type = god_king_giant			# Blood of the God-King
+			}
+			sound_effect = bloodline_added
+			character_event = { id = AmzCul.324 days = 3 }
+						
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_infantry = { 1000 1000 }	# max value, starting value
+							heavy_infantry = { 1000 1000 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = no
+						disband_on_peace = no
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_infantry = { 1000 1000 }	# max value, starting value
+							heavy_infantry = { 1000 1000 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = no
+						disband_on_peace = no
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_infantry = { 1000 1000 }	# max value, starting value
+							heavy_infantry = { 1000 1000 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = no
+						disband_on_peace = no
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+				}
+			}
+						
+			any_child = {						# children brought to court
+				limit = { 
+					is_landed = no
+					ai = yes
+					OR = {
+						AND = {
+							is_female = no
+							is_married_matrilineally = no
+						}
+						AND = {
+							is_female = yes
+							OR = {
+								is_married_matrilineally = yes
+								is_married = no
+							}
+						}
+					}
+				}
+				character_event = { id = AmzCul.324 days = 10 }	
+			}
+			
+			hidden_tooltip = {					# amazonian player notified
+				any_player = {						
+					limit = {
+						NOT = { character = ROOT }
+						NOT = { has_global_flag = giant_king_returns_flag }
+						OR = { 
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+							trait = is_amazonian
+							trait = is_amazonian_immortal
+						}
+					}
+					narrative_event = { id = AmzCul.325 days = 5 }
+				}
+			}
+		}		
+	}
+
+# giant lord becomes a giant king		# perhaps a bit too OP 
+	character_event = { 
+		id = AmzCul.322
+		desc = EVTDESCAmzCul.322
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		trigger = {
+			is_female = no
+			independent = yes
+			age = 16
+			trait = giant
+			trait = giant_lord
+			NOT = { trait = giant_king }						
+			any_owned_bloodline = {		# must be descended from a giant king, will have the fearsome bloodline
+				has_bloodline_flag = bloodline_fearsome
+			}
+			NOR = { 
+				culture = themiskyran_amz  
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+		}
+		
+		mean_time_to_happen = {
+			years = 1			
+			modifier = {			
+				factor = 0.8		
+				trait = strong
+			}
+			modifier = {			
+				factor = 0.8		
+				trait = genius
+			}
+			modifier = {			
+				factor = 0.8		
+				trait = adventurer
+			}
+			modifier = {			
+				factor = 0.8		
+				trait = cannibal_trait
+			}
+			modifier = {			
+				factor = 0.8		
+				trait = possessed
+			}
+			modifier = {			
+				factor = 0.8		
+				OR = {
+					has_artifact = axe_tier_4_marauder 
+					has_artifact = axe_tier_4_ravager 
+					has_artifact = mace_tier_4_foe_hammer 
+					has_artifact = mace_tier_4_bone_breaker 
+				}
+			}
+			modifier = {			
+				factor = 0.9		
+				trait = robust
+			}
+			modifier = {			
+				factor = 0.9		
+				trait = cruel
+			}
+			modifier = {			
+				factor = 0.9		
+				trait = wroth
+			}
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.322	# gain trait
+			ai_chance = { factor = 10 }
+			add_trait = giant_king	
+			give_nickname = nick_the_giant_king
+			add_character_modifier = {
+				name = demon_horns    
+				duration = -1
+			}
+			random_list = {
+				10 = { sound_effect = berserk_male_01 }
+				10 = { sound_effect = berserk_male_02 }
+				10 = { sound_effect = berserk_male_03 }
+			}
+		}		
+	}
+
+# giant becomes giant lord specifically if father was king or lord
+	character_event = { 
+		id = AmzCul.323
+		desc = EVTDESCAmzCul.323
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		trigger = {
+			is_female = no
+			trait = giant
+			NOR = { 
+				trait = giant_lord
+				trait = giant_king	
+			}
+			OR = {							# must be descended from a giant king / lord within 3 gens
+				true_father_even_if_dead = {
+					OR = {
+						trait = giant_lord
+						trait = giant_king
+					}
+				}
+				true_father_even_if_dead = {
+					true_father_even_if_dead = {
+						OR = {
+							trait = giant_lord
+							trait = giant_king
+						}
+					}
+				}
+				true_father_even_if_dead = {
+					true_father_even_if_dead = {
+						true_father_even_if_dead = {
+							OR = {
+								trait = giant_lord
+								trait = giant_king
+							}
+						}
+					}
+				}
+				mother_even_if_dead = {
+					true_father_even_if_dead = {
+						OR = {
+							trait = giant_lord
+							trait = giant_king
+						}
+					}
+				}
+				mother_even_if_dead = {
+					true_father_even_if_dead = {
+						true_father_even_if_dead = {
+							OR = {
+								trait = giant_lord
+								trait = giant_king
+							}
+						}
+					}
+				}
+				mother_even_if_dead = {
+					mother_even_if_dead = {
+						true_father_even_if_dead = {
+							OR = {
+								trait = giant_lord
+								trait = giant_king
+							}
+						}
+					}
+				}
+			}
+			NOR = { 
+				culture = themiskyran_amz  
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.323	# gain trait
+			ai_chance = { factor = 10 }
+			add_trait = giant_lord	
+			random_list = {
+				10 = { sound_effect = berserk_male_01 }
+				10 = { sound_effect = berserk_male_02 }
+				10 = { sound_effect = berserk_male_03 }
+			}					
+		}		
+	}
+
+# independent giant king goes pagan agnatic
+	character_event = { 
+		id = AmzCul.324
+		desc = EVTDESCAmzCul.324
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		hide_window = yes
+		
+		trigger = {
+			is_female = no
+			is_landed = yes
+			war = no
+			ai = yes
+			age = 16
+			independent = yes
+			prisoner = no
+			trait = giant
+			trait = giant_king
+			NOT = { religion = pagan }
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.324	# purge the realm
+			ai_chance = { factor = 10 }
+			religion = pagan
+			add_trait = zealous									# hopefully they don't ask someone for help converting
+			set_character_flag = ai_flag_refuse_conversion		# ^
+			if = {
+				limit = { culture = themiskyran_amz }
+				culture = greek
+			}
+			if = {
+				limit = { culture = valkyrie_amz }
+				culture = norse
+			}
+			if = {
+				limit = { culture = scythian_amz }
+				culture = russian
+			}
+			if = {
+				limit = { culture = parthian_amz }
+				culture = persian
+			}
+			if = {
+				limit = { culture = kushite_amz }
+				culture = egyptian_arabic
+			}
+			if = {
+				limit = { culture = carthaginian_amz }
+				culture = maghreb_arabic
+			}
+			if = {
+				limit = { culture = etruscan_amz }
+				culture = roman
+			}	
+			any_demesne_title = {
+				add_law = { 
+					law = agnatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+			}
+			any_realm_province = {
+				religion = ROOT
+			}
+			any_courtier_or_vassal = {
+				limit = { ai = yes }
+				religion = ROOT
+				culture = ROOT
+			}
+			recalc_succession = yes
+			remove_education_effect = yes 
+			add_trait = brilliant_strategist
+		}		
+	}
+
+# amazonian player is notified of giant king's conquest
+	narrative_event = { 
+		title = EVTTITLAmzCul.325
+		id = AmzCul.325
+		desc = EVTDESCAmzCul.325
+		picture = GFX_evt_end_of_days
+		border = GFX_event_narrative_frame_war
+		portrait = FROM
+		
+		is_triggered_only = yes
+		
+		immediate = {
+			sound_effect = assassins_occupy_infidel_holding
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.325	
+			ai_chance = { factor = 10 }
+			set_global_flag = giant_king_returns_flag			# event won't fire again
+		}
+	}
+
+# natural giant lord becomes demon spawn
+	character_event = { 
+		id = AmzCul.326
+		desc = EVTDESCAmzCul.326
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		hide_window = yes
+		
+		trigger = {
+			is_female = no
+			trait = giant
+			trait = giant_lord 
+			ai = yes
+			is_ill = no
+			NOT = { trait = inbred }
+			age < 3
+			is_heir = no
+			NOR = {				# only one potential or real giant king per dynasty at a time
+				any_dynasty_member_even_if_dead = {
+					any_owned_bloodline = {
+						has_bloodline_flag = bloodline_fearsome
+					}
+				}
+				any_close_relative = {
+					has_character_flag = demon_child_non_pagan
+				}
+			}					
+			NOT = { has_character_flag = demon_child_non_pagan }
+			OR = {
+				has_dlc = "Sons of Abraham"
+				has_dlc = "Mystics"
+			}
+			has_game_rule = {
+				name = supernatural_events
+				value = unrestricted
+			}
+		}
+		
+		mean_time_to_happen = {
+			years = 200						# also very rare	
+			modifier = {			
+				factor = 0.01		
+				trait = baptized_by_satan
+			}
+			modifier = {			
+				factor = 0.2		
+				has_global_flag = giant_king_returns_flag
+			}
+			modifier = {			
+				factor = 0.8		
+				trait = strong
+			}
+			modifier = {			
+				factor = 0.9		
+				trait = ugly
+			}
+			modifier = {			
+				factor = 0.9		
+				trait = bastard
+			}
+			modifier = {			
+				factor = 0.00001			# practically certain	
+				OR = { 
+					culture = themiskyran_amz  
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+			}
+			modifier = {
+				factor = 0.25
+				OR = {
+					mother_even_if_dead = {
+						society_member_of = the_satanists
+					}
+					father_even_if_dead = {
+						society_member_of = the_satanists
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				has_game_rule = { 
+					name = succession_law_amz
+					value = enatic_amz
+				}
+			}
+			modifier = {			
+				factor = 0.5		
+				mother_even_if_dead = {
+					OR = {
+						trait = possessed
+						trait = lunatic
+						trait = lustful
+						trait = sympathy_pagans
+						trait = cannibal_trait
+						trait = excommunicated
+						trait = hedonist
+						trait = seductress
+					}
+				}
+			}
+			modifier = {			
+				factor = 0.5		
+				father_even_if_dead = {
+					OR = {
+						trait = possessed
+						trait = lunatic
+						trait = lustful
+						trait = sympathy_pagans
+						trait = cannibal_trait
+						trait = excommunicated
+						trait = hedonist
+						trait = seducer
+					}
+				}
+			}
+			modifier = {			
+				factor = 2		
+				mother_even_if_dead = {
+					OR = {
+						trait = dwarf
+						trait = chaste
+						trait = zealous
+						trait = theologian
+					}
+				}
+			}
+			modifier = {			
+				factor = 2		
+				father_even_if_dead = {
+					OR = {
+						trait = dwarf
+						trait = chaste
+						trait = zealous
+						trait = theologian
+					}
+				}
+			}
+			modifier = {						# more commone once immortals appear	
+				factor = 0.7		
+				has_global_flag = amz_culture_immortals_flag
+			}
+		}
+
+		option = {	
+			name = EVTOPTAAmzCul.326
+			ai_chance = { factor = 10 }
+			character_event = { id = SoA.3001 }			# become demon child
+			random_list = {
+				50 = { mother = { narrative_event = { id = SoA.3002 } } }
+				50 = { father = { narrative_event = { id = SoA.3002 } } }
+			}
+			hidden_tooltip = {
+				set_global_flag = amz_culture_immortals_flag
+			}
+		}		
+	}
+
+# giant becomes a giant lord at random
+	character_event = { 
+		id = AmzCul.327
+		desc = EVTDESCAmzCul.327
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		hide_window = yes
+		
+		trigger = {
+			is_female = no
+			ai = yes
+			trait = giant
+			age < 3
+			NOR = { 
+				trait = giant_lord 
+				trait = giant_king
+			}
+			has_game_rule = {
+				name = supernatural_events
+				value = unrestricted
+			}
+		}
+		
+		mean_time_to_happen = {
+			years = 50				# rare, but giants are rare anyway
+			modifier = {			
+				factor = 0.2		
+				has_global_flag = giant_king_returns_flag
+			}
+			modifier = {			
+				factor = 0.6		
+				trait = strong
+			}
+			modifier = {			
+				factor = 0.7		
+				trait = ugly
+			}
+			modifier = {			
+				factor = 0.6		
+				trait = robust
+			}
+			modifier = {						# covered in AmzCul.323
+				factor = 0.001		
+				true_father_even_if_dead = {
+					trait = giant_lord
+				}
+			}
+			modifier = {						# covered in AmzCul.323			
+				factor = 0.001		
+				true_father_even_if_dead = {
+					true_father_even_if_dead = {
+						trait = giant_lord
+					}
+				}
+			}
+			modifier = {						# covered in AmzCul.323			
+				factor = 0.002		
+				mother_even_if_dead = {
+					true_father_even_if_dead = {
+						trait = giant_lord
+					}
+				}
+			}
+			modifier = {						# more commone once immortals appear, also AmzCul.326	
+				factor = 0.7		
+				has_global_flag = amz_culture_immortals_flag
+			}
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.327	# gain trait
+			ai_chance = { factor = 10 }
+			add_trait = giant_lord	
+			random_list = {
+				10 = { sound_effect = berserk_male_01 }
+				10 = { sound_effect = berserk_male_02 }
+				10 = { sound_effect = berserk_male_03 }
+			}
+		}		
+	}
+	
+# non-giant son of giant king/lord becomes a giant too
+	character_event = { 
+		id = AmzCul.328
+		desc = EVTDESCAmzCul.328
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		hide_window = yes
+		
+		trigger = {
+			is_female = no
+			ai = yes
+			age < 2 
+			NOR = { 
+				trait = giant
+				trait = giant_lord 
+				trait = giant_king
+				trait = dwarf
+			}
+			has_game_rule = {
+				name = supernatural_events
+				value = unrestricted
+			}
+			OR = {
+				true_father_even_if_dead = {
+					OR = {
+						trait = giant_lord
+						trait = giant_king
+					}
+				}
+				true_father_even_if_dead = {
+					true_father_even_if_dead = {
+						OR = {
+							trait = giant_lord
+							trait = giant_king
+						}
+					}
+				}
+				mother_even_if_dead = {
+					true_father_even_if_dead = {
+						OR = {
+							trait = giant_lord
+							trait = giant_king
+						}
+					}
+				}
+			}
+		}
+		
+		mean_time_to_happen = {
+			months = 4			# should be regular enough 
+			modifier = {			
+				factor = 0.2		
+				trait = strong	
+			}
+			modifier = {			
+				factor = 0.4		
+				trait = ugly	
+			}
+			modifier = {			
+				factor = 0.6		
+				has_global_flag = giant_king_returns_flag
+			}
+			modifier = {			
+				factor = 10		
+				trait = inbred
+			}
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.328	# gain trait
+			ai_chance = { factor = 10 }
+			add_trait = giant
+		}		
+	}
+	
+# landed pagan giant lord takes a concubine
+	character_event = { 
+		id = AmzCul.329
+		desc = EVTDESCAmzCul.329
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		hide_window = yes
+		
+		trigger = {								
+			is_female = no
+			ai = yes
+			age = 16
+			religion = pagan
+			is_landed = yes
+			prisoner = no
+			num_of_consorts < 3
+			has_concubinage = yes
+			OR = {
+				trait = giant_lord 
+				trait = giant_king
+			}
+			NOR = {
+				trait = homosexual
+				trait = eunuch
+				trait = celibate
+			}
+			has_game_rule = {
+				name = supernatural_events
+				value = unrestricted
+			}
+			liege = { ai = yes }
+		}
+		
+		mean_time_to_happen = {
+			years = 10				# not too regular, favours the most villainous giants 
+			modifier = {			
+				factor = 0.8		
+				OR = { 
+					trait = strong
+					trait = robust
+					trait = brave
+				}
+			}
+			modifier = {			
+				factor = 0.7		
+				OR = {
+					trait = hedonist
+					trait = lustful
+				}
+			}
+			modifier = {			
+				factor = 0.9		
+				trait = scarred
+			}
+			modifier = {			
+				factor = 0.8		
+				trait = scarred_mid
+			}
+			modifier = {			
+				factor = 0.7		
+				trait = scarred_high
+			}
+			modifier = {			
+				factor = 0.9	
+				OR = {
+					trait = greedy
+					trait = wroth
+					trait = envious
+					trait = proud
+					trait = ambitious
+					trait = cruel
+					trait = zealous
+				}
+			}
+			modifier = {			
+				factor = 2	
+				OR = {
+					trait = charitable
+					trait = patient
+					trait = kind
+					trait = humble
+					trait = content
+					trait = just
+				}
+			}
+			modifier = {			
+				factor = 5		
+				trait = inbred
+			}
+			modifier = {			
+				factor = 6	
+				OR = {
+					trait = weak
+					trait = craven
+					trait = is_malnourished
+					trait = feeble
+					trait = chaste
+				}
+			}
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.329	# find concubine
+			ai_chance = { factor = 10 }
+			
+			create_character = {			
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				min_age = 16
+				max_age = 20
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				save_event_target_as = giant_concubine_target
+				remove_all_negative_congenital_traits_effect = yes
+				add_trait = fair
+				add_lover = ROOT
+			}
+			event_target:giant_concubine_target = {
+				ROOT = {
+					add_consort = PREV
+				}
+			}
+			
+			random = {
+				chance = 33
+				add_trait = hedonist
+			}
+		}		
+	}
+	
+# pagan giant king remains zealous, harder to convert, less likely to ask for conversion (presumably)
+	character_event = { 
+		id = AmzCul.330
+		desc = EVTDESCAmzCul.330
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		hide_window = yes
+		
+		trigger = {
+			is_female = no
+			is_landed = yes
+			ai = yes
+			prisoner = no
+			trait = giant
+			trait = giant_king
+			NOT = { trait = zealous }
+			
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.330	# become zealous
+			ai_chance = { factor = 10 }
+			add_trait = zealous
+			set_character_flag = ai_flag_refuse_conversion
+		}		
+	}
+	
+# giant king's children follow him to court if they can
+	character_event = { 
+		id = AmzCul.331
+		desc = EVTDESCAmzCul.331
+		picture = GFX_evt_end_of_days
+		border = GFX_event_character_frame_war
+		
+		hide_window = yes
+		
+		is_triggered_only = yes
+		
+		option = {	
+			name = EVTOPTAAmzCul.331	# join father as villains
+			ai_chance = { factor = 10 }
+			FROM = { move_character = ROOT }	# maybe works??
+			if = {
+				limit = {
+					is_female = no
+					NOT = { trait = dwarf }
+				}
+				add_trait = giant
+				add_trait = giant_lord
+			}
+			religion = pagan
+			add_trait = zealous
+			set_character_flag = ai_flag_refuse_conversion
+			if = {
+				limit = { culture = themiskyran_amz }
+				culture = greek
+			}
+			if = {
+				limit = { culture = valkyrie_amz }
+				culture = norse
+			}
+			if = {
+				limit = { culture = scythian_amz }
+				culture = romanian
+			}
+			if = {
+				limit = { culture = parthian_amz }
+				culture = persian
+			}
+			if = {
+				limit = { culture = kushite_amz }
+				culture = egyptian
+			}
+			if = {
+				limit = { culture = carthaginian_amz }
+				culture = maghreb_arabic
+			}
+			if = {
+				limit = { culture = etruscan_amz }
+				culture = roman
+			}
+			if = {
+				limit = { culture = pritani_amz }
+				culture = welsh
+			}
+			if = {
+				limit = { culture = illyrian_amz }
+				culture = serbian
+			}
+		}		
+	}
+
+# spawns shieldmaidens (gallu warriors) for the giant king, max 7
+	character_event = { 
+		id = AmzCul.332
+		desc = EVTDESCAmzCul.332
+		
+		hide_window = yes
+		
+		mean_time_to_happen = { months = 6 }
+		
+		trigger = {
+			trait = giant_king
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+			NOT = {
+				any_courtier = {
+					has_character_flag = gallu_warrior
+					count >= 7
+				}
+			}
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.332	# spawn super good shieldmaiden
+			ai_chance = { factor = 10 }
+			create_character = {
+				random_traits = yes
+				dynasty = none
+				min_age = 17
+				max_age = 23
+				female = yes
+				religion = ROOT
+				genetic_father = ROOT 						# canonically daughters of concubines
+				attributes = {
+					diplomacy = 4
+					learning = 4
+					stewardship = 4
+					intrigue = 4
+					martial = 10
+				}
+			}
+			new_character = {
+				set_character_flag = gallu_warrior			# immune from silly wounded event
+				set_immune_to_pruning = yes					# won't be randomly dismissed
+				add_trait = shieldmaiden
+				add_trait = zealous
+				remove_all_negative_congenital_traits_effect = yes
+				remove_education_effect = yes 
+				remove_trait = craven
+				remove_trait = feeble
+				add_character_modifier = {
+					name = gallu_warrior_modifier    		# can't join Hall
+					duration = -1
+				}
+				random_list = {
+					10 = { add_trait = tough_soldier }
+					20 = { add_trait = skilled_tactician }
+					70 = { add_trait = brilliant_strategist }
+				}
+				random_list = {				# some flavour
+					20 = {
+						add_trait = holy_warrior
+						add_trait = scarred
+						change_martial = 3
+					}
+					20 = {
+						add_trait = brave
+						add_trait = poet
+						change_martial = 2
+					}
+					20 = {
+						add_trait = robust
+						remove_trait = temperate
+						add_trait = wroth
+						add_trait = falconer
+						change_martial = 1
+					}
+					20 = {
+						add_trait = unyielding_leader
+						remove_trait = wroth
+						add_trait = patient
+						change_martial = 2
+					}
+					20 = {
+						add_trait = aggressive_leader
+						remove_trait = patient
+						add_trait = wroth
+						change_martial = 3
+					}
+					20 = {
+						add_trait = shrewd
+						add_trait = brave
+						change_martial = 2
+					}
+					20 = {
+						add_trait = robust
+						add_trait = strategist
+						change_martial = 1
+					}
+					20 = {
+						add_trait = genius
+						add_trait = socializer
+						add_trait = poet
+						change_martial = 4
+					}
+					20 = {
+						add_trait = strategist
+						add_trait = genius
+						change_martial = 4
+					}
+					20 = {
+						remove_trait = humble
+						add_trait = proud
+						add_trait = duelist
+						change_martial = 2
+					}
+					20 = {
+						add_trait = hunter
+						add_trait = shrewd
+						change_martial = 3
+					}
+					20 = {
+						add_trait = trusting
+						add_trait = quick
+						change_martial = 4
+					}
+					20 = {
+						add_trait = fair
+						add_trait = strategist
+						change_martial = 4
+					}
+					20 = {
+						add_trait = brave
+						add_trait = duelist
+						change_martial = 3
+					}
+					20 = {
+						add_trait = shrewd
+						add_trait = hedonist
+						change_martial = 4
+					}
+					20 = {
+						add_trait = shrewd
+						add_trait = cavalry_leader
+						change_martial = 2
+					}
+				}
+				if = {
+					limit = { trait = brilliant_strategist }
+					random_list = {
+						10 = {
+							add_trait = narrow_flank_leader
+						}
+						10 = {
+							add_trait = experimenter
+						}
+						10 = {
+							add_trait = flanker
+						}
+						10 = {
+							add_trait = heavy_infantry_leader
+						}
+						10 = {
+							add_trait = inspiring_leader
+						}
+						10 = {
+							add_trait = organizer
+						}
+						10 = {
+							add_trait = siege_leader
+						}
+						10 = {
+							add_trait = trickster
+						}
+						10 = {
+							add_trait = aggressive_leader
+						}
+					}
+				}
+				hidden_tooltip = {
+					if = {
+						limit = {
+							has_dharmic_religion_trigger = yes
+						}
+						add_trait = kshatriya
+						character_event = { id = RoI.30121 }
+					}
+					if = {
+						limit = {
+							OR = {
+								religion = hellenic_pagan
+								religion = hellenic_pagan_reformed
+								has_religion_feature = religion_astrology
+							}
+						}
+						hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+					}
+					if = {
+						limit = {
+							has_religion_feature = religion_no_leader
+							religion_group = pagan_group
+						}
+						add_trait = pagan_branch_3		# militant
+					}
+				}
+			}	
+		}
+	}
+	
+# giant king can no longer enthrall subjects
+	character_event = { 
+		id = AmzCul.333
+		desc = EVTDESCAmzCul.333
+		
+		hide_window = yes
+		
+		mean_time_to_happen = { days = 30 }
+		
+		trigger = {
+			is_inaccessible_or_incapable_trigger = yes 
+			has_character_modifier = giant_enthrall_modifier 
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.333	# remove enthrall modifier
+			ai_chance = { factor = 10 }
+			remove_character_modifier = giant_enthrall_modifier  
+		}		
+	}
+
+# giant king enthralls subjects on regular intervals
+	character_event = { 
+		id = AmzCul.334
+		desc = EVTDESCAmzCul.334
+		
+		hide_window = yes
+		
+		mean_time_to_happen = {
+			years = 1				# favours the most villainous giants
+			modifier = {			
+				factor = 0.9		
+				OR = { 
+					trait = strong
+					trait = robust
+					trait = brave
+				}
+			}
+			modifier = {			
+				factor = 0.8		
+				OR = {
+					trait = hedonist
+					trait = lustful
+				}
+			}
+			modifier = {			
+				factor = 2	
+				OR = {
+					trait = charitable
+					trait = patient
+					trait = kind
+					trait = humble
+					trait = content
+					trait = just
+				}
+			}
+			modifier = {			
+				factor = 5		
+				trait = inbred
+			}
+			modifier = {			
+				factor = 6	
+				OR = {
+					trait = weak
+					trait = craven
+					trait = is_malnourished
+					trait = feeble
+					trait = chaste
+				}
+			}
+		}
+		
+		trigger = {
+			trait = giant_king
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.334	# add enthrall modifier
+			ai_chance = { factor = 10 }
+			add_character_modifier = { 
+				name = giant_enthrall_modifier    
+				duration = -1
+			}
+			random = {
+				chance = 5
+				random_courtier_or_vassal = {
+					limit = { 
+						is_female = yes 
+						is_adult = yes
+						age < 30
+						NOT = { trait = is_amazonian_immortal }
+						NOT = { has_character_flag = gallu_warrior }
+					}
+					add_lover = ROOT
+				}
+			}
+			random = {
+				chance = 5
+				random_courtier_or_vassal = {
+					limit = { 
+						is_female = yes 
+						is_adult = yes
+						age < 30
+						NOT = { trait = is_amazonian_immortal }
+						NOT = { has_character_flag = gallu_warrior }
+						is_priest = yes						# double chance for priestesses
+					}
+					add_lover = ROOT
+				}
+			}
+			random = {
+				chance = 75
+				random_courtier = {
+					limit = { 
+						is_female = yes 
+						is_adult = yes
+						age < 30
+						NOT = { trait = is_amazonian_immortal }
+						NOT = { has_character_flag = gallu_warrior }
+						is_consort = yes
+					}
+					add_lover = ROOT
+				}
+			}
+		}		
+	}
+
+# giant king must be a giant, must have the horns, in case of people cheating it in
+	character_event = { 
+		id = AmzCul.335
+		desc = EVTDESCAmzCul.335
+		
+		hide_window = yes
+		
+		mean_time_to_happen = { days = 3 }
+		
+		trigger = {
+			trait = giant_king
+			NOT = { has_character_modifier = demon_horns }
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.335	
+			ai_chance = { factor = 10 }
+			add_trait = giant 
+			set_character_flag = ai_flag_refuse_conversion
+			add_character_modifier = {
+				name = demon_horns    
+				duration = -1
+			}
+		}		
+	}
+
+# gallu warriors who don't serve a giant king/lord lose the gallu flag, suffer withdrawal
+	character_event = { 
+		id = AmzCul.336
+		desc = EVTDESCAmzCul.336
+		
+		hide_window = yes
+		
+		mean_time_to_happen = { months = 3 }
+		
+		trigger = {
+			has_character_flag = gallu_warrior
+			OR = {
+				NOT = { 
+					liege = {
+						trait = giant_king
+					}
+				}
+				is_inaccessible_or_incapable_trigger = yes 
+			}
+			NOT = { has_character_flag = gallu_warrior_withdrawn }
+			NOT = { has_character_modifier = gallu_withdrawal_modifier }
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.336	
+			ai_chance = { factor = 10 }
+			remove_character_modifier = gallu_warrior_modifier
+			add_character_modifier = {
+				name = gallu_withdrawal_modifier   		# severely weakened, allows joining hall on expiry
+				months = 6
+			}
+			set_character_flag = gallu_warrior_withdrawn
+		}		
+	}	
+	
+# gallu warriors are (re)sustained by an active giant king 
+	character_event = { 
+		id = AmzCul.337
+		desc = EVTDESCAmzCul.337
+		
+		hide_window = yes
+		
+		mean_time_to_happen = { days = 5 }
+		
+		trigger = {
+			has_character_flag = gallu_warrior
+			OR = {
+				has_character_modifier = gallu_withdrawal_modifier
+				NOT = { has_character_modifier = gallu_warrior_modifier }
+			}
+			liege = {
+				trait = giant_king
+				NOT = { is_inaccessible_or_incapable_trigger = yes }
+			}
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.337	
+			ai_chance = { factor = 10 }		
+			remove_character_modifier = gallu_withdrawal_modifier
+			clr_character_flag = gallu_warrior_withdrawn
+			add_character_modifier = {
+				name = gallu_warrior_modifier   		
+				duration = -1
+			}
+		}		
+	}

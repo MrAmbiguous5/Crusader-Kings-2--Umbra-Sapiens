@@ -1,0 +1,60 @@
+targetted_decisions = {
+	form_cadettool_branch = {
+		is_high_prio = yes
+		from_potential = {
+			ai = no
+		}
+		potential = {
+			NOT = { has_character_flag = created_cadet_branch }
+			NOT = {
+				dynasty_head = {
+					character = ROOT
+				}
+			}
+		}
+		allow = {
+			NOT = {
+				is_heir = yes
+			}
+			prisoner = no
+			NOT = { trait = bastard }
+		}
+		effect = {
+			set_character_flag = created_cadet_branch
+			dynasty_head = {
+				ROOT = {
+					dynasty = father_bastard
+					
+					any_child = {
+						if = {
+							limit = { dynasty = PREVPREV }
+							dynasty = ROOT
+							
+							any_child = {
+								if = {
+									limit = { dynasty = PREVPREVPREV }
+									dynasty = ROOT
+									
+									any_child = {
+										if = {
+											limit = { dynasty = PREVPREVPREVPREV }
+											dynasty = ROOT
+											
+											any_child = {
+												if = {
+													limit = { dynasty = PREVPREVPREVPREVPREV }
+													dynasty = ROOT
+												}
+											}
+										}
+									}
+								}
+							}							
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

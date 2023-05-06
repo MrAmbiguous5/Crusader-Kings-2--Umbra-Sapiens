@@ -1,0 +1,80 @@
+namespace = lazaristlads
+narrative_event = {
+	id = lazaristlads.1
+	title = "EVTNAMELAZR1"
+	desc = "EVTDESCLAZR1"
+	picture = "GFX_evt_crusaders"
+	border = "GFX_event_narrative_frame_religion"
+	
+	major = yes
+	only_playable = yes
+	only_men = yes
+	religion_group = christian
+	has_global_flag = christian_crusades_unlocked
+	
+	trigger = {
+		OR = {
+			religion = catholic
+			religion = cathar
+			religion = fraticelli
+			religion = waldensian
+			religion = lollard
+		}
+
+		is_heretic = no
+		
+		NOT = { 
+		is_title_active = d_lazarists 
+		
+		}
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 15
+	}
+	
+	immediate = {
+		activate_title = { title = d_lazarists status = yes }
+		create_random_soldier = {
+			dynasty = none
+			random_traits = yes
+			religion = ROOT
+			culture = italian
+			religion = catholic
+		}
+		
+		new_character = {
+			d_lazarists = {
+				grant_title = PREV
+			}
+			set_defacto_liege = THIS
+			wealth = 250
+			set_government_type = feudal_government
+		}
+		
+		religion_authority = {
+			modifier = religious_order_formed
+			years = 10
+		}
+	}
+	option = {
+		name = "EVTOPTALAZR1"
+		trigger = {
+			religion = ROOT
+		}
+	}
+	option = {
+		name = "EVTOPTBLAZR1"
+		trigger = {
+			NOT = { religion_group = christian }
+		}
+	}
+	option = {
+		name = "EVTOPTBLAZR1"
+		trigger = {
+			religion_group = christian
+			NOT = { religion = ROOT }
+		}
+	}
+}

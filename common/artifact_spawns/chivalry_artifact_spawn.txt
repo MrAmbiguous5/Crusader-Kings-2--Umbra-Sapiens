@@ -1,0 +1,25 @@
+veil_of_dymphna = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 80
+	}
+    
+    weight = {
+		value = 0
+		additive_modifier = {
+			value = 10
+			culture = irish
+		}
+		additive_modifier = {
+			value = 5
+			culture_group = celtic
+		}
+	}
+    artifacts = {
+        veil_of_dymphna = {
+            value = 1
+        }
+    }
+}

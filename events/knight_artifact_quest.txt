@@ -1,0 +1,1301 @@
+namespace = equus
+
+#Quest is issued
+character_event = {
+    id = equus.1500
+    desc = EVTDESC_equus.1500
+	title = EVTTITLE_equus.1500
+	picture = "GFX_evt_war_planning"
+    trigger = {
+		OR = {
+			society_member_of = military_knights
+			society_member_of = military_knights1
+			society_member_of = military_knights2
+			society_member_of = diplomatic_knights
+			society_member_of = diplomatic_knights1
+			society_member_of = diplomatic_knights2
+		}
+		ai = no
+		NOT = { has_character_flag = knight_artifact_quest }
+	}
+	
+	mean_time_to_happen = { years = 40 }
+   
+   immediate = {
+		clr_character_flag = grail_procession
+		set_character_flag = knight_artifact_quest 
+    }
+   
+    option = { 
+		name = EVTOPTA_equus.1500
+		hidden_tooltip = {
+			set_variable = { which = "grail_success" value = 0 }
+		}
+		set_character_flag = grail_quest_started
+		character_event = { id = equus.1501 days = 7 random = 7 }
+	}
+
+	option = {
+		name = EVTOPTB_equus.1500
+		prestige = -200
+	}
+}
+
+#Event tombola
+character_event = {
+    id = equus.1501
+	hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+		random_list = {
+			10 = {
+				character_event = { id = equus.1502 days = 7 random = 7 } #squire saw
+			}
+			10 = {
+				character_event = { id = equus.1503 days = 7 random = 7 } #squire knows
+			}
+			10 = {
+				character_event = { id = equus.1504 days = 7 random = 7 } #squire read
+			}
+			10 = {
+				character_event = { id = equus.1505 days = 7 random = 7 } #find knowledgeable person
+			}
+			10 = {
+				character_event = { id = equus.1506 days = 7 random = 7 } #study for info
+			}
+			10 = {
+				character_event = { id = equus.1507 days = 7 random = 7 } #steal info
+			}
+			10 = {
+				character_event = { id = equus.1508 days = 7 random = 7 } #beast
+			}
+			10 = {
+				character_event = { id = equus.1509 days = 7 random = 7 } #bandits
+			}
+			5 = {
+				character_event = { id = equus.1510 days = 7 random = 7 } #fisher king
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					is_variable_equal = { which = "grail_success" value = 0 }
+				}
+				modifier = {
+					factor = 2
+					is_variable_equal = { which = "grail_success" value = 1 }
+				}
+				modifier = {
+					factor = 5
+					is_variable_equal = { which = "grail_success" value = 2 }
+				}
+				modifier = {
+					factor = 10
+					is_variable_equal = { which = "grail_success" value = 3 }
+				}
+				modifier = {
+					factor = 15
+					is_variable_equal = { which = "grail_success" value = 4 }
+				}
+				modifier = {
+					factor = 30
+					is_variable_equal = { which = "grail_success" value = 5 }
+				}
+				modifier = {
+					factor = 60
+					is_variable_equal = { which = "grail_success" value = 6 }
+				}
+				modifier = {
+					factor = 130
+					is_variable_equal = { which = "grail_success" value = 7 }
+				}
+				character_event = { id = equus.1520 days = 7 random = 7 } #FIND IT
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { had_character_flag = { flag = grail_quest_started days = 30 }}
+				}
+				modifier = {
+					factor = 2
+					had_character_flag = { flag = grail_quest_started days = 45 }
+				}
+				modifier = {
+					factor = 2
+					had_character_flag = { flag = grail_quest_started days = 60 }
+				}
+				modifier = {
+					factor = 2
+					had_character_flag = { flag = grail_quest_started days = 75 }
+				}
+				modifier = {
+					factor = 15
+					is_variable_equal = { which = "grail_success" value = 0 }
+				}
+				modifier = {
+					factor = 10
+					is_variable_equal = { which = "grail_success" value = 1 }
+				}
+				modifier = {
+					factor = 5
+					is_variable_equal = { which = "grail_success" value = 2 }
+				}
+				modifier = {
+					factor = 2
+					is_variable_equal = { which = "grail_success" value = 3 }
+				}
+				modifier = {
+					factor = 0
+					is_variable_equal = { which = "grail_success" value = 5 }
+				}
+				modifier = {
+					factor = 0
+					is_variable_equal = { which = "grail_success" value = 6 }
+				}
+				modifier = {
+					factor = 0
+					is_variable_equal = { which = "grail_success" value = 7 }
+				}
+				character_event = { id = equus.1523 days = 7 random = 7 } #FAIL
+			}
+		}
+	}	
+}
+
+#Squire sees others
+character_event = {
+    id = equus.1502
+    desc = EVTDESC_equus.1502
+	title = EVTTITLE_equus.1500
+    picture = "GFX_evt_merchant_caravan"
+    border = GFX_event_normal_frame_war
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.1501 }
+	}
+
+    option = { 
+        name = EVTOPTA_equus.1502 #Trust
+		random_list = {
+			60 = {
+				add_trait = deceitful
+			}
+			40 = {
+				add_trait = trusting
+			}
+		}
+		hidden_tooltip = {
+			random_courtier = {
+				limit = {
+					has_minor_title = title_knight_squire
+				}
+				random_list = {
+					60 = {
+						modifier = {
+							factor = 1.33
+							intrigue = 5
+						}
+						modifier = {
+							factor = 1.33
+							intrigue = 10
+						}
+						modifier = {
+							factor = 1.33
+							intrigue = 15
+						}
+						ROOT = { 
+							change_variable = { which = "grail_success" value = 1 }  #Success
+						}
+					}
+					40 = {
+						modifier = {
+							factor = 1.33
+							NOT = { intrigue = 5 }
+						}
+					}
+				}
+			}
+		}
+    }
+    option = {
+        name = EVTOPTB_equus.1502 #Don't trust
+		random_list = {
+			60 = {
+				add_trait = honest
+			}
+			40 = {
+				add_trait = cynical
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 1.33
+						intrigue = 5
+					}
+					modifier = {
+						factor = 1.33
+						intrigue = 10
+					}
+					modifier = {
+						factor = 1.33
+						intrigue = 15
+					}
+					change_variable = { which = "grail_success" value = 1 }  #Success
+				}
+				40 = {
+					modifier = {
+						factor = 1.33
+						NOT = { intrigue = 5 }
+					}
+				}
+			}
+		}
+    }
+}
+
+
+#Squire knows somebody
+character_event = {
+    id = equus.1503
+    desc = EVTDESC_equus.1503
+	title = EVTTITLE_equus.1500
+    picture = "GFX_evt_whispers"
+    border = GFX_event_normal_frame_war
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.1501 }
+	}
+
+    option = { 
+        name = EVTOPTA_equus.1503 #Follow
+		random_list = {
+			60 = {
+				add_trait = gregarious
+			}
+			40 = {
+				add_trait = content
+			}
+		}
+		hidden_tooltip = {
+			random_courtier = {
+				limit = {
+					has_minor_title = title_knight_squire
+				}
+				random_list = {
+					60 = {
+						modifier = {
+							factor = 1.33
+							diplomacy = 5
+						}
+						modifier = {
+							factor = 1.33
+							diplomacy = 10
+						}
+						modifier = {
+							factor = 1.33
+							diplomacy = 15
+						}
+						ROOT = { 
+							change_variable = { which = "grail_success" value = 1 }  #Success
+						}
+					}
+					40 = {
+						modifier = {
+							factor = 1.33
+							NOT = { diplomacy = 5 }
+						}
+					}
+				}
+			}
+		}
+    }
+    option = {
+        name = EVTOPTB_equus.1503 #Spend time otherwise
+		random_list = {
+			60 = {
+				add_trait = cynical
+			}
+			40 = {
+				add_trait = stubborn
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 1.33
+						diplomacy = 5
+					}
+					modifier = {
+						factor = 1.33
+						diplomacy = 10
+					}
+					modifier = {
+						factor = 1.33
+						diplomacy = 15
+					}
+					change_variable = { which = "grail_success" value = 1 }  #Success
+				}
+				40 = {
+					modifier = {
+						factor = 1.33
+						NOT = { diplomacy = 5 }
+					}
+				}
+			}
+		}
+    }
+}
+
+#Squire read something
+character_event = {
+    id = equus.1504
+    desc = EVTDESC_equus.1504
+	title = EVTTITLE_equus.1500
+    picture = "GFX_evt_library"
+    border = GFX_event_normal_frame_war
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.1501 }
+	}
+
+    option = { 
+        name = EVTOPTA_equus.1504 #Follow
+		random_list = {
+			60 = {
+				add_trait = erudite
+			}
+			40 = {
+				add_trait = trusting
+			}
+		}
+		hidden_tooltip = {
+			random_courtier = {
+				limit = {
+					has_minor_title = title_knight_squire
+				}
+				random_list = {
+					60 = {
+						modifier = {
+							factor = 1.33
+							learning = 5
+						}
+						modifier = {
+							factor = 1.33
+							learning = 10
+						}
+						modifier = {
+							factor = 1.33
+							learning = 15
+						}
+						ROOT = { 
+							change_variable = { which = "grail_success" value = 1 }  #Success
+						}
+					}
+					40 = {
+						modifier = {
+							factor = 1.33
+							NOT = { learning = 5 }
+						}
+					}
+				}
+			}
+		}
+    }
+    option = {
+        name = EVTOPTB_equus.1504 #Let me have a look
+		random_list = {
+			60 = {
+				add_trait = patient
+			}
+			40 = {
+				add_trait = stubborn
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 1.33
+						learning = 5
+					}
+					modifier = {
+						factor = 1.33
+						learning = 10
+					}
+					modifier = {
+						factor = 1.33
+						learning = 15
+					}
+					change_variable = { which = "grail_success" value = 1 }  #Success
+				}
+				40 = {
+					modifier = {
+						factor = 1.33
+						NOT = { learning = 5 }
+					}
+				}
+			}
+		}
+    }
+}
+
+#Knowledgable person
+character_event = {
+    id = equus.1505
+    desc = EVTDESC_equus.1505
+	title = EVTTITLE_equus.1500
+    picture = "GFX_evt_bandits"
+    border = GFX_event_normal_frame_war
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.1501 }
+	}
+
+    option = { 
+        name = EVTOPTA_equus.1505 #Pay
+		random_list = {
+			60 = {
+				add_trait = charitable
+			}
+			40 = {
+				add_trait = trusting
+			}
+		}
+		wealth = -50
+		hidden_tooltip = {
+			random_list = {
+				70 = {
+					change_variable = { which = "grail_success" value = 1 }  #Success
+				}
+				30 = {
+				}
+			}
+		}
+    }
+    option = {
+        name = EVTOPTB_equus.1505 #Threaten
+		random_list = {
+			60 = {
+				add_trait = wroth
+			}
+			40 = {
+				add_trait = cruel
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 1.33
+						martial = 5
+					}
+					modifier = {
+						factor = 1.33
+						martial = 10
+					}
+					modifier = {
+						factor = 1.33
+						martial = 15
+					}
+					change_variable = { which = "grail_success" value = 1 }  #Success
+				}
+				40 = {
+					modifier = {
+						factor = 1.33
+						NOT = { martial = 5 }
+					}
+				}
+			}
+		}
+    }
+	option = {
+        name = EVTOPTC_equus.1505 #Persuade
+		random_list = {
+			60 = {
+				add_trait = patient
+			}
+			40 = {
+				add_trait = gregarious
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 1.33
+						diplomacy = 5
+					}
+					modifier = {
+						factor = 1.33
+						diplomacy = 10
+					}
+					modifier = {
+						factor = 1.33
+						diplomacy = 15
+					}
+					change_variable = { which = "grail_success" value = 1 }  #Success
+				}
+				40 = {
+					modifier = {
+						factor = 1.33
+						NOT = { diplomacy = 5 }
+					}
+				}
+			}
+		}
+    }
+}
+
+#Study for info
+character_event = {
+    id = equus.1506
+    desc = EVTDESC_equus.1506
+	title = EVTTITLE_equus.1500
+    picture = "GFX_evt_library"
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.1501 }
+	}
+
+    option = { 
+        name = EVTOPTA_equus.1506 #Study
+		random_list = {
+			60 = {
+				add_trait = erudite
+			}
+			40 = {
+				add_trait = shy
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 1.33
+						learning = 5
+					}
+					modifier = {
+						factor = 1.33
+						learning = 10
+					}
+					modifier = {
+						factor = 1.33
+						learning = 15
+					}
+					change_variable = { which = "grail_success" value = 1 }  #Success
+				}
+				40 = {
+					modifier = {
+						factor = 1.33
+						NOT = { learning = 5 }
+					}
+				}
+			}
+		}
+    }
+    option = {
+        name = EVTOPTB_equus.1506 #Real searching is in the field
+		random_list = {
+			60 = {
+				add_trait = brave
+			}
+			40 = {
+				add_trait = slothful
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 1.33
+						martial = 5
+					}
+					modifier = {
+						factor = 1.33
+						martial = 10
+					}
+					modifier = {
+						factor = 1.33
+						martial = 15
+					}
+					change_variable = { which = "grail_success" value = 1 }  #Success
+				}
+				40 = {
+					modifier = {
+						factor = 1.33
+						NOT = { martial = 5 }
+					}
+				}
+			}
+		}
+    }
+}
+
+#Steal info
+character_event = {
+    id = equus.1507
+    desc = EVTDESC_equus.1507
+	title = EVTTITLE_equus.1500
+    picture = "GFX_evt_bandits"
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.1501 }
+	}
+
+    option = { 
+        name = EVTOPTA_equus.1507 #Steal
+		random_list = {
+			60 = {
+				add_trait = deceitful
+			}
+			40 = {
+				add_trait = paranoid
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 1.33
+						intrigue = 5
+					}
+					modifier = {
+						factor = 1.33
+						intrigue = 10
+					}
+					modifier = {
+						factor = 1.33
+						intrigue = 15
+					}
+					change_variable = { which = "grail_success" value = 1 }  #Success
+				}
+				40 = {
+					modifier = {
+						factor = 1.33
+						NOT = { intrigue = 5 }
+					}
+				}
+			}
+		}
+    }
+    option = {
+        name = EVTOPTB_equus.1507 #I can find it on my own
+		random_list = {
+			60 = {
+				add_trait = honest
+			}
+			40 = {
+				add_trait = trusting
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 1.33
+						learning = 5
+					}
+					modifier = {
+						factor = 1.33
+						learning = 10
+					}
+					modifier = {
+						factor = 1.33
+						learning = 15
+					}
+					change_variable = { which = "grail_success" value = 1 }  #Success
+				}
+				40 = {
+					modifier = {
+						factor = 1.33
+						NOT = { learning = 5 }
+					}
+				}
+			}
+		}
+    }
+}
+
+
+#Beast
+character_event = {
+    id = equus.1508
+    desc = EVTDESC_equus.1508
+	title = EVTTITLE_equus.1500
+    picture = "GFX_evt_mysterious_forest"
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.1501 }
+	}
+
+    option = { 
+        name = EVTOPTA_equus.1508 #Fight
+		random_list = {
+			60 = {
+				modifier = {
+					factor = 1.33
+					combat_rating = 20
+				}
+				modifier = {
+					factor = 1.33
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 1.33
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 1.33
+					combat_rating = 70
+				}
+			}
+			40 = {
+				modifier = {
+					factor = 1.33
+					NOT = { combat_rating = 10 }
+				}
+				trait = injured
+			}
+		}
+	}
+	option = { 
+        name = EVTOPTB_equus.1508 #Send squire
+		random_list = {
+			60 = {
+			}
+			40 = {
+				add_trait = craven
+			}
+		}
+		random_courtier = {
+			limit = {
+				has_minor_title = title_knight_squire
+			}
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 1.33
+						combat_rating = 20
+					}
+					modifier = {
+						factor = 1.33
+						combat_rating = 30
+					}
+				}
+				40 = {
+					modifier = {
+						factor = 1.33
+						NOT = { combat_rating = 10 }
+					}
+					trait = injured
+				}
+			}
+		}
+    }
+    option = {
+        name = EVTOPTC_equus.1508 #Run away
+		random_list = {
+			60 = {
+				add_trait = craven
+			}
+			40 = {
+			}
+		}
+    }
+}
+
+#Bandits
+character_event = {
+    id = equus.1509
+    desc = EVTDESC_equus.1509
+	title = EVTTITLE_equus.1500
+    picture = "GFX_evt_mysterious_forest"
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.1501 }
+	}
+
+    option = { 
+        name = EVTOPTA_equus.1509 #Fight
+		random_list = {
+			60 = {
+				modifier = {
+					factor = 1.33
+					combat_rating = 20
+				}
+				modifier = {
+					factor = 1.33
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 1.33
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 1.33
+					combat_rating = 70
+				}
+			}
+			40 = {
+				modifier = {
+					factor = 1.33
+					NOT = { combat_rating = 10 }
+				}
+				trait = injured
+			}
+		}
+	}
+	option = {
+        name = EVTOPTB_equus.1509 #Run away
+		random_list = {
+			60 = {
+				add_trait = craven
+			}
+			40 = {
+			}
+		}
+    }
+	option = { 
+        name = EVTOPTC_equus.1509 #Go around
+		trigger = {
+			intrigue = 10
+		}
+		tooltip_info = intrigue
+		change_variable = { which = "grail_success" value = 1 }  #Success
+    }
+}
+
+#Fisher king
+character_event = {
+    id = equus.1510
+    desc = EVTDESC_equus.1510
+	title = EVTTITLE_equus.1500
+    picture = "GFX_evt_magnificent_castle"
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.1501 }
+		set_character_flag = grail_procession
+	}
+
+    option = { 
+        name = EVTOPTA_equus.1510 #How strange
+	}
+	option = { 
+        name = EVTOPTB_equus.1510 #What is their purpose? Who is served by them?
+		trigger = {
+			learning = 15
+		}
+		tooltip_info = intrigue
+		change_variable = { which = "grail_success" value = 3 }  #Success
+    }
+}
+
+#Final test
+character_event = {
+    id = equus.1520
+    desc = EVTDESC_equus.1520
+	title = EVTTITLE_equus.1500
+    picture = "GFX_evt_pagan"
+
+    is_triggered_only = yes
+
+     option = { 
+        name = EVTOPTA_equus.1520 #Solve riddle
+		random_list = {
+			60 = {
+				modifier = {
+					factor = 1.33
+					diplomacy = 10
+				}
+				modifier = {
+					factor = 1.33
+					diplomacy = 15
+				}
+				modifier = {
+					factor = 1.33
+					diplomacy = 20
+				}
+				custom_tooltip = { text = find_grail }
+				character_event = { id = equus.1521 }
+			}
+			40 = {
+				modifier = {
+					factor = 1.33
+					NOT = { diplomacy = 5 }
+				}
+				custom_tooltip = { text = lose_grail }
+				character_event = { id = equus.1522 }
+			}
+		}
+	}
+	 option = { 
+        name = EVTOPTB_equus.1520 #Brute force
+		random_list = {
+			60 = {
+				modifier = {
+					factor = 1.33
+					martial = 15
+				}
+				modifier = {
+					factor = 1.33
+					martial = 20
+				}
+				modifier = {
+					factor = 1.33
+					martial = 25
+				}
+				custom_tooltip = { text = find_grail }
+				character_event = { id = equus.1521 }
+			}
+			40 = {
+				modifier = {
+					factor = 1.33
+					NOT = { martial = 5 }
+				}
+				modifier = {
+					factor = 1.33
+					NOT = { martial = 10 }
+				}
+				custom_tooltip = { text = lose_grail }
+				character_event = { id = equus.1522 }
+			}
+		}
+	}
+	 option = { 
+        name = EVTOPTC_equus.1520 #Find symbolism
+		random_list = {
+			60 = {
+				modifier = {
+					factor = 1.33
+					learning = 10
+				}
+				modifier = {
+					factor = 1.33
+					learning = 15
+				}
+				modifier = {
+					factor = 1.33
+					learning = 20
+				}
+				custom_tooltip = { text = find_grail }
+				character_event = { id = equus.1521 }
+			}
+			40 = {
+				modifier = {
+					factor = 1.33
+					NOT = { learning = 5 }
+				}
+				custom_tooltip = { text = lose_grail }
+				character_event = { id = equus.1522 }
+			}
+		}
+	}
+}
+
+#Total success
+character_event = {
+	id = equus.1521
+	title = EVTTITLE_equus.1500
+	desc = EVTDESC_equus.1521
+	picture = "GFX_evt_religious_exultation"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.1521" #Gloria in excelsis
+		trait = zealous
+		change_society_currency = 500
+		prestige = 500
+		piety = 250
+		hidden_tooltip = {
+			random_list = {
+				#Generic artifacts
+				20 = { 
+					modifier = {
+						factor = 0
+						has_artifact = shroud_of_jesus
+					}
+					add_artifact = shroud_of_jesus 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { 
+					modifier = {
+						factor = 0
+						has_artifact = spear_of_destiny
+					}
+					modifier = {
+						factor = 100
+						has_character_flag = grail_procession
+					}
+					add_artifact = spear_of_destiny
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { 
+					modifier = {
+						factor = 0
+						has_artifact = holy_grail
+					}
+					modifier = {
+						factor = 100
+						has_character_flag = grail_procession
+					}
+					add_artifact = holy_grail 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { 
+					modifier = {
+						factor = 0
+						has_artifact = holy_chalice
+					}
+					modifier = {
+						factor = 100
+						has_character_flag = grail_procession
+					}
+					add_artifact = holy_chalice
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = {
+					modifier = {
+						factor = 0
+						has_artifact = crown_of_thorns
+					}
+					add_artifact = crown_of_thorns 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { 
+					modifier = { 
+						factor = 0
+						has_artifact = seamless_robe_of_jesus
+					}
+					add_artifact = seamless_robe_of_jesus 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { 
+					modifier = {
+						factor = 0
+						has_artifact = fragment_of_true_cross
+					}
+					add_artifact = fragment_of_true_cross 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = {
+					modifier = {
+						factor = 0
+						has_artifact = image_of_edessa
+					}
+					#Insert artifact event here
+					add_artifact = image_of_edessa
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+			}
+		}
+	}
+}
+
+
+#Temple failure
+character_event = {
+	id = equus.1522
+	title = EVTTITLE_equus.1500
+	desc = EVTDESC_equus.1522
+	picture = "GFX_evt_drunk"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.1522" #Noooooooo
+		random_list = {
+			10 = {
+				trait = lunatic
+			}
+			40 = {
+				trait = depressed
+			}
+			40 = {
+				trait = stressed
+			}
+			10 = {
+			
+			}
+		}
+	}
+}
+
+#Other failure
+character_event = {
+	id = equus.1523
+	title = EVTTITLE_equus.1500
+	desc = EVTDESC_equus.1523
+	picture = "GFX_evt_bad_news"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	immediate = {
+		random_society_member = {
+			limit = { same_society_as = ROOT }
+		}
+		random_list = {
+			9 = {}
+			1 = {
+				save_event_target_as = grail_finder
+				random_list = {
+					#Generic artifacts
+					20 = { 
+						modifier = {
+							factor = 0
+							has_artifact = shroud_of_jesus
+						}
+						add_artifact = shroud_of_jesus 
+						new_artifact = {
+							set_creation_date = 1.1.1
+						}
+					}
+					20 = { 
+						modifier = {
+							factor = 0
+							has_artifact = spear_of_destiny
+						}
+						add_artifact = spear_of_destiny
+						new_artifact = {
+							set_creation_date = 1.1.1
+						}
+					}
+					20 = { 
+						modifier = {
+							factor = 0
+							has_artifact = holy_grail
+						}
+						add_artifact = holy_grail 
+						new_artifact = {
+							set_creation_date = 1.1.1
+						}
+					}
+					20 = { 
+						modifier = {
+							factor = 0
+							has_artifact = holy_chalice
+						}
+						add_artifact = holy_chalice
+						new_artifact = {
+							set_creation_date = 1.1.1
+						}
+					}
+					20 = {
+						modifier = {
+							factor = 0
+							has_artifact = crown_of_thorns
+						}
+						add_artifact = crown_of_thorns 
+						new_artifact = {
+							set_creation_date = 1.1.1
+						}
+					}
+					20 = { 
+						modifier = { 
+							factor = 0
+							has_artifact = seamless_robe_of_jesus
+						}
+						add_artifact = seamless_robe_of_jesus 
+						new_artifact = {
+							set_creation_date = 1.1.1
+						}
+					}
+					20 = { 
+						modifier = {
+							factor = 0
+							has_artifact = fragment_of_true_cross
+						}
+						add_artifact = fragment_of_true_cross 
+						new_artifact = {
+							set_creation_date = 1.1.1
+						}
+					}
+					20 = {
+						modifier = {
+							factor = 0
+							has_artifact = image_of_edessa
+						}
+						#Insert artifact event here
+						add_artifact = image_of_edessa
+						new_artifact = {
+							set_creation_date = 1.1.1
+						}
+					}
+				}
+				ROOT = { character_event = { id = equus.1524 days = 10 random = 5 }}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1523" #Blast
+		random_list = {
+			30 = {
+				trait = depressed
+			}
+			40 = {
+				trait = stressed
+			}
+			30 = {
+			
+			}
+		}
+	}
+}
+
+#Finder announcement
+character_event = {
+	id = equus.1524
+	title = EVTTITLE_equus.1500
+	desc = EVTDESC_equus.1524
+	picture = "GFX_evt_bad_news"
+	min_age = 16
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_equus.1524" #Congratulations, I guess...
+	}
+}

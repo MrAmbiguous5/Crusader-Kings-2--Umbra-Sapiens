@@ -1,0 +1,2136 @@
+
+namespace = darkages
+####################################################################################
+#	LEARNING BOOSTED
+####################################################################################
+
+character_event = {
+	id = darkages.72003
+	title = EVTNAME1972003
+	desc = EVTDESC1972003
+	picture = GFX_evt_book_carolingian_script
+	border = GFX_event_normal_frame_religion
+	
+	trigger = {
+		
+		learning = 5
+		treasury = 75
+		is_adult = yes
+		
+		OR = {
+			has_focus = focus_scholarship
+			has_focus = focus_theology
+			trait = scholar
+			trait = tutor
+			learning = 15
+		}
+		
+		war = no
+		NOT = { trait = slow }
+		NOT = { trait = imbecile }
+		is_incapable = no
+		NOT = { has_character_modifier = learning }
+		NOT = { has_character_flag = da_mil }
+		NOT = { has_character_flag = da_dip }
+		NOT = { has_character_flag = da_ste }
+		NOT = { has_character_flag = da_int }
+		NOT = { has_character_flag = da_lea }		
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		
+		modifier = {
+			factor = 0.75
+			has_focus = focus_scholarship
+		}
+		
+		modifier = {
+			factor = 0.8
+			has_focus = focus_theology
+		}		
+
+		modifier = {
+			factor = 0.75
+			OR = {
+				trait = scholar
+				trait = tutor
+			}
+	
+		}
+
+		modifier = {
+			factor = 0.8
+			learning = 12
+		}	
+
+		modifier = {
+			factor = 0.8
+			learning = 15
+		}	
+
+		modifier = {
+			factor = 0.75
+			learning = 18
+		}	
+
+		modifier = {
+			factor = 0.75
+			learning = 21
+		}	
+		
+	}
+
+	immediate = {
+	
+		random_list = {
+			10 = { set_character_flag = ab }
+			10 = { set_character_flag = ac }		
+			10 = { set_character_flag = ad }
+			10 = { set_character_flag = ae }
+			10 = { set_character_flag = bc }
+			10 = { set_character_flag = bd }
+			10 = { set_character_flag = be }
+			10 = { set_character_flag = cd }
+			10 = { set_character_flag = ce }
+			10 = { set_character_flag = de }
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972003
+		trigger = { 
+			OR = {
+				has_character_flag = ab
+				has_character_flag = ac
+				has_character_flag = ad
+				has_character_flag = ae
+			}
+		}
+		
+		scaled_wealth = { value = -0.5 min = -50 max = -250 }
+		
+		set_character_flag = da_mil
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}
+					modifier = {
+						factor = 1.5
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.25
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.25
+						trait = bright
+					}
+					modifier = {
+						factor = 1.5
+						trait = quick
+					}				
+					modifier = {
+						factor = 1.75
+						trait = genius
+					}	
+
+					character_event = { id = darkages.72004 days = 270 random = 180 }
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.25
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.25
+						trait = dim
+					}
+					modifier = {
+						factor = 1.5
+						trait = slow
+					}				
+					modifier = {
+						factor = 1.75
+						trait = imbecile
+					}
+
+					character_event = { id = darkages.72005 days = 270 random = 180 }
+					
+				}
+			
+			}
+		}
+
+		add_character_modifier = {
+			name = learning
+			duration = 270
+		}		
+		
+	}
+	
+
+	option = {
+		name = EVTOPTB1972003
+		trigger = {  
+			OR = {
+				has_character_flag = ab
+				has_character_flag = bc
+				has_character_flag = bd
+				has_character_flag = be
+			}
+		}
+		
+		scaled_wealth = { value = -0.5 min = -50 max = -250 }
+
+		set_character_flag = da_dip
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}
+					modifier = {
+						factor = 1.5
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.25
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.25
+						trait = bright
+					}
+					modifier = {
+						factor = 1.5
+						trait = quick
+					}				
+					modifier = {
+						factor = 1.75
+						trait = genius
+					}	
+
+					character_event = { id = darkages.72004 days = 270 random = 180 }
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.25
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.25
+						trait = dim
+					}
+					modifier = {
+						factor = 1.5
+						trait = slow
+					}				
+					modifier = {
+						factor = 1.75
+						trait = imbecile
+					}
+
+					character_event = { id = darkages.72005 days = 270 random = 180 }
+					
+				}
+			
+			}
+		}		
+
+		add_character_modifier = {
+			name = learning
+			duration = 270
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTC1972003
+		trigger = { 
+			OR = {
+				has_character_flag = ac
+				has_character_flag = bc
+				has_character_flag = cd
+				has_character_flag = ce
+			}
+		}
+		
+		scaled_wealth = { value = -0.5 min = -50 max = -250 }
+		
+		set_character_flag = da_ste
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}
+					modifier = {
+						factor = 1.5
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.25
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.25
+						trait = bright
+					}
+					modifier = {
+						factor = 1.5
+						trait = quick
+					}				
+					modifier = {
+						factor = 1.75
+						trait = genius
+					}	
+
+					character_event = { id = darkages.72004 days = 270 random = 180 }
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.25
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.25
+						trait = dim
+					}
+					modifier = {
+						factor = 1.5
+						trait = slow
+					}				
+					modifier = {
+						factor = 1.75
+						trait = imbecile
+					}
+
+					character_event = { id = darkages.72005 days = 270 random = 180 }
+					
+				}
+			
+			}
+		}		
+
+		add_character_modifier = {
+			name = learning
+			duration = 270
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTD1972003
+		trigger = { 
+			OR = {
+				has_character_flag = ad
+				has_character_flag = bd
+				has_character_flag = cd
+				has_character_flag = de
+			}
+		}
+		
+		scaled_wealth = { value = -0.5 min = -50 max = -250 }
+		
+		set_character_flag = da_int
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}
+					modifier = {
+						factor = 1.5
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.25
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.25
+						trait = bright
+					}
+					modifier = {
+						factor = 1.5
+						trait = quick
+					}				
+					modifier = {
+						factor = 1.75
+						trait = genius
+					}	
+
+					character_event = { id = darkages.72004 days = 270 random = 180 }
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.25
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.25
+						trait = dim
+					}
+					modifier = {
+						factor = 1.5
+						trait = slow
+					}				
+					modifier = {
+						factor = 1.75
+						trait = imbecile
+					}
+
+					character_event = { id = darkages.72005 days = 270 random = 180 }
+					
+				}
+			
+			}
+		}
+
+		add_character_modifier = {
+			name = learning
+			duration = 270
+		}		
+		
+	}
+	
+	option = {
+		name = EVTOPTE1972003
+		trigger = { 
+			OR = {
+				has_character_flag = ae
+				has_character_flag = be
+				has_character_flag = ce
+				has_character_flag = de
+			}
+		}
+		
+		scaled_wealth = { value = -0.5 min = -50 max = -250 }
+		
+		set_character_flag = da_lea
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}
+					modifier = {
+						factor = 1.5
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.25
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.25
+						trait = bright
+					}
+					modifier = {
+						factor = 1.5
+						trait = quick
+					}				
+					modifier = {
+						factor = 1.75
+						trait = genius
+					}	
+
+					character_event = { id = darkages.72004 days = 270 random = 180 }
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.25
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.25
+						trait = dim
+					}
+					modifier = {
+						factor = 1.5
+						trait = slow
+					}				
+					modifier = {
+						factor = 1.75
+						trait = imbecile
+					}
+
+					character_event = { id = darkages.72005 days = 270 random = 180 }
+					
+				}
+			
+			}
+		}
+		
+		add_character_modifier = {
+			name = learning
+			duration = 270
+		}		
+		
+	}
+
+	option = {
+		name = EVTOPTF1972003
+
+		clr_character_flag = da_mil
+		clr_character_flag = da_dip
+		clr_character_flag = da_ste
+		clr_character_flag = da_int
+		clr_character_flag = da_lea		
+
+		clr_character_flag = ab
+		clr_character_flag = ac	
+		clr_character_flag = ad
+		clr_character_flag = ae
+		clr_character_flag = bc
+		clr_character_flag = bd
+		clr_character_flag = be
+		clr_character_flag = cd
+		clr_character_flag = ce
+		clr_character_flag = de
+		
+		add_character_modifier = {
+			name = focused_ruler
+			duration = 365
+		}		
+		
+	}
+	
+	
+}
+
+character_event = {			# SUCCESS!
+	id = darkages.72004
+	title = EVTNAME1972004
+	desc = EVTDESC1972004
+	picture = GFX_evt_library
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972004
+		trigger = { 
+			has_character_flag = da_mil
+		}
+		
+		random_list = {
+		
+			19 = {
+				change_martial = 1
+			}
+
+			1 = {
+				change_martial = 2
+			}
+			
+		}
+
+		clr_character_flag = da_mil
+
+		clr_character_flag = ab
+		clr_character_flag = ac	
+		clr_character_flag = ad
+		clr_character_flag = ae
+		clr_character_flag = bc
+		clr_character_flag = bd
+		clr_character_flag = be
+		clr_character_flag = cd
+		clr_character_flag = ce
+		clr_character_flag = de
+		
+	}
+
+	option = {
+		name = EVTOPTA1972004
+		trigger = { 
+			has_character_flag = da_dip
+		}
+		
+		random_list = {
+		
+			19 = {
+				change_diplomacy = 1
+			}
+
+			1 = {
+				change_diplomacy = 2
+			}
+			
+		}
+		
+		clr_character_flag = da_dip
+
+		clr_character_flag = ab
+		clr_character_flag = ac	
+		clr_character_flag = ad
+		clr_character_flag = ae
+		clr_character_flag = bc
+		clr_character_flag = bd
+		clr_character_flag = be
+		clr_character_flag = cd
+		clr_character_flag = ce
+		clr_character_flag = de
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972004
+		trigger = { 
+			has_character_flag = da_ste
+		}
+		
+		random_list = {
+		
+			19 = {
+				change_stewardship = 1
+			}
+
+			1 = {
+				change_stewardship = 2
+			}
+			
+		}
+		
+		clr_character_flag = da_ste
+
+		clr_character_flag = ab
+		clr_character_flag = ac	
+		clr_character_flag = ad
+		clr_character_flag = ae
+		clr_character_flag = bc
+		clr_character_flag = bd
+		clr_character_flag = be
+		clr_character_flag = cd
+		clr_character_flag = ce
+		clr_character_flag = de
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972004
+		trigger = { 
+			has_character_flag = da_int
+		}
+		
+		random_list = {
+		
+			19 = {
+				change_intrigue = 1
+			}
+
+			1 = {
+				change_intrigue = 2
+			}
+			
+		}
+		
+		clr_character_flag = da_int
+
+		clr_character_flag = ab
+		clr_character_flag = ac	
+		clr_character_flag = ad
+		clr_character_flag = ae
+		clr_character_flag = bc
+		clr_character_flag = bd
+		clr_character_flag = be
+		clr_character_flag = cd
+		clr_character_flag = ce
+		clr_character_flag = de
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972004
+		trigger = { 
+			has_character_flag = da_lea
+		}
+		
+		random_list = {
+		
+			19 = {
+				change_learning = 1
+			}
+
+			1 = {
+				change_learning = 2
+			}
+			
+		}
+		
+		clr_character_flag = da_lea
+
+		clr_character_flag = ab
+		clr_character_flag = ac	
+		clr_character_flag = ad
+		clr_character_flag = ae
+		clr_character_flag = bc
+		clr_character_flag = bd
+		clr_character_flag = be
+		clr_character_flag = cd
+		clr_character_flag = ce
+		clr_character_flag = de
+		
+	}	
+	
+}
+
+character_event = {			# FAILURE...
+	id = darkages.72005
+	title = EVTNAME1972005
+	desc = EVTDESC1972005
+	picture = GFX_evt_library
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+
+	immediate = {
+		clr_character_flag = da_mil
+		clr_character_flag = da_dip
+		clr_character_flag = da_ste
+		clr_character_flag = da_int
+		clr_character_flag = da_lea		
+
+		clr_character_flag = ab
+		clr_character_flag = ac	
+		clr_character_flag = ad
+		clr_character_flag = ae
+		clr_character_flag = bc
+		clr_character_flag = bd
+		clr_character_flag = be
+		clr_character_flag = cd
+		clr_character_flag = ce
+		clr_character_flag = de	
+	}
+	
+	option = {
+		name = EVTOPTA1972005
+	}
+
+}
+
+##############################
+#A COURTIER OFFERS HIS SERVICES TO TEACH HIS LORD
+##############################
+
+character_event = {	
+	id = darkages.72006
+	title = EVTNAME1972006
+	desc = EVTDESC1972006
+	picture = GFX_evt_book_carolingian_script
+	border = GFX_event_normal_frame_religion
+	
+	trigger = {
+
+		trait = tutor
+		learning = 10
+		
+		NOT = { trait = slothful }	
+		is_incapable = no
+		NOT = { trait = slow }
+		NOT = { trait = imbecile }
+		NOT = { trait = drunkard }
+		war = no		
+		
+		opinion = { who = liege value =  50 }	
+
+		liege = {
+		
+			war = no
+			NOT = { character = ROOT }	
+			learning = 5				
+			
+			NOR = {
+				trait = slow
+				trait = imbecile
+				is_incapable = yes
+				trait = slothful
+				trait = drunkard 
+				has_character_modifier = learning
+				has_character_flag = da_mil
+				has_character_flag = da_dip
+				has_character_flag = da_ste
+				has_character_flag = da_int
+				has_character_flag = da_lea				
+			}
+
+		}	
+	
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		
+
+		modifier = {
+			factor = 0.9
+			opinion = { who = liege value =  60 }
+		}
+		
+		modifier = {
+			factor = 0.9
+			opinion = { who = liege value =  70 }
+		}
+
+		modifier = {
+			factor = 0.8
+			opinion = { who = liege value =  80 }
+		}
+
+		modifier = {
+			factor = 0.8
+			opinion = { who = liege value =  90 }
+		}		
+		
+		modifier = {
+			factor = 0.7
+			opinion = { who = liege value =  100 }
+		}
+	
+		
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972006
+		
+		set_character_flag = tutor
+		
+		liege = { character_event = { id = darkages.72007 } }
+	}
+
+}
+
+
+character_event = {	# LIEGE RECEIVES THE OFFER
+	id = darkages.72007
+	title = EVTNAME1972007
+	desc = EVTDESC1972007
+	picture = GFX_evt_book_carolingian_script
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+	
+		random_list = {
+			10 = { set_character_flag = ab }
+			10 = { set_character_flag = ac }		
+			10 = { set_character_flag = ad }
+			10 = { set_character_flag = ae }
+			10 = { set_character_flag = bc }
+			10 = { set_character_flag = bd }
+			10 = { set_character_flag = be }
+			10 = { set_character_flag = cd }
+			10 = { set_character_flag = ce }
+			10 = { set_character_flag = de }
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972007
+		trigger = { 
+			OR = {
+				has_character_flag = ab
+				has_character_flag = ac
+				has_character_flag = ad
+				has_character_flag = ae
+			}
+			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP202 }		
+		
+		random_courtier_or_vassal = {
+			limit = { has_character_flag = tutor }
+			clr_character_flag = tutor
+			character_event = { id = darkages.72008 }
+		}		
+		
+		set_character_flag = da_mil
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}
+					modifier = {
+						factor = 1.5
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.25
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.25
+						trait = bright
+					}
+					modifier = {
+						factor = 1.5
+						trait = quick
+					}				
+					modifier = {
+						factor = 1.75
+						trait = genius
+					}	
+
+					character_event = { id = darkages.72004 days = 270 random = 180 }
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.25
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.25
+						trait = dim
+					}
+					modifier = {
+						factor = 1.5
+						trait = slow
+					}				
+					modifier = {
+						factor = 1.75
+						trait = imbecile
+					}
+
+					character_event = { id = darkages.72005 days = 270 random = 180 }
+					
+				}
+			
+			}
+		}
+		
+		add_character_modifier = {
+			name = learning
+			duration = 270
+		}		
+		
+	}
+	
+
+	option = {
+		name = EVTOPTB1972007
+		trigger = { 
+			OR = {
+				has_character_flag = ab
+				has_character_flag = bc
+				has_character_flag = bd
+				has_character_flag = be
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP202 }		
+		
+		random_courtier_or_vassal = {
+			limit = { has_character_flag = tutor }
+			clr_character_flag = tutor
+			character_event = { id = darkages.72008 }
+		}
+		
+		set_character_flag = da_dip
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}
+					modifier = {
+						factor = 1.5
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.25
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.25
+						trait = bright
+					}
+					modifier = {
+						factor = 1.5
+						trait = quick
+					}				
+					modifier = {
+						factor = 1.75
+						trait = genius
+					}	
+
+					character_event = { id = darkages.72004 days = 270 random = 180 }
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.25
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.25
+						trait = dim
+					}
+					modifier = {
+						factor = 1.5
+						trait = slow
+					}				
+					modifier = {
+						factor = 1.75
+						trait = imbecile
+					}
+
+					character_event = { id = darkages.72005 days = 270 random = 180 }
+					
+				}
+			
+			}
+		}
+
+		add_character_modifier = {
+			name = learning
+			duration = 270
+		}	
+	
+	}
+	
+	option = {
+		name = EVTOPTC1972007
+		trigger = { 
+			OR = {
+				has_character_flag = ac
+				has_character_flag = bc
+				has_character_flag = cd
+				has_character_flag = ce
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP202 }		
+
+		random_courtier_or_vassal = {
+			limit = { has_character_flag = tutor }
+			clr_character_flag = tutor
+			character_event = { id = darkages.72008 }
+		}
+		
+		set_character_flag = da_ste
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}
+					modifier = {
+						factor = 1.5
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.25
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.25
+						trait = bright
+					}
+					modifier = {
+						factor = 1.5
+						trait = quick
+					}				
+					modifier = {
+						factor = 1.75
+						trait = genius
+					}	
+
+					character_event = { id = darkages.72004 days = 270 random = 180 }
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.25
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.25
+						trait = dim
+					}
+					modifier = {
+						factor = 1.5
+						trait = slow
+					}				
+					modifier = {
+						factor = 1.75
+						trait = imbecile
+					}
+
+					character_event = { id = darkages.72005 days = 270 random = 180 }
+					
+				}
+			
+			}
+		}
+
+		add_character_modifier = {
+			name = learning
+			duration = 270
+		}		
+		
+	}	
+	
+	option = {
+		name = EVTOPTD1972007
+		trigger = { 
+			OR = {
+				has_character_flag = ad
+				has_character_flag = bd
+				has_character_flag = cd
+				has_character_flag = de
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP202 }
+		
+		random_courtier_or_vassal = {
+			limit = { has_character_flag = tutor }
+			clr_character_flag = tutor
+			character_event = { id = darkages.72008 }
+		}
+		
+		set_character_flag = da_int
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}
+					modifier = {
+						factor = 1.5
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.25
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.25
+						trait = bright
+					}
+					modifier = {
+						factor = 1.5
+						trait = quick
+					}				
+					modifier = {
+						factor = 1.75
+						trait = genius
+					}	
+
+					character_event = { id = darkages.72004 days = 270 random = 180 }
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.25
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.25
+						trait = dim
+					}
+					modifier = {
+						factor = 1.5
+						trait = slow
+					}				
+					modifier = {
+						factor = 1.75
+						trait = imbecile
+					}
+
+					character_event = { id = darkages.72005 days = 270 random = 180 }
+					
+				}
+			
+			}
+		}
+
+		add_character_modifier = {
+			name = learning
+			duration = 270
+		}		
+		
+	}
+	
+	option = {
+		name = EVTOPTE1972007
+		trigger = { 
+			OR = {
+				has_character_flag = ae
+				has_character_flag = be
+				has_character_flag = ce
+				has_character_flag = de
+			}
+		}
+		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP202 }
+		
+		random_courtier_or_vassal = {
+			limit = { has_character_flag = tutor }
+			clr_character_flag = tutor
+			character_event = { id = darkages.72008 }
+		}
+		
+		set_character_flag = da_lea
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}
+					modifier = {
+						factor = 1.5
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.25
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.25
+						trait = bright
+					}
+					modifier = {
+						factor = 1.5
+						trait = quick
+					}				
+					modifier = {
+						factor = 1.75
+						trait = genius
+					}	
+
+					character_event = { id = darkages.72004 days = 270 random = 180 }
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.25
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.25
+						trait = dim
+					}
+					modifier = {
+						factor = 1.5
+						trait = slow
+					}				
+					modifier = {
+						factor = 1.75
+						trait = imbecile
+					}
+
+					character_event = { id = darkages.72005 days = 270 random = 180 }
+					
+				}
+			
+			}
+		}
+		
+		add_character_modifier = {
+			name = learning
+			duration = 270
+		}		
+		
+	}	
+
+	option = {
+		name = EVTOPTF1972007
+
+		random_courtier_or_vassal = {
+			limit = { has_character_flag = tutor }
+			clr_character_flag = tutor
+			character_event = { id = darkages.72009 }			
+		}
+		
+		clr_character_flag = da_mil
+		clr_character_flag = da_dip
+		clr_character_flag = da_ste
+		clr_character_flag = da_int
+		clr_character_flag = da_lea		
+
+		clr_character_flag = ab
+		clr_character_flag = ac	
+		clr_character_flag = ad
+		clr_character_flag = ae
+		clr_character_flag = bc
+		clr_character_flag = bd
+		clr_character_flag = be
+		clr_character_flag = cd
+		clr_character_flag = ce
+		clr_character_flag = de
+		
+	}
+	
+}
+
+
+character_event = {	#TUTOR GAINS PRESTIGE WHEN LIEGE DECIDES TO STUDY
+	id = darkages.72008
+	title = EVTNAME1972008
+	desc = EVTDESC1972008
+	picture = GFX_evt_book_carolingian_script
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972008
+		
+		prestige = 25
+	}
+
+}
+
+character_event = { #TUTOR INFORMED LIEGE REFUSED OFFER
+	id = darkages.72009
+	title = EVTNAME1972009
+	desc = EVTDESC1972009
+	picture = GFX_evt_book_carolingian_script
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972009
+	}
+
+}
+
+###################################################################
+#
+#	TUTOR TRAIT INCREASING PUPIL STAT
+#
+###################################################################
+character_event = {
+	id = darkages.72010
+	title = EVTNAME1972010
+	desc = EVTDESC1972010
+	picture = GFX_evt_book_carolingian_script
+	border = GFX_event_normal_frame_religion
+
+
+	trigger = {
+		age = 6
+		
+		OR = {
+			guardian = {
+				trait = tutor
+			}
+			
+			educator = {
+				trait = tutor
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+		
+		modifier = {
+			factor = 1.5
+			OR = {
+				guardian = { NOT = { learning = 2 } }
+				educator = { NOT = { learning = 2 } }
+			}
+		}
+
+		modifier = {
+			factor = 1.3
+			OR = {
+				guardian = { NOT = { learning = 4 } }
+				educator = { NOT = { learning = 4 } }
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			OR = {
+				guardian = { NOT = { learning = 6 } }
+				educator = { NOT = { learning = 6 } }
+			}
+		}	
+		modifier = {
+			factor = 1.1
+			OR = {
+				guardian = { NOT = { learning = 8 } }
+				educator = { NOT = { learning = 8 } }
+			}
+		}
+
+		modifier = {
+			factor = 0.9
+			OR = {
+				guardian = { learning = 12 }
+				educator = { learning = 12 }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				guardian = { learning = 15 }
+				educator = { learning = 15 }
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			OR = {
+				guardian = { learning = 18 }
+				educator = { learning = 18 }
+			}
+		}	
+		
+		modifier = {
+			factor = 0.75
+			OR = {
+				guardian = { learning = 21 }
+				educator = { learning = 21}
+			}
+		}
+		
+		
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 2.5
+					
+					OR = {
+						guardian = {
+							OR = {
+								trait = amateurish_plotter
+								trait = flamboyant_schemer
+								trait = intricate_webweaver
+								trait = elusive_shadow					
+							}
+						}
+						educator = {
+							OR = {
+								trait = amateurish_plotter
+								trait = flamboyant_schemer
+								trait = intricate_webweaver
+								trait = elusive_shadow					
+							}
+						}
+					}
+				}
+				set_character_flag = da_intrigue
+			}
+			1 = {
+				modifier = {
+					factor = 2.5
+					OR = {
+						guardian = {
+							OR = {
+								trait = naive_appeaser
+								trait = underhanded_rogue
+								trait = charismatic_negotiator
+								trait = grey_eminence
+							}
+						}					
+						educator = {
+							OR = {
+								trait = naive_appeaser
+								trait = underhanded_rogue
+								trait = charismatic_negotiator
+								trait = grey_eminence
+							}
+						}
+					}
+				}
+				set_character_flag = da_diplomacy
+			}
+			1 = {
+				modifier = {
+					factor = 2.5
+					
+					OR = {
+						guardian = {
+							OR = {
+								trait = indulgent_wastrel
+								trait = thrifty_clerk
+								trait = fortune_builder
+								trait = midas_touched				
+							}
+						}					
+						educator = {
+							OR = {
+								trait = indulgent_wastrel
+								trait = thrifty_clerk
+								trait = fortune_builder
+								trait = midas_touched				
+							}
+						}					
+					}	
+				}
+				set_character_flag = da_stewardship
+			}
+			1 = {
+				modifier = {
+					factor = 2.5
+					OR = {
+						guardian = {
+							OR = {
+								trait = misguided_warrior
+								trait = tough_soldier
+								trait = skilled_tactician
+								trait = brilliant_strategist			
+							}
+						}
+						educator = {
+							OR = {
+								trait = misguided_warrior
+								trait = tough_soldier
+								trait = skilled_tactician
+								trait = brilliant_strategist			
+							}
+						}						
+					}
+				}
+				set_character_flag = da_martial
+			}
+			1 = {
+				modifier = {
+					factor = 2.5
+					OR = {
+						guardian = {
+							OR = {
+								trait = detached_priest
+								trait = martial_cleric
+								trait = scholarly_theologian
+								trait = mastermind_theologian			
+							}
+						}					
+						educator = {
+							OR = {
+								trait = detached_priest
+								trait = martial_cleric
+								trait = scholarly_theologian
+								trait = mastermind_theologian			
+							}
+						}					
+					}
+				}
+				set_character_flag = da_learning		
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVOPTA1972010
+		trigger = { has_character_flag = da_intrigue }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP2 }
+		
+		clr_character_flag = da_intrigue
+		change_intrigue = 1
+	}
+	
+	option = {
+		name = EVOPTA1972010
+		trigger = { has_character_flag = da_diplomacy }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP2 }
+		
+		clr_character_flag = da_diplomacy
+		change_diplomacy = 1
+	}
+	
+	option = {
+		name = EVOPTA1972010
+		trigger = { has_character_flag = da_stewardship }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP2 }
+		
+		clr_character_flag = da_stewardship
+		change_stewardship = 1
+	}
+
+	option = {
+		name = EVOPTA1972010
+		trigger = { has_character_flag = da_martial }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP2 }
+		
+		clr_character_flag = da_martial
+		change_martial = 1
+	}
+	
+	option = {
+		name = EVOPTA1972010
+		trigger = { has_character_flag = da_learning }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP2 }
+		
+		clr_character_flag = da_learning
+		change_learning = 1
+	}	
+
+}
+
+###################
+#
+# Aquiring tutor trait
+#
+###################
+
+character_event = {	
+	id = darkages.72011
+	title = EVTNAME1972011
+	desc = EVTDESC1972011
+	picture = GFX_evt_scientist
+	border = GFX_event_normal_frame_religion
+
+	trigger = {
+	
+		OR = {
+			any_ward = {
+				age = 6
+			}
+			has_focus = focus_scholarship
+			has_focus = focus_theology
+		}
+		
+		NOT = { lifestyle_traits = 1 }
+		NOT = { has_character_flag = da_refused_tutor }
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+		
+		modifier = {
+			factor = 0.75
+			has_focus = focus_scholarship			
+		}
+		
+		modifier = {
+			factor = 0.85
+			has_focus = focus_theology
+		}		
+	}
+	
+	immediate = {
+	
+
+	}
+	
+	
+	option = {
+		name = EVTOPTA1972011
+		add_trait = tutor
+	}
+
+	option = {
+		name = EVTOPTB1972011
+		set_character_flag = da_refused_tutor
+	}	
+
+}
+

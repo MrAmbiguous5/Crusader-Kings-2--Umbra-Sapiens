@@ -1,0 +1,725 @@
+namespace = darkages
+
+character_event = { 		#Multiplexer event
+	id = darkages.72704
+	title = EVTNAME1972704
+	desc = EVTDESC1972704
+	picture = GFX_evt_da_easter
+	border = GFX_event_normal_frame_religion
+	hide_window = yes
+
+	trigger = {
+
+		has_regent = yes
+		
+		regent = {
+			calc_true_if = {
+				amount >= 2
+				
+				trait = proud
+				trait = slothful
+				trait = wroth
+				trait = envious
+				trait = gluttonous
+				trait = greedy
+				trait = lustful
+				trait = arbitrary
+				trait = deceitful
+				trait = hedonist
+				NOT = { opinion = { who = ROOT value = 0 } }
+				NOT = { opinion = { who = ROOT value = -19 } }				
+			
+			}
+		}
+
+	}
+	
+	mean_time_to_happen = {
+		months = 84
+		
+		modifier = {
+			factor = 0.85
+			regent = { trait = proud }
+		}
+		modifier = {
+			factor = 0.85
+			regent = { trait = slothful }
+		}		
+		modifier = {
+			factor = 0.85
+			regent = { trait = wroth }
+		}		
+		modifier = {
+			factor = 0.85
+			regent = { trait = envious }
+		}		
+		modifier = {
+			factor = 0.85
+			regent = { trait = gluttonous }
+		}		
+		modifier = {
+			factor = 0.85
+			regent = { trait = greedy }
+		}		
+		modifier = {
+			factor = 0.85
+			regent = { trait = lustful }
+		}		
+		modifier = {
+			factor = 0.85
+			regent = { trait = arbitrary }
+		}		
+		modifier = {
+			factor = 0.85
+			regent = { trait = deceitful }
+		}		
+		modifier = {
+			factor = 4
+			calc_true_if = {
+				amount >= 3
+				has_character_modifier = da_regent_1
+				has_character_modifier = da_regent_2
+				has_character_modifier = da_regent_3
+				has_character_modifier = da_regent_4
+				has_character_modifier = da_regent_5
+			}
+		}		
+	}
+	
+	immediate = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_regent_1
+				}
+				modifier = {
+					factor = 0
+					regent = { trait = humble }
+				}				
+				modifier = {
+					factor = 5
+					regent = { trait = proud }
+				}
+
+				character_event = { id = darkages.72705 }
+				
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_regent_2
+				}
+				modifier = {
+					factor = 0
+					regent = { trait = chaste }
+				}				
+				modifier = {
+					factor = 5
+					regent = { trait = lustful }
+				}
+				modifier = {
+					factor = 5
+					regent = { trait = hedonist }
+				}
+
+				character_event = { id = darkages.72706 }			
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_regent_3
+				}
+				modifier = {
+					factor = 0
+					regent = { stewardship = 12 }
+				}
+				modifier = {
+					factor = 0
+					regent = { trait = diligent }
+				}
+				modifier = {
+					factor = 5
+					regent = { trait = slothful }
+				}				
+				modifier = {
+					factor = 1.5
+					regent = { NOT = { stewardship = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					regent = { NOT = { stewardship = 6 } }
+				}				
+				modifier = {
+					factor = 2
+					regent = { NOT = { stewardship = 4 } }
+				}				
+				modifier = {
+					factor = 3
+					regent = { NOT = { stewardship = 2 } }
+				}
+
+				character_event = { id = darkages.72707 }				
+
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { demesne_size = 2 }
+				}				
+				modifier = {
+					factor = 5
+					regent = { trait = charitable }
+				}
+				modifier = {
+					factor = 0
+					regent = { trait = greedy }
+				}				
+				modifier = {
+					factor = 0.5
+					regent = { has_education_stewardship_trigger = yes }
+				}				
+				modifier = {
+					factor = 2
+					regent = { has_education_stewardship_trigger = no }
+				}
+
+				character_event = { id = darkages.72708 }
+				
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					has_character_modifier = da_regent_5
+				}
+				modifier = {
+					factor = 5
+					regent = { trait = cynical }
+				}				
+				modifier = {
+					factor = 0
+					regent = { trait = zealous }
+				}				
+				character_event = { id = darkages.72709 }			
+			}
+		}
+	}
+	
+	
+}
+
+
+character_event = { 		#REGENT 1
+	id = darkages.72705
+	title = EVTNAME1972705
+	desc = EVTDESC1972705
+	picture = GFX_evt_da_emissary
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		regent = {
+			save_event_target_as = da_regent
+		}
+	
+		add_character_modifier = {
+			name = da_regent_1
+			duration = 7300
+			hidden = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972705
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP376 }
+		if = {
+			limit = { is_merchant_republic = yes }
+			treasury = -500
+		}
+		if = {
+			limit = { 
+				is_merchant_republic = no 
+				is_patrician = yes
+			}
+			treasury = -300
+		}		
+		if = {
+			limit = { 
+				tier = COUNT 
+				is_patrician = no
+			}
+			treasury = -150
+		}
+		if = {
+			limit = { 
+				tier = DUKE 
+				is_patrician = no			
+			}
+			treasury = -250
+		}
+		if = {
+			limit = { 
+				tier = KING 
+				is_patrician = no			
+			}
+			treasury = -500
+		}
+		if = {
+			limit = { 
+				tier = EMPEROR 
+				is_patrician = no			
+			}
+			treasury = -750
+		}
+
+		prestige = 25
+		
+		regent = {
+			prestige = 250
+		}
+		
+	}
+	
+}
+
+
+character_event = { 		#REGENT 2
+	id = darkages.72706
+	title = EVTNAME1972706
+	desc = EVTDESC1972706
+	picture = GFX_evt_da_banquet
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		regent = {
+			save_event_target_as = da_regent
+		}
+	
+		add_character_modifier = {
+			name = da_regent_2
+			duration = 7300
+			hidden = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972706
+		trigger = {
+			regent = { is_female = no }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP377 }
+		
+		prestige = -250
+		piety = -50
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972706
+		trigger = {
+			regent = { is_female = yes }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP377 }
+		
+		prestige = -250
+		piety = -50
+		
+	}	
+	
+}
+
+character_event = { 		#REGENT 3
+	id = darkages.72707
+	title = EVTNAME1972707
+	desc = EVTDESC1972707
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		regent = {
+			save_event_target_as = da_regent
+		}
+	
+		add_character_modifier = {
+			name = da_regent_3
+			duration = 7300
+			hidden = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972707
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP378 }
+		
+		add_character_modifier = {
+			name = da_poor_regent
+			duration = 3650
+		}
+		
+		hidden_tooltip = {
+			any_demesne_province = {
+				if = {
+					limit = {
+						NOT = { has_province_modifier = instability_2 }
+					}
+					
+					remove_province_modifier = instability_1
+					remove_province_modifier = stability_1
+					remove_province_modifier = stability_2					
+					
+					add_province_modifier = {
+						name = instability_2
+						days = -1
+					}
+				}
+			}
+		}
+		
+	}
+	
+}
+
+character_event = { 		#REGENT 4
+	id = darkages.72708
+	title = EVTNAME1972708
+	desc = EVTDESC1972708
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		regent = {
+			save_event_target_as = da_regent
+		}
+		
+		random_courtier_or_vassal = {
+			limit = {
+				is_incapable = no
+				prisoner = no
+				is_adult = yes
+			}
+			
+			save_event_target_as = da_lucky_bastard
+			
+		}
+	
+		regent = {
+			add_friend = event_target:da_lucky_bastard
+		}
+		
+		add_character_modifier = {
+			name = da_regent_4
+			duration = 7300
+			hidden = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972708
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP379 }
+
+		random_demesne_title = {
+			limit = { 
+				is_capital = no 
+				tier = COUNT
+			}
+			gain_title = event_target:da_lucky_bastard
+		}
+		
+	}
+	
+}
+
+character_event = { 		#REGENT 5
+	id = darkages.72709
+	title = EVTNAME1972709
+	desc = EVTDESC1972709
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		regent = {
+			save_event_target_as = da_regent
+		}
+		
+		add_character_modifier = {
+			name = da_regent_5
+			duration = 7300
+			hidden = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972709
+
+		piety = -250
+
+		if = {
+			limit = { 
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }				
+			}
+			add_trait = cynical
+		}		
+
+		if = {
+			limit = { 
+				trait = zealous 
+			}
+			remove_trait = zealous
+		}
+
+		if = { 
+			limit = { 
+				NOT = { has_character_modifier = da_religious_outcast } 
+			}
+			add_character_modifier = {
+				name = da_religious_outcast
+				duration = -1
+			}
+		}
+	}
+	
+}
+
+character_event = { 		#Remove religious outcast when gaining zealous
+	id = darkages.72710
+	title = EVTNAME1972710
+	desc = EVTDESC1972710
+	picture = GFX_evt_da_easter
+	border = GFX_event_normal_frame_religion
+
+	trigger = {
+		trait = zealous
+		has_character_modifier = da_religious_outcast
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972710
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP380 }
+
+		piety = 25
+
+		remove_character_modifier = da_religious_outcast
+
+	}
+	
+}
+
+
+##################################################################
+#
+#	GOOD EFFECTS FOR GOOD REGENTS
+#
+##################################################################
+
+character_event = { 		#One event, three good effects
+	id = darkages.72711
+	title = EVTNAME1972711
+	desc = {
+		trigger = {
+			has_character_flag = darkages_a
+		}
+		text = EVTDESC1972711_1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = darkages_b
+		}
+		text = EVTDESC1972711_2
+	}
+	desc = {
+		trigger = {
+			has_character_flag = darkages_c
+		}
+		text = EVTDESC1972711_3
+	}	
+	picture = GFX_evt_da_emissary
+	border = GFX_event_normal_frame_economy
+
+	trigger = {
+
+		has_regent = yes
+		
+		regent = {
+	
+			calc_true_if = {
+				amount < 2
+				
+				trait = proud
+				trait = slothful
+				trait = wroth
+				trait = envious
+				trait = gluttonous
+				trait = greedy
+				trait = lustful
+				trait = arbitrary
+				trait = deceitful
+				trait = hedonist
+				NOT = { opinion = { who = ROOT value = 0 } }
+				NOT = { opinion = { who = ROOT value = -19 } }				
+			
+			}
+			
+			calc_true_if = {
+				amount >= 2
+				
+				trait = humble
+				trait = diligent
+				trait = patient
+				trait = kind
+				trait = temperate
+				trait = charitable
+				trait = chaste
+				trait = just
+				trait = honest
+				opinion = { who = ROOT value = 25 }
+			
+			}			
+			
+		}
+		
+		NOT = { has_character_modifier = da_regent_6 }
+
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		
+		modifier = {
+			factor = 0.5
+			regent = { trait = diligent }
+		}
+		modifier = {
+			factor = 2
+			regent = { trait = slothful }
+		}		
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 = {
+				set_character_flag = darkages_a
+			}
+			1 = {
+				set_character_flag = darkages_b
+			}
+			1 = {
+				set_character_flag = darkages_c
+			}			
+		}
+		
+		regent = {
+			save_event_target_as = da_regent
+		}
+	
+		add_character_modifier = {
+			name = da_regent_6
+			duration = 7300
+			hidden = yes
+		}		
+
+	}
+	
+	option = {
+		name = EVTOPTA1972711
+		trigger = {
+			has_character_flag = darkages_a
+		}
+		
+		prestige = 75
+		
+		add_character_modifier = {
+			name = da_regent_vassals
+			duration = 7300
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972711
+		trigger = {
+			has_character_flag = darkages_b
+		}
+		
+		piety = 50
+		
+		if = {
+			limit = {
+				has_character_modifier = da_religious_outcast
+			}
+			
+			remove_character_modifier = da_religious_outcast
+		}
+		else = {
+			add_character_modifier = {
+				name = da_regent_church
+				duration = 7300
+			}
+		}
+
+	}
+
+	option = {
+		name = EVTOPTA1972711
+		trigger = {
+			has_character_flag = darkages_c
+		}
+
+		add_character_modifier = {
+			name = da_shrewd_investments
+			duration = 7300
+		}
+
+
+	}	
+	
+	after = {
+		clr_character_flag = darkages_a
+		clr_character_flag = darkages_b
+		clr_character_flag = darkages_c
+	}
+	
+}

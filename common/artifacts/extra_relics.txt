@@ -1,0 +1,54 @@
+#Bloody Veil of Saint Dymphna
+veil_of_dymphna = {
+	same_religion_opinion = 5
+	monthly_character_piety = 0.5
+	health = 0.25
+	active = { religion_group = christian }
+	allowed_gift = {
+		religion_group = christian
+	}
+	quality = 2
+	flags = { religious christian cloth }
+	stacking = no
+	picture = "GFX_veil_of_dymphna"
+}
+ancestor_ring_1 = {
+	short_reign_length = -1
+	monthly_character_prestige = 0.1
+	active = { dynasty = FROMFROM }
+	quality = 1
+	stacking = no
+	picture = "GFX_heirloom_count"
+}
+ancestor_ring_2 = {
+	short_reign_length = -2
+	monthly_character_prestige = 0.2
+	active = { dynasty = FROMFROM }
+	quality = 2
+	stacking = no
+	picture = "GFX_heirloom_count"
+}
+ancestor_ring_3 = {
+	short_reign_length = -3
+	monthly_character_prestige = 0.3
+	active = { dynasty = FROMFROM }
+	quality = 3
+	stacking = no
+	picture = "GFX_heirloom_king"
+}
+ancestor_ring_4 = {
+	short_reign_length = -4
+	monthly_character_prestige = 0.4
+	active = { dynasty = FROMFROM }
+	quality = 4
+	stacking = no
+	picture = "GFX_heirloom_king"
+}
+knight_book = {
+	diplomacy = 1
+	monthly_character_prestige = 0.2
+	active = { learning = 5 }
+	quality = 2
+	stacking = yes
+	picture = "GFX_knight_book"
+}

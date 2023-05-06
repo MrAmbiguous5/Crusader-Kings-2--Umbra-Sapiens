@@ -1,0 +1,977 @@
+#Amazonian memes
+
+character_event = { # steppe sis
+	id = AmzCul.6901
+	desc = EVTDESCAmzCul.6901
+	picture = GFX_evt_eavesdropping
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	mean_time_to_happen = {
+		years = 300
+	}
+	
+	trigger = {
+		is_alive = yes
+		is_female = yes
+		is_adult = yes
+		ai = no
+		culture = scythian_amz
+		trait = lustful
+		NOT = { is_inaccessible_trigger = yes }
+	}
+	
+	option = {	# oh my
+		name = EVTOPTAAmzCul.6901
+	}
+}
+
+character_event = { # apply woad 
+	id = AmzCul.6902
+	desc = EVTDESCAmzCul.6902
+	
+	hide_window = yes
+	
+	mean_time_to_happen = {
+		days = 3
+	}
+	
+	trigger = {
+		is_alive = yes
+		is_adult = yes
+		OR = {
+			culture = pritani_amz	# males and females 
+			AND = {
+				OR = {		# female only modifiers 
+					has_character_modifier = amazonian_skirmish_modifier
+					has_character_modifier = amazonian_pursue_modifier
+					has_character_modifier = amazonian_melee_modifier
+					has_character_modifier = amazonian_centre_modifier 
+				}
+				OR = {
+					trait = robust
+					trait = cruel
+					trait = wroth
+					trait = ambitious
+					trait = brave
+					trait = zealous
+					trait = berserker
+					trait = pagan_branch_3
+					has_crusade_trait_trigger = yes
+				}
+			}
+		}
+		war = yes
+		in_command = yes
+		NOR = {
+			trait = african_tattoo_1
+			trait = african_tattoo_2
+			trait = african_tattoo_3
+			trait = african_tattoo_4
+			trait = african_tattoo_5
+			trait = african_tattoo_6
+			trait = african_tattoo_7
+			trait = african_tattoo_8
+			trait = african_tattoo_9
+			trait = african_tattoo_10
+			trait = african_tattoo_11
+			trait = african_tattoo_12
+			trait = norse_tattoo_1
+			trait = norse_tattoo_2
+			trait = norse_tattoo_3
+			trait = norse_tattoo_4
+			trait = norse_tattoo_5
+			trait = norse_tattoo_6
+			trait = norse_tattoo_7
+			trait = norse_tattoo_8
+			trait = slavic_tattoo_1
+			trait = slavic_tattoo_2
+			trait = slavic_tattoo_3
+			trait = slavic_tattoo_4
+			trait = slavic_tattoo_5
+			trait = slavic_tattoo_6
+			trait = slavic_tattoo_7
+			trait = slavic_tattoo_8
+		}	
+	}
+	
+	option = {	
+		name = EVTOPTAAmzCul.6902
+		if = {
+			limit = { has_character_modifier = amazonian_skirmish_modifier }
+			add_trait = norse_tattoo_1
+		}
+		if = {
+			limit = { has_character_modifier = amazonian_pursue_modifier }
+			add_trait = norse_tattoo_2
+		}
+		if = {
+			limit = { has_character_modifier = amazonian_melee_modifier }
+			add_trait = norse_tattoo_5
+		}
+		if = {
+			limit = { has_character_modifier = amazonian_centre_modifier }
+			add_trait = norse_tattoo_6
+		}
+		if = {
+			limit = { 
+				NOR = { 
+					has_character_modifier = amazonian_skirmish_modifier
+					has_character_modifier = amazonian_pursue_modifier
+					has_character_modifier = amazonian_melee_modifier
+					has_character_modifier = amazonian_centre_modifier 
+				}
+			}
+			random_list = {
+				25 = { add_trait = norse_tattoo_1 }
+				25 = { add_trait = norse_tattoo_2 }
+				25 = { add_trait = norse_tattoo_5 }
+				25 = { add_trait = norse_tattoo_6 }
+			}
+		}
+		add_character_modifier = {
+			name = amazonian_warpaint_modifier   
+			duration = -1
+		}
+	}
+}
+
+character_event = { # remove woad 
+	id = AmzCul.6903
+	desc = EVTDESCAmzCul.6903
+	
+	hide_window = yes
+	
+	mean_time_to_happen = {
+		days = 15
+	}
+	
+	trigger = {
+		OR = { 
+			culture = pritani_amz
+			has_character_modifier = amazonian_warpaint_modifier
+		}
+		OR = {
+			war = no
+			in_command = no
+		}
+		OR = {
+			trait = norse_tattoo_1
+			trait = norse_tattoo_2
+			trait = norse_tattoo_5
+			trait = norse_tattoo_6
+		}	
+	}
+	
+	option = {	
+		name = EVTOPTAAmzCul.6903
+		remove_trait = norse_tattoo_1 
+		remove_trait = norse_tattoo_2
+		remove_trait = norse_tattoo_5 
+		remove_trait = norse_tattoo_6 
+		remove_character_modifier = amazonian_warpaint_modifier
+	}
+}
+
+character_event = { # gain concealed dagger
+	id = AmzCul.6904
+	desc = EVTDESCAmzCul.6904
+	picture = GFX_evt_slit_throat_hf
+	border = GFX_event_normal_frame_intrigue
+
+	mean_time_to_happen = {
+		years = 20
+		modifier = {			
+			factor = 0.1		
+			AND = { 
+				trait = in_hiding
+				trait = paranoid
+			}
+		}
+	}
+	
+	trigger = {
+		is_alive = yes
+		is_female = yes
+		age = 8
+		wealth = 10
+		NOT = { useless_character_trigger = yes }
+		NOT = { trait = trusting }
+		OR = {
+			trait = in_hiding
+			trait = paranoid
+		}
+		NOT = { any_artifact = { has_artifact_flag = dagger } }
+	}
+	
+	option = {	# can never be too safe
+		name = EVTOPTAAmzCul.6904
+		ai_chance = { factor = 10 }
+		trigger = {
+			OR = {
+				trait = in_hiding
+				trait = paranoid
+			}
+		}
+		wealth = -25
+		add_artifact = concealed_dagger
+	}
+	option = {	# i'll be fine
+		name = EVTOPTBAmzCul.6904
+		ai_chance = { factor = 1 }
+	}
+}
+
+character_event = { # Amazons lose negative genetic traits, re-rolls for positive traits, on_birth action
+	id = AmzCul.6905
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			mother_even_if_dead = {
+				OR = {
+					trait = is_amazonian
+					trait = is_amazonian_immortal
+				}
+			}
+			mother_even_if_dead = {
+				mother_even_if_dead = {
+					OR = {
+						trait = is_amazonian
+						trait = is_amazonian_immortal
+					}
+				}
+			}
+		}
+		is_female = yes
+	}
+	
+	option = {	# removes negative trait
+		name = EVTOPTAAmzCul.6905
+		if = {
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						NOR = {
+							trait = imbecile
+							trait = slow
+						}
+					}
+					mother_even_if_dead = {
+						NOR = {
+							trait = imbecile
+							trait = slow
+						}
+					}
+				}
+			}
+			remove_trait = imbecile
+			remove_trait = slow
+		}
+		if = {
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						NOT = { trait = ugly }
+					}
+					mother_even_if_dead = {
+						NOT = { trait = ugly }
+					}
+				}
+			}
+			remove_trait = ugly
+		}
+		if = {
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						NOT = { trait = clubfooted }
+					}
+					mother_even_if_dead = {
+						NOT = { trait = clubfooted }
+					}
+				}
+			}
+			remove_trait = clubfooted
+		}
+		if = {
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						NOT = { trait = harelip }
+					}
+					mother_even_if_dead = {
+						NOT = { trait = harelip }
+					}
+				}
+			}
+			remove_trait = harelip
+		}
+		if = {
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						NOT = { trait = hunchback }
+					}
+					mother_even_if_dead = {
+						NOT = { trait = hunchback }
+					}
+				}
+			}
+			remove_trait = hunchback
+		}
+		if = {
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						NOT = { trait = lisp }
+					}
+					mother_even_if_dead = {
+						NOT = { trait = lisp }
+					}
+				}
+			}
+			remove_trait = lisp
+		}
+		if = {
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						NOT = { trait = stutter }
+					}
+					mother_even_if_dead = {
+						NOT = { trait = stutter }
+					}
+				}
+			}
+			remove_trait = stutter
+		}
+		if = {
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						NOT = { trait = weak }
+					}
+					mother_even_if_dead = {
+						NOT = { trait = weak }
+					}
+				}
+			}
+			remove_trait = weak
+		}
+		if = {
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						NOT = { trait = hunchback }
+					}
+					mother_even_if_dead = {
+						NOT = { trait = hunchback }
+					}
+				}
+			}
+			remove_trait = hunchback
+		}
+		if = {									# positive trait more likely to be inherited
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						trait = fair
+					}
+					mother_even_if_dead = {
+						trait = fair 
+					}
+					mother_even_if_dead = {
+						mother_even_if_dead = {
+							trait = fair 
+						}
+					}
+				}
+			}
+			random = {
+				chance = 15
+				add_trait = fair
+			}
+		}
+		if = {	
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						trait = quick
+					}
+					mother_even_if_dead = {
+						trait = quick 
+					}
+					mother_even_if_dead = {
+						mother_even_if_dead = {
+							trait = quick 
+						}
+					}
+				}
+				NOT = { trait = genius }	# so it won't replace natural genius
+			}
+			random = {
+				chance = 15
+				add_trait = quick
+			}
+		}
+		if = {	
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						trait = genius
+					}
+					mother_even_if_dead = {
+						trait = genius 
+					}
+					mother_even_if_dead = {
+						mother_even_if_dead = {
+							trait = genius 
+						}
+					}
+				}
+			}
+			random = {			# can replace quick because it is calculated after 
+				chance = 15
+				add_trait = genius
+			}
+		}
+		if = {	
+			limit = { 
+				OR = {
+					true_father_even_if_dead = {
+						trait = strong
+					}
+					mother_even_if_dead = {
+						trait = strong 
+					}
+					mother_even_if_dead = {
+						mother_even_if_dead = {
+							trait = strong 
+						}
+					}
+				}
+			}
+			random = {
+				chance = 15
+				add_trait = strong
+			}
+		}
+	}
+}
+
+character_event = { # Amazonian cultures don't spawn neg genetic trait women
+	id = AmzCul.6906
+	hide_window = yes
+	
+	is_triggered_only = yes			# on_action, employer change
+	
+	trigger = {
+		OR = {
+			culture = themiskyran_amz  
+			culture = valkyrie_amz
+			culture = scythian_amz
+			culture = parthian_amz
+			culture = kushite_amz
+			culture = carthaginian_amz
+			culture = etruscan_amz
+			culture = pritani_amz
+			culture = illyrian_amz
+		}
+		is_female = yes
+		FROM = { character = no }	# will only affect newly created characters. FROM is previous employer, which doesn't exist.
+		age > 1						# won't affect newborns.
+	}
+	
+	option = {	# removes negative trait
+		name = EVTOPTAAmzCul.6906
+		remove_trait = imbecile
+		remove_trait = slow
+		remove_trait = ugly
+		remove_trait = clubfooted
+		remove_trait = harelip
+		remove_trait = hunchback
+		remove_trait = lisp
+		remove_trait = inbred
+		remove_trait = stutter
+		remove_trait = weak
+		remove_trait = hunchback
+	}
+}
+
+character_event = { # find the olisbos box. olisbox, if you will 
+	id = AmzCul.6907
+	desc = EVTDESCAmzCul.6907
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	mean_time_to_happen = {
+		years = 300
+		modifier = {			
+			factor = 0.9		
+			trait = hedonist
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = celibate	# opposite of the other two
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = seductress
+		}
+		modifier = {			
+			factor = 2		
+			ai = yes
+		}
+		modifier = {			
+			factor = 0.5		
+			is_landed = no
+		}
+	}
+	
+	trigger = {
+		is_female = yes
+		is_adult = yes
+		trait = lustful
+		age < 50
+		NOT = { is_inaccessible_trigger = yes }	
+		in_battle = no 
+		NOR = {
+			has_artifact = olisbos_medium
+			has_artifact = olisbos_large
+		}
+	}
+	
+	option = {	# what's in the box?
+		name = EVTOPTAAmzCul.6907
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCul.6908 }
+	}
+}
+
+character_event = { # get one or the other olisbos, or leave it alone 
+	id = AmzCul.6908
+	desc = EVTDESCAmzCul.6908
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {	# take the olisbos
+		name = EVTOPTAAmzCul.6908
+		ai_chance = { factor = 10 }
+		trigger = {
+			NOR = {
+				trait = hedonist
+				trait = seductress
+			}
+		}
+		add_artifact = olisbos_medium
+	}
+	option = {	# take the large olisbos
+		name = EVTOPTBAmzCul.6908
+		ai_chance = { factor = 10 }
+		trigger = {
+			OR = {
+				trait = hedonist
+				trait = seductress
+			}
+		}
+		add_artifact = olisbos_large
+	}
+	option = {	# leave it alone
+		name = EVTOPTCAmzCul.6908
+		ai_chance = { factor = 1 }
+	}
+}
+
+character_event = { # find a quiet moment, relieve stress
+	id = AmzCul.6909
+	desc = EVTDESCAmzCul.6909
+	picture = GFX_evt_sleeping_town_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {			
+			factor = 0.9		
+			trait = hedonist
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = celibate	
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = seductress
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = lustful
+		}
+	}
+	
+	trigger = {
+		is_adult = yes
+		is_female = yes 
+		trait = stressed
+		NOT = { is_inaccessible_trigger = yes }	
+		in_battle = no
+		OR = {
+			has_artifact = olisbos_medium
+			has_artifact = olisbos_large
+		}
+		OR = {
+			had_character_flag = { flag = recent_olisbos_flag years = 1 }
+			NOT = { has_character_flag = recent_olisbos_flag }
+		}
+	}
+	
+	option = {	# relieve stress
+		name = EVTOPTAAmzCul.6909
+		ai_chance = { factor = 10 }
+		remove_trait = stressed 
+		scaled_piety = -0.3
+	}
+	option = {	# I mustn't 
+		name = EVTOPTBAmzCul.6909
+		ai_chance = { factor = 1 }
+		scaled_piety = 0.15
+		set_character_flag = recent_olisbos_flag
+	}
+}
+
+character_event = { # lesbian lover helps to relieve stress
+	id = AmzCul.6910
+	desc = EVTDESCAmzCul.6910
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_intrigue
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {			
+			factor = 0.9		
+			trait = hedonist
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = celibate	
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = seductress
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = lustful
+		}
+	}
+	
+	immediate = {
+		any_lover = {
+			limit = {
+				is_female = yes 
+				trait = homosexual
+				has_artifact = olisbos_large
+			}
+			save_event_target_as = olisbos_lover_target
+		}
+	}
+	
+	trigger = {
+		is_adult = yes
+		trait = homosexual
+		trait = stressed
+		NOT = { is_inaccessible_trigger = yes }	
+		in_battle = no
+		any_lover = {
+			limit = {
+				is_female = yes 
+				trait = homosexual
+				has_artifact = olisbos_large
+			}
+		}
+		OR = {
+			had_character_flag = { flag = recent_olisbos_flag years = 1 }
+			NOT = { has_character_flag = recent_olisbos_flag }
+		}
+	}
+	
+	option = {	# relieve stress
+		name = EVTOPTAAmzCul.6910
+		ai_chance = { factor = 10 }
+		remove_trait = stressed 
+		scaled_piety = -0.3
+	}
+	option = {	# we mustn't 
+		name = EVTOPTBAmzCul.6910
+		ai_chance = { factor = 10 }
+		scaled_piety = 0.15
+		set_character_flag = recent_olisbos_flag
+	}
+}
+
+character_event = { # males will destroy olisboi. 
+	id = AmzCul.6911
+	desc = EVTDESCAmzCul.6911
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	mean_time_to_happen = {
+		years = 3
+		modifier = {			
+			factor = 0.9		
+			trait = dull
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = chaste	
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = envious
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = zealous
+		}
+		modifier = {			
+			factor = 0.9		
+			trait = paranoid
+		}
+		modifier = {			
+			factor = 0.6		
+			AND = {
+				has_artifact = olisbos_medium
+				has_artifact = olisbos_large
+			}
+		}
+	}
+	
+	trigger = {
+		is_adult = yes
+		is_female = no 	
+		NOT = { is_inaccessible_trigger = yes }	
+		in_battle = no
+		war = no 
+		OR = {
+			has_artifact = olisbos_medium
+			has_artifact = olisbos_large
+		}
+	}
+	
+	option = {	# destroyed
+		name = EVTOPTAAmzCul.6911
+		ai_chance = { factor = 10 }
+		scaled_piety = 0.05
+		if = {
+			limit = { has_artifact = olisbos_medium }
+			destroy_artifact = olisbos_medium
+		}
+		if = {
+			limit = { has_artifact = olisbos_large }
+			destroy_artifact = olisbos_large
+		}
+	}
+}
+		
+character_event = { # amazonian trait rulers do not suffer from F###ING nomad agitation modifier!
+	id = AmzCul.6912
+	desc = EVTDESCAmzCul.6912
+	hide_window = yes 
+	
+	trigger = {
+		OR = {
+			any_liege = {	
+				trait = is_amazonian
+			}
+			suzerain = { 
+				trait = is_amazonian
+			}
+			trait = is_amazonian
+			any_liege = {	
+				trait = is_amazonian_immortal
+			}
+			suzerain = { 
+				trait = is_amazonian_immortal
+			}
+			trait = is_amazonian_immortal
+		}
+		any_demesne_province = {	
+			has_province_modifier = nomad_agitation 
+		}
+	}
+	
+	option = {	# removes agitation. conquer freely.
+		name = EVTOPTAAmzCul.6912
+		ai_chance = { factor = 10 }
+		any_demesne_province = {	
+			limit = { has_province_modifier = nomad_agitation }
+			remove_province_modifier = nomad_agitation
+		}
+	}
+}		
+
+character_event = { # 1+1=2 !!
+	id = AmzCul.6913
+	desc = EVTDESCAmzCul.6913
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	mean_time_to_happen = { years = 1 }
+	
+	trigger = {
+		is_adult = yes
+		is_female = yes 
+		NOT = { is_inaccessible_trigger = yes }	
+		in_battle = no
+		war = no 
+		any_artifact = {
+			artifact_type = olisbos_medium
+			count = 2
+		}
+		NOT = { has_artifact = olisbos_large }
+		NOT = { is_dumb_trigger = yes } # can math good 
+	}
+	
+	option = {	# Pwoar! 
+		name = EVTOPTAAmzCul.6913
+		ai_chance = { factor = 10 }
+		add_artifact = olisbos_large
+		hidden_tooltip = {
+			any_artifact = {
+				limit = { artifact_type = olisbos_medium }
+				destroy_artifact = yes
+			}
+		}
+	}
+}
+
+character_event = { # pagan branch follows mother instead of father, on_childhood_pulse
+	id = AmzCul.6914
+	hide_window = yes
+	
+	is_triggered_only = yes 
+	
+	trigger = {
+		ai = yes 
+		age < 8		# 6 years six months, NOT at 8 years six months and 10 years six months
+		has_religion_feature = religion_no_leader
+		religion_group = pagan_group
+		OR = {
+			has_religion_feature = religion_matriarchal
+			has_game_rule = { 
+				name = succession_law_amz
+				value = enatic_cognatic_amz
+			}
+			has_game_rule = { 
+				name = succession_law_amz
+				value = enatic_amz
+			}
+			OR = {
+				culture = themiskyran_amz  
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+		}
+	}
+	
+	option = {	# give mother's trait
+		name = EVTOPTAAmzCul.6914
+		ai_chance = { factor = 10 }
+		if = {
+			limit = { mother_even_if_dead = { trait = pagan_branch_1 } }
+			remove_trait = pagan_branch_2
+			remove_trait = pagan_branch_3
+			remove_trait = pagan_branch_4
+			add_trait = pagan_branch_1
+		}
+		if = {
+			limit = { mother_even_if_dead = { trait = pagan_branch_2 } }
+			remove_trait = pagan_branch_1
+			remove_trait = pagan_branch_3
+			remove_trait = pagan_branch_4
+			add_trait = pagan_branch_2
+		}
+		if = {
+			limit = { mother_even_if_dead = { trait = pagan_branch_3 } }
+			remove_trait = pagan_branch_2
+			remove_trait = pagan_branch_1
+			remove_trait = pagan_branch_4
+			add_trait = pagan_branch_3
+		}
+		if = {
+			limit = { mother_even_if_dead = { trait = pagan_branch_4 } }
+			remove_trait = pagan_branch_2
+			remove_trait = pagan_branch_3
+			remove_trait = pagan_branch_1
+			add_trait = pagan_branch_4
+		}
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					NOR = {
+						trait = pagan_branch_1
+						trait = pagan_branch_2
+						trait = pagan_branch_3
+						trait = pagan_branch_4
+					}
+				}
+			}
+			random_list = {  
+				5 = {
+					add_trait = pagan_branch_1
+				}
+				25 = {
+					add_trait = pagan_branch_2
+				}
+				25 = {
+					add_trait = pagan_branch_3
+				}
+				25 = {
+					add_trait = pagan_branch_4
+				}
+			}
+		}
+	}
+}
+
+character_event = {		# stay young for whatever reason 
+	id = AmzCul.6915
+	hide_window = yes 
+	
+	mean_time_to_happen = { months = 6 }
+	
+	trigger = {
+		has_character_flag = keep_me_young_amz_flag
+		age = 22	# age is greater than 22
+		#immortal = no	# checks traits with immortal modifier 
+	}
+			
+	option = {	# reduce age
+		name = EVTOPTAAmzCul.6915
+		random_list = {
+			1 = { 
+				add_age = -1
+			}
+			1 = { 
+				add_age = -2
+			}
+			1 = { 
+				add_age = -3
+			}
+			1 = { 
+				add_age = -4
+			}
+		}
+	}
+}

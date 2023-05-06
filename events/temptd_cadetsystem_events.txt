@@ -1,0 +1,27 @@
+#################################################
+#
+# Form a new Cadet Dynasty
+#
+#################################################
+
+namespace = TEMPTDCADETSYSTEM
+
+# Cadet Branch
+
+narrative_event = {
+	id = TEMPTDCADETSYSTEM.3
+	title = EVT_NAME_TEMPTDCADETSYSTEM_3
+	desc = EVT_DESC_TEMPTDCADETSYSTEM_3
+
+	picture = GFX_evt_council
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	hide_new = yes
+
+	option = {
+		name = EVTOPTA_TEMPTDCADETSYSTEM_3
+		prestige = 100
+	}
+}

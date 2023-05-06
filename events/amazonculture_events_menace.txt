@@ -1,0 +1,432 @@
+## attacked by the market menace
+#first encounter
+character_event = {
+	id = AmzCul.501
+	desc = EVTDESCAmzCul.501
+	picture = GFX_evt_market
+	border = GFX_event_normal_frame_intrigue
+	
+	mean_time_to_happen = {
+		years = 100
+	}
+	
+	trigger = {
+		ai = no
+		prisoner = no
+		age = 16
+		war = no
+		trait = is_amazonian
+		NOT = {
+			has_character_flag = market_menace_flag
+		}
+		NOT = { is_inaccessible_trigger = yes }
+	}
+			
+	option = {
+		name = EVTOPTAAmzCul.501
+		character_event = { id = AmzCul.502 }
+		sound_effect = duel_win
+		set_character_flag = market_menace_flag
+	}
+}
+
+# first duel with market menace
+character_event = {
+	id = AmzCul.502
+	desc = EVTDESCAmzCul.502
+	picture = GFX_evt_duel_scene
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = { # spare
+		name = EVTOPTAAmzCul.502
+		custom_tooltip = { text = menace_survive1_tt }
+		add_blood_splatter_effect = yes
+		set_character_flag = market_menace_flag2
+		sound_effect = male_violent_death_01
+	}
+	
+	option = { # kill
+		name = EVTOPTBAmzCul.502
+		custom_tooltip = { text = menace_slain1_tt }
+		add_blood_splatter_effect = yes
+		hidden_tooltip = {
+			immediate = {
+				create_random_soldier = {
+					random_traits = no
+					dynasty = NONE
+					female = no
+					age = 56
+					religion = pagan
+					culture = ROOT
+					trait = misguided_warrior
+					trait = envious
+					trait = stubborn
+					trait = devious
+					trait = robust
+				}
+				new_character = {
+					add_blood_splatter_effect = yes
+					save_event_target_as = menace_target
+					add_rival = ROOT
+				}
+			}
+			event_target:menace_target = {
+				death = {
+					   death_reason = death_duel
+					   killer = ROOT
+				}
+			}
+		}
+	}
+}
+
+# second menace encounter
+character_event = {
+	id = AmzCul.503
+	desc = EVTDESCAmzCul.503
+	picture = GFX_evt_market
+	border = GFX_event_normal_frame_intrigue
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	trigger = {
+		ai = no
+		prisoner = no
+		war = no
+		trait = is_amazonian
+		has_character_flag = market_menace_flag2
+		NOT = { is_inaccessible_trigger = yes }
+	}
+			
+	option = {
+		name = EVTOPTAAmzCul.503
+		character_event = { id = AmzCul.504 }
+		sound_effect = duel_win
+	}
+}
+
+# second duel with market menace
+character_event = {
+	id = AmzCul.504
+	desc = EVTDESCAmzCul.504
+	picture = GFX_evt_duel_scene
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = { # spare
+		name = EVTOPTAAmzCul.504
+		custom_tooltip = { text = menace_survive2_tt }
+		add_blood_splatter_effect = yes
+		clr_character_flag = market_menace_flag2
+		set_character_flag = market_menace_flag3
+		sound_effect = male_violent_death_01
+	}
+	
+	option = { # kill
+		name = EVTOPTBAmzCul.504
+		custom_tooltip = { text = menace_slain2_tt }
+		add_blood_splatter_effect = yes
+		hidden_tooltip = {
+			immediate = {
+				create_random_soldier = {
+					random_traits = no
+					dynasty = NONE
+					female = no
+					age = 56
+					religion = pagan
+					culture = ROOT
+					trait = misguided_warrior
+					trait = one_handed
+					trait = envious
+					trait = stubborn
+					trait = devious
+					trait = robust
+				}
+				new_character = {
+					add_blood_splatter_effect = yes
+					save_event_target_as = menace_target
+					add_rival = ROOT
+				}
+			}
+			event_target:menace_target = {
+				death = {
+					   death_reason = death_duel
+					   killer = ROOT
+				}
+			}
+		}
+	}
+}
+
+# third menace encounter
+character_event = {
+	id = AmzCul.505
+	desc = EVTDESCAmzCul.505
+	picture = GFX_evt_market
+	border = GFX_event_normal_frame_intrigue
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	trigger = {
+		ai = no
+		prisoner = no
+		war = no
+		trait = is_amazonian
+		has_character_flag = market_menace_flag3
+		NOT = { is_inaccessible_trigger = yes }
+	}
+			
+	option = {
+		name = EVTOPTAAmzCul.505
+		character_event = { id = AmzCul.506 }
+		sound_effect = duel_win
+	}
+}
+
+# third duel with market menace
+character_event = {
+	id = AmzCul.506
+	desc = EVTDESCAmzCul.506
+	picture = GFX_evt_duel_scene
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = { # spare
+		name = EVTOPTAAmzCul.506
+		custom_tooltip = { text = menace_survive3_tt }
+		add_blood_splatter_effect = yes
+		clr_character_flag = market_menace_flag3
+		set_character_flag = market_menace_flag4
+		sound_effect = male_violent_death_01
+	}
+	
+	option = { # kill
+		name = EVTOPTBAmzCul.506
+		custom_tooltip = { text = menace_slain3_tt }
+		add_blood_splatter_effect = yes
+		hidden_tooltip = {
+			immediate = {
+				create_random_soldier = {
+					random_traits = no
+					dynasty = NONE
+					female = no
+					age = 56
+					religion = pagan
+					culture = ROOT
+					trait = misguided_warrior
+					trait = one_handed
+					trait = one_legged
+					trait = envious
+					trait = stubborn
+					trait = devious
+					trait = robust
+				}
+				new_character = {
+					add_blood_splatter_effect = yes
+					save_event_target_as = menace_target
+					add_rival = ROOT
+				}
+			}
+			event_target:menace_target = {
+				death = {
+					   death_reason = death_duel
+					   killer = ROOT
+				}
+			}
+		}
+	}
+}
+
+# fourth menace encounter
+character_event = {
+	id = AmzCul.507
+	desc = EVTDESCAmzCul.507
+	picture = GFX_evt_market
+	border = GFX_event_normal_frame_intrigue
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	trigger = {
+		ai = no
+		prisoner = no
+		war = no
+		trait = is_amazonian
+		has_character_flag = market_menace_flag4
+		NOT = { is_inaccessible_trigger = yes }
+	}
+			
+	option = {
+		name = EVTOPTAAmzCul.507
+		character_event = { id = AmzCul.508 }
+		sound_effect = duel_win
+	}
+}
+
+# fourth duel with market menace
+character_event = {
+	id = AmzCul.508
+	desc = EVTDESCAmzCul.508
+	picture = GFX_evt_duel_scene
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = { # spare
+		name = EVTOPTAAmzCul.508
+		custom_tooltip = { text = menace_survive4_tt }
+		add_blood_splatter_effect = yes
+		clr_character_flag = market_menace_flag4
+		set_character_flag = market_menace_flag5
+		sound_effect = male_violent_death_01
+	}
+	
+	option = { # kill
+		name = EVTOPTBAmzCul.508
+		custom_tooltip = { text = menace_slain4_tt }
+		add_blood_splatter_effect = yes
+		hidden_tooltip = {
+			immediate = {
+				create_random_soldier = {
+					random_traits = no
+					dynasty = NONE
+					female = no
+					age = 56
+					religion = pagan
+					culture = ROOT
+					trait = misguided_warrior
+					trait = one_handed
+					trait = one_legged
+					trait = one_eyed
+					trait = envious
+					trait = stubborn
+					trait = devious
+					trait = robust
+				}
+				new_character = {
+					add_blood_splatter_effect = yes
+					save_event_target_as = menace_target
+					add_rival = ROOT
+				}
+			}
+			event_target:menace_target = {
+				death = {
+					   death_reason = death_duel
+					   killer = ROOT
+				}
+			}
+		}
+	}
+}
+
+# fifth menace encounter
+character_event = {
+	id = AmzCul.509
+	desc = EVTDESCAmzCul.509
+	picture = GFX_evt_market
+	border = GFX_event_normal_frame_intrigue
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	trigger = {
+		ai = no
+		prisoner = no
+		war = no
+		trait = is_amazonian
+		has_character_flag = market_menace_flag5
+		NOT = { is_inaccessible_trigger = yes }
+	}
+			
+	option = {
+		name = EVTOPTAAmzCul.509
+		character_event = { id = AmzCul.510}
+	}
+}
+
+# fifth duel, menace strikes
+character_event = {
+	id = AmzCul.510
+	desc = EVTDESCAmzCul.510
+	picture = GFX_evt_duel_scene
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.510
+		narrative_event = { id = AmzCul.511 }	
+		add_blood_splatter_effect = yes
+		sound_effect = duel_lose
+		clr_character_flag = market_menace_flag2
+		clr_character_flag = market_menace_flag3
+		clr_character_flag = market_menace_flag4
+		clr_character_flag = market_menace_flag5
+	}
+}
+
+# fifth duel with market menace
+narrative_event = {
+	title = EVTTITLAmzCul.511
+	id = AmzCul.511
+	desc = EVTDESCAmzCul.511
+	picture = GFX_evt_duel_scene
+	border = GFX_event_narrative_frame_intrigue
+	portrait = FROM
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_random_soldier = {
+			random_traits = no
+			dynasty = NONE
+			female = no
+			age = 56
+			religion = pagan
+			culture = ROOT
+			trait = misguided_warrior
+			trait = one_handed
+			trait = one_legged
+			trait = one_eyed
+			trait = eunuch
+			trait = envious
+			trait = stubborn
+			trait = devious
+			trait = robust
+		}
+		new_character = {
+			add_blood_splatter_effect = yes
+			save_event_target_as = menace_target
+			add_rival = ROOT
+		}
+	}
+
+	option = { # imprison 
+		name = EVTOPTAAmzCul.511
+		event_target:menace_target = {
+			prisoner = yes
+			prestige = -50
+		}
+	}
+	option = { # kill
+		name = EVTOPTBAmzCul.511
+		add_blood_splatter_effect = yes
+		event_target:menace_target = {
+			death = {
+				death_reason = death_duel
+				killer = ROOT
+			}
+		}
+	}
+}
+	

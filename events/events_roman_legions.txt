@@ -1,0 +1,207 @@
+namespace = LEGIO
+# Roman Legion System
+narrative_event = {
+    id = LEGIO.1
+	title = LEGT.1
+	desc = {
+	    text = LEGTXT.1
+	}
+
+    picture = GFX_evt_roman_legion
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.1
+		hidden_tooltip = {
+		set_global_flag = legion_restored
+		}
+	}
+}
+
+# Legio I Italica Restored
+narrative_event = {
+    id = LEGIO.2
+	title = LEGT.2
+	desc = {
+	    text = LEGTXT.2
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}
+
+# Legio VI Ferrata Restored
+narrative_event = {
+    id = LEGIO.3
+	title = LEGT.3
+	desc = {
+	    text = LEGTXT.3
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}
+
+# Legio V Alaudae
+narrative_event = {
+    id = LEGIO.4
+	title = LEGT.4
+	desc = {
+	    text = LEGTXT.4
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}
+
+# Legio XIII Gemina
+narrative_event = {
+    id = LEGIO.5
+	title = LEGT.5
+	desc = {
+	    text = LEGTXT.5
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}
+
+# Legio III Cyrenaica
+narrative_event = {
+    id = LEGIO.6
+	title = LEGT.6
+	desc = {
+	    text = LEGTXT.6
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}
+
+# Legio XXII Deiotariana
+narrative_event = {
+    id = LEGIO.7
+	title = LEGT.7
+	desc = {
+	    text = LEGTXT.7
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}
+
+# Legio IX Hispana
+narrative_event = {
+    id = LEGIO.8
+	title = LEGT.8
+	desc = {
+	    text = LEGTXT.8
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}
+
+# Legio XV Apollinaris
+narrative_event = {
+    id = LEGIO.9
+	title = LEGT.9
+	desc = {
+	    text = LEGTXT.9
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}
+
+# Legio IV Macedonica
+narrative_event = {
+    id = LEGIO.10
+	title = LEGT.10
+	desc = {
+	    text = LEGTXT.10
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}
+
+# Legio XX Valeria Victrix
+narrative_event = {
+    id = LEGIO.11
+	title = LEGT.11
+	desc = {
+	    text = LEGTXT.11
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}
+
+# Legio X Fretensis
+narrative_event = {
+    id = LEGIO.12
+	title = LEGT.12
+	desc = {
+	    text = LEGTXT.12
+	}
+
+    picture = GFX_evt_legion2
+
+	is_triggered_only = yes
+	
+	option = {
+	    name = LEGO.2
+	}
+}

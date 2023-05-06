@@ -1,0 +1,674 @@
+69420 = {
+	name="Hippolyti"
+	culture="themiskyran_amz"
+}
+
+69421 = {
+	name="Penthesiliti"
+	culture="themiskyran_amz"
+}
+
+69422 = {
+	name="Atalanti"
+	culture="themiskyran_amz"
+}
+
+69423 = {
+	name="Persephoniti"
+	culture="themiskyran_amz"
+}
+
+69424 = {
+	name="Aphroditi"
+	culture="themiskyran_amz"
+}
+
+69425 = {
+	name="Sapphidi"
+	culture="themiskyran_amz"
+}
+
+69426 = {
+	name="Antiopidi"
+	culture="themiskyran_amz"
+}
+
+69427 = {
+	name="Penelopidi"
+	culture="themiskyran_amz"
+}
+
+69428 = {
+	name="Deianeiridi"
+	culture="themiskyran_amz"
+}
+
+69429 = {
+	name="Xanthidi"
+	culture="themiskyran_amz"
+}
+
+69430 = {
+	name="Titanidi"
+	culture="themiskyran_amz"
+}
+
+69431 = {
+	name="Europidi"
+	culture="themiskyran_amz"
+}
+
+69432 = {				
+	name="Alruna"
+	culture="valkyrie_amz"
+}
+
+69433 = {
+	name="Geirdiful"
+	culture="valkyrie_amz"
+}
+
+69434 = {
+	name="Eir"
+	culture="valkyrie_amz"
+}
+
+69435 = {
+	name="Gunnr"
+	culture="valkyrie_amz"
+}
+
+69436 = {
+	name="Herja"
+	culture="valkyrie_amz"
+}
+
+69437 = {
+	name="Hildr"
+	culture="valkyrie_amz"
+}
+
+69438 = {
+	name="Kara"
+	culture="valkyrie_amz"
+}
+
+69439 = {
+	name="Rota"
+	culture="valkyrie_amz"
+}
+
+69440 = {
+	name="Svafa"
+	culture="valkyrie_amz"
+}
+
+69441 = {
+	name="Skuld"
+	culture="valkyrie_amz"
+}
+
+69442 = {
+	name="Fraejr"
+	culture="valkyrie_amz"
+}
+
+69443 = {
+	name="Valkar"
+	culture="valkyrie_amz"
+}
+
+69444 = {
+	name="Solokha"
+	culture="scythian_amz"
+}
+
+69445 = {
+	name="Chertomlyk"
+	culture="scythian_amz"
+}
+
+69446 = {
+	name="Sarmat"
+	culture="scythian_amz"
+}
+
+69447 = {
+	name="Sakaa"
+	culture="scythian_amz"
+}
+
+69448 = {
+	name="Arzhan"
+	culture="scythian_amz"
+}
+
+69449 = {
+	name="Tomyr"
+	culture="scythian_amz"
+}
+
+69450 = {
+	name="Erdimpas"
+	culture="scythian_amz"
+}
+
+69451 = {
+	name="Tabiti"
+	culture="scythian_amz"
+}
+
+69452 = {
+	name="Temarunda"
+	culture="scythian_amz"
+}
+
+69453 = {
+	name="Katiari"
+	culture="scythian_amz"
+}
+
+69454 = {
+	name="Oirpata"
+	culture="scythian_amz"
+}
+
+69455 = {
+	name="Zyrenka"
+	culture="scythian_amz"
+}
+
+69456 = {
+	name="Adrinid"
+	culture="parthian_amz"
+}
+
+69457 = {
+	name="Amastrid"
+	culture="parthian_amz"
+}
+
+69458 = {
+	name="Cassandanid"
+	culture="parthian_amz"
+}
+
+69459 = {
+	name="Rukhsanid"
+	culture="parthian_amz"
+}
+
+69460 = {
+	name="Sitarid"
+	culture="parthian_amz"
+}
+
+69461 = {
+	name="Zaharid"
+	culture="parthian_amz"
+}
+
+69462 = {
+	name="Tamyrid"
+	culture="parthian_amz"
+}
+
+69463 = {
+	name="Ufraatid"
+	culture="parthian_amz"
+}
+
+69464 = {
+	name="Tigraatid"
+	culture="parthian_amz"
+}
+
+69465 = {
+	name="Sorayid"
+	culture="parthian_amz"
+}
+
+69466 = {
+	name="Leilid"
+	culture="parthian_amz"
+}
+
+69467 = {
+	name="Azarid"
+	culture="parthian_amz"
+}
+
+69468 = {
+	name="Kasaqa"
+	culture="kushite_amz"
+}
+
+69469 = {
+	name="Tabiri"
+	culture="kushite_amz"
+}
+
+69470 = {
+	name="Abar"
+	culture="kushite_amz"
+}
+
+69471 = {
+	name="Khaliset"
+	culture="kushite_amz"
+}
+
+69472 = {
+	name="Amanitore"
+	culture="kushite_amz"
+}
+
+69473 = {
+	name="Khensa"
+	culture="kushite_amz"
+}
+
+69474 = {
+	name="Peksata"
+	culture="kushite_amz"
+}
+
+69475 = {
+	name="Malakaei"
+	culture="kushite_amz"
+}
+
+69476 = {
+	name="Ankheia"
+	culture="kushite_amz"
+}
+
+69477 = {
+	name="Khalata"
+	culture="kushite_amz"
+}
+
+69478 = {
+	name="Aisis"
+	culture="kushite_amz"
+}
+
+69479 = {
+	name="Serkhet"
+	culture="kushite_amz"
+}
+
+69480 = {
+	name="Anatid"
+	culture="carthaginian_amz"
+}
+
+69481 = {
+	name="Astartid"
+	culture="carthaginian_amz"
+}
+
+69482 = {
+	name="Isharid"
+	culture="carthaginian_amz"
+}
+
+69483 = {
+	name="Shapashid"
+	culture="carthaginian_amz"
+}
+
+69484 = {
+	name="Ellisid"
+	culture="carthaginian_amz"
+}
+
+69485 = {
+	name="Arsayid"
+	culture="carthaginian_amz"
+}
+
+69486 = {
+	name="Ashimid"
+	culture="carthaginian_amz"
+}
+
+69487 = {
+	name="Eshmunid"
+	culture="carthaginian_amz"
+}
+
+69488 = {
+	name="Tanitid"
+	culture="carthaginian_amz"
+}
+
+69489 = {
+	name="Lilurid"
+	culture="carthaginian_amz"
+}
+
+69490 = {
+	name="Qadeshtid"
+	culture="carthaginian_amz"
+}
+
+69491 = {
+	name="Zarabelid"
+	culture="carthaginian_amz"
+}
+
+69492 = {
+	name="Velzna"
+	culture="etruscan_amz"
+}
+
+69493 = {
+	name="Arretia"
+	culture="etruscan_amz"
+}
+
+69494 = {
+	name="Caisra"
+	culture="etruscan_amz"
+}
+
+69495 = {
+	name="Clevsina"
+	culture="etruscan_amz"
+}
+
+69496 = {
+	name="Curtuna"
+	culture="etruscan_amz"
+}
+
+69497 = {
+	name="Perusna"
+	culture="etruscan_amz"
+}
+
+69498 = {
+	name="Pupluna"
+	culture="etruscan_amz"
+}
+
+69499 = {
+	name="Rusellae"
+	culture="etruscan_amz"
+}
+
+69500 = {
+	name="Veii"
+	culture="etruscan_amz"
+}
+
+69501 = {
+	name="Tarchna"
+	culture="etruscan_amz"
+}
+
+69502 = {
+	name="Vetluna"
+	culture="etruscan_amz"
+}
+
+69503 = {
+	name="Volterra"
+	culture="etruscan_amz"
+}
+
+69504 = {
+	name="Aihseni"
+	culture="pritani_amz"
+}
+
+69505 = {
+	name="Carveti"
+	culture="pritani_amz"
+}
+
+69506 = {
+	name="Damnoni"
+	culture="pritani_amz"
+}
+
+69507 = {
+	name="Votadhini"
+	culture="pritani_amz"
+}
+
+69508 = {
+	name="Briaghani"
+	culture="pritani_amz"
+}
+
+69509 = {
+	name="Ordouvisi"
+	culture="pritani_amz"
+}
+
+69510 = {
+	name="Demmeti"
+	culture="pritani_amz"
+}
+
+69511 = {
+	name="Rheggni"
+	culture="pritani_amz"
+}
+
+69512 = {
+	name="Taeghsali"
+	culture="pritani_amz"
+}
+
+69513 = {
+	name="Caenti"
+	culture="pritani_amz"
+}
+
+69514 = {
+	name="Dourotrighi"
+	culture="pritani_amz"
+}
+
+69515 = {
+	name="Nouvanti"
+	culture="pritani_amz"
+}
+
+69516 = {
+	name="Artemisidi"
+	culture="themiskyran_amz"
+}
+
+69517 = {
+	name="Kassandridi"
+	culture="themiskyran_amz"
+}
+
+69518 = {
+	name="Hiketeidi"
+	culture="themiskyran_amz"
+}
+
+69519 = {
+	name="Atali"
+	culture="valkyrie_amz"
+}
+
+69520 = {
+	name="Skadi"
+	culture="valkyrie_amz"
+}
+
+69521 = {
+	name="Var"
+	culture="valkyrie_amz"
+}
+
+69522 = {
+	name="Szerbek"
+	culture="scythian_amz"
+}
+
+69523 = {
+	name="Horvatok"
+	culture="scythian_amz"
+}
+
+69524 = {
+	name="Nyugati"
+	culture="scythian_amz"
+}
+
+69525 = {
+	name="Asaakid"
+	culture="parthian_amz"
+}
+
+69526 = {
+	name="Charxid"
+	culture="parthian_amz"
+}
+
+69527 = {
+	name="Qumisid"
+	culture="parthian_amz"
+}
+
+69528 = {
+	name="Faras"
+	culture="kushite_amz"
+}
+
+69529 = {
+	name="Kawa"
+	culture="kushite_amz"
+}
+
+69530 = {
+	name="Amenirdis"
+	culture="kushite_amz"
+}
+
+69531 = {
+	name="Sidonid"
+	culture="carthaginian_amz"
+}
+
+69532 = {
+	name="Tyrid"
+	culture="carthaginian_amz"
+}
+
+69533 = {
+	name="Lilybaeid"
+	culture="carthaginian_amz"
+}
+
+69534 = {
+	name="Alalia"
+	culture="etruscan_amz"
+}
+
+69535 = {
+	name="Mantua"
+	culture="etruscan_amz"
+}
+
+69536 = {
+	name="Spika"
+	culture="etruscan_amz"
+}
+
+69537 = {
+	name="Cahletouni"
+	culture="pritani_amz"
+}
+
+69538 = {
+	name="Fvenicouni"
+	culture="pritani_amz"
+}
+
+69539 = {
+	name="Silghovhae"
+	culture="pritani_amz"
+}
+
+69540 = {
+	name="Ardia"
+	culture="illyrian_amz"
+}
+
+69541 = {
+	name="Daorsa"
+	culture="illyrian_amz"
+}
+
+69542 = {
+	name="Dalmata"
+	culture="illyrian_amz"
+}
+
+69543 = {
+	name="Deretina"
+	culture="illyrian_amz"
+}
+
+69544 = {
+	name="Narensa"
+	culture="illyrian_amz"
+}
+
+69545 = {
+	name="Zemljya"
+	culture="illyrian_amz"
+}
+
+69546 = {
+	name="Orlata"
+	culture="illyrian_amz"
+}
+
+69547 = {
+	name="Neba"
+	culture="illyrian_amz"
+}
+
+69548 = {
+	name="Suncara"
+	culture="illyrian_amz"
+}
+
+69549 = {
+	name="Moriana"
+	culture="illyrian_amz"
+}
+
+69550 = {
+	name="Talasa"
+	culture="illyrian_amz"
+}
+
+69551 = {
+	name="Rhizona"
+	culture="illyrian_amz"
+}
+
+69552 = {
+	name="Lissos"
+	culture="illyrian_amz"
+}
+
+69553 = {
+	name="Skodra"
+	culture="illyrian_amz"
+}
+
+69554 = {
+	name="Labetea"
+	culture="illyrian_amz"
+}

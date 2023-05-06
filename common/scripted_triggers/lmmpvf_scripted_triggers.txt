@@ -1,0 +1,159 @@
+lmmpvf_basic_reqs_for_factionalism_trigger = {
+	is_adult = yes
+	is_nomadic = no
+	prisoner = no
+	is_incapable = no
+}
+
+lmmpvf_is_faction_leader_trigger = {
+	OR = {
+		leads_faction = faction_lmmpvf_one
+		leads_faction = faction_lmmpvf_two
+	}
+}
+
+lmmpvf_is_war_target_valid_trigger = {
+	NOR = {
+		has_non_aggression_pact_with = persistent_event_target:lmmpvf_war_target 
+		has_truce = persistent_event_target:lmmpvf_war_target
+	}
+	
+	OR = {
+		# If attacking a neighboring realm
+		AND = {			
+			has_character_flag = lmmpvf_goal_attack_neighboring_realm
+			liege = {
+				ROOT = {
+					persistent_event_target:lmmpvf_war_target = {
+						shares_realm_border_with = PREVPREV
+					}
+				}
+			}
+		}
+	}
+}
+
+lmmpvf_ai_can_declare_war_trigger = {
+	war = no	
+}
+
+lmmpvf_can_be_declared_war_on_by_ROOT_trigger = {
+	NOR = {
+		war_with = ROOT
+		has_non_aggression_pact_with = ROOT
+		has_truce = ROOT
+	}
+}
+
+lmmpvf_is_faction_member_of_ROOT_trigger = {
+	NOT = { character = ROOT }	
+	OR = {
+		AND = {
+			ROOT = { leads_faction = faction_lmmpvf_one }
+			in_faction = faction_lmmpvf_one		
+		}
+		AND = {			
+			ROOT = { leads_faction = faction_lmmpvf_two }
+			in_faction = faction_lmmpvf_two		
+		}
+	}
+}
+
+lmmpvf_is_faction_member_of_demander_trigger = {
+	NOT = { character = event_target:lmmpvf_demander }	
+	OR = {
+		AND = {
+			event_target:lmmpvf_demander = { leads_faction = faction_lmmpvf_one }
+			in_faction = faction_lmmpvf_one		
+		}
+		AND = {			
+			event_target:lmmpvf_demander = { leads_faction = faction_lmmpvf_two }
+			in_faction = faction_lmmpvf_two		
+		}
+	}
+}
+
+lmmpvf_is_NOT_faction_member_of_ROOT_trigger = {
+	NOT = { character = ROOT }
+	OR = {
+		AND = {			
+			ROOT = { leads_faction = faction_lmmpvf_one }
+			NOT = { in_faction = faction_lmmpvf_one }
+		}
+		AND = {			
+			ROOT = { leads_faction = faction_lmmpvf_two }
+			NOT = { in_faction = faction_lmmpvf_two }
+		}
+	}
+}
+
+lmmpvf_has_at_least_one_faction_member_trigger = {	
+	OR = {
+		AND = {
+			leads_faction = faction_lmmpvf_one
+			num_of_faction_backers = { faction = faction_lmmpvf_one value = 1 }
+		}
+		AND = {
+			leads_faction = faction_lmmpvf_two
+			num_of_faction_backers = { faction = faction_lmmpvf_two value = 1 }
+		}
+	}
+}
+
+lmmpvf_at_least_one_faction_member_has_pledged_war_support_trigger = yes {
+	liege = {
+		any_vassal = {
+			limit = { lmmpvf_is_faction_member_of_ROOT_trigger }
+			has_character_flag = lmmpvf_pledged_war_support_to_@ROOT
+		}
+	}
+}
+
+lmmpvf_has_goal_war_trigger = {
+	OR = {
+		has_character_flag = lmmpvf_goal_attack_neighboring_realm		
+		has_character_flag = lmmpvf_goal_attack_infidel_realm
+		has_character_flag = lmmpvf_goal_oust_foreigners_from_realm
+		has_character_flag = lmmpvf_goal_oust_infidels_from_realm
+	}
+}
+
+lmmpvf_needs_wealth_contribution_trigger = {
+	has_character_flag = lmmpvf_goal_establish_settlement	
+}
+
+lmmpvf_is_province_eligible_for_prosperity_increase_trigger = {
+	any_province_holding = {
+		OR = {
+			holding_type = city
+			holding_type = castle
+			holding_type = tribal
+		}
+	}
+	NOR = {
+		has_province_modifier = depopulated_1
+		has_province_modifier = depopulated_2
+		has_province_modifier = depopulated_3
+	}
+}
+
+lmmpvf_is_religious_enemy_of_ROOT_trigger = {
+	OR = {
+		NOT = { religion_group = ROOT }
+		is_heresy_of = ROOT
+		ROOT = { is_heresy_of = PREV }
+	}
+}
+
+lmmpvf_is_religious_enemy_of_FROM_trigger = {
+	OR = {
+		NOT = { religion_group = FROM }
+		is_heresy_of = FROM
+		FROM = { is_heresy_of = PREV }
+	}
+}
+
+lmmpvf_is_religious_head_of_ROOT_trigger = {
+	controls_religion = yes
+	religion = ROOT
+}

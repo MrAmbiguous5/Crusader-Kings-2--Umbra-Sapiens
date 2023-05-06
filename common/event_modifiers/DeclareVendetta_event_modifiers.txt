@@ -1,0 +1,17 @@
+
+vendetta_modifier = {
+	intrigue = 1
+	plot_power_modifier = 0.20
+	church_opinion = -10
+	combat_rating = 5
+	#bloodline_effect_duel = 1		# does work, surprisingly. personal assassination could work too 
+	icon = 5
+}
+
+hand_of_vengeance_modifier = {
+	plot_power_modifier = 0.05
+	monthly_character_prestige = 0.1
+	icon = 11
+}
+
+

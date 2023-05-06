@@ -1,0 +1,203 @@
+namespace = lmmpvf_goal
+
+# Reserved 1 to 50
+# Inform about goal success or failure
+letter_event = {
+	id = lmmpvf_goal.1
+	
+	desc = {
+		text = EVTDESC_GoalSuccess_lmmpvf_goal.1
+		trigger = {
+			FROM = { has_character_flag = lmmpvf_goal_success }
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_GoalFailure_lmmpvf_goal.1
+		trigger = {
+			FROM = { has_character_flag = lmmpvf_goal_failure }
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = {
+			text = EVTOPT_Rejoice
+			trigger = {
+				FROM = { has_character_flag = lmmpvf_goal_success }
+			}						
+		}
+		FROM = {
+			show_scope_change = no
+			trigger_switch = {
+				on_trigger = has_character_flag
+				
+				lmmpvf_focus_glory = {
+					trigger_switch = {
+						on_trigger = has_character_flag
+						
+						lmmpvf_goal_attack_neighboring_realm = {
+							
+						}
+						
+						lmmpvf_goal_oust_foreigners_from_realm = {
+							
+						}
+						
+						lmmpvf_goal_improve_public_image = {
+							ROOT = {
+								show_scope_change = no
+								add_character_modifier = { modifier = lmmpvf_improved_public_image_member_modifier duration = 3650 }
+							}
+						}
+					}
+				}
+				
+				lmmpvf_focus_prosperity = {
+					trigger_switch = {
+						on_trigger = has_character_flag
+						
+						lmmpvf_goal_establish_trade_route = {
+							ROOT = {
+								show_scope_change = no
+								any_demesne_province = {
+									show_scope_change = no
+									add_province_modifier = { name = lmmpvf_faction_trade_route_modifier duration = 5475 }
+								}
+							}								
+						}
+						
+						lmmpvf_goal_establish_settlement = {
+							
+						}
+						
+						lmmpvf_goal_increase_prosperity = {
+							ROOT = {
+								if = {
+									limit = { has_dlc = "Reapers" }
+									any_demesne_province = {
+										limit = { lmmpvf_is_province_eligible_for_prosperity_increase_trigger = yes }
+										lmmpvf_increase_prosperity_effect = yes
+									}
+								}
+								else = {
+									any_demesne_province = {
+										add_province_modifier = { name = lmmpvf_prospering_modifier days = 3650 }
+									}
+								}
+							}
+						}
+					}
+				}
+				
+				lmmpvf_focus_faith = {
+					trigger_switch = {
+						on_trigger = has_character_flag
+						
+						lmmpvf_goal_attack_infidel_realm = {
+							
+						}
+						
+						lmmpvf_goal_oust_infidels_from_realm = {
+							
+						}
+						
+						lmmpvf_goal_convert_province_religion = {
+							
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = {
+			text = EVTOPT_SadDay
+			trigger = {
+				FROM = { has_character_flag = lmmpvf_goal_failure }
+			}
+		}
+	}	
+}
+
+# Reserved 51 to 100
+# Goal Increase Prosperity
+# Event received by province upon prosperity increase. Changes prosperity modifier and notifies owner accordingly.
+province_event = {
+	id = lmmpvf_goal.51
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Reapers"
+	}
+	
+	immediate = {
+		#gain modifiers at 100/250/500 value
+		if = {
+			limit = {
+				check_variable = { which = prosperity_value value = 500 }
+				NOT = {
+					has_province_modifier = prosperity_modifier_3
+				}
+			}
+			remove_province_modifier = prosperity_modifier_2
+			add_province_modifier = { name = prosperity_modifier_3 duration = -1 }
+			owner = { character_event = { id = RIP.11712 } }
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = prosperity_value value = 250 }
+				NOR = {
+					has_province_modifier = prosperity_modifier_2
+					has_province_modifier = prosperity_modifier_3
+				}
+			}
+			remove_province_modifier = prosperity_modifier_1
+			add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
+			owner = { character_event = { id = RIP.11712 } }
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = prosperity_value value = 100 } 
+				NOR = {
+					has_province_modifier = prosperity_modifier_1
+					has_province_modifier = prosperity_modifier_2
+					has_province_modifier = prosperity_modifier_3
+				}
+			}
+			add_province_modifier = { name = prosperity_modifier_1 duration = -1 }
+			owner = { character_event = { id = RIP.11712 } }		
+		}
+	}
+}
+
+# Reserved 101 to 150
+# Goal Establish Settlement
+# Event fired by on_settlement_construction_completed for human players. ROOT is the builder. FROM is the title
+character_event = {
+	id = lmmpvf_goal.101
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	ai = no
+	
+	immediate = {
+		if = {
+			limit = {
+				FROM = {
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}			
+			set_character_flag = lmmpvf_goal_success
+		}		
+	}
+}

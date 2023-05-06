@@ -1,0 +1,823 @@
+song = {
+	name = "ANNO 1404 - Main Theme.ogg"
+	song_name = "ANNO 1404 - Main Theme"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { culture = italian}
+			NOT = { culture = sicilian}
+			NOT = { culture = dalmatian}
+			NOT = { culture = emilian}
+			NOT = { culture = ligurian}
+			NOT = { culture = lombard}
+			NOT = { culture = neapolitan}
+			NOT = { culture = tuscan}
+			NOT = { culture = umbrian}
+			NOT = { culture = veneto}
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - When Cultures Meet.ogg"
+	song_name = "ANNO 1404 - When Cultures Meet"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Fields Of Excavation.ogg"
+	song_name = "ANNO 1404 - Fields Of Excavation"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "ANNO 1404 - Dawn Of Discovery.ogg"
+	song_name = "ANNO 1404 - Dawn Of Discovery"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "ANNO 1404 - Banquet for his Majesty.ogg"
+	song_name = "ANNO 1404 - Banquet for his Majesty"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - A New Island.ogg"
+	song_name = "ANNO 1404 - A New Island"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Beautiful Morning.ogg"
+	song_name = "ANNO 1404 - Beautiful Morning"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - We are Peasants.ogg"
+	song_name = "ANNO 1404 - We are Peasants"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - A Town in the Forest.ogg"
+	song_name = "ANNO 1404 - A Town in the Forest"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Idyllic Spring.ogg"
+	song_name = "ANNO 1404 - Idyllic Spring"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - A Storm is Coming.ogg"
+	song_name = "ANNO 1404 - A Storm is Coming"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "ANNO 1404 - Naval Engagement.ogg"
+	song_name = "ANNO 1404 - Naval Engagement"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "ANNO 1404 - Anticipation.ogg"
+	song_name = "ANNO 1404 - Anticipation"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "ANNO 1404 - Windmills in Green Fields.ogg"
+	song_name = "ANNO 1404 - Windmills in Green Fields"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Bring in the Harvest.ogg"
+	song_name = "ANNO 1404 - Bring in the Harvest"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Folk Tales.ogg"
+	song_name = "ANNO 1404 - Folk Tales"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Evening.ogg"
+	song_name = "ANNO 1404 - Evening"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Prepare for Battle.ogg"
+	song_name = "ANNO 1404 - Prepare for Battle"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "ANNO 1404 - Battle Hymn.ogg"
+	song_name = "ANNO 1404 - Evening"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - The Outpost.ogg"
+	song_name = "ANNO 1404 - The Outpost"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "ANNO 1404 - Crossroads.ogg"
+	song_name = "ANNO 1404 - Crossroads"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = muslim }
+			NOT = { religion_group = zoroastrian_group }
+			NOT = { culture_group = iranian }
+			NOT = { culture_group = byzantine }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Golden Shores.ogg"
+	song_name = "ANNO 1404 - Golden Shores"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = muslim }
+			NOT = { religion_group = zoroastrian_group }
+			NOT = { culture_group = iranian }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Monumental Mosque.ogg"
+	song_name = "ANNO 1404 - Monumental Mosque"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = muslim }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Salt of Earth.ogg"
+	song_name = "ANNO 1404 - Salt of Earth"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "ANNO 1404 - Time of Peace.ogg"
+	song_name = "ANNO 1404 - Time of Peace"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Monumental Cathedral.ogg"
+	song_name = "ANNO 1404 - Monumental Cathedral"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - The Battle.ogg"
+	song_name = "ANNO 1404 - The Battle"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Restored Kingdom.ogg"
+	song_name = "ANNO 1404 - Restored Kingdom"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Restored Kingdom (Variation).ogg"
+	song_name = "ANNO 1404 - Restored Kingdom (Variation)"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - Endless Campaign.ogg"
+	song_name = "ANNO 1404 - Endless Campaign"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "ANNO 1404 - A New World.ogg"
+	song_name = "ANNO 1404 - A New World"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Oblivion - Main Theme.ogg"
+	song_name = "Oblivion - Main Theme"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Oblivion - Through the Valleys.ogg"
+	song_name = "Oblivion - Through the Valleys"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Oblivion - Harvest Dawn.ogg"
+	song_name = "Oblivion - Harvest Dawn"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Oblivion - King and Country.ogg"
+	song_name = "Oblivion - King and Country"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Oblivion - Glory of Cyrodiil.ogg"
+	song_name = "Oblivion - Glory of Cyrodiil"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Oblivion - Bloody Blades.ogg"
+	song_name = "Oblivion - Bloody Blades"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Oblivion - Churls Revenge.ogg"
+	song_name = "Oblivion - Churls Revenge"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Oblivion - Peace of Akatosh.ogg"
+	song_name = "Oblivion - Peace of Akatosh"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Divinity Original Sin 2 - Main Theme.ogg"
+	song_name = "Divinity Original Sin 2 - Main Theme"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Divinity Original Sin 2 - Mead Gold Blood (Ifans Theme).ogg"
+	song_name = "Divinity Original Sin 2 - Mead Gold Blood (Ifans Theme)"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Divinity Original Sin 2 - Symphony of the Void.ogg"
+	song_name = "Divinity Original Sin 2 - Symphony of the Void"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Divinity Original Sin 2 - Power of Innocence.ogg"
+	song_name = "Divinity Original Sin 2 - Power of Innocence"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Divinity Original Sin 2 - A Part of Their Story.ogg"
+	song_name = "Divinity Original Sin 2 - A Part of Their Story"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Divinity Original Sin 2 - Path of the Godwoken.ogg"
+	song_name = "Divinity Original Sin 2 - Path of the Godwoken"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - Main Theme.ogg"
+	song_name = "Gothic 3 - Main Theme"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Gothic 3 - Exploring Myrtana.ogg"
+	song_name = "Gothic 3 - Exploring Myrtana"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - Ominous Woods.ogg"
+	song_name = "Gothic 3 - Ominous Woods"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - Slaves.ogg"
+	song_name = "Gothic 3 - Slaves"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - A King's City.ogg"
+	song_name = "Gothic 3 - A King's City"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - Vista Point.ogg"
+	song_name = "Gothic 3 - Vista Point"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - Idyllic.ogg"
+	song_name = "Gothic 3 - Idyllic"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - King Rhobar.ogg"
+	song_name = "Gothic 3 - King Rhobar"
+	
+	chance = {
+		factor = 0
+		modifier = {
+			factor = 2
+			AND = {
+				war = no
+				primary_title = { higher_tier_than = DUKE }
+			}
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - Welcome to Varant.ogg"
+	song_name = "Gothic 3 - Welcome to Varant"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = muslim }
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - Oasis.ogg"
+	song_name = "Gothic 3 - Oasis"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { government = nomadic_government}
+			NOT = { culture_group = altaic }
+			NOT = { religion_group = muslim }
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - Death Valley.ogg"
+	song_name = "Gothic 3 - Death Valley"
+	
+	chance = {
+		factor = 0
+		modifier = {
+			factor = 2
+			AND = {
+				religion_group = muslim
+				war = no
+			}
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - Ishtar.ogg"
+	song_name = "Gothic 3 - Ishtar"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = muslim }
+		}
+	}
+}
+song = {
+	name = "Gothic 3 - Showdown.ogg"
+	song_name = "Gothic 3 - Showdown"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "The Witcher - Dusk of a Northern Kingdom.ogg"
+	song_name = "The Witcher - Dusk of a Northern Kingdom"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "The Witcher - River of Life.ogg"
+	song_name = "The Witcher - River of Life"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "The Witcher - Last Battle.ogg"
+	song_name = "The Witcher - Last Battle"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "The Witcher - The Princess Striga.ogg"
+	song_name = "The Witcher - The Princess Striga"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "The Witcher - Returning to the Fortress.ogg"
+	song_name = "The Witcher - Returning to the Fortress"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher - The Order.ogg"
+	song_name = "The Witcher - The Order"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher - Prepare for Battle!.ogg"
+	song_name = "The Witcher - Prepare for Battle!"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { government = nomadic_government}
+			NOT = { government = tribal_government }
+		}
+	}
+}
+song = {
+	name = "The Witcher - The Lesser of Two Evils.ogg"
+	song_name = "The Witcher - The Lesser of Two Evils"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Guild Wars 2 - Overture.ogg"
+	song_name = "Guild Wars 2 - Overture"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Guild Wars 2 - The Seraph.ogg"
+	song_name = "Guild Wars 2 - The Seraph"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Guild Wars 2 - Call of the Raven.ogg"
+	song_name = "Guild Wars 2 - Call of the Raven"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "Guild Wars 2 - The Walls of Ebonhawke.ogg"
+	song_name = "Guild Wars 2 - The Walls of Ebonhawke"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Guild Wars 2 - The Charr Triumphant.ogg"
+	song_name = "Guild Wars 2 - The Charr Triumphant"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Guild Wars 2 - Battle in Tarir.ogg"
+	song_name = "Guild Wars 2 - Battle in Tarir"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "Guild Wars 2 - Fear Not This Night.ogg"
+	song_name = "Guild Wars 2 - Fear Not This Night"
+	
+	chance = {
+		factor = 2
+	}
+}

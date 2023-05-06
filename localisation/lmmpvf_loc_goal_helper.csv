@@ -1,0 +1,64 @@
+#;;;;;;;;;;;;;;x
+#§
+############
+## EVENTS ##
+############
+# lmmpvf_goal_helper.1
+EVTDESC_LeaderAskedToPledgeWarSupport_lmmpvf_goal_helper.1;During this year's faction meeting, [From.GetTitledFirstName] asked all members who had so far not pledged war support to make their pledge now. [From.GetSheHeCap] has assured us that we will not be forced to join the war against someone we have a non-aggression pact with. All eyes turn to me as [From.GetSheHe] asks me to give [From.GetHerHim] my word.;;;;;;;;;;;;;;x
+EVTOPT_PledgeWarSupport_lmmpvf_goal_helper.1;Pledge War Support;;;;;;;;;;;;;x
+EVTOPT_NotYet_lmmpvf_goal_helper.1;Not yet;;;;;;;;;;;;;x
+# lmmpvf_goal_helper.2
+EVTDESC_ResultsOfPledgeWarSupport_lmmpvf_goal_helper.2;You make a glorious speech about the war to come and why every honorable Lord and Lady must take part in it. The attendees listen to you carefully and, when you are done, give their opinion on the matter.;;;;;;;;;;;;;x
+lmmpvf_ctt_MemberPledgedOrRefusedWarSupport;[lmmpvf_GetPledgedOrNot];;;;;;;;;;;;;x
+# lmmpvf_goal_helper.3
+EVTDESC_CalledToFactionWar_lmmpvf_goal_helper.3;To the [GetFromRootCompliment] [Root.GetTitledFirstNameNoRegnal],\n\nThe time has come to honor your pledge! Join me in the war against [From.lmmpvf_war_target.GetFirstName]!\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;;x
+EVTDESC_CalledToFactionWarNAPact_lmmpvf_goal_helper.3;To the [GetFromRootCompliment] [Root.GetTitledFirstNameNoRegnal],\n\nThe time has come for us to go to war against [From.lmmpvf_war_target.GetFirstName]! As you are in a non-aggression pact with [From.lmmpvf_war_target.GetHerHim], I will honor your pact and not call you to war!\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;;x
+EVTOPT_JoinWar_lmmpvf_goal_helper.3;Join the War;;;;;;;;;;;;;x
+EVTOPT_RefuseToJoinWar_lmmpvf_goal_helper.3;Refuse;;;;;;;;;;;;;x
+EVTOPT_HaveNAPact_lmmpvf_goal_helper.3;[Root.Religion.GetHighGodName] help [From.lmmpvf_war_target.GetFirstName]!;;;;;;;;;;;;;x
+# lmmpvf_goal_helper.4
+EVTDESC_ResultsOfCallToWar_lmmpvf_goal_helper.4;Letters were sent to all faction members who had pledged war support to you. It is now time to see who has held true to their word and who has turned tail and run.;;;;;;;;;;;;;x
+EVTOPT_LetOurEnemiesTremble_lmmpvf_goal_helper.4;Let Our Enemies Tremble!;;;;;;;;;;;;;x
+lmmpvf_ctt_MemberJoinedOrRefusedWar;[lmmpvf_GetJoinedWarOrNot];;;;;;;;;;;;;x
+# lmmpvf_goal_helper.101
+EVTDESC_LeaderAskedToContributeWealth_lmmpvf_goal_helper.101;At the yearly meeting of the Faction of [From.GetTitledFirstName], [From.GetSheHe] has asked me to contribute some of my wealth to help the faction achieve its goal to [From.lmmpvf_GetFactionGoal]. "Together we are strong!" [From.GetSheHe] says.;;;;;;;;;;;;;x
+EVTOPT_SmallAmount_lmmpvf_goal_helper.101;Small Sum;;;;;;;;;;;;;x
+EVTOPT_MediumAmount_lmmpvf_goal_helper.101;Medium Sum;;;;;;;;;;;;;x
+EVTOPT_LargeAmount_lmmpvf_goal_helper.101;Large Sum;;;;;;;;;;;;;x
+EVTOPT_Nothing_lmmpvf_goal_helper.101;Nothing;;;;;;;;;;;;;x
+EVTOPT_CannotAfford_lmmpvf_goal_helper.101;Cannot Afford;;;;;;;;;;;;;x
+# lmmpvf_goal_helper.102
+EVTDESC_ResultsOfWealthContribution_lmmpvf_goal_helper.102;You make it clear to everyone how important the current goal of the faction is for the prosperity of the realm. Your speech is carefully orchestrated to convince them that there is no better use of their wealth than to contribute towards the faction's current goal. When you are finished, the members think for a while before telling you what they think.;;;;;;;;;;;;;x
+# lmmpvf_goal_helper.103
+EVTDESC_LeaderAskedToContributePrestige_lmmpvf_goal_helper.103;At the yearly faction meeting, [From.GetTitledFirstName] has asked all members to spread word about [From.GetHerHis] noble and glorious house! If I choose to do this, it will come at the cost of some of my own Prestige.;;;;;;;;;;;;;x
+EVTOPT_SmallAmount_lmmpvf_goal_helper.103;Make a Small Effort;;;;;;;;;;;;;x
+EVTOPT_MediumAmount_lmmpvf_goal_helper.103;Make a Decent Effort;;;;;;;;;;;;;x
+EVTOPT_LargeAmount_lmmpvf_goal_helper.103;Make a Wholehearted Effort;;;;;;;;;;;;;x
+EVTOPT_Nothing_lmmpvf_goal_helper.103;Do Nothing;;;;;;;;;;;;;x
+EVTOPT_CannotAfford_lmmpvf_goal_helper.103;Cannot Afford;;;;;;;;;;;;;x
+# lmmpvf_goal_helper.104
+EVTDESC_ResultsOfPrestigeContribution_lmmpvf_goal_helper.104;You make it clear to the faction members that the most important thing for all of them, and for the realm itself, is that powerful rulers such as yourself be seen as more prestigious than others, especially rulers of neighboring realms. You ask the members to make every effort possible to spread word about the prestige and nobility of your great house!;;;;;;;;;;;;;x
+EVTOPT_ResultsOfPrestigeContribution_lmmpvf_goal_helper.104;Let's see what they will do;;;;;;;;;;;;;x
+# lmmpvf_goal_helper.105
+EVTDESC_LeaderAskedToContributePiety_lmmpvf_goal_helper.105;At the yearly action meeting, [From.GetTitledFirstName] has asked all members to spread word about [From.GetHerHis] piety and godliness! This will make him look more pious in the eyes of people, but I will have to forego some of my own religious duties to fulfill this request.;;;;;;;;;;;;;x
+EVTOPT_SmallAmount_lmmpvf_goal_helper.105;Make a Small Effort;;;;;;;;;;;;;x
+EVTOPT_MediumAmount_lmmpvf_goal_helper.105;Make a Decent Effort;;;;;;;;;;;;;x
+EVTOPT_LargeAmount_lmmpvf_goal_helper.105;Make a Wholehearted Effort;;;;;;;;;;;;;x
+EVTOPT_Nothing_lmmpvf_goal_helper.105;Do Nothing;;;;;;;;;;;;;x
+EVTOPT_CannotAfford_lmmpvf_goal_helper.105;Cannot Afford;;;;;;;;;;;;;x
+# lmmpvf_goal_helper.106
+EVTDESC_ResultsOfPietyContribution_lmmpvf_goal_helper.106;"In a religious realm like ours, it is of paramount importance that I, the faction leader, be viewed as a most pious person", you announce. You then go on to tell all the members that it is their duty to spread word about your piety and service to [Root.Religion.GetHighGodName]. Once you are finished, the members tell you what they think.;;;;;;;;;;;;;x
+EVTOPT_ResultsOfPietyContribution_lmmpvf_goal_helper.106;Let's see what they will do;;;;;;;;;;;;;x
+
+lmmpvf_ctt_made_small_contribution_wealth;Made a small contribution of §G[global_lmmpvf_small_contribution_wealth.GetValue]§!¤.;;;;;;;;;;;;;x
+lmmpvf_ctt_made_medium_contribution_wealth;Made a medium contribution of §G[global_lmmpvf_medium_contribution_wealth.GetValue]§!¤.;;;;;;;;;;;;;x
+lmmpvf_ctt_made_large_contribution_wealth;Made a large contribution of §G[global_lmmpvf_large_contribution_wealth.GetValue]§!¤.;;;;;;;;;;;;;x
+lmmpvf_ctt_made_contribution_nothing;Did §Rnot§! contribute anything.;;;;;;;;;;;;;x
+lmmpvf_ctt_cannot_afford_to_contribute;Said that [This.GetSheHe] cannot afford to contribute anything right now.;;;;;;;;;;;;;x
+
+lmmpvf_ctt_made_small_contribution_prestige;Made a small contribution of §G10§! Prestige.;;;;;;;;;;;;;x
+lmmpvf_ctt_made_medium_contribution_prestige;Made a small contribution of §G25§! Prestige.;;;;;;;;;;;;;x
+lmmpvf_ctt_made_large_contribution_prestige;Made a small contribution of §G50§! Prestige.;;;;;;;;;;;;;x
+lmmpvf_ctt_made_small_contribution_piety;Made a small contribution of §G10§! Piety.;;;;;;;;;;;;;x
+lmmpvf_ctt_made_medium_contribution_piety;Made a small contribution of §G25§! Piety.;;;;;;;;;;;;;x
+lmmpvf_ctt_made_large_contribution_piety;Made a small contribution of §G50§! Piety.;;;;;;;;;;;;;x

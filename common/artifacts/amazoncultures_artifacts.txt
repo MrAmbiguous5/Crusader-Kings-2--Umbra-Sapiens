@@ -1,0 +1,388 @@
+
+#### warrior lodge
+
+heroines_sword = {	
+	combat_rating = 15
+	martial = 3
+	command_modifier = { 
+		speed = 0.05
+		morale_offence = 0.1 
+		damage = 0.1
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_sword_engraved"
+	slot = weapon
+}
+
+heroines_armour = {
+	combat_rating = 15
+	martial = 3
+	command_modifier = { 
+		speed = 0.05
+		morale_defence = 0.1 
+		defence = 0.1
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+		is_female = yes			# it's a specially designed bodice. don't @ me with skyrim memes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_chain_mail"
+	slot = torso
+}
+
+#### imperial rewards
+
+themiskyran_spear = {	
+	combat_rating = 10
+	martial = 2
+	monthly_character_prestige = 0.75
+	command_modifier = { 
+		morale_defence = 0.1
+		pikemen = 0.2
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon spear created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_the_impaler"
+	slot = weapon
+}
+
+valkyrian_axe = {	
+	combat_rating = 10
+	martial = 2
+	monthly_character_prestige = 0.75
+	command_modifier = { 
+		morale_defence = 0.1
+		actual_heavy_infantry = 0.2
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon axe created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_marauder"
+	slot = weapon
+}
+
+scythian_bow = {	
+	combat_rating = 10
+	martial = 2
+	monthly_character_prestige = 0.75
+	command_modifier = { 
+		morale_defence = 0.1
+		horse_archers = 0.2
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon bow created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_eagle"
+	slot = weapon
+}
+
+parthian_bow = {	
+	combat_rating = 10
+	martial = 2
+	monthly_character_prestige = 0.75
+	command_modifier = { 
+		morale_defence = 0.1
+		horse_archers = 0.2
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon bow created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_eagle"
+	slot = weapon
+}
+
+kushite_scimitar = {	
+	combat_rating = 10
+	martial = 2
+	monthly_character_prestige = 0.75
+	command_modifier = { 
+		morale_defence = 0.1
+		actual_heavy_infantry = 0.2
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_scimitar_T3"
+	slot = weapon
+}
+
+carthaginian_spear = {	
+	combat_rating = 10
+	martial = 2
+	monthly_character_prestige = 0.75
+	command_modifier = { 
+		morale_defence = 0.1
+		pikemen = 0.2
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon spear created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_the_impaler"
+	slot = weapon
+}
+
+etruscan_mace = {	
+	combat_rating = 10
+	martial = 2
+	monthly_character_prestige = 0.75
+	command_modifier = { 
+		morale_defence = 0.1
+		actual_heavy_infantry = 0.2
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon mace created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_the_bone_breaker"
+	slot = weapon
+}
+
+pritani_sling = {	
+	combat_rating = 10
+	martial = 2
+	monthly_character_prestige = 0.75
+	command_modifier = { 
+		morale_defence = 0.1
+		light_infantry = 0.2
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon bow created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_davids_sling"
+	slot = weapon
+}
+
+illyrian_axe = {	
+	combat_rating = 10
+	martial = 2
+	monthly_character_prestige = 0.75
+	command_modifier = { 
+		morale_defence = 0.1
+		actual_heavy_infantry = 0.2
+	}
+	quality = 4
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon axe created }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_axe_of_perun"
+	slot = weapon
+}
+
+#### protectorate rewards
+
+hippolyta_girdle = {	
+	stewardship = 3
+	monthly_character_prestige = 1
+	vassal_opinion = 10
+	quality = 4
+	active = {
+		culture = themiskyran_amz
+	}
+	flags = { unique armor }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_bracelet_jeweled_gold"
+}
+
+gleaming_torc = {	
+	stewardship = 3
+	monthly_character_prestige = 1
+	vassal_opinion = 10
+	quality = 4
+	active = {
+		culture = valkyrie_amz
+	}
+	flags = { unique jewelry }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_necklace_of_radiance"
+}
+
+scythian_skull = {	
+	stewardship = 3
+	monthly_character_prestige = 1
+	vassal_opinion = 10
+	quality = 4
+	active = {
+		culture = scythian_amz
+	}
+	flags = { unique trophy skull mask }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_saints_skull"
+}
+
+parthian_cataphract = {	
+	stewardship = 3
+	monthly_character_prestige = 1
+	vassal_opinion = 10
+	quality = 4
+	active = {
+		culture = parthian_amz
+	}
+	flags = { unique horse_armor armor }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_horse_armor_T3_glow_blue"
+}
+
+kushite_gem = {	
+	stewardship = 3
+	monthly_character_prestige = 1
+	vassal_opinion = 10
+	quality = 4
+	active = {
+		culture = kushite_amz
+	}
+	flags = { unique jewelry }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_gem_sapphire"
+}
+
+dido_veil = {	
+	stewardship = 3
+	monthly_character_prestige = 1
+	vassal_opinion = 10
+	quality = 4
+	active = {
+		culture = carthaginian_amz
+	}
+	flags = { unique textile cloth }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_veil_of_veronica"
+}
+
+etruscan_chalice = {	
+	stewardship = 3
+	monthly_character_prestige = 1
+	vassal_opinion = 10
+	quality = 4
+	active = {
+		culture = etruscan_amz
+	}
+	flags = { unique }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_cup_fancy"
+}
+
+pritani_horn = {	
+	stewardship = 3
+	monthly_character_prestige = 1
+	vassal_opinion = 10
+	quality = 4
+	active = {
+		culture = pritani_amz
+	}
+	flags = { unique horn }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_gjallarhorn"
+}
+
+illyrian_mantle = {	
+	stewardship = 3
+	monthly_character_prestige = 1
+	vassal_opinion = 10
+	quality = 4
+	active = {
+		culture = illyrian_amz
+	}
+	flags = { unique armor }
+	stacking = no
+	indestructible = yes
+	picture = "GFX_leopard_skin_cloak"
+}
+
+### extras
+
+concealed_dagger = {	
+	intrigue = 3
+	defensive_plot_power_modifier = 0.1
+	quality = 1
+	active = {
+		is_female = yes
+	}
+	flags = { jewelry dagger created }
+	stacking = no
+	indestructible = no
+	picture = "GFX_simple_dagger"
+}
+
+olisbos_medium = {	
+	fertility = -0.05
+	quality = 1
+	active = {
+		is_adult = yes
+		is_female = yes
+		is_incapable = no
+	}
+	flags = { }
+	stacking = yes
+	indestructible = no
+	picture = "GFX_scepter_african_2"
+}
+
+olisbos_large = {	
+	fertility = -0.1
+	quality = 1
+	active = {
+		is_adult = yes
+		is_female = yes
+		is_incapable = no
+	}
+	flags = { }
+	stacking = yes
+	indestructible = no
+	picture = "GFX_scepter_african_1"
+}
+
+
+

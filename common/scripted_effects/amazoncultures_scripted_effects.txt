@@ -1,0 +1,38 @@
+join_prev_warrior_lodge_amazonian_society = { #join the society that own the button you pressed to join...
+	if = { #if your mod have several societies, you can copy this "if" and make use it for the second society, this way this scripted effect will work for both society.
+		limit = { PREV = { society_member_of = warrior_lodge_amazonian } }
+		join_society = warrior_lodge_amazonian
+	}
+}
+
+join_from_warrior_lodge_amazonian_society = { #join the society of someone
+	FROM = {
+		if = {
+			limit = {
+				society_member_of = warrior_lodge_amazonian
+			}
+			ROOT = {
+				join_society = warrior_lodge_amazonian
+			}
+		}
+	}
+}
+
+#Paradox left the event MNM.6666 , that automatically give your society the mission success influence modifier when you remove the mission (success or not), active. By adding this line to the existing scripted effect called by this event, you add a negative influence modifier to balance it. It is messy, but it is the only way to balance influence gain without removing the event itself. On the influence tooltip, you should have the same amount of "Successful Missions" and "Failed Missions", which show how much unwanted influence is created by that event.
+add_mission_succeed_influence_effect = {
+	add_society_modifier = { #the vanilla scripted_effect only have this modifier, commenting it doesn't remove it, I keep it here for show.
+		modifier = successful_mission
+		years = 10
+	}
+	if = {
+		limit = {
+			society_member_of = warrior_lodge_amazonian #mark your society in the limit, so other society aren't affect by it.
+		}
+		add_society_modifier = 	{
+			modifier = failed_mission
+			years = 10
+		}
+	}
+}
+#Doing this only matter if you didn't hide the influence bar.
+#If you do use it, creating your own successful_mission/failed_mission modifiers with different localizations will help distinguish them from those you use to balance event MNM.6666. I have created some named tutorial_failed_mission and tutorial_successful_mission

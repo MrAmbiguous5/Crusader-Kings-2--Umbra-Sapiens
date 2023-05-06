@@ -1,0 +1,43 @@
+spriteTypes = {
+
+spriteType = {
+		name = "GFX_evt_roman_legion"
+        texturefile = "gfx\\event_pictures\\roman_legion.tga"
+	}	
+
+spriteType = {
+		name = "GFX_evt_roman_civil_war"
+        texturefile = "gfx\\event_pictures\\civil_war.tga"
+	}	
+	
+spriteType = {
+		name = "GFX_evt_roman_triumph"
+        texturefile = "gfx\\event_pictures\\roman_triumph.tga"
+	}	
+	
+spriteType = {
+		name = "GFX_evt_senat_calm"
+        texturefile = "gfx\\event_pictures\\senat_calm.tga"
+	}	
+	
+spriteType = {
+		name = "GFX_evt_senat_srach"
+        texturefile = "gfx\\event_pictures\\senat_srach.tga"
+	}	
+	
+spriteType = {
+		name = "GFX_evt_wre"
+        texturefile = "gfx\\event_pictures\\wre.tga"
+	}
+
+spriteType = {
+		name = "GFX_evt_streets_of_roma"
+        texturefile = "gfx\\event_pictures\\streets_of_roma.tga"
+	}
+
+spriteType = {
+		name = "GFX_evt_legion2"
+        texturefile = "gfx\\event_pictures\\roman_legion2.tga"
+	}	
+	
+}	

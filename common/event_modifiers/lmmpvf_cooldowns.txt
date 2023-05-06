@@ -1,0 +1,19 @@
+lmmpvf_demand_cooldown = {
+	icon = 1	
+}
+
+lmmpvf_goal_attack_neighboring_realm_cooldown = {
+	icon = 19
+}
+
+lmmpvf_goal_oust_foreigners_from_realm_cooldown = {
+	icon = 19
+}
+
+lmmpvf_goal_attack_infidel_realm_cooldown = {
+	icon = 19
+}
+
+lmmpvf_goal_oust_infidels_from_realm_cooldown = {
+	icon = 19
+}

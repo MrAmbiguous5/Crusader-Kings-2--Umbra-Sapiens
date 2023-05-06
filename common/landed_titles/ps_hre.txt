@@ -1,0 +1,1530 @@
+### Holland
+
+b_leiden = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Sticht
+
+b_utrecht = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### West Friesland
+
+b_egmond = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 449
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }				
+}
+b_hoorn = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 342
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }				
+}
+
+### Zeeland
+
+### Gelre
+
+### Overijssel
+
+b_coevorden = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 30
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+
+### Ost Friesland
+
+b_groningen = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 180
+            emblem = 0
+            color = 5
+            color = 1
+            color = 0
+        }
+    }
+}
+
+### Frisia
+
+###################
+### Lotharingie ###
+###################
+
+### Luxembourg
+
+b_luxembourg = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 70
+            emblem = 0
+            color = 4
+            color = 1
+            color = 2
+        }
+    }				
+}
+b_longwy = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Liege
+
+b_liege = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Julich
+
+b_prum = { # verif
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4 #t5
+			texture_internal = 116
+			emblem = 0
+			color = 1
+			color = 2
+			color = 2
+		}
+	}				
+}
+
+### Loon
+
+b_loon = {
+}
+
+b_valkenburg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 22
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Brabant
+
+b_leuven = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 180
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }
+}
+b_mechelen = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 233
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+b_brussel = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 147
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+# b_grimbergen - Aasche
+
+### Hainaut
+
+b_valenciennes = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_cambrai = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 12
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_avesnes = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 165
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}		
+b_mons = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 118
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+b_chievres = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 12
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }
+}
+b_enghien = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 138
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}
+}
+
+### Breda
+
+b_breda = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 176
+			emblem = 0
+			color = 1
+			color = 2
+			color = 2
+		}
+	}	
+}
+b_bergenopzoom = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 119
+            emblem = 0
+            color = 5
+            color = 1
+            color = 0
+        }
+    }
+}
+b_cuijck = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 49
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+
+### Lorraine
+
+b_nancy = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 136
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+b_toul = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 168
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }
+}
+
+### Saintois
+
+b_vaudemont = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 155
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_brixey = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 394
+            emblem = 0
+            color = 0
+            color = 4
+            color = 0
+        }
+    }
+}
+b_sorcystmartin = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 115
+            emblem = 0
+            color = 0
+            color = 2
+            color = 0
+        }
+    }
+}
+
+### Bar
+
+b_barleduc = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 51
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_commercy = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 404
+            emblem = 0
+            color = 1
+            color = 4
+            color = 0
+        }
+		religion=orthodox
+    }
+}
+b_joinville = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 89
+		  emblem = 0
+		  color = 0
+		  color = 4
+		  color = 0
+	  }
+  }					
+}
+
+### Palatinat
+
+b_worms = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 104
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_speyer = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}	
+b_hagenau = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 95
+            emblem = 0
+            color = 1
+            color = 4
+            color = 0
+        }
+    }				
+}
+	
+
+### Trier
+
+b_trier = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}				
+}	
+b_sponheim = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}	
+
+### Metz
+
+b_metz = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}				
+}		
+
+### Verdun
+
+b_verdun = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}				
+}
+b_grandpre = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 155
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}
+}	
+b_stenay = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 166
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}
+}	
+
+### Nordgau
+
+b_strassburg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 211
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Sundgau
+
+b_murbach = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 497
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}		
+
+###############
+### Bavaria ###
+###############
+
+### Kempten
+b_kempten = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 127
+			emblem = 0
+			color = 2
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_augsburg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Ober Bayern
+
+b_freising = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 171
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_andechs = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Salzburg
+
+b_salzburg = {
+	coat_of_arms = {
+		template = 2
+		layer = {
+			texture = 1
+			texture_internal = 224
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}					
+}
+
+### Nieder Bayern
+
+b_regensburg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 211
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Nurnberg
+
+b_ellwangen = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4 #t5
+			texture_internal = 114
+			emblem = 0
+			color = 0
+			color = 1
+			color = 1
+		}
+	}				
+}
+b_eichstatt = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4 #t5
+			texture_internal = 117
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}			
+
+### Passau
+
+b_passau = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 45
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_ortenburg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 451
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_schaumberg = {
+	coat_of_arms = {
+		template = 1
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+		layer = {
+			texture = 1
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}	
+
+### Znojmo
+
+### Osterreich
+
+### Steiermark
+
+b_eppenstein = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 447
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_graz = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 58
+			emblem = 0
+			color = 1
+			color = 5
+			color = 0
+		}
+	}				
+}
+b_cilli = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 82
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Tirol
+
+b_bregenz = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 86
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### St Gallen
+
+b_stgallen = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 482
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_appenzell = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 482
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_vaduz = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 86
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}				
+}				
+
+### Innsbruck
+
+### Chur
+
+b_chur = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 484
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Istria
+
+### Krain
+
+b_stain = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 9
+			texture_internal = 79
+			emblem = 0
+			color = 0
+			color = 3
+			color = 0
+		}
+	}				
+}
+
+### Aquileia
+
+b_aquileia = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_udine = {
+	german = "Weiden"
+	croatian = "Videm"
+	serbian = "Videm"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 206
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}					
+}
+b_friuli = { # Cividale
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_concordia = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+###############
+### Germany ###
+###############
+
+### Celle
+
+### Luneburg
+
+### Braunschweig
+
+b_paderborn = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_hildesheim = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Oldenburg
+
+b_delmenhorst = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 63
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Osnabruck
+
+b_osnabruck = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 88
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_bentheim = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4 #t5
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}	
+b_tecklenburg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 35
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_minden = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 103
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}			
+
+### Thuringen
+
+### Nassau
+
+b_fulda = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_katzenelnbogen = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 240
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}		
+b_falkenstein = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 88
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Gottingen	
+
+b_corvey = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 127
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}		
+
+### Koln
+
+b_koln = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}					
+}
+b_berg = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 22
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+    }
+}
+b_mark = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 61
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+    }
+}	
+b_dietz = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 41
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Munster
+
+b_munster = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_dortmund = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Kleve
+
+b_kleve = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 115
+			emblem = 37
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Mainz
+
+b_mainz = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 88
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}					
+}
+b_hanau = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 207
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+
+### Leiningen
+
+b_battenberg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 9 #t4
+			texture_internal = 176
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Wurzburg
+
+b_wurzburg = {
+	coat_of_arms = {
+		template = 2
+		layer = {
+			texture = 0
+			texture_internal = 127
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+		layer = {
+			texture = 0
+			texture_internal = 150
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_schwarzenberg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 166
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}				
+}		
+
+### Bamberg
+
+b_bamberg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 13
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}	
+
+### Baden
+
+b_baden = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 211
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}	
+b_calw = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 14
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Breisgau
+
+b_freiburg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_zahringen = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}	
+
+### Schwaben
+
+b_tubingen = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 86
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_konstanz = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_heiligenberg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 86
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}			
+b_hohenberg = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 140
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }				
+}	
+
+### Ulm
+
+### Furstenberg
+
+b_zollern = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 168
+            emblem = 0
+            color = 1
+            color = 3
+            color = 0
+        }
+    }				
+}
+
+### Wurttemberg
+
+### Bern
+
+b_bern = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 200
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+        }
+    }				
+}
+b_thun = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 4
+            texture_internal = 186
+            emblem = 0
+            color = 0
+            color = 1
+            color = 2
+        }
+    }				
+}

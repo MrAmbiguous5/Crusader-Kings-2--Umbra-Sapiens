@@ -1,0 +1,216 @@
+#########################################################################
+# OPINION MODIFIERS
+##########################################################################
+
+# inherit = yes  # Heirs inherit this opinion
+
+# Opinion modifiers can give a reason to do the following actions without penalties
+# prison_reason
+# banish_reason
+# execute_reason
+# revoke_reason
+# divorce_reason
+
+# enemy = yes # This will make the characters enemies of eachother ( effectively at war )
+# crime = yes # Counts as my foe (rivals do too) for the is_foe trigger
+
+# disable_non_aggression_pacts = yes # This temporarily disables all non-aggression pacts between the two characters
+# non_aggression_pact = yes # This gives a temporary non-aggression pact between the two characters
+
+# obedient = yes # The AI will accept all diplomatic interactions from the other character. Also makes the trigger with the same name return true
+# non_interference = yes # The AI will not take hostile action against the other character. Also makes the trigger with the same name return true. Non-interference is considered a subset of "obedient", so any obedient character is automatically non-interfering as well
+
+
+
+opinion_sexual_abuser = {
+	opinion = -100
+	prison_reason = yes
+}
+
+opinion_harmed = {
+	opinion = -20
+}
+
+opinion_feeling_manipulated = {
+	opinion = -50
+}
+
+opinion_framed = {
+	opinion = -10
+	prison_reason = yes
+}
+
+opinion_da_interfered = {
+	opinion = -10
+}
+
+opinion_celebrated_easter = {
+	opinion = 25
+}
+
+opinion_gonetoofar = {
+	opinion = -10
+}
+
+opinion_in_awe = {
+	opinion = 25
+}
+
+opinion_da_pirate = {
+	opinion = -30
+}
+
+opinion_da_abandoned_me = {
+	opinion = -30
+}
+
+opinion_masterful_diplomat = {
+	opinion = 20
+}
+
+opinion_disastrous_diplomat = {
+	opinion = -20
+}
+
+opinion_da_good_management = {
+	opinion = 10
+}
+
+da_opinion_smuggler = {
+	opinion = -25
+}
+
+da_opinion_blackmailed = {
+	opinion = -25
+}
+
+da_opinion_rejected_1st_wife = {
+	opinion = -25
+}
+
+da_opinion_requested_merc_gold = {
+	opinion = -20
+}
+
+da_opinion_sent_pact_proposal = {
+}
+
+da_opinion_refused_pact_proposal = {
+	opinion = -5
+}
+
+da_opinion_refused_alliance_proposal = {
+	opinion = -10
+}
+
+da_nap = {
+	non_aggression_pact = yes
+}
+
+da_opinion_accepted_nap_proposal = {
+	non_aggression_pact = yes
+}
+
+da_opinion_scandal = {
+	opinion = -15
+}
+
+da_opinion_disgusted = {
+	opinion = -25
+}
+
+da_opinion_love_healing = {
+	opinion = 35
+}
+
+da_opinion_hurt = {
+	opinion = -5
+}
+
+da_opinion_mistrust = {
+	opinion = -15
+}
+
+da_opinion_appaled = {
+	opinion = -20
+}
+
+da_opinion_disdain = {
+	opinion = -10
+}
+
+da_opinion_weak_ruler = {
+	opinion = -10
+}
+
+da_opinion_incensed = {
+	opinion = -25
+}
+
+da_opinion_trade_partner = {
+	opinion = 15
+}
+
+da_opinion_unwise = {
+	opinion = -5
+}
+
+da_opinion_d_diplomacy = {
+	opinion = -15
+}
+
+da_opinion_female_councillor = {
+	opinion = -10
+}
+
+da_opinion_aggrieved = {
+	opinion = -15
+}
+
+da_opinion_foiled_intrigue = {
+	opinion = -10
+}
+
+da_opinion_happy_tutoring = {
+	opinion = 25
+}
+
+da_opinion_unhappy_heir_tutoring = {
+	opinion = -10
+}
+
+da_opinion_decided = {
+	opinion = 5
+}
+
+da_opinion_strict_parent = {
+	opinion = -25
+}
+
+da_opinion_discovered_mastermind = {
+	opinion = 15
+}
+
+da_opinion_illegitimate_heir = {
+	opinion = -20
+}
+
+da_liar = {
+	opinion = -5
+}
+
+da_attacked_by_liege = {
+	opinion = -25
+}
+
+da_relations_poisoned = {
+	opinion = -45
+}
+
+da_relations_poisoned2 = {
+	opinion = -65	
+}
+
+da_opinion_cheater = {
+	opinion = -15
+}

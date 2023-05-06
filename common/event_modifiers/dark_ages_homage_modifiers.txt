@@ -1,0 +1,25 @@
+king_refused_homage = {
+	diplomacy = -2
+	icon = 21
+}
+
+king_refused_homage_2 = {
+	diplomacy = -3
+	icon = 21
+}
+
+vassal_gets_humillated = {
+	general_opinion = -10
+	icon = 34
+}
+
+king_failed_homage = {
+	vassal_opinion = -5
+	icon = 34
+}
+king_failed_homage_2 = {
+	vassal_opinion = -10
+	icon = 34
+}
+da_temp_homage = {
+}

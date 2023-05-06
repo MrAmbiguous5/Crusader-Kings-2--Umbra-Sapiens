@@ -1,0 +1,47 @@
+#;;;;;;;;;;;;;;x
+#§
+############
+## EVENTS ##
+############
+# lmmpvf_faction.101
+EVTDESC_Normal_lmmpvf_faction.101;It is time for a yearly meeting with all of your supporters in the realm. You sit at length with them around the table and discuss matters of import. They tell you that they are doing their best to help you achieve the faction's goal to [Root.lmmpvf_GetFactionGoal]. It is time for you to make a speech.;;;;;;;;;;;;;x
+EVTDESC_NeedMembers_lmmpvf_faction.101;This would have been a perfect time for a yearly meeting with your supporters. However, currently no one in the realm is a member of your faction.;;;;;;;;;;;;;x
+EVTDESC_GoalSuccess_lmmpvf_faction.101;At the yearly meeting, you are welcomed with some wonderful news. Thanks to the unyielding efforts of your supporters, the faction has succeeded in its goal to [lmmpvf_GetFactionGoal]. It is time to celebrate and congratulate each other. Next year, you will be able to announce a new goal for the faction!;;;;;;;;;;;;;x
+#EVTDESC_GoalSuccessCanChangeFocus_lmmpvf_faction.101;At the yearly meeting, you are welcomed with some wonderful news. Thanks to the unyielding efforts of your supporters, the faction has succeeded in its goal to [From.lmmpvf_GetFactionGoal]. The faction has spent a long time with its focus on [lmmpvf_GetFactionFocus], perhaps it is time to try something new...;;;;;;;;;;;;;x
+EVTDESC_GoalFailure_lmmpvf_faction.101;Sad news and long faces abound at the yearly meeting. The faction has so far been unable to [lmmpvf_GetFactionGoal] despite all the efforts for a long time. Perhaps another goal is what we are destined to pursue. It is time to reflect on the situation, and in the next year's meeting you will be able to announce a new goal for the faction!;;;;;;;;;;;;;x
+#EVTDESC_GoalFailureCanChangeFocus_lmmpvf_faction.101;Sad news and long faces abound at the yearly meeting. The faction has so far been unable to [lmmpvf_GetFactionGoal] despite all the efforts for a long time. Perhaps another goal or another focus altogether is what we are destined to pursue...;;;;;;;;;;;;;x
+EVTOPT_NeedMembers_lmmpvf_faction.101;I must recruit people;;;;;;;;;;;;;x
+EVTOPT_AnnounceNewGoal_lmmpvf_faction.101;Announce a new goal;;;;;;;;;;;;;x
+EVTOPT_ContinueWork_lmmpvf_faction.101;Continue the good work;;;;;;;;;;;;;x
+EVTOPT_AskForWealth_lmmpvf_faction.101;Ask for Wealth contribution;;;;;;;;;;;;;x
+EVTOPT_AskForPrestige_lmmpvf_faction.101;Ask for Prestige contribution;;;;;;;;;;;;;x
+EVTOPT_AskForPiety_lmmpvf_faction.101;Ask for Piety contribution;;;;;;;;;;;;;x
+lmmpvf_ctt_only_members_of_your_religion_will_be_asked;Only members of the §Y[Root.Religion.GetName]§! faith will be asked.;;;;;;;;;;;;;x
+EVTOPT_AskToPledgeWarSupport_lmmpvf_faction.101;Ask the members to pledge war support;;;;;;;;;;;;;x
+EVTOPT_GoalSuccess_lmmpvf_faction.101;Rejoice!;;;;;;;;;;;;;x
+EVTOPT_AbandonGoal_lmmpvf_faction.101;Abandon the goal;;;;;;;;;;;;;x
+EVTOPT_GoalFailure_lmmpvf_faction.101;Announce goal failure;;;;;;;;;;;;;x
+# lmmpvf_faction.102
+EVTDESC_LeaderAbandonedGoal_lmmpvf_faction.102;At the yearly faction meeting, [From.GetTitledFirstName] informs us all that [From.GetSheHe] has decided to abandon the faction's goal to [From.lmmpvf_GetPreviousFactionGoal]. [From.GetSheHeCap] believes that there are much better things to pursue at the moment and that glory awaits us all in [From.GetHerHis] next choice which is to [From.lmmpvf_GetFactionGoal];;;;;;;;;;;;;x
+
+EVTDESC_GoalSuccess_lmmpvf.271;Dear [Root.GetTitledFirstNameNoRegnal],\nRejoice, for we have succeeded in our goal to [From.lmmpvf_GetFactionGoal]!\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTDESC_GoalFailure_lmmpvf.272;Dear [Root.GetTitledFirstNameNoRegnal],\nWith immense regret I inform you that we have failed in our goal to [From.lmmpvf_GetFactionGoal]. We must redouble our efforts for our next goal!\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+
+# EVTDESCA_lmmpvf.1101;My liege,\nSurely you know the extent of my influence in [Root.PrimaryTitle.GetName]. How is it then, that you deprive me of my right to be on your council! I demand that I be granted a council position.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+# EVTOPTA_lmmpvf.1101;Promise a Position;;;;;;;;;;;;;x
+# EVTOPTB_lmmpvf.1101;Refuse;;;;;;;;;;;;;x
+# EVTDESCA_lmmpvf.1103;My liege,\nIt has been a month since you promised to grant me a position on the council. I now demand that you uphold your word and grant me a position immediately.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+# EVTOPTA_lmmpvf.1103;Give a Position Spontaneously;;;;;;;;;;;;;x
+# EVTOPTB_lmmpvf.1103;No;;;;;;;;;;;;;x
+# EVTDESCA_lmmpvf.1104;My liege,\nI, and the members of my faction, are pleased that you have granted me my rightful position on your council.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+# EVTOPTA_lmmpvf.1104;Good;;;;;;;;;;;;;x
+# EVTDESCA_lmmpvf.1111;My liege,\nIt grieves me deeply that you hold members of my family prisoner. Surely, you know of the nobility of my house and the extent of my influence in [Root.PrimaryTitle.GetName]. I demand that you release my family immediately.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+# EVTOPTA_lmmpvf.1111;Comply;;;;;;;;;;;;;x
+# EVTOPTB_lmmpvf.1111;Refuse;;;;;;;;;;;;;x
+# EVTDESCA_lmmpvf.1121;My liege,\nIt is truly a wicked thing that infidel councilors serve on your council! This will surely be cause for [From.Religion.GetHighGodName]'s wrath! I ask that you remove these infidels from the council immediately.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+# EVTOPTA_lmmpvf.1121;Comply;;;;;;;;;;;;;x
+# EVTOPTB_lmmpvf.1121;Refuse;;;;;;;;;;;;;x
+# EVTDESCA_lmmpvf.1131;I have decided to accept your request.;;;;;;;;;;;;;x
+# EVTOPTA_lmmpvf.1131;Good;;;;;;;;;;;;;x
+# EVTDESCA_lmmpvf.1132;I have decided to reject your request.;;;;;;;;;;;;;x
+# EVTOPTA_lmmpvf.1132;Curses;;;;;;;;;;;;;x

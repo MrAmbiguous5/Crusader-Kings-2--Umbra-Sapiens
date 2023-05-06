@@ -1,0 +1,4212 @@
+namespace = darkages
+
+character_event = {			#PLAN RAID IN FOREIGN WATERS
+	id = darkages.72188
+	title = EVTNAME1972188
+	desc = EVTDESC1972188
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+	
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+		
+		any_playable_ruler = {
+		
+			NOT = { distance = { who = ROOT value = 250 } }
+			NOT = { is_vassal_or_below = ROOT }
+			
+			any_demesne_province = {
+				any_neighbor_province = {
+					NOT = {
+						county = { has_holder = yes }
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "EVTOPTA1972188"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP93 }		
+		wealth = -10
+				
+		random_playable_ruler = {
+			limit = {
+				NOT = { distance = { who = ROOT value = 350 } }
+				NOT = { is_vassal_or_below = ROOT }	
+
+				any_demesne_province = {
+					any_neighbor_province = {
+						NOT = {
+							county = { has_holder = yes }
+						}
+					}
+				}				
+			}
+			
+			save_event_target_as = piracy_victim
+			
+			random_demesne_province = {
+				limit = {
+					any_neighbor_province = {
+						NOT = {
+							county = { has_holder = yes }
+						}
+					}				
+				}
+				
+				add_province_modifier = {
+					name = da_pirate_raid
+					duration = 1825
+				}
+				
+			}
+		
+		}
+		
+		
+		hidden_tooltip = {
+			random_list = {
+				2 = {	#EMPTY
+					modifier = {
+						factor = 1.25
+						NOT = { realm_intrigue = 30 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { realm_intrigue = 25 }
+					}
+					modifier = {
+						factor = 1.75
+						NOT = { realm_intrigue = 20 }
+					}
+					
+					character_event = { id = darkages.72189 days = 60 random = 60 }
+					
+				}
+				1 = {	#FAILURE
+					modifier = {
+						factor = 1.25
+						NOT = { realm_intrigue = 30 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { realm_intrigue = 25 }
+					}
+					modifier = {
+						factor = 1.75
+						NOT = { realm_intrigue = 20 }
+					}
+					
+					character_event = { id = darkages.72190 days = 60 random = 60 }				
+				}
+				2 = {	#MEDIUM
+					character_event = { id = darkages.72191 days = 60 random = 60 }	
+				}
+				2 = {	#HIGH
+				
+					modifier = {
+						factor = 1.25
+						realm_intrigue = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_intrigue = 40
+					}
+					modifier = {
+						factor = 1.75
+						realm_intrigue = 45
+					}
+
+					character_event = { id = darkages.72192 days = 60 random = 60 }					
+				
+				}
+				3 = {	#LOW
+					character_event = { id = darkages.72193 days = 60 random = 60 }	
+				}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972188"
+		
+		
+		
+	}
+	
+}
+
+character_event = {			#EMPTY
+	id = darkages.72189
+	title = EVTNAME1972189
+	desc = EVTDESC1972189
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972189"
+		
+		prestige = -25
+		
+	}
+	
+}
+
+character_event = {			#FAILURE
+	id = darkages.72190
+	title = EVTNAME1972190
+	desc = EVTDESC1972190
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972190"
+		
+		wealth = -90
+		prestige = -75
+		
+		if = {
+			limit = {
+				has_game_rule = {
+					name = infamy
+					value = yes
+				}
+			}
+
+			change_infamy = { value = 10 localisation = DA_INFAMY_ACCRUED }
+
+			if = {
+				limit = { is_landed = yes }
+				liege = {
+					change_infamy = { value = 4 localisation = DA_INFAMY_ACCRUED }
+					character_event = { id = darkages.72318 days = 7 }					
+				}
+			}
+			
+
+		}
+		
+		event_target:piracy_victim = {
+		
+			opinion = {
+				who = ROOT
+				modifier = opinion_da_pirate
+				years = 5
+			}
+		
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972190"
+		
+		prestige = -100
+		remove_character_modifier = da_piracy_sanctioned
+
+		if = {
+			limit = {
+				has_game_rule = {
+					name = infamy
+					value = yes
+				}
+			}
+			
+
+			change_infamy = { value = 10 localisation = DA_INFAMY_ACCRUED }
+			
+			if = {
+				limit = { is_landed = yes }
+				liege = {
+					change_infamy = { value = 4 localisation = DA_INFAMY_ACCRUED }
+					character_event = { id = darkages.72318 days = 7 }					
+				}
+			}			
+		}
+		
+		event_target:piracy_victim = {
+		
+			opinion = {
+				who = ROOT
+				modifier = opinion_da_pirate
+				years = 5
+			}
+		
+		}
+		
+	}	
+	
+}
+
+character_event = {			#MEDIUM PLUNDER
+	id = darkages.72191
+	title = EVTNAME1972191
+	desc = EVTDESC1972191
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972191"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP94 }		
+		wealth = 30
+		
+		random = {
+			chance = 30
+			modifier = {
+				factor = 0.8
+				realm_martial = 35
+			}
+			modifier = {
+				factor = 0.8
+				realm_martial = 40
+			}
+			modifier = {
+				factor = 0.8
+				realm_martial = 45
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { realm_martial = 30 }
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { realm_martial = 25 }
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { realm_martial = 20 }
+			}			
+
+			
+			if = {
+				limit = {
+					has_game_rule = {
+						name = infamy
+						value = yes
+					}
+				}			
+				change_infamy = { value = 10 localisation = DA_INFAMY_ACCRUED }
+				if = {
+					limit = { is_landed = yes }
+					liege = {
+						change_infamy = { value = 4 localisation = DA_INFAMY_ACCRUED }
+						character_event = { id = darkages.72318 days = 7 }					
+					}
+				}				
+			}
+			
+			event_target:piracy_victim = {
+			
+				opinion = {
+					who = ROOT
+					modifier = opinion_da_pirate
+					years = 5
+				}
+			
+			}			
+		}
+		
+	}
+	
+}
+
+
+character_event = {			#HIGH PLUNDER
+	id = darkages.72192
+	title = EVTNAME1972191
+	desc = EVTDESC1972191
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972191"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP94 }		
+		wealth = 60
+		
+		random = {
+			chance = 20
+			modifier = {
+				factor = 0.8
+				realm_martial = 35
+			}
+			modifier = {
+				factor = 0.8
+				realm_martial = 40
+			}
+			modifier = {
+				factor = 0.8
+				realm_martial = 45
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { realm_martial = 30 }
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { realm_martial = 25 }
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { realm_martial = 20 }
+			}			
+
+			if = {
+				limit = {
+					has_game_rule = {
+						name = infamy
+						value = yes
+					}
+				}			
+				change_infamy = { value = 10 localisation = DA_INFAMY_ACCRUED }
+				if = {
+					limit = { is_landed = yes }
+					liege = {
+						change_infamy = { value = 4 localisation = DA_INFAMY_ACCRUED }
+						character_event = { id = darkages.72318 days = 7 }					
+					}
+				}				
+			}
+
+			event_target:piracy_victim = {
+			
+				opinion = {
+					who = ROOT
+					modifier = opinion_da_pirate
+					years = 5
+				}
+			
+			}			
+		}
+		
+	}
+	
+}
+
+
+character_event = {			#LOW PLUNDER
+	id = darkages.72193
+	title = EVTNAME1972191
+	desc = EVTDESC1972191
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972191"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP94 }
+		wealth = 15
+		
+		random = {
+			chance = 40
+			modifier = {
+				factor = 0.8
+				realm_martial = 35
+			}
+			modifier = {
+				factor = 0.8
+				realm_martial = 40
+			}
+			modifier = {
+				factor = 0.8
+				realm_martial = 45
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { realm_martial = 30 }
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { realm_martial = 25 }
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { realm_martial = 20 }
+			}			
+
+			if = {
+				limit = {
+					has_game_rule = {
+						name = infamy
+						value = yes
+					}
+				}			
+				change_infamy = { value = 10 localisation = DA_INFAMY_ACCRUED }
+				if = {
+					limit = { is_landed = yes }
+					liege = {
+						change_infamy = { value = 4 localisation = DA_INFAMY_ACCRUED }
+						character_event = { id = darkages.72318 days = 7 }					
+					}
+				}				
+			}
+			
+			event_target:piracy_victim = {
+			
+				opinion = {
+					who = ROOT
+					modifier = opinion_da_pirate
+					years = 5
+				}
+			
+			}			
+		}
+		
+	}
+	
+}
+
+##################################################
+#
+#	YEARLY PROFITS
+#
+##################################################
+
+character_event = {	#Yearly revenue 1
+	id = darkages.72194
+	title = EVTNAME1972194
+	desc = EVTDESC1972194
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTA1972194
+        ai_chance = {
+        	factor = 99
+		}
+		wealth = -20
+		if = {
+			limit = {
+				NOT = { has_character_flag = da_pirate_lord_refused }
+				NOT = { lifestyle_traits = 1 }
+			}
+		
+		}		
+		hidden_effect = {
+			random_list = {
+				2 = {
+					character_event = { id = darkages.72194 days = 365 } #-20
+				}
+				
+				3 = {
+					character_event = { id = darkages.72195 days = 365 } #-10
+				}
+				
+				3 = {
+					character_event = { id = darkages.72196 days = 365 }	#10
+				}
+				
+				4 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72197 days = 365 }	#20
+				}			
+				
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72198 days = 365 }	#30
+				}
+
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72199 days = 365 }	#35
+				}
+
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72200 days = 365 }	#40
+				}			
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72201 days = 365 }	#45
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72202 days = 365 }	#75
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}
+					character_event = { id = darkages.72203 days = 365 }	#150
+				}			
+				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972194
+        ai_chance = {
+        	factor = 1
+		}		
+		wealth = -20
+		remove_character_modifier = da_piracy_sanctioned
+	}
+}
+
+character_event = {	#Yearly revenue 2
+	id = darkages.72195
+	title = EVTNAME1972195
+	desc = EVTDESC1972195
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTA1972195
+        ai_chance = {
+        	factor = 99
+		}		
+		wealth = -10
+		if = {
+			limit = {
+				NOT = { has_character_flag = da_pirate_lord_refused }
+				NOT = { lifestyle_traits = 1 }
+			}
+		
+		}		
+		hidden_effect = {
+			random_list = {
+				2 = {
+					character_event = { id = darkages.72194 days = 365 } #-20
+				}
+				
+				3 = {
+					character_event = { id = darkages.72195 days = 365 } #-10
+				}
+				
+				3 = {
+					character_event = { id = darkages.72196 days = 365 }	#10
+				}
+				
+				4 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72197 days = 365 }	#20
+				}			
+				
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72198 days = 365 }	#30
+				}
+
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72199 days = 365 }	#35
+				}
+
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72200 days = 365 }	#40
+				}			
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72201 days = 365 }	#45
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72202 days = 365 }	#75
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}
+					character_event = { id = darkages.72203 days = 365 }	#150
+				}			
+				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972195
+        ai_chance = {
+        	factor = 1
+		}		
+		wealth = -10
+		remove_character_modifier = da_piracy_sanctioned
+	}
+}
+
+character_event = {	#Yearly revenue 3
+	id = darkages.72196
+	title = EVTNAME1972196
+	desc = EVTDESC1972196
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTA1972196
+        ai_chance = {
+        	factor = 99
+		}		
+		wealth = 10
+		if = {
+			limit = {
+				NOT = { has_character_flag = da_pirate_lord_refused }
+				NOT = { lifestyle_traits = 1 }
+			}
+		
+		}		
+		hidden_effect = {
+			random_list = {
+				2 = {
+					character_event = { id = darkages.72194 days = 365 } #-20
+				}
+				
+				3 = {
+					character_event = { id = darkages.72195 days = 365 } #-10
+				}
+				
+				3 = {
+					character_event = { id = darkages.72196 days = 365 }	#10
+				}
+				
+				4 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72197 days = 365 }	#20
+				}			
+				
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72198 days = 365 }	#30
+				}
+
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72199 days = 365 }	#35
+				}
+
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72200 days = 365 }	#40
+				}			
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72201 days = 365 }	#45
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72202 days = 365 }	#75
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}
+					character_event = { id = darkages.72203 days = 365 }	#150
+				}			
+				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972196
+        ai_chance = {
+        	factor = 1
+		}
+		wealth = 10
+		remove_character_modifier = da_piracy_sanctioned
+	}
+}
+
+character_event = {	#Yearly revenue 4
+	id = darkages.72197
+	title = EVTNAME1972197
+	desc = EVTDESC1972197
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTA1972197
+        ai_chance = {
+        	factor = 99
+		}		
+		wealth = 20
+		if = {
+			limit = {
+				NOT = { has_character_flag = da_pirate_lord_refused }
+				NOT = { lifestyle_traits = 1 }
+			}
+		
+			random = {
+				chance = 1
+				character_event = { id = darkages.72204 }
+			}
+		
+		}		
+		hidden_effect = {
+			random_list = {
+				2 = {
+					character_event = { id = darkages.72194 days = 365 } #-20
+				}
+				
+				3 = {
+					character_event = { id = darkages.72195 days = 365 } #-10
+				}
+				
+				3 = {
+					character_event = { id = darkages.72196 days = 365 }	#10
+				}
+				
+				4 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72197 days = 365 }	#20
+				}			
+				
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72198 days = 365 }	#30
+				}
+
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72199 days = 365 }	#35
+				}
+
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72200 days = 365 }	#40
+				}			
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72201 days = 365 }	#45
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72202 days = 365 }	#75
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}
+					character_event = { id = darkages.72203 days = 365 }	#150
+				}			
+				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972197
+        ai_chance = {
+        	factor = 1
+		}		
+		wealth = 20
+		remove_character_modifier = da_piracy_sanctioned
+	}
+}
+
+character_event = {	#Yearly revenue 5
+	id = darkages.72198
+	title = EVTNAME1972198
+	desc = EVTDESC1972198
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTA1972198
+        ai_chance = {
+        	factor = 99
+		}		
+		wealth = 30
+		if = {
+			limit = {
+				NOT = { has_character_flag = da_pirate_lord_refused }
+				NOT = { lifestyle_traits = 1 }
+			}
+		
+			random = {
+				chance = 2
+				character_event = { id = darkages.72204 }
+			}
+		
+		}		
+		hidden_effect = {
+			random_list = {
+				2 = {
+					character_event = { id = darkages.72194 days = 365 } #-20
+				}
+				
+				3 = {
+					character_event = { id = darkages.72195 days = 365 } #-10
+				}
+				
+				3 = {
+					character_event = { id = darkages.72196 days = 365 }	#10
+				}
+				
+				4 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72197 days = 365 }	#20
+				}			
+				
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72198 days = 365 }	#30
+				}
+
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72199 days = 365 }	#35
+				}
+
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72200 days = 365 }	#40
+				}			
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72201 days = 365 }	#45
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72202 days = 365 }	#75
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}
+					character_event = { id = darkages.72203 days = 365 }	#150
+				}			
+				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972198
+        ai_chance = {
+        	factor = 1
+		}		
+		wealth = 30
+		remove_character_modifier = da_piracy_sanctioned
+	}
+}
+
+character_event = {	#Yearly revenue 6
+	id = darkages.72199
+	title = EVTNAME1972199
+	desc = EVTDESC1972199
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTA1972199
+        ai_chance = {
+        	factor = 99
+		}		
+		wealth = 35
+		if = {
+			limit = {
+				NOT = { has_character_flag = da_pirate_lord_refused }
+				NOT = { lifestyle_traits = 1 }
+			}
+		
+			random = {
+				chance = 3
+				character_event = { id = darkages.72204 }
+			}
+		
+		}		
+		hidden_effect = {
+			random_list = {
+				2 = {
+					character_event = { id = darkages.72194 days = 365 } #-20
+				}
+				
+				3 = {
+					character_event = { id = darkages.72195 days = 365 } #-10
+				}
+				
+				3 = {
+					character_event = { id = darkages.72196 days = 365 }	#10
+				}
+				
+				4 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72197 days = 365 }	#20
+				}			
+				
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72198 days = 365 }	#30
+				}
+
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72199 days = 365 }	#35
+				}
+
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72200 days = 365 }	#40
+				}			
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72201 days = 365 }	#45
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72202 days = 365 }	#75
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}
+					character_event = { id = darkages.72203 days = 365 }	#150
+				}			
+				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972199
+        ai_chance = {
+        	factor = 1
+		}		
+		wealth = 35
+		remove_character_modifier = da_piracy_sanctioned
+	}
+}
+
+character_event = {	#Yearly revenue 7
+	id = darkages.72200
+	title = EVTNAME1972200
+	desc = EVTDESC1972200
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTA1972200
+        ai_chance = {
+        	factor = 99
+		}		
+		wealth = 40
+		if = {
+			limit = {
+				NOT = { has_character_flag = da_pirate_lord_refused }
+				NOT = { lifestyle_traits = 1 }
+			}
+		
+			random = {
+				chance = 3
+				character_event = { id = darkages.72204 }
+			}
+		
+		}		
+		hidden_effect = {
+			random_list = {
+				2 = {
+					character_event = { id = darkages.72194 days = 365 } #-20
+				}
+				
+				3 = {
+					character_event = { id = darkages.72195 days = 365 } #-10
+				}
+				
+				3 = {
+					character_event = { id = darkages.72196 days = 365 }	#10
+				}
+				
+				4 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72197 days = 365 }	#20
+				}			
+				
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72198 days = 365 }	#30
+				}
+
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72199 days = 365 }	#35
+				}
+
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72200 days = 365 }	#40
+				}			
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72201 days = 365 }	#45
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72202 days = 365 }	#75
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}
+					character_event = { id = darkages.72203 days = 365 }	#150
+				}			
+				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972200
+        ai_chance = {
+        	factor = 1
+		}		
+		wealth = 40
+		remove_character_modifier = da_piracy_sanctioned
+	}
+}
+
+character_event = {	#Yearly revenue 8
+	id = darkages.72201
+	title = EVTNAME1972201
+	desc = EVTDESC1972201
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTA1972201
+        ai_chance = {
+        	factor = 99
+		}		
+		wealth = 45
+		if = {
+			limit = {
+				NOT = { has_character_flag = da_pirate_lord_refused }
+				NOT = { lifestyle_traits = 1 }
+			}
+		
+			random = {
+				chance = 4
+				character_event = { id = darkages.72204 }
+			}
+		
+		}		
+		hidden_effect = {
+			random_list = {
+				2 = {
+					character_event = { id = darkages.72194 days = 365 } #-20
+				}
+				
+				3 = {
+					character_event = { id = darkages.72195 days = 365 } #-10
+				}
+				
+				3 = {
+					character_event = { id = darkages.72196 days = 365 }	#10
+				}
+				
+				4 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72197 days = 365 }	#20
+				}			
+				
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72198 days = 365 }	#30
+				}
+
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72199 days = 365 }	#35
+				}
+
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72200 days = 365 }	#40
+				}			
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72201 days = 365 }	#45
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72202 days = 365 }	#75
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}
+					character_event = { id = darkages.72203 days = 365 }	#150
+				}			
+				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972201
+        ai_chance = {
+        	factor = 1
+		}		
+		wealth = 45
+		remove_character_modifier = da_piracy_sanctioned
+	}
+}
+
+character_event = {	#Yearly revenue 9
+	id = darkages.72202
+	title = EVTNAME1972202
+	desc = EVTDESC1972202
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTA1972202
+        ai_chance = {
+        	factor = 99
+		}		
+		wealth = 75
+		if = {
+			limit = {
+				NOT = { has_character_flag = da_pirate_lord_refused }
+				NOT = { lifestyle_traits = 1 }
+			}
+		
+			random = {
+				chance = 5
+				character_event = { id = darkages.72204 }
+			}
+		
+		}		
+		hidden_effect = {
+			random_list = {
+				2 = {
+					character_event = { id = darkages.72194 days = 365 } #-20
+				}
+				
+				3 = {
+					character_event = { id = darkages.72195 days = 365 } #-10
+				}
+				
+				3 = {
+					character_event = { id = darkages.72196 days = 365 }	#10
+				}
+				
+				4 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72197 days = 365 }	#20
+				}			
+				
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72198 days = 365 }	#30
+				}
+
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72199 days = 365 }	#35
+				}
+
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72200 days = 365 }	#40
+				}			
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72201 days = 365 }	#45
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72202 days = 365 }	#75
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}
+					character_event = { id = darkages.72203 days = 365 }	#150
+				}			
+				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972201
+        ai_chance = {
+        	factor = 1
+		}		
+		wealth = 75
+		remove_character_modifier = da_piracy_sanctioned
+	}
+}
+
+
+character_event = {	#Yearly revenue 10 - JACKPOT!
+	id = darkages.72203
+	title = EVTNAME1972203
+	desc = EVTDESC1972203
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTA1972203
+        ai_chance = {
+        	factor = 99
+		}		
+		wealth = 150
+		if = {
+			limit = {
+				NOT = { has_character_flag = da_pirate_lord_refused }
+				NOT = { lifestyle_traits = 1 }
+			}
+		
+			random = {
+				chance = 10
+				character_event = { id = darkages.72204 }
+			}
+		
+		}
+		hidden_effect = {
+			random_list = {
+				2 = {
+					character_event = { id = darkages.72194 days = 365 } #-20
+				}
+				
+				3 = {
+					character_event = { id = darkages.72195 days = 365 } #-10
+				}
+				
+				3 = {
+					character_event = { id = darkages.72196 days = 365 }	#10
+				}
+				
+				4 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72197 days = 365 }	#20
+				}			
+				
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72198 days = 365 }	#30
+				}
+
+				2 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72199 days = 365 }	#35
+				}
+
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72200 days = 365 }	#40
+				}			
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72201 days = 365 }	#45
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}				
+					character_event = { id = darkages.72202 days = 365 }	#75
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0.33
+						has_character_modifier = da_piracy_temp_1
+					}
+					character_event = { id = darkages.72203 days = 365 }	#150
+				}			
+				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972201
+        ai_chance = {
+        	factor = 1
+		}		
+		wealth = 150
+		remove_character_modifier = da_piracy_sanctioned
+	}
+}
+
+
+####################################
+#	END OF YEARLY REVENUE
+####################################
+
+
+
+
+character_event = {			#GAIN PIRATE LORD TRAIT
+	id = darkages.72204
+	title = EVTNAME1972204
+	desc = EVTDESC1972204
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+
+	
+	option = {
+		name = "EVTOPTA1972204"
+		
+		prestige = 250
+		add_trait = pirate_lord
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972204"
+		
+		piety = 100
+		set_character_flag = da_pirate_lord_refused
+		
+	}	
+	
+}
+
+
+character_event = { #Pirate organization splits in two rival groups that are at each other's throat
+	id = darkages.72205
+	title = EVTNAME1972205
+	desc = EVTDESC1972205
+	picture = GFX_evt_da_riot
+	border = GFX_event_normal_frame_war
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 4 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 2 }
+		}		
+		modifier = {
+			factor = 1.25
+			stewardship = 12
+		}
+		modifier = {
+			factor = 1.35
+			stewardship = 15
+		}
+		modifier = {
+			factor = 1.5
+			stewardship = 18
+		}
+		modifier = {
+			factor = 1.75
+			stewardship = 21
+		}
+		
+	}
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTA1972205 #Recall support and treat all as criminals
+		ai_chance = {
+			factor = 25
+		}
+		capital_scope = {
+			if = {
+				limit = {
+					has_province_modifier = instability_1
+				}
+				
+				remove_province_modifier = instability_1
+				
+				add_province_modifier = {
+					name = instability_2
+					days = -1
+				}
+			}
+			
+			if = {
+				limit = {
+					NOR = {
+						has_province_modifier = stability_2				
+						has_province_modifier = stability_1
+						has_province_modifier = instability_1
+						has_province_modifier = instability_2
+					}
+				}
+				
+				add_province_modifier = {
+					name = instability_1
+					days = -1
+				}
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = stability_1
+				}
+				
+				remove_province_modifier = stability_1
+			}
+			
+			if = {
+				limit = {
+					has_province_modifier = stability_2
+				}
+
+				remove_province_modifier = stability_2
+				
+				add_province_modifier = {
+					name = stability_1
+					days = -1
+				}
+			}
+		}
+
+		prestige = -50		
+		remove_character_modifier = da_piracy_sanctioned
+	}
+	
+	option = {
+		name = EVTOPTB1972205	#Involve the state and use assets to win the internal war
+		ai_chance = {
+			factor = 75
+		}
+		
+		piety = -50
+
+		if = {
+			limit = {
+				ai = no
+			}
+		
+			wealth = -50
+			
+			random_list = {
+				1 = {
+					scaled_wealth = -0.50
+				}
+				1 = {
+					scaled_wealth = -1
+				}			
+				1 = {
+					scaled_wealth = -1.50
+				}			
+			}
+		
+		}
+
+
+	}	
+	
+}
+
+character_event = { #Foreign Power attempts to destroy piracy leadership with series of assassinations
+	id = darkages.72206
+	title = EVTNAME1972206
+	desc = EVTDESC1972206
+	picture = GFX_evt_da_dagger
+	border = GFX_event_normal_frame_intrigue
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+	}
+	
+	immediate = {
+		set_character_flag = da_enemy_pursuit
+	}
+
+	option = {
+		name = EVTOPTA1972206 
+		ai_chance = {
+			factor = 80
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP96 }
+	}
+	
+	option = {
+		name = EVTOPTB1972206 
+		ai_chance = {
+			factor = 15
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP96 }
+		wealth= -25
+		set_character_flag = da_block_1
+	}
+
+	option = {
+		name = EVTOPTC1972206
+		ai_chance = {
+			factor = 5
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP96 }		
+		wealth= -50
+		set_character_flag = da_block_2	
+	}	
+	
+	
+}
+
+character_event = { #HIDDEN EVENT TO DECIDE FATE OF THE ATTACK
+	id = darkages.72207
+	title = EVTNAME1972207
+	desc = EVTDESC1972207
+	picture = GFX_evt_da_dagger
+	border = GFX_event_normal_frame_intrigue
+	hide_window= yes
+	
+	trigger = {
+		has_character_flag = da_enemy_pursuit
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					NOT = { realm_intrigue = 30 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { realm_intrigue = 25 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { realm_intrigue = 20 }
+				}
+				modifier = {
+					factor = 1.5
+					trait = honest
+				}
+				modifier = {
+					factor = 1.5
+					trait = dull
+				}				
+				modifier = {
+					factor = 1.5
+					trait = just
+				}	
+
+				character_event = { id = darkages.72208 days = 7 random = 45 }
+				
+			}
+			
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_character_flag = da_block_1
+				}
+				modifier = {
+					factor = 2
+					has_character_flag = da_block_2
+				}	
+				modifier = {
+					factor = 1.25
+					realm_intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 40
+				}
+				modifier = {
+					factor = 1.75
+					realm_intrigue = 45
+				}
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+				modifier = {
+					factor = 1.5
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 1.5
+					trait = arbitrary
+				}
+
+				character_event = { id = darkages.72209 days = 39 }	
+				
+				if = {
+					limit = {
+						has_character_flag = da_block_2
+					}
+					
+					random_playable_ruler = {
+						limit = {
+							NOT = { distance = { who = ROOT value = 350 } }
+							NOT = { is_vassal_or_below = ROOT }	
+							ai = yes
+							any_demesne_province = {
+								any_neighbor_province = {
+									NOT = {
+										county = { has_holder = yes }
+									}
+								}
+							}				
+						}
+						
+						save_event_target_as = piracy_strikeback
+						character_event = { id = darkages.72210 days = 39 }							
+					}
+				}
+			
+			}
+		
+		}
+	
+	
+		clr_character_flag = da_enemy_pursuit
+		clr_character_flag = da_block_1
+		clr_character_flag = da_block_2
+	}
+
+
+}
+
+character_event = { #successful ATTACK
+	id = darkages.72208
+	title = EVTNAME1972208
+	desc = EVTDESC1972208
+	picture = GFX_evt_da_dagger
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	
+	immediate = {
+	
+		random_list = {
+			1 = {
+				set_character_flag = darkages_a
+			}
+			1 = {
+				set_character_flag = darkages_b
+			}		
+		}
+
+	}
+
+	option = {
+		name = EVTOPTA1972208
+		trigger = {
+			has_character_flag = darkages_a
+		}
+		prestige = -50
+		remove_character_modifier = da_piracy_sanctioned
+		clr_character_flag = darkages_a
+	}
+	
+	option = {
+		name = EVTOPTB1972208
+		trigger = {
+			has_character_flag = darkages_b
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP95 }
+		prestige = -50
+		remove_character_modifier = da_piracy_sanctioned
+		
+		random_courtier_or_vassal = {
+			limit = {
+				is_adult = yes
+				ai = yes
+				is_incapable= no
+				prisoner = no
+			}
+			
+			death = {
+				death_reason = death_battle
+			}			
+			
+		}
+		
+		clr_character_flag = darkages_b
+	}	
+	
+	
+}
+
+character_event = { #successful DEFENCE
+	id = darkages.72209
+	title = EVTNAME1972209
+	desc = EVTDESC1972209
+	picture = GFX_evt_da_dagger
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972209
+
+	}
+	
+}
+
+
+character_event = { #ENEMY IS KILLED
+	id = darkages.72210
+	title = EVTNAME1972210
+	desc = EVTDESC1972210
+	picture = GFX_evt_da_tomb
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972210
+		
+		prestige = 25
+		
+		event_target:piracy_strikeback = {
+		
+			death = {
+				death_reason = death_battle
+			}
+		
+		}		
+
+	}
+	
+}
+
+character_event = { #PIRACY ENDS DUE TO IMPOSSIBLE CONDITIONS 
+	id = darkages.72211
+	title = EVTNAME1972211
+	desc = EVTDESC1972211
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_diplomacy
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+		OR = {
+		
+			NOT = {
+				any_demesne_province = {
+					port = yes
+				}
+			}
+			
+			trait = just
+			
+			trait = kind
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972211
+		
+		remove_character_modifier = da_piracy_sanctioned		
+
+	}
+	
+
+}
+
+character_event = { #PIRATES CAUSE UNREST IN COASTAL DEMESNE PROVINCE
+	id = darkages.72212
+	title = EVTNAME1972212
+	desc = EVTDESC1972212
+	picture = GFX_evt_da_riot
+	border = GFX_event_normal_frame_intrigue
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 4 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 2 }
+		}
+		
+		modifier = {
+			factor = 1.25
+			stewardship = 12
+		}
+		modifier = {
+			factor = 1.35
+			stewardship = 15
+		}
+		modifier = {
+			factor = 1.5
+			stewardship = 18
+		}
+		modifier = {
+			factor = 1.75
+			stewardship = 21
+		}		
+				
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972212
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP97 }
+		random_demesne_province = {
+			limit = {
+				any_neighbor_province = {
+					NOT = {
+						county = { has_holder = yes }
+					}
+				}
+			}
+			
+			
+			if = {
+				limit = {
+					has_province_modifier = instability_1
+				}
+				
+				remove_province_modifier = instability_1
+				
+				add_province_modifier = {
+					name = instability_2
+					days = -1
+				}
+			}
+			
+			if = {
+				limit = {
+					NOR = {
+						has_province_modifier = stability_2				
+						has_province_modifier = stability_1
+						has_province_modifier = instability_1
+						has_province_modifier = instability_2
+					}
+				}
+				
+				add_province_modifier = {
+					name = instability_1
+					days = -1
+				}
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = stability_1
+				}
+				
+				remove_province_modifier = stability_1
+			}
+			
+			if = {
+				limit = {
+					has_province_modifier = stability_2
+				}
+
+				remove_province_modifier = stability_2
+				
+				add_province_modifier = {
+					name = stability_1
+					days = -1
+				}
+			}			
+							
+		}		
+
+	}
+	
+
+}
+
+
+character_event = { #PIRATE RAID ON OWN PROVINCE
+	id = darkages.72213
+	title = EVTNAME1972213
+	desc = EVTDESC1972213
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+
+	trigger = {
+		
+		ai = no
+		
+		any_demesne_province = {
+			any_neighbor_province = {
+				NOT = {
+					county = { has_holder = yes }
+				}
+			}
+			NOT = {
+				has_province_modifier = da_pirate_raid
+			}
+		}
+
+
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	immediate = {
+	
+		random_demesne_province = {
+			limit = {
+				any_neighbor_province = {
+					NOT = {
+						county = { has_holder = yes }
+					}
+				}
+				
+				NOT = {
+					has_province_modifier = da_pirate_raid
+				}
+			}
+			set_province_flag = da_piracy_marker
+		}
+		
+	}
+
+	option = {
+		name = EVTOPTA1972213
+		
+		piety = 25
+		wealth = -35
+		
+		random_demesne_province = {
+			limit = {
+				has_province_flag = da_piracy_marker
+			}
+			clr_province_flag = da_piracy_marker
+			add_province_modifier = {
+				name = da_pirate_raid
+				duration = 912
+			}
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972213
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP98 }
+		
+		prestige = 35
+		wealth = -35
+
+		hidden_tooltip = {
+			random_list = {
+				2 = {	#Loss
+					
+					modifier = {
+						factor = 1.25
+						NOT = { martial = 8 }
+					}					
+					modifier = {
+						factor = 1.35
+						NOT = { martial = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { martial = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { martial = 2 }
+					}
+					
+					character_event = { id = darkages.72214 days = 15 random = 15 } 
+					
+				}
+				
+				4 = {	#draw
+					character_event = { id = darkages.72215 days = 15 random = 15 } 
+				}
+				
+				2 = {	#win
+					modifier = {
+						factor = 1.25
+						martial = 12
+					}
+					modifier = {
+						factor = 1.35
+						martial = 15
+					}
+					modifier = {
+						factor = 1.5
+						martial = 18
+					}
+					modifier = {
+						factor = 1.75
+						martial = 21
+					}
+					modifier = {
+						factor = 2
+						trait = pirate_lord
+					}					
+
+					character_event = { id = darkages.72216 days = 15 random = 15 } 
+				}
+				
+			}
+		
+		}
+
+	}
+
+	option = {
+		name = EVTOPTC1972213
+
+		random_demesne_province = {
+			limit = {
+				has_province_flag = da_piracy_marker
+			}
+			clr_province_flag = da_piracy_marker
+			add_province_modifier = {
+				name = da_pirate_raid
+				duration = 1825
+			}
+		}
+
+	}	
+	
+
+}
+
+character_event = { #LOSS
+	id = darkages.72214
+	title = EVTNAME1972214
+	desc = EVTDESC1972214
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972214
+		
+		prestige = -85
+		
+		random_demesne_province = {
+			limit = {
+				has_province_flag = da_piracy_marker
+			}
+			clr_province_flag = da_piracy_marker		
+			add_province_modifier = {
+				name = da_pirate_raid
+				duration = 3650
+			}
+		}		
+
+	}
+	
+
+}
+
+character_event = { #DRAW
+	id = darkages.72215
+	title = EVTNAME1972215
+	desc = EVTDESC1972215
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972215
+		
+		prestige = 5
+		
+		random_demesne_province = {
+			limit = {
+				has_province_flag = da_piracy_marker
+			}
+			clr_province_flag = da_piracy_marker
+			add_province_modifier = {
+				name = da_pirate_raid_halved
+				duration = 912
+			}
+		}		
+
+	}
+	
+
+}
+
+character_event = { #WIN
+	id = darkages.72216
+	title = EVTNAME1972216
+	desc = EVTDESC1972216
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972216
+		
+		prestige = 15
+		wealth = 20
+
+		random_demesne_province = {
+			limit = {
+				has_province_flag = da_piracy_marker
+			}
+			clr_province_flag = da_piracy_marker		
+			if = {
+				limit = {
+					has_province_modifier = stability_1
+				}
+				
+				remove_province_modifier = stability_1
+				
+				add_province_modifier = {
+					name = stability_2
+					days = -1
+				}
+			}
+			
+			if = {
+				limit = {
+					NOR = {
+						has_province_modifier = stability_2
+						has_province_modifier = stability_1
+						has_province_modifier = instability_1
+						has_province_modifier = instability_2
+					}
+				}
+				
+				add_province_modifier = {
+					name = stability_1
+					days = -1
+				}
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = instability_1
+				}
+				
+				remove_province_modifier = instability_1
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = instability_2
+				}
+				
+				remove_province_modifier = instability_2
+				
+				add_province_modifier = {
+					name = instability_1
+					days = -1
+				}
+			}				
+		
+		}
+		
+	}
+	
+
+}
+
+character_event = { #PIETY DROPS DUE TO PIRACY
+	id = darkages.72217
+	title = EVTNAME1972217
+	desc = EVTDESC1972217
+	picture = GFX_evt_da_religion
+	border = GFX_event_normal_frame_religion
+
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		
+		modifier = {
+			factor = 0.8
+			NOT = { learning = 8 }
+		}
+		
+		modifier = {
+			factor = 0.8
+			NOT = { learning = 6 }
+		}		
+		
+		modifier = {
+			factor = 0.8
+			NOT = { learning = 4 }
+		}		
+		
+		modifier = {
+			factor = 0.8
+			NOT = { learning = 2 }
+		}
+		
+		modifier = {
+			factor = 1.25
+			learning = 12
+		}
+
+		modifier = {
+			factor = 1.35
+			learning = 15
+		}
+		
+		modifier = {
+			factor = 1.5
+			learning = 18
+		}		
+		
+		modifier = {
+			factor = 1.75
+			learning = 21
+		}		
+	}	
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972217
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP99 }
+		piety = -75
+
+	}
+	
+
+}
+
+
+
+character_event = { #DIPLO AND OPINION DROPS DUE TO PIRACY
+	id = darkages.72218
+	title = EVTNAME1972218
+	desc = EVTDESC1972218
+	picture = GFX_evt_da_quarrel
+	border = GFX_event_normal_frame_religion
+
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+		NOT = { has_character_modifier = da_notorious_pirate }
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		
+		modifier = {
+			factor = 0.8
+			NOT = { diplomacy = 8 }
+		}
+		
+		modifier = {
+			factor = 0.8
+			NOT = { diplomacy = 6 }
+		}		
+		
+		modifier = {
+			factor = 0.8
+			NOT = { diplomacy = 4 }
+		}		
+		
+		modifier = {
+			factor = 0.8
+			NOT = { diplomacy = 2 }
+		}
+		
+		modifier = {
+			factor = 1.25
+			diplomacy = 12
+		}
+
+		modifier = {
+			factor = 1.35
+			diplomacy = 15
+		}
+		
+		modifier = {
+			factor = 1.5
+			diplomacy = 18
+		}		
+		
+		modifier = {
+			factor = 1.75
+			diplomacy = 21
+		}		
+	}	
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972218
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP100 }
+		
+		add_character_modifier = {
+			name = da_notorious_pirate
+			duration = 1825
+		}
+
+	}
+	
+
+}
+
+
+character_event = { #ADDITIONAL MAINTENANCE NEEDED
+	id = darkages.72219
+	title = EVTNAME1972219
+	desc = EVTDESC1972219
+	picture = GFX_evt_da_small_port
+	border = GFX_event_normal_frame_economy
+
+
+	trigger = {
+		has_character_modifier = da_piracy_sanctioned
+		NOT = { has_character_modifier = da_piracy_temp_1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 8 }
+		}
+		
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 6 }
+		}		
+		
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 4 }
+		}		
+		
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 2 }
+		}
+		
+		modifier = {
+			factor = 1.25
+			stewardship = 12
+		}
+
+		modifier = {
+			factor = 1.35
+			stewardship = 15
+		}
+		
+		modifier = {
+			factor = 1.5
+			stewardship = 18
+		}		
+		
+		modifier = {
+			factor = 1.75
+			stewardship = 21
+		}		
+	}	
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972219
+		ai_chance = {
+			factor = 67
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP101 }
+		
+		add_character_modifier = {
+			name = da_piracy_temp_1
+			duration = 3650
+			hidden = yes
+			inherit = yes
+		}
+
+	}
+
+	option = {
+		name = EVTOPTB1972219
+		ai_chance = {
+			factor = 33
+			
+			modifier = {
+				factor = 0
+				NOT = { wealth = 50 }
+			}
+		}		
+
+		
+		wealth = -50
+
+	}
+	
+
+}
+
+############################################################
+#
+#	ORGANIZE A COUNTERRAID AGAINST A PIRATE
+#
+#############################################################
+
+character_event = { #SETUP EVENT
+	id = darkages.72229
+	title = EVTNAME1972229
+	desc = EVTDESC1972229
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+
+
+	trigger = {
+
+		any_demesne_province = {
+			any_neighbor_province = {
+				NOT = {
+					county = { has_holder = yes }
+				}
+			}
+		}
+		
+		martial = 18
+		OR = {
+			trait = wroth
+			trait = cruel
+			trait = envious
+			trait = arbitrary
+			trait = pirate_lord
+		}
+		ai = yes
+				
+		any_playable_ruler = {
+			has_character_modifier = da_piracy_sanctioned
+			NOT = { has_character_modifier = da_has_been_attacked_temp }
+			NOT = { distance = { who = ROOT value = 300 } }
+			any_demesne_province = {
+				any_neighbor_province = {
+					NOT = {
+						county = { has_holder = yes }
+					}
+				}				
+			}
+		}
+
+	}
+	
+	mean_time_to_happen = {
+		months = 720
+		
+		modifier = {
+			factor = 0.5
+			ai = no
+		}
+	
+	}	
+	
+	immediate = {
+
+		random_playable_ruler = {
+			limit = {
+				has_character_modifier = da_piracy_sanctioned
+				NOT = { distance = { who = ROOT value = 300 } }
+				any_demesne_province = {
+					any_neighbor_province = {
+						NOT = {
+							county = { has_holder = yes }
+						}
+					}				
+				}
+			}
+			
+			save_event_target_as = big_bad_pirate
+		
+		}	
+
+	}
+
+	option = {
+		name = EVTOPTA1972229
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 4
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = envious
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP102 }		
+		treasury = -50
+		
+		hidden_tooltip = {
+			random_list = {
+				2 = {	#fail
+					modifier = {
+						factor = 1.25
+						event_target:big_bad_pirate = { martial = 12 }
+					}
+					modifier = {
+						factor = 1.35
+						event_target:big_bad_pirate = { martial = 15 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:big_bad_pirate = { martial = 18 }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:big_bad_pirate = { martial = 21 }
+					}
+					modifier = {
+						factor = 1.25
+						event_target:big_bad_pirate = { realm_martial = 35 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:big_bad_pirate = { realm_martial = 40 }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:big_bad_pirate = { realm_martial = 45 }
+					}
+					modifier = {
+						factor = 1.25
+						event_target:big_bad_pirate = { realm_intrigue = 35 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:big_bad_pirate = { realm_intrigue = 40 }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:big_bad_pirate = { realm_intrigue = 45 }
+					}
+					modifier = {
+						factor = 2
+						event_target:big_bad_pirate = { trait = wroth }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:big_bad_pirate = { trait = cruel }
+					}
+					modifier = {
+						factor = 2.25
+						event_target:big_bad_pirate = { trait = strategist }
+					}
+					modifier = {
+						factor = 2.5
+						event_target:big_bad_pirate = { trait = pirate_lord }
+					}
+					modifier = {
+						factor = 2
+						event_target:big_bad_pirate = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.85
+						event_target:big_bad_pirate = { trait = brave }
+					}	
+					modifier = {
+						factor = 0.85
+						event_target:big_bad_pirate = { trait = craven }
+					}					
+					modifier = {
+						factor = 0.75
+						event_target:big_bad_pirate = { trait = honest }
+					}
+					modifier = {
+						factor = 0.5
+						event_target:big_bad_pirate = { trait = trusting }
+					}
+					modifier = {
+						factor = 0.66
+						event_target:big_bad_pirate = { trait = dull }
+					}	
+
+					character_event = { id = darkages.72230 days = 58 }
+					event_target:big_bad_pirate = { 
+						add_character_modifier = {
+							name = da_has_been_attacked_temp
+							duration = 1825
+							hidden = yes
+						}
+						character_event = { id = darkages.72231 days = 58 } 
+					}
+					
+				}
+				2 = {	#victory
+					modifier = {
+						factor = 1.25
+						martial = 12
+					}
+					modifier = {
+						factor = 1.35
+						martial = 15
+					}
+					modifier = {
+						factor = 1.5
+						martial = 18
+					}
+					modifier = {
+						factor = 1.75
+						martial = 21
+					}
+					modifier = {
+						factor = 1.25
+						realm_martial = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_martial = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_martial = 45
+					}
+					modifier = {
+						factor = 1.25
+						realm_intrigue = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_intrigue = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_intrigue = 45
+					}
+					modifier = {
+						factor = 2
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.75
+						trait = cruel
+					}
+					modifier = {
+						factor = 2.25
+						trait = strategist
+					}
+					modifier = {
+						factor = 2.5
+						trait = pirate_lord
+					}
+					modifier = {
+						factor = 2
+						trait = shrewd
+					}
+					modifier = {
+						factor = 1.85
+						trait = brave
+					}	
+					modifier = {
+						factor = 0.85
+						trait = craven
+					}					
+					modifier = {
+						factor = 0.75
+						trait = honest
+					}
+					modifier = {
+						factor = 0.5
+						trait = trusting
+					}
+					modifier = {
+						factor = 0.66
+						trait = dull
+					}
+
+					character_event = { id = darkages.72232 days = 58 }
+					event_target:big_bad_pirate = { 
+						add_character_modifier = {
+							name = da_has_been_attacked_temp
+							duration = 1825
+							hidden = yes
+						}					
+						character_event = { id = darkages.72233 days = 58 } 
+					}
+					
+				}				
+				1= {	#total victory
+					modifier = {
+						factor = 1.25
+						martial = 12
+					}
+					modifier = {
+						factor = 1.35
+						martial = 15
+					}
+					modifier = {
+						factor = 1.5
+						martial = 18
+					}
+					modifier = {
+						factor = 1.75
+						martial = 21
+					}
+					modifier = {
+						factor = 1.25
+						realm_martial = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_martial = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_martial = 45
+					}
+					modifier = {
+						factor = 1.25
+						realm_intrigue = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_intrigue = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_intrigue = 45
+					}
+					modifier = {
+						factor = 2
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.75
+						trait = cruel
+					}
+					modifier = {
+						factor = 2.25
+						trait = strategist
+					}
+					modifier = {
+						factor = 2.5
+						trait = pirate_lord
+					}
+					modifier = {
+						factor = 2
+						trait = shrewd
+					}
+					modifier = {
+						factor = 1.85
+						trait = brave
+					}	
+					modifier = {
+						factor = 0.85
+						trait = craven
+					}					
+					modifier = {
+						factor = 0.75
+						trait = honest
+					}
+					modifier = {
+						factor = 0.5
+						trait = trusting
+					}
+					modifier = {
+						factor = 0.66
+						trait = dull
+					}
+					modifier = {
+						factor = 1.15
+						event_target:big_bad_pirate = { trait = craven }
+					}					
+					modifier = {
+						factor = 1.2
+						event_target:big_bad_pirate = { trait = honest }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:big_bad_pirate = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.33
+						event_target:big_bad_pirate = { trait = dull }
+					}					
+
+					character_event = { id = darkages.72234 days = 58 }
+					event_target:big_bad_pirate = { 
+						add_character_modifier = {
+							name = da_has_been_attacked_temp
+							duration = 1825
+							hidden = yes
+						}					
+						character_event = { id = darkages.72235 days = 58 } 
+					}
+				}
+				
+			}
+		}
+
+	}
+
+	option = {
+		name = EVTOPTB1972229
+		ai_chance = {
+			factor = 5
+			
+			modifier = {
+				factor = 15
+				trait = brave
+			}
+			modifier = {
+				factor = 5
+				trait = proud
+			}
+			modifier = {
+				factor = 10
+				trait = ambitious
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP103 }
+		treasury = -50
+		set_character_flag = da_risky
+		prestige = 10
+		
+		hidden_tooltip = {
+			random_list = {
+				3 = {	#fail
+					modifier = {
+						factor = 1.25
+						event_target:big_bad_pirate = { martial = 12 }
+					}
+					modifier = {
+						factor = 1.35
+						event_target:big_bad_pirate = { martial = 15 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:big_bad_pirate = { martial = 18 }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:big_bad_pirate = { martial = 21 }
+					}
+					modifier = {
+						factor = 1.25
+						event_target:big_bad_pirate = { realm_martial = 35 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:big_bad_pirate = { realm_martial = 40 }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:big_bad_pirate = { realm_martial = 45 }
+					}
+					modifier = {
+						factor = 1.25
+						event_target:big_bad_pirate = { realm_intrigue = 35 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:big_bad_pirate = { realm_intrigue = 40 }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:big_bad_pirate = { realm_intrigue = 45 }
+					}
+					modifier = {
+						factor = 2
+						event_target:big_bad_pirate = { trait = wroth }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:big_bad_pirate = { trait = cruel }
+					}
+					modifier = {
+						factor = 2.25
+						event_target:big_bad_pirate = { trait = strategist }
+					}
+					modifier = {
+						factor = 2.5
+						event_target:big_bad_pirate = { trait = pirate_lord }
+					}
+					modifier = {
+						factor = 2
+						event_target:big_bad_pirate = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.85
+						event_target:big_bad_pirate = { trait = brave }
+					}	
+					modifier = {
+						factor = 0.85
+						event_target:big_bad_pirate = { trait = craven }
+					}					
+					modifier = {
+						factor = 0.75
+						event_target:big_bad_pirate = { trait = honest }
+					}
+					modifier = {
+						factor = 0.5
+						event_target:big_bad_pirate = { trait = trusting }
+					}
+					modifier = {
+						factor = 0.66
+						event_target:big_bad_pirate = { trait = dull }
+					}	
+
+					character_event = { id = darkages.72230 days = 58 }
+					event_target:big_bad_pirate = { 
+						add_character_modifier = {
+							name = da_has_been_attacked_temp
+							duration = 1825
+							hidden = yes
+						}
+						character_event = { id = darkages.72231 days = 58 } 
+					}
+					
+				}
+				4 = {	#victory
+					modifier = {
+						factor = 1.25
+						martial = 12
+					}
+					modifier = {
+						factor = 1.35
+						martial = 15
+					}
+					modifier = {
+						factor = 1.5
+						martial = 18
+					}
+					modifier = {
+						factor = 1.75
+						martial = 21
+					}
+					modifier = {
+						factor = 1.25
+						realm_martial = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_martial = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_martial = 45
+					}
+					modifier = {
+						factor = 1.25
+						realm_intrigue = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_intrigue = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_intrigue = 45
+					}
+					modifier = {
+						factor = 2
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.75
+						trait = cruel
+					}
+					modifier = {
+						factor = 2.25
+						trait = strategist
+					}
+					modifier = {
+						factor = 2.5
+						trait = pirate_lord
+					}
+					modifier = {
+						factor = 2
+						trait = shrewd
+					}
+					modifier = {
+						factor = 1.85
+						trait = brave
+					}	
+					modifier = {
+						factor = 0.85
+						trait = craven
+					}					
+					modifier = {
+						factor = 0.75
+						trait = honest
+					}
+					modifier = {
+						factor = 0.5
+						trait = trusting
+					}
+					modifier = {
+						factor = 0.66
+						trait = dull
+					}
+
+					character_event = { id = darkages.72232 days = 58 }
+					event_target:big_bad_pirate = { 
+						add_character_modifier = {
+							name = da_has_been_attacked_temp
+							duration = 1825
+							hidden = yes
+						}					
+						character_event = { id = darkages.72233 days = 58 } 
+					}
+					
+				}				
+				2 = {	#total victory
+					modifier = {
+						factor = 1.25
+						martial = 12
+					}
+					modifier = {
+						factor = 1.35
+						martial = 15
+					}
+					modifier = {
+						factor = 1.5
+						martial = 18
+					}
+					modifier = {
+						factor = 1.75
+						martial = 21
+					}
+					modifier = {
+						factor = 1.25
+						realm_martial = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_martial = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_martial = 45
+					}
+					modifier = {
+						factor = 1.25
+						realm_intrigue = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_intrigue = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_intrigue = 45
+					}
+					modifier = {
+						factor = 2
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.75
+						trait = cruel
+					}
+					modifier = {
+						factor = 2.25
+						trait = strategist
+					}
+					modifier = {
+						factor = 2.5
+						trait = pirate_lord
+					}
+					modifier = {
+						factor = 2
+						trait = shrewd
+					}
+					modifier = {
+						factor = 1.85
+						trait = brave
+					}	
+					modifier = {
+						factor = 0.85
+						trait = craven
+					}					
+					modifier = {
+						factor = 0.75
+						trait = honest
+					}
+					modifier = {
+						factor = 0.5
+						trait = trusting
+					}
+					modifier = {
+						factor = 0.66
+						trait = dull
+					}
+					modifier = {
+						factor = 1.15
+						event_target:big_bad_pirate = { trait = craven }
+					}					
+					modifier = {
+						factor = 1.2
+						event_target:big_bad_pirate = { trait = honest }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:big_bad_pirate = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.33
+						event_target:big_bad_pirate = { trait = dull }
+					}					
+
+					character_event = { id = darkages.72234 days = 58 }
+					event_target:big_bad_pirate = { 
+						add_character_modifier = {
+							name = da_has_been_attacked_temp
+							duration = 1825
+							hidden = yes
+						}					
+						character_event = { id = darkages.72235 days = 58 } 
+					}
+				}
+				
+			}
+		}		
+		
+
+	}
+
+	option = {
+		name = EVTOPTC1972229
+		ai_chance = {
+			factor = 75
+			
+			modifier = {
+				factor = 4
+				trait = craven
+			}
+		}
+
+		prestige = -20
+
+	}
+	
+
+}
+
+character_event = { #FAIL - RAIDING CHARACTER
+	id = darkages.72230
+	title = EVTNAME1972230
+	desc = EVTDESC1972230
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972230
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP104 }
+		prestige = -50
+		
+		if = {
+			limit = { has_character_flag = da_risky }
+			
+			random = {
+				chance = 25
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = -10 }
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				modifier = {
+					factor = 0.8
+					combat_rating = 10
+				}				
+				modifier = {
+					factor = 0.8
+					combat_rating = 20
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 40
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 70
+				}				
+				modifier = {
+					factor = 0.7
+					combat_rating = 100
+				}	
+
+				death = {
+					death_reason = death_battle
+				}
+				
+			}
+		}
+	}
+
+}
+
+character_event = { #FAIL - PIRATE BEING ATTACKED (WON)
+	id = darkages.72231
+	title = EVTNAME1972231
+	desc = EVTDESC1972231
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972231
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP104 }		
+		prestige = 50
+		
+		random = {
+			chance = 10
+			modifier = {
+				factor = 1.5
+				event_target:big_bad_pirate = { NOT = { combat_rating = -20 } }
+			}
+			modifier = {
+				factor = 1.25
+				event_target:big_bad_pirate = { NOT = { combat_rating = -10 } }
+			}
+			modifier = {
+				factor = 1.25
+				event_target:big_bad_pirate = { NOT = { combat_rating = 0 } }
+			}
+			modifier = {
+				factor = 0.8
+				event_target:big_bad_pirate = { combat_rating = 10 }
+			}				
+			modifier = {
+				factor = 0.8
+				event_target:big_bad_pirate = { combat_rating = 20 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 30 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 40 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 50 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 70 }
+			}				
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 100 }
+			}	
+
+			death = {
+				death_reason = death_battle
+			}
+				
+		}
+	}
+
+}
+
+
+character_event = { #SUCCESS - RAIDING CHARACTER
+	id = darkages.72232
+	title = EVTNAME1972232
+	desc = EVTDESC1972232
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972232
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP104 }		
+		prestige = 25
+		
+		if = {
+			limit = { has_character_flag = da_risky }
+			
+			random = {
+				chance = 15
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = -10 }
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				modifier = {
+					factor = 0.8
+					combat_rating = 10
+				}				
+				modifier = {
+					factor = 0.8
+					combat_rating = 20
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 40
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 70
+				}				
+				modifier = {
+					factor = 0.7
+					combat_rating = 100
+				}	
+
+				death = {
+					death_reason = death_battle
+				}
+				
+			}
+		}
+	}
+
+}
+
+character_event = { #SUCCESS - PIRATE BEING ATTACKED
+	id = darkages.72233
+	title = EVTNAME1972233
+	desc = EVTDESC1972233
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972231
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP104 }		
+		prestige = -25
+		add_character_modifier = {
+			name = da_piracy_temp_1
+			duration = 1465
+			hidden = yes
+			inherit = yes
+		}
+		
+		random = {
+			chance = 15
+			modifier = {
+				factor = 1.5
+				event_target:big_bad_pirate = { NOT = { combat_rating = -20 } }
+			}
+			modifier = {
+				factor = 1.25
+				event_target:big_bad_pirate = { NOT = { combat_rating = -10 } }
+			}
+			modifier = {
+				factor = 1.25
+				event_target:big_bad_pirate = { NOT = { combat_rating = 0 } }
+			}
+			modifier = {
+				factor = 0.8
+				event_target:big_bad_pirate = { combat_rating = 10 }
+			}				
+			modifier = {
+				factor = 0.8
+				event_target:big_bad_pirate = { combat_rating = 20 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 30 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 40 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 50 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 70 }
+			}				
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 100 }
+			}	
+
+			death = {
+				death_reason = death_battle
+			}
+				
+		}
+	}
+
+}
+
+character_event = { #TOTAL SUCCESS - RAIDING CHARACTER
+	id = darkages.72234
+	title = EVTNAME1972234
+	desc = EVTDESC1972234
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972234
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP104 }		
+		prestige = 75
+		
+		if = {
+			limit = { has_character_flag = da_risky }
+			
+			random = {
+				chance = 10
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = -10 }
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				modifier = {
+					factor = 0.8
+					combat_rating = 10
+				}				
+				modifier = {
+					factor = 0.8
+					combat_rating = 20
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 40
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 0.7
+					combat_rating = 70
+				}				
+				modifier = {
+					factor = 0.7
+					combat_rating = 100
+				}	
+
+				death = {
+					death_reason = death_battle
+				}
+				
+			}
+		}
+	}
+
+}
+
+character_event = { #TOTAL VICTORY - PIRATE BEING ATTACKED (LOST)
+	id = darkages.72235
+	title = EVTNAME1972235
+	desc = EVTDESC1972235
+	picture = GFX_evt_da_pirates
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = EVTOPTA1972235
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP104 }		
+		prestige = -50
+
+		add_character_modifier = {
+			name = da_piracy_temp_1
+			duration = 1465
+			hidden = yes
+			inherit = yes
+		}
+		
+		remove_character_modifier = da_piracy_sanctioned
+		
+		
+		random = {
+			chance = 25
+			modifier = {
+				factor = 1.5
+				event_target:big_bad_pirate = { NOT = { combat_rating = -20 } }
+			}
+			modifier = {
+				factor = 1.25
+				event_target:big_bad_pirate = { NOT = { combat_rating = -10 } }
+			}
+			modifier = {
+				factor = 1.25
+				event_target:big_bad_pirate = { NOT = { combat_rating = 0 } }
+			}
+			modifier = {
+				factor = 0.8
+				event_target:big_bad_pirate = { combat_rating = 10 }
+			}				
+			modifier = {
+				factor = 0.8
+				event_target:big_bad_pirate = { combat_rating = 20 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 30 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 40 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 50 }
+			}
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 70 }
+			}				
+			modifier = {
+				factor = 0.7
+				event_target:big_bad_pirate = { combat_rating = 100 }
+			}	
+
+			death = {
+				death_reason = death_battle
+			}
+				
+		}
+	}
+
+}
+
+
+#######################################################
+#
+#	Warn Liege of vassal gaining infamy
+#
+#######################################################
+
+			
+character_event = {			
+	id = darkages.72318
+	title = EVTNAMEKK1972318
+	desc = EVTDESCKK1972318
+	picture = GFX_evt_da_ship
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTAKK1972318
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 2
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				trait = patient
+			}			
+		}		
+		
+	}
+	
+	option = {
+		name = EVTOPTBKK1972318
+		ai_chance = {
+			factor = 14
+			modifier = {
+				factor = 2
+				FROM = { opinion = { who = ROOT value = 10 } }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+			}			
+		}		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP134 }
+		FROM = {
+			add_character_modifier = {
+				name = da_warn1_infamy
+				duration = 3650
+				hidden = yes
+			}
+			
+			opinion = {
+				who = ROOT
+				modifier = opinion_dislike
+				months = 60
+			}			
+			
+			
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTCKK1972318
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				FROM = { opinion = { who = ROOT value = 20 } }
+			}			
+			modifier = {
+				factor = 0.25
+				FROM = { NOT = { opinion = { who = ROOT value = 10 } } }
+			}				
+		}		
+		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP135 }
+		
+		FROM = {
+			add_character_modifier = {
+				name = da_warn2_infamy
+				duration = 7300
+				hidden = yes
+			}
+			
+			opinion = {
+				who = ROOT
+				modifier = opinion_unhappy
+				months = 120
+			}			
+			
+		}
+		
+	}	
+
+}
+
+#################################################################################################
+
+character_event = {			
+	id = darkages.72551
+	title = EVTNAME1972551
+	desc = EVTDESC1972160
+	picture = GFX_evt_da_city_fire
+	border = GFX_event_normal_frame_war
+	hide_window = yes
+
+	trigger = {
+
+		trait = pirate_lord	
+		is_landed = no
+		
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		remove_character_modifier = da_piracy_sanctioned
+	}
+	
+}

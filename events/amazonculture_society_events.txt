@@ -1,0 +1,1563 @@
+namespace = AmzCulSoc
+
+
+######################## CREATING ############################
+
+character_event = { 	# sending out invitations
+	id = AmzCulSoc.901
+	desc = EVTDESC_AmzCulSoc.901
+	picture = GFX_evt_woman_at_window_hf
+	border = GFX_event_character_frame_diplomacy
+					
+	option = {
+		name = EVTOPTA_AmzCulSoc.901 
+		character_event = { id = AmzCulSoc.902 days = 35 }
+		custom_tooltip = { text = started_warrior_lodge_amazonian_tt }
+	}
+	is_triggered_only = yes
+}
+
+character_event = { 	# new friends offer support
+	id = AmzCulSoc.902
+	desc = EVTDESC_AmzCulSoc.902
+	picture = GFX_evt_armory
+	border = GFX_event_character_frame_diplomacy
+	
+	immediate = {
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = NONE
+			female = yes
+			min_age = 17
+			max_age = 35
+			culture = themiskyran_amz
+			religion = bogomilist
+			trait = is_amazonian
+			attributes = {
+				martial = 16
+			}
+		}
+		new_character = {
+			save_event_target_as = soldier_target_a
+			remove_all_negative_congenital_traits_effect = yes
+			random_list = {
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_melee_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_pursue_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_centre_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_skirmish_modifier   
+						duration = -1
+					}
+				}
+			}
+		}
+		random = {
+			chance = 50
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				min_age = 17
+				max_age = 35
+				culture = valkyrie_amz
+				religion = norse_pagan
+				trait = is_amazonian
+				attributes = {
+					martial = 16
+				}
+			}
+			new_character = {
+				save_event_target_as = soldier_target_b
+				remove_all_negative_congenital_traits_effect = yes
+				random_list = {
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_melee_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_pursue_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_centre_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_skirmish_modifier   
+							duration = -1
+						}
+					}
+				}
+			}
+		}
+		random = {
+			chance = 50
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				min_age = 17
+				max_age = 35
+				culture = scythian_amz
+				religion = tengri_pagan
+				trait = is_amazonian
+				attributes = {
+					martial = 16
+				}
+			}
+			new_character = {
+				save_event_target_as = soldier_target_c
+				remove_all_negative_congenital_traits_effect = yes
+				random_list = {
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_melee_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_pursue_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_centre_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_skirmish_modifier   
+							duration = -1
+						}
+					}
+				}
+			}
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = NONE
+			female = yes
+			min_age = 17
+			max_age = 35
+			culture = parthian_amz
+			religion = mazdaki
+			trait = is_amazonian
+			attributes = {
+				martial = 16
+			}
+		}
+		new_character = {
+			save_event_target_as = soldier_target_d
+			remove_all_negative_congenital_traits_effect = yes
+			random_list = {
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_melee_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_pursue_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_centre_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_skirmish_modifier   
+						duration = -1
+					}
+				}
+			}
+		}
+		random = {
+			chance = 50
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				min_age = 17
+				max_age = 35
+				culture = kushite_amz
+				religion = hellenic_pagan
+				trait = is_amazonian
+				attributes = {
+					martial = 16
+				}
+			}
+			new_character = {
+				save_event_target_as = soldier_target_e
+				remove_all_negative_congenital_traits_effect = yes
+				random_list = {
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_melee_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_pursue_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_centre_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_skirmish_modifier   
+							duration = -1
+						}
+					}
+				}
+			}
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = NONE
+			female = yes
+			min_age = 17
+			max_age = 35
+			culture = carthaginian_amz
+			religion = yazidi
+			trait = is_amazonian
+			attributes = {
+				martial = 16
+			}
+		}
+		new_character = {
+			save_event_target_as = soldier_target_f
+			remove_all_negative_congenital_traits_effect = yes
+			random_list = {
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_melee_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_pursue_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_centre_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_skirmish_modifier   
+						duration = -1
+					}
+				}
+			}
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = NONE
+			female = yes
+			min_age = 17
+			max_age = 35
+			culture = etruscan_amz
+			religion = cathar
+			trait = is_amazonian
+			attributes = {
+				martial = 16
+			}
+		}
+		new_character = {
+			save_event_target_as = soldier_target_g
+			remove_all_negative_congenital_traits_effect = yes
+			random_list = {
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_melee_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_pursue_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_centre_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_skirmish_modifier   
+						duration = -1
+					}
+				}
+			}
+		}
+		random = {
+			chance = 50
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				min_age = 17
+				max_age = 35
+				culture = pritani_amz
+				religion = pagan
+				trait = is_amazonian
+				attributes = {
+					martial = 16
+				}
+			}
+			new_character = {
+				save_event_target_as = soldier_target_h
+				remove_all_negative_congenital_traits_effect = yes
+				random_list = {
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_melee_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_pursue_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_centre_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_skirmish_modifier   
+							duration = -1
+						}
+					}
+				}
+			}
+		}
+		random = {
+			chance = 50
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				min_age = 17
+				max_age = 35
+				culture = illyrian_amz
+				religion = slavic_pagan
+				trait = is_amazonian
+				attributes = {
+					martial = 16
+				}
+			}
+			new_character = {
+				save_event_target_as = soldier_target_i
+				remove_all_negative_congenital_traits_effect = yes
+				random_list = {
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_melee_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_pursue_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_centre_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_skirmish_modifier   
+							duration = -1
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {	# we'll be finished in no time
+		name = EVTOPTA_AmzCulSoc.902 
+		event_target:soldier_target_a = {
+			add_friend = ROOT
+		}
+		event_target:soldier_target_d = {
+			add_friend = ROOT
+		}
+		event_target:soldier_target_f = {
+			add_friend = ROOT
+		}
+		event_target:soldier_target_g = {
+			add_friend = ROOT
+		}
+		hidden_tooltip = {		# feminist heresies religions are certain, pagans are not
+			event_target:soldier_target_b = {
+				add_friend = ROOT
+			}
+			event_target:soldier_target_c = {
+				add_friend = ROOT
+			}
+			event_target:soldier_target_e = {
+				add_friend = ROOT
+			}
+			event_target:soldier_target_h = {
+				add_friend = ROOT
+			}
+			event_target:soldier_target_i = {
+				add_friend = ROOT
+			}
+		}
+		character_event = { id = AmzCulSoc.903 days = 14 }
+	}
+	is_triggered_only = yes
+}
+
+character_event = { 	# hall is completed
+	id = AmzCulSoc.903
+	desc = EVTDESC_AmzCulSoc.903
+	picture = GFX_evt_armory
+	border = GFX_event_character_frame_diplomacy
+	
+	option = {	# Ladies, welcome
+		name = EVTOPTA_AmzCulSoc.903 
+		join_society = warrior_lodge_amazonian
+		set_society_grandmaster = yes
+		add_society_currency_massive_effect = yes
+		add_trait = shieldmaiden
+		event_target:soldier_target_a = {
+			join_society = warrior_lodge_amazonian
+			add_trait = shieldmaiden
+		}
+		event_target:soldier_target_d = {
+			join_society = warrior_lodge_amazonian
+			add_trait = shieldmaiden
+		}
+		event_target:soldier_target_f = {
+			join_society = warrior_lodge_amazonian
+			add_trait = shieldmaiden
+		}
+		event_target:soldier_target_g = {
+			join_society = warrior_lodge_amazonian
+			add_trait = shieldmaiden
+		}
+		hidden_tooltip = {		# feminist heresies religions are certain, pagans are not
+			event_target:soldier_target_b = {
+				join_society = warrior_lodge_amazonian
+				add_trait = shieldmaiden
+			}
+			event_target:soldier_target_c = {
+				join_society = warrior_lodge_amazonian
+				add_trait = shieldmaiden
+			}
+			event_target:soldier_target_e = {
+				join_society = warrior_lodge_amazonian
+				add_trait = shieldmaiden
+			}
+			event_target:soldier_target_h = {
+				join_society = warrior_lodge_amazonian
+				add_trait = shieldmaiden
+			}
+			event_target:soldier_target_i = {
+				join_society = warrior_lodge_amazonian
+				add_trait = shieldmaiden
+			}
+		}
+	}
+	is_triggered_only = yes
+}
+
+
+narrative_event = { 			# player notification event
+	title = EVTTITL_AmzCulSoc.904
+	id = AmzCulSoc.904
+	desc = EVTDESC_AmzCulSoc.904
+	picture = GFX_evt_magnificent_castle
+	border = GFX_event_narrative_frame_intrigue
+	portrait = FROMFROM
+					
+	option = {	# It'll never last, male
+		name = EVTOPTA_AmzCulSoc.904
+		ai_chance = { factor = 10 }
+		trigger = {
+			is_female = no
+		}
+	}
+	option = {	# How noble, female
+		name = EVTOPTB_AmzCulSoc.904
+		ai_chance = { factor = 10 }
+		trigger = {
+			is_female = yes
+		}
+	}
+	is_triggered_only = yes
+}
+
+
+########################JOINING############################
+
+#From on_character_ask_to_join_society
+character_event = {
+    id = AmzCulSoc.100
+	hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+    	FROM = { leader = { society_member_of = warrior_lodge_amazonian} }
+    }
+    immediate = {
+    	FROM = { leader = { character_event = { id = AmzCulSoc.101 } } } #target is the leader of the society
+    }
+}
+
+#Ping event
+character_event = {
+    id = AmzCulSoc.101
+	hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+    	FROM = { letter_event = { id = AmzCulSoc.102 } } #send event back
+    }
+	
+}
+
+#Acceptance letter
+letter_event = {
+    id = AmzCulSoc.102
+    desc = EVTDESC_AmzCulSoc_102
+    border = GFX_event_letter_frame_war
+	
+    is_triggered_only = yes
+
+    option = { # agree
+        name = EVTOPTA_AmzCulSoc_102
+		FROM = { ROOT = { join_prev_warrior_lodge_amazonian_society = yes } } 
+		join_society = warrior_lodge_amazonian
+	}
+	option = { # decline
+        name = EVTOPTB_AmzCulSoc_102
+    }
+}
+
+########################AI JOIN AND AI RANK UP###########################
+
+character_event = { #force the AI to join a society
+	id = AmzCulSoc.110
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { #if she's already a member, will force a rank up 25% of the time
+				ai = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				society_member_of = warrior_lodge_amazonian
+				society_rank <= 3
+				society_can_rank_up = yes
+			}
+			random_list = {
+				75 = {}
+				25 = {
+					society_rank_up = 1					
+				}
+			}
+		}
+		any_courtier = {  
+			limit = {
+				ai = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				is_adult = yes
+				is_in_society = no
+				controls_religion = no
+				block_general_event_trigger = no
+			}
+			character_event = { id = AmzCulSoc.111 }
+		}
+		if = { # force the joining event on AI
+			limit = {
+				ai = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				is_adult = yes
+				is_in_society = no
+				controls_religion = no
+				block_general_event_trigger = no
+			}
+			character_event = { id = AmzCulSoc.111 }
+		}
+	}
+}
+
+character_event = { #AI join event
+	id = AmzCulSoc.111
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			90 = { # do nothing
+			}
+			10 = { # try to join a society 10% of the time
+				trigger = { #meet the requirement
+					can_join_society = warrior_lodge_amazonian
+				}
+				modifier = { #things that will make that 10% of the time bigger, can be anything 
+					factor = 2
+					martial >= 18
+					trait = is_amazonian
+				}
+				join_society = warrior_lodge_amazonian #join the society
+			}
+		}
+	}
+}
+
+character_event = { # on_action win battle, gain small Fame
+	id = AmzCulSoc.112
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		society_member_of = warrior_lodge_amazonian
+	}
+	
+	immediate = {
+		change_society_currency = 20
+	}
+}
+
+character_event = { # on_action win big battle, gain big Fame
+	id = AmzCulSoc.113
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		society_member_of = warrior_lodge_amazonian
+	}
+	
+	immediate = {
+		change_society_currency = 50
+	}
+}
+
+character_event = { # Daughter joins
+	id = AmzCulSoc.401
+    desc = EVTDESC_AmzCulSoc_401
+	picture = GFX_evt_daughter_asking_mother
+    border = GFX_event_character_frame_diplomacy
+	portrait = FROM
+	
+	is_triggered_only = yes
+	is_in_society = yes
+	
+	option = {
+		name = EVTOPTA_AmzCulSoc_401
+		change_society_currency = 100
+	}
+}
+
+
+#######################Rank UP#############################
+
+# Hidden start: Send the rank-up request to the current Grandmaster (delayed event on self, from decision to rank up)
+character_event = {
+	id = AmzCulSoc.120
+
+	hide_window = yes
+
+	trigger = { #has pressed the button
+		has_character_flag = has_sent_request_to_rank_up
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		if = { #if she's still a member
+			limit = { is_in_society = yes }
+			random_society_member = { #will send the request to a random top rank member of the same society
+				limit = {
+					is_society_grandmaster = yes
+					same_society_as = ROOT
+				}
+				character_event = { id = AmzCulSoc.121 } # send request to Grand Master.
+			}
+		}
+		if = { #if she's not a member
+			limit = { is_in_society = no }
+			clr_character_flag = has_sent_request_to_rank_up
+		}
+	}
+}
+
+# Grandmaster gets the rank-up request
+character_event = {
+	id = AmzCulSoc.121
+	
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+			event_target:rank_up_target = { letter_event = { id = AmzCulSoc.122 } } #send it back
+	}
+}
+
+#Grand master approves my request
+letter_event = {
+	id = AmzCulSoc.122
+	desc = EVTDESC_AmzCulSoc_122
+	border = GFX_event_letter_frame_war
+
+	trigger = {
+		society_rank < 4 #cannot rank up past 4
+		has_character_flag = has_sent_request_to_rank_up
+	}
+	
+	is_triggered_only = yes
+
+	#Rank up approved
+	option = {
+		name = EVTOPTA_AmzCulSoc_122
+		if = { limit = { society_rank < 4 } #if not max rank, rank up	
+			society_rank_up = 1
+		}
+		clr_character_flag = has_sent_request_to_rank_up
+	}
+}
+
+character_event = {
+	id = AmzCulSoc.123
+	
+	hide_window = yes
+	
+	trigger = {
+		ai = yes 
+		OR = {		
+			AND = {			# from rank 1 to rank 2
+				society_rank == 1	# exactly 1
+				society_member_of = warrior_lodge_amazonian
+				society_currency >= 750
+				days_in_society = 1095
+				any_close_relative = { 
+					society_member_of = warrior_lodge_amazonian 
+					society_rank = 2	
+				}
+			}
+			AND = { 		# from rank 2 to rank 3
+				society_rank == 2	# exactly 2
+				society_member_of = warrior_lodge_amazonian
+				society_currency >= 1000
+				days_in_society = 1095
+				any_close_relative = { 
+					society_member_of = warrior_lodge_amazonian 
+					society_rank = 3	
+				}
+			}
+		}
+	}
+
+	option = {	
+		society_rank_up = 1
+		clr_character_flag = has_sent_request_to_rank_up
+		if = {
+			limit = { society_rank == 2 }
+			change_society_currency = -750
+		}
+		if = {
+			limit = { society_rank == 3 }
+			change_society_currency = -1000
+		}		
+	}
+}
+
+################################# AMAZONIAN CONTESTS ######################################
+
+character_event = {		# wrestling contest offer, duelist
+    id = AmzCulSoc.103
+    desc = EVTDESC_AmzCulSoc_103
+	picture = GFX_evt_mysterious_forest
+    border = GFX_event_character_frame_war
+	
+	mean_time_to_happen = {
+		years = 15
+	}
+	
+	is_in_society = yes
+	trigger = {
+		society_member_of = warrior_lodge_amazonian
+		society_rank > 1 
+		NOR = {
+			trait = duelist
+			trait = hunter 
+			trait = strategist
+		}
+		is_adult = yes
+		prisoner = no
+		trait = shieldmaiden
+		war = no
+		NOT = { is_inaccessible_or_incapable_trigger = yes }
+		OR = {
+			had_character_flag = { flag = warrior_lodge_amazonian_tests years = 3 }
+			NOT = { has_character_flag = warrior_lodge_amazonian_tests }
+		}		
+	}		
+	
+	option = { # agree
+		name = EVTOPTA_AmzCulSoc_103
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.1033 }
+		tooltip_info = homosexual
+		trigger = {
+			trait = homosexual
+		}
+    }
+	option = { # agree
+        name = EVTOPTB_AmzCulSoc_103
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.1033 }
+		tooltip_info = chaste
+		trigger = {
+			trait = chaste
+		}
+    }
+	option = { # agree
+        name = EVTOPTC_AmzCulSoc_103
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.1033 }
+    }
+	option = { # disagree
+        name = EVTOPTD_AmzCulSoc_103
+		ai_chance = { factor = 0 }
+    }
+}
+
+narrative_event = {	# wrestling match
+	title = EVTTITLAmzCulSoc_1033
+	id = AmzCulSoc.1033
+	desc = EVTDESC_AmzCulSoc_1033
+	picture = GFX_evt_mysterious_forest
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_AmzCulSoc_1033
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.10333 }
+		tooltip_info = ambitious
+		trigger = {
+			trait = ambitious
+		}
+	}
+	option = {
+		name = EVTOPTB_AmzCulSoc_1033
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.10333 }
+		tooltip_info = stubborn
+		trigger = {
+			trait = stubborn
+		}
+	}
+	option = {
+		name = EVTOPTC_AmzCulSoc_1033
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.10333 }
+		tooltip_info = robust
+		trigger = {
+			trait = robust
+		}
+	}
+	option = {
+		name = EVTOPTD_AmzCulSoc_1033
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.10333 }
+	}
+}
+
+character_event = {		# wrestling contest finished
+    id = AmzCulSoc.10333
+    desc = EVTDESC_AmzCulSoc_10333
+	picture = GFX_evt_mysterious_forest
+    border = GFX_event_character_frame_war
+	
+    is_triggered_only = yes
+	
+	immediate = { set_character_flag = warrior_lodge_amazonian_tests }
+	
+	option = { 
+		name = EVTOPTA_AmzCulSoc_10333
+		ai_chance = { factor = 10 }
+		tooltip_info = homosexual
+		trigger = {
+			trait = homosexual
+		}
+		change_society_currency = 100
+		random = {
+			chance = 33
+			add_trait = duelist 
+		}
+    }
+	option = { 
+        name = EVTOPTB_AmzCulSoc_10333
+		ai_chance = { factor = 10 }
+		tooltip_info = proud
+		trigger = {
+			trait = proud
+		}
+		change_society_currency = 100
+		random = {
+			chance = 33
+			add_trait = duelist 
+		}
+    }
+	option = { 
+		name = EVTOPTC_AmzCulSoc_10333
+		ai_chance = { factor = 10 }
+		tooltip_info = humble
+		trigger = {
+			trait = humble
+		}
+		change_society_currency = 200
+		random = {
+			chance = 40
+			add_trait = duelist 
+		}
+    }
+	option = { 
+        name = EVTOPTD_AmzCulSoc_10333
+		ai_chance = { factor = 10 }
+		change_society_currency = 100
+		random = {
+			chance = 20
+			add_trait = duelist 
+		}
+    }
+}
+
+character_event = {		# archery contest offer
+    id = AmzCulSoc.104
+    desc = EVTDESC_AmzCulSoc_104
+	picture = GFX_evt_longbowman
+    border = GFX_event_character_frame_war
+	
+	mean_time_to_happen = {
+		years = 15
+	}
+	
+	is_in_society = yes
+	trigger = {
+		society_member_of = warrior_lodge_amazonian
+		society_rank > 1 
+		NOR = {
+			trait = duelist
+			trait = hunter 
+			trait = strategist
+		}
+		NOT = { religion = jain }		# jains can't get the hunter trait 
+		prisoner = no
+		trait = shieldmaiden
+		war = no
+		NOT = { is_inaccessible_or_incapable_trigger = yes }
+		OR = {
+			had_character_flag = { flag = warrior_lodge_amazonian_tests years = 3 }
+			NOT = { has_character_flag = warrior_lodge_amazonian_tests }
+		}
+	}
+
+    option = { # agree
+        name = EVTOPTA_AmzCulSoc_104
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.105 }
+		tooltip_info = homosexual
+		trigger = {
+			trait = homosexual
+		}
+    }
+	option = {  # agree
+        name = EVTOPTB_AmzCulSoc_104
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.105 }
+		tooltip_info = hunter
+		trigger = {
+			trait = hunter
+		}
+    }
+	option = { # agree
+        name = EVTOPTC_AmzCulSoc_104
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.105 }
+    }
+    option = { # disagree
+        name = EVTOPTD_AmzCulSoc_104
+		ai_chance = { factor = 0 }
+    }
+}
+
+narrative_event = {	# archery contest
+	title = EVTTITLAmzCulSoc_105
+	id = AmzCulSoc.105
+	desc = EVTDESC_AmzCulSoc_105
+	picture = GFX_evt_longbowman
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_AmzCulSoc_105
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.1055 }
+		tooltip_info = hunter
+		trigger = {
+			trait = hunter
+		}
+	}
+	option = {
+		name = EVTOPTB_AmzCulSoc_105
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.1055 }
+		tooltip_info = zodiac_sagittarius
+		trigger = {
+			trait = zodiac_sagittarius
+		}
+	}
+	option = {
+		name = EVTOPTC_AmzCulSoc_105
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.1055 }
+		tooltip_info = blinded
+		trigger = {
+			trait = blinded
+		}
+	}
+	option = {
+		name = EVTOPTD_AmzCulSoc_105
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.1055 }
+	}
+}
+
+character_event = { # what a shot
+		id = AmzCulSoc.1055
+		desc = EVTDESC_AmzCulSoc_1055
+		picture = GFX_evt_longbowman
+		border = GFX_event_character_frame_war
+
+	is_triggered_only = yes
+	
+	immediate = { set_character_flag = warrior_lodge_amazonian_tests }
+	
+	option = {
+		name = EVTOPTA_AmzCulSoc_1055
+		ai_chance = { factor = 10 }
+		tooltip_info = proud
+		trigger = {
+			trait = proud
+		}
+		change_society_currency = 100
+		random = {
+			chance = 33
+			add_trait = hunter
+		}
+	}
+	option = {
+		name = EVTOPTB_AmzCulSoc_1055
+		ai_chance = { factor = 10 }
+		tooltip_info = humble
+		trigger = {
+			trait = humble
+		}
+		change_society_currency = 100
+		random = {
+			chance = 33
+			add_trait = hunter
+		}
+	}
+	option = {
+		name = EVTOPTC_AmzCulSoc_1055
+		ai_chance = { factor = 10 }
+		tooltip_info = diligent
+		trigger = {
+			trait = diligent
+		}
+		change_society_currency = 200
+		random = {
+			chance = 40
+			add_trait = hunter
+		}
+	}
+	option = {
+		name = EVTOPTD_AmzCulSoc_1055
+		ai_chance = { factor = 10 }
+		change_society_currency = 100
+		random = {
+			chance = 20
+			add_trait = hunter
+		}
+	}
+}
+
+character_event = {		# chess contest offer
+    id = AmzCulSoc.106
+    desc = EVTDESC_AmzCulSoc_106
+    picture = GFX_evt_magnificent_castle
+    border = GFX_event_character_frame_war
+	
+	mean_time_to_happen = {
+		years = 15
+	}
+	
+	is_in_society = yes
+	trigger = {
+		society_member_of = warrior_lodge_amazonian
+		society_rank > 1 
+		NOR = {
+			trait = duelist
+			trait = hunter 
+			trait = strategist
+		}
+		prisoner = no
+		trait = shieldmaiden
+		war = no
+		NOT = { is_inaccessible_or_incapable_trigger = yes }
+		OR = {
+			had_character_flag = { flag = warrior_lodge_amazonian_tests years = 3 }
+			NOT = { has_character_flag = warrior_lodge_amazonian_tests }
+		}
+	}
+	
+    option = { # agree
+        name = EVTOPTA_AmzCulSoc_106
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.107 }
+		tooltip_info = gamer
+		trigger = {
+			trait = gamer
+		}
+    }
+	option = { # agree
+        name = EVTOPTB_AmzCulSoc_106
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.107 }
+		tooltip_info = brilliant_strategist
+		trigger = {
+			trait = brilliant_strategist
+		}
+    }
+	option = { # agree
+        name = EVTOPTC_AmzCulSoc_106
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.107 }
+    }
+    option = { # disagree
+        name = EVTOPTD_AmzCulSoc_106
+		ai_chance = { factor = 0 }
+    }
+}
+
+narrative_event = {	# chess contest
+	title = EVTTITLAmzCulSoc_107
+	id = AmzCulSoc.107
+	desc = EVTDESC_AmzCulSoc_107
+	picture = GFX_evt_magnificent_castle
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_AmzCulSoc_107
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.1077 }
+		tooltip_info = gamer
+		trigger = {
+			trait = gamer
+		}
+	}
+	option = {
+		name = EVTOPTB_AmzCulSoc_107
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.1077 }
+		tooltip_info = genius
+		trigger = {
+			trait = genius
+		}
+	}
+	option = {
+		name = EVTOPTC_AmzCulSoc_107
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.1077 }
+		tooltip_info = imbecile
+		trigger = {
+			trait = imbecile
+		}	
+	}
+	option = {
+		name = EVTOPTD_AmzCulSoc_107
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.1077 }
+	}
+}
+
+character_event = { # win chess
+		id = AmzCulSoc.1077
+		desc = EVTDESC_AmzCulSoc_1077
+		picture = GFX_evt_magnificent_castle
+		border = GFX_event_character_frame_war
+
+	is_triggered_only = yes
+	
+	immediate = { set_character_flag = warrior_lodge_amazonian_tests }
+	
+	option = {
+		name = EVTOPTA_AmzCulSoc_1077
+		ai_chance = { factor = 10 }
+		tooltip_info = paranoid
+		trigger = {
+			trait = paranoid
+		}
+		change_society_currency = 100
+		random = {
+			chance = 33
+			add_trait = strategist
+		}
+	}
+	option = {
+		name = EVTOPTB_AmzCulSoc_1077
+		ai_chance = { factor = 10 }
+		tooltip_info = ambitious
+		trigger = {
+			trait = ambitious
+		}
+		change_society_currency = 200
+		random = {
+			chance = 40
+			add_trait = strategist
+		}
+	}
+	option = {
+		name = EVTOPTC_AmzCulSoc_1077
+		ai_chance = { factor = 10 }
+		tooltip_info = shrewd
+		trigger = {
+			trait = shrewd
+		}
+		change_society_currency = 100
+		random = {
+			chance = 33
+			add_trait = strategist
+		}
+	}
+	option = {
+		name = EVTOPTD_AmzCulSoc_1077
+		ai_chance = { factor = 10 }
+		change_society_currency = 100
+		random = {
+			chance = 20
+			add_trait = strategist
+		}
+	}
+}
+
+character_event = {		# duel contest offer
+    id = AmzCulSoc.108
+    desc = EVTDESC_AmzCulSoc_108
+    picture = GFX_evt_princess_byzantine
+    border = GFX_event_character_frame_war
+	
+	mean_time_to_happen = {
+		years = 100
+	}
+	
+	is_in_society = yes
+	trigger = {
+		has_character_flag = dont_bother_with_this_random_amz_event_anymore_flag		# locks out event 
+		society_member_of = warrior_lodge_amazonian
+		society_rank == 4
+		OR = {
+			trait = duelist
+			trait = hunter 
+			trait = strategist
+		}
+		prisoner = no
+		trait = shieldmaiden
+		war = no
+		NOT = { has_character_flag = warrior_lodge_amazonian_test_flag4 }
+		NOT = { is_inaccessible_or_incapable_trigger = yes }
+	}
+	
+    option = { # agree
+        name = EVTOPTA_AmzCulSoc_108
+		narrative_event = { id = AmzCulSoc.1088 }
+		tooltip_info = brave
+		trigger = {
+			trait = brave
+		}
+		set_character_flag = warrior_lodge_amazonian_test_flag4
+    }
+	option = { # agree
+        name = EVTOPTB_AmzCulSoc_108
+		narrative_event = { id = AmzCulSoc.1088 }
+		tooltip_info = immortal
+		trigger = {
+			trait = immortal
+		}
+		set_character_flag = warrior_lodge_amazonian_test_flag4
+    }
+	option = { # agree
+        name = EVTOPTC_AmzCulSoc_108
+		narrative_event = { id = AmzCulSoc.1088 }
+		set_character_flag = warrior_lodge_amazonian_test_flag4
+    }
+    option = { # disagree
+        name = EVTOPTD_AmzCulSoc_108
+		set_character_flag = warrior_lodge_amazonian_test_flag4
+		add_trait = craven
+    }
+}
+
+narrative_event = {	# duel contest
+	title = EVTTITLAmzCulSoc_1088
+	id = AmzCulSoc.1088
+	desc = EVTDESC_AmzCulSoc_1088
+	picture = GFX_evt_moonlit_mountains_hf
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_AmzCulSoc_1088
+		character_event = { id = AmzCulSoc.10888 }
+	}
+}
+
+narrative_event = { # win duel
+	title = EVTTITLAmzCulSoc_1088
+	id = AmzCulSoc.10888
+	desc = EVTDESC_AmzCulSoc_10888
+	picture = GFX_evt_moonlit_mountains_hf
+	border = GFX_event_character_frame_war
+
+	is_triggered_only = yes
+	
+	immediate = {
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = NONE
+			female = yes
+			age = 26
+			religion = pagan
+			culture = ROOT
+			trait = impaler
+			trait = possessed
+			trait = shieldmaiden
+			trait = is_amazonian
+		}
+		new_character = {
+			add_blood_splatter_effect = yes
+			save_event_target_as = heroine_target
+			add_rival = ROOT
+			random_list = {
+				50 = { 
+					add_character_modifier = {
+						name = amazonian_melee_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_pursue_modifier   
+						duration = -1
+					}
+				}
+				75 = { 
+					add_character_modifier = {
+						name = amazonian_centre_modifier   
+						duration = -1
+					}
+				}
+				25 = { 
+					add_character_modifier = {
+						name = amazonian_skirmish_modifier   
+						duration = -1
+					}
+				}
+			}
+			remove_education_effect = yes 
+			remove_trait = shy
+			remove_trait = proud
+			remove_trait = craven
+			remove_trait = paranoid
+			remove_trait = dull
+			remove_all_negative_congenital_traits_effect = yes
+			random = {
+				chance = 30
+				add_trait = fair
+			}
+			random = {
+				chance = 50
+				add_trait = strong
+			}
+			random = {
+				chance = 10
+				add_trait = genius
+			}
+			random = {
+				chance = 30
+				add_trait = quick
+			}
+			random_list = {
+				50 = { 
+					add_trait = brilliant_strategist
+				}
+				20 = { 
+					add_trait = skilled_tactician
+				}
+				10 = { 
+					add_trait = tough_soldier
+				}
+			}
+		}
+	}
+	
+	option = {	# arrest
+		name = EVTOPTA_AmzCulSoc_10888
+		event_target:heroine_target = {
+			prisoner = yes
+			prestige = -50
+		}
+		change_society_currency = 400
+		random = {
+			chance = 25
+			change_martial = 2
+		}
+	}
+	option = {	# kill
+		name = EVTOPTB_AmzCulSoc_10888
+		add_blood_splatter_effect = yes
+		event_target:heroine_target = {
+			death = {
+				death_reason = death_duel
+				killer = ROOT
+			}
+		}
+		change_society_currency = 400
+		random = {
+			chance = 25
+			change_martial = 2
+		}
+	}
+}
+
+
+#################################EVENTS######################################
+
+#Society only event that trigger every 5 years, described in amazoncultures_society_on_actions txt
+character_event = {
+    id = AmzCulSoc.150
+    desc = EVTDESC_AmzCulSoc_150
+    picture = GFX_evt_armory
+    border = GFX_event_normal_frame_war
+
+    is_triggered_only = yes
+
+	trigger = {
+		society_member_of = warrior_lodge_amazonian 
+		martial <= 20
+		wealth >= 50
+		trait = shieldmaiden
+	}
+	
+	option = {
+        name = EVTOPTA_AmzCulSoc_150
+		ai_chance = { factor = 270 }
+		trigger = { martial <= 20 }
+		random_list = {
+			60 = { 
+				change_martial = 1
+			}
+			30 = { 
+				change_martial = 3
+			}
+			10 = { 
+				change_martial = 5
+			}
+		}
+    }
+    option = {
+        name = EVTOPTB_AmzCulSoc_150
+		add_artifact = sword_tier_2_new
+		trigger = { NOT = { has_artifact = sword_tier_2_new } }
+		ai_chance = { factor = 10 }
+		wealth = -50
+    }
+	option = {
+        name = EVTOPTC_AmzCulSoc_150
+		add_artifact = lance_tier_2_new
+		trigger = { NOT = { has_artifact = lance_tier_2_new } }
+		ai_chance = { factor = 10 }
+		wealth = -50
+    }
+	option = {
+        name = EVTOPTD_AmzCulSoc_150
+		add_artifact = bow_tier_2_new
+		trigger = { NOT = { has_artifact = bow_tier_2_new } }
+		ai_chance = { factor = 10 }
+		wealth = -50
+    }
+}
+

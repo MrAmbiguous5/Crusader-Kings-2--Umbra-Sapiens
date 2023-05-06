@@ -1,0 +1,6 @@
+akritai_composition = {
+    levy_size = 3
+	light_cavalry = 150
+	archers = 250
+	light_infantry = 800
+}

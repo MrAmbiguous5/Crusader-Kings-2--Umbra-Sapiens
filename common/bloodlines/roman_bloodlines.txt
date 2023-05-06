@@ -1,0 +1,148 @@
+western_roman_emperor_male = {
+	monthly_character_prestige = 0.25
+	bloodline_effect_roman_culture = 1
+	christian_opinion = 5
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	central_germanic_opinion = -10
+	inheritance = patrilineal
+	allow_bastards = yes
+	flags = { bloodline_faster_roman created_bloodline }
+	picture = GFX_bloodlines_symbol_roman
+	active = {
+		OR = {
+			religion_group = christian
+			religion_openly_hellenic_or_reformed_trigger = yes
+		}
+	}
+}
+
+western_roman_emperor_female = {
+	monthly_character_prestige = 0.25
+	bloodline_effect_roman_culture = 1
+	christian_opinion = 5
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	central_germanic_opinion = -10
+	inheritance = matrilineal
+	allow_bastards = yes
+	flags = { bloodline_faster_roman created_bloodline }
+	picture = GFX_bloodlines_symbol_roman
+	active = {
+		OR = {
+			religion_group = christian
+			religion_openly_hellenic_or_reformed_trigger = yes
+		}
+	}
+}
+
+roman_consul_male = {
+	monthly_character_prestige = 0.25
+	bloodline_effect_roman_culture = 1
+	christian_opinion = 5
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	city_opinion = 5
+	inheritance = patrilineal
+	allow_bastards = yes
+	flags = { bloodline_faster_roman created_bloodline }
+	picture = GFX_bloodlines_symbol_roman
+	active = {
+		OR = {
+			religion_group = christian
+			religion_openly_hellenic_or_reformed_trigger = yes
+		}
+	}
+}
+
+#why not?
+roman_consul_female = {
+	monthly_character_prestige = 0.25
+	bloodline_effect_roman_culture = 1
+	christian_opinion = 5
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	city_opinion = 5
+	inheritance = matrilineal
+	allow_bastards = yes
+	flags = { bloodline_faster_roman created_bloodline }
+	picture = GFX_bloodlines_symbol_roman
+	active = {
+		OR = {
+			religion_group = christian
+			religion_openly_hellenic_or_reformed_trigger = yes
+		}
+	}
+}
+
+roman_emperor_civil_war_male = {
+	monthly_character_prestige = 0.25
+	bloodline_effect_roman_culture = 1
+	christian_opinion = 5
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	city_opinion = -5
+	inheritance = patrilineal
+	allow_bastards = yes
+	flags = { bloodline_faster_roman created_bloodline }
+	picture = GFX_bloodlines_symbol_roman
+	active = {
+		OR = {
+			religion_group = christian
+			religion_openly_hellenic_or_reformed_trigger = yes
+		}
+	}
+}
+
+roman_emperor_civil_war_female = {
+	monthly_character_prestige = 0.25
+	bloodline_effect_roman_culture = 1
+	christian_opinion = 5
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	city_opinion = -5
+	inheritance = matrilineal
+	allow_bastards = yes
+	flags = { bloodline_faster_roman created_bloodline }
+	picture = GFX_bloodlines_symbol_roman
+	active = {
+		OR = {
+			religion_group = christian
+			religion_openly_hellenic_or_reformed_trigger = yes
+		}
+	}
+}
+
+roman_emperor_reuniter_male = {
+	monthly_character_prestige = 0.25
+	bloodline_effect_roman_culture = 1
+	byzantine_opinion = 5
+	roman_opinion = 5
+	inheritance = patrilineal
+	allow_bastards = yes
+	flags = { bloodline_faster_roman created_bloodline }
+	picture = GFX_bloodlines_symbol_roman
+	active = {
+		OR = {
+			religion_group = christian
+			religion_openly_hellenic_or_reformed_trigger = yes
+		}
+	}
+}
+
+roman_emperor_reuniter_female = {
+	monthly_character_prestige = 0.25
+	bloodline_effect_roman_culture = 1
+	byzantine_opinion = 5
+	roman_opinion = 5
+	inheritance = matrilineal
+	allow_bastards = yes
+	flags = { bloodline_faster_roman created_bloodline }
+	picture = GFX_bloodlines_symbol_roman
+	active = {
+		OR = {
+			religion_group = christian
+			religion_openly_hellenic_or_reformed_trigger = yes
+		}
+	}
+}

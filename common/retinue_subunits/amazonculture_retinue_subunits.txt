@@ -1,0 +1,250 @@
+# Types:
+# 0 - Light Infantry
+# 1 - Heavy Infantry
+# 2 - Pikemen
+# 3 - Light Cavalry
+# 4 - Knights (heavy cav)
+# 5 - Archers
+# 6 - Horse Archers
+
+RETTYPE_CUL_THEMISKYRAN_AMZ = {
+	first_type = 2
+	first_amount = 400
+	second_type = 4
+	second_amount = 100
+	
+	potential = {
+		culture = themiskyran_amz
+	}
+
+	modifier = {
+		pikemen_offensive = 0.2
+		pikemen_morale = 0.3
+		knights_offensive = 0.2
+		knights_morale = 0.2
+	}
+}
+
+RETTYPE_CUL_VALKYRIE_AMZ = {
+	first_type = 1
+	first_amount = 250
+	second_type = 4
+	second_amount = 150
+
+	potential = {
+		culture = valkyrie_amz
+	}
+
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_morale = 0.2
+		knights_defensive = 0.2
+		knights_morale = 0.2
+	}
+}
+
+RETTYPE_CUL_SCYTHIAN_AMZ = {
+	first_type = 3
+	first_amount = 250
+	second_type = 6
+	second_amount = 250
+
+	special_troops = horse_archers
+
+	potential = {
+		culture = scythian_amz
+	}
+
+	modifier = {
+		light_cavalry_offensive = 0.2
+		light_cavalry_defensive = 0.3
+		horse_archers_offensive = 0.2
+		horse_archers_morale = 0.2
+	}
+}
+
+RETTYPE_CUL_PARTHIAN_AMZ = {
+	first_type = 4
+	first_amount = 200
+	second_type = 6
+	second_amount = 300
+
+	special_troops = horse_archers
+
+	potential = {
+		culture = parthian_amz
+	}
+
+	modifier = {
+		knights_morale = 0.3
+		knights_defensive = 0.2
+		horse_archers_offensive = 0.2
+		horse_archers_morale = 0.4
+	}
+}
+
+RETTYPE_CUL_KUSHITE_AMZ = {
+	first_type = 1
+	first_amount = 400
+	second_type = 5
+	second_amount = 200
+
+	potential = {
+		culture = kushite_amz
+	}
+
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_morale = 0.2
+		archers_offensive = 0.3
+		archers_defensive = 0.2
+		archers_morale = 0.2
+	}
+}
+
+RETTYPE_CUL_CARTHAGINIAN_AMZ = {
+	first_type = 2
+	first_amount = 475
+	second_type = 6
+	second_amount = 25
+	
+	special_troops = war_elephants
+	
+	potential = {
+		culture = carthaginian_amz
+	}
+
+	modifier = {
+		pikemen_offensive = 0.2
+		pikemen_morale = 0.3
+		war_elephants_offensive = 0.5
+	}
+}
+
+RETTYPE_CUL_ETRUSCAN_AMZ = {
+	first_type = 1
+	first_amount = 300
+	second_type = 2
+	second_amount = 200
+	
+	potential = {
+		culture = etruscan_amz
+	}
+
+	modifier = {
+		pikemen_morale = 0.3
+		pikemen_defensive = 0.3
+		heavy_infantry_morale = 0.3
+		heavy_infantry_defensive = 0.3
+	}
+}
+
+RETTYPE_CUL_PRITANI_AMZ = {
+	first_type = 0
+	first_amount = 350
+	second_type = 1
+	second_amount = 250
+	
+	potential = {
+		culture = pritani_amz
+	}
+
+	modifier = {
+		light_infantry_morale  = 0.5
+		light_infantry_offensive = 0.3
+		heavy_infantry_morale = 0.4
+		heavy_infantry_offensive = 0.3
+	}
+}
+
+RETTYPE_CUL_ILLYRIAN_AMZ = {
+	first_type = 1
+	first_amount = 350
+	second_type = 2
+	second_amount = 150
+	
+	potential = {
+		culture = illyrian_amz
+	}
+
+	modifier = {
+		pikemen_morale = 0.3
+		pikemen_offensive = 0.3
+		heavy_infantry_morale = 0.3
+		heavy_infantry_offensive = 0.3
+	}
+}
+
+RETTYPE_CUL_IMPERIAL_AMZ = {
+	first_type = 6
+	first_amount = 200
+
+	special_troops = horse_archers
+
+	potential = {
+		OR = { 
+			culture = valkyrie_amz
+			culture = kushite_amz
+			culture = carthaginian_amz
+			culture = etruscan_amz
+			culture = pritani_amz
+			culture = illyrian_amz
+		}
+		any_owned_bloodline = { has_bloodline_flag = cultural_saintly_bloodline }
+	}
+
+	modifier = {
+		horse_archers_offensive = 0.15
+		horse_archers_morale = 0.15
+	}
+}
+
+RETTYPE_CUL_IMMORTAL_AMZ = {	# Ishtar's Guard
+	first_type = 4
+	first_amount = 400
+	second_type = 6
+	second_amount = 100
+
+	special_troops = horse_archers
+
+	potential = {
+		trait = is_amazonian_immortal
+	}
+	
+	hire_cost = 1000
+	costs_prestige = yes
+	
+	maintenance_multiplier = 0
+
+	modifier = {
+		knights_offensive = 0.8
+		knights_defensive = 0.75
+		knights_morale = 1.0
+		horse_archers_offensive = 0.5
+		horse_archers_defensive = 0.6
+		horse_archers_morale = 1.0
+	}
+}
+
+RETTYPE_CUL_GIANT_AMZ = {	# Giant's Sons
+	first_type = 1
+	first_amount = 500
+
+	potential = {
+		OR = {
+			trait = giant_king
+			has_character_flag = giant_retinue_flag
+		}
+	}
+	
+	hire_cost = 100
+	costs_prestige = yes
+	
+	maintenance_multiplier = 0
+
+	modifier = {
+		heavy_infantry_offensive = 1.0
+		heavy_infantry_defensive = 1.0
+		heavy_infantry_morale = 1.0
+	}
+}

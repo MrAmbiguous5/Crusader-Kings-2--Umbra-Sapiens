@@ -1,0 +1,232 @@
+##################################################
+#
+# DEMESNE LIMIT MODIFIERS (Checks if emf is being used)
+#
+##################################################
+
+# Demesne Limits
+da_demesne_limit_1 = {
+	potential = {
+		is_ruler = yes
+		NOT = { has_global_flag = EMF }
+	}
+	
+	trigger = {
+		demesne_size_compared_to_limit > 1
+		demesne_size_compared_to_limit < 1.5
+		NOT = { has_global_flag = EMF }
+	}
+	
+	vassal_opinion = -10
+	icon = 27
+	
+	active = yes
+}
+
+da_demesne_limit_2 = {
+	potential = {
+		is_ruler = yes
+		NOT = { has_global_flag = EMF }	
+	}
+	
+	trigger = {
+		demesne_size_compared_to_limit >= 1.5
+		demesne_size_compared_to_limit < 2
+		NOT = { has_global_flag = EMF }	
+	}
+	
+	vassal_opinion = -15
+	icon = 27
+	
+	active = yes
+}
+
+da_demesne_limit_3 = {
+	potential = {
+		is_ruler = yes
+		NOT = { has_global_flag = EMF }	
+	}
+	
+	trigger = {
+		demesne_size_compared_to_limit >= 2
+		demesne_size_compared_to_limit < 2.5
+		NOT = { has_global_flag = EMF }
+	}
+	
+	vassal_opinion = -20
+	icon = 27
+	
+	active = yes
+}
+
+da_demesne_limit_4 = {
+	potential = {
+		is_ruler = yes
+		NOT = { has_global_flag = EMF }
+	}
+	
+	trigger = {
+		demesne_size_compared_to_limit >= 2.5
+		demesne_size_compared_to_limit < 3
+		NOT = { has_global_flag = EMF }	
+	}
+	
+	vassal_opinion = -25
+	icon = 27
+	
+	active = yes
+}
+
+da_demesne_limit_5 = {
+	potential = {
+		is_ruler = yes
+		NOT = { has_global_flag = EMF }	
+	}
+	
+	trigger = {
+		demesne_size_compared_to_limit >= 3
+		NOT = { has_global_flag = EMF }	
+	}
+	
+	vassal_opinion = -30
+	icon = 27
+	
+	active = yes
+}
+
+
+#########################################################################################
+#
+#	APPALING MODIFIERS
+#
+#########################################################################################
+
+da_appalling_diplomacy = {
+	potential = {
+		is_ruler = yes
+	}
+	
+	trigger = {
+		NOT = { diplomacy = 5 }
+		is_adult = yes	
+		OR = {
+			ai = no
+			
+			has_game_rule = {
+				name = low_stats_system
+				value = all
+			}			
+		}
+	}
+	
+	general_opinion = -20
+	icon = 21
+	
+	active = yes
+}
+
+da_appalling_martial = {
+	potential = {
+		is_ruler = yes
+	}
+	
+	trigger = {
+		NOT = { martial = 5 }
+		is_adult = yes
+		OR = {
+			ai = no
+			
+			has_game_rule = {
+				name = low_stats_system
+				value = all
+			}			
+		}	
+	}
+	
+	global_levy_size = -0.25
+	land_morale = -0.20
+	
+	icon = 19
+	
+	active = yes
+}
+
+da_appalling_stewardship = {
+	potential = {
+		is_ruler = yes
+	}
+	
+	trigger = {
+		NOT = { stewardship = 5 }
+		is_adult = yes
+		OR = {
+			ai = no
+			
+			has_game_rule = {
+				name = low_stats_system
+				value = all
+			}			
+		}	
+	}
+	
+	global_tax_modifier = -0.25
+	
+	icon = 22
+	
+	active = yes
+}
+
+da_appalling_intrigue = {
+	potential = {
+		is_ruler = yes
+	}
+	
+	trigger = {
+		NOT = { intrigue = 5 }
+		is_adult = yes		
+		OR = {
+			ai = no
+			
+			has_game_rule = {
+				name = low_stats_system
+				value = all
+			}			
+		}	
+	}
+	
+	plot_power_modifier = -0.25
+	assassinate_chance_modifier = -0.25
+	arrest_chance_modifier = -0.25
+	plot_discovery_chance = -0.25
+	
+	icon = 23
+	
+	active = yes
+}
+
+da_appalling_learning = {
+	potential = {
+		is_ruler = yes
+	}
+	
+	trigger = {
+		NOT = { learning = 5 }
+		is_adult = yes	
+		OR = {
+			ai = no
+			
+			has_game_rule = {
+				name = low_stats_system
+				value = all
+			}			
+		}		
+	}
+	
+	tech_growth_modifier = -0.25
+	build_cost_modifier = 0.25
+	build_time_modifier = 0.25
+	
+	icon = 20
+	
+	active = yes
+}

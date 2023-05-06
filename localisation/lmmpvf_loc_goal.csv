@@ -1,0 +1,9 @@
+#;;;;;;;;;;;;;;x
+#§
+##################
+## GOALS EVENTS ##
+##################
+EVTDESC_GoalSuccess_lmmpvf_goal.1;To the [GetFromRootCompliment] [Root.GetFirstName],\n\nIt is with great pleasure that I inform you about the success of our faction's goal to [From.lmmpvf_GetFactionGoal]. It is time to celebrate!\n\nRegards,\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTDESC_GoalFailure_lmmpvf_goal.1;To the [GetFromRootCompliment] [Root.GetFirstName],\n\nIt is a sad day. With deep regret must I inform you that we have failed in our goal to [From.lmmpvf_GetFactionGoal]. May we fare better in our future goals!\n\nRegards,\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPT_Rejoice;Rejoice;;;;;;;;;;;;;x
+EVTOPT_SadDay;Sad day indeed;;;;;;;;;;;;;x

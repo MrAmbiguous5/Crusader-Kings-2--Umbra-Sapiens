@@ -1,0 +1,138 @@
+namespace = equus
+
+#Choose horse
+character_event = {
+    id = equus.1060
+    desc = EVTDESC_equus.1060
+    picture = "GFX_evt_courier"
+
+    trigger = {
+		OR = {
+			society_member_of = military_knights
+			society_member_of = military_knights1
+			society_member_of = military_knights2
+		}
+		NOT = { has_character_flag = chosen_steed }
+		NOT = { has_character_flag = dead_steed }
+	}
+	
+	mean_time_to_happen = { months = 6 }
+	
+	immediate = { set_character_flag = chosen_steed }
+	
+	option = {
+		name = EVTOPTA_equus.1060
+		add_character_modifier = { name = diplo_horse years = 100 }
+	}
+	option = {
+		name = EVTOPTB_equus.1060
+		add_character_modifier = { name = mil_horse years = 100 }
+	}
+	option = {
+		name = EVTOPTC_equus.1060
+		add_character_modifier = { name = plus_diplo_horse years = 100 }
+		wealth = -100
+	}
+	option = {
+		name = EVTOPTD_equus.1060
+		add_character_modifier = { name = plus_mil_horse years = 100 }
+		wealth = -100
+	}
+}
+
+#Horse dies, choose another?
+character_event = {
+    id = equus.1061
+    desc = EVTDESC_equus.1061
+    picture = "GFX_evt_bad_news"
+
+	trigger = {
+		has_character_flag = chosen_steed 
+	}
+	
+	mean_time_to_happen = { years = 25 }
+	
+	immediate = { 
+		clr_character_flag = chosen_steed
+		set_character_flag = dead_steed
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1061
+		trigger = {
+			NOT = { trait = stressed }
+			NOT = { trait = depressed }
+		}
+		character_event = { id = equus.1060 }
+	}
+	option = {
+		name = EVTOPTB_equus.1061
+		trigger = { trait = stressed }
+		add_trait = depressed
+	}
+	option = {
+		name = EVTOPTC_equus.1061
+		tooltip_info = depressed
+		trigger = { trait = depressed }
+	}
+}
+
+#Windmills
+character_event = {
+    id = equus.1065
+    desc = EVTDESC_equus.1065
+    picture = "GFX_evt_stone_church"
+	
+	trigger = {
+		OR = {
+			society_member_of = military_knights
+			society_member_of = military_knights1
+			society_member_of = military_knights2
+		}
+		NOT = { has_character_flag = windmills } 
+		trait = lunatic
+	}
+	
+	mean_time_to_happen = { years = 5 }
+	
+	immediate = { 
+		set_character_flag = windmills
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1065
+		tooltip_info = lunatic
+		trait = wounded
+		prestige = -50
+	}
+}
+
+#Wedding
+character_event = {
+    id = equus.1066
+    desc = EVTDESC_equus.1066
+    picture = "GFX_evt_dancing"
+	
+	trigger = {
+		OR = {
+			society_member_of = military_knights
+			society_member_of = military_knights1
+			society_member_of = military_knights2
+		}
+		NOT = { has_character_flag = wedding_loon } 
+		trait = lunatic
+	}
+	
+	mean_time_to_happen = { years = 5 }
+	
+	immediate = { 
+		set_character_flag = wedding_loon
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1066
+		tooltip_info = lunatic
+		trait = wounded
+		prestige = -50
+	}
+}

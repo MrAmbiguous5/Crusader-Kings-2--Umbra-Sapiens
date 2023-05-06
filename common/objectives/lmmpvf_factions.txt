@@ -1,0 +1,293 @@
+# Faction 1
+faction_lmmpvf_one = {
+	type = liege_titles
+	cancel_on_leader_death = yes
+	
+	# Plotter scope
+	potential = {
+		lmmpvf_basic_reqs_for_factionalism_trigger = yes
+		among_most_powerful_vassals = 2
+		higher_real_tier_than = count
+		NOT = { leads_faction = faction_lmmpvf_two }
+		
+		liege = {
+			is_nomadic = no
+			NOR = {
+				character = ROOT
+				any_demesne_title = { temporary = yes }
+			}
+			# NOT = {
+				# any_vassal = {
+					# NOT = { character = PREVPREV }
+					# leads_faction = faction_lmmpvf_one
+				# }
+			# }
+		}		
+	}
+	
+	# Target scope (ROOT = liege title, FROM = faction leader)
+	allow = {
+		is_primary_holder_title = yes
+		FROM = { primary_title = { is_primary_type_title = no } }		
+	}
+
+	# Faction member scope (ROOT = joiner, FROM = target)
+	allow_join = {
+		ROOT = {			
+			lmmpvf_basic_reqs_for_factionalism_trigger = yes
+			NOT = { in_faction = faction_lmmpvf_two }
+		}
+	}
+
+	# AI creation weight (ROOT = title, FROM = faction creator)
+	chance = {
+		factor = 1000		
+		modifier = {
+			factor = 0
+			FROM = {
+				OR = {
+					controls_religion = yes
+					rightful_religious_head_scope = { character = PREV }
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			FROM = { primary_title = { is_primary_type_title = yes } }
+		}
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 20		
+		
+		modifier = {		
+			factor = 0
+			OR = {
+				among_most_powerful_vassals = 2
+				controls_religion = yes
+				rightful_religious_head = ROOT				
+			}
+		}
+		
+		# Don't join a Faith focused faction if of another religion or heresy
+		modifier = {
+			factor = 0
+			FROM = { has_character_flag = lmmifpvf_focus_faith }
+			ROOT = {
+				lmmpvf_is_religious_enemy_of_FROM_trigger = yes
+			}
+		}
+		
+		# Don't join a faction if prospective member's opinion of the faction leader is negative or is rival/foe
+		modifier = {
+			factor = 0
+			ROOT = { 
+				NOR = { 
+					is_foe = FROM
+					opinion = { who = FROM value = 0 } 					
+				}
+			}
+		}
+
+		modifier = {
+			factor = 2
+			ROOT = { opinion = { who = FROM value = 50 } }
+		}
+		
+		modifier = {
+			factor = 2
+			ROOT = { dynasty = FROM }
+		}
+		
+		modifier = {
+			factor = 10
+			ROOT = { 
+				OR = {
+					is_close_relative = FROM 
+					any_spouse = {
+						character = FROM
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 100
+			ROOT = { is_friend = FROM }
+		}
+	}
+	
+	creation_effect = {
+		FROM = {
+			lmmpvf_call_meeting_next_year_effect = yes
+			character_event = { id = lmmpvf_focus.1 } 
+		}
+	}
+
+	success = {
+		always = no
+	}
+
+	abort = {
+		always = no
+	}
+
+	abort_effect = {
+		
+	}
+
+	effect = {
+		
+	}
+}
+
+
+# Faction 2
+faction_lmmpvf_two = {
+	type = liege_titles
+	cancel_on_leader_death = yes
+	
+	# Plotter scope
+	potential = {
+		lmmpvf_basic_reqs_for_factionalism_trigger = yes
+		among_most_powerful_vassals = 2
+		higher_real_tier_than = count
+		NOT = { leads_faction = faction_lmmpvf_one }
+		
+		liege = {
+			is_nomadic = no
+			NOR = {
+				character = ROOT
+				any_demesne_title = { temporary = yes }
+			}
+			# NOT = {
+				# any_vassal = {
+					# NOT = { character = PREVPREV }
+					# leads_faction = faction_lmmpvf_two
+				# }
+			# }
+			any_vassal = {
+				leads_faction = faction_lmmpvf_one
+			}
+		}		
+	}
+	
+	# Target scope (ROOT = liege title, FROM = faction leader)
+	allow = {
+		is_primary_holder_title = yes
+		FROM = { primary_title = { is_primary_type_title = no } }	
+	}
+
+	# Faction member scope (ROOT = joiner, FROM = target)
+	allow_join = {
+		ROOT = {			
+			lmmpvf_basic_reqs_for_factionalism_trigger = yes					
+			NOT = { in_faction = faction_lmmpvf_one }
+		}
+	}
+
+	# AI creation weight (ROOT = title, FROM = faction creator)
+	chance = {
+		factor = 1000	
+		modifier = {
+			factor = 0
+			FROM = {
+				OR = {
+					controls_religion = yes
+					rightful_religious_head_scope = { character = PREV }
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			FROM = { primary_title = { is_primary_type_title = yes } }
+		}
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 20
+		
+		modifier = {		
+			factor = 0
+			OR = {
+				among_most_powerful_vassals = 2
+				controls_religion = yes
+				rightful_religious_head = ROOT				
+			}
+		}
+		
+		# Don't join a Faith focused faction if of another religion or heresy
+		modifier = {
+			factor = 0
+			FROM = { has_character_flag = lmmifpvf_focus_faith }
+			ROOT = {
+				lmmpvf_is_religious_enemy_of_FROM_trigger = yes
+			}
+		}
+		
+		# Don't join a faction if prospective member's opinion of the faction leader is negative or is rival/foe
+		modifier = {
+			factor = 0
+			ROOT = { 
+				NOR = { 
+					is_foe = FROM
+					opinion = { who = FROM value = 0 } 					
+				}
+			}
+		}
+
+		modifier = {
+			factor = 2
+			ROOT = { opinion = { who = FROM value = 50 } }
+		}
+		
+		modifier = {
+			factor = 2
+			ROOT = { dynasty = FROM }
+		}
+		
+		modifier = {
+			factor = 10
+			ROOT = { 
+				OR = {
+					is_close_relative = FROM 
+					any_spouse = {
+						character = FROM
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 100
+			ROOT = { is_friend = FROM }
+		}
+	}
+	
+	creation_effect = {
+		FROM = { 			
+			lmmpvf_call_meeting_next_year_effect = yes
+			character_event = { id = lmmpvf_focus.1 } 
+		}
+	}
+
+	success = {
+		always = no
+	}
+
+	abort = {
+		always = no
+	}
+
+	abort_effect = {
+		
+	}
+
+	effect = {
+		
+	}
+}

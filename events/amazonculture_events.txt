@@ -1,0 +1,844 @@
+
+namespace = AmzCul	
+
+# adopt culture
+	narrative_event = {
+		title = EVTTITLAmzCul.101
+		id = AmzCul.101
+		desc = EVTDESCAmzCul.101
+		picture = GFX_evt_princess_byzantine
+		border = GFX_event_narrative_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {
+			name = EVTOPTAAmzCul.101 
+			ai_chance = { factor = 10 }
+			custom_tooltip = { text = realm_character_amz_pctg_tooltip }
+			if = {
+				limit = { culture_group = byzantine }
+				culture = themiskyran_amz
+			}
+			if = {
+				limit = { culture_group = north_germanic }
+				culture = valkyrie_amz
+			}
+			if = {
+				limit = { culture_group = east_slavic }
+				culture = scythian_amz
+			}
+			if = {
+				limit = { culture_group = iranian }
+				culture = parthian_amz
+			}
+			if = {
+				limit = { 
+					OR = { 
+						culture = egyptian_arabic 
+						culture_group = east_african
+					}
+				}
+				culture = kushite_amz
+			}
+			if = {
+				limit = { 
+					OR = { 
+						culture = maghreb_arabic
+						culture = andalusian_arabic
+					}
+				}
+				culture = carthaginian_amz
+			}
+			if = {
+				limit = { 
+					OR = { 
+						culture = italian
+						culture = roman
+						culture = sardinian
+					}
+				}
+				culture = etruscan_amz
+
+			}
+			if = {
+				limit = { 
+					culture_group = celtic
+				}
+				culture = pritani_amz
+			}
+			if = {
+				limit = { 
+					OR = {
+						culture = bosnian
+						culture = croatian
+						culture = serbian
+					}
+				}
+				culture = illyrian_amz
+			}
+			add_character_modifier = { 
+				name = pre_trailblazer_modifier    
+				duration = -1
+			}
+			hidden_tooltip = {
+				any_vassal = {
+					limit = { ai = no }
+					character_event = { id = AmzCul.103 }
+				}
+			}
+		}
+		
+		option ={
+			name = EVTOPTBAmzCul.101
+			ai_chance = { factor = 0 }
+		}
+	}
+	
+# win support, go full amazonian culture
+	narrative_event = {
+		title = EVTTITLAmzCul.10199
+		id = AmzCul.10199
+		desc = EVTDESCAmzCul.10199
+		picture = GFX_evt_matriarchy_throne_room
+		border = GFX_event_narrative_frame_diplomacy
+		
+		mean_time_to_happen = { months = 3 }
+		
+		trigger = {
+			war = no 
+			independent = yes
+			OR = {		# haven't shrunk
+				realm_size = 36
+				higher_tier_than = DUKE
+			}
+			NOT = { is_inaccessible_trigger = yes } 
+			has_character_modifier = pre_trailblazer_modifier
+			OR = {
+				capital_scope = { culture = ROOT }
+				realm_character_percent = {		# 30% of characters
+					target = 0.30
+					culture = ROOT
+				}
+			}
+			OR = { 
+				culture = themiskyran_amz  
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+		}
+						
+		option = {
+			name = EVTOPTAAmzCul.10199
+			ai_chance = { factor = 10 }
+			hidden_tooltip = { 
+				if = {
+					limit = { culture = themiskyran_amz }
+					set_global_flag = themiskyran_reborn_flag
+				}
+				if = {
+					limit = { culture = valkyrie_amz }
+					set_global_flag = valkyrie_reborn_flag
+				}
+				if = {
+					limit = { culture = scythian_amz }
+					set_global_flag = scythian_reborn_flag
+				}
+				if = {
+					limit = { culture = parthian_amz }
+					set_global_flag = parthian_reborn_flag
+				}
+				if = {
+					limit = { culture = kushite_amz }
+					set_global_flag = kushite_reborn_flag
+				}
+				if = {
+					limit = { culture = carthaginian_amz }
+					set_global_flag = carthaginian_reborn_flag
+				}
+				if = {
+					limit = { culture = etruscan_amz }
+					set_global_flag = etruscan_reborn_flag
+				}
+				if = {
+					limit = { culture = pritani_amz }
+					set_global_flag = pritani_reborn_flag
+				}
+				if = {
+					limit = { culture = illyrian_amz }
+					set_global_flag = illyrian_reborn_flag
+				}
+				any_courtier_or_vassal = { 
+					limit = { is_close_relative = ROOT }
+					culture = ROOT
+				}
+			}
+			capital_scope = { culture = ROOT }
+			remove_character_modifier = pre_trailblazer_modifier
+			add_character_modifier = { 
+				name = trailblazer_modifier    
+				duration = -1
+			}
+			prestige = 300 
+		}
+	}
+	
+	
+# remove pre_trailblazer_modifier if no longer valid 
+	character_event = {
+		id = AmzCul.10299
+		hide_window = yes 
+		
+		trigger = {
+			has_character_modifier = pre_trailblazer_modifier
+			OR = {
+				independent = no
+				is_ruler = no 
+				trait = incapable
+				NOR = { 
+					culture = themiskyran_amz  
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+			}
+		}
+					
+		option = {
+			name = EVTOPTAAmzCul.10299 
+			ai_chance = { factor = 10 }
+			remove_character_modifier = pre_trailblazer_modifier
+		}
+	}
+
+# adopted liege's culture
+	character_event = {
+		id = AmzCul.102
+		desc = EVTDESCAmzCul.102
+		picture = GFX_evt_matriarchy_throne_room
+		border = GFX_event_character_frame_diplomacy
+			
+		option = {
+			name = EVTOPTAAmzCul.102 
+			ai_chance = { factor = 10 }
+			if = {
+				limit = { liege = { culture = themiskyran_amz } }
+				culture = themiskyran_amz
+			}
+			if = {
+				limit = { liege = { culture = valkyrie_amz } }
+				culture = valkyrie_amz
+			}
+			if = {
+				limit = { liege = { culture = scythian_amz } }
+				culture = scythian_amz
+			}
+			if = {
+				limit = { liege = { culture = parthian_amz } }
+				culture = parthian_amz
+			}
+			if = {
+				limit = { liege = { culture = kushite_amz } }
+				culture = kushite_amz
+			}
+			if = {
+				limit = { liege = { culture = carthaginian_amz } }
+				culture = carthaginian_amz
+			}
+			if = {
+				limit = { liege = { culture = etruscan_amz } }
+				culture = etruscan_amz
+			}
+			if = {
+				limit = { liege = { culture = pritani_amz } }
+				culture = pritani_amz
+			}
+			if = {
+				limit = { liege = { culture = illyrian_amz } }
+				culture = illyrian_amz
+			}
+		}
+		is_triggered_only = yes
+	}
+	
+# ping event for liege changed culture
+	character_event = {
+		id = AmzCul.103
+		desc = EVTDESCAmzCul.103
+		picture = GFX_evt_matriarchy_throne_room
+		border = GFX_event_character_frame_diplomacy
+						
+		option = {
+			name = EVTOPTAAmzCul.103 
+			trigger = {
+				is_female = no
+			}			
+		}
+		option = {
+			name = EVTOPTBAmzCul.103 
+		}
+		is_triggered_only = yes
+	}
+
+# force succession laws
+	character_event = {		# enatic-cognatic, ladies first
+		id = AmzCul.801
+		desc = EVTDESCAmzCul.801
+		picture = GFX_evt_matriarchy_throne_room
+		border = GFX_event_character_frame_diplomacy
+		
+		hide_window = yes	# triggered automatically by ruler of amz culture, fem heresy or fem muslim
+		
+		trigger = {
+			OR = { 
+				culture = themiskyran_amz  
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+				AND = {
+					religion = cathar
+					has_global_flag = cathar_enat_cognatic_flag
+				}
+				AND = {
+					religion = messalian
+					has_global_flag = messalian_enat_cognatic_flag
+				}
+				AND = {
+					religion = bogomilist
+					has_global_flag = bogomilist_enat_cognatic_flag
+				}
+				AND = {
+					religion = mazdaki
+					has_global_flag = mazdaki_enat_cognatic_flag
+				}
+				AND = {
+					religion = sunni
+					has_global_flag = sunni_enat_cognatic_flag
+				}
+				AND = {
+					religion = shiite
+					has_global_flag = shiite_enat_cognatic_flag
+				}
+				AND = {
+					religion = ibadi
+					has_global_flag = ibadi_enat_cognatic_flag
+				}
+				AND = {
+					religion = yazidi
+					has_global_flag = yazidi_enat_cognatic_flag
+				}
+				AND = {
+					religion = kharijite
+					has_global_flag = kharijite_enat_cognatic_flag
+				}
+				AND = {
+					religion = hurufi
+					has_global_flag = hurufi_enat_cognatic_flag
+				}
+				AND = {
+					religion = qarmatian
+					has_global_flag = qarmatian_enat_cognatic_flag
+				}
+				has_game_rule = { 
+					name = succession_law_amz
+					value = enatic_cognatic_amz
+				}
+			}
+			NOR = { 
+				government = merchant_republic_government 
+			}
+			OR = {
+				NOR = {
+					government = theocracy_government 
+					government = order_government
+				}
+				AND = { 
+					OR = {
+						government = order_government
+						government = theocracy_government 
+					}
+					religion_allows_female_temple_holders = yes
+				}
+			}
+			NOR = {
+				trait = giant_lord 
+				trait = giant_king
+			}
+			any_demesne_title = { 
+				OR = {
+					NOR = { 
+						has_law = enatic_cognatic_succession 
+						has_law = enatic_succession
+					}
+					NOT = { has_law = status_of_women_4 }
+				}
+			}
+		}
+		
+		option = {
+			name = EVTOPTAAmzCul.801 
+			ai_chance = { factor = 10 }
+			any_demesne_title = {
+				add_law = { 
+					law = enatic_cognatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+				add_law = status_of_women_4
+				set_allow_feminism = yes
+				law_set_allow_matrilineal_marriage = yes 
+			}
+			recalc_succession = yes
+			hidden_tooltip = {
+				law_set_allow_matrilineal_marriage = yes
+			}
+		}
+	}
+	
+	character_event = { # full enatic, ladies only		
+		id = AmzCul.802
+		desc = EVTDESCAmzCul.802
+		picture = GFX_evt_matriarchy_throne_room
+		border = GFX_event_character_frame_diplomacy
+		
+		hide_window = yes
+		
+		trigger = {
+			OR = {	
+				AND = {
+					religion = cathar
+					has_global_flag = cathar_enatic_flag
+				}
+				AND = {
+					religion = messalian
+					has_global_flag = messalian_enatic_flag
+				}
+				AND = {
+					religion = bogomilist
+					has_global_flag = bogomilist_enatic_flag
+				}
+				AND = {
+					religion = mazdaki
+					has_global_flag = mazdaki_enatic_flag
+				}
+				has_religion_feature = religion_matriarchal
+				has_game_rule = { 
+					name = succession_law_amz
+					value = enatic_amz
+				}
+			}
+			NOT = { 
+				government = merchant_republic_government 
+			}
+			NOR = {
+				trait = giant_lord 
+				trait = giant_king
+			}
+			any_demesne_title = { 
+				OR = {
+					NOT = { has_law = enatic_succession }
+					NOT = { has_law = status_of_women_4 }
+				}
+			}
+		}
+
+		option = {
+			name = EVTOPTAAmzCul.802 
+			ai_chance = { factor = 10 }
+			any_demesne_title = {
+				add_law = { 
+					law = enatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+				add_law = status_of_women_4
+				set_allow_feminism = yes
+				law_set_allow_matrilineal_marriage = yes 
+			}
+			recalc_succession = yes
+		}
+	}
+	
+	character_event = { # absolute cognatic, equality, non amazon 
+		id = AmzCul.803
+		
+		hide_window = yes
+		
+		trigger = {
+			NOR = {		
+				culture = themiskyran_amz  
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+			OR = {
+				AND = {
+					religion = cathar
+					has_global_flag = cathar_abs_cognatic_flag
+				}
+				AND = {
+					religion = messalian
+					has_global_flag = messalian_abs_cognatic_flag
+				}
+				AND = {
+					religion = bogomilist
+					has_global_flag = bogomilist_abs_cognatic_flag
+				}
+				AND = {
+					religion = mazdaki
+					has_global_flag = mazdaki_abs_cognatic_flag
+				}
+				AND = {
+					religion = sunni
+					has_global_flag = sunni_abs_cognatic_flag
+				}
+				AND = {
+					religion = shiite
+					has_global_flag = shiite_abs_cognatic_flag
+				}
+				AND = {
+					religion = ibadi
+					has_global_flag = ibadi_abs_cognatic_flag
+				}
+				AND = {
+					religion = yazidi
+					has_global_flag = yazidi_abs_cognatic_flag
+				}
+				AND = {
+					religion = kharijite
+					has_global_flag = kharijite_abs_cognatic_flag
+				}
+				AND = {
+					religion = hurufi
+					has_global_flag = hurufi_abs_cognatic_flag
+				}
+				AND = {
+					religion = qarmatian
+					has_global_flag = qarmatian_abs_cognatic_flag
+				}
+				has_game_rule = { 
+					name = succession_law_amz
+					value = true_cognatic_amz
+				}
+			}
+			OR = {
+				NOR = {
+					government = theocracy_government 
+				}
+				AND = { 
+					OR = {
+						government = theocracy_government 
+					}
+					religion_allows_female_temple_holders = yes
+				}
+			}
+			NOR = {
+				trait = giant_lord 
+				trait = giant_king
+			}
+			any_demesne_title = { 
+				OR = {
+					NOT = { has_law = true_cognatic_succession }
+					NOT = { has_law = status_of_women_4 }
+				}
+			}
+		}
+		
+		option = {
+			name = EVTOPTAAmzCul.803 
+			ai_chance = { factor = 10 }
+			any_demesne_title = {
+				limit = { NOT = { has_law = true_cognatic_succession } }
+				add_law = { 
+					law = true_cognatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+				add_law = status_of_women_4
+				set_allow_feminism = yes
+				law_set_allow_matrilineal_marriage = yes 
+			}
+			recalc_succession = yes
+		}
+	}
+	
+	character_event = { # agnatic, for giant lords & kings
+		id = AmzCul.804
+		
+		hide_window = yes
+		
+		trigger = {
+			OR = {
+				trait = giant_lord 
+				trait = giant_king
+			}
+			any_demesne_title = { 
+				OR = {
+					NOT = { has_law = agnatic_succession }
+					NOT = { has_law = status_of_women_4 }		# women may serve
+				}
+			}
+		}
+		
+		option = {
+			name = EVTOPTAAmzCul.804 
+			ai_chance = { factor = 10 }
+			any_demesne_title = {
+				limit = { NOT = { has_law = agnatic_succession } }
+				add_law = { 
+					law = agnatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+				add_law = status_of_women_4
+				set_allow_feminism = no
+				law_set_allow_matrilineal_marriage = no
+			}
+			recalc_succession = yes
+		}
+	}
+	
+# replaces created theocratic vassal with vassal of appropriate sex
+	character_event = { 
+		id = AmzCul.901
+		desc = EVTDESCAmzCul.901
+		hide_window = yes
+		ai = yes
+		
+		mean_time_to_happen = { days = 5 }
+		
+		trigger = {
+			capital_holding = { 
+				holding_type = temple 
+				NOT = { is_allowed_holding_type = FROM }
+			}
+			tier = BARON
+		}
+	
+		option = {
+			name = EVTOPTAAmzCul.901
+			ai_chance = { factor = 10 }
+			trigger = { is_female = yes }
+			create_random_priest = {
+				random_traits = yes
+				female = no
+				dynasty = none
+				min_age = 17
+				max_age = 23
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				save_event_target_as = male_replacement_target
+			}
+			abdicate_to = event_target:male_replacement_target
+		}
+		option = {
+			name = EVTOPTBAmzCul.901
+			ai_chance = { factor = 10 }
+			trigger = { is_female = no }
+			create_random_priest = {
+				random_traits = yes
+				female = yes
+				dynasty = none
+				min_age = 17
+				max_age = 23
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				save_event_target_as = female_replacement_target
+			}
+			abdicate_to = event_target:female_replacement_target
+		}
+	}
+
+# construct the feminist seminary, sets global flag per religion
+	character_event = { 
+		id = AmzCul.902
+		desc = EVTDESCAmzCul.902
+		picture = GFX_evt_princess_byzantine
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+		
+		option = {
+			name = EVTOPTAAmzCul.902
+			ai_chance = { factor = 10 }
+			wealth = -500
+			piety = -500
+			clr_character_flag = constructing_seminary_flag
+			if = {
+				limit = { religion_allows_female_temple_holders = no }
+				set_female_temple_holders = yes
+			}
+			custom_tooltip = { text = invite_priestesses_tooltip }
+			if = {
+				limit = { religion = cathar }
+				set_global_flag = cathar_seminary_flag
+			}
+			if = {
+				limit = { religion = messalian }
+				set_global_flag = messalian_seminary_flag
+			}
+			if = {
+				limit = { religion = bogomilist }
+				set_global_flag = bogomilist_seminary_flag
+			}
+			if = {
+				limit = { religion = mazdaki }
+				set_global_flag = mazdaki_seminary_flag
+			}
+			if = {
+				limit = { religion = sunni }
+				set_global_flag = sunni_seminary_flag
+			}
+			if = {
+				limit = { religion = zikri }
+				set_global_flag = zikri_seminary_flag
+			}
+			if = {
+				limit = { religion = yazidi }
+				set_global_flag = yazidi_seminary_flag
+			}
+			if = {
+				limit = { religion = ibadi }
+				set_global_flag = ibadi_seminary_flag
+			}
+			if = {
+				limit = { religion = kharijite }
+				set_global_flag = kharijite_seminary_flag
+			}
+			if = {
+				limit = { religion = shiite }
+				set_global_flag = shiite_seminary_flag
+			}
+			if = {
+				limit = { religion = druze }
+				set_global_flag = druze_seminary_flag
+			}
+			if = {
+				limit = { religion = hurufi }
+				set_global_flag = hurufi_seminary_flag
+			}
+			if = {
+				limit = { religion = qarmatian }
+				set_global_flag = qarmatian_seminary_flag
+			}
+		}
+		option = {
+			name = EVTOPTBAmzCul.902
+			ai_chance = { factor = 1 }
+			clr_character_flag = constructing_seminary_flag
+		}
+	}
+	
+# feminist seminary automatic with full enatic game rule 
+	character_event = { 
+		id = AmzCul.9021
+		hide_window = yes
+		
+		trigger = {
+			has_game_rule = { 
+				name = succession_law_amz
+				value = enatic_amz
+			}
+			OR = {
+				AND = {
+					religion = cathar 
+					NOT = { has_global_flag = cathar_seminary_flag }
+				}
+				AND = {
+					religion = messalian 
+					NOT = { has_global_flag = messalian_seminary_flag }
+				}
+				AND = {
+					religion = bogomilist 
+					NOT = { has_global_flag = bogomilist_seminary_flag }
+				}
+				AND = {
+					religion = mazdaki 
+					NOT = { has_global_flag = mazdaki_seminary_flag }
+				}
+				AND = {
+					religion = sunni 
+					NOT = { has_global_flag = sunni_seminary_flag }
+				}
+				AND = {
+					religion = zikri 	# don't have a caliph tho
+					NOT = { has_global_flag = zikri_seminary_flag }
+				}
+				AND = {
+					religion = yazidi 
+					NOT = { has_global_flag = yazidi_seminary_flag }
+				}
+				AND = {
+					religion = ibadi 
+					NOT = { has_global_flag = ibadi_seminary_flag }
+				}
+				AND = {
+					religion = kharijite 
+					NOT = { has_global_flag = kharijite_seminary_flag }
+				}
+				AND = {
+					religion = shiite 
+					NOT = { has_global_flag = shiite_seminary_flag }
+				}
+				AND = {
+					religion = druze	 # don't have a caliph tho
+					NOT = { has_global_flag = druze_seminary_flag }
+				}
+				AND = {
+					religion = hurufi 
+					NOT = { has_global_flag = hurufi_seminary_flag }
+				}
+				AND = {
+					religion = qarmatian 
+					NOT = { has_global_flag = qarmatian_seminary_flag }
+				}
+			}
+		}
+		
+		option = {
+			name = EVTOPTAAmzCul.9021
+			ai_chance = { factor = 10 }
+			if = {
+				limit = { religion_allows_female_temple_holders = no }
+				set_female_temple_holders = yes
+			}
+			set_global_flag = cathar_seminary_flag
+			set_global_flag = messalian_seminary_flag
+			set_global_flag = bogomilist_seminary_flag
+			set_global_flag = mazdaki_seminary_flag
+			set_global_flag = sunni_seminary_flag
+			set_global_flag = zikri_seminary_flag
+			set_global_flag = yazidi_seminary_flag
+			set_global_flag = ibadi_seminary_flag
+			set_global_flag = kharijite_seminary_flag
+			set_global_flag = shiite_seminary_flag
+			set_global_flag = druze_seminary_flag
+			set_global_flag = hurufi_seminary_flag
+			set_global_flag = qarmatian_seminary_flag
+		}
+	}
+

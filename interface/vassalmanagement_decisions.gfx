@@ -1,0 +1,58 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_toggle_vassalmanagement"
+		texturefile = "gfx/interface/decision_icon_toggle_vassalmanagement.tga"
+	}
+	spriteType = {
+		name = "GFX_banish_all"
+		texturefile = "gfx/interface/decision_icon_banish_all.tga"
+	}
+	spriteType = {
+		name = "GFX_revoke_all"
+		texturefile = "gfx/interface/decision_icon_revoke_all.tga"
+	}
+	spriteType = {
+		name = "GFX_revoke_all_others"
+		texturefile = "gfx/interface/decision_icon_revoke_all_others.tga"
+	}
+	spriteType = {
+		name = "GFX_vassalize_count"
+		texturefile = "gfx/interface/decision_icon_vassalize_count.tga"
+	}
+	spriteType = {
+		name = "GFX_vassalize_outside_baron"
+		texturefile = "gfx/interface/decision_icon_vassalize_outside_baron.tga"
+	}
+	spriteType = {
+		name = "GFX_vassalize_baron"
+		texturefile = "gfx/interface/decision_icon_vassalize_baron.tga"
+	}
+	spriteType = {
+		name = "GFX_vassalize_tribe"
+		texturefile = "gfx/interface/decision_icon_vassalize_tribe.tga"
+	}
+	spriteType = {
+		name = "GFX_vassalize_priest"
+		texturefile = "gfx/interface/decision_icon_vassalize_priest.tga"
+	}
+	spriteType = {
+		name = "GFX_vassalize_mayor"
+		texturefile = "gfx/interface/decision_icon_vassalize_mayor.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_province"
+		texturefile = "gfx/interface/decision_icon_flag_province.tga"
+	}
+	spriteType = {
+		name = "GFX_unflag_province"
+		texturefile = "gfx/interface/decision_icon_unflag_province.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_province_marshal"
+		texturefile = "gfx/interface/decision_icon_flag_province_marshal.tga"
+	}
+	spriteType = {
+		name = "GFX_unflag_province_marshal"
+		texturefile = "gfx/interface/decision_icon_unflag_province_marshal.tga"
+	}
+}

@@ -1,0 +1,1644 @@
+decisions = {
+
+	decision_rest = {
+		potential = {
+			is_landed = yes		
+			NOT = { trait = resting }
+			trait = stressed			
+		}
+		allow = {
+			NOT = { trait = lunatic }
+			NOT = { war = yes }
+		}
+		effect = {
+			add_trait = resting
+		}
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 0.1
+				trait = wroth
+			}
+			
+			modifier = {
+				factor = 0.1
+				trait = diligent
+			}
+			modifier = {
+				factor = 0.1
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.1
+				trait = envious
+			}			
+		}
+	}
+	
+	decision_break_rest = {
+		potential = {
+			num_of_titles = 1
+			trait = resting			
+		}
+		allow = {
+
+		}
+		effect = {
+			add_trait = stressed
+		}
+		ai_will_do = {
+			factor = 0.01
+		}		
+	}
+	
+	decision_ss_focus = {
+		potential = {
+			NOT = {
+				has_game_rule = {
+					name = stability_system
+					value = off
+				}
+			}		
+			is_landed = yes		
+			any_demesne_province = {
+				has_province_flag = crown_focus_province
+				NOT = { has_province_modifier = stability_2 }
+			}
+		}
+		allow = {
+			NOT = { has_character_modifier = ss_crown_focus }
+		}
+		effect = {
+		
+			if = {
+				limit = { 
+					realm_stewardship = 45
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 730
+					hidden = yes
+					inherit = yes
+				}
+			}
+			
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 45 }
+					realm_stewardship = 40
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 1460
+					hidden = yes	
+					inherit = yes
+				}
+			}	
+
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 40 }
+					realm_stewardship = 35
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 1825
+					hidden = yes
+					inherit = yes
+				}
+			}	
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 35 }
+					realm_stewardship = 30
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 2190
+					hidden = yes
+					inherit = yes
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 30 }
+					realm_stewardship = 25
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 2555
+					hidden = yes
+					inherit = yes
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 25 }
+					realm_stewardship = 20
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 3650
+					hidden = yes
+					inherit = yes
+				}
+			}	
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 20 }
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 7300
+					hidden = yes
+					inherit = yes
+				}
+			}			
+			random_demesne_province = {
+				limit = {
+					has_province_flag = crown_focus_province 
+				}
+				if = {
+					limit = {
+						has_province_modifier = stability_1
+					}
+					
+					remove_province_modifier = stability_1
+					
+					add_province_modifier = {
+						name = stability_2
+						days = -1
+					}
+				}
+				
+				if = {
+					limit = {
+						NOR = {
+							has_province_modifier = stability_2
+							has_province_modifier = stability_1
+							has_province_modifier = instability_1
+							has_province_modifier = instability_2
+						}
+					}
+					
+					add_province_modifier = {
+						name = stability_1
+						days = -1
+					}
+				}
+
+				if = {
+					limit = {
+						has_province_modifier = instability_1
+					}
+					
+					remove_province_modifier = instability_1
+				}
+
+				if = {
+					limit = {
+						has_province_modifier = instability_2
+					}
+					
+					remove_province_modifier = instability_2
+					
+					add_province_modifier = {
+						name = instability_1
+						days = -1
+					}
+				}				
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+		}		
+	}
+
+	decision_ss_nofocus = {
+		potential = {
+			NOT = {
+				has_game_rule = {
+					name = stability_system
+					value = off
+				}
+			}		
+			is_landed = yes
+			
+			NOT = {
+				any_demesne_province = {
+					has_province_flag = crown_focus_province
+				}
+			}
+			any_demesne_province = {
+				NOT = { has_province_modifier = stability_2 }
+			}
+		}
+		allow = {
+			NOT = { has_character_modifier = ss_crown_focus }
+		}
+		effect = {
+		
+			if = {
+				limit = { 
+					realm_stewardship = 45
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 730
+					hidden = yes
+					inherit = yes
+				}
+			}
+			
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 45 }
+					realm_stewardship = 40
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 1460
+					hidden = yes	
+					inherit = yes
+				}
+			}	
+
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 40 }
+					realm_stewardship = 35
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 1825
+					hidden = yes
+					inherit = yes
+				}
+			}	
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 35 }
+					realm_stewardship = 30
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 2190
+					hidden = yes
+					inherit = yes
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 30 }
+					realm_stewardship = 25
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 2555
+					hidden = yes
+					inherit = yes
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 25 }
+					realm_stewardship = 20
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 3650
+					hidden = yes
+					inherit = yes
+				}
+			}	
+			if = {
+				limit = { 
+					NOT = { realm_stewardship = 20 }
+				}
+				add_character_modifier = {
+					name = ss_crown_focus
+					duration = 7300
+					hidden = yes
+					inherit = yes
+				}
+			}			
+			random_demesne_province = {
+				limit = {
+					NOT = { has_province_modifier = stability_2 }
+				}
+				if = {
+					limit = {
+						has_province_modifier = stability_1
+					}
+					
+					remove_province_modifier = stability_1
+					
+					add_province_modifier = {
+						name = stability_2
+						days = -1
+					}
+				}
+				
+				if = {
+					limit = {
+						NOR = {
+							has_province_modifier = stability_2
+							has_province_modifier = stability_1
+							has_province_modifier = instability_1
+							has_province_modifier = instability_2
+						}
+					}
+					
+					add_province_modifier = {
+						name = stability_1
+						days = -1
+					}
+				}
+
+				if = {
+					limit = {
+						has_province_modifier = instability_1
+					}
+					
+					remove_province_modifier = instability_1
+				}
+
+				if = {
+					limit = {
+						has_province_modifier = instability_2
+					}
+					
+					remove_province_modifier = instability_2
+					
+					add_province_modifier = {
+						name = instability_1
+						days = -1
+					}
+				}				
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+		}		
+	}	
+	
+	decision_appoint_overseer = {
+		potential = {
+			NOT = {
+				has_game_rule = {
+					name = stability_system
+					value = off
+				}
+			}		
+			is_landed = yes		
+			NOT = {
+				any_courtier = {
+					has_character_modifier = ss_overseer
+				}
+			}
+		}
+		allow = {
+			NOT = { has_character_modifier = ss_overseer_cooldown }
+			demesne_size = 2
+		}
+		effect = {
+			add_character_modifier = {
+				name = ss_overseer_cooldown
+				duration = 1825
+				hidden = yes
+				inherit = yes
+			}
+			
+			character_event = { id = darkages.72061 } 
+			
+		}
+		ai_will_do = {
+			factor = 0.01
+		}		
+	}
+
+	decision_dismiss_overseer = {
+		potential = {
+			NOT = {
+				has_game_rule = {
+					name = stability_system
+					value = off
+				}
+			}		
+			any_courtier = {
+				has_character_modifier = ss_overseer
+			}
+		}
+		allow = {
+
+		}
+		effect = {
+			random_courtier = {
+				limit = {
+					has_character_modifier = ss_overseer					
+				}
+				remove_character_modifier = ss_overseer
+			}
+			
+		}
+		ai_will_do = {
+			factor = 0
+		}		
+	}
+
+	decision_ss_plan_overseer = {
+		potential = {
+			NOT = {
+				has_game_rule = {
+					name = stability_system
+					value = off
+				}
+			}		
+			any_courtier = {
+				has_character_modifier = ss_overseer
+			}		
+			any_demesne_province = {
+				OR = {
+					has_province_modifier = instability_1
+					has_province_modifier = instability_2
+				}
+			}
+		}
+		allow = {
+			stewardship = 12
+			NOT = { has_character_modifier = ss_mission_cooldown }
+		}
+		effect = {
+
+			add_character_modifier = {
+				name = ss_mission_cooldown
+				duration = 1825
+				hidden = yes
+				inherit = yes
+			}
+			
+			hidden_tooltip = {
+				random_list = {
+				
+					25 = {
+						character_event = { id = darkages.72062 }
+					}
+					
+					25 = {
+						character_event = { id = darkages.72066 }
+					}
+
+					25 = {
+						character_event = { id = darkages.72070 }
+					}
+
+					25 = {
+						character_event = { id = darkages.72074 }
+					}				
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+		}		
+	}
+
+	decision_ss_control_rebellion = {
+		potential = {
+			NOT = {
+				has_game_rule = {
+					name = stability_system
+					value = off
+				}
+			}		
+			is_landed = yes
+		}
+		allow = {
+			job_marshal = {
+				has_job_action = action_assist_arrest
+				location = {
+					has_province_modifier = instability_2
+				}
+			}		
+			NOT = { has_character_modifier = ss_mod_controlled_rebellion }
+		}
+		effect = {
+			job_marshal = {
+				location = {
+					remove_province_modifier = instability_2
+					add_province_modifier = {
+						name = instability_1
+						duration = -1
+					}
+				}
+				
+			}
+			
+			if = {
+				limit = { 
+					realm_martial = 45
+				}
+				add_character_modifier = {
+					name = ss_mod_controlled_rebellion
+					duration = 730
+					hidden = yes
+					inherit = yes
+				}
+			}
+				
+			if = {
+				limit = { 
+					NOT = { realm_martial = 45 }
+					realm_martial = 40
+				}
+				add_character_modifier = {
+					name = ss_mod_controlled_rebellion
+					duration = 1460
+					hidden = yes	
+					inherit = yes
+				}
+			}	
+			if = {
+				limit = { 
+					NOT = { realm_martial = 40 }
+					realm_martial = 35
+				}
+				add_character_modifier = {
+					name = ss_mod_controlled_rebellion
+					duration = 1825
+					hidden = yes
+					inherit = yes
+				}
+			}	
+			if = {
+				limit = { 
+					NOT = { realm_martial = 35 }
+					realm_martial = 30
+				}
+				add_character_modifier = {
+					name = ss_mod_controlled_rebellion
+					duration = 2190
+					hidden = yes
+					inherit = yes
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { realm_martial = 30 }
+					realm_martial = 25
+				}
+				add_character_modifier = {
+					name = ss_mod_controlled_rebellion
+					duration = 2555
+					hidden = yes
+					inherit = yes
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { realm_martial = 25 }
+					realm_martial = 20
+				}
+				add_character_modifier = {
+					name = ss_mod_controlled_rebellion
+					duration = 3650
+					hidden = yes
+					inherit = yes
+				}
+			}	
+			if = {
+				limit = { 
+					NOT = { realm_martial = 20 }
+				}
+				add_character_modifier = {
+					name = ss_mod_controlled_rebellion
+					duration = 7300
+					hidden = yes
+					inherit = yes
+				}
+			}	
+		}			
+		
+		ai_will_do = {
+			factor = 0
+		}		
+	}
+	
+	decision_da_promote_debate = {
+		potential = {
+				is_landed = yes
+		}
+		allow = {
+			NOT = { has_character_modifier = da_debate_promoted }
+			NOR = {
+				is_incapable = yes
+				trait = resting
+				trait = on_pilgrimage
+				trait = on_hajj
+				trait = on_indian_pilgrimage
+				trait = kow_tow_travels
+				trait = travelling
+				has_character_modifier = da_politically_beaten
+				has_character_modifier = da_political_victory			
+			}
+		}
+		effect = {
+			character_event = { id = darkages.72099 }
+			
+			prestige = -25
+			
+			if = {
+				limit = { 
+					realm_diplomacy = 45
+				}
+				add_character_modifier = {
+					name = da_debate_promoted
+					duration = 730
+					hidden = yes
+					inherit = yes
+				}
+			}
+			
+			if = {
+				limit = { 
+					NOT = { realm_diplomacy = 45 }
+					realm_diplomacy = 40
+				}
+				add_character_modifier = {
+					name = da_debate_promoted
+					duration = 1460
+					hidden = yes	
+					inherit = yes
+				}
+			}	
+
+			if = {
+				limit = { 
+					NOT = { realm_diplomacy = 40 }
+					realm_diplomacy = 35
+				}
+				add_character_modifier = {
+					name = da_debate_promoted
+					duration = 1825
+					hidden = yes
+					inherit = yes
+				}
+			}	
+			if = {
+				limit = { 
+					NOT = { realm_diplomacy = 35 }
+					realm_diplomacy = 30
+				}
+				add_character_modifier = {
+					name = da_debate_promoted
+					duration = 2190
+					hidden = yes
+					inherit = yes
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { realm_diplomacy = 30 }
+					realm_diplomacy = 25
+				}
+				add_character_modifier = {
+					name = da_debate_promoted
+					duration = 2555
+					hidden = yes
+					inherit = yes
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { realm_diplomacy = 25 }
+					realm_diplomacy = 20
+				}
+				add_character_modifier = {
+					name = da_debate_promoted
+					duration = 3650
+					hidden = yes
+					inherit = yes
+				}
+			}	
+			if = {
+				limit = { 
+					NOT = { realm_diplomacy = 20 }
+				}
+				add_character_modifier = {
+					name = da_debate_promoted
+					duration = 7300
+					hidden = yes
+					inherit = yes
+				}
+			}			
+			
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				NOR = {
+					diplomacy = 12
+					realm_diplomacy = 30
+					trait = gregarious
+					trait = socializer
+				}				
+			}
+		
+		}		
+	}
+
+	decision_da_easter = {
+		potential = {
+			is_landed = yes		
+			religion_group = christian
+			has_game_rule = { name = easter value = on } 
+			NOT = { has_character_modifier = da_aux_easter }
+		}
+		allow = {
+			piety = 250
+			month = 2
+			NOT = { month = 4 }
+		}
+		effect = {
+				
+				hidden_tooltip = {
+					add_character_modifier = {
+						name = da_aux_easter
+						duration = 120
+						hidden = yes
+					}
+				}
+		
+				character_event = { id = darkages.72149 }
+				
+				if = {
+					limit = {
+						tier = COUNT
+					}
+					wealth = -25
+				}
+				if = {
+					limit = {
+						tier = DUKE
+					}
+					wealth = -50
+				}
+				if = {
+					limit = {
+						tier = KING
+					}
+					wealth = -100
+				}
+				if = {
+					limit = {
+						tier = EMPEROR
+					}
+					wealth = -200
+				}				
+		}
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 0.1
+				trait = cynical
+			}
+		}
+	}
+
+	decision_da_migration_policy = {
+		potential = {
+			has_character_flag = da_migration_in_play
+			NOT = { has_character_flag = da_migration_extermination }
+		}
+		allow = {
+
+		}
+		effect = {
+			clr_character_flag = da_migration_in_play
+			clr_character_flag = da_migration_integration
+			clr_character_flag = da_migration_segregation
+			clr_character_flag = da_migration_exploitation
+			
+			character_event = { id = darkages.72186 }
+		}
+		ai_will_do = {
+			factor = 0.01
+		}
+	}
+
+	decision_da_piracy = {
+	
+		ai_check_interval = 24
+	
+		potential = {
+			NOT = { has_character_modifier = da_piracy_sanctioned }
+			is_landed = yes
+			is_allowed_to_loot = no
+
+			any_demesne_province = {
+				any_neighbor_province = {
+					NOT = {
+						county = { has_holder = yes }
+					}
+				}
+			}			
+			
+		}
+		allow = {
+			NOT = { trait = kind }
+			NOT = { trait = just }
+			
+			OR = {
+				stewardship = 12
+				martial = 12
+				intrigue = 12
+			}
+			wealth = 100
+		}
+		effect = {
+			
+			if = {
+				limit = {
+					ai = no
+				}
+				wealth = -100
+				change_diplomacy = -1
+			}
+			
+			add_character_modifier = {
+				name = da_piracy_sanctioned
+				duration = -1
+			}
+			
+			piety = -50
+			
+			hidden_effect = {
+				remove_character_modifier = da_piracy_temp_1
+				
+				random_list = {
+					2 = {
+						character_event = { id = darkages.72194 days = 365 } #-20
+					}
+					
+					3 = {
+						character_event = { id = darkages.72195 days = 365 } #-10
+					}
+					
+					3 = {
+						character_event = { id = darkages.72196 days = 365 }	#10
+					}
+					
+					4 = {
+						character_event = { id = darkages.72197 days = 365 }	#20
+					}			
+					
+					2 = {
+						character_event = { id = darkages.72198 days = 365 }	#30
+					}
+
+					2 = {
+						character_event = { id = darkages.72199 days = 365 }	#35
+					}
+
+					1 = {
+						character_event = { id = darkages.72200 days = 365 }	#40
+					}			
+					
+					1 = {
+						character_event = { id = darkages.72201 days = 365 }	#45
+					}
+					
+					1 = {
+						character_event = { id = darkages.72202 days = 365 }	#75
+					}
+					
+					1 = {
+						character_event = { id = darkages.72203 days = 365 }	#150
+					}			
+					
+				}
+			}			
+			
+			
+		}
+		ai_will_do = {
+			factor = 0.04
+			
+			modifier = {
+				factor = 3
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 0.5
+				trait = temperate
+			}
+			modifier = {
+				factor = 0.75
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.33
+				trait = charitable
+			}			
+		}
+	}	
+	
+	decision_da_cancel_piracy = {
+	
+		ai_check_interval = 48
+	
+		potential = {
+			has_character_modifier = da_piracy_sanctioned
+		}
+		allow = {
+
+		}
+		effect = {
+			remove_character_modifier = da_piracy_sanctioned
+			prestige = -50
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0.5
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0.33
+				trait = cruel
+			}
+			modifier = {
+				factor = 0.66
+				trait = deceitful
+			}
+			modifier = {
+				factor = 2
+				trait = temperate
+			}
+			modifier = {
+				factor = 2.5
+				trait = trusting
+			}
+			modifier = {
+				factor = 3
+				trait = charitable
+			}			
+		}
+	}
+	
+	decision_da_smugglers = {
+	
+		ai_check_interval = 24
+	
+		potential = {
+			is_landed = yes
+			prisoner = no
+			is_incapable = no
+			NOR = {
+				has_character_modifier = da_spymaster_smuggler_4
+				has_character_modifier = da_spymaster_smuggler_1
+				has_character_modifier = da_spymaster_smuggler_2
+				has_character_modifier = da_spymaster_smuggler_3
+			}
+		}
+		allow = {
+		
+			treasury = 50
+			
+			custom_tooltip = {
+				NOT = { has_character_modifier = da_smuggler_individual_timer }
+				text = DA_CUSTOMTOOLTIP264
+			}	
+
+			OR = {
+				stewardship = 15
+				intrigue = 12
+			}
+			
+		}
+		
+		effect = {
+			
+			if = {
+				limit = { ai = no }
+				treasury = -50
+			}
+			
+			hidden_tooltip = {
+			
+				add_character_modifier = {
+					name = da_smuggler_individual_timer
+					duration = 1825
+					hidden = yes
+				}
+			
+				random_list = {
+			
+					1 = {
+						modifier = {
+							factor = 1.5
+							has_education_intrigue_trigger = yes
+						}
+						modifier = {
+							factor = 3
+							trait = schemer
+						}
+						modifier = {
+							factor = 2
+							trait = deceitful
+						}
+						modifier = {
+							factor = 1.75
+							trait = arbitrary
+						}
+						modifier = {
+							factor = 1.75
+							trait = greedy
+						}
+						modifier = {
+							factor = 1.5
+							trait = brave
+						}
+						modifier = {
+							factor = 1.5
+							trait = cynical
+						}
+						modifier = {
+							factor = 2
+							trait = shrewd
+						}					
+						modifier = {
+							factor = 1.25
+							intrigue = 12
+						}
+						modifier = {
+							factor = 1.35
+							intrigue = 15
+						}
+						modifier = {
+							factor = 1.5
+							intrigue = 18
+						}
+						modifier = {
+							factor = 1.75
+							intrigue = 21
+						}
+						modifier = {
+							factor = 1.25
+							realm_intrigue = 35
+						}
+						modifier = {
+							factor = 1.5
+							realm_intrigue = 40
+						}
+						modifier = {
+							factor = 1.75
+							realm_intrigue = 45
+						}
+
+						character_event = { id = darkages.72332 days = 60 random = 60 }	#Success!
+						
+					}
+					1 = {
+						modifier = {
+							factor = 3
+							trait = honest
+						}
+						modifier = {
+							factor = 2
+							trait = just
+						}					
+						modifier = {
+							factor = 1.5
+							trait = charitable
+						}
+						modifier = {
+							factor = 1.75
+							trait = craven
+						}
+						modifier = {
+							factor = 1.75
+							trait = trusting
+						}					
+						modifier = {
+							factor = 2
+							trait = dull
+						}					
+						modifier = {
+							factor = 1.25
+							NOT = { intrigue = 8 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 6 }
+						}
+						modifier = {
+							factor = 1.5
+							NOT = { intrigue = 4 }
+						}
+						modifier = {
+							factor = 1.75
+							NOT = { intrigue = 2 }
+						}
+						modifier = {
+							factor = 1.25
+							NOT = { realm_intrigue = 30 }
+						}
+						modifier = {
+							factor = 1.5
+							NOT = { realm_intrigue = 25 }
+						}
+						modifier = {
+							factor = 1.75
+							NOT = { realm_intrigue = 20 }
+						}
+
+						random_list = {
+							2 = {
+								modifier = {
+									factor = 1.25
+									NOT = { intrigue = 8 }
+								}
+								modifier = {
+									factor = 1.35
+									NOT = { intrigue = 6 }
+								}
+								modifier = {
+									factor = 1.5
+									NOT = { intrigue = 4 }
+								}
+								modifier = {
+									factor = 1.75
+									NOT = { intrigue = 2 }
+								}
+
+								character_event = { id = darkages.72333 days = 60 random = 60 } #failed & discovered!
+								
+							}
+							3 = {
+								modifier = {
+									factor = 1.25
+									intrigue = 12
+								}
+								modifier = {
+									factor = 1.35
+									intrigue = 15
+								}
+								modifier = {
+									factor = 1.5
+									intrigue = 18
+								}
+								modifier = {
+									factor = 1.75
+									intrigue = 21
+								}
+
+								character_event = { id = darkages.72334 days = 60 random = 60 } #failed but not discovered
+								
+							}
+						}
+
+					}
+				}
+			}
+
+
+		}
+		
+		ai_will_do = {
+			factor = 0.04
+			modifier = {
+				factor = 3
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 0.5
+				trait = temperate
+			}
+			modifier = {
+				factor = 0.75
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.33
+				trait = charitable
+			}			
+		}
+	}	
+	
+	decision_da_findbastard = {
+	
+		ai_check_interval = 120
+	
+		potential = {
+			is_female = no
+			
+			age = 40
+			NOT = {
+				any_child = {
+					is_female = no
+					count = 1
+				}
+			}
+		}
+		allow = {
+			NOT = { has_character_modifier = da_findheir_tmp }
+		}
+		effect = {
+			treasury = -25
+			piety = -100
+
+			if = {
+				limit = {
+					NOR = {
+						trait = honest 
+						trait = deceitful
+					}
+				}
+				
+				add_trait = deceitful
+			}
+			
+			if = {
+				limit = { trait = honest }
+				remove_trait = honest
+			}
+			
+			hidden_tooltip = {
+			
+				random = {	#events adding to the plot, influencing the final outcome
+					chance = 33
+					character_event = { id = darkages.72643 days = 5 random = 80 }
+				}
+
+				random = {
+					chance = 33
+					character_event = { id = darkages.72644 days = 5 random = 80 }
+				}			
+			
+				random = {
+					chance = 33
+					character_event = { id = darkages.72645 days = 5 random = 80 }
+				}			
+				
+				random = {
+					chance = 33
+					character_event = { id = darkages.72646 days = 5 random = 80 }
+				}				
+			
+				character_event = { id = darkages.72639 }
+				
+				
+				if = {
+					limit =	{
+						intrigue = 21
+					}
+					
+					add_character_modifier = {
+						name = da_findheir_tmp
+						duration = 1850
+						hidden = yes
+					}
+					
+				}
+				if = {
+					limit =	{
+						NOT = { intrigue = 21 }
+						intrigue = 18
+					}
+					
+					add_character_modifier = {
+						name = da_findheir_tmp
+						duration = 2190
+						hidden = yes
+					}
+					
+				}				
+				if = {
+					limit =	{
+						NOT = { intrigue = 18 }
+						intrigue = 15
+					}
+					
+					add_character_modifier = {
+						name = da_findheir_tmp
+						duration = 2555
+						hidden = yes
+					}
+					
+				}
+				if = {
+					limit =	{
+						NOT = { intrigue = 15 }
+						intrigue = 12
+					}
+					
+					add_character_modifier = {
+						name = da_findheir_tmp
+						duration = 2920
+						hidden = yes
+					}
+					
+				}
+				if = {
+					limit =	{
+						NOT = { intrigue = 12 }
+						intrigue = 8
+					}
+					
+					add_character_modifier = {
+						name = da_findheir_tmp
+						duration = 3650
+						hidden = yes
+					}
+					
+				}
+				if = {
+					limit =	{
+						NOT = { intrigue = 8 }
+						intrigue = 6
+					}
+					
+					add_character_modifier = {
+						name = da_findheir_tmp
+						duration = 4380
+						hidden = yes
+					}
+					
+				}
+				if = {
+					limit =	{
+						NOT = { intrigue = 6 }
+						intrigue = 4
+					}
+					
+					add_character_modifier = {
+						name = da_findheir_tmp
+						duration = 4745
+						hidden = yes
+					}
+					
+				}
+				if = {
+					limit =	{
+						NOT = { intrigue = 4 }
+						intrigue = 2
+					}
+					
+					add_character_modifier = {
+						name = da_findheir_tmp
+						duration = 5110
+						hidden = yes
+					}
+					
+				}
+				if = {
+					limit =	{
+						NOT = { intrigue = 2 }
+					}
+					
+					add_character_modifier = {
+						name = da_findheir_tmp
+						duration = 5475
+						hidden = yes
+					}
+					
+				}				
+				
+				
+			}
+		}
+		ai_will_do = {
+			factor = 0.25
+			modifier = {
+				factor = 3
+				trait = deceitful
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 3
+				trait = schemer
+			}
+			modifier = {
+				factor = 1.75
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.1
+				trait = content
+			}
+			
+		}
+	}
+
+	decision_da_train_combat = {
+
+		ai_check_interval = 120
+
+		potential = {
+			is_landed = yes	
+			NOR = {
+				has_character_modifier = da_picked_combat_training
+				has_character_modifier = da_temp_marshal_train
+				has_character_modifier = da_marshal_training1
+				has_character_modifier = da_marshal_training2
+				has_character_modifier = da_marshal_training3
+				has_character_modifier = da_marshal_training4
+			}
+		}
+		allow = {
+			is_adult = yes
+			NOT = { age = 45 }
+			NOT = { trait = resting }
+			prisoner = no
+			is_incapable = no
+			NOT = { combat_rating = 30 }
+			NOT = { trait = one_legged }
+			NOT = { trait = maimed }			
+			NOT = { trait = blinded }						
+			
+			OR = {
+				has_focus = focus_war
+				martial = 12
+			}
+		}
+		effect = {
+			treasury = -50
+			
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 35
+			}
+			
+			new_character = {
+				add_trait = duelist
+				
+				add_character_modifier = {
+					name = da_situational_awareness
+					duration = -1
+				}
+				
+				random_list = {
+
+					1 = {
+						add_character_modifier = {
+							name = tenacious_duelist
+							duration = -1
+						}
+					}
+
+					1 = {
+						add_character_modifier = {
+							name = lightning_reflexes
+							duration = -1
+						}
+					}
+					
+					1 = {
+						add_character_modifier = {
+							name = clever_planner
+							duration = -1
+						}
+					}
+					
+					1 = {					
+						add_character_modifier = {
+							name = ruthless_commander
+							duration = -1
+						}
+					}
+					
+					1 = {					
+						add_character_modifier = {
+							name = poisoned_weapons
+							duration = -1
+						}						
+					}
+					
+					1 = {					
+						add_character_modifier = {
+							name = gladiatorial_equipment
+							duration = -1
+						}
+					}
+					
+					1 = {					
+						add_character_modifier = {
+							name = the_dour_duellist
+							duration = -1
+						}					
+					}
+				
+				}
+			}
+			
+			
+			hidden_tooltip = {
+				random_list = {
+					2 = {
+						set_character_flag = da_ct_1
+					}
+					4 = {
+						set_character_flag = da_ct_2
+					}					
+					3 = {
+						set_character_flag = da_ct_3
+					}					
+					1 = {
+						set_character_flag = da_ct_4
+					}					
+				}
+
+				character_event = { id = darkages.72674 }
+				
+				add_character_modifier = {
+					name = da_picked_combat_training
+					duration = -1
+					hidden = yes
+				}					
+
+			}
+			
+		}
+		ai_will_do = {
+			factor = 0.05
+			modifier = {
+				factor = 0.2
+				is_female = yes
+			}			
+			modifier = {
+				factor = 3
+				has_education_martial_trigger = yes
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.25
+				trait = slothful
+			}			
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}			
+		}
+	}	
+
+	decision_da_claim = {
+		potential = {
+			ai = no
+			
+			NOT = {
+				any_province = {
+					has_province_modifier = da_province_marker
+				}
+			}
+		}
+		allow = {
+			treasury = 50
+			job_spymaster = { 
+				has_job_action = action_sabotage_province 
+			}			
+		}
+		effect = {
+			set_character_flag = darkages_province_claim_ruler
+			treasury = -50
+			hidden_tooltip = { 
+				character_event = { id = darkages.72713 }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}		
+	}
+
+}

@@ -1,0 +1,7307 @@
+namespace = zdarkages
+### CHEERFUL ###
+
+### Cheerful positive ###
+character_event = {
+	id = zdarkages.72152
+	desc = EVTDESC1972152
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		age = 16
+		prisoner = no
+		is_incapable = no
+		trait = cheerful
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			factor = 0.5
+			trait = gregarious
+		}
+		modifier = {
+			factor = 2
+			trait = shy
+		}
+	}
+	
+	
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				age = 16
+				NOT = { trait = dour }
+				NOT = { trait = wroth }
+				NOT = { trait = imbecile }
+				NOT = { 
+					has_opinion_modifier = {
+						modifier = opinion_impressed
+						who = ROOT
+					}
+				}
+				NOT = { 
+					has_opinion_modifier = {
+						modifier = opinion_flattered
+						who = ROOT
+					}
+				}					
+			}
+			
+			set_character_flag = impressed
+			
+		}
+
+		random_courtier_or_vassal = {
+			limit = {
+				age = 16
+				NOT = { has_character_flag = impressed }
+				NOT = { is_close_relative = ROOT } 						
+				OR = {
+					AND = {
+						ROOT = { NOT = { trait = homosexual } } 
+						NOT = { same_sex = ROOT }
+						NOT = {
+							age_diff = {
+								who = ROOT
+								years = 10
+							}
+						}
+					}
+							
+					AND = {
+						ROOT = { trait = homosexual }
+						trait = homosexual
+						same_sex = ROOT
+						NOT = {
+							age_diff = {
+								who = ROOT
+								years = 10
+							}
+						}
+					}
+				}				
+				NOT = { trait = dour }
+				NOT = { trait = wroth }
+				NOT = { trait = imbecile }
+				NOT = { 
+					has_opinion_modifier = {
+						modifier = opinion_impressed
+						who = ROOT
+					}
+				}
+				NOT = { 
+					has_opinion_modifier = {
+						modifier = opinion_flattered
+						who = ROOT
+					}
+				}					
+			}
+			
+			set_character_flag = flattered
+			
+		}
+
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972152
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = flattered
+						}
+						clr_character_flag = flattered
+					}				
+				}				
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = flattered
+					}
+					opinion = {
+						modifier = opinion_flattered
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = flattered				
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = impressed
+						}
+						clr_character_flag = impressed
+					}				
+				}				
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB1972152
+		ai_chance = {
+			factor = 0
+		}		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP79 }		
+		prestige = 5		
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = flattered
+						}
+						clr_character_flag = flattered
+					}				
+				}
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = flattered
+					}
+					opinion = {
+						modifier = opinion_flattered
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = flattered				
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = impressed
+						}
+						clr_character_flag = impressed
+					}				
+				}				
+			}
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				66 = {
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}	
+					modifier = {
+						factor = 1.5
+						trait = socializer
+					}					
+					character_event = { id = zdarkages.72153 }
+				}
+				34 = {
+					character_event = { id = zdarkages.72154 }				
+				}
+			}
+		}
+		
+	}
+
+}
+
+character_event = {
+	id = zdarkages.72153
+	desc = EVTDESC1972153
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_diplomacy
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes 
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				age = 16
+				NOT = { is_close_relative = ROOT } 						
+				OR = {
+					AND = {
+						ROOT = { NOT = { trait = homosexual } } 
+						NOT = { same_sex = ROOT }
+						NOT = {
+							age_diff = {
+								who = ROOT
+								years = 10
+							}
+						}
+					}
+							
+					AND = {
+						ROOT = { trait = homosexual }
+						trait = homosexual
+						same_sex = ROOT
+						NOT = {
+							age_diff = {
+								who = ROOT
+								years = 10
+							}
+						}
+					}
+				}				
+				NOT = { trait = dour }
+				NOT = { trait = wroth }
+				NOT = { trait = imbecile }
+				NOT = { 
+					has_opinion_modifier = {
+						modifier = opinion_impressed
+						who = ROOT
+					}
+				}
+				NOT = { 
+					has_opinion_modifier = {
+						modifier = opinion_flattered
+						who = ROOT
+					}
+				}					
+			}
+			
+			set_character_flag = flattered
+			
+		}
+		random_courtier_or_vassal = {
+			limit = {
+				age = 16
+				NOT = { has_character_flag = flattered }
+				NOT = { trait = dour }
+				NOT = { trait = wroth }
+				NOT = { trait = imbecile }
+				NOT = { 
+					has_opinion_modifier = {
+						modifier = opinion_impressed
+						who = ROOT
+					}
+				}
+				NOT = { 
+					has_opinion_modifier = {
+						modifier = opinion_flattered
+						who = ROOT
+					}
+				}					
+			}
+			
+			set_character_flag = impressed
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = risky4
+				NOT = { has_character_flag = risky5 }
+			}
+			set_character_flag = risky5
+		}
+
+		if = {
+			limit = {
+				has_character_flag = risky3
+				NOT = { has_character_flag = risky4 }
+			}
+			set_character_flag = risky4
+		}
+
+		if = {
+			limit = {
+				has_character_flag = risky2
+				NOT = { has_character_flag = risky3 }
+			}
+			set_character_flag = risky3
+		}		
+		
+		if = {
+			limit = {
+				has_character_flag = risky1
+				NOT = { has_character_flag = risky2 }
+			}
+			set_character_flag = risky2
+		}		
+
+		if = {
+			limit = {
+				NOT = { has_character_flag = risky1 }
+				NOT = { has_character_flag = risky2 }
+				NOT = { has_character_flag = risky3 }
+				NOT = { has_character_flag = risky4 }
+				NOT = { has_character_flag = risky5 }				
+			}
+			set_character_flag = risky1
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972153
+		trigger = {
+			has_character_flag = risky1
+			NOT = { has_character_flag = risky2 }
+		}	
+		prestige = 5		
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = flattered
+						}
+						clr_character_flag = flattered
+					}				
+				}				
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = flattered
+					}
+					opinion = {
+						modifier = opinion_flattered
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = flattered				
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = impressed
+						}
+						clr_character_flag = impressed
+					}				
+				}				
+			}
+		}
+		
+		
+		hidden_tooltip = {
+			random_list = {
+				15 = {
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}	
+					modifier = {
+						factor = 1.5
+						trait = socializer
+					}					
+					character_event = { id = zdarkages.72153 }
+				}
+				5 = {
+					character_event = { id = zdarkages.72154 }				
+				}
+			}
+		}		
+		
+	}
+	option = {
+		name = EVTOPTC1972153
+		trigger = {
+			has_character_flag = risky2
+			NOT = { has_character_flag = risky3 }
+		}
+		prestige = 5		
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = flattered
+						}
+						clr_character_flag = flattered
+					}				
+				}				
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = flattered
+					}
+					opinion = {
+						modifier = opinion_flattered
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = flattered				
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = impressed
+						}
+						clr_character_flag = impressed
+					}				
+				}				
+			}
+		}
+		
+		
+		hidden_tooltip = {
+			random_list = {
+				14 = {
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}	
+					modifier = {
+						factor = 1.5
+						trait = socializer
+					}					
+					character_event = { id = zdarkages.72153 }
+				}
+				6 = {
+					character_event = { id = zdarkages.72154 }				
+				}
+			}
+		}
+		
+		
+	}
+	option = {
+		name = EVTOPTD1972153
+		trigger = {
+			has_character_flag = risky3
+			NOT = { has_character_flag = risky4 }
+		}
+		prestige = 5		
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = flattered
+						}
+						clr_character_flag = flattered
+					}				
+				}				
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = flattered
+					}
+					opinion = {
+						modifier = opinion_flattered
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = flattered				
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = impressed
+						}
+						clr_character_flag = impressed
+					}				
+				}				
+			}
+		}
+		
+		
+		hidden_tooltip = {
+			random_list = {
+				12 = {
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}	
+					modifier = {
+						factor = 1.5
+						trait = socializer
+					}					
+					character_event = { id = zdarkages.72153 }
+				}
+				8 = {
+					character_event = { id = zdarkages.72154 }				
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = EVTOPTE1972153
+		trigger = {
+			has_character_flag = risky4
+			NOT = { has_character_flag = risky5 }
+		}	
+		prestige = 5		
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = flattered
+						}
+						clr_character_flag = flattered
+					}				
+				}				
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = flattered
+					}
+					opinion = {
+						modifier = opinion_flattered
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = flattered				
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = impressed
+						}
+						clr_character_flag = impressed
+					}				
+				}				
+			}
+		}
+
+		
+		hidden_tooltip = {
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}	
+					modifier = {
+						factor = 1.5
+						trait = socializer
+					}					
+					character_event = { id = zdarkages.72153 }
+				}
+				10 = {
+					character_event = { id = zdarkages.72154 }				
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = EVTOPTF1972153
+		trigger = {
+			has_character_flag = risky5
+		}	
+		prestige = 5		
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = flattered
+						}
+						clr_character_flag = flattered
+					}				
+				}				
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = flattered
+					}
+					opinion = {
+						modifier = opinion_flattered
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = flattered				
+				}
+				hidden_tooltip = {
+					random_courtier_or_vassal = {
+						limit = {
+							has_character_flag = impressed
+						}
+						clr_character_flag = impressed
+					}				
+				}				
+			}
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				7 = {
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}	
+					modifier = {
+						factor = 1.5
+						trait = socializer
+					}					
+					character_event = { id = zdarkages.72153 }
+				}
+				13 = {
+					character_event = { id = zdarkages.72154 }				
+				}
+			}
+		}
+
+	}	
+
+	option = {
+		name = EVTOPTH1972153
+		
+		clr_character_flag = risky1
+		clr_character_flag = risky2
+		clr_character_flag = risky3
+		clr_character_flag = risky4
+		clr_character_flag = risky5	
+
+		hidden_tooltip = {
+			random_courtier_or_vassal = {
+				limit = {
+					has_character_flag = flattered
+				}
+				clr_character_flag = flattered
+			}	
+
+			random_courtier_or_vassal = {
+				limit = {
+					has_character_flag = impressed
+				}
+				clr_character_flag = impressed
+			}			
+		}
+	}
+}
+
+character_event = {
+	id = zdarkages.72154
+	desc = EVTDESC1972154
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_diplomacy	
+	is_triggered_only = yes 
+
+	trigger = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972154
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP82 }
+
+		hidden_tooltip = {
+			any_courtier_or_vassal = {
+				remove_opinion = {
+					modifier = opinion_flattered
+					who = ROOT
+				}
+				remove_opinion = {
+					modifier = opinion_impressed
+					who = ROOT
+				}	
+
+				opinion = {
+					modifier = opinion_gonetoofar
+					who = ROOT
+					years = 2
+				}
+				
+			}
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = risky1
+				NOT = { has_character_flag = risky2 }
+			}
+			
+			prestige = -5
+			random = {
+				chance = 20
+				change_diplomacy = -1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = risky2
+				NOT = { has_character_flag = risky3 }
+			}
+			
+			prestige = -10
+			random = {
+				chance = 30
+				change_diplomacy = -1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = risky3
+				NOT = { has_character_flag = risky4 }
+			}
+			
+			prestige = -20
+			random = {
+				chance = 40
+				change_diplomacy = -1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = risky4
+				NOT = { has_character_flag = risky5 }
+			}
+			
+			prestige = -25
+			random = {
+				chance = 50
+				change_diplomacy = -1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = risky5
+			}
+			
+			prestige = -30
+			random = {
+				chance = 60
+				change_diplomacy = -1
+			}
+		}
+
+		clr_character_flag = risky1
+		clr_character_flag = risky2
+		clr_character_flag = risky3
+		clr_character_flag = risky4
+		clr_character_flag = risky5
+		
+	}
+}
+
+
+### DOUR ###
+
+### Dour positive ###
+character_event = {
+	id = zdarkages.72155
+	desc = EVTDESC1972155
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_economy
+	
+	trigger = {
+		age = 16
+		prisoner = no
+		is_incapable = no
+		trait = dour
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			factor = 2
+			trait = gregarious
+		}
+		modifier = {
+			factor = 0.5
+			trait = shy
+		}
+	}
+	
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				age = 16
+				NOT = { trait = cheerful }
+
+				NOT = { 
+					has_opinion_modifier = {
+						modifier = opinion_impressed
+						who = ROOT
+					}
+				}
+			}
+			
+			set_character_flag = impressed
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972155
+		prestige = 5
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						age = 16
+						OR = {
+							trait = trusting
+							trait = slow
+							trait = imbecile
+							trait = dour
+						}
+						
+						NOT = {
+							has_opinion_modifier = {
+								modifier = opinion_in_awe
+								who = ROOT
+							}
+						}						
+						
+					}
+					opinion = {
+						modifier = opinion_in_awe
+						who = ROOT
+						years = 2
+					}
+
+				}			
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB1972155
+		ai_chance = {
+			factor = 0
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP80 }		
+		prestige = 5		
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						age = 16
+						OR = {
+							trait = trusting
+							trait = slow
+							trait = imbecile
+							trait = dour
+						}
+						
+						NOT = {
+							has_opinion_modifier = {
+								modifier = opinion_in_awe
+								who = ROOT
+							}
+						}						
+						
+					}
+					opinion = {
+						modifier = opinion_in_awe
+						who = ROOT
+						years = 2
+					}
+
+				}			
+			}
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				15 = {
+					modifier = {
+						factor = 1.25
+						stewardship = 12
+					}
+					modifier = {
+						factor = 1.35
+						stewardship = 15
+					}
+					modifier = {
+						factor = 1.5
+						stewardship = 18
+					}
+					modifier = {
+						factor = 1.75
+						stewardship = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}	
+					modifier = {
+						factor = 1.5
+						trait = administrator
+					}					
+					character_event = { id = zdarkages.72156 }
+				}
+				5 = {
+					character_event = { id = zdarkages.72157 }				
+				}
+			}
+		}
+		
+	}
+
+}
+
+character_event = {
+	id = zdarkages.72156
+	desc = EVTDESC1972156
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes 
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				age = 16
+				NOT = { trait = cheerful }
+
+				NOT = { 
+					has_opinion_modifier = {
+						modifier = opinion_impressed
+						who = ROOT
+					}
+				}
+			}
+			
+			set_character_flag = impressed
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = risky4
+				NOT = { has_character_flag = risky5 }
+			}
+			set_character_flag = risky5
+		}		
+
+		if = {
+			limit = {
+				has_character_flag = risky3
+				NOT = { has_character_flag = risky4 }
+			}
+			set_character_flag = risky4
+		}
+
+		if = {
+			limit = {
+				has_character_flag = risky2
+				NOT = { has_character_flag = risky3 }
+			}
+			set_character_flag = risky3
+		}
+
+		if = {
+			limit = {
+				has_character_flag = risky1
+				NOT = { has_character_flag = risky2 }
+			}
+			set_character_flag = risky2
+		}
+
+		if = {
+			limit = {
+				NOT = { has_character_flag = risky1 }
+				NOT = { has_character_flag = risky2 }
+				NOT = { has_character_flag = risky3 }
+				NOT = { has_character_flag = risky4 }
+				NOT = { has_character_flag = risky5 }				
+			}
+			set_character_flag = risky1
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972156
+		trigger = {
+			has_character_flag = risky1
+			NOT = { has_character_flag = risky2 }
+		}	
+		prestige = 5		
+
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						age = 16
+						OR = {
+							trait = trusting
+							trait = slow
+							trait = imbecile
+							trait = dour
+						}
+						
+						NOT = {
+							has_opinion_modifier = {
+								modifier = opinion_in_awe
+								who = ROOT
+							}
+						}
+					}
+					opinion = {
+						modifier = opinion_in_awe
+						who = ROOT
+						years = 2
+					}
+
+				}			
+			}
+		}
+		
+		
+		hidden_tooltip = {
+			random_list = {
+				15 = {
+					modifier = {
+						factor = 1.25
+						stewardship = 12
+					}
+					modifier = {
+						factor = 1.35
+						stewardship = 15
+					}
+					modifier = {
+						factor = 1.5
+						stewardship = 18
+					}
+					modifier = {
+						factor = 1.75
+						stewardship = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}	
+					modifier = {
+						factor = 1.5
+						trait = administrator
+					}					
+					character_event = { id = zdarkages.72156 }
+				}
+				5 = {
+					character_event = { id = zdarkages.72157 }				
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = EVTOPTC1972156
+		trigger = {
+			has_character_flag = risky2
+			NOT = { has_character_flag = risky3 }
+		}
+		prestige = 5		
+
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						age = 16
+						OR = {
+							trait = trusting
+							trait = slow
+							trait = imbecile
+							trait = dour
+						}
+						
+						NOT = {
+							has_opinion_modifier = {
+								modifier = opinion_in_awe
+								who = ROOT
+							}
+						}						
+						
+					}
+					opinion = {
+						modifier = opinion_in_awe
+						who = ROOT
+						years = 2
+					}
+
+				}			
+			}
+		}
+		
+		
+		hidden_tooltip = {
+			random_list = {
+				14 = {
+					modifier = {
+						factor = 1.25
+						stewardship = 12
+					}
+					modifier = {
+						factor = 1.35
+						stewardship = 15
+					}
+					modifier = {
+						factor = 1.5
+						stewardship = 18
+					}
+					modifier = {
+						factor = 1.75
+						stewardship = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}	
+					modifier = {
+						factor = 1.5
+						trait = administrator
+					}					
+					character_event = { id = zdarkages.72156 }
+				}
+				6 = {
+					character_event = { id = zdarkages.72157 }				
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = EVTOPTD1972156
+		trigger = {
+			has_character_flag = risky3
+			NOT = { has_character_flag = risky4 }
+		}
+		prestige = 5		
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						age = 16
+						OR = {
+							trait = trusting
+							trait = slow
+							trait = imbecile
+							trait = dour
+						}
+						
+						NOT = {
+							has_opinion_modifier = {
+								modifier = opinion_in_awe
+								who = ROOT
+							}
+						}						
+						
+					}
+					opinion = {
+						modifier = opinion_in_awe
+						who = ROOT
+						years = 2
+					}
+
+				}			
+			}
+		}
+		
+		
+		hidden_tooltip = {
+			random_list = {
+				12 = {
+					modifier = {
+						factor = 1.25
+						stewardship = 12
+					}
+					modifier = {
+						factor = 1.35
+						stewardship = 15
+					}
+					modifier = {
+						factor = 1.5
+						stewardship = 18
+					}
+					modifier = {
+						factor = 1.75
+						stewardship = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}	
+					modifier = {
+						factor = 1.5
+						trait = administrator
+					}					
+					character_event = { id = zdarkages.72156 }
+				}
+				8 = {
+					character_event = { id = zdarkages.72157 }				
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = EVTOPTE1972156
+		trigger = {
+			has_character_flag = risky4
+			NOT = { has_character_flag = risky5 }
+		}	
+		prestige = 5		
+
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						age = 16
+						OR = {
+							trait = trusting
+							trait = slow
+							trait = imbecile
+							trait = dour
+						}
+						
+						NOT = {
+							has_opinion_modifier = {
+								modifier = opinion_in_awe
+								who = ROOT
+							}
+						}						
+						
+					}
+					opinion = {
+						modifier = opinion_in_awe
+						who = ROOT
+						years = 2
+					}
+
+				}			
+			}
+		}
+
+		
+		hidden_tooltip = {
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 1.25
+						stewardship = 12
+					}
+					modifier = {
+						factor = 1.35
+						stewardship = 15
+					}
+					modifier = {
+						factor = 1.5
+						stewardship = 18
+					}
+					modifier = {
+						factor = 1.75
+						stewardship = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}	
+					modifier = {
+						factor = 1.5
+						trait = administrator
+					}					
+					character_event = { id = zdarkages.72156 }
+				}
+				10 = {
+					character_event = { id = zdarkages.72157 }				
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = EVTOPTF1972156
+		trigger = {
+			has_character_flag = risky5
+		}	
+		prestige = 5		
+
+		random_list = {
+			75 = {
+				random_courtier_or_vassal = {
+					limit = {
+						has_character_flag = impressed
+					}
+					opinion = {
+						modifier = opinion_impressed
+						who = ROOT
+						years = 2
+					}
+					clr_character_flag = impressed 					
+				}
+			}
+			25 = {
+				random_courtier_or_vassal = {
+					limit = {
+						age = 16
+						OR = {
+							trait = trusting
+							trait = slow
+							trait = imbecile
+							trait = dour
+						}
+						
+						NOT = {
+							has_opinion_modifier = {
+								modifier = opinion_in_awe
+								who = ROOT
+							}
+						}						
+						
+					}
+					opinion = {
+						modifier = opinion_in_awe
+						who = ROOT
+						years = 2
+					}
+
+				}			
+			}
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				7 = {
+					modifier = {
+						factor = 1.25
+						stewardship = 12
+					}
+					modifier = {
+						factor = 1.35
+						stewardship = 15
+					}
+					modifier = {
+						factor = 1.5
+						stewardship = 18
+					}
+					modifier = {
+						factor = 1.75
+						stewardship = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}	
+					modifier = {
+						factor = 1.5
+						trait = administrator
+					}					
+					character_event = { id = zdarkages.72156 }
+				}
+				13 = {
+					character_event = { id = zdarkages.72157 }				
+				}
+			}
+		}
+
+	}	
+
+	option = {
+		name = EVTOPTH1972156
+		
+
+		clr_character_flag = risky1
+		clr_character_flag = risky2
+		clr_character_flag = risky3
+		clr_character_flag = risky4
+		clr_character_flag = risky5			
+		
+		hidden_tooltip = {
+			random_courtier_or_vassal = {
+				limit = {
+					has_character_flag = flattered
+				}
+				clr_character_flag = flattered
+			}	
+
+			random_courtier_or_vassal = {
+				limit = {
+					has_character_flag = impressed
+				}
+				clr_character_flag = impressed
+			}			
+		}
+		
+	}
+
+}
+
+character_event = {
+	id = zdarkages.72157
+	desc = EVTDESC1972157
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_economy	
+	is_triggered_only = yes 
+
+	trigger = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972157
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP81 }
+		hidden_tooltip = {
+			any_courtier_or_vassal = {
+				limit = {
+					NOR = {
+						trait = slow
+						trait = imbecile
+					}
+				}
+				remove_opinion = {
+					modifier = opinion_impressed
+					who = ROOT
+				}
+				opinion = {
+					modifier = opinion_disappointed
+					who = ROOT
+					years = 2
+				}
+				opinion = {
+					modifier = opinion_pitiful
+					who = ROOT
+					years = 2
+				}			
+			}
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = risky1
+				NOT = { has_character_flag = risky2 }
+			}
+			
+			prestige = -5
+			random = {
+				chance = 25
+				change_stewardship = -1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = risky2
+				NOT = { has_character_flag = risky3 }
+			}
+			
+			prestige = -10
+			random = {
+				chance = 30
+				change_stewardship = -1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = risky3
+				NOT = { has_character_flag = risky4 }
+			}
+			
+			prestige = -20
+			random = {
+				chance = 40
+				change_stewardship = -1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = risky4
+				NOT = { has_character_flag = risky5 }
+			}
+			
+			prestige = -25
+			random = {
+				chance = 50
+				change_stewardship = -1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = risky5
+			}
+			
+			prestige = -30
+			random = {
+				chance = 60
+				change_stewardship = -1
+			}
+		}
+
+		clr_character_flag = risky1
+		clr_character_flag = risky2
+		clr_character_flag = risky3
+		clr_character_flag = risky4
+		clr_character_flag = risky5	
+		
+	}
+}
+
+
+### DOUR ###
+
+### Dour negative ###
+
+character_event = {
+	id = zdarkages.72158
+	title = EVTNAME1972158	
+	desc = EVTDESC1972158
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_economy 
+
+	trigger = {
+		age = 16	
+		trait = dour
+		NOT = { has_character_modifier = da_boring }		
+	}
+
+	mean_time_to_happen = {
+		months = 600
+		
+		modifier = {
+			factor = 0.5
+			trait = proud
+		}
+		
+		modifier = {
+			factor = 0.5
+			trait = envious
+		}
+
+		modifier = {
+			factor = 0.5
+			trait = shy
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972158
+		prestige = -25
+		add_character_modifier = {
+			name = da_boring
+			days = 730
+		}
+	}
+}
+
+### CHEERFUL ###
+
+### Cheerful negative ###
+
+character_event = {
+	id = zdarkages.72159
+	title = EVTNAME1972159
+	desc = EVTDESC1972159
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		age = 16
+		trait = cheerful
+		NOT = { has_character_modifier = da_childish }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+		
+		modifier = {
+			factor = 0.5
+			trait = humble
+		}
+		
+		modifier = {
+			factor = 0.5
+			trait = envious
+		}
+
+		modifier = {
+			factor = 0.5
+			trait = shy
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972159
+		prestige = -25
+		add_character_modifier = {
+			name = da_childish
+			days = 730
+		}
+	}
+}
+
+#####################
+#
+#	ADD CHEERFUL/DULL FOR ADULT 
+#
+#######################
+
+character_event = {
+	id = zdarkages.72166
+	desc = "EVTDESC1972166"
+	picture = "GFX_evt_feast"
+	border = GFX_event_normal_frame_religion
+	
+	trigger = {
+		age = 16
+		OR = {
+			AND = {
+				NOT = { personality_traits = 5 }
+				has_game_rule = { name = personal_traits value = yes5 }
+			}
+			AND = {
+				NOT = { personality_traits = 3 }
+				has_game_rule = { name = personal_traits value = yes3 }
+			}
+			AND = {
+				NOT = { personality_traits = 7 }
+				has_game_rule = { name = personal_traits value = yes7 }
+			}
+		}
+		NOT = { trait = cheerful }
+		NOT = { trait = dour }
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+	}
+	
+	option = {
+		name = "EVTOPTA1972166"
+		prestige = 25
+		
+		random = {
+			chance = 50
+			modifier = {
+				factor = 1.15
+				trait = socializer				
+			}
+			modifier = {
+				factor = 1.15
+				trait = gregarious				
+			}
+			modifier = {
+				factor = 1.15
+				trait = hedonist				
+			}
+			modifier = {
+				factor = 1.15
+				trait = gluttonous			
+			}			
+			modifier = {
+				factor = 0.869
+				trait = shy			
+			}
+			modifier = {
+				factor = 0.869
+				trait = temperate			
+			}
+			modifier = {
+				factor = 0.869
+				trait = chaste		
+			}
+			modifier = {
+				factor = 0.869
+				trait = humble	
+			}			
+			add_trait = cheerful
+		}		
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972166"
+		piety = 25
+		random = {
+			chance = 50
+			modifier = {
+				factor = 0.869
+				trait = socializer				
+			}
+			modifier = {
+				factor = 0.869
+				trait = gregarious				
+			}
+			modifier = {
+				factor = 0.869
+				trait = hedonist				
+			}
+			modifier = {
+				factor = 0.869
+				trait = gluttonous			
+			}			
+			modifier = {
+				factor = 1.15
+				trait = shy			
+			}
+			modifier = {
+				factor = 1.15
+				trait = temperate			
+			}
+			modifier = {
+				factor = 1.15
+				trait = chaste		
+			}
+			modifier = {
+				factor = 1.15
+				trait = humble	
+			}			
+			add_trait = dour
+		}
+	
+	}	
+	
+}
+
+
+
+#####################
+#
+#	ADD CHEERFUL FOR ADOLESCENT
+#
+#######################
+
+character_event = {
+	id = zdarkages.72163
+	desc = "EVTDESC1972163"
+	picture = "GFX_evt_feast"
+	border = GFX_event_normal_frame_diplomacy
+	
+	
+	trigger = {
+		age = 12
+		NOT = { age = 16 }
+		trait = playful
+		NOT = { trait = cheerful }
+		NOT = { trait = dour }		
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+	}
+	
+	option = {
+		name = "EVTOPTA1972163"
+		remove_trait = playful
+		add_trait = cheerful
+	}
+}
+
+#####################
+#
+#	ADD DOUR FOR ADOLESCENT
+#
+#######################
+
+character_event = {
+	id = zdarkages.72164
+	desc = "EVTDESC1972164"
+	picture = "GFX_evt_council"
+	border = GFX_event_normal_frame_economy
+	
+	
+	trigger = {
+		age = 12
+		NOT = { age = 16 }
+		trait = brooding
+		NOT = { trait = cheerful }
+		NOT = { trait = dour }		
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+	}
+	
+	option = {
+		name = "EVTOPTA1972164"
+		remove_trait = brooding
+		add_trait = dour
+	}
+}
+
+
+
+
+
+
+
+###################################################################################
+###################################################################################
+###################################################################################
+###
+###
+###		REMOVE RANDOM PERSONALITY TRAIT IF CHARACTER HAS MORE THAN 5
+###
+###
+###################################################################################
+###################################################################################
+###################################################################################
+
+character_event = {
+	id = zdarkages.72182
+	desc = "EVTDESC1972182"
+	picture = "GFX_evt_council"
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+	
+	trigger = {
+	
+		OR = {
+			AND = {
+				personality_traits = 6
+				has_game_rule = { name = personal_traits value = yes5 }
+			}
+			AND = {
+				personality_traits = 4
+				has_game_rule = { name = personal_traits value = yes3 }
+			}
+			AND = {
+				personality_traits = 8
+				has_game_rule = { name = personal_traits value = yes7 }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "EVTOPTA1972182"
+
+		random_list = {
+			
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = lustful }
+				}
+				
+				remove_trait = lustful
+			}
+			
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = chaste }
+				}
+				
+				remove_trait = chaste
+			}			
+			
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = gluttonous }
+				}
+				
+				remove_trait = gluttonous
+			}			
+			
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = temperate }
+				}
+				
+				remove_trait = temperate
+			}			
+			
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = greedy }
+				}
+				
+				remove_trait = greedy
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = charitable }
+				}
+				
+				remove_trait = charitable
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = slothful }
+				}
+				
+				remove_trait = slothful
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = diligent }
+				}
+				
+				remove_trait = diligent
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = envious }
+				}
+				
+				remove_trait = envious
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = kind }
+				}
+				
+				remove_trait = kind
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = wroth }
+				}
+				
+				remove_trait = wroth
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = patient }
+				}
+				
+				remove_trait = patient
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = proud }
+				}
+				
+				remove_trait = proud
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = humble }
+				}
+				
+				remove_trait = humble
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = deceitful }
+				}
+				
+				remove_trait = deceitful
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = honest }
+				}
+				
+				remove_trait = honest
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = craven }
+				}
+				
+				remove_trait = craven
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = brave }
+				}
+				
+				remove_trait = brave
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = shy }
+				}
+				
+				remove_trait = shy
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = gregarious }
+				}
+				
+				remove_trait = gregarious
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = ambitious }
+				}
+				
+				remove_trait = ambitious
+			}
+			
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = content }
+				}
+				
+				remove_trait = content
+			}			
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = arbitrary }
+				}
+				
+				remove_trait = arbitrary
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = just }
+				}
+				
+				remove_trait = just
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = cynical }
+				}
+				
+				remove_trait = cynical
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = zealous }
+				}
+				
+				remove_trait = zealous
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = wary }
+				}
+				
+				remove_trait = wary
+			}			
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = trusting }
+				}
+				
+				remove_trait = trusting
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = cruel }
+				}
+				
+				remove_trait = cruel
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = cheerful }
+				}
+				
+				remove_trait = cheerful
+			}
+
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = dour }
+				}
+				
+				remove_trait = dour
+			}
+		
+			
+		}
+		
+	}
+	
+}
+
+
+######################################################################################################
+######################################################################################################
+#
+#			HIDDEN CONGENITAL TRAITS
+#
+######################################################################################################
+######################################################################################################
+
+
+character_event = {
+	id = zdarkages.72289
+	desc = "EVTDESC1972164"
+	picture = "GFX_evt_council"
+	border = GFX_event_normal_frame_economy
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {	
+			has_game_rule = { name = genetic_traits value = immediate } 
+		}
+
+	#################
+	#	WARNING: This game rule trigger exist to be compatible with saves. After some more versions can be safely defined through the value "delayed"
+	#################
+
+		
+		OR = {
+			trait = clubfooted
+			trait = hunchback
+			trait = lisp
+			trait = stutter
+			trait = fair
+			trait = ugly
+			trait = genius
+			trait = quick
+			trait = slow
+			trait = imbecile
+			trait = inbred
+			trait = strong
+			trait = weak
+			trait = tall
+			trait = agile
+			trait = perceptive
+			trait = melodious_voice
+			trait = powerful_voice
+			trait = calm_voice
+			trait = ambidextrous
+			trait = lefthanded
+			trait = wrymouth
+			trait = deaf
+			trait = absentminded
+			trait = fertile
+			trait = imposing
+			trait = short
+			trait = tiny
+			trait = giant
+			trait = comely
+			trait = homely
+			trait = bright
+			trait = dim
+			trait = burly
+			trait = delicate
+			trait = infertile
+			trait = dwarf
+		}
+	}
+	
+	immediate = {
+
+		if = {
+			limit = {
+				trait = clubfooted
+			}
+			
+			remove_trait = clubfooted
+			character_event = { id = zdarkages.72312 days = 730 random = 730 }
+		}
+		
+		if = {
+			limit = {
+				trait = hunchback
+			}
+			
+			remove_trait = hunchback
+			character_event = { id = zdarkages.72314 days = 2555 random = 1825 }
+		}
+
+		if = {
+			limit = {
+				trait = lisp
+			}
+			
+			remove_trait = lisp
+			character_event = { id = zdarkages.72315 days = 1460 random = 1460 }
+		}		
+	
+		if = {
+			limit = {
+				trait = stutter
+			}
+			
+			remove_trait = stutter
+			character_event = { id = zdarkages.72316 days = 1460 random = 1460 }
+		}
+		
+		if = {
+			limit = {
+				trait = fair
+			}
+			
+			remove_trait = fair
+			character_event = { id = zdarkages.72317 days = 3650 random = 1460 }
+		}
+
+		if = {
+			limit = {
+				trait = ugly
+			}
+			
+			remove_trait = ugly
+			character_event = { id = zdarkages.72318 days = 3650 random = 1460 }
+		}
+
+		if = {
+			limit = {
+				trait = genius
+			}
+			
+			remove_trait = genius
+			character_event = { id = zdarkages.72325 days = 1825 random = 1825 }
+		}
+
+		if = {
+			limit = {
+				trait = quick
+			}
+			
+			remove_trait = quick
+			character_event = { id = zdarkages.72320 days = 2555 random = 2190 }
+		}
+
+		if = {
+			limit = {
+				trait = slow
+			}
+			
+			remove_trait = slow
+			character_event = { id = zdarkages.72290 days = 2555 random = 2190 }
+		}
+
+		if = {
+			limit = {
+				trait = imbecile
+			}
+			
+			remove_trait = imbecile
+			character_event = { id = zdarkages.72321 days = 1095 random = 1095 }
+		}
+
+		if = {
+			limit = {
+				trait = inbred
+			}
+			
+			remove_trait = inbred
+			character_event = { id = zdarkages.72322 days = 1825 random = 1825 }
+		}
+
+		if = {
+			limit = {
+				trait = strong
+			}
+			
+			remove_trait = strong
+			character_event = { id = zdarkages.72323 days = 1825 random = 2920 }
+		}
+
+		if = {
+			limit = {
+				trait = weak
+			}
+			
+			remove_trait = weak
+			character_event = { id = zdarkages.72324 days = 1825 random = 2920 }
+		}
+
+		if = {
+			limit = {
+				trait = tall
+			}
+			
+			remove_trait = tall
+			character_event = { id = zdarkages.72291 days = 2920 random = 2920 }
+		}
+
+		if = {
+			limit = {
+				trait = agile
+			}
+			
+			remove_trait = agile
+			character_event = { id = zdarkages.72292 days = 2190 random = 2190 }
+		}
+
+		if = {
+			limit = {
+				trait = perceptive
+			}
+			
+			remove_trait = perceptive
+			character_event = { id = zdarkages.72293 days = 1825 random = 4015 }
+		}
+
+		if = {
+			limit = {
+				trait = melodious_voice
+			}
+			
+			remove_trait = melodious_voice
+			character_event = { id = zdarkages.72294 days = 2190 random = 3650 }
+		}
+
+		if = {
+			limit = {
+				trait = powerful_voice
+			}
+			
+			remove_trait = powerful_voice
+			character_event = { id = zdarkages.72295 days = 2190 random = 3650 }
+		}
+
+		if = {
+			limit = {
+				trait = calm_voice
+			}
+			
+			remove_trait = calm_voice
+			character_event = { id = zdarkages.72296 days = 2190 random = 3650 }
+		}
+
+		if = {
+			limit = {
+				trait = ambidextrous
+			}
+			
+			remove_trait = ambidextrous
+			character_event = { id = zdarkages.72297 days = 1825 random = 1825 }
+		}
+
+		if = {
+			limit = {
+				trait = lefthanded
+			}
+			
+			remove_trait = lefthanded
+			character_event = { id = zdarkages.72298 days = 1095 random = 1825 }
+		}	
+
+		if = {
+			limit = {
+				trait = wrymouth
+			}
+			
+			remove_trait = wrymouth
+			character_event = { id = zdarkages.72299 days = 1825 random = 2920 }
+		}
+
+		if = {
+			limit = {
+				trait = deaf
+			}
+			
+			remove_trait = deaf
+			character_event = { id = zdarkages.72300 days = 730 random = 730 }
+		}
+
+		if = {
+			limit = {
+				trait = absentminded
+			}
+			
+			remove_trait = absentminded
+			character_event = { id = zdarkages.72301 days = 4015 random = 1825 }
+		}	
+
+		if = {
+			limit = {
+				trait = fertile
+			}
+			
+			remove_trait = fertile
+			character_event = { id = zdarkages.72302 days = 4380 random = 1460 }
+		}
+
+		if = {
+			limit = {
+				trait = imposing
+			}
+			
+			remove_trait = imposing
+			character_event = { id = zdarkages.72303 days = 3285 random = 2555 }
+		}	
+
+		if = {
+			limit = {
+				trait = short
+			}
+			
+			remove_trait = short
+			character_event = { id = zdarkages.72304 days = 2920 random = 2920 }
+		}
+
+		if = {
+			limit = {
+				trait = tiny
+			}
+			
+			remove_trait = tiny
+			character_event = { id = zdarkages.72305 days = 2920 random = 2920 }
+		}
+
+		if = {
+			limit = {
+				trait = giant
+			}
+			
+			remove_trait = giant
+			character_event = { id = zdarkages.72313 days = 4745 random = 1095 }
+		}
+
+		if = {
+			limit = {
+				trait = comely
+			}
+			
+			remove_trait = comely
+			character_event = { id = zdarkages.72306 days = 3650 random = 1460 }
+		}		
+		
+		if = {
+			limit = {
+				trait = homely
+			}
+			
+			remove_trait = homely
+			character_event = { id = zdarkages.72307 days = 3650 random = 1460 }
+		}
+
+		if = {
+			limit = {
+				trait = bright
+			}
+			
+			remove_trait = bright
+			character_event = { id = zdarkages.72308 days = 3285 random = 2190 }
+		}
+
+		if = {
+			limit = {
+				trait = dim
+			}
+			
+			remove_trait = dim
+			character_event = { id = zdarkages.72309 days = 3285 random = 2190 }
+		}	
+
+		if = {
+			limit = {
+				trait = burly
+			}
+			
+			remove_trait = burly
+			character_event = { id = zdarkages.72310 days = 2920 random = 2920 }
+		}	
+
+		if = {
+			limit = {
+				trait = delicate
+			}
+			
+			remove_trait = delicate
+			character_event = { id = zdarkages.72311 days = 2920 random = 2920 }
+		}		
+		
+		if = {
+			limit = {
+				trait = infertile
+			}
+			
+			remove_trait = infertile
+			character_event = { id = zdarkages.723251 days = 4380 random = 1460 }
+		}
+		
+		if = {
+			limit = {
+				trait = dwarf
+			}
+			
+			remove_trait = dwarf
+			character_event = { id = zdarkages.722901 days = 550 random = 220 }
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1972164"
+
+	}
+		
+}
+	
+
+
+character_event = {                 #Trait - Slow
+    id = zdarkages.72290
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972290
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = slow }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = slow
+        father = { character_event = { id = zdarkages.72328 } }
+        mother = { character_event = { id = zdarkages.72328 } }
+    
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72328 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - tall
+    id = zdarkages.72291
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972291
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = tall }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = tall 
+        father = { character_event = { id = zdarkages.72329 } }
+        mother = { character_event = { id = zdarkages.72329 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72329 }
+			}
+		}
+
+	}
+
+}
+
+character_event = {                 #Trait - agile
+    id = zdarkages.72292
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972292
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = agile }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = agile 
+        father = { character_event = { id = zdarkages.72331 } }
+        mother = { character_event = { id = zdarkages.72331 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72331 }
+			}
+		}
+	}
+}
+
+character_event = {                 #Trait - perceptive
+    id = zdarkages.72293
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972293
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = perceptive }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = perceptive
+        father = { character_event = { id = zdarkages.72332 } }
+        mother = { character_event = { id = zdarkages.72332 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72332 }
+			}
+		}
+	}
+}
+
+character_event = {                 #Trait - Melodious Voice
+    id = zdarkages.72294
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972294
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = melodious_voice }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = melodious_voice
+        father = { character_event = { id = zdarkages.72333 } }
+        mother = { character_event = { id = zdarkages.72333 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72333 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - Powerful Voice
+    id = zdarkages.72295
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972295
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = powerful_voice }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = powerful_voice
+        father = { character_event = { id = zdarkages.72334 } }
+        mother = { character_event = { id = zdarkages.72334 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72334 }
+			}
+		}
+	}
+}
+
+character_event = {                 #Trait - Calm Voice
+    id = zdarkages.72296
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972296
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = calm_voice }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = calm_voice
+        father = { character_event = { id = zdarkages.72335 } }
+        mother = { character_event = { id = zdarkages.72335 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72335 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - ambidextrous
+    id = zdarkages.72297
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972297
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = ambidextrous }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = ambidextrous
+        father = { character_event = { id = zdarkages.72336 } }
+        mother = { character_event = { id = zdarkages.72336 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72336 }
+			}
+		}
+	}
+}
+
+
+
+
+character_event = {                 #Trait - Lefthanded
+    id = zdarkages.72298
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972298
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = lefthanded }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = lefthanded
+        father = { character_event = { id = zdarkages.72337 } }
+        mother = { character_event = { id = zdarkages.72337 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72337 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - Wrymouth
+    id = zdarkages.72299
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972299
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = wrymouth }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = wrymouth
+        father = { character_event = { id = zdarkages.72338 } }
+        mother = { character_event = { id = zdarkages.72338 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72338 }
+			}
+		}
+	}
+}
+
+
+
+character_event = {                 #Trait - Deaf
+    id = zdarkages.72300
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972300
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = deaf }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = deaf
+        father = { character_event = { id = zdarkages.72339 } }
+        mother = { character_event = { id = zdarkages.72339 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72339 }
+			}
+		}
+	}
+}
+
+
+
+character_event = {                 #Trait - Absentminded
+    id = zdarkages.72301
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972301
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = absentminded }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = absentminded
+        father = { character_event = { id = zdarkages.72340 } }
+        mother = { character_event = { id = zdarkages.72340 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+				
+			educator = {
+				character_event = { id = zdarkages.72340 }
+			}
+		}
+
+	}
+
+}
+
+
+character_event = {                 #Trait - Fertile
+    id = zdarkages.72302
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972302
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = fertile }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = fertile
+        father = { character_event = { id = zdarkages.72341 } }
+        mother = { character_event = { id = zdarkages.72341 } }
+    
+    	
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+				
+			educator = {
+				character_event = { id = zdarkages.72341 }
+			}
+		}
+	}
+}	
+
+
+
+
+character_event = {                 #Trait - Imposing
+    id = zdarkages.72303
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972303
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = imposing }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = imposing
+        father = { character_event = { id = zdarkages.72342 } }
+        mother = { character_event = { id = zdarkages.72342 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72342 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - Short
+    id = zdarkages.72304
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972304
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = short }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = short
+        father = { character_event = { id = zdarkages.72343 } }
+        mother = { character_event = { id = zdarkages.72343 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72343 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - Tiny
+    id = zdarkages.72305
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972305
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = tiny }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = tiny
+        father = { character_event = { id = zdarkages.72344 } }
+        mother = { character_event = { id = zdarkages.72344 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72344 }
+			}
+		}
+	}
+}
+
+
+
+character_event = {                 #Trait - comely
+    id = zdarkages.72306
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972306
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = comely }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = comely
+        father = { character_event = { id = zdarkages.72345 } }
+        mother = { character_event = { id = zdarkages.72345 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72345 }
+			}
+		}
+	}
+}
+
+
+
+
+character_event = {                 #Trait - Homely
+    id = zdarkages.72307
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972307
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = homely }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = homely
+        father = { character_event = { id = zdarkages.72346 } }
+        mother = { character_event = { id = zdarkages.72346 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72346 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - Bright
+    id = zdarkages.72308
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972308
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = bright }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = bright
+        father = { character_event = { id = zdarkages.72347 } }
+        mother = { character_event = { id = zdarkages.72347 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72347 }
+			}
+		}
+	}
+}
+
+character_event = {                 #Trait - Dim
+    id = zdarkages.72309
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972309
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = dim }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = dim
+        father = { character_event = { id = zdarkages.72348 } }
+        mother = { character_event = { id = zdarkages.72348 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72348 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - Burly
+    id = zdarkages.72310
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972310
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = burly }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = burly
+        father = { character_event = { id = zdarkages.72349 } }
+        mother = { character_event = { id = zdarkages.72349 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72349 }
+			}
+		}
+	}
+}
+
+
+
+character_event = {                 #Trait - Delicate
+    id = zdarkages.72311
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972311
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = delicate }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = delicate
+        father = { character_event = { id = zdarkages.72350 } }
+        mother = { character_event = { id = zdarkages.72350 } }
+    
+    
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72350 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - Clubfooted
+    id = zdarkages.72312
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972312
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = clubfooted }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = clubfooted
+        father = { character_event = { id = zdarkages.72351 } }
+        mother = { character_event = { id = zdarkages.72351 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72351 }
+			}
+		}
+	}
+}
+
+character_event = {                 #Trait - Giant
+    id = zdarkages.72313
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972313
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = giant }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = giant
+        father = { character_event = { id = zdarkages.72352 } }
+        mother = { character_event = { id = zdarkages.72352 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72352 }
+			}
+		}
+	}
+}
+
+character_event = {                 #Trait - Hunchback
+    id = zdarkages.72314
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972314
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = hunchback }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = hunchback
+        father = { character_event = { id = zdarkages.72353 } }
+        mother = { character_event = { id = zdarkages.72353 } }
+    
+    	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72353 }
+			}
+		}
+	}
+}
+
+
+
+character_event = {                 #Trait - Lisp
+    id = zdarkages.72315
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972315
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = lisp }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = lisp
+        father = { character_event = { id = zdarkages.72354 } }
+        mother = { character_event = { id = zdarkages.72354 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72354 }
+			}
+		}
+	}
+}
+
+
+
+
+character_event = {                 #Trait - Stutter
+    id = zdarkages.72316
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972316
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = stutter }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = stutter
+        father = { character_event = { id = zdarkages.72355 } }
+        mother = { character_event = { id = zdarkages.72355 } }
+    
+    
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72355 }
+			}
+		}
+	}
+}
+
+
+
+character_event = {                 #Trait - Fair
+    id = zdarkages.72317
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972317
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = fair }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = fair
+        father = { character_event = { id = zdarkages.72356 } }
+        mother = { character_event = { id = zdarkages.72356 } }
+    	
+		
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72356 }
+			}
+		}
+    }
+}
+
+
+character_event = {                 #Trait - Ugly
+    id = zdarkages.72318
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972318
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = ugly }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = ugly
+        father = { character_event = { id = zdarkages.72357 } }
+        mother = { character_event = { id = zdarkages.72357 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72357 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - Quick
+    id = zdarkages.72320
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972320
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = quick }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = quick
+        father = { character_event = { id = zdarkages.72358 } }
+        mother = { character_event = { id = zdarkages.72358 } }
+       
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72358 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - Imbecile
+    id = zdarkages.72321
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972321
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = imbecile }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = imbecile
+        father = { character_event = { id = zdarkages.72359 } }
+        mother = { character_event = { id = zdarkages.72359 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72359 }
+			}
+		}
+	}
+}
+
+character_event = {                 #Trait - Inbred
+    id = zdarkages.72322
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972322
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = inbred }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = inbred
+        father = { character_event = { id = zdarkages.72360 } }
+        mother = { character_event = { id = zdarkages.72360 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72360 }
+			}
+		}
+	}
+}
+
+
+character_event = {                 #Trait - Strong
+    id = zdarkages.72323
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972323
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = strong }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289    
+
+        add_trait = strong
+        father = { character_event = { id = zdarkages.72361 } }
+        mother = { character_event = { id = zdarkages.72361 } }
+    
+
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72361 }
+			}
+		}
+	}
+}
+
+
+
+character_event = {                 #Trait - Weak
+    id = zdarkages.72324
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972324
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = weak }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = weak
+        father = { character_event = { id = zdarkages.72327 } }
+        mother = { character_event = { id = zdarkages.72327 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72327 }
+			}
+		}
+	}
+}
+
+character_event = {                 #Trait - Genius
+    id = zdarkages.72325
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972289
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = genius }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTA1972289   
+
+        add_trait = genius
+        father = { character_event = { id = zdarkages.72326 } }
+        mother = { character_event = { id = zdarkages.72326 } }
+    
+    
+
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72326 }
+			}
+		}
+	}
+
+}
+
+character_event = {                 #Trait - Dwarf
+    id = zdarkages.722901
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972290b
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = dwarf }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289    
+
+        add_trait = dwarf
+        father = { character_event = { id = zdarkages.72330 } }
+        mother = { character_event = { id = zdarkages.72330 } }
+    
+    
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72330 }
+			}
+		}
+	}	
+}
+	
+character_event = {                 #Trait - infertile
+    id = zdarkages.723251
+    title = EVTNAMEGETTRAIT
+    desc = EVTDESC1972325b
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { trait = infertile }
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = EVTOPTB1972289   
+
+        add_trait = infertile
+        father = { character_event = { id = zdarkages.72362 } }
+        mother = { character_event = { id = zdarkages.72362 } }
+    
+    
+	
+		if = {
+			limit = {
+				educator = {
+					NOT = { is_parent_of = ROOT }
+					ai = no
+				}
+			}
+			
+			educator = {
+				character_event = { id = zdarkages.72362 }
+			}
+		}
+	}
+}
+
+
+############################################################################################################ #########################
+########################                                                                      				 #######################################
+########################                                                                      				 #######################################
+######################## START OF PARENTS/WARDS/GUARDIAN GETTING NOTIFICATION EVENTS FOR THEIR CHILDS TRAITS #######################################
+########################                                                                      				 #######################################
+###################################################################################################################################################
+
+
+character_event = {                 #Parents - Genius
+    id = zdarkages.72326
+    title = EVTNAMEGETTRAITPARENTS
+	desc = { 
+		text = EVTDESC1972326
+		trigger = { 
+			is_parent_of = FROM
+		}
+	}
+		
+		
+        
+	desc = { 
+		text = EVTDESC1972326B 
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+	
+	}
+	
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			OR = {
+				AND = {
+					trait = genius
+					is_father = FROM 
+				}
+				AND = {
+					trait = quick
+					is_father = FROM
+				}
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP146 }
+		tooltip = {
+			FROM = {
+				add_trait = genius
+			}
+		}
+		
+		if = {
+			limit = { NOT =  { trait = humble } }
+			random = {
+				chance = 40
+		
+				add_trait = proud
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = genius
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = genius }
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = genius
+			}
+		}
+		
+		
+	}		
+			
+	option = {
+		name = GUARDIANGOOD
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = genius
+			}
+		}
+    
+    }	
+
+}
+
+
+character_event = {                 #Parents - weak
+    id = zdarkages.72327
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972327
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+		
+        
+	desc = { 
+		text = EVTDESC1972327B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+	
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = weak
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = weak
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANSPECIALE
+		
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = weak
+			}
+		}
+    }	
+ }
+
+
+character_event = {                 #Parents - slow
+    id = zdarkages.72328
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972328
+		trigger = { 
+			is_parent_of = FROM
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972328B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	}	 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM 
+		}
+		tooltip = {
+			FROM = {
+				add_trait = slow
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM 
+		}
+		tooltip = {
+			FROM = {
+				add_trait = slow
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANBAD
+		
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = slow
+			}
+		}
+    
+    }
+   
+}
+
+character_event = {                 #Parents - tall
+    id = zdarkages.72329
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972329
+		trigger = { 
+			is_parent_of = FROM
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972329B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = tall
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = tall
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = tall
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = tall }
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = tall
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANGOOD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = tall
+			}
+		}
+	}
+
+}
+
+character_event = {                 #Parents - Dwarf
+    id = zdarkages.72330
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972330
+		trigger = { 
+			is_parent_of = FROM
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972330B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = dwarf 
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = dwarf 
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANSPECIALDWARF
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = dwarf 
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - agile
+    id = zdarkages.72331
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972331
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972331B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = agile
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = agile 
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = agile 
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = agile }
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = agile 
+			}
+		}
+    
+    }
+	
+	option = {
+		name = GUARDIANSPECIALB
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = agile 
+			}
+		}
+	}
+
+}
+
+character_event = {                 #Parents - Melodious Voice
+    id = zdarkages.72333
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972333
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972333B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+	}
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = melodious_voice
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = melodious_voice
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = melodious_voice
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = melodious_voice }
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = melodious_voice
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANGOOD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = melodious_voice
+			}
+		}
+	}
+
+}
+
+character_event = {                 #Parents - Powerful Voice
+    id = zdarkages.72334
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972334
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972334B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = powerful_voice
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = powerful_voice
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = powerful_voice
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = powerful_voice }
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = powerful_voice
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANSPECIALC
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = powerful_voice
+			}
+		}
+	}
+
+
+
+}
+
+character_event = {                 #Parents - Calm Voice
+    id = zdarkages.72335
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972335
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972335B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = calm_voice
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = calm_voice
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = calm_voice
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = calm_voice }
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = calm_voice
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANGOOD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = calm_voice
+			}
+		}
+	}
+
+
+
+}
+
+character_event = {                 #Parents - ambidextrous
+    id = zdarkages.72336
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972336
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972336B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = ambidextrous
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = ambidextrous
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = ambidextrous }
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = ambidextrous
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANFIGHTER
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = ambidextrous
+			}
+		}
+	}
+
+
+
+}
+
+character_event = {                 #Parents - Lefthanded
+    id = zdarkages.72337
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972337
+		trigger = { 
+			is_parent_of = FROM
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972337B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENTB
+		trigger = {
+			is_father = FROM 
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = lefthanded
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = lefthanded
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANBAD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = lefthanded
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Wrymouth
+    id = zdarkages.72338
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972338
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972338B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM 
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = wrymouth
+			}
+		}
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = wrymouth
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANSPECIALA
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = wrymouth
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Deaf
+    id = zdarkages.72339
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972339
+		trigger = { 
+			is_parent_of = FROMFROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972339B
+		trigger = { 
+			NOT = { is_parent_of = FROMFROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = deaf
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = deaf
+			}
+		}
+	}
+	
+	option = {
+		name = GUARDIANSPECIALA
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = deaf
+			}
+		}
+	}
+   
+}
+
+
+character_event = {                 #Parents - Absentminded
+    id = zdarkages.72340
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972340
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972340B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENTB
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = absentminded
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = absentminded
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANBAD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = absentminded
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - fertile
+    id = zdarkages.72341
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972341
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972341B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = fertile
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = fertile
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = fertile
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = fertile }
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = fertile
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANFERTILE
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = fertile
+			}
+		}
+	}
+
+
+
+}
+
+character_event = {                 #Parents - Imposing
+    id = zdarkages.72342
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972342
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972342B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = imposing
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = imposing
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = imposing
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = imposing }
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = imposing
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANSPECIALD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = imposing
+			}
+		}
+	}
+
+
+
+}
+
+character_event = {                 #Parents - Short
+    id = zdarkages.72343
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972343
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972343B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENTB
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = short
+			}
+		}
+    }   
+	
+	option = {
+		name = MOTHERBADEVENT
+   		trigger = {
+			is_mother = FROM
+ 		}
+		tooltip = { 
+			FROM = {
+				add_trait = short
+			}
+		}
+   
+   }
+   
+   option = {
+		name = GUARDIANSPECIALE
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = short
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Tiny
+	id = zdarkages.72344
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972344
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972344B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENTB
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = tiny
+			}
+		}
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = tiny
+			}
+		}
+    }
+	
+	option = {
+		name = GUARDIANSPECIALE
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = tiny
+			}
+		}
+	}
+}
+
+character_event = {                 #Parents - Comely
+    id = zdarkages.72345
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972345
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972345B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = comely
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = comely
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = comely
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = comely }
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = comely
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANGOOD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = comely
+			}
+		}
+		
+	}
+
+}
+
+character_event = {                 #Parents - Homely
+    id = zdarkages.72346
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972346
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972346B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENTB
+  		trigger = {
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = homely
+			}
+		}
+    }
+	
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = homely
+			}
+		}
+    }
+	
+	option = {
+		name = GUARDIANSPECIALF
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = homely
+			}
+		}
+	}
+ 
+}
+
+character_event = {                 #Parents - Bright
+    id = zdarkages.72347
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972347
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972347B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			OR = {
+				AND = {
+					trait = bright
+					is_father = FROM
+				}
+				AND = {
+					trait = genius
+					is_father = FROM
+				}
+				AND = {
+					trait = quick
+					is_father = FROM
+				}
+			}
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = bright
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = bright
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			is_father = FROM
+			NOR = { 
+				trait = bright 
+				trait = genius
+				trait = quick
+			}
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = bright
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANGOOD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = bright
+			}
+		}
+	}
+
+
+}
+
+character_event = {                 #Parents - Dim
+    id = zdarkages.72348
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972348
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972348B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENTB
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = dim
+			}
+		}
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = dim
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANBAD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = dim
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Burly
+    id = zdarkages.72349
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972349
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972349B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			OR = {
+				trait = burly
+				trait = strong
+			}
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = burly
+			}
+		}
+	}
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = burly
+			}
+		}
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = burly }
+			NOT = { trait = strong }
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = burly
+			}
+		}
+    }
+	
+	option = {
+		name = GUARDIANFIGHTER
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = burly
+			}
+		}
+	}
+
+}
+
+character_event = {                 #Parents - Delicate
+    id = zdarkages.72350
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972350
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972350B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENTB
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = delicate
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = delicate
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANSPECIALE
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = delicate
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Clubfooted
+    id = zdarkages.72351
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972351
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972351B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = clubfooted
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = clubfooted
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANSPECIALG
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = clubfooted
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Giant
+	id = zdarkages.72352
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972352
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972352B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = giant
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = giant
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = giant
+			}
+		}
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = giant }
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = giant
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANFIGHTER
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = giant
+			}
+		}
+	}
+
+
+
+}
+
+character_event = {                 #Parents - Hunchback
+    id = zdarkages.72353
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972353
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972353B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = hunchback
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = hunchback
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANBAD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = hunchback
+			}
+		}
+	}
+ }
+
+character_event = {                 #Parents - Lisp
+    id = zdarkages.72354
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972354
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972354B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = lisp
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = lisp
+			}
+		}
+	}
+	
+	option = {
+		name = GUARDIANBAD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = lisp
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Stutter
+    id = zdarkages.72355
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972355
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972355B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = stutter
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM 
+		}
+		tooltip = {
+			FROM = {
+				add_trait = stutter
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANFAULT2
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = stutter
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Fair
+    id = zdarkages.72356
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972356
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972356B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = fair
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = fair
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = fair
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = fair }
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = fair
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANGOOD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = fair
+			}
+		}
+	}
+}
+
+character_event = {                 #Parents - Ugly
+    id = zdarkages.72357
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972357
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972357B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = ugly
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+   
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = ugly
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANSPECIALA
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = ugly
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Quick
+    id = zdarkages.72358
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972358
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972358B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			OR = {
+				trait = quick
+				trait = genius
+			}
+			is_father = FROM
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP146 }		
+		tooltip = {
+			FROM = {
+				add_trait = quick
+			}
+		}
+		
+		if = {
+			limit = { NOT =  { trait = humble } }
+			random = {
+				chance = 30
+		
+				add_trait = proud
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOR = {
+				trait = quick 
+				trait = genius
+			}
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = quick
+			}
+		}
+    
+    }
+
+option = {
+		name = GUARDIANGOOD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = quick
+			}
+		}
+	}	
+
+
+}
+
+character_event = {                 #Parents - Imbecile
+    id = zdarkages.72359
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972359
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972359B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENT
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = imbecile
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = imbecile
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANKILLER
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = imbecile
+			}
+		}
+	}
+   
+}
+
+character_event = {  			#Parents - Inbred
+
+	id = zdarkages.72360
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972360
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972360B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = SPECIALOPTIONFATHER
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = inbred
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = SPECIALOPTIONMOTHER
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = inbred
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANSPECIALH
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = inbred
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Strong
+    id = zdarkages.72361
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972361
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972361B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			OR = {
+				trait = strong
+				trait = burly
+			}
+			is_father = FROM
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP146 }		
+		tooltip = {
+			FROM = {
+				add_trait = strong
+			}
+		}
+		
+		if = {
+			limit = { NOT =  { trait = humble } }
+			random = {
+				chance = 20
+		
+				add_trait = proud
+			}
+		}
+		
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = strong
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOR = {
+				trait = strong
+				trait = burly
+			}
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = strong
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANFIGHTER
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = strong
+			}
+		}
+	}
+
+
+
+}
+
+character_event = {  			#Parents - Infertile
+
+	id = zdarkages.72362
+    title = EVTNAMEGETTRAITPARENTS
+    desc = { 
+		text = EVTDESC1972362
+		trigger = { 
+			is_parent_of = FROM 
+		}
+	}
+				
+        
+	desc = { 
+		text = EVTDESC1972362B
+		trigger = { 
+			NOT = { is_parent_of = FROM }
+		}
+	}
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+
+	} 
+    
+	option = {
+		name = FATHERBADEVENTB
+		trigger = {
+			is_father = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = infertile
+			}
+		}
+	 
+	}
+       
+	option = {
+		name = MOTHERBADEVENT
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = {
+			FROM = {
+				add_trait = infertile
+			}
+		}
+       
+	}
+	
+	option = {
+		name = GUARDIANFAULT
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = {
+			FROM = {
+				add_trait = infertile
+			}
+		}
+	}
+   
+}
+
+character_event = {                 #Parents - Calm Voice
+    id = zdarkages.72332
+    title = EVTNAMEGETTRAITPARENTS
+    desc = EVTDESC1972332
+    picture = GFX_evt_child_play
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    trigger = {
+
+    }
+
+    immediate = {
+        
+
+    }
+
+    option = {
+        name = FATHERGOODEVENTA
+		trigger = {
+			trait = calm_voice
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = calm_voice
+			}
+		}
+    
+    }
+	
+    option = {
+        name = MOTHERGOODEVENTB
+		trigger = {
+			is_mother = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = perceptive
+			}
+		}
+    
+    }	
+	
+    option = {
+        name = FATHERGOODEVENTB
+		trigger = {
+			NOT = { trait = perceptive }
+			is_father = FROM
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = perceptive
+			}
+		}
+    
+    }	
+	
+	option = {
+		name = GUARDIANGOOD
+		trigger = {
+			NOT = { is_parent_of = FROM }
+		}
+		tooltip = { 
+			FROM = {
+				add_trait = perceptive
+			}
+		}
+	}
+
+
+
+}	
+
+
+
+
+#####################
+#
+#	ADD WARY trait for Adolescent
+#
+#######################
+
+character_event = {
+	id = zdarkages.72363
+	desc = "EVTDESC1972363"
+	picture = "GFX_evt_da_spymaster"
+	border = GFX_event_normal_frame_intrigue
+	
+	
+	trigger = {
+		age = 12
+		NOT = { age = 16 }
+		trait = conscientious
+		NOT = { trait = paranoid }
+		NOT = { trait = trusting }		
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+	}
+	
+	option = {
+		name = "EVTOPTA1972363"
+		remove_trait = conscientious
+		add_trait = wary
+	}
+}
+
+
+	
+

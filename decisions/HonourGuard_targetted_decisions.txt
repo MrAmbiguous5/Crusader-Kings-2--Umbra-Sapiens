@@ -1,0 +1,2250 @@
+
+targetted_decisions = {
+
+	disband_honour_guard = {
+		is_high_prio = no
+		ai = no 
+		
+		filter = self
+		ai_target_filter = self
+
+		potential = {
+			OR = {
+				has_character_modifier = honour_guard_1_modifier
+				has_character_modifier = honour_guard_2_modifier
+				has_character_modifier = honour_guard_3_modifier
+				has_character_modifier = honour_guard_4_modifier
+				has_character_modifier = honour_guard_5_modifier
+				has_character_modifier = honour_guard_6_modifier
+				has_character_modifier = honour_guard_7_modifier
+				has_character_modifier = honour_guard_8_modifier
+				has_character_modifier = honour_guard_9_modifier
+				has_character_modifier = honour_guard_10_modifier
+				has_character_modifier = honour_guard_11_modifier
+				has_character_modifier = honour_guard_12_modifier
+				has_character_modifier = honour_guard_13_modifier
+				has_character_modifier = honour_guard_14_modifier
+				has_character_modifier = honour_guard_15_modifier
+				has_character_modifier = honour_guard_16_modifier
+			}
+		}
+		
+		allow = {
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+			in_battle = no
+		}
+		
+		effect = {
+			if = {
+				limit = { has_character_modifier = honour_guard_1_modifier }
+				hidden_tooltip = {
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = actually_culture
+						female = no
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 3
+							martial = 8
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = misguided_warrior
+						remove_trait = tough_soldier
+						remove_trait = skilled_tactician
+						add_trait = brilliant_strategist
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						
+						random_list = {
+							40 = {  }
+							20 = { add_trait = duelist }
+							20 = { add_trait = hunter }
+							20 = { add_trait = strategist }
+						}
+						
+						random_list = {
+							10 = { add_trait = narrow_flank_leader }
+							10 = { add_trait = defensive_leader }
+							10 = { add_trait = experimenter }
+							10 = { add_trait = flanker }
+							10 = { add_trait = heavy_infantry_leader }
+							10 = { add_trait = inspiring_leader }
+							10 = { add_trait = organizer }
+							10 = { add_trait = siege_leader }
+							10 = { add_trait = trickster }
+							10 = { add_trait = aggressive_leader }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}
+							if = {
+								limit = { ROOT = { trait = homosexual } }
+								random = {
+									chance = 69
+									add_trait = homosexual
+								}
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_1_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_2_modifier }
+				hidden_tooltip = {
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = actually_culture
+						female = yes
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 3
+							martial = 8
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = misguided_warrior
+						remove_trait = tough_soldier
+						remove_trait = skilled_tactician
+						add_trait = brilliant_strategist
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						
+						random_list = {
+							40 = {  }
+							20 = { add_trait = duelist }
+							20 = { add_trait = hunter }
+							20 = { add_trait = strategist }
+						}
+						
+						random_list = {
+							10 = { add_trait = narrow_flank_leader }
+							10 = { add_trait = defensive_leader }
+							10 = { add_trait = experimenter }
+							10 = { add_trait = flanker }
+							10 = { add_trait = heavy_infantry_leader }
+							10 = { add_trait = inspiring_leader }
+							10 = { add_trait = organizer }
+							10 = { add_trait = siege_leader }
+							10 = { add_trait = trickster }
+							10 = { add_trait = aggressive_leader }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}									
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_2_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_3_modifier }
+				hidden_tooltip = {
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = actually_culture
+						female = no
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 3
+							martial = 8
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = misguided_warrior
+						remove_trait = tough_soldier
+						remove_trait = skilled_tactician
+						add_trait = brilliant_strategist
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						
+						random_list = {
+							40 = {  }
+							20 = { add_trait = duelist }
+							20 = { add_trait = hunter }
+							20 = { add_trait = strategist }
+						}
+						
+						random_list = {
+							10 = { add_trait = narrow_flank_leader }
+							10 = { add_trait = defensive_leader }
+							10 = { add_trait = experimenter }
+							10 = { add_trait = flanker }
+							10 = { add_trait = heavy_infantry_leader }
+							10 = { add_trait = inspiring_leader }
+							10 = { add_trait = organizer }
+							10 = { add_trait = siege_leader }
+							10 = { add_trait = trickster }
+							10 = { add_trait = aggressive_leader }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}									
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_3_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_4_modifier }
+				hidden_tooltip = {
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = actually_culture
+						female = yes
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 3
+							martial = 8
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = misguided_warrior
+						remove_trait = tough_soldier
+						remove_trait = skilled_tactician
+						add_trait = brilliant_strategist
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						
+						random_list = {
+							40 = {  }
+							20 = { add_trait = duelist }
+							20 = { add_trait = hunter }
+							20 = { add_trait = strategist }
+						}
+						
+						random_list = {
+							10 = { add_trait = narrow_flank_leader }
+							10 = { add_trait = defensive_leader }
+							10 = { add_trait = experimenter }
+							10 = { add_trait = flanker }
+							10 = { add_trait = heavy_infantry_leader }
+							10 = { add_trait = inspiring_leader }
+							10 = { add_trait = organizer }
+							10 = { add_trait = siege_leader }
+							10 = { add_trait = trickster }
+							10 = { add_trait = aggressive_leader }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}
+							if = {
+								limit = { ROOT = { trait = homosexual } }
+								random = {
+									chance = 69
+									add_trait = homosexual
+								}
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}	
+				remove_character_modifier = honour_guard_4_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_5_modifier }
+				hidden_tooltip = {
+					create_random_intriguer = {
+						random_traits = yes
+						dynasty = none
+						female = no
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 8
+							martial = 4
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = amateurish_plotter
+						remove_trait = flamboyant_schemer
+						remove_trait = intricate_webweaver
+						add_trait = elusive_shadow
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							10 = { add_trait = bastard }
+							5 = { health = 1 }
+						}
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						random_list = {
+							40 = {  }
+							20 = { add_trait = deceitful }
+							20 = { add_trait = envious }
+							20 = { add_trait = schemer }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}	
+							if = {
+								limit = { ROOT = { trait = homosexual } }
+								random = {
+									chance = 69
+									add_trait = homosexual
+								}
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						random = { # aesthetic for peasant faithful
+							chance = 30
+							add_ascetic_trait_effect = yes
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}	
+				remove_character_modifier = honour_guard_5_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_6_modifier }
+				hidden_tooltip = {
+					create_random_intriguer = {
+						random_traits = yes
+						dynasty = none
+						female = yes
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 8
+							martial = 4
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = amateurish_plotter
+						remove_trait = flamboyant_schemer
+						remove_trait = intricate_webweaver
+						add_trait = elusive_shadow
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							10 = { add_trait = bastard }
+							5 = { health = 1 }
+						}
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						random_list = {
+							40 = {  }
+							20 = { add_trait = deceitful }
+							20 = { add_trait = envious }
+							20 = { add_trait = schemer }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}	
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						random = { # aesthetic for peasant faithful
+							chance = 30
+							add_ascetic_trait_effect = yes
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_6_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_7_modifier }
+				hidden_tooltip = {
+					create_random_intriguer = {
+						random_traits = yes
+						dynasty = none
+						female = no
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 8
+							martial = 4
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = amateurish_plotter
+						remove_trait = flamboyant_schemer
+						remove_trait = intricate_webweaver
+						add_trait = elusive_shadow
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							10 = { add_trait = bastard }
+							5 = { health = 1 }
+						}
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						random_list = {
+							40 = {  }
+							20 = { add_trait = deceitful }
+							20 = { add_trait = envious }
+							20 = { add_trait = schemer }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}	
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						random = { # aesthetic for peasant faithful
+							chance = 30
+							add_ascetic_trait_effect = yes
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_7_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_8_modifier }
+				hidden_tooltip = {
+					create_random_intriguer = {
+						random_traits = yes
+						dynasty = none
+						female = yes
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 8
+							martial = 4
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = amateurish_plotter
+						remove_trait = flamboyant_schemer
+						remove_trait = intricate_webweaver
+						add_trait = elusive_shadow
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							10 = { add_trait = bastard }
+							5 = { health = 1 }
+						}
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						random_list = {
+							40 = {  }
+							20 = { add_trait = deceitful }
+							20 = { add_trait = envious }
+							20 = { add_trait = schemer }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}	
+							if = {
+								limit = { ROOT = { trait = homosexual } }
+								random = {
+									chance = 69
+									add_trait = homosexual
+								}
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						random = { # aesthetic for peasant faithful
+							chance = 30
+							add_ascetic_trait_effect = yes
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_8_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_9_modifier }
+				hidden_tooltip = {
+					create_random_intriguer = {
+						random_traits = yes
+						dynasty = none
+						culture = random
+						female = no
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 8
+							martial = 4
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = amateurish_plotter
+						remove_trait = flamboyant_schemer
+						remove_trait = intricate_webweaver
+						add_trait = elusive_shadow
+						
+						banish = yes
+						religion = liege
+						culture = liege
+						set_graphical_culture = liege
+						if = {
+							limit = { liege = { is_female = no } }
+							set_father = liege
+							dynasty = father_bastard
+							set_father = 0
+						}
+						else = {
+							set_mother = liege
+							dynasty = mother_bastard
+							set_mother = 0
+						}
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						random_list = {
+							40 = {  }
+							20 = { add_trait = deceitful }
+							20 = { add_trait = envious }
+							20 = { add_trait = schemer }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}	
+							if = {
+								limit = { ROOT = { trait = homosexual } }
+								random = {
+									chance = 69
+									add_trait = homosexual
+								}
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_9_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_10_modifier }
+				hidden_tooltip = {
+					create_random_intriguer = {
+						random_traits = yes
+						dynasty = none
+						culture = random
+						female = yes
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 8
+							martial = 4
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = amateurish_plotter
+						remove_trait = flamboyant_schemer
+						remove_trait = intricate_webweaver
+						add_trait = elusive_shadow
+						
+						banish = yes
+						religion = liege
+						culture = liege
+						set_graphical_culture = liege
+						if = {
+							limit = { liege = { is_female = no } }
+							set_father = liege
+							dynasty = father_bastard
+							set_father = 0
+						}
+						else = {
+							set_mother = liege
+							dynasty = mother_bastard
+							set_mother = 0
+						}
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						random_list = {
+							40 = {  }
+							20 = { add_trait = deceitful }
+							20 = { add_trait = envious }
+							20 = { add_trait = schemer }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}	
+							if = {
+								limit = { ROOT = { trait = homosexual } }
+								random = {
+									chance = 69
+									add_trait = homosexual
+								}
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_10_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_11_modifier }
+				hidden_tooltip = {
+					create_random_intriguer = {
+						random_traits = yes
+						dynasty = none
+						culture = random
+						female = no
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 8
+							martial = 4
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = amateurish_plotter
+						remove_trait = flamboyant_schemer
+						remove_trait = intricate_webweaver
+						add_trait = elusive_shadow
+						
+						banish = yes
+						religion = liege
+						culture = liege
+						set_graphical_culture = liege
+						if = {
+							limit = { liege = { is_female = no } }
+							set_father = liege
+							dynasty = father_bastard
+							set_father = 0
+						}
+						else = {
+							set_mother = liege
+							dynasty = mother_bastard
+							set_mother = 0
+						}
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						random_list = {
+							40 = {  }
+							20 = { add_trait = deceitful }
+							20 = { add_trait = envious }
+							20 = { add_trait = schemer }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}	
+							if = {
+								limit = { ROOT = { trait = homosexual } }
+								random = {
+									chance = 69
+									add_trait = homosexual
+								}
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_11_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_12_modifier }
+				hidden_tooltip = {
+					create_random_intriguer = {
+						random_traits = yes
+						dynasty = none
+						culture = random
+						female = yes
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 8
+							martial = 4
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = amateurish_plotter
+						remove_trait = flamboyant_schemer
+						remove_trait = intricate_webweaver
+						add_trait = elusive_shadow
+						
+						banish = yes
+						religion = liege
+						culture = liege
+						set_graphical_culture = liege
+						if = {
+							limit = { liege = { is_female = no } }
+							set_father = liege
+							dynasty = father_bastard
+							set_father = 0
+						}
+						else = {
+							set_mother = liege
+							dynasty = mother_bastard
+							set_mother = 0
+						}
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						random_list = {
+							40 = {  }
+							20 = { add_trait = deceitful }
+							20 = { add_trait = envious }
+							20 = { add_trait = schemer }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}	
+							if = {
+								limit = { ROOT = { trait = homosexual } }
+								random = {
+									chance = 69
+									add_trait = homosexual
+								}
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_12_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_13_modifier }
+				hidden_tooltip = {
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						culture = random
+						female = no
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 3
+							martial = 8
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = misguided_warrior
+						remove_trait = tough_soldier
+						remove_trait = skilled_tactician
+						add_trait = brilliant_strategist
+						
+						if = {
+							limit = {
+								liege = { # byzantine empire, varangians
+									any_vassal = { has_landed_title = d_varangian_guard }
+								}
+							}
+							religion = norse_pagan
+							culture = norse
+							add_trait = varangian
+						}						
+						else = {
+							banish = yes
+							religion = liege
+						}
+						
+						random_list = {
+							50 = {  }
+							25 = { add_trait = gladiator }
+							25 = { add_trait = bastard }
+							25 = { add_trait = eunuch }
+						}
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						
+						random_list = {
+							40 = {  }
+							20 = { add_trait = duelist }
+							20 = { add_trait = hunter }
+							20 = { add_trait = strategist }
+						}
+						
+						random_list = {
+							10 = { add_trait = narrow_flank_leader }
+							10 = { add_trait = defensive_leader }
+							10 = { add_trait = experimenter }
+							10 = { add_trait = flanker }
+							10 = { add_trait = heavy_infantry_leader }
+							10 = { add_trait = inspiring_leader }
+							10 = { add_trait = organizer }
+							10 = { add_trait = siege_leader }
+							10 = { add_trait = trickster }
+							10 = { add_trait = aggressive_leader }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}
+							if = {
+								limit = { ROOT = { trait = homosexual } }
+								random = {
+									chance = 69
+									add_trait = homosexual
+								}
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_13_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_14_modifier }
+				hidden_tooltip = {
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						culture = random
+						female = yes
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 3
+							martial = 8
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = misguided_warrior
+						remove_trait = tough_soldier
+						remove_trait = skilled_tactician
+						add_trait = brilliant_strategist
+						
+						if = {
+							limit = {
+								liege = { # byzantine empire, varangians
+									any_vassal = { has_landed_title = d_varangian_guard }
+								}
+							}
+							religion = norse_pagan
+							culture = norse
+							add_trait = varangian
+						}						
+						else = {
+							banish = yes
+							religion = liege
+						}
+						
+						random_list = {
+							50 = {  }
+							25 = { add_trait = gladiator }
+							25 = { add_trait = bastard }
+							25 = { add_trait = eunuch }
+						}
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						
+						random_list = {
+							40 = {  }
+							20 = { add_trait = duelist }
+							20 = { add_trait = hunter }
+							20 = { add_trait = strategist }
+						}
+						
+						random_list = {
+							10 = { add_trait = narrow_flank_leader }
+							10 = { add_trait = defensive_leader }
+							10 = { add_trait = experimenter }
+							10 = { add_trait = flanker }
+							10 = { add_trait = heavy_infantry_leader }
+							10 = { add_trait = inspiring_leader }
+							10 = { add_trait = organizer }
+							10 = { add_trait = siege_leader }
+							10 = { add_trait = trickster }
+							10 = { add_trait = aggressive_leader }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_14_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_15_modifier }
+				hidden_tooltip = {
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						culture = random
+						female = no
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 3
+							martial = 8
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = misguided_warrior
+						remove_trait = tough_soldier
+						remove_trait = skilled_tactician
+						add_trait = brilliant_strategist
+						
+						if = {
+							limit = {
+								liege = { # byzantine empire, varangians
+									any_vassal = { has_landed_title = d_varangian_guard }
+								}
+							}
+							religion = norse_pagan
+							culture = norse
+							add_trait = varangian
+						}						
+						else = {
+							banish = yes
+							religion = liege
+						}
+						
+						random_list = {
+							50 = {  }
+							25 = { add_trait = gladiator }
+							25 = { add_trait = bastard }
+						}
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						
+						random_list = {
+							40 = {  }
+							20 = { add_trait = duelist }
+							20 = { add_trait = hunter }
+							20 = { add_trait = strategist }
+						}
+						
+						random_list = {
+							10 = { add_trait = narrow_flank_leader }
+							10 = { add_trait = defensive_leader }
+							10 = { add_trait = experimenter }
+							10 = { add_trait = flanker }
+							10 = { add_trait = heavy_infantry_leader }
+							10 = { add_trait = inspiring_leader }
+							10 = { add_trait = organizer }
+							10 = { add_trait = siege_leader }
+							10 = { add_trait = trickster }
+							10 = { add_trait = aggressive_leader }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_15_modifier
+			}
+			if = {
+				limit = { has_character_modifier = honour_guard_16_modifier }
+				hidden_tooltip = {
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						culture = random
+						female = yes
+						attributes = {
+							diplomacy = 2
+							learning = 3
+							stewardship = 3
+							intrigue = 3
+							martial = 8
+						}
+					}
+					new_character = {
+						prestige = 420
+						remove_trait = slow
+						remove_trait = imbecile
+						remove_trait = dull
+						remove_trait = mystic
+						remove_trait = socializer
+						remove_trait = gamer
+						remove_trait = hedonist
+						remove_trait = duelist
+						remove_trait = hunter
+						remove_trait = strategist
+						remove_trait = administrator
+						remove_trait = architect
+						remove_trait = gardener
+						remove_trait = schemer
+						remove_trait = impaler
+						remove_trait = seducer
+						remove_trait = seductress
+						remove_trait = theologian
+						remove_trait = scholar
+						remove_trait = craven
+						remove_trait = misguided_warrior
+						remove_trait = tough_soldier
+						remove_trait = skilled_tactician
+						add_trait = brilliant_strategist
+						
+						if = {
+							limit = {
+								liege = { # byzantine empire, varangians
+									any_vassal = { has_landed_title = d_varangian_guard }
+								}
+							}
+							religion = norse_pagan
+							culture = norse
+							add_trait = varangian
+						}						
+						else = {
+							banish = yes
+							religion = liege
+						}
+						
+						random_list = {
+							50 = {  }
+							25 = { add_trait = gladiator }
+							25 = { add_trait = bastard }
+						}
+						
+						random_list = {
+							20 = { add_trait = robust }
+							10 = { add_trait = strong }
+							5 = { health = 1 }
+						}
+						
+						random_list = {
+							85 = {  }
+							10 = { add_trait = scarred }
+							5 = { add_trait = scarred_mid }
+						}
+						
+						random_list = {
+							40 = {  }
+							20 = { add_trait = duelist }
+							20 = { add_trait = hunter }
+							20 = { add_trait = strategist }
+						}
+						
+						random_list = {
+							10 = { add_trait = narrow_flank_leader }
+							10 = { add_trait = defensive_leader }
+							10 = { add_trait = experimenter }
+							10 = { add_trait = flanker }
+							10 = { add_trait = heavy_infantry_leader }
+							10 = { add_trait = inspiring_leader }
+							10 = { add_trait = organizer }
+							10 = { add_trait = siege_leader }
+							10 = { add_trait = trickster }
+							10 = { add_trait = aggressive_leader }
+						}
+						hidden_tooltip = {
+							if = {
+								limit = {
+									has_dharmic_religion_trigger = yes
+								}
+								add_trait = kshatriya
+								character_event = { id = RoI.30121 }
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+										has_religion_feature = religion_astrology
+									}
+								}
+								hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+							}
+							if = {
+								limit = {
+									has_religion_feature = religion_no_leader
+									religion_group = pagan_group
+								}
+								add_trait = pagan_branch_3
+							}
+							if = {
+								limit = {
+									OR = {
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+									religion_group = pagan_group
+								}
+								random = {
+									chance = 20
+									add_trait = berserker
+								}
+							}
+							if = {
+								limit = { is_female = yes }
+								add_trait = shieldmaiden
+							}
+							if = {
+								limit = { ROOT = { trait = homosexual } }
+								random = {
+									chance = 69
+									add_trait = homosexual
+								}
+							}
+						}
+						random_list = { # change age slightly
+							20 = {  }
+							10 = { add_age = 1 }
+							10 = { add_age = 2 }
+							10 = { add_age = 3 }
+							10 = { add_age = 4 }
+						}
+						save_event_target_as = honour_guard_target
+						set_character_flag = former_honour_guard
+					}
+					character_event = { id = HonourGuard.110 }
+				}
+				remove_character_modifier = honour_guard_16_modifier
+			}
+		}
+	}
+
+
+}	# closed decision bracket

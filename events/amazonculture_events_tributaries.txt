@@ -1,0 +1,3313 @@
+namespace = AmzCul	
+
+# themiskyran tributary
+	character_event = {		
+		id = AmzCul.1011
+		desc = EVTDESCAmzCul.1011
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+						
+		option = {
+			name = EVTOPTAAmzCul.1011
+			ai_chance = { factor = 50 }
+			custom_tooltip = { text = themiskyran_tributary_tt }
+			hidden_tooltip = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = 69420
+					female = yes
+					age = 24
+					health = 6
+					religion = ROOT
+					culture = themiskyran_amz
+					trait = administrator
+					attributes = {
+						diplomacy = 6
+						martial = 6
+						stewardship = 6
+						intrigue = 6
+						learning = 6
+					}
+				}
+				new_character = {
+				save_event_target_as = themiskyran_tributary
+				}
+				
+				event_target:themiskyran_tributary = {
+					grant_title = d_armeniacon
+					wealth = 100
+					prestige = 500
+					piety = 100
+					set_defacto_liege = THIS
+					add_friend = ROOT
+					add_artifact = hippolyta_girdle
+					remove_all_negative_congenital_traits_effect = yes
+					remove_education_effect = yes
+					add_trait = midas_touched
+					random_list = {
+						1 = { 
+							add_age = -1
+						}
+						1 = { 
+							add_age = -2
+						}
+						1 = { 
+							# nothin
+						}
+						random = {
+							chance = 10
+							add_trait = fair
+						}
+						random = {
+							chance = 20
+							add_trait = strong
+						}
+						random = {
+							chance = 10
+							add_trait = lefthanded
+						}
+						random = {
+							chance = 90
+							add_trait = ambitious
+						}
+						random_list = {
+							30 = { 
+								add_trait = genius
+							}
+							60 = { 
+								add_trait = quick
+							}
+						}
+					}
+				}
+				
+				if = {
+					limit = { has_landed_title = c_amisos }
+					event_target:themiskyran_tributary = {
+						grant_title = c_amisos
+					}
+					d_armeniacon = { set_preferred_capital = c_sinope }
+				}
+				if = {
+					limit = { has_landed_title = c_sinope }
+					event_target:themiskyran_tributary = {
+						grant_title = c_sinope
+					}
+				}
+				make_tributary = { 
+					who = event_target:themiskyran_tributary
+					tributary_type = protectorate
+				}
+				event_target:themiskyran_tributary = {	# rejig govt
+					character_event = { id = AmzCul.1020 }
+				}
+			}
+			clr_character_flag = themiskyran_tributary_flag
+		}
+			
+		option = {	# I'll just keep it
+			name = EVTOPTBAmzCul.1011
+			ai_chance = { factor = 0 }
+		}
+		is_triggered_only = yes
+	}
+
+# valkyrie tributary
+	character_event = {		
+		id = AmzCul.1012
+		desc = EVTDESCAmzCul.1012
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+						
+		option = {
+			name = EVTOPTAAmzCul.1011
+			ai_chance = { factor = 50 }
+			custom_tooltip = { text = valkyrie_tributary_tt }
+			hidden_tooltip = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = 69442
+					female = yes
+					age = 24
+					health = 6
+					religion = ROOT
+					culture = valkyrie_amz
+					trait = administrator
+					attributes = {
+						diplomacy = 6
+						martial = 6
+						stewardship = 6
+						intrigue = 6
+						learning = 6
+					}
+				}
+				new_character = {
+				save_event_target_as = valkyrie_tributary
+				}
+				
+				event_target:valkyrie_tributary = {
+					grant_title = d_uppland
+					wealth = 100
+					prestige = 500
+					piety = 100
+					set_defacto_liege = THIS
+					add_friend = ROOT
+					add_artifact = gleaming_torc
+					remove_all_negative_congenital_traits_effect = yes
+					remove_education_effect = yes
+					add_trait = midas_touched
+					random_list = {
+						1 = { 
+							add_age = -1
+						}
+						1 = { 
+							add_age = -2
+						}
+						1 = { 
+							# nothin
+						}
+						random = {
+							chance = 10
+							add_trait = fair
+						}
+						random = {
+							chance = 20
+							add_trait = strong
+						}
+						random = {
+							chance = 10
+							add_trait = lefthanded
+						}
+						random = {
+							chance = 90
+							add_trait = ambitious
+						}
+						random_list = {
+							30 = { 
+								add_trait = genius
+							}
+							60 = { 
+								add_trait = quick
+							}
+						}
+					}
+				}
+				
+				if = {
+					limit = { has_landed_title = c_uppland }
+					event_target:valkyrie_tributary = {
+						grant_title = c_uppland
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_gastrikland }
+					event_target:valkyrie_tributary = {
+						grant_title = c_gastrikland
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_aland }
+					event_target:valkyrie_tributary = {
+						grant_title = c_aland
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_sodermanland }
+					event_target:valkyrie_tributary = {
+						grant_title = c_sodermanland
+					}
+				}
+				make_tributary = { 
+					who = event_target:valkyrie_tributary
+					tributary_type = protectorate
+				}
+				event_target:valkyrie_tributary = {	# rejig govt
+					character_event = { id = AmzCul.1020 }
+				}
+			}	
+			clr_character_flag = valkyrie_tributary_flag
+		}
+			
+		option = {	# I'll just keep it
+			name = EVTOPTBAmzCul.1011
+			ai_chance = { factor = 0 }
+		}
+		is_triggered_only = yes
+	}
+	
+# scythian tributary
+	character_event = {		
+		id = AmzCul.1013
+		desc = EVTDESCAmzCul.1013
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+						
+		option = {
+			name = EVTOPTAAmzCul.1011
+			ai_chance = { factor = 50 }
+			custom_tooltip = { text = scythian_tributary_tt }
+			hidden_tooltip = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = 69444 
+					female = yes
+					age = 24
+					health = 6
+					religion = ROOT
+					culture = scythian_amz
+					trait = administrator
+					attributes = {
+						diplomacy = 6
+						martial = 6
+						stewardship = 6
+						intrigue = 6
+						learning = 6
+					}
+				}
+				new_character = {
+				save_event_target_as = scythian_tributary
+				}
+				
+				event_target:scythian_tributary = {
+					grant_title = d_crimea
+					wealth = 100
+					prestige = 500
+					piety = 100
+					set_defacto_liege = THIS
+					add_friend = ROOT
+					add_artifact = scythian_skull
+					remove_all_negative_congenital_traits_effect = yes
+					remove_education_effect = yes
+					add_trait = midas_touched
+					random_list = {
+						1 = { 
+							add_age = -1
+						}
+						1 = { 
+							add_age = -2
+						}
+						1 = { 
+							# nothin
+						}
+						random = {
+							chance = 10
+							add_trait = fair
+						}
+						random = {
+							chance = 20
+							add_trait = strong
+						}
+						random = {
+							chance = 10
+							add_trait = lefthanded
+						}
+						random = {
+							chance = 90
+							add_trait = ambitious
+						}
+						random_list = {
+							30 = { 
+								add_trait = genius
+							}
+							60 = { 
+								add_trait = quick
+							}
+						}
+					}
+				}
+				
+				if = {
+					limit = { has_landed_title = c_crimea }
+					event_target:scythian_tributary = {
+						grant_title = c_crimea
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_lukomorie }
+					event_target:scythian_tributary = {
+						grant_title = c_lukomorie
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_lower_dniepr }
+					event_target:scythian_tributary = {
+						grant_title = c_lower_dniepr
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_lower_don }
+					event_target:scythian_tributary = {
+						grant_title = c_lower_don
+					}
+				}
+				make_tributary = { 
+					who = event_target:scythian_tributary
+					tributary_type = protectorate
+				}
+				event_target:scythian_tributary = {	# rejig govt
+					character_event = { id = AmzCul.1020 }
+				}
+			}	
+			clr_character_flag = scythian_tributary_flag
+		}
+			
+		option = {	# I'll just keep it
+			name = EVTOPTBAmzCul.1011
+			ai_chance = { factor = 0 }
+		}
+		is_triggered_only = yes
+	}
+	
+# parthian tributary
+	character_event = {		
+		id = AmzCul.1014
+		desc = EVTDESCAmzCul.1014
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+						
+		option = {
+			name = EVTOPTAAmzCul.1011
+			ai_chance = { factor = 50 }
+			custom_tooltip = { text = parthian_tributary_tt }
+			hidden_tooltip = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = 69461 
+					female = yes
+					age = 24
+					health = 6
+					religion = ROOT
+					culture = parthian_amz
+					trait = administrator
+					attributes = {
+						diplomacy = 6
+						martial = 6
+						stewardship = 6
+						intrigue = 6
+						learning = 6
+					}
+				}
+				new_character = {
+				save_event_target_as = parthian_tributary
+				}
+				
+				event_target:parthian_tributary = {
+					grant_title = d_khorasan
+					wealth = 100
+					prestige = 500
+					piety = 100
+					set_defacto_liege = THIS
+					add_friend = ROOT
+					add_artifact = parthian_cataphract
+					remove_all_negative_congenital_traits_effect = yes
+					remove_education_effect = yes
+					add_trait = midas_touched
+					random_list = {
+						1 = { 
+							add_age = -1
+						}
+						1 = { 
+							add_age = -2
+						}
+						1 = { 
+							# nothin
+						}
+						random = {
+							chance = 10
+							add_trait = fair
+						}
+						random = {
+							chance = 20
+							add_trait = strong
+						}
+						random = {
+							chance = 10
+							add_trait = lefthanded
+						}
+						random = {
+							chance = 90
+							add_trait = ambitious
+						}
+						random_list = {
+							30 = { 
+								add_trait = genius
+							}
+							60 = { 
+								add_trait = quick
+							}
+						}
+					}
+				}
+				
+				if = {
+					limit = { has_landed_title = c_nishapur }
+					event_target:parthian_tributary = {
+						grant_title = c_nishapur
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_tus }
+					event_target:parthian_tributary = {
+						grant_title = c_tus
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_birjand }
+					event_target:parthian_tributary = {
+						grant_title = c_birjand
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_qohistan }
+					event_target:parthian_tributary = {
+						grant_title = c_qohistan
+					}
+				}
+				make_tributary = { 
+					who = event_target:parthian_tributary
+					tributary_type = protectorate
+				}
+				event_target:parthian_tributary = {	# rejig govt
+					character_event = { id = AmzCul.1020 }
+				}
+			}	
+			clr_character_flag = parthian_tributary_flag
+		}
+			
+		option = {	# I'll just keep it
+			name = EVTOPTBAmzCul.1011
+			ai_chance = { factor = 0 }
+		}
+		is_triggered_only = yes
+	}
+	
+# kushite tributary
+	character_event = {		
+		id = AmzCul.1015
+		desc = EVTDESCAmzCul.1015
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+						
+		option = {
+			name = EVTOPTAAmzCul.1011
+			ai_chance = { factor = 50 }
+			custom_tooltip = { text = kushite_tributary_tt }
+			hidden_tooltip = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = 69472 
+					female = yes
+					age = 24
+					health = 6
+					religion = ROOT
+					culture = kushite_amz
+					trait = administrator
+					attributes = {
+						diplomacy = 6
+						martial = 6
+						stewardship = 6
+						intrigue = 6
+						learning = 6
+					}
+				}
+				new_character = {
+				save_event_target_as = kushite_tributary
+				}
+				
+				event_target:kushite_tributary = {
+					grant_title = d_nubia
+					wealth = 100
+					prestige = 500
+					piety = 100
+					set_defacto_liege = THIS
+					add_friend = ROOT
+					add_artifact = kushite_gem
+					remove_all_negative_congenital_traits_effect = yes
+					remove_education_effect = yes
+					add_trait = midas_touched
+					random_list = {
+						1 = { 
+							add_age = -1
+						}
+						1 = { 
+							add_age = -2
+						}
+						1 = { 
+							# nothin
+						}
+						random = {
+							chance = 10
+							add_trait = fair
+						}
+						random = {
+							chance = 20
+							add_trait = strong
+						}
+						random = {
+							chance = 10
+							add_trait = lefthanded
+						}
+						random = {
+							chance = 90
+							add_trait = ambitious
+						}
+						random_list = {
+							30 = { 
+								add_trait = genius
+							}
+							60 = { 
+								add_trait = quick
+							}
+						}
+					}
+				}
+				
+				if = {
+					limit = { has_landed_title = c_makuria }
+					event_target:kushite_tributary = {
+						grant_title = c_makuria
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_atbara }
+					event_target:kushite_tributary = {
+						grant_title = c_atbara
+					}
+					d_nubia = { set_preferred_capital = c_atbara }
+				}
+				if = {
+					limit = { has_landed_title = c_napata }
+					event_target:kushite_tributary = {
+						grant_title = c_napata
+					}
+				}
+				make_tributary = { 
+					who = event_target:kushite_tributary
+					tributary_type = protectorate
+				}
+				event_target:kushite_tributary = {	# rejig govt
+					character_event = { id = AmzCul.1020 }
+				}
+			}	
+			clr_character_flag = kushite_tributary_flag
+		}
+			
+		option = {	# I'll just keep it
+			name = EVTOPTBAmzCul.1011
+			ai_chance = { factor = 0 }
+		}
+		is_triggered_only = yes
+	}
+	
+# carthaginian tributary
+	character_event = {		
+		id = AmzCul.1016
+		desc = EVTDESCAmzCul.1016
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+						
+		option = {
+			name = EVTOPTAAmzCul.1011
+			ai_chance = { factor = 50 }
+			custom_tooltip = { text = carthaginian_tributary_tt }
+			hidden_tooltip = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = 69481
+					female = yes
+					age = 24
+					health = 6
+					religion = ROOT
+					culture = carthaginian_amz
+					trait = administrator
+					attributes = {
+						diplomacy = 6
+						martial = 6
+						stewardship = 6
+						intrigue = 6
+						learning = 6
+					}
+				}
+				new_character = {
+				save_event_target_as = carthaginian_tributary
+				}
+				
+				event_target:carthaginian_tributary = {
+					grant_title = d_tunis
+					wealth = 100
+					prestige = 500
+					piety = 100
+					set_defacto_liege = THIS
+					add_friend = ROOT
+					add_artifact = dido_veil
+					remove_all_negative_congenital_traits_effect = yes
+					remove_education_effect = yes
+					add_trait = midas_touched
+					random_list = {
+						1 = { 
+							add_age = -1
+						}
+						1 = { 
+							add_age = -2
+						}
+						1 = { 
+							# nothin
+						}
+						random = {
+							chance = 10
+							add_trait = fair
+						}
+						random = {
+							chance = 20
+							add_trait = strong
+						}
+						random = {
+							chance = 10
+							add_trait = lefthanded
+						}
+						random = {
+							chance = 90
+							add_trait = ambitious
+						}
+						random_list = {
+							30 = { 
+								add_trait = genius
+							}
+							60 = { 
+								add_trait = quick
+							}
+						}
+					}
+				}
+				
+				if = {
+					limit = { has_landed_title = c_tunis }
+					event_target:carthaginian_tributary = {
+						grant_title = c_tunis
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_kairwan }
+					event_target:carthaginian_tributary = {
+						grant_title = c_kairwan
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_mahdia }
+					event_target:carthaginian_tributary = {
+						grant_title = c_mahdia
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_medjerda }
+					event_target:carthaginian_tributary = {
+						grant_title = c_medjerda
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_bizerte }
+					event_target:carthaginian_tributary = {
+						grant_title = c_bizerte
+					}
+				}
+				make_tributary = { 
+					who = event_target:carthaginian_tributary
+					tributary_type = protectorate
+				}
+				event_target:carthaginian_tributary = {	# rejig govt
+					character_event = { id = AmzCul.1020 }
+				}
+			}	
+			clr_character_flag = carthaginian_tributary_flag
+		}
+			
+		option = {	# I'll just keep it
+			name = EVTOPTBAmzCul.1011
+			ai_chance = { factor = 0 }
+		}
+		is_triggered_only = yes
+	}
+	
+# etruscan tributary
+	character_event = {		
+		id = AmzCul.1017
+		desc = EVTDESCAmzCul.1017
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+						
+		option = {
+			name = EVTOPTAAmzCul.1011
+			ai_chance = { factor = 50 }
+			custom_tooltip = { text = etruscan_tributary_tt }
+			hidden_tooltip = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = 69493
+					female = yes
+					age = 24
+					health = 6
+					religion = ROOT
+					culture = etruscan_amz
+					trait = administrator
+					attributes = {
+						diplomacy = 6
+						martial = 6
+						stewardship = 6
+						intrigue = 6
+						learning = 6
+					}
+				}
+				new_character = {
+				save_event_target_as = etruscan_tributary
+				}
+				
+				event_target:etruscan_tributary = {
+					grant_title = d_toscana
+					wealth = 100
+					prestige = 500
+					piety = 100
+					set_defacto_liege = THIS
+					add_friend = ROOT
+					add_artifact = etruscan_chalice
+					remove_all_negative_congenital_traits_effect = yes
+					remove_education_effect = yes
+					add_trait = midas_touched
+					random_list = {
+						1 = { 
+							add_age = -1
+						}
+						1 = { 
+							add_age = -2
+						}
+						1 = { 
+							# nothin
+						}
+						random = {
+							chance = 10
+							add_trait = fair
+						}
+						random = {
+							chance = 20
+							add_trait = strong
+						}
+						random = {
+							chance = 10
+							add_trait = lefthanded
+						}
+						random = {
+							chance = 90
+							add_trait = ambitious
+						}
+						random_list = {
+							30 = { 
+								add_trait = genius
+							}
+							60 = { 
+								add_trait = quick
+							}
+						}
+					}
+				}
+				
+				if = {
+					limit = { has_landed_title = c_firenze }
+					event_target:etruscan_tributary = {
+						grant_title = c_firenze
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_arezzo }
+					event_target:etruscan_tributary = {
+						grant_title = c_arezzo
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_lucca }
+					event_target:etruscan_tributary = {
+						grant_title = c_lucca
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_siena }
+					event_target:etruscan_tributary = {
+						grant_title = c_siena
+					}
+				}
+				make_tributary = { 
+					who = event_target:etruscan_tributary
+					tributary_type = protectorate
+				}
+				event_target:etruscan_tributary = {	# rejig govt
+					character_event = { id = AmzCul.1020 }
+				}
+			}
+			clr_character_flag = etruscan_tributary_flag
+		}
+			
+		option = {	# I'll just keep it
+			name = EVTOPTBAmzCul.1011
+			ai_chance = { factor = 0 }
+		}
+		is_triggered_only = yes
+	}
+	
+# pritani tributary
+	character_event = {		
+		id = AmzCul.1018
+		desc = EVTDESCAmzCul.1018
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+						
+		option = {
+			name = EVTOPTAAmzCul.1011
+			ai_chance = { factor = 50 }
+			custom_tooltip = { text = pritani_tributary_tt }
+			hidden_tooltip = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = 69504
+					female = yes
+					age = 24
+					health = 6
+					religion = ROOT
+					culture = pritani_amz
+					trait = administrator
+					attributes = {
+						diplomacy = 6
+						martial = 6
+						stewardship = 6
+						intrigue = 6
+						learning = 6
+					}
+				}
+				new_character = {
+				save_event_target_as = pritani_tributary
+				}
+				
+				event_target:pritani_tributary = {
+					grant_title = d_norfolk
+					wealth = 100
+					prestige = 500
+					piety = 100
+					set_defacto_liege = THIS
+					add_friend = ROOT
+					add_artifact = pritani_horn
+					remove_all_negative_congenital_traits_effect = yes
+					remove_education_effect = yes
+					add_trait = midas_touched
+					random_list = {
+						1 = { 
+							add_age = -1
+						}
+						1 = { 
+							add_age = -2
+						}
+						1 = { 
+							# nothin
+						}
+						random = {
+							chance = 10
+							add_trait = fair
+						}
+						random = {
+							chance = 20
+							add_trait = strong
+						}
+						random = {
+							chance = 10
+							add_trait = lefthanded
+						}
+						random = {
+							chance = 90
+							add_trait = ambitious
+						}
+						random_list = {
+							30 = { 
+								add_trait = genius
+							}
+							60 = { 
+								add_trait = quick
+							}
+						}
+					}
+				}
+				
+				if = {
+					limit = { has_landed_title = c_norfolk }
+					event_target:pritani_tributary = {
+						grant_title = c_norfolk
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_suffolk }
+					event_target:pritani_tributary = {
+						grant_title = c_suffolk
+					}
+				}
+				make_tributary = { 
+					who = event_target:pritani_tributary
+					tributary_type = protectorate
+				}
+				event_target:pritani_tributary = {	# rejig govt
+					character_event = { id = AmzCul.1020 }
+				}
+			}
+			clr_character_flag = pritani_tributary_flag
+		}
+			
+		option = {	# I'll just keep it
+			name = EVTOPTBAmzCul.1011
+			ai_chance = { factor = 0 }
+		}
+		is_triggered_only = yes
+	}
+
+# illyrian tributary
+	character_event = {		
+		id = AmzCul.1019
+		desc = EVTDESCAmzCul.1019
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+						
+		option = {
+			name = EVTOPTAAmzCul.1011
+			ai_chance = { factor = 50 }
+			custom_tooltip = { text = illyrian_tributary_tt }
+			hidden_tooltip = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = 69540 
+					female = yes
+					age = 24
+					health = 6
+					religion = ROOT
+					culture = illyrian_amz
+					trait = administrator
+					attributes = {
+						diplomacy = 6
+						martial = 6
+						stewardship = 6
+						intrigue = 6
+						learning = 6
+					}
+				}
+				new_character = {
+				save_event_target_as = illyrian_tributary
+				}
+				
+				event_target:illyrian_tributary = {
+					grant_title = d_dioclea
+					wealth = 100
+					prestige = 500
+					piety = 100
+					set_defacto_liege = THIS
+					add_friend = ROOT
+					add_artifact = illyrian_mantle
+					remove_all_negative_congenital_traits_effect = yes
+					remove_education_effect = yes
+					add_trait = midas_touched
+					random_list = {
+						1 = { 
+							add_age = -1
+						}
+						1 = { 
+							add_age = -2
+						}
+						1 = { 
+							# nothin
+						}
+						random = {
+							chance = 10
+							add_trait = fair
+						}
+						random = {
+							chance = 20
+							add_trait = strong
+						}
+						random = {
+							chance = 10
+							add_trait = lefthanded
+						}
+						random = {
+							chance = 90
+							add_trait = ambitious
+						}
+						random_list = {
+							30 = { 
+								add_trait = genius
+							}
+							60 = { 
+								add_trait = quick
+							}
+						}
+					}
+				}
+				
+				if = {
+					limit = { has_landed_title = c_zeta }
+					event_target:illyrian_tributary = {
+						grant_title = c_zeta
+					}
+					d_dioclea = { set_preferred_capital = c_zeta }
+				}
+				if = {
+					limit = { has_landed_title = c_ragusa }
+					event_target:illyrian_tributary = {
+						grant_title = c_ragusa
+					}
+				}
+				if = {
+					limit = { has_landed_title = c_travunia }
+					event_target:illyrian_tributary = {
+						grant_title = c_travunia
+					}
+				}
+				make_tributary = { 
+					who = event_target:illyrian_tributary
+					tributary_type = protectorate
+				}
+				event_target:illyrian_tributary = {	# rejig govt
+					character_event = { id = AmzCul.1020 }
+				}
+			}
+			clr_character_flag = illyrian_tributary_flag
+		}
+			
+		option = {	# I'll just keep it
+			name = EVTOPTBAmzCul.1011
+			ai_chance = { factor = 0 }
+		}
+		is_triggered_only = yes
+	}
+
+
+# rejig govt type
+	character_event = {		
+		id = AmzCul.1020
+		desc = EVTDESCAmzCul.1020
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {
+			name = EVTOPTAAmzCul.1020
+			ai_chance = { factor = 10 }
+			trigger = {
+				capital_holding = { holding_type = castle }
+			}
+			if = {
+				limit = { religion_group = muslim }
+				set_government_type = muslim_government
+			}
+			else = {
+				set_government_type = feudal_government
+			}
+			character_event = { id = AmzCul.1021 }
+		}
+		option = {
+			name = EVTOPTBAmzCul.1020
+			ai_chance = { factor = 10 }
+			trigger = {
+				capital_holding = { holding_type = city }
+			}
+			set_government_type = merchant_republic_government
+			character_event = { id = AmzCul.1021 }
+		}
+		option = {
+			name = EVTOPTCAmzCul.1020
+			ai_chance = { factor = 10 }
+			trigger = {
+				capital_holding = { holding_type = temple }
+			}
+			if = {
+				limit = { religion_group = muslim }
+				set_government_type = muslim_government
+			}
+			else = {
+				set_government_type = theocracy_government
+			}
+			character_event = { id = AmzCul.1021 }
+		}
+		option = {
+			name = EVTOPTDAmzCul.1020
+			ai_chance = { factor = 10 }
+			trigger = {
+				capital_holding = { holding_type = tribal }
+			}
+			set_government_type = tribal_government
+			character_event = { id = AmzCul.1021 }
+		}
+	}
+	
+# take kingdom title?
+	character_event = {		
+		id = AmzCul.1021
+		desc = EVTDESCAmzCul.1021
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {
+			name = EVTOPTAAmzCul.1021
+			ai_chance = { factor = 10 }
+			if = {
+				limit = {
+					AND = {
+						culture = themiskyran_amz
+						k_trebizond = {
+							has_holder = no
+						}
+					}
+				}
+				k_trebizond = { usurp_title = ROOT }
+				wealth = -50
+			}
+			if = {
+				limit = {
+					AND = {
+						culture = valkyrie_amz
+						k_sweden = {
+							has_holder = no
+						}
+					}
+				}
+				k_sweden = { usurp_title = ROOT }
+				wealth = -50
+			}
+			if = {
+				limit = {
+					AND = {
+						culture = scythian_amz
+						k_crimea = {
+							has_holder = no
+						}
+					}
+				}
+				k_crimea = { usurp_title = ROOT }
+				wealth = -50
+			}
+			if = {
+				limit = {
+					AND = {
+						culture = parthian_amz
+						k_khorasan = {
+							has_holder = no
+						}
+					}
+				}
+				k_khorasan = { usurp_title = ROOT }
+				wealth = -50
+			}
+			if = {
+				limit = {
+					AND = {
+						culture = kushite_amz
+						k_nubia = {
+							has_holder = no
+						}
+					}
+				}
+				k_nubia = { usurp_title = ROOT }
+				wealth = -50
+			}
+			if = {
+				limit = {
+					AND = {
+						culture = carthaginian_amz
+						k_africa = {
+							has_holder = no
+						}
+					}
+				}
+				k_africa = { usurp_title = ROOT }
+				wealth = -50
+			}
+			if = {
+				limit = {
+					AND = {
+						culture = etruscan_amz
+						k_italy = {
+							has_holder = no
+						}
+					}
+				}
+				k_italy = { usurp_title = ROOT }
+				wealth = -50
+			}
+			if = {
+				limit = {
+					AND = {
+						culture = pritani_amz
+						k_england = {
+							has_holder = no
+						}
+					}
+				}
+				k_england = { usurp_title = ROOT }
+				wealth = -50
+			}
+			if = {
+				limit = {
+					AND = {
+						culture = illyrian_amz
+						k_serbia = {
+							has_holder = no
+						}
+					}
+				}
+				k_serbia = { usurp_title = ROOT }
+				wealth = -50
+			}
+			character_event = { id = AmzCul.1022 days = 7 }
+			create_character = {		# first daughter
+				random_traits = no
+				dynasty = ROOT
+				female = yes
+				age = 6
+				religion = ROOT
+			}
+			new_character = {
+				set_mother = ROOT
+				random = {
+					chance = 20
+					add_trait = fair
+				}
+				random = {
+					chance = 20
+					add_trait = strong
+				}
+				random = {
+					chance = 20
+					add_trait = quick
+				}
+			}
+			create_character = {		# second child
+				random_traits = no
+				dynasty = ROOT
+				female = random
+				age = 4
+				religion = ROOT
+			}
+			new_character = {
+				set_mother = ROOT
+				random = {
+					chance = 20
+					add_trait = fair
+				}
+				random = {
+					chance = 20
+					add_trait = strong
+				}
+				random = {
+					chance = 20
+					add_trait = quick
+				}
+			}
+			create_character = {		# third child
+				random_traits = no
+				dynasty = ROOT
+				female = random
+				age = 2
+				religion = ROOT
+			}
+			new_character = {
+				set_mother = ROOT
+				random = {
+					chance = 20
+					add_trait = fair
+				}
+				random = {
+					chance = 20
+					add_trait = strong
+				}
+				random = {
+					chance = 20
+					add_trait = quick
+				}
+			}
+			add_character_modifier = {
+				name = rallying_support_modifier   
+				duration = -1
+			}
+		}
+	}
+
+# instantly convert vassals
+	character_event = {		
+		id = AmzCul.1022
+		desc = EVTDESCAmzCul.1022
+		picture = GFX_evt_homage_hf
+		border = GFX_event_character_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {
+			name = EVTOPTAAmzCul.1022
+			ai_chance = { factor = 10 }
+			any_realm_character = {
+				limit = {
+					OR = {
+						culture = themiskyran_amz  
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+						culture_group = ROOT
+					}
+				}
+				culture = ROOT
+			}
+			capital_scope = { culture = ROOT }
+			
+			create_random_soldier = {		# creates an elite amazonian sans initiation
+				random_traits = yes
+				dynasty = RANDOM
+				female = yes
+				age = 17
+				religion = ROOT
+				culture = ROOT
+				trait = shieldmaiden
+				attributes = {
+					martial = 7
+				}
+			}
+			new_character = {
+				prestige = 69
+				wealth = 69
+				piety = 69
+				set_character_flag = elite_amazonian_flag
+				set_immune_to_pruning = yes		# so the AI won't keep removing them
+				remove_all_negative_congenital_traits_effect = yes
+				remove_education_effect = yes 
+				remove_trait = shy
+				remove_trait = craven
+				remove_trait = dull
+				random_list = {
+					25 = { 
+						add_trait = brilliant_strategist
+					}
+					35 = { 
+						add_trait = skilled_tactician
+					}
+					40 = { 
+						add_trait = tough_soldier
+					}
+				}
+				random_list = {
+					25 = { 
+						change_martial = 4
+					}
+					35 = { 
+						change_martial = 3
+					}
+					40 = { 
+						change_martial = 2
+					}
+				}
+				add_artifact = VIET_wolf_pelt
+			}
+		}
+	}
+
+
+# tributary thinks about asking for their dejure titles 
+	character_event = {		
+		id = AmzCul.1023
+		hide_window = yes 
+
+		mean_time_to_happen = { 	# bigger protectorates grow faster
+			months = 12 
+			modifier = {			
+				factor = 0.75		
+				higher_tier_than = DUKE
+			}
+			modifier = {			
+				factor = 0.75		
+				higher_tier_than = COUNT
+			}		
+		}
+
+		trigger = {
+			war = no 
+			ai = yes 
+			prestige = 50
+			wealth = 100
+			NOT = { is_inaccessible_trigger = yes }
+			is_tributary = {
+				type = protectorate
+			}
+			OR = {
+				had_character_flag = { flag = protectorate_denied_flag years = 5 }
+				NOT = { has_character_flag = protectorate_denied_flag }
+			}
+			OR = {
+				AND = {
+					culture = themiskyran_amz
+					any_realm_province = { de_jure_liege_or_above = k_trebizond }
+					suzerain = {
+						any_realm_province = { 
+							de_jure_liege_or_above = k_trebizond 
+							controller = { 
+								shares_realm_border_with = ROOT 
+								war = no 
+							}
+						}
+					}
+				}
+				AND = {
+					culture = valkyrie_amz
+					any_realm_province = { de_jure_liege_or_above = k_sweden }
+					suzerain = {
+						any_realm_province = { 
+							de_jure_liege_or_above = k_sweden 
+							controller = { 
+								shares_realm_border_with = ROOT 
+								war = no 
+							}
+						}
+					}
+				}
+				AND = {
+					culture = scythian_amz
+					any_realm_province = { de_jure_liege_or_above = k_crimea }
+					suzerain = {
+						any_realm_province = { 
+							de_jure_liege_or_above = k_crimea 
+							controller = { 
+								shares_realm_border_with = ROOT 
+								war = no 
+							}
+						}
+					}
+				}
+				AND = {
+					culture = parthian_amz
+					any_realm_province = { de_jure_liege_or_above = k_khorasan }
+					suzerain = {
+						any_realm_province = { 
+							de_jure_liege_or_above = k_khorasan 
+							controller = { 
+								shares_realm_border_with = ROOT 
+								war = no 
+							}
+						}
+					}
+				}
+				AND = {
+					culture = kushite_amz
+					any_realm_province = { de_jure_liege_or_above = k_nubia }
+					suzerain = {
+						any_realm_province = { 
+							de_jure_liege_or_above = k_nubia 
+							controller = { 
+								shares_realm_border_with = ROOT 
+								war = no 
+							}
+						}
+					}
+				}
+				AND = {
+					culture = carthaginian_amz
+					any_realm_province = { de_jure_liege_or_above = k_africa }
+					suzerain = {
+						any_realm_province = { 
+							de_jure_liege_or_above = k_africa 
+							controller = { 
+								shares_realm_border_with = ROOT 
+								war = no 
+							}
+						}
+					}
+				}
+				AND = {
+					culture = etruscan_amz
+					any_realm_province = { de_jure_liege_or_above = k_italy }
+					suzerain = {
+						any_realm_province = { 
+							de_jure_liege_or_above = k_italy 
+							controller = { 
+								shares_realm_border_with = ROOT 
+								war = no 
+							}
+						}
+					}
+				}
+				AND = {
+					culture = pritani_amz
+					any_realm_province = { de_jure_liege_or_above = k_england }
+					suzerain = {
+						any_realm_province = { 
+							de_jure_liege_or_above = k_england 
+							controller = { 
+								shares_realm_border_with = ROOT 
+								war = no 
+							}
+						}
+					}
+				}
+				AND = {
+					culture = illyrian_amz
+					any_realm_province = { de_jure_liege_or_above = k_serbia }
+					suzerain = {
+						any_realm_province = { 
+							de_jure_liege_or_above = k_serbia 
+							controller = { 
+								shares_realm_border_with = ROOT 
+								war = no 
+							}
+						}
+					}
+				}
+			}
+			suzerain = {
+				war = no 
+				NOT = { is_inaccessible_trigger = yes }
+				NOT = {
+					any_vassal = { ai = no } 		# in case ai liege sells player's land 
+				}
+				shares_realm_border_with = ROOT 	# will only request if touching
+			}		
+		}
+	
+		option = {	# send a nice letter 
+			ai_chance = { factor = 10 }
+			suzerain = {
+				letter_event = { id = AmzCul.1024 }
+			}
+			prestige = -50
+		}
+	}
+
+# tributary asks for their dejure titles
+	letter_event = {		
+		id = AmzCul.1024
+		desc = EVTDESCAmzCul.1024
+		picture = GFX_evt_princess_byzantine
+		border = GFX_event_letter_frame_diplomacy
+						
+		is_triggered_only = yes 
+		
+		option = {	# very well 
+			name = EVTOPTAAmzCul.1024
+			ai_chance = { factor = 10 }
+			custom_tooltip = {
+				text = random_province_protectorate_tooltip
+				if = {
+					limit = { FROM = { culture = themiskyran_amz } }
+					random_list = {
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_trapezous 
+									shares_realm_border_with = FROM
+								}
+								c_trapezous = { de_jure_liege_or_above = k_trebizond }
+							}
+							FROM = { grant_title = c_trapezous }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_theodosiopolis 
+									shares_realm_border_with = FROM
+								}
+								c_theodosiopolis = { de_jure_liege_or_above = k_trebizond }
+							}
+							FROM = { grant_title = c_theodosiopolis }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_chaldea 
+									shares_realm_border_with = FROM
+								}
+								c_chaldea = { de_jure_liege_or_above = k_trebizond }
+							}
+							FROM = { grant_title = c_chaldea }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_amisos 
+									shares_realm_border_with = FROM
+								}
+								c_amisos = { de_jure_liege_or_above = k_trebizond }
+							}
+							FROM = { grant_title = c_amisos }
+						}
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_sinope 
+									shares_realm_border_with = FROM
+								}
+								c_sinope = { de_jure_liege_or_above = k_trebizond }
+							}
+							FROM = { grant_title = c_sinope }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_amastris 
+									shares_realm_border_with = FROM
+								}
+								c_amastris = { de_jure_liege_or_above = k_trebizond }
+							}
+							FROM = { grant_title = c_amastris }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_kastamon 
+									shares_realm_border_with = FROM
+								}
+								c_kastamon = { de_jure_liege_or_above = k_trebizond }
+							}
+							FROM = { grant_title = c_kastamon }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_paphlagonia 
+									shares_realm_border_with = FROM
+								}
+								c_paphlagonia = { de_jure_liege_or_above = k_trebizond }
+							}
+							FROM = { grant_title = c_paphlagonia }
+						}
+					}
+				}
+				if = {
+					limit = { FROM = { culture = valkyrie_amz } }
+					random_list = {
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_angermanland 
+									shares_realm_border_with = FROM
+								}
+								c_angermanland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_angermanland }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_medelpad 
+									shares_realm_border_with = FROM
+								}
+								c_medelpad = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_medelpad }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_halsingland 
+									shares_realm_border_with = FROM
+								}
+								c_halsingland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_halsingland }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_gastrikland 
+									shares_realm_border_with = FROM
+								}
+								c_gastrikland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_gastrikland }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_dalarna 
+									shares_realm_border_with = FROM
+								}
+								c_dalarna = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_dalarna }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_varmland 
+									shares_realm_border_with = FROM
+								}
+								c_varmland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_varmland }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_vastmanland 
+									shares_realm_border_with = FROM
+								}
+								c_vastmanland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_vastmanland }
+						}
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_uppland 
+									shares_realm_border_with = FROM
+								}
+								c_uppland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_uppland }
+						}
+						500 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_aland 
+								#	shares_realm_border_with = FROM		# island
+								}
+								c_aland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_aland }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_sodermanland 
+									shares_realm_border_with = FROM
+								}
+								c_sodermanland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_sodermanland }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_ostergotland 
+									shares_realm_border_with = FROM
+								}
+								c_ostergotland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_ostergotland }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_narke 
+									shares_realm_border_with = FROM
+								}
+								c_narke = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_narke }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_dal 
+									shares_realm_border_with = FROM
+								}
+								c_dal = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_dal }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_vastergotland 
+									shares_realm_border_with = FROM
+								}
+								c_vastergotland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_vastergotland }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_smaland 
+									shares_realm_border_with = FROM
+								}
+								c_smaland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_smaland }
+						}
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_oland 
+								#	shares_realm_border_with = FROM	# island
+								}
+								c_oland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_oland }
+						}
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_gotland 
+								#	shares_realm_border_with = FROM	# island
+								}
+								c_gotland = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_gotland }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_more 
+									shares_realm_border_with = FROM
+								}
+								c_more = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_more }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_tjust 
+									shares_realm_border_with = FROM
+								}
+								c_tjust = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_tjust }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_vista 
+									shares_realm_border_with = FROM
+								}
+								c_vista = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_vista }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_finnveden 
+									shares_realm_border_with = FROM
+								}
+								c_finnveden = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_finnveden }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_njudung 
+									shares_realm_border_with = FROM
+								}
+								c_njudung = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_njudung }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_sevede 
+									shares_realm_border_with = FROM
+								}
+								c_sevede = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_sevede }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_kinda 
+									shares_realm_border_with = FROM
+								}
+								c_kinda = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_kinda }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_skara 
+									shares_realm_border_with = FROM
+								}
+								c_skara = { de_jure_liege_or_above = k_sweden }
+							}
+							FROM = { grant_title = c_skara }
+						}
+					}
+				}
+				if = {
+					limit = { FROM = { culture = scythian_amz } }
+					random_list = {
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_oleshye 
+									shares_realm_border_with = FROM
+								}
+								c_oleshye = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_oleshye }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_lukomorie 
+									shares_realm_border_with = FROM
+								}
+								c_lukomorie = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_lukomorie }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_lower_dniepr 
+									shares_realm_border_with = FROM
+								}
+								c_lower_dniepr = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_lower_dniepr }
+						}
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_crimea 
+									shares_realm_border_with = FROM
+								}
+								c_crimea = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_crimea }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_lower_don 
+									shares_realm_border_with = FROM
+								}
+								c_lower_don = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_lower_don }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_bratslav 
+									shares_realm_border_with = FROM
+								}
+								c_bratslav = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_bratslav }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_odessa 
+									shares_realm_border_with = FROM
+								}
+								c_odessa = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_odessa }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_vinnytsia 
+									shares_realm_border_with = FROM
+								}
+								c_vinnytsia = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_vinnytsia }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_cherson 
+									shares_realm_border_with = FROM
+								}
+								c_cherson = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_cherson }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_theodosia 
+									shares_realm_border_with = FROM
+								}
+								c_theodosia = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_theodosia }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_korchev 
+									shares_realm_border_with = FROM
+								}
+								c_korchev = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_korchev }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_tmutarakan 
+									shares_realm_border_with = FROM
+								}
+								c_tmutarakan = { de_jure_liege_or_above = k_crimea }
+							}
+							FROM = { grant_title = c_tmutarakan }
+						}
+					}
+				}
+				if = {
+					limit = { FROM = { culture = parthian_amz } }
+					random_list = {
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_konjikala 
+									shares_realm_border_with = FROM
+								}
+								c_konjikala = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_konjikala }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_merv 
+									shares_realm_border_with = FROM
+								}
+								c_merv = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_merv }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_tus 
+									shares_realm_border_with = FROM
+								}
+								c_tus = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_tus }
+						}
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_nishapur 
+									shares_realm_border_with = FROM
+								}
+								c_nishapur = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_nishapur }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_qohistan 
+									shares_realm_border_with = FROM
+								}
+								c_qohistan = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_qohistan }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_balkh 
+									shares_realm_border_with = FROM
+								}
+								c_balkh = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_balkh }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_herat 
+									shares_realm_border_with = FROM
+								}
+								c_herat = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_herat }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_birjand 
+									shares_realm_border_with = FROM
+								}
+								c_birjand = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_birjand }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_mandesh 
+									shares_realm_border_with = FROM
+								}
+								c_mandesh = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_mandesh }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_maymana 
+									shares_realm_border_with = FROM
+								}
+								c_maymana = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_maymana }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_maymana 
+									shares_realm_border_with = FROM
+								}
+								c_maymana = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_maymana }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_badghis 
+									shares_realm_border_with = FROM
+								}
+								c_badghis = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_badghis }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_kanj_rustaq 
+									shares_realm_border_with = FROM
+								}
+								c_kanj_rustaq = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_kanj_rustaq }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_guzgan 
+									shares_realm_border_with = FROM
+								}
+								c_guzgan = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_guzgan }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_amol 
+									shares_realm_border_with = FROM
+								}
+								c_amol = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_amol }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_sarakhs 
+									shares_realm_border_with = FROM
+								}
+								c_sarakhs = { de_jure_liege_or_above = k_khorasan }
+							}
+							FROM = { grant_title = c_sarakhs }
+						}
+					}
+				}
+				if = {
+					limit = { FROM = { culture = kushite_amz } }
+					random_list = {
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_nubia 
+									shares_realm_border_with = FROM
+								}
+								c_nubia = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_nubia }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_makuria 
+									shares_realm_border_with = FROM
+								}
+								c_makuria = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_makuria }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_kassala 
+									shares_realm_border_with = FROM
+								}
+								c_kassala = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_kassala }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_hayya 
+									shares_realm_border_with = FROM
+								}
+								c_hayya = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_hayya }
+						}
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_atbara 
+									shares_realm_border_with = FROM
+								}
+								c_atbara = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_atbara }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_sennar 
+									shares_realm_border_with = FROM
+								}
+								c_sennar = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_sennar }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_dotawo 
+									shares_realm_border_with = FROM
+								}
+								c_dotawo = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_dotawo }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_aydhab 
+									shares_realm_border_with = FROM
+								}
+								c_aydhab = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_aydhab }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_nobatia 
+									shares_realm_border_with = FROM
+								}
+								c_nobatia = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_nobatia }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_napata 
+									shares_realm_border_with = FROM
+								}
+								c_napata = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_napata }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_suakin 
+									shares_realm_border_with = FROM
+								}
+								c_suakin = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_suakin }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_trinkitat 
+									shares_realm_border_with = FROM
+								}
+								c_trinkitat = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_trinkitat }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_alodia 
+									shares_realm_border_with = FROM
+								}
+								c_alodia = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_alodia }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_darfur 
+									shares_realm_border_with = FROM
+								}
+								c_darfur = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_darfur }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_gezira 
+									shares_realm_border_with = FROM
+								}
+								c_gezira = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_gezira }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_bayuda 
+									shares_realm_border_with = FROM
+								}
+								c_bayuda = { de_jure_liege_or_above = k_nubia }
+							}
+							FROM = { grant_title = c_bayuda }
+						}
+					}
+				}
+				if = {
+					limit = { FROM = { culture = carthaginian_amz } }
+					random_list = {
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_tunis 
+									shares_realm_border_with = FROM
+								}
+								c_tunis = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_tunis }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_syrte 
+									shares_realm_border_with = FROM
+								}
+								c_syrte = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_syrte }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_leptis_magna 
+									shares_realm_border_with = FROM
+								}
+								c_leptis_magna = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_leptis_magna }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_tripolitana
+									shares_realm_border_with = FROM
+								}
+								c_tripolitana = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_tripolitana }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_djerba 
+									shares_realm_border_with = FROM
+								}
+								c_djerba = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_djerba }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_gabes 
+									shares_realm_border_with = FROM
+								}
+								c_gabes = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_gabes }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_kairwan 
+									shares_realm_border_with = FROM
+								}
+								c_kairwan = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_kairwan }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_mahdia 
+									shares_realm_border_with = FROM
+								}
+								c_mahdia = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_mahdia }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_medjerda 
+									shares_realm_border_with = FROM
+								}
+								c_medjerda = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_medjerda }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_bizerte 
+									shares_realm_border_with = FROM
+								}
+								c_bizerte = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_bizerte }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_annaba 
+									shares_realm_border_with = FROM
+								}
+								c_annaba = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_annaba }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_constantine 
+									shares_realm_border_with = FROM
+								}
+								c_constantine = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_constantine }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_bejaija 
+									shares_realm_border_with = FROM
+								}
+								c_bejaija = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_bejaija }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_tell_atlas 
+									shares_realm_border_with = FROM
+								}
+								c_tell_atlas = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_tell_atlas }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_beni_yanni 
+									shares_realm_border_with = FROM
+								}
+								c_beni_yanni = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_beni_yanni }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_ajadabiya 
+									shares_realm_border_with = FROM
+								}
+								c_ajadabiya = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_ajadabiya }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_tadjrift 
+									shares_realm_border_with = FROM
+								}
+								c_tadjrift = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_tadjrift }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_nafusa 
+									shares_realm_border_with = FROM
+								}
+								c_nafusa = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_nafusa }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_nalut 
+									shares_realm_border_with = FROM
+								}
+								c_nalut = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_nalut }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_suf 
+									shares_realm_border_with = FROM
+								}
+								c_suf = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_suf }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_gafsa 
+									shares_realm_border_with = FROM
+								}
+								c_gafsa = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_gafsa }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_arigh 
+									shares_realm_border_with = FROM
+								}
+								c_arigh = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_arigh }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_tebessa 
+									shares_realm_border_with = FROM
+								}
+								c_tebessa = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_tebessa }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_tuggurt 
+									shares_realm_border_with = FROM
+								}
+								c_tuggurt = { de_jure_liege_or_above = k_africa }
+							}
+							FROM = { grant_title = c_tuggurt }
+						}
+					}
+				}
+				if = {
+					limit = { FROM = { culture = pritani_amz } }
+					random_list = {
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_gloucester 
+									shares_realm_border_with = FROM
+								}
+								c_gloucester = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_gloucester }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_oxford 
+									shares_realm_border_with = FROM
+								}
+								c_oxford = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_oxford }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_wiltshire 
+									shares_realm_border_with = FROM
+								}
+								c_wiltshire = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_wiltshire }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_surrey 
+									shares_realm_border_with = FROM
+								}
+								c_surrey = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_surrey }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_sussex 
+									shares_realm_border_with = FROM
+								}
+								c_sussex = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_sussex }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_winchester 
+									shares_realm_border_with = FROM
+								}
+								c_winchester = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_winchester }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_dorset 
+									shares_realm_border_with = FROM
+								}
+								c_dorset = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_dorset }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_somerset 
+									shares_realm_border_with = FROM
+								}
+								c_somerset = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_somerset }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_worcester 
+									shares_realm_border_with = FROM
+								}
+								c_worcester = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_worcester }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_middlesex 
+									shares_realm_border_with = FROM
+								}
+								c_middlesex = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_middlesex }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_northumberland 
+									shares_realm_border_with = FROM
+								}
+								c_northumberland = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_northumberland }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_cumberland 
+									shares_realm_border_with = FROM
+								}
+								c_cumberland = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_cumberland }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_westmorland 
+									shares_realm_border_with = FROM
+								}
+								c_westmorland = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_westmorland }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_durham 
+									shares_realm_border_with = FROM
+								}
+								c_durham = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_durham }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_york 
+									shares_realm_border_with = FROM
+								}
+								c_york = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_york }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_lancaster 
+									shares_realm_border_with = FROM
+								}
+								c_lancaster = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_lancaster }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_chester 
+									shares_realm_border_with = FROM
+								}
+								c_chester = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_chester }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_lincoln 
+									shares_realm_border_with = FROM
+								}
+								c_lincoln = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_lincoln }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_leicester 
+									shares_realm_border_with = FROM
+								}
+								c_leicester = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_leicester }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_derby 
+									shares_realm_border_with = FROM
+								}
+								c_derby = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_derby }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_warwick 
+									shares_realm_border_with = FROM
+								}
+								c_warwick = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_warwick }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_northampton 
+									shares_realm_border_with = FROM
+								}
+								c_northampton = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_northampton }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_bedford 
+									shares_realm_border_with = FROM
+								}
+								c_bedford = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_bedford }
+						}
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_norfolk 
+									shares_realm_border_with = FROM
+								}
+								c_norfolk = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_norfolk }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_suffolk 
+									shares_realm_border_with = FROM
+								}
+								c_suffolk = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_suffolk }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_essex 
+									shares_realm_border_with = FROM
+								}
+								c_essex = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_essex }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_kent 
+									shares_realm_border_with = FROM
+								}
+								c_kent = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_kent }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_lindisfarne 
+									shares_realm_border_with = FROM
+								}
+								c_lindisfarne = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_lindisfarne }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_hull 
+									shares_realm_border_with = FROM
+								}
+								c_hull = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_hull }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_leeds 
+									shares_realm_border_with = FROM
+								}
+								c_leeds = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_leeds }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_yoredale 
+									shares_realm_border_with = FROM
+								}
+								c_yoredale = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_yoredale }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_bath 
+									shares_realm_border_with = FROM
+								}
+								c_bath = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_bath }
+						}
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_wight 
+								#	shares_realm_border_with = FROM	# island 
+								}
+								c_wight = { de_jure_liege_or_above = k_england }
+							}
+							FROM = { grant_title = c_wight }
+						}
+					}
+				}
+				if = {
+					limit = { FROM = { culture = etruscan_amz } }
+					random_list = {
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_firenze 
+									shares_realm_border_with = FROM
+								}
+								c_firenze = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_firenze }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_saluzzo 
+									shares_realm_border_with = FROM
+								}
+								c_saluzzo = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_saluzzo }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_monferrato 
+									shares_realm_border_with = FROM
+								}
+								c_monferrato = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_monferrato }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_genoa 
+									shares_realm_border_with = FROM
+								}
+								c_genoa = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_genoa }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_pavia 
+									shares_realm_border_with = FROM
+								}
+								c_pavia = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_pavia }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_lombardia 
+									shares_realm_border_with = FROM
+								}
+								c_lombardia = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_lombardia }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_piemonte 
+									shares_realm_border_with = FROM
+								}
+								c_piemonte = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_piemonte }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_brescia 
+									shares_realm_border_with = FROM
+								}
+								c_brescia = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_brescia }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_verona 
+									shares_realm_border_with = FROM
+								}
+								c_verona = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_verona }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_cremona 
+									shares_realm_border_with = FROM
+								}
+								c_cremona = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_cremona }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_parma 
+									shares_realm_border_with = FROM
+								}
+								c_parma = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_parma }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_modena 
+									shares_realm_border_with = FROM
+								}
+								c_modena = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_modena }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_lucca 
+									shares_realm_border_with = FROM
+								}
+								c_lucca = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_lucca }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_pisa 
+									shares_realm_border_with = FROM
+								}
+								c_pisa = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_pisa }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_siena 
+									shares_realm_border_with = FROM
+								}
+								c_siena = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_siena }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_piombino 
+									shares_realm_border_with = FROM
+								}
+								c_piombino = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_piombino }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_mantua 
+									shares_realm_border_with = FROM
+								}
+								c_mantua = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_mantua }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_padova 
+									shares_realm_border_with = FROM
+								}
+								c_padova = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_padova }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_aprutium 
+									shares_realm_border_with = FROM
+								}
+								c_aprutium = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_aprutium }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_leventina 
+									shares_realm_border_with = FROM
+								}
+								c_leventina = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_leventina }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_como 
+									shares_realm_border_with = FROM
+								}
+								c_como = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_como }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_ivrea 
+									shares_realm_border_with = FROM
+								}
+								c_ivrea = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_ivrea }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_arezzo 
+									shares_realm_border_with = FROM
+								}
+								c_arezzo = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_arezzo }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_noli 
+									shares_realm_border_with = FROM
+								}
+								c_noli = { de_jure_liege_or_above = k_italy }
+							}
+							FROM = { grant_title = c_noli }
+						}
+					}
+				}
+				if = {
+					limit = { FROM = { culture = illyrian_amz } }
+					random_list = {
+						100 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_zeta 
+									shares_realm_border_with = FROM
+								}
+								c_zeta = { de_jure_liege_or_above = k_serbia }
+							}
+							FROM = { grant_title = c_zeta }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_ragusa 
+									shares_realm_border_with = FROM
+								}
+								c_ragusa = { de_jure_liege_or_above = k_serbia }
+							}
+							FROM = { grant_title = c_ragusa }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_rashka 
+									shares_realm_border_with = FROM
+								}
+								c_rashka = { de_jure_liege_or_above = k_serbia }
+							}
+							FROM = { grant_title = c_rashka }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_hum 
+									shares_realm_border_with = FROM
+								}
+								c_hum = { de_jure_liege_or_above = k_serbia }
+							}
+							FROM = { grant_title = c_hum }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_belgrade 
+									shares_realm_border_with = FROM
+								}
+								c_belgrade = { de_jure_liege_or_above = k_serbia }
+							}
+							FROM = { grant_title = c_belgrade }
+						}
+						50 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_travunia 
+									shares_realm_border_with = FROM
+								}
+								c_travunia = { de_jure_liege_or_above = k_serbia }
+							}
+							FROM = { grant_title = c_travunia }
+						}
+						10 = { 
+							trigger = { 
+								any_realm_character = { 
+									has_landed_title = c_onogost 
+									shares_realm_border_with = FROM
+								}
+								c_onogost = { de_jure_liege_or_above = k_serbia }
+							}
+							FROM = { grant_title = c_onogost }
+						}
+					}
+				}
+			}
+			wealth = 100
+			FROM = { 
+				prestige = 100 
+				wealth = -100
+			}
+		}		
+		
+		option = {	# don't push it, whoever you are
+			name = EVTOPTBAmzCul.1024
+			ai_chance = { factor = 0 }
+			FROM = { 
+				prestige = -50 
+				set_character_flag = protectorate_denied_flag
+			}
+			custom_tooltip = { text = five_years_request_tooltip }
+		}
+	}

@@ -1,0 +1,107 @@
+
+# recruit Amazonian
+	character_event = {
+		id = AmzCul.405
+		desc = EVTDESCAmzCul.405
+		picture = GFX_evt_daughter_asking_mother
+		border = GFX_event_normal_frame_war
+		
+		is_triggered_only = yes
+		
+		immediate = {
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = RANDOM
+				female = yes
+				age = 17
+				religion = ROOT
+				culture = ROOT
+				trait = is_amazonian
+				trait = shieldmaiden
+				attributes = {
+					martial = 7
+				}
+			}
+			new_character = {
+				prestige = 69
+				wealth = 69
+				piety = 69
+				set_character_flag = elite_amazonian_flag
+				set_immune_to_pruning = yes		# so the AI won't keep removing them
+				remove_all_negative_congenital_traits_effect = yes
+				remove_education_effect = yes 
+				remove_trait = shy
+				remove_trait = craven
+				remove_trait = dull
+				random_list = {
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_melee_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_pursue_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_centre_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_skirmish_modifier   
+							duration = -1
+						}
+					}
+				}
+				random_list = {
+					25 = { 
+						add_trait = brilliant_strategist
+					}
+					35 = { 
+						add_trait = skilled_tactician
+					}
+					40 = { 
+						add_trait = tough_soldier
+					}
+				}
+				random_list = {
+					25 = { 
+						change_martial = 4
+					}
+					35 = { 
+						change_martial = 3
+					}
+					40 = { 
+						change_martial = 2
+					}
+				}
+				add_artifact = VIET_wolf_pelt
+			}
+		}
+		
+		option = {
+			name = EVTOPTAAmzCul.405
+			ai_chance = { factor = 10 }
+		}
+			
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+

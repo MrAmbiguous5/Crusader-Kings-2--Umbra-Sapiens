@@ -1,0 +1,14 @@
+ckrpg_marriage_0002;It is hard to believe it has been [local_count.GetValue] years since you married [target_spouse1.GetFirstName]. What do you want to do for your anniversary?;Difficile de croire que cela fait [local_count.GetValue] ans que vous vous êtes marié à [target_spouse1.GetFirstName]. Que voulez-vous faire pour votre anniversaire de mariage?;GERMAN;;SPANISH;;;;;;;;;x
+ckrpg_marriage_0002_one_year;You and [target_spouse1.GetFirstName] have survived your first year of marriage. What do you want to do for your anniversary?;Difficile de croire que cela fait un an que vous vous êtes marié à [target_spouse1.GetFirstName]. Que voulez-vous faire pour votre anniversaire de mariage;GERMAN;;SPANISH;;;;;;;;;x
+OPTA_ckrpg_marriage_0002;Buy [target_spouse1.GetFirstName] a small gift.;Faire un petit cadeau à [target_spouse1.GetFirstName].;GERMAN;;SPANISH;;;;;;;;;x
+OPTB_ckrpg_marriage_0002;Buy [target_spouse1.GetFirstName] a large gift.;Faire un grand cadeau à [target_spouse1.GetFirstName].;GERMAN;;SPANISH;;;;;;;;;x
+OPTC_ckrpg_marriage_0002;Go on a romantic get-away together.;Organiser une escapade romantique ensemble.;GERMAN;;SPANISH;;;;;;;;;x
+OPTD_ckrpg_marriage_0002;Nothing.;Rien du tout.;GERMAN;;SPANISH;;;;;;;;;x
+ckrpg_marriage_0003;It is hard to believe it has been [local_years.GetValue] years since you married [target_spouse1]. What do you want to do for your anniversary?;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+OPTA_ckrpg_marriage_0003;Buy [target_spouse1.GetBestName] a small gift.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+OPTB_ckrpg_marriage_0003;Buy [target_spouse1.GetBestName] a large gift.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+OPTC_ckrpg_marriage_0003;Go on a romantic get-away together.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+OPTD_ckrpg_marriage_0003;Nothing.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+ckrpg_recent_getaway;Recent Romantic Getaway;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+ckrpg_recent_small_gift;Recently Gave Small Gift to Spouse;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+ckrpg_recent_big_gift;Recently Gave Big Gift to Spouse;FRENCH;GERMAN;;SPANISH;;;;;;;;;x

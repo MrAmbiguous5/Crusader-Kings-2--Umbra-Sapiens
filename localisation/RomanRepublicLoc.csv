@@ -1,0 +1,154 @@
+#CODE;ENGLISH;;;;;;;;;;;;x
+k_roman_republic;Res Publica Romana;;;;;;;;;;;;x
+k_roman_republic_adj;Roman;;;;;;;;;;;;x
+RRET.1;The dawn of the new Era;;;;;;;;;;;;x
+RRETXT.1;Friends, Romans, countrymen, lend me your ears! After the miraculous recovery of territory lost centuries ago, the Roman Republic has been reborn! Europe has endured dark times since rule of tyrants and invasions of savages, but now a bright new age has dawned for all of civilization.\n\nNeither the Greeks in the East nor the Germans in the West can claim the heritage of Rome, which belongs to us! The Senate and [Root.GetTitledFirstName] rules a restored Res Publica Romana, but much work remains to be done. There is still territory to recover and ancient borders to reclaim. For the Senate and People of Rome!;;;;;;;;;;;;x
+RREO.1; For Senate and People of Rome!;;;;;;;;;;;;x
+RRETXT.2; The small merchant republic in Italy have somehow managed to conquer enough territory and city of Rome to declare itself as the Roman Republic! They proclaim themself as the true successors of ancient Rome and its glorious legacy. They claim a new era is upon us.;;;;;;;;;;;;x
+RREO.2;A roman merchant republic... What next? Invaders from distant lands overseas, worshiping bloodthirsty evil gods?;;;;;;;;;;;;x
+create_roman_republic; Restore Roman Republic;;;;;;;;;;;;x
+create_roman_republic_desc;If Rome and other key territories of the old empire could be reclaimed, our republic can proclaim themselves as sucessor of the ancient Roman Republic;;;;;;;;;;;;x
+RRET.2;The news  from Italy;;;;;;;;;;;;x
+make_rome_capital_of_republic;Move capital to Rome;;;;;;;;;;;;x
+make_rome_capital_of_republic_desc;The city of Rome has seen better days, but no one can deny its symbolic power. If you so wish, you may restore it as the capital of our state;;;;;;;;;;;;x
+LEGATUS;Legatus;;;;;;;;;;;;
+LEGATUS_FOA;Legatus;;;;;;;;;;;;
+LEGT.1;The revival of the Roman legions;;;;;;;;;;;;
+LEGTXT.1;"Again, like many centuries ago, columns of soldiers marching through the cities of Italy, marking the return of the golden age for this land. [Root.GetTitledFirstName], using knowledge from ancient manuscripts and the advice of the best minds of Rome, was able to recreate the system of Roman legions that are preparing to go on an unstoppable march through Europe.
+And although the first Roman legion does not pose a particular threat, as Rome grows, more and more legionnaires will stand under the Roman flags.";;;;;;;;;;;;
+LEGO.1;Roma Invicta!;;;;;;;;;;;;
+LEGT.2;Legio I Italica Restored;;;;;;;;;;;;
+LEGTXT.2;Legio I Italica, originally founded by Emperor Nero, participated in many battles from the banks of the Danube to the sands of Egypt, guarding Rome for four centuries. And now, after many centuries that have passed since the fall of Rome, the First Italian Legion is again ready to protect the walls of the Eternal City from barbarians, guaranteeing Rome will never fall again.;;;;;;;;;;;;
+LEGO.2;Roma Invicta!;;;;;;;;;;;;
+LEGT.3;Legio VI Ferrata Restored;;;;;;;;;;;;
+LEGTXT.3;Legio VI Ferrata, originally founded by Julius Caesar to fight Vercingetorix and participating in the siege of Alesia, has come a long way, fighting in many battles from Spain to Anatolia. And although its traces are lost in the third century from the birth of Christ, many centuries later the Sixth Iron Legion is once again ready to unleash its fury on the enemies of Rome.;;;;;;;;;;;;
+LEGT.4;Legio V Alaudae Restored;;;;;;;;;;;;
+LEGTXT.4;Legio V Alaudae originally founded by Julius Caesar, was recruited in Gaul from the local population. And although his battle path was not very successful (in the end the legion was completely destroyed by the Batavians), this legion, many centuries after its destruction, was given the chance to overshadow the mistakes of the past with new victories. Now the Lark-crested Fifth Legion is once again ready to fight for Rome, ensuring that it will never be defeated again.;;;;;;;;;;;;
+LEGT.5;Legio XIII Gemina Restored;;;;;;;;;;;;
+LEGTXT.5;Legio XIII Gemina was the legion with which Julius Caesar crossed the Rubicon, thereby starting a civil war. It has come a long way, covered in the glory of the battles in Germany, Dacia and Parthia, until at last its traces are lost in the fifth century. Now, many centuries later, the Eighth Twin Legion is once again ready to march through the lands that once belonged to Rome, in order to bring glory to itself and the Eternal City again.;;;;;;;;;;;;
+LEGT.6;Legio III Cyrenaica Restored;;;;;;;;;;;;
+LEGTXT.6;Although the origins of the Legio III Cyrenaica have been lost for centuries, it is known that he always served as the southern shield of Rome, fighting in the sands of Egypt, Arabia and Judea. And now, after many centuries, the legionnaires of the Cyrenean Third Legion are again ready to defend Rome from threats from the East, regardless of the ruthless sun or the scorthing sand.;;;;;;;;;;;;
+LEGT.7;Legio XXII Deiotariana Restored;;;;;;;;;;;;
+LEGTXT.7;Legio XXII Deiotariana, originally created by the Galatian king Deiotar as imitation of the roman legion, was combined with the Roman army in the first century and continued its service under the rule of the Roman emperors. Although this legion disappeared after the Jewish rebellion of Bar Kochba, many centuries later the Deiotarus' Twenty-Second Legion was once again ready to serve in the glory of Rome.;;;;;;;;;;;;
+LEGT.8;Legio IX Hispana Restored;;;;;;;;;;;;
+LEGTXT.8;Legio IX Hispana, who fought in many battles, such as the Battle of Farsala or the Battle of Sabis, eventually ended his journey in Britain. Fought both during the Roman invasion of this island, and during the rebellion of Boudikia, this legion mysteriously disappeared in the second century from the birth of Christ. And although its disappearance is shrouded in mystery (who knows, maybe tomorrow the soldiers of the Lost Legion will come out of the fog to the walls of London?), the legionnaires of the new Ninth Spanish Legion are ready to serve Rome, like their ancestors.;;;;;;;;;;;;
+LEGT.9;Legio XV Apollinaris Restored;;;;;;;;;;;;
+LEGTXT.9;Legio XV Apollinaris, founded by Octavian Augustus, participated in many conflicts of the Roman Empire, from the civil war of the Second Triumvirate to the war with the Sassanid Empire, until it was finally disbanded in the fifth century. Now, many centuries after its disbandment, the Fifteenth Legion of Apollo is once again ready to defend the borders of a reborn Rome.;;;;;;;;;;;;
+LEGT.10;Legio IV Macedonica Restored;;;;;;;;;;;;
+LEGTXT.10;"The origins of Legio IV Macedonica are not exactly known. Some believe that it was founded by Julius Caesar in Italy, others that it was founded by Junius Brutus in Macedonia. Participating in the civil war of the Second Triumvirate and in the Cantabarius Wars, the legion did not gain much fame and was finally disbanded in the seventieth year from the birth of Christ, replaced by Legio IV Flavia Felix.
+Now, after many centuries, the Fourth Macedonian Legion is once again given the chance to prove itself on the battlefield in the glory of a revived Roman state.";;;;;;;;;;;;
+LEGT.11;Legio XX Valeria Victrix Restored;;;;;;;;;;;;
+LEGTXT.11;Legio XX Valeria Victrix, founded by Emperor Octavian Augustus, participated in the Cantabari Wars and in the campaign of the Emperor Tiberius against the Marcomances, but it was most noted in Britain. Fought in many wars against the rebellious Celts, this legion saw both the rebellion of Boudicca and the construction of the wall of Hadrian. In the end, this legion supported the usurpers Carausius and Allect, for which it was disbanded at the end of the third century. Now, the reborn Twentieth Victorious Valeria Legion is given a chance to atone for the sins of their ancestors in the service of Rome.;;;;;;;;;;;;
+LEGT.12;Legio X Fretensis Restored;;;;;;;;;;;;
+LEGTXT.12;Legio X Fretensis, originally created by Octavian Augustus to guard the Strait of Messina, has long abandoned its original mission, fighting under the banners of Emperor Trajan against Parthia and under the banners of Emperor Marcus Aurelius against the Marcomanians. And so, many centuries after its disappearance in the fifth century, Rome again needed the Tenth legion of the Strait. And as before, the tasks of this legion will include not only the protection of the Strait of Messina.;;;;;;;;;;;;
+d_legio_i_italica;Legio I Italica;;;;;;;;;;;;
+d_legio_vi_ferrata;Legio VI Ferrata;;;;;;;;;;;;
+d_legio_v_alaudae;Legio V Alaudae;;;;;;;;;;;;
+d_legio_xiii_gemina;Legio XIII Gemina;;;;;;;;;;;;
+d_legio_iii_cyrenaica;Legio III Cyrenaica;;;;;;;;;;;;
+d_legio_xxii_deiotariana;Legio XXII Deiotariana;;;;;;;;;;;;
+d_legio_ix_hispana;Legio IX Hispana;;;;;;;;;;;;
+d_legio_xv_apollinaris;Legio XV Apollinaris;;;;;;;;;;;;
+d_legio_iv_macedonica;Legio IV Macedonica;;;;;;;;;;;;
+d_legio_xx_valeria_victrix;Legio XX Valeria Victrix;;;;;;;;;;;;
+d_legio_x_fretensis;Legio X Fretensis;;;;;;;;;;;;
+organize_legio_i_italica;Organize Legio I Italica;;;;;;;;;;;;
+organize_legio_vi_ferrata;Organize Legio VI Ferrata;;;;;;;;;;;;
+organize_legio_v_alaudae;Organize Legio V Alaudae;;;;;;;;;;;;
+organize_legio_xiii_gemina;Organize Legio XIII Gemina;;;;;;;;;;;;
+organize_legio_iii_cyrenaica;Organize Legio III Cyrenaica;;;;;;;;;;;;
+organize_legio_xxii_deiotariana;Organize Legio XXII Deiotariana;;;;;;;;;;;;
+organize_legio_ix_hispana;Organize Legio IX Hispana;;;;;;;;;;;;
+organize_legio_xv_apollinaris;Organize Legio XV Apollinaris;;;;;;;;;;;;
+organize_legio_iv_macedonica;Organize Legio IV Macedonica;;;;;;;;;;;;
+organize_legio_xx_valeria_victrix;Organize Legio XX Valeria Victrix;;;;;;;;;;;;
+organize_legio_i_italica_desc;Organize Legio I Italica;;;;;;;;;;;;
+organize_legio_vi_ferrata_desc;Organize Legio VI Ferrata;;;;;;;;;;;;
+organize_legio_v_alaudae_desc;Organize Legio V Alaudae;;;;;;;;;;;;
+organize_legio_xiii_gemina_desc;Organize Legio XIII Gemina;;;;;;;;;;;;
+organize_legio_iii_cyrenaica_desc;Organize Legio III Cyrenaica;;;;;;;;;;;;
+organize_legio_xxii_deiotariana_desc;Organize Legio XXII Deiotariana;;;;;;;;;;;;
+organize_legio_ix_hispana_desc;Organize Legio IX Hispana;;;;;;;;;;;;
+organize_legio_xv_apollinaris_desc;Organize Legio XV Apollinaris;;;;;;;;;;;;
+organize_legio_iv_macedonica_desc;Organize Legio IV Macedonica;;;;;;;;;;;;
+organize_legio_xx_valeria_victrix_desc;Organize Legio XX Valeria Victrix;;;;;;;;;;;;
+restore_western_roman_empire;Restore the Western Roman Empire;;;;;;;;;;;;
+organize_legio_x_fretensis_desc;Organize Legio X Fretensis;;;;;;;;;;;;
+organize_legio_x_fretensis;Organize Legio X Fretensis;;;;;;;;;;;;
+restore_western_roman_empire_desc;If we reclaim the former Roman provinces of Italy, Africa and Dalmatia, we can restore the Western Roman Empire.;;;;;;;;;;;;
+create_regnum_romanum_desc;If we reclaim enough land in Italy, we can proclaim the Kingdom of Rome.;;;;;;;;;;;;
+restore_roman_empire_not_byz;Restore the Roman Empire;;;;;;;;;;;;
+restore_roman_empire_not_byz_desc;If Rome and other key territories of the old empire could be reclaimed, our state would win recognition in the eyes of the West and East as the true and rightful continuation of the Roman Empire.;;;;;;;;;;;;
+bloodline_desc_roman_consul;First Consul of the revived Roman Republic;;;;;;;;;;;;
+bloodline_desc_roman_emperor_wre;The emperor, who managed to do the impossible, to restore the Western Roman Empire;;;;;;;;;;;;
+bloodline_desc_roman_emperor_civil_war;The great ruler, who repeated the acts of Julius Caesar and Octavian Augustus and crushed the rotten Senate;;;;;;;;;;;;
+bloodline_desc_roman_consul_roman_empire;The Consul of the Roman Republic, who managed to return enough land so that everyone would recognize the legitimacy of the republic’s claims to the heritage of their ancestors.;;;;;;;;;;;;
+western_roman_emperor_male;Blood of [This.GetFirstNameWithNick];;;;;;;;;;;;
+western_roman_emperor_female;Blood of [This.GetFirstNameWithNick];;;;;;;;;;;;
+roman_consul_female;Blood of [This.GetFirstNameWithNick];;;;;;;;;;;;
+roman_consul_male;Blood of [This.GetFirstNameWithNick];;;;;;;;;;;;
+roman_emperor_civil_war_male;Blood of [This.GetFirstNameWithNick];;;;;;;;;;;;
+roman_emperor_civil_war_female;Blood of [This.GetFirstNameWithNick];;;;;;;;;;;;
+IMPERATOR_TITLE;Imperator;;;;;;;;;;;;
+IMPERATOR_TITLE_FEMALE;Imperatrix;;;;;;;;;;;;
+REX_TITLE;Rex;;;;;;;;;;;;
+REX_TITLE_FEMALE;Regina;;;;;;;;;;;;
+CONSUL_TITLE;Consul;;;;;;;;;;;;
+CONSUL_TITLE_FEMALE;Consula;;;;;;;;;;;;
+e_western_roman_empire;Western Roman Empire;;;;;;;;;;;;
+e_western_roman_empire_adj;Western Roman;;;;;;;;;;;;
+WREET.1;Reborn of the Fallen Empire;;;;;;;;;;;;
+WREETXT.1;Many centuries have passed since the ambitious commander Odoacer overthrew emperor Flavius Romulus Augustus, putting an end to the Western Roman Empire. Since then, the lands of Italy have been tormented by numerous invasions of German barbarians from the north and Greeks from the east, claiming the Eternal City and the legacy of the fallen empire. But finally, many centuries after its death, the Western Roman Empire was reborn from the ashes like a phoenix. Crowned in Rome as Emperor of the West, [Root.GetTitledFirstName] promised that Rome will never fall again.;;;;;;;;;;;;
+WREEO.1;Rome will never fall again!;;;;;;;;;;;;
+restore_roman_empire_rep;Restore the Roman Empire;;;;;;;;;;;;
+restore_roman_empire_rep_desc;If Rome and other key territories of the old empire could be reclaimed, our state would win recognition in the eyes of the West and East as the true and rightful continuation of the Roman Empire.;;;;;;;;;;;;
+CVRET.1;Rumors in Senate;;;;;;;;;;;;
+CVRETXT.1;Rumors about the transfer of power in the Republic into the hands of one person reached the Senate, and it is expected that most did not like this news. And although, thanks to bribes, intimidation and pressure on the senators, the Senate has officially approved the expansion of the [Root.GetTitledFirstName]'s powers, it becomes clear that the large group of senators is not going to give up without a fight so easily. It became known that one powerful senator gathers supporters, intending to preserve the old order by force of arms.;;;;;;;;;;;;
+CVREO.1;Worrisome…;;;;;;;;;;;;
+CVRET.2;A threat to the Republic;;;;;;;;;;;;
+CVRETXT.2;The Senate in panic - rumors of a possible usurpation of power reached the senators. The noble sons of the Republic are either too scared or scattered to resist the tyrant. Without leadership, senators will not be able to preserve the republican foundations, which obviously have to be defended by force of arms ...;;;;;;;;;;;;
+CVREO.2;That tyrant must be stopped! I will lead the Senate loyalists!;;;;;;;;;;;;
+CVREO.3;No, I cannot lead them.;;;;;;;;;;;;
+CVRETXT.3;To all the noble sons of the Republic! It became clear that the consul plans to destroy the republic and seize all power! We must overthrow the tyrant before it is too late!;;;;;;;;;;;;
+CVREO.4;Death to the tyrant!;;;;;;;;;;;;
+CVREO.5;Hmm… No. I think not.;;;;;;;;;;;;
+CVRET.4;The start of civil war;;;;;;;;;;;;
+CVRETXT.4;The time has come! All the people loyal to the republican traditions gathered under my banners, ready to overthrow the tyrant!;;;;;;;;;;;;
+CVREO.6;To war!;;;;;;;;;;;;
+CVRET.5;The start of civil war;;;;;;;;;;;;
+CVRETXT.5;Enraged by the [Root.GetTitledFirstName]'s plans to seize power, the rebellious senators officially launched a war against the consul, in order to preserve the republic. The rebels promise that when they win, they will execute everyone who dared to oppose the Senate.;;;;;;;;;;;;
+CVREO.7;I am the Senate!;;;;;;;;;;;;
+CVREO.8;I cannot say I am surprised…;;;;;;;;;;;;
+CVRET.6;Rebels lost!;;;;;;;;;;;;
+CVRETXT.6;After several major battles, the rebellious senators who opposed the consul were finally defeated. The winning [Root.GetRulerTitle] held a solemn triumph in the capital, during which the losing senators were held along the streets in chains. Without serious resistance on the part of the Senate, the [Root.GetRulerTitle] finally able to implement the necessary reforms in the Republic, turning it into a more stable and enlightened empire. A new era begins.;;;;;;;;;;;;
+CVREO.9;The time of the Republic has passed. The time has come for the Empire.;;;;;;;;;;;;
+ROMAN_CIVIL_WAR;Roman Civil War;;;;;;;;;;;;
+CB_SAVE_REPUBLIC;Save the Republic;;;;;;;;;;;;
+CVRET.8;Denarius in hand;;;;;;;;;;;;
+CVRETXT.8;"One day you went to the balcony of your palace and thought about the Republic. All these swaggering bags of money, pompously calling themselves ""senators,"" the constant squabble in the Senate, constant corruption and bribery... You saw a coin lying on the table and picked it up. Emperor Octavian Augustus was depicted on the reverse side of the coin, and you thought about this man. This emperor managed to subjugate the Senate and begin the Golden Age for Rome. Maybe you can repeat his actions and start a new Golden Age without these pompous senators?";;;;;;;;;;;;
+CVREO.10;Yes, it's time to put the Senate in its place.;;;;;;;;;;;;
+CVREO.11;No, I give the Republic a second chance.;;;;;;;;;;;;
+tooltip_CVR.8;Force the Senate to accept the extension of the powers of the ruler and ensure its adoption by dirty methods.;;;;;;;;;;;;
+overthrow_the_republic;Overthrow the Republic;;;;;;;;;;;;
+overthrow_the_republic_desc;Overthrow the Republic and establish the Empire.;;;;;;;;;;;;
+name_imperium_romanum;Imperium Romanum;;;;;;;;;;;;
+name_res_publica_romana;Res Publica Romana;;;;;;;;;;;;
+k_regnum_romanum;Regnum Romanum;;;;;;;;;;;;
+k_regnum_romanum_adj;Roman;;;;;;;;;;;;
+e_byzantium;Eastern Roman Empire;;;;;;;;;;;;
+e_byzantium_adj;Eastern Roman;;;;;;;;;;;;
+IRET.4;The true heirs of Rome;;;;;;;;;;;;
+IRETXT.4;Friends, Romans, countrymen, lend me your ears! For many years our struggle has been going on to return the lost territories, many devastating wars were fought on the territory of the former empire, but we are now rightfully considered the legitimate heirs of Ancient Rome. Neither the treacherous Greeks in the east, nor the German barbarians in the north from now on can claim the heritage of the empire, which now and forever belongs to us! But there is still territory to recover and ancient borders to reclaim. For the Senate and People of Rome!;;;;;;;;;;;;
+IREO.4;Esto Perpetua!;;;;;;;;;;;;
+IRET.11;Unification of West and East;;;;;;;;;;;;
+IRETXT.11;As many know, Emperor Theodosius I divided the Roman Empire between his sons. After that, the eastern part of the empire continued to exist, and the western part gradually fell apart, torn to pieces by barbarian kings. Finally, the Empire of the West has recovered and now the Western and Eastern Empires formally unite into a single and powerful Roman Empire, many centuries after its division. [Root.GetTitledFirstName] was officially crowned in Rome as the ruler of a revived Empire, united and indivisible.;;;;;;;;;;;;
+IREO.11;The Empire will never be divided again!;;;;;;;;;;;;
+bloodline_desc_roman_reuniter;The great ruler, who unite the West and the East under one banner of the restored Roman Empire.;;;;;;;;;;;;
+roman_emperor_reuniter_male;Blood of [This.GetFirstNameWithNick];;;;;;;;;;;;
+roman_emperor_reuniter_female;Blood of [This.GetFirstNameWithNick];;;;;;;;;;;;
+reunite_roman_empire;Reunite Western and Eastern Roman Empires;;;;;;;;;;;;
+reunite_roman_empire_desc;If the Western and Eastern Roman empires are under the rule of one emperor, it will be possible to restore a single Roman Empire;;;;;;;;;;;;
+RCE.1;He should be reminded who the Roman Emperor is…;;;;;;;;;;;;
+RCECT.1;Send a squad of the imperial guard to remind the Pope of his rights and obligations in the Roman Empire.;;;;;;;;;;;;
+rebuild_legio_system;Restore Legions System;;;;;;;;;;;;
+rebuild_legio_system_desc;We have restored Rome in all its greatness with the exception of one thing - the army. If we can restore the ancient legions, no one can stop us.;;;;;;;;;;;;

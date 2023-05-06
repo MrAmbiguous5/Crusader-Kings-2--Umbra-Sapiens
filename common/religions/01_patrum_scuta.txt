@@ -1,0 +1,3 @@
+zoroastrian_group = {
+	has_coa_on_barony_only = no
+}

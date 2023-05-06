@@ -1,0 +1,25 @@
+namespace = darkages
+
+narrative_event = { 		#Presentation Event
+	id = darkages.00000
+	title = EVTNAME1972000
+	desc = EVTDESC1972000
+	picture = GFX_evt_da_darkages
+	border = GFX_event_narrative_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = darkages_start }
+	}
+	
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = "EVTOPTA1972000"	
+	}
+}
+

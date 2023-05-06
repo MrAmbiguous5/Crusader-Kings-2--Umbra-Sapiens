@@ -1,0 +1,49 @@
+lmmpvf_competent_faction_leader_opinion = {
+	opinion = 10
+	years = 5
+}
+
+lmmpvf_incompetent_faction_leader_opinion = {
+	opinion = -10
+	years = 5
+}
+
+lmmpvf_honored_war_pledge_opinion = {
+	opinion = 10
+	years = 10
+}
+
+lmmpvf_dishonored_war_pledge_opinion = {
+	opinion = -10
+	years = 10
+}
+
+lmmpvf_faction_displeased_leader_opinion = {
+	opinion = -15
+	years = 10
+}
+
+lmmpvf_faction_displeased_member_opinion = {
+	opinion = -10
+	years = 10
+}
+
+lmmpvf_faction_pleased_leader_opinion = {
+	opinion = 15
+	years = 10
+}
+
+lmmpvf_faction_pleased_member_opinion = {
+	opinion = 10
+	years = 10
+}
+
+lmmpvf_faction_leader_very_displeased_opinion = {
+	opinion = -30
+	years = 10
+}
+
+lmmpvf_faction_member_very_displeased_opinion = {
+	opinion = -20
+	years = 10
+}

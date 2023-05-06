@@ -1,0 +1,15 @@
+# County Title
+title = c_manaus
+
+# Settlements
+max_settlements = 6
+b_manaus = tribal
+#b_manaus-ii = tribal
+#b_manaus-iii = tribal
+#b_manaus-iv = temple
+
+# Misc
+culture = tupinamba
+religion = amazonian_pagan
+
+# History

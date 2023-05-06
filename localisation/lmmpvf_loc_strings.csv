@@ -1,0 +1,10 @@
+#;;;;;;;;;;;;;;x
+#§
+#############
+## STRINGS ##
+#############
+lmmpvf_PledgedAccepted_string;§Y[This.GetTitledFirstName]§! has §Gpledged§! war support!;;;;;;;;;;;;;x
+lmmpvf_PledgedRefused_string;§Y[This.GetTitledFirstName]§! has §Rrefused§! to pledge war support!;;;;;;;;;;;;;x
+lmmpvf_CallToWarAccepted_string;§Y[This.GetTitledFirstName]§! has honored his pledge and §Gjoined§! you in the war!;;;;;;;;;;;;;x
+lmmpvf_CallToWarRefused_string;§Y[This.GetTitledFirstName]§! has dishonored his pledge and §Grefused§! to join you in the war!;;;;;;;;;;;;;x
+lmmpvf_CallToWarCannotJoin_string;§Y[This.GetTitledFirstName]§! cannot join the war due to [This.GetHerHis] non-aggression pact with §Y[lmmpvf_war_target.GetTitledName]§Y!!;;;;;;;;;;;;;x

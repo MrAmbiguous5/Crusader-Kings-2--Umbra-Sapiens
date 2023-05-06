@@ -1,0 +1,1213 @@
+# RDU Events
+
+namespace = rdu_events
+
+#Trait Maintenance
+character_event = {
+	id = rdu_events.1
+	desc = "EVTDESCrdu_events.1"
+	
+	trigger = {
+		OR = {
+			trait = rdu_more_options
+			trait = rdu_one_1
+			trait = rdu_one_2
+			trait = rdu_one_3
+			trait = rdu_one_4
+			trait = rdu_one_5
+			trait = rdu_one_6
+			trait = rdu_one_7
+			trait = rdu_one_8
+			trait = rdu_one_9
+			trait = rdu_one_10
+			trait = rdu_five_1
+			trait = rdu_five_2
+			trait = rdu_five_3
+			trait = rdu_five_4
+			trait = rdu_five_5
+			trait = rdu_five_6
+			trait = rdu_five_7
+			trait = rdu_five_8
+			trait = rdu_five_9
+			trait = rdu_five_10
+			trait = rdu_ten_1
+			trait = rdu_ten_2
+			trait = rdu_ten_3
+			trait = rdu_ten_4
+			trait = rdu_ten_5
+			trait = rdu_ten_6
+			trait = rdu_ten_7
+			trait = rdu_ten_8
+			trait = rdu_ten_9
+			trait = rdu_ten_10
+			trait = rdu_minusone_1
+			trait = rdu_minusone_2
+			trait = rdu_minusone_3
+			trait = rdu_minusone_4
+			trait = rdu_minusone_5
+			trait = rdu_minusone_6
+			trait = rdu_minusone_7
+			trait = rdu_minusone_8
+			trait = rdu_minusone_9
+			trait = rdu_minusone_10
+			trait = rdu_minusfive_1
+			trait = rdu_minusfive_2
+			trait = rdu_minusfive_3
+			trait = rdu_minusfive_4
+			trait = rdu_minusfive_5
+			trait = rdu_minusfive_6
+			trait = rdu_minusfive_7
+			trait = rdu_minusfive_8
+			trait = rdu_minusfive_9
+			trait = rdu_minusfive_10
+			trait = rdu_minusten_1
+			trait = rdu_minusten_2
+			trait = rdu_minusten_3
+			trait = rdu_minusten_4
+			trait = rdu_minusten_5
+			trait = rdu_minusten_6
+			trait = rdu_minusten_7
+			trait = rdu_minusten_8
+			trait = rdu_minusten_9
+			trait = rdu_minusten_10
+			trait = rdu_minusfifty_1
+			trait = rdu_minusfifty_2
+			trait = rdu_minusfifty_3
+			trait = rdu_minushundred_1
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTArdu_events.1"
+			hidden_tooltip = { 
+			remove_trait = rdu_one_1
+			remove_trait = rdu_one_2
+			remove_trait = rdu_one_3
+			remove_trait = rdu_one_4
+			remove_trait = rdu_one_5
+			remove_trait = rdu_one_6
+			remove_trait = rdu_one_7
+			remove_trait = rdu_one_8
+			remove_trait = rdu_one_9
+			remove_trait = rdu_one_10
+			remove_trait = rdu_five_1
+			remove_trait = rdu_five_2
+			remove_trait = rdu_five_3
+			remove_trait = rdu_five_4
+			remove_trait = rdu_five_5
+			remove_trait = rdu_five_6
+			remove_trait = rdu_five_7
+			remove_trait = rdu_five_8
+			remove_trait = rdu_five_9
+			remove_trait = rdu_five_10
+			remove_trait = rdu_ten_1
+			remove_trait = rdu_ten_2
+			remove_trait = rdu_ten_3
+			remove_trait = rdu_ten_4
+			remove_trait = rdu_ten_5
+			remove_trait = rdu_ten_6
+			remove_trait = rdu_ten_7
+			remove_trait = rdu_ten_8
+			remove_trait = rdu_ten_9
+			remove_trait = rdu_ten_10
+			remove_trait = rdu_minusone_1
+			remove_trait = rdu_minusone_2
+			remove_trait = rdu_minusone_3
+			remove_trait = rdu_minusone_4
+			remove_trait = rdu_minusone_5
+			remove_trait = rdu_minusone_6
+			remove_trait = rdu_minusone_7
+			remove_trait = rdu_minusone_8
+			remove_trait = rdu_minusone_9
+			remove_trait = rdu_minusone_10
+			remove_trait = rdu_minusfive_1
+			remove_trait = rdu_minusfive_2
+			remove_trait = rdu_minusfive_3
+			remove_trait = rdu_minusfive_4
+			remove_trait = rdu_minusfive_5
+			remove_trait = rdu_minusfive_6
+			remove_trait = rdu_minusfive_7
+			remove_trait = rdu_minusfive_8
+			remove_trait = rdu_minusfive_9
+			remove_trait = rdu_minusfive_10
+			remove_trait = rdu_minusten_1
+			remove_trait = rdu_minusten_2
+			remove_trait = rdu_minusten_3
+			remove_trait = rdu_minusten_4
+			remove_trait = rdu_minusten_5
+			remove_trait = rdu_minusten_6
+			remove_trait = rdu_minusten_7
+			remove_trait = rdu_minusten_8
+			remove_trait = rdu_minusten_9
+			remove_trait = rdu_minusten_10
+			remove_trait = rdu_minusfifty_1
+			remove_trait = rdu_minusfifty_2
+			remove_trait = rdu_minusfifty_3
+			remove_trait = rdu_minushundred_1
+			}
+			if = {
+				limit = { trait = rdu_more_options }
+					remove_trait = rdu_more_options
+					set_character_flag = ruler_designer_unlocked_char
+				}
+	}
+	
+}
+
+#main options
+character_event = {
+	id = rdu_events.2
+	desc = "EVTDESCrdu_events.2"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	#Spawn Troops
+	option = {
+		name = "EVTOPTArdu_events.2"
+		character_event = { id = rdu_events.4 }
+		
+	}
+	# Starting money
+	option = {
+		name = "EVTOPTBrdu_events.2"
+		character_event = { id = rdu_events.5 }
+		
+	}
+	#transcend humanity
+	option = {
+		name = "EVTOPTCrdu_events.2"
+		character_event = { id = rdu_events.16 }
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.2"
+	}
+	
+	
+	
+}
+
+#more event troops
+character_event = {
+	id = rdu_events.3
+	desc = "EVTDESCrdu_events.3"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	
+	#spawn pikemen
+	option = {
+		name = "EVTOPTArdu_events.3"
+		character_event = { id = rdu_events.23 }
+	}
+		
+	#spawn light cav
+	option = {
+		name = "EVTOPTBrdu_events.3"
+		character_event = { id = rdu_events.7 }
+	}
+	#spawn heavy cav
+	option = {
+		name = "EVTOPTCrdu_events.3"
+		character_event = { id = rdu_events.8 }
+	}
+	
+	#More
+	option = {
+		name = "EVTOPTDrdu_events.3"
+		character_event = { id = rdu_events.22 }
+	}
+	
+	
+	
+}
+
+
+#event troops
+character_event = {
+	id = rdu_events.4
+	desc = "EVTDESCrdu_events.4"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	#spawn heavy inf
+	option = {
+		name = "EVTOPTArdu_events.4"
+		character_event = { id = rdu_events.9 }
+	}
+		
+	#spawn light inf
+	option = {
+		name = "EVTOPTBrdu_events.4"
+		character_event = { id = rdu_events.10 }
+	}
+	#spawn archers
+	option = {
+		name = "EVTOPTCrdu_events.4"
+		character_event = { id = rdu_events.11 }
+	}
+	
+	#More
+	option = {
+		name = "EVTOPTDrdu_events.4"
+		character_event = { id = rdu_events.3 }
+	}
+	
+	
+}
+#Wealth
+character_event = {
+	id = rdu_events.5
+	desc = "EVTDESCrdu_events.5"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTArdu_events.5"
+		wealth = 100
+		
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.5"
+		wealth = 1000
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.5"
+		
+	}
+	
+}
+
+#event horse archers
+character_event = {
+	id = rdu_events.6
+	desc = "EVTDESCrdu_events.6"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	#spawn 1000 horse archers
+	option = {
+		name = "EVTOPTArdu_events.6"
+		
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					horse_archers = { 1000 1000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.6"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					horse_archers = { 3000 3000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.6"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					horse_archers = { 5000 5000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.6"
+	}
+}
+
+#event light cavalry
+character_event = {
+	id = rdu_events.7
+	desc = "EVTDESCrdu_events.7"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	#spawn 1000 horse archers
+	option = {
+		name = "EVTOPTArdu_events.7"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					light_cavalry = { 1000 1000 }
+				}
+				
+				}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.7"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					light_cavalry = { 3000 3000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.7"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					light_cavalry = { 5000 5000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.7"
+	}
+}
+
+#event knights
+character_event = {
+	id = rdu_events.8
+	desc = "EVTDESCrdu_events.8"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+
+	option = {
+		name = "EVTOPTArdu_events.8"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					knights = { 1000 1000 }
+				}
+				
+				}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.8"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					knights = { 3000 3000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.8"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					knights = { 5000 5000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.8"
+	}
+}
+
+#event heavy infantry
+character_event = {
+	id = rdu_events.9
+	desc = "EVTDESCrdu_events.9"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	#spawn 1000 horse archers
+	option = {
+		name = "EVTOPTArdu_events.9"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					heavy_infantry = { 1000 1000 }
+				}
+				
+				}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.9"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					heavy_infantry = { 3000 3000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.9"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					heavy_infantry = { 5000 5000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.9"
+	}
+}
+
+#event light infantry
+character_event = {
+	id = rdu_events.10
+	desc = "EVTDESCrdu_events.10"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	#spawn 1000 horse archers
+	option = {
+		name = "EVTOPTArdu_events.10"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					light_infantry = { 1000 1000 }
+				}
+				
+				}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.10"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					light_infantry = { 3000 3000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.10"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					light_infantry = { 5000 5000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.10"
+	}
+}
+
+#event archers
+character_event = {
+	id = rdu_events.11
+	desc = "EVTDESCrdu_events.11"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	#spawn 1000 horse archers
+	option = {
+		name = "EVTOPTArdu_events.11"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					archers = { 1000 1000 }
+				}
+				
+				}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.11"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					archers = { 3000 3000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.11"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					archers = { 5000 5000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.11"
+	}
+}
+
+#Government Type
+character_event = {
+	id = rdu_events.12
+	desc = "EVTDESCrdu_events.12"
+	
+	is_triggered_only = yes
+
+	#Feudal/Iqta
+	option = {
+		name = "EVTOPTArdu_events.12"
+		if = { 
+				limit = { 
+				religion_group = muslim
+				}
+			set_government_type = muslim_government
+			
+			}
+		if = { 
+				limit = { 
+				NOT = {religion_group = muslim}
+				}
+			set_government_type = feudal_government
+			}
+	}
+	
+		
+	#Merchant Republic
+	option = {
+		name = "EVTOPTBrdu_events.12"
+		create_family_palace = yes
+		set_government_type = merchant_republic_government
+		
+	}
+	#Tribal
+	option = {
+		name = "EVTOPTCrdu_events.12"
+		set_government_type = tribal_government
+	}
+	#Nomadic
+	option = {
+		name = "EVTOPTDrdu_events.12"
+		set_government_type = nomadic_government
+	
+	}
+	
+}
+
+#special troops
+character_event = {
+	id = rdu_events.13
+	desc = "EVTDESCrdu_events.4"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	#spawn horse archers
+	option = {
+		name = "EVTOPTArdu_events.13"
+		character_event = { id = rdu_events.6 }
+	}
+		
+	#spawn war elephants
+	option = {
+		name = "EVTOPTBrdu_events.13"
+		character_event = { id = rdu_events.14 }
+	}
+	#spawn camel cavalry
+	option = {
+		name = "EVTOPTCrdu_events.13"
+		character_event = { id = rdu_events.15 }
+	}
+	#end
+	option = {
+		name = "EVTOPTDrdu_events.11"
+	}
+	
+}
+
+#event war_elephants
+character_event = {
+	id = rdu_events.14
+	desc = "EVTDESCrdu_events.14"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	#spawn 1000 war elephants
+	option = {
+		name = "EVTOPTArdu_events.14"
+		
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					war_elephants = { 25 25 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.14"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					war_elephants = { 100 100 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.14"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					war_elephants = { 300 300 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.11"
+	}
+}
+
+#event camel cavalry
+character_event = {
+	id = rdu_events.15
+	desc = "EVTDESCrdu_events.15"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	#spawn 1000 war elephants
+	option = {
+		name = "EVTOPTArdu_events.15"
+		
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					camel_cavalry = {1000 1000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.15"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					camel_cavalry = { 3000 3000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.15"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					camel_cavalry = { 5000 5000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.11"
+	}
+}
+
+#More than human
+character_event = {
+	id = rdu_events.16
+	desc = "EVTDESCrdu_events.16"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTArdu_events.16"
+		trigger = {
+			NOT = { trait=immortal }
+			}
+		add_trait=immortal
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.16"
+		character_event = { id = rdu_events.18 }
+	}
+	
+	
+	option = {
+		name = "EVTOPTCrdu_events.16"
+		
+	}
+	
+}
+
+#Remove RDU More Options
+character_event = {
+	id = rdu_events.17
+	desc = "EVTDESCrdu_events.17"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTArdu_events.17"
+		set_character_flag = remove_ruler_designer_unlocked_char
+	}
+	
+	
+	option = {
+		name = "EVTOPTBrdu_events.17"
+		
+	}
+	
+}
+
+#Beast Options 1
+character_event = {
+	id = rdu_events.18
+	desc = "EVTDESCrdu_events.18"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTArdu_events.18"
+		culture = horse
+		set_graphical_culture=horse
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.18"
+		culture = cat
+		set_graphical_culture=cat
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.18"
+		character_event = { id = rdu_events.19 }
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.18"
+		
+	}
+	
+}
+
+#Beast Options 2
+character_event = {
+	id = rdu_events.19
+	desc = "EVTDESCrdu_events.18"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTArdu_events.19"
+		culture = bear
+		set_graphical_culture=bear
+	}
+	
+	
+	option = {
+		name = "EVTOPTBrdu_events.19"
+		culture = hedgehog_culture
+		set_graphical_culture=hedgehog_culture
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.18"
+		character_event = { id = rdu_events.20 }
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.18"
+		
+	}
+	
+}
+
+#Beast Options 3
+character_event = {
+	id = rdu_events.20
+	desc = "EVTDESCrdu_events.18"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTArdu_events.20"
+		culture = duck_culture
+		set_graphical_culture=duck_culture
+	}
+	
+	
+	option = {
+		name = "EVTOPTBrdu_events.20"
+		culture = dog_culture
+		set_graphical_culture=dog_culture
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.18"
+		character_event = { id = rdu_events.21 }
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.18"
+		
+	}
+	
+}
+
+#Beast Options 4
+character_event = {
+	id = rdu_events.21
+	desc = "EVTDESCrdu_events.18"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTArdu_events.21"
+		culture = elephant_culture
+		set_graphical_culture=elephant_culture
+	}
+	
+	
+	option = {
+		name = "EVTOPTBrdu_events.21"
+		culture = dragon_culture
+		set_graphical_culture=dragon_culture
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.18"
+		character_event = { id = rdu_events.18 }
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.18"
+		
+	}
+	
+}
+
+#more event troops
+character_event = {
+	id = rdu_events.22
+	desc = "EVTDESCrdu_events.22"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+		
+	#spawn special troops
+	option = {
+		name = "EVTOPTArdu_events.22"
+		character_event = { id = rdu_events.13 }
+	}
+	#More
+	option = {
+		name = "EVTOPTBrdu_events.22"
+		character_event = { id = rdu_events.4 }
+	}
+	
+	#end
+	option = {
+		name = "EVTOPTCrdu_events.22"
+	}
+	
+}
+
+#event pikemen
+character_event = {
+	id = rdu_events.23
+	desc = "EVTDESCrdu_events.23"
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	#spawn 1000 pikemen
+	option = {
+		name = "EVTOPTArdu_events.23"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					pikemen = { 1000 1000 }
+				}
+				
+				}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTBrdu_events.23"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					pikemen = { 3000 3000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTCrdu_events.23"
+		capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+				troops =
+				{
+					pikemen = { 5000 5000 }
+				}
+				
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTDrdu_events.10"
+	}
+}

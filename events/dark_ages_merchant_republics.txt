@@ -1,0 +1,2073 @@
+namespace = darkages
+#################################################################
+#
+#	AI CAMPAIGN FUND FOR DOGE
+#
+################################################################
+
+
+character_event = {	
+	id = darkages.72304
+	desc = EVTDESC1972304
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+
+	
+	
+	trigger = {
+		OR = {
+			is_patrician = yes
+			is_merchant_republic = yes
+		}
+		
+		NOT = {
+			has_character_modifier = da_temp_doge_election
+		}
+		
+		wealth = 150
+	
+		liege = {
+			OR = {
+				has_disease_trigger = yes
+				age = 50
+			}
+		}
+		
+		ai = yes		
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		
+		modifier = {
+			factor = 0.75
+			OR = {
+				AND = {
+					is_merchant_republic = no	
+					liege = {
+						age = 60
+					}
+				}
+				AND = {
+					is_merchant_republic = yes
+					age = 60
+				}
+			}
+		}
+		modifier = {
+			factor = 0.66
+			OR = {
+				AND = {
+					is_merchant_republic = no	
+					liege = {
+						age = 70
+					}
+				}
+				AND = {
+					is_merchant_republic = yes
+					age = 70
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				AND = {
+					is_merchant_republic = no	
+					liege = {
+						age = 80
+					}
+				}
+				AND = {
+					is_merchant_republic = yes
+					age = 80
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				AND = {
+					is_merchant_republic = no	
+					liege = {
+						NOT = { health = 4 }
+					}
+				}
+				AND = {
+					is_merchant_republic = yes
+					NOT = { health = 4 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				AND = {
+					is_merchant_republic = no	
+					liege = {
+						NOT = { health = 3.5 }
+					}
+				}
+				AND = {
+					is_merchant_republic = yes
+					NOT = { health = 3.5 }
+				}
+			}
+		}		
+		modifier = {
+			factor = 0.75
+			OR = {
+				AND = {
+					is_merchant_republic = no	
+					liege = {
+						NOT = { health = 3 }
+					}
+				}
+				AND = {
+					is_merchant_republic = yes
+					NOT = { health = 3 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				AND = {
+					is_merchant_republic = no	
+					liege = {
+						NOT = { health = 2.5 }
+					}
+				}
+				AND = {
+					is_merchant_republic = yes
+					NOT = { health = 2.5 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				AND = {
+					is_merchant_republic = no	
+					liege = {
+						NOT = { health = 2 }
+					}
+				}
+				AND = {
+					is_merchant_republic = yes
+					NOT = { health = 2 }
+				}
+			}
+		}		
+		modifier = {
+			factor = 0.5
+			has_education_stewardship_trigger = yes
+		}		
+		modifier = {
+			factor = 0.1
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 2
+			trait = slothful
+		}		
+		modifier = {
+			factor = 4
+			trait = content
+		}
+		modifier = {
+			factor = 2
+			trait = greedy
+		}
+		modifier = {
+			factor = 0.5
+			trait = administrator
+		}	
+
+		modifier = {
+			factor = 0.8
+			stewardship = 12
+		}
+
+		modifier = {
+			factor = 0.8
+			stewardship = 15
+		}
+
+		modifier = {
+			factor = 0.8
+			stewardship = 18
+		}
+
+		modifier = {
+			factor = 0.8
+			stewardship = 21
+		}		
+
+		modifier = {
+			factor = 1.25
+			NOT = { stewardship = 8 }
+		}
+		
+		modifier = {
+			factor = 1.35
+			NOT = { stewardship = 6 }
+		}		
+
+		modifier = {
+			factor = 1.5
+			NOT = { stewardship = 4 }
+		}
+		
+		modifier = {
+			factor = 1.75
+			NOT = { stewardship = 2 }
+		}		
+		
+	}
+	
+	immediate = {
+		add_character_modifier = {
+			name = da_temp_doge_election
+			duration = 1825
+			hidden = yes
+		}
+		
+		if = {
+			limit = {
+				wealth = 750
+			}
+			wealth = -500
+			
+			if = {
+				limit = {
+					is_patrician = yes
+					is_merchant_republic = no
+				}
+				prestige = 1000
+			}
+			else = {
+				player_heir = { prestige = 1000 }
+			}
+
+		}
+		else = {
+			if = {
+				limit = {
+					wealth = 400
+				}
+				wealth = -250
+				if = {
+					limit = {
+						is_patrician = yes
+						is_merchant_republic = no
+					}
+					prestige = 500
+				}
+				else = {
+					player_heir = { prestige = 500 }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						wealth = 300
+					}
+					wealth = -200
+					if = {
+						limit = {
+							is_patrician = yes
+							is_merchant_republic = no
+						}
+						prestige = 400
+					}
+					else = {
+						player_heir = { prestige = 400 }
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							wealth = 150
+						}
+						wealth = -100
+						if = {
+							limit = {
+								is_patrician = yes
+								is_merchant_republic = no
+							}
+							prestige = 200
+						}
+						else = {
+							player_heir = { prestige = 200 }
+						}
+					}				
+				}
+			}
+		}
+
+	}
+
+	option = {
+		name = EVTOPTA1972304	#
+		
+	}	
+
+}
+
+
+##################################################################################################################
+#
+#	PRESTIGE FOR AI PATRICIANS FROM MARRIAGE 
+#
+##################################################################################################################
+
+
+character_event = {		#Called from on_action
+	id = darkages.72306
+	desc = EVTDESC1972306
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			is_female = yes
+			father = {
+				OR = {
+					is_patrician = yes
+					is_merchant_republic = yes
+				}	
+
+				ai = yes
+				
+			}
+		}
+
+	}
+	
+	immediate = {
+
+		FROM = {
+			father = { 
+				prestige = 100
+				any_close_relative = {
+					prestige = 50
+				}
+			}
+		}
+
+	}
+
+
+
+}
+
+##################################################################################################################
+#
+#	WRONG HOLDING TYPE FOR PATRICIANS
+#
+##################################################################################################################
+
+province_event = {	
+	id = darkages.72326
+	desc = EVTDESCKK1972326
+	picture = GFX_evt_doge_republic
+	border = GFX_event_normal_frame_economy
+
+	
+	trigger = {
+		is_capital = no
+		NOT = { has_province_modifier = da_wrong_gov }
+		owner = {
+			is_patrician = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTAKK1972326
+		
+		add_province_modifier = {
+			name = da_wrong_gov
+			duration = -1
+		}
+	}	
+
+}
+
+province_event = {	
+	id = darkages.72327
+	desc = EVTDESCKK1972327
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_economy
+
+	
+	trigger = {
+		has_province_modifier = da_wrong_gov
+		owner = {
+			is_patrician = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTAKK1972327	#
+		
+		remove_province_modifier = da_wrong_gov
+
+	}	
+
+}
+
+
+
+
+###################################################################################################################
+#
+#	PRESTIGE/MONEY SINK FOR HUMAN DOGE & PATRICIANS
+#
+###################################################################################################################
+
+character_event = {	
+	id = darkages.72328
+	title = EVTNAMEKK1972328
+	desc = EVTDESCKK1972328
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_economy
+
+	is_patrician = yes	
+	
+	trigger = {
+		ai = no
+		NOT = { has_character_modifier = da_patrician_helped }
+		monthly_income = 5
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	immediate = {
+		
+		random_list = {
+			20 = { set_character_flag = darkages_a }
+			20 = { set_character_flag = darkages_b }
+			20 = { set_character_flag = darkages_c }
+			20 = { set_character_flag = darkages_d }
+			20 = { set_character_flag = darkages_e }			
+		}
+	
+	}
+
+	option = {
+		name = EVTOPTAKK1972328	#
+		trigger = {
+			has_character_flag = darkages_a 
+		}
+		clr_character_flag = darkages_a
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_patrician_helped
+				months = 60
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		scaled_wealth = { value = -0.35 min = -50 }		
+
+	}
+	option = {
+		name = EVTOPTAKK1972328	#
+		trigger = {
+			has_character_flag = darkages_b 
+		}
+		clr_character_flag = darkages_b
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_patrician_helped
+				months = 60
+				hidden = yes
+				inherit = yes				
+			}
+		}
+		scaled_wealth = { value = -0.5 min = -75 }		
+	}	
+	option = {
+		name = EVTOPTAKK1972328	#
+		trigger = {
+			has_character_flag = darkages_c 
+		}
+		clr_character_flag = darkages_c
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_patrician_helped
+				months = 60
+				hidden = yes
+				inherit = yes				
+			}
+		}
+		scaled_wealth = { value = -0.65 min = -90 }			
+	}	
+	option = {
+		name = EVTOPTAKK1972328	#
+		trigger = {
+			has_character_flag = darkages_d 
+		}
+		clr_character_flag = darkages_d
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_patrician_helped
+				months = 60
+				hidden = yes
+				inherit = yes				
+			}
+		}
+		scaled_wealth = { value = -0.80 min = -115 }		
+	}	
+	option = {
+		name = EVTOPTAKK1972328	#
+		trigger = {
+			has_character_flag = darkages_e
+		}
+		clr_character_flag = darkages_e
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_patrician_helped
+				months = 60
+				hidden = yes
+				inherit = yes				
+			}
+		}
+		scaled_wealth = { value = -1 min = -135 }		
+	}	
+	option = {
+		name = EVTOPTBKK1972328	#
+		
+		prestige = -150
+		
+		player_heir = {
+			
+			prestige = -150
+			
+		}
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_patrician_helped
+				months = 60
+				hidden = yes
+				inherit = yes
+			}
+		}
+
+		clr_character_flag = darkages_a		
+		clr_character_flag = darkages_b
+		clr_character_flag = darkages_c
+		clr_character_flag = darkages_d
+		clr_character_flag = darkages_e		
+		
+		
+	}		
+
+}
+
+character_event = {	
+	id = darkages.72329
+	title = EVTNAMEKK1972329
+	desc = EVTDESCKK1972329
+	picture = GFX_evt_doge_republic
+	border = GFX_event_normal_frame_economy
+
+	is_patrician = yes
+
+	trigger = {
+		NOT = { has_character_modifier = da_patrician_helped }
+		ai = no	
+		is_merchant_republic = yes
+		NOR = {
+			has_character_modifier = da_doge_helped1
+			has_character_modifier = da_doge_helped2
+			has_character_modifier = da_doge_helped3
+			has_character_modifier = da_doge_helped4			
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			factor = 1.5
+			any_vassal = {
+				is_patrician = yes
+				is_friend = ROOT
+			}
+		}		
+		modifier = {
+			factor = 1.25
+			any_vassal = {
+				is_patrician = yes
+				opinion = { who = ROOT value = 50 }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			any_vassal = {
+				is_patrician = yes
+				opinion = { who = ROOT value = 75 }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			diplomacy = 12
+		}
+		modifier = {
+			factor = 1.35
+			diplomacy = 15
+		}
+		modifier = {
+			factor = 1.5
+			diplomacy = 18
+		}
+		modifier = {
+			factor = 1.75
+			diplomacy = 21
+		}
+		
+	}
+	
+	immediate = {
+		random_list = {
+			1 = { set_character_flag = darkages_a }
+			1 = { set_character_flag = darkages_b }
+			1 = { set_character_flag = darkages_c }
+			1 = { 
+				modifier = {
+					factor = 1.5
+					any_vassal = {
+						is_patrician = yes
+						is_rival = ROOT
+					}
+				}		
+				modifier = {
+					factor = 1.25
+					any_vassal = {
+						is_patrician = yes
+						NOT = { opinion = { who = ROOT value = 0 } }
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_vassal = {
+						is_patrician = yes
+						NOT = { opinion = { who = ROOT value = -33 } }
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_vassal = {
+						is_patrician = yes
+						NOT = { opinion = { who = ROOT value = -66 } }
+					}
+				}				
+				set_character_flag = darkages_d 
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAKK1972329	#
+		trigger = {
+			has_character_flag = darkages_a
+		}
+		clr_character_flag = darkages_a
+		
+		add_character_modifier = {
+			name = da_doge_helped1
+			months = 60
+		}
+	}
+	option = {
+		name = EVTOPTAKK1972329	#
+		trigger = {
+			has_character_flag = darkages_b
+		}
+		clr_character_flag = darkages_b
+		add_character_modifier = {
+			name = da_doge_helped2
+			months = 60
+		}
+	}
+	option = {
+		name = EVTOPTAKK1972329	#
+		trigger = {
+			has_character_flag = darkages_c
+		}
+		clr_character_flag = darkages_c
+		add_character_modifier = {
+			name = da_doge_helped3
+			months = 60
+		}
+	}
+	option = {
+		name = EVTOPTAKK1972329	#
+		trigger = {
+			has_character_flag = darkages_d
+		}
+		clr_character_flag = darkages_d
+		add_character_modifier = {
+			name = da_doge_helped4
+			months = 60
+		}
+	}
+	option = {
+		name = EVTOPTBKK1972329	#
+
+		prestige = -75
+
+		player_heir = {
+		
+			prestige = -75
+			
+		}
+		
+		clr_character_flag = darkages_a		
+		clr_character_flag = darkages_b
+		clr_character_flag = darkages_c
+		clr_character_flag = darkages_d
+		clr_character_flag = darkages_e		
+		
+	}	
+
+}
+
+character_event = {	
+	id = darkages.72330
+	title = EVTNAMEKK1972330
+	desc = EVTDESCKK1972330
+	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_war
+
+	is_patrician = yes
+
+	
+	trigger = {
+		NOT = { has_character_modifier = da_patrician_helped }	
+		ai = no
+		monthly_income = 5
+		liege = {
+			is_merchant_republic = yes
+			war = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.4
+			has_regiments = no
+		}
+	}
+	
+	immediate = {
+		random_list = {
+			25 = { set_character_flag = darkages_a }
+			25 = { set_character_flag = darkages_b }
+			25 = { set_character_flag = darkages_c }
+		}
+	}
+
+	option = {
+		name = EVTOPTAKK1972330	#
+		trigger = {
+			has_character_flag = darkages_a
+		}
+		clr_character_flag = darkages_a
+		wealth = -75
+		scaled_wealth = -0.10
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_patrician_helped
+				months = 60
+				hidden = yes
+				inherit = yes
+			}
+		}
+		liege = {
+			capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = THIS
+						province = capital_scope
+						home = capital_scope
+						troops = {
+							light_infantry = { 150 150 }
+							archers = { 50 50 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes						
+					}				
+				}
+			}		
+		}
+	}
+
+	option = {
+		name = EVTOPTAKK1972330	#
+		trigger = {
+			has_character_flag = darkages_b
+		}
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_patrician_helped
+				months = 60
+				hidden = yes
+				inherit = yes				
+			}
+		}		
+		clr_character_flag = darkages_b
+		wealth = -80
+		scaled_wealth = -0.15
+		liege = {
+			capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = THIS
+						province = capital_scope
+						home = capital_scope
+						troops = {
+							heavy_infantry = { 200 200 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes						
+					}				
+				}
+			}		
+		}		
+
+	}
+
+	option = {
+		name = EVTOPTAKK1972330	#
+		trigger = {
+			has_character_flag = darkages_c
+		}
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_patrician_helped
+				months = 60
+				hidden = yes
+				inherit = yes				
+			}
+		}		
+		clr_character_flag = darkages_c
+		wealth = -85
+		scaled_wealth = -0.20
+		
+		liege = {
+			capital_scope = {
+				PREV = {
+					spawn_unit = {
+						owner = THIS
+						province = capital_scope
+						home = capital_scope
+						troops = {
+							pikemen = { 150 150 }
+							light_cavalry = { 50 50 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}				
+				}
+			}		
+		}		
+
+	}
+
+	option = {
+		name = EVTOPTBKK1972330	#
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_patrician_helped
+				months = 60
+				hidden = yes
+				inherit = yes				
+			}
+		}		
+		prestige = -100
+		
+		player_heir = {
+		
+			prestige = -100
+			
+		}
+		
+		clr_character_flag = darkages_a
+		clr_character_flag = darkages_b
+		clr_character_flag = darkages_c		
+		
+	}	
+
+}
+
+
+
+######################################################################
+#
+#	LOTTERY TO DECIDE WHICH PATRICIAN GETS THE HOLDING
+#
+######################################################################
+
+
+
+
+character_event = { 		#CALLED FROM ON_ACTION
+	id = darkages.72388
+	title = EVTNAME1972388
+	desc = EVTDESC1972388
+	picture = GFX_evt_da_garden
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	
+	trigger = {
+	
+		has_game_rule = {
+			name = republic_titles
+			value = yes
+		}
+		
+		FROM = { tier = count }
+		
+		is_patrician = yes		
+	}
+
+	immediate = {
+		
+		if = {
+			limit = {
+				is_merchant_republic = yes
+			}
+
+			random_vassal = {
+				limit = { is_patrician = yes }
+				save_event_target_as = darkages_lucky_patrician
+			}
+		
+		}
+		else = {
+			liege = {
+				random_vassal = {
+					limit = { is_patrician = yes }
+					save_event_target_as = darkages_lucky_patrician					
+				}
+			}
+		}
+	
+		FROM = {
+			save_event_target_as = darkages_merchant_title
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972388
+		trigger = {
+			is_merchant_republic = yes
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				trait = proud
+				player_heir = {
+					is_adult = yes
+					is_incapable = no
+					prisoner = no
+				}				
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+				player_heir = {
+					is_adult = yes
+					is_incapable = no
+					prisoner = no
+				}				
+			}
+			modifier = {
+				factor = 9
+				
+				NOT = {
+					player_heir = {
+						is_adult = yes
+						is_incapable = no
+						prisoner = no
+					}
+				}
+			}
+		}		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP160 }
+
+		prestige = 200
+		treasury = 100
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					gain_title = event_target:darkages_merchant_title
+				}
+				4 = {
+					event_target:darkages_lucky_patrician = {
+						gain_title = event_target:darkages_merchant_title
+						
+						hidden_tooltip = {
+							character_event = { id = darkages.72389 }
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972388
+		trigger = {
+			is_merchant_republic = no
+		}
+		ai_chance = {
+			factor = 18
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP160 }
+
+		prestige = 200
+		treasury = 100
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					liege = {
+						gain_title = event_target:darkages_merchant_title
+						
+						hidden_tooltip = {
+							character_event = { id = darkages.72389 }
+						}					
+					}
+				}
+				4 = {
+					event_target:darkages_lucky_patrician = {
+						gain_title = event_target:darkages_merchant_title
+						
+						if = {
+							limit = {
+								NOT = { character = ROOT }
+							}
+
+							hidden_tooltip = {
+								character_event = { id = darkages.72389 }
+							}							
+								
+						}
+					}				
+				}
+			}
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972388
+		trigger = {
+			is_merchant_republic = yes
+			player_heir = {
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
+			}
+		}
+		ai_chance = {
+			factor = 18
+		}		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP161 }
+		
+		player_heir = {
+			prestige = 200
+		}
+		treasury = 100
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					gain_title = event_target:darkages_merchant_title
+				}
+				4 = {
+					event_target:darkages_lucky_patrician = {
+						gain_title = event_target:darkages_merchant_title
+						
+						hidden_tooltip = {
+							character_event = { id = darkages.72389 }
+						}
+					}
+				}
+			}
+		}
+		
+	}
+
+	option = {
+		name = EVTOPTC1972388
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}			
+		}		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP162 }
+		
+		prestige = -500
+		
+		add_character_modifier = {
+			name = da_powermonger
+			duration = -1
+			stacking = yes
+		}
+		
+		if = {
+			limit = {
+				trait = charitable
+			}
+			
+			remove_trait = charitable
+		}
+		
+		if = {
+			limit = {
+				trait = kind
+			}
+			
+			remove_trait = kind
+		}		
+		
+		if = {
+			limit = {
+				NOR = { 
+					trait = just 
+					trait = arbitrary
+				}
+			}
+			
+			add_trait = arbitrary
+		}
+
+		if = {
+			limit = {
+				trait = just
+			}
+			
+			remove_trait = just
+		}	
+
+		any_dynasty_member = {
+			prestige = -250
+		}
+		
+	}
+	
+}
+
+
+character_event = { 		#NOTIFY THE NEW OWNER (ONLY IF NOT RECEIVING PREVIOUS EVENT)
+	id = darkages.72389
+	title = EVTNAME1972389
+	desc = EVTDESC1972389
+	picture = GFX_evt_da_garden
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+		
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972389
+		
+	}
+	
+}
+
+
+###############################################################################
+#
+#	EVENT CALLED FROM ON ACTIONS AT GAME START TO AVOID CAUSING THE HUMAN PLAYER A HIT IN FINANCES DURING THE FIRST YEARS OF HIS RULE
+#
+###############################################################################
+
+character_event = { 		
+	id = darkages.72574
+	title = EVTNAME1972389
+	desc = EVTDESC1972389
+	picture = GFX_evt_da_garden
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		is_patrician = yes
+		ai = no	
+		NOT = { has_global_flag = darkages_start }
+	}
+
+	immediate = {
+		add_character_modifier = {
+			name = da_patrician_helped
+			months = 48
+			hidden = yes
+			inherit = yes
+		}	
+	}
+	
+}
+
+
+
+
+###############################################################################
+#
+#	EVENT CALLED FROM DECISION TO CHECK IF AND WHAT THE DOGE WILL ASK TO INFLUENCE THE ELECTIONS
+#
+###############################################################################
+
+character_event = { 		
+	id = darkages.72631
+	title = EVTNAME1972631
+	desc = {
+		trigger = { has_character_flag = darkages_refuse }
+		text = EVTDESC1972631_1
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_accept }
+		text = EVTDESC1972631_2
+	}	
+	picture = {
+		trigger = { has_character_flag = darkages_refuse }
+		picture = GFX_evt_da_councillor_angry
+	}
+	picture = {
+		trigger = { has_character_flag = darkages_accept }
+		picture = GFX_evt_da_council_agreement
+	}	
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+
+	immediate = {
+		random_list = {	#list to check if the proposal is accepted
+			1 = {
+				modifier = {
+					factor = 1.25
+					OR = {
+						diplomacy = 12
+						intrigue = 12
+					}
+				}	
+				modifier = {
+					factor = 1.35
+					OR = {
+						diplomacy = 15
+						intrigue = 15
+					}
+				}				
+				modifier = {
+					factor = 1.5
+					OR = {
+						diplomacy = 18
+						intrigue = 18
+					}
+				}				
+				modifier = {
+					factor = 1.75
+					OR = {
+						diplomacy = 21
+						intrigue = 21
+					}
+				}	
+				modifier = {
+					factor = 1.75
+					trait = ambitious
+				}	
+				modifier = {
+					factor = 1.5
+					trait = patient
+				}
+				modifier = {
+					factor = 1.5
+					FROM = { trait = ambitious }
+				}
+				modifier = {
+					factor = 2
+					FROM = { trait = deceitful }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { trait = arbitrary }
+				}
+				modifier = {
+					factor = 1.9
+					FROM = { trait = greedy }
+				}
+				modifier = {
+					factor = 1.25
+					FROM = { opinion = { who = ROOT value = 25 } }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { opinion = { who = ROOT value = 50 } }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { opinion = { who = ROOT value = 75 } }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { opinion = { who = ROOT value = 100 } }
+				}				
+				set_character_flag = darkages_accept
+			}
+			1 = {
+				modifier = {
+					factor = 2.5
+					has_character_flag = darkages_discovered
+				}			
+				modifier = {
+					factor = 1.25
+					OR = {
+						NOT = { diplomacy = 8 }
+						NOT = { intrigue = 8 }
+					}
+				}
+				modifier = {
+					factor = 1.35
+					OR = {
+						NOT = { diplomacy = 6 }
+						NOT = { intrigue = 6 }
+					}
+				}				
+				modifier = {
+					factor = 1.5
+					OR = {
+						NOT = { diplomacy = 4 }
+						NOT = { intrigue = 4 }
+					}
+				}				
+				modifier = {
+					factor = 1.75
+					OR = {
+						NOT = { diplomacy = 2 }
+						NOT = { intrigue = 2 }
+					}
+				}				
+				modifier = {
+					factor = 1.75
+					trait = wroth
+				}	
+				modifier = {
+					factor = 1.5
+					trait = content
+				}			
+				modifier = {
+					factor = 1.5
+					FROM = { trait = content }
+				}
+				modifier = {
+					factor = 4
+					FROM = { trait = honest }
+				}				
+				modifier = {
+					factor = 3
+					FROM = { trait = just }
+				}
+				modifier = {
+					factor = 1.75
+					FROM = { trait = temperate }
+				}
+				modifier = {
+					factor = 1.25
+					FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { NOT = { opinion = { who = ROOT value = -32 } } }
+				}			
+				modifier = {
+					factor = 1.5
+					FROM = { NOT = { opinion = { who = ROOT value = -65 } } }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { NOT = { opinion = { who = ROOT value = -99 } } }
+				}				
+				set_character_flag = darkages_refuse
+			}
+
+		}
+		
+		if = {
+			limit = { has_character_flag = darkages_accept }
+			
+			random_list ={
+				1 = {
+					set_character_flag = darkages_money_low
+				}
+				1 = {
+					set_character_flag = darkages_money_medium				
+				}
+				1 = {
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}					
+					set_character_flag = darkages_money_high				
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						NOT = { num_of_trade_posts = 1 }
+					}
+					modifier = {
+						factor = 2
+						NOT = { num_of_trade_posts = 2 }
+					}					
+					set_character_flag = darkages_trade_post				
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						NOT = { num_of_trade_posts = 2 }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}					
+					set_character_flag = darkages_trade_post_max				
+				}				
+				
+			}
+			
+			
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972631	#Doge Refusal
+		trigger = {
+			has_character_flag = darkages_refuse
+		}
+		
+		prestige = -25
+		
+		if = {
+			limit = { NOT = { has_character_modifier = da_intrigue_revealed } }
+
+			add_character_modifier = {
+				name = da_intrigue_revealed
+				duration = 1095
+			}
+		}
+		
+		clr_character_flag = darkages_refuse
+		clr_character_flag = darkages_discovered
+	}
+	
+	option = {
+		name = EVTOPTB1972631
+		trigger = {
+			has_character_flag =  darkages_money_low
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP341 }
+		
+		transfer_scaled_wealth = { to = FROM value = 2 min = 200 max = 350 }
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					FROM = { NOT = { intrigue = 8 } }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { NOT = { intrigue = 6 } }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { NOT = { intrigue = 4 } }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { NOT = { intrigue = 2 } }
+				}				
+				prestige = 600
+			}
+			2 = {
+				prestige = 800
+			}
+			1 = {
+				modifier = {
+					factor = 1.25
+					FROM = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { intrigue = 15 }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { intrigue = 18 }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { intrigue = 21 }
+				}					
+				prestige = 1000
+			}			
+		}
+		
+		clr_character_flag = darkages_accept
+		clr_character_flag = darkages_money_low		
+		clr_character_flag = darkages_discovered
+	}	
+
+	option = {
+		name = EVTOPTC1972631
+		trigger = {
+			has_character_flag =  darkages_money_medium
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP341 }		
+		
+		transfer_scaled_wealth = { to = FROM value = 3 min = 350 max = 500 }
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					FROM = { NOT = { intrigue = 8 } }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { NOT = { intrigue = 6 } }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { NOT = { intrigue = 4 } }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { NOT = { intrigue = 2 } }
+				}				
+				prestige = 600
+			}
+			2 = {
+				prestige = 800
+			}
+			1 = {
+				modifier = {
+					factor = 1.25
+					FROM = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { intrigue = 15 }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { intrigue = 18 }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { intrigue = 21 }
+				}					
+				prestige = 1000
+			}			
+		}		
+		
+		clr_character_flag = darkages_accept
+		clr_character_flag = darkages_money_medium	
+		clr_character_flag = darkages_discovered
+	}
+	
+	option = {
+		name = EVTOPTD1972631
+		trigger = {
+			has_character_flag =  darkages_money_high
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP341 }		
+		
+		transfer_scaled_wealth = { to = FROM value = 4 min = 500 max = 700 }
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					FROM = { NOT = { intrigue = 8 } }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { NOT = { intrigue = 6 } }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { NOT = { intrigue = 4 } }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { NOT = { intrigue = 2 } }
+				}				
+				prestige = 600
+			}
+			2 = {
+				prestige = 800
+			}
+			1 = {
+				modifier = {
+					factor = 1.25
+					FROM = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { intrigue = 15 }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { intrigue = 18 }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { intrigue = 21 }
+				}					
+				prestige = 1000
+			}			
+		}		
+		
+		clr_character_flag = darkages_accept
+		clr_character_flag = darkages_money_high
+		clr_character_flag = darkages_discovered
+	}	
+	
+	option = {
+		name = EVTOPTE1972631
+		trigger = {
+			has_character_flag =  darkages_trade_post
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP341 }		
+		
+		random_trade_post = {
+			seize_trade_post = FROM
+		}
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					FROM = { NOT = { intrigue = 8 } }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { NOT = { intrigue = 6 } }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { NOT = { intrigue = 4 } }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { NOT = { intrigue = 2 } }
+				}				
+				prestige = 600
+			}
+			2 = {
+				prestige = 800
+			}
+			1 = {
+				modifier = {
+					factor = 1.25
+					FROM = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { intrigue = 15 }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { intrigue = 18 }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { intrigue = 21 }
+				}					
+				prestige = 1000
+			}			
+		}		
+		
+		clr_character_flag = darkages_accept
+		clr_character_flag = darkages_trade_post
+		clr_character_flag = darkages_discovered
+	}	
+	
+	option = {
+		name = EVTOPTF1972631
+		trigger = {
+			has_character_flag =  darkages_trade_post_max
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP341 }		
+		
+		random_trade_post = {
+			seize_trade_post = FROM
+		}
+
+		random_trade_post = {
+			seize_trade_post = FROM
+		}
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					FROM = { NOT = { intrigue = 8 } }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { NOT = { intrigue = 6 } }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { NOT = { intrigue = 4 } }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { NOT = { intrigue = 2 } }
+				}				
+				prestige = 600
+			}
+			2 = {
+				prestige = 800
+			}
+			1 = {
+				modifier = {
+					factor = 1.25
+					FROM = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { intrigue = 15 }
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { intrigue = 18 }
+				}				
+				modifier = {
+					factor = 1.75
+					FROM = { intrigue = 21 }
+				}					
+				prestige = 1000
+			}			
+		}		
+		
+		clr_character_flag = darkages_accept
+		clr_character_flag = darkages_trade_post_max
+		clr_character_flag = darkages_discovered
+	}	
+	
+	option = {
+		name = EVTOPTG1972631	#No thanks
+		trigger = {
+			has_character_flag =  darkages_accept
+		}
+		
+		
+		clr_character_flag = darkages_accept
+		clr_character_flag = darkages_trade_post_max
+		clr_character_flag = darkages_trade_post		
+		clr_character_flag = darkages_discovered
+		clr_character_flag = darkages_money_high
+		clr_character_flag = darkages_money_medium
+		clr_character_flag = darkages_money_low
+	}	
+	
+}
+
+character_event = { 		#fired from decision
+	id = darkages.72632
+	title = EVTNAME1972632
+	desc = EVTDESC1972632
+	picture = GFX_evt_da_scandal
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972632
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP342 }
+		
+		prestige = -40
+		
+		add_character_modifier = {
+			name = da_intrigue_revealed
+			duration = 1825
+		}
+		
+	}
+	
+}
+
+character_event = { 		#AI Patrician try to rig the elections
+	id = darkages.72636
+	title = EVTNAME1972636
+	desc = EVTDESC1972636
+	picture = GFX_evt_da_doge
+	border = GFX_event_normal_frame_intrigue
+
+	trigger = {
+		is_merchant_republic = yes
+		NOT = { has_character_modifier = da_influence_elections }
+	}
+	
+	
+	immediate = {
+		add_character_modifier = {
+			name = da_influence_elections
+			duration = 3650
+			hidden = yes
+		}
+		
+		random_vassal = {
+			limit = {
+				ai = yes
+				is_patrician = yes
+			}
+			
+			save_event_target_as = da_corrupt_patrician
+			
+			
+		}
+
+		random_list = {
+			1 = {
+				set_character_flag = darkages_1
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					event_target:da_corrupt_patrician = { NOT = { num_of_trade_posts = 1 } }
+				}
+				set_character_flag = darkages_2
+			}			
+		}
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+	}
+	
+	option = {
+		name = EVTOPTA1972636	#I am above these tricks
+		ai_chance = {
+			factor = 10
+			modifier = { 
+				factor = 4
+				trait = honest
+			}
+			modifier = { 
+				factor = 3
+				trait = just
+			}			
+			modifier = { 
+				factor = 1.5
+				trait = wary
+			}
+			
+		}
+		
+		if = {
+			limit = {
+				NOR = { 
+					trait = arbitrary 
+					trait = just
+				}
+			
+			}
+			
+			random = {
+				chance = 50
+				add_trait = just
+			}
+			
+		}
+		else_if = {
+			limit = {
+				trait = arbitrary
+			}
+			
+			random = {
+				chance = 50
+				remove_trait = arbitrary
+			}			
+			
+		}
+		else_if = {
+			limit = {
+				trait = just
+			}			
+			
+			piety = 50
+		}
+		
+		if = {
+			limit = {
+				NOR = { 
+					trait = deceitful
+					trait = honest
+				}
+			
+			}
+			
+			random = {
+				chance = 50
+				add_trait = honest
+			}
+			
+		}
+		else_if = {
+			limit = {
+				trait = deceitful
+			}
+			
+			random = {
+				chance = 50
+				remove_trait = deceitful
+			}			
+			
+		}
+		else_if = {
+			limit = {
+				trait = honest
+			}			
+			
+			piety = 50
+		}		
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972636
+		trigger = { has_character_flag = darkages_1 }		
+		ai_chance = {
+			factor = 5
+			modifier = { 
+				factor = 4
+				trait = deceitful
+			}
+			modifier = { 
+				factor = 3
+				trait = arbitrary
+			}
+			modifier = { 
+				factor = 5
+				trait = greedy
+			}			
+		}		
+		piety = -50
+				
+		event_target:da_corrupt_patrician = {
+			transfer_scaled_wealth = { to = ROOT value = 1.5 min = 150 max = 350 }	
+			prestige = 750
+		}
+		
+		clr_character_flag = darkages_1
+	
+	}
+	
+	option = {
+		name = EVTOPTC1972636
+		trigger = { has_character_flag = darkages_2 }
+		ai_chance = {
+			factor = 5
+			modifier = { 
+				factor = 4
+				trait = deceitful
+			}
+			modifier = { 
+				factor = 3
+				trait = arbitrary
+			}			
+			modifier = { 
+				factor = 5
+				trait = greedy
+			}						
+		}		
+		
+		piety = -50
+		
+		event_target:da_corrupt_patrician = {
+			prestige = 750
+
+			random_trade_post = {
+				seize_trade_post = ROOT
+			}
+
+		}
+	
+		clr_character_flag = darkages_2
+	
+	}	
+	
+}

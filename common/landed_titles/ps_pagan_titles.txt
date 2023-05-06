@@ -1,0 +1,840 @@
+e_golden_horde = {
+    pagan_coa = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 0
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+        }
+		religion = tengri_pagan
+    }	
+}
+
+e_il-khanate = {
+    pagan_coa = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 2
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+		religion = tengri_pagan
+    }
+}
+
+e_mongol_empire = {
+    pagan_coa = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 0
+            emblem = 0
+            color = 2
+            color = 5
+            color = 0
+        }
+		religion = tengri_pagan
+    }
+}
+
+e_chagatai = {
+    pagan_coa = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 2
+            emblem = 0
+            color = 0
+            color = 1
+            color = 0
+        }
+		religion = tengri_pagan
+    }
+}
+
+e_timurids = {	
+    pagan_coa = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 5
+            emblem = 0
+            color = 2
+            color = 3
+            color = 0
+        }
+		religion = tengri_pagan
+    }	
+}	
+
+k_rum = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 104
+			emblem = 0
+			color = 2
+			color = 3
+			color = 0
+		}
+		religion="sunni"			
+	}
+}
+
+d_uppland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 10
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_vastergotland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 11
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_norrland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 47
+			emblem = 3
+			color = 3
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_bergslagen = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 39
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+		religion = "norse_pagan"
+	}	
+}
+
+d_smaland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 14
+			emblem = 2
+			color = 2
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+k_denmark = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 54
+			emblem = 5
+			color = 4
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_skane = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 57
+			emblem = 2
+			color = 0
+			color = 2
+			color = 0
+		}
+		religion = "norse_pagan"
+	}	
+}
+c_skane = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 35
+			emblem = 9
+			color = 4
+			color = 1
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}				
+c_halland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 1
+			emblem = 10
+			color = 1
+			color = 4
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+c_bornholm = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 57
+			emblem = 2
+			color = 0
+			color = 2
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}				
+c_blekinge = {				
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 2
+			emblem = 3
+			color = 0
+			color = 2
+			color = 0
+		}
+		religion = "norse_pagan"
+	}					
+}				
+d_sjaelland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 7
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+c_sjaelland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 40
+			emblem = 9
+			color = 0
+			color = 4
+			color = 0
+		}
+		religion = "norse_pagan"
+	}	
+}
+c_fyn = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 39
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+d_slesvig = { # Jylland
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+c_jylland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 36
+			emblem = 1
+			color = 1
+			color = 4
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+c_slesvig = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 35
+			emblem = 5
+			color = 2
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}	
+}
+d_orkney = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 5
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+##########
+
+k_norway = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 63
+            emblem = 0
+            color = 0
+            color = 2
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+##########
+
+d_ostlandet = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 6
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+d_trondelag = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 9
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+k_finland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 20
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+		religion = "finnish_pagan"
+	}
+}
+d_karelia = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 19
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+		religion = "finnish_pagan"
+	}	
+}
+d_finland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 20
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+		religion = "finnish_pagan"
+	}
+}
+d_esthonia = {
+	pagan_coa = {
+			template = 0
+			layer = {
+				texture = 1
+				texture_internal = 0
+				emblem = 0
+				color = 4
+				color = 0
+				color = 0
+			}
+			religion = "finnish_pagan"
+		}	
+}
+k_pomerania = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 3
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+		religion = "slavic_pagan"
+	}	
+}
+d_livonia = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 3
+			emblem = 0
+			color = 2
+			color = 1
+			color = 3
+		}
+		religion = "norse_pagan"		
+	}
+}
+d_norrland = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 47
+			emblem = 3
+			color = 3
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}	
+}			
+
+
+d_mecklemburg = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 4
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+		religion = "slavic_pagan"
+	}
+}
+
+d_pommerania = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 3
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+		religion = "slavic_pagan"
+	}	
+}
+
+k_lithuania = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 41
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+		religion = "baltic_pagan"
+	}
+}
+
+d_prussia = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 1
+			emblem = 0
+			color = 2
+			color = 3
+			color = 0
+		}
+		religion = "baltic_pagan"
+	}	
+}
+
+d_lithuanians = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 41
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+		religion = "baltic_pagan"
+	}
+}
+
+d_yatviags = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 43
+			emblem = 0
+			color = 2
+			color = 3
+			color = 0
+		}
+		religion = "baltic_pagan"
+	}
+}
+
+d_novgorod = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 1
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_kiev = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 5
+            texture_internal = 4
+            emblem = 0
+            color = 0
+            color = 0
+            color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+k_mongolia = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 0
+			emblem = 0
+			color = 1
+			color = 5
+			color = 0
+		}
+		religion = tengri_pagan
+	}	
+}
+
+k_magyar = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 13
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	religion="tengri_pagan"				
+	}
+}
+
+d_crimea = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 10
+			emblem = 0
+			color = 0
+			color = 5
+			color = 0
+		}
+		religion = tengri_pagan
+	}
+}
+
+d_mordvins = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 22
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+		religion = "finnish_pagan"
+	}
+}
+
+k_england = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 8
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+k_scotland = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 3
+            texture_internal = 17
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+k_wales = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 8
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+k_ireland = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 33
+            emblem = 0
+            color = 2
+            color = 5
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+d_hampshire = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 5
+            emblem = 0
+            color = 0
+            color = 2
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+d_gwynedd = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 3
+            texture_internal = 11
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+d_cornwall = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 11
+            emblem = 1
+            color = 0
+            color = 3
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+d_northumberland = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 11
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+d_york = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 12
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+		religion = "norse_pagan"
+	}
+}
+
+d_meath = {
+	pagan_coa = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 33
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+		religion = "norse_pagan"
+	}
+}
+
+d_obotrites = {
+	pagan_coa = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 4
+			emblem = 0
+			color = 2
+			color = 3
+			color = 0
+		}
+		religion = "slavic_pagan"
+	}
+}

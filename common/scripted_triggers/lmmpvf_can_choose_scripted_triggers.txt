@@ -1,0 +1,139 @@
+lmmpvf_can_choose_focus_glory_trigger = {
+	OR = {
+		lmmpvf_can_choose_goal_attack_neighboring_realm_trigger = yes
+		lmmpvf_can_choose_goal_oust_foreigners_from_realm_trigger = yes
+		lmmpvf_can_choose_goal_improve_public_image_trigger = yes
+	}
+}
+
+lmmpvf_can_choose_focus_prosperity_trigger = {
+	OR = {
+		lmmpvf_can_choose_goal_establish_trade_route_trigger = yes
+		lmmpvf_can_choose_goal_establish_settlement_trigger = yes
+		lmmpvf_can_choose_goal_increase_prosperity_trigger = yes
+	}
+}
+
+lmmpvf_can_choose_focus_faith_trigger = {
+	NOT = {
+		AND = {
+			religion_group = pagan_group
+			is_reformed_religion = no
+		}
+	}
+	OR = {
+		lmmpvf_can_choose_goal_attack_infidel_realm_trigger = yes
+		lmmpvf_can_choose_goal_oust_infidels_from_realm_trigger = yes
+		lmmpvf_can_choose_goal_convert_province_religion_trigger = yes
+	}
+}
+
+lmmpvf_can_choose_goal_attack_neighboring_realm_trigger = {
+	NOT = { has_character_modifier = lmmpvf_goal_attack_neighboring_realm_cooldown }
+	OR = {
+		ai = no
+		OR = {
+			trait = ambitious
+			trait = impaler
+		}
+	}
+	liege = {		
+		any_neighbor_independent_ruler = {
+			lmmpvf_can_be_declared_war_on_by_ROOT_trigger = yes
+			NOT = { lmmpvf_is_religious_head_of_ROOT_trigger = yes }
+		}		
+	}
+}
+
+lmmpvf_can_choose_goal_oust_foreigners_from_realm_trigger = {
+	NOT = { has_character_modifier = lmmpvf_goal_oust_foreigners_from_realm_cooldown }
+	OR = {
+		ai = no
+		trait = cruel		
+	}
+	liege = {
+		culture_group = ROOT
+		any_vassal = {
+			NOT = { culture_group = ROOT }
+			NOT = { mercenary = yes }
+			NOT = { 
+				AND = {
+					holy_order = yes 
+					religion_group = ROOT					
+				}
+			}
+			lmmpvf_can_be_declared_war_on_by_ROOT_trigger = yes			
+			NOT = { lmmpvf_is_religious_head_of_ROOT_trigger = yes }
+		}		
+	}
+}
+
+lmmpvf_can_choose_goal_improve_public_image_trigger = {	
+	NOT = { has_character_modifier = lmmpvf_improved_public_image_modifier }
+	is_feudal = yes
+}
+
+lmmpvf_can_choose_goal_establish_trade_route_trigger = {	
+	NOT = {
+		any_demesne_province = {
+			has_province_modifier = lmmpvf_faction_trade_route_modifier
+		}
+	}
+}
+
+lmmpvf_can_choose_goal_establish_settlement_trigger = {
+	is_tribal = no
+	any_demesne_province = {
+		has_empty_holding = yes
+	}
+}
+
+lmmpvf_can_choose_goal_increase_prosperity_trigger = {
+	NOT = {
+		any_demesne_province = {
+			has_province_modifier = lmmpvf_prospering_modifier
+		}
+	}
+}
+
+lmmpvf_can_choose_goal_attack_infidel_realm_trigger = {
+	NOT = { has_character_modifier = lmmpvf_goal_attack_infidel_realm_cooldown }	
+	OR = {
+		ai = no
+		trait = zealous
+	}
+	liege = {		
+		any_neighbor_independent_ruler = {
+			lmmpvf_is_religious_enemy_of_ROOT_trigger = yes
+			lmmpvf_can_be_declared_war_on_by_ROOT_trigger = yes
+		}		
+	}
+}
+
+lmmpvf_can_choose_goal_oust_infidels_from_realm_trigger = {
+	NOT = { has_character_modifier = lmmpvf_goal_oust_infidels_from_realm_cooldown }
+	OR = {
+		ai = no
+		trait = zealous
+	}
+	liege = {
+		religion_group = ROOT
+		any_vassal = {
+			NOT = { mercenary = yes }
+			NOT = { 
+				AND = {
+					holy_order = yes 
+					religion_group = ROOT					
+				}
+			}
+			lmmpvf_is_religious_enemy_of_ROOT_trigger = yes
+			lmmpvf_can_be_declared_war_on_by_ROOT_trigger = yes
+		}		
+	}
+}
+
+lmmpvf_can_choose_goal_convert_province_religion_trigger = {
+	any_demesne_province = {
+		NOT = { religion = ROOT }
+	}
+}

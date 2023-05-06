@@ -1,0 +1,1770 @@
+namespace = equus
+
+#Force ai to have a feast
+
+character_event = {
+	id = equus.3199
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			society_member_of = diplomatic_knights 
+			society_member_of = diplomatic_knights1
+			society_member_of = diplomatic_knights2
+		}
+		society_rank == 4
+		OR = {
+			had_character_flag = { flag = recent_grand_feast days = 3650 }
+			NOT = { has_character_flag = recent_grand_feast }
+		}
+	}
+
+	immediate = {
+		character_event = { id = equus.3200 }
+	}
+}
+
+
+### INVITATIONS TO THE feast
+
+# Invitations have gone out
+character_event = {
+	id = equus.3200
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3200
+	picture = GFX_evt_fancy_feast
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_character_flag = recent_grand_feast
+		set_character_flag = attending_dip_tournament
+		character_event = { id = equus.3250 days = 14 } #Tombola
+		character_event = { id = equus.3203 days = 180 } # Safety catch flag clearing
+		character_event = { id = equus.3205 days = 12 } # Speech
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3200" # the feast begins soon
+		hidden_tooltip = {
+			any_society_member = {
+				limit = {
+					NOT = { character = ROOT }
+					same_society_as = ROOT
+					is_adult = yes
+					prisoner = no
+					OR = {
+						is_feudal = yes
+						is_tribal = yes
+					}
+					NOT = {
+						trait = incapable
+					}
+				}
+				character_event = { id = equus.3201 }
+			}
+		}
+	}
+}
+
+# Man of the realm receives the invitation
+character_event = {
+	id = equus.3201
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3201
+	picture = GFX_evt_fancy_feast
+
+	is_triggered_only = yes
+
+	trigger = { NOT = { is_inaccessible_trigger = yes } }
+
+	option = {
+		name = "EVTOPTA_equus.3201" # Yes
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 2
+				trait = gregarious
+			}
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				diplomacy = 10
+			}
+			modifier = {
+				factor = 1.25
+				diplomacy = 12
+			}
+			modifier = {
+				factor = 1.25
+				diplomacy = 14
+			}
+			modifier = {
+				factor = 1.25
+				diplomacy = 16
+			}
+			modifier = {
+				factor = 1.25
+				diplomacy = 18
+			}
+			modifier = {
+				factor = 2
+				diplomacy = 20
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { diplomacy = 8 }
+			}
+			modifier = {
+				factor = 0.25
+				NOT = { diplomacy = 4 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 2 }
+			}
+		}
+		prestige = 100
+		set_character_flag = attending_dip_tournament
+		hidden_tooltip = {
+			character_event = { id = equus.3203 days = 180 } # Safety catch flag clearing
+			character_event = { id = equus.3205 days = 12 } # Speech
+		}
+		character_event = { id = equus.3250 days = 3 random = 25 } #player trigger event
+	}
+	option = {
+		name = "EVTOPTD_equus.3201" # No
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 10
+				is_inaccessible_trigger = yes
+			}
+		}
+	}
+}
+
+### feast START & END EVENTS
+
+# feast is over
+character_event = {
+	id = equus.3203
+	title = EVTTITLE_equus.3200	
+	picture = GFX_evt_fancy_feast
+	desc = EVTDESC_equus.3203
+	only_rulers = yes
+	min_age = 16
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.3203"
+		if = {
+			limit = {
+				has_dlc = "Reapers"
+				society_rank == 4
+			}
+			custom_tooltip = {
+				text = capital_prospers_custom_tooltip
+				hidden_tooltip = {
+					capital_scope = {
+						change_variable = { which = prosperity_value value = 15 }
+					}
+				}
+			}
+		}
+		hidden_tooltip = {
+			clr_global_flag = dip_tournament_begins
+			clr_character_flag = attending_dip_tournament
+			clr_character_flag = attending_dip_tournament_justice
+			clr_character_flag = attending_dip_tournament_brave
+			clr_character_flag = attending_dip_tournament_mercy
+			clr_character_flag = attending_dip_tournament_generosity
+			clr_character_flag = attending_dip_tournament_nobility
+			clr_character_flag = attending_dip_tournament_lover
+			clr_character_flag = attending_dip_tournament_diplomacy
+			clr_character_flag = attending_dip_tournament_drunkard
+			clr_character_flag = attending_dip_tournament_gluttonous
+			clr_character_flag = speech_valor
+			clr_character_flag = speech_god
+			clr_character_flag = speech_lady
+			clr_character_flag = speech_grandmaster
+		}
+	}
+}
+
+#Inspiration
+character_event = {
+	id = equus.3205
+	title = EVTTITLE_equus.3200
+	picture = "GFX_evt_library"
+	border = GFX_event_normal_frame_war
+	desc = EVTDESC_equus.3205
+	
+	min_age = 16
+	capable_only = yes
+	is_triggered_only = yes
+
+	option = { #God
+		name = EVTOPTA_equus.3205
+		set_character_flag = speech_god
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}	
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.5
+						trait = theologian
+					}
+					modifier = {
+						factor = 1.5
+						trait = celibate
+					}
+					character_event = { id = equus.3206 days = 12 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = zealous
+					}
+					modifier = {
+						factor = 1.5
+						trait = theologian
+					}
+					modifier = {
+						factor = 1.5
+						trait = celibate
+					}
+					character_event = { id = equus.3207 days = 12 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = cynical
+					}
+					modifier = {
+						factor = 1.5
+						trait = hedonist
+					}
+					character_event = { id = equus.3208 days = 12 }
+				}
+			}
+		}
+	} 
+	option = { #Lady
+		trigger = {
+			any_friend = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_courtly_lover
+				}
+			}	
+		}
+		name = EVTOPTB_equus.3205
+		set_character_flag = speech_lady
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}	
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = chaste
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					character_event = { id = equus.3206 days = 12 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = chaste
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					character_event = { id = equus.3207 days = 12 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = lustful
+					}
+					modifier = {
+						factor = 1.5
+						trait = gluttonous
+					}
+					modifier = {
+						factor = 1.5
+						trait = proud
+					}
+					character_event = { id = equus.3208 days = 12 }
+				}
+			}
+		}
+	} 
+	option = { #Grandmaster
+		name = EVTOPTC_equus.3205
+		set_character_flag = speech_grandmaster
+		trigger = {
+			is_society_grandmaster = no
+		}
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}	
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = brave
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					character_event = { id = equus.3206 days = 12 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = brave
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = humble
+					}
+					character_event = { id = equus.3207 days = 12 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = craven
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = proud
+					}
+					character_event = { id = equus.3208 days = 12 }
+				}
+			}
+		}
+	} 
+	option = { #Valor
+		name = EVTOPTD_equus.3205
+		set_character_flag = speech_valor
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						trait = poet
+					}
+					modifier = {
+						factor = 1.5
+						trait = scholar
+					}	
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.5
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.5
+						trait = ambitious
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 20
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = brave
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.5
+						trait = charitable
+					}
+					character_event = { id = equus.3206 days = 12 }
+				}	
+				15 = {
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 15 }
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = brave
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						trait = patient
+					}
+					modifier = {
+						factor = 1.5
+						trait = charitable
+					}
+					character_event = { id = equus.3207 days = 12 }
+				}
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}
+					modifier = {
+						factor = 1.5
+						trait = content
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}
+					#Specific
+					modifier = {
+						factor = 1.5
+						trait = craven
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.5
+						trait = greedy
+					}
+					character_event = { id = equus.3208 days = 12 }
+				}
+			}
+		}
+	} 
+}
+
+#Positive Speech
+character_event = {
+	id = equus.3206
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3206
+	picture = GFX_evt_diplomat_hf
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.3206" 
+		trigger = {
+			has_character_flag = speech_god
+		}
+		piety = 100
+	}
+	option = {
+		name = "EVTOPTA_equus.3206" 
+		trigger = {
+			has_character_flag = speech_lady
+		}
+		piety = 50
+		prestige = 50
+	}
+	option = {
+		name = "EVTOPTA_equus.3206" 
+		trigger = {
+			has_character_flag = speech_grandmaster
+		}
+		change_society_currency = 100
+	}
+	option = {
+		name = "EVTOPTA_equus.3206" 
+		trigger = {
+			has_character_flag = speech_valor
+		}
+		change_society_currency = 50
+		prestige = 50
+	}
+}
+
+#Mid Speech
+character_event = {
+	id = equus.3207
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3207
+	picture = GFX_evt_fancy_feast
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.3207" 
+	}
+}
+
+#Bad Speech
+character_event = {
+	id = equus.3208
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3208
+	picture = GFX_evt_scandal
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.3208" 
+		trigger = {
+			has_character_flag = speech_god
+		}
+		piety = -100
+	}
+	option = {
+		name = "EVTOPTA_equus.3208" 
+		trigger = {
+			has_character_flag = speech_lady
+		}
+		piety = -50
+		prestige = -50
+	}
+	option = {
+		name = "EVTOPTA_equus.3208" 
+		trigger = {
+			has_character_flag = speech_grandmaster
+		}
+		change_society_currency = -100
+	}
+	option = {
+		name = "EVTOPTA_equus.3208" 
+		trigger = {
+			has_character_flag = speech_valor
+		}
+		change_society_currency = -50
+		prestige = -50
+	}
+}
+
+### EVENT TRIGGERS 
+
+#looping trigger event for participants
+character_event = {
+	id = equus.3250
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = attending_dip_tournament		
+	}
+	
+	immediate = {
+		random_list = { ##Fix all the flags
+			20 = {	#no event				
+			}
+			10 = { #Justice talk 
+				modifier = {
+					factor = 0
+					has_character_flag = attending_dip_tournament_justice
+				}
+				character_event = { id = equus.3213 }
+			}
+			
+			10 = {	#Bravery talk brave
+				modifier = {
+					factor = 0
+					has_character_flag = attending_dip_tournament_brave
+				}
+				character_event = { id = equus.3214 }
+			}
+			
+			10 = {	#Mercy talk
+				modifier = {
+					factor = 0
+					has_character_flag = attending_dip_tournament_mercy
+				}
+				character_event = { id = equus.3215 }
+			}
+			
+			10 = {	#Generosity talk
+				modifier = {
+					factor = 0
+					has_character_flag = attending_dip_tournament_generosity
+				}
+				character_event = { id = equus.3216 }
+			}
+			
+			10 = {	#Nobility talk (not abandoning your convictions)
+				modifier = {
+					factor = 0
+					has_character_flag = attending_dip_tournament_nobility
+				}
+				character_event = { id = equus.3217 }
+			}
+			
+			10 = { #character gains a diplomatic Education level
+				modifier = {
+					factor = 0
+					has_character_flag = attending_dip_tournament_diplomacy
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						trait = grey_eminence
+						NOR = {
+							trait = naive_appeaser
+							trait = underhanded_rogue
+							trait = charismatic_negotiator
+							trait = grey_eminence
+						}
+					}
+				}
+				character_event = { id = equus.3218 }
+			}
+			10 = { #character loses a Diplomatic Education level
+				modifier = {
+					factor = 0
+					has_character_flag = attending_dip_tournament_diplomacy
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						trait = naive_appeaser
+						NOR = {
+							trait = naive_appeaser
+							trait = underhanded_rogue
+							trait = charismatic_negotiator
+							trait = grey_eminence
+						}
+					}
+				}
+				character_event = { id = equus.3219 }
+			}
+			5 = { #muse temptation
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = attending_dip_tournament_lover
+						trait = eunuch
+						trait = celibate
+						NOT = {
+							any_friend = {
+								has_opinion_modifier = {
+									who = ROOT 
+									modifier = opinion_courtly_lover
+								}
+							}
+						}
+					}
+				}
+				character_event = { id = equus.3220 }
+			}
+			2 = { #character becomes drunkard
+				modifier = {
+					factor = 0
+					OR = {
+						trait = drunkard
+						has_character_flag = attending_dip_tournament_drunkard
+					}
+				}
+				character_event = { id = equus.3221 }
+			}
+			3 = { #character becomes gluttonous
+				modifier = {
+					factor = 0
+					OR = {
+						trait = gluttonous
+						has_character_flag = attending_dip_tournament_gluttonous
+					}
+				}
+				character_event = { id = equus.3222 }
+			}
+		}
+		character_event = { id = equus.3250 days = 30 random = 15 }
+	}
+}
+
+### feast PARTICIPANT EVENTS
+
+##Justice talk
+character_event = {
+	id = equus.3213
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3213
+	picture = GFX_evt_courtiers_talking
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+
+	immediate = {
+		set_character_flag = attending_dip_tournament_justice
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				OR = {
+					AND = {
+						OR = {
+							trait = just
+							trait = stubborn
+						}
+						NOR = {
+							trait = arbitrary
+							trait = kind
+							trait = cynical
+						}	
+					}
+					AND = {
+						NOR = {
+							trait = just
+							trait = stubborn
+						}
+						OR = {
+							trait = arbitrary
+							trait = kind
+							trait = cynical
+						}	
+					}
+				}
+			}
+			save_event_target_as = discussion_knight
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3213"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = just
+					trait = stubborn
+				}
+			}
+		}
+		random_list = {
+			70 = {
+				add_trait = just
+			}
+			30 = {
+				add_trait = stubborn
+			}
+		}
+		character_event = { id = equus.3223 }
+	}
+	option = {
+		name = "EVTOPTB_equus.3213"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = just
+					trait = stubborn
+				}
+			}
+		}
+		random_list = {
+			33 = {
+				add_trait = arbitrary
+			}
+			33 = {
+				add_trait = kind
+			}
+			33 = {
+				add_trait = cynical
+			}
+		}
+		character_event = { id = equus.3224 }
+	}
+	option = {
+		name = "EVTOPTA_equus.3213"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = arbitrary
+					trait = kind
+					trait = cynical
+				}
+			}
+		}
+		random_list = {
+			70 = {
+				add_trait = just
+			}
+			30 = {
+				add_trait = stubborn
+			}
+		}
+		character_event = { id = equus.3224 }
+	}
+	option = {
+		name = "EVTOPTB_equus.3213"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = arbitrary
+					trait = kind
+					trait = cynical
+				}
+			}
+		}
+		random_list = {
+			33 = {
+				add_trait = arbitrary
+			}
+			33 = {
+				add_trait = kind
+			}
+			33 = {
+				add_trait = cynical
+			}
+		}
+		character_event = { id = equus.3223 }
+	}
+}
+
+
+##Bravery talk
+character_event = {
+	id = equus.3214
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3214
+	picture = GFX_evt_courtiers_talking
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+
+	immediate = {
+		set_character_flag = attending_dip_tournament_brave
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				OR = {
+					AND = {
+						trait = brave
+						NOR = {
+							trait = patient
+							trait = craven
+						}	
+					}
+					AND = {
+						NOT = { trait = brave }
+						OR = {
+							trait = patient
+							trait = craven
+						}
+					}
+				}
+			}
+			save_event_target_as = discussion_knight
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3214"
+		trigger = {
+			event_target:discussion_knight = {
+				trait = brave
+			}
+		}
+		add_trait = brave
+		character_event = { id = equus.3223 }
+	}
+	option = {
+		name = "EVTOPTB_equus.3214"
+		trigger = {
+			event_target:discussion_knight = {
+				trait = brave
+			}
+		}
+		random_list = {
+			50 = {
+				add_trait = patient
+			}
+			50 = {
+				add_trait = craven
+			}
+		}
+		character_event = { id = equus.3224 }
+	}
+	option = {
+		name = "EVTOPTA_equus.3214"
+		trigger = {
+			event_target:discussion_knight = {
+				NOT = { trait = brave }
+			}
+		}
+		add_trait = brave
+		character_event = { id = equus.3224 }
+	}
+	option = {
+		name = "EVTOPTB_equus.3214"
+		trigger = {
+			event_target:discussion_knight = {
+				NOT = { trait = brave }
+			}
+		}
+		random_list = {
+			50 = {
+				add_trait = patient
+			}
+			50 = {
+				add_trait = craven
+			}
+		}
+		character_event = { id = equus.3223 }
+	}
+}
+
+##Mercy talk
+character_event = {
+	id = equus.3215
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3215
+	picture = GFX_evt_courtiers_talking
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+
+	immediate = {
+		set_character_flag = attending_dip_tournament_mercy
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				OR = {
+					AND = {
+						OR = {
+							trait = just
+							trait = kind
+						}
+						NOR = {
+							trait = wroth
+							trait = cruel
+						}	
+					}
+					AND = {
+						NOR = {
+							trait = just
+							trait = kind
+						}
+						OR = {
+							trait = wroth
+							trait = cruel
+						}	
+					}
+				}
+			}
+			save_event_target_as = discussion_knight
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3215"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = just
+					trait = kind
+				}
+			}
+		}
+		random_list = {
+			80 = {
+				add_trait = kind
+			}
+			20 = {
+				add_trait = just
+			}
+		}
+		character_event = { id = equus.3223 }
+	}
+	option = {
+		name = "EVTOPTB_equus.3215"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = just
+					trait = kind
+				}
+			}
+		}
+		random_list = {
+			60 = {
+				add_trait = wroth
+			}
+			40 = {
+				add_trait = cruel
+			}
+		}
+		character_event = { id = equus.3224 }
+	}
+	option = {
+		name = "EVTOPTA_equus.3215"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = wroth
+					trait = cruel
+				}
+			}
+		}
+		random_list = {
+			80 = {
+				add_trait = kind
+			}
+			20 = {
+				add_trait = just
+			}
+		}
+		character_event = { id = equus.3224 }
+	}
+	option = {
+		name = "EVTOPTB_equus.3215"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = wroth
+					trait = cruel
+				}
+			}
+		}
+		random_list = {
+			60 = {
+				add_trait = wroth
+			}
+			40 = {
+				add_trait = cruel
+			}
+		}
+		character_event = { id = equus.3223 }
+	}
+}
+
+##Generosity talk
+character_event = {
+	id = equus.3216
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3216
+	picture = GFX_evt_courtiers_talking
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+
+	immediate = {
+		set_character_flag = attending_dip_tournament_generosity
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				OR = {
+					AND = {
+						OR = {
+							trait = charitable
+							trait = arbitrary
+						}
+						NOR = {
+							trait = greedy
+							trait = cynical
+						}
+					}	
+					AND = {
+						NOR = {
+							trait = charitable
+							trait = arbitrary
+						}
+						OR = {
+							trait = greedy
+							trait = cynical
+						}
+					}
+				}	
+			}
+			save_event_target_as = discussion_knight
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3216"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = charitable
+					trait = arbitrary
+				}
+			}
+		}
+		random_list = {
+			50 = {
+				add_trait = charitable
+			}
+			50 = {
+				add_trait = arbitrary
+			}
+		}
+		character_event = { id = equus.3223 }
+	}
+	option = {
+		name = "EVTOPTB_equus.3216"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = charitable
+					trait = arbitrary
+				}
+			}
+		}
+		random_list = {
+			50 = {
+				add_trait = greedy
+			}
+			50 = {
+				add_trait = cynical
+			}
+		}
+		character_event = { id = equus.3224 }
+	}
+	option = {
+		name = "EVTOPTA_equus.3216"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = greedy
+					trait = cynical
+				}
+			}
+		}
+		random_list = {
+			50 = {
+				add_trait = charitable
+			}
+			50 = {
+				add_trait = arbitrary
+			}
+		}
+		character_event = { id = equus.3224 }
+	}
+	option = {
+		name = "EVTOPTB_equus.3216"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = greedy
+					trait = cynical
+				}
+			}
+		}
+		random_list = {
+			50 = {
+				add_trait = greedy
+			}
+			50 = {
+				add_trait = cynical
+			}
+		}
+		character_event = { id = equus.3223 }
+	}
+}
+
+#Nobility talk (not abandoning your convictions)
+
+character_event = {
+	id = equus.3217
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3217
+	picture = GFX_evt_courtiers_talking
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+
+	immediate = {
+		set_character_flag = attending_dip_tournament_nobility
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				OR = {
+					AND = {
+						OR = {
+							trait = honest
+							trait = stubborn
+						}
+						NOR = {
+							trait = cynical
+							trait = arbitrary
+						}
+					}
+					AND = {
+						NOR = {
+							trait = honest
+							trait = stubborn
+						}
+						OR = {
+							trait = cynical
+							trait = arbitrary
+						}
+					}
+				}
+			}
+			save_event_target_as = discussion_knight
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3217"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = honest
+					trait = stubborn
+				}
+			}
+		}
+		random_list = {
+			50 = {
+				add_trait = honest
+			}
+			50 = {
+				add_trait = stubborn
+			}
+		}
+		character_event = { id = equus.3223 }
+	}
+	option = {
+		name = "EVTOPTB_equus.3217"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = honest
+					trait = stubborn
+				}
+			}
+		}
+		random_list = {
+			83 = {
+				add_trait = cynical
+			}
+			17 = {
+				add_trait = arbitrary
+			}
+		}
+		character_event = { id = equus.3224 }
+	}
+	option = {
+		name = "EVTOPTA_equus.3217"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = cynical
+					trait = arbitrary
+				}
+			}
+		}
+		random_list = {
+			50 = {
+				add_trait = honest
+			}
+			50 = {
+				add_trait = stubborn
+			}
+		}
+		character_event = { id = equus.3224 }
+	}
+	option = {
+		name = "EVTOPTB_equus.3217"
+		trigger = {
+			event_target:discussion_knight = {
+				OR = {
+					trait = cynical
+					trait = arbitrary
+				}
+			}
+		}
+		random_list = {
+			83 = {
+				add_trait = cynical
+			}
+			17 = {
+				add_trait = arbitrary
+			}
+		}
+		character_event = { id = equus.3223 }
+	}
+}
+
+#Diplomatic Increase
+
+character_event = {
+	id = equus.3218
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3218
+	picture = GFX_evt_diplomat_hf
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+
+	immediate = {
+		set_character_flag = attending_dip_tournament_diplomacy
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3218"
+		trigger = { trait = charismatic_negotiator }
+		remove_trait = charismatic_negotiator
+		add_trait = grey_eminence
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3218"
+		trigger = { trait = underhanded_rogue }
+		remove_trait = underhanded_rogue
+		add_trait = charismatic_negotiator
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3218"
+		trigger = { trait = naive_appeaser }
+		remove_trait = naive_appeaser
+		add_trait = underhanded_rogue
+	}
+}
+
+#Diplomatic Decrease
+
+character_event = {
+	id = equus.3219
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3219
+	picture = GFX_evt_courtiers_talking
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+
+	immediate = {
+		set_character_flag = attending_dip_tournament_diplomacy
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3219"
+		trigger = { trait = underhanded_rogue }
+		remove_trait = underhanded_rogue
+		add_trait = naive_appeaser
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3219"
+		trigger = { trait = charismatic_negotiator }
+		remove_trait = charismatic_negotiator
+		add_trait = underhanded_rogue
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3219"
+		trigger = { trait = grey_eminence }
+		remove_trait = grey_eminence
+		add_trait = charismatic_negotiator
+	}
+}
+
+
+#Muse Temptation
+
+character_event = {
+	id = equus.3220
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3220
+	picture = GFX_evt_brothel
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+
+	immediate = {
+		set_character_flag = attending_dip_tournament_lover
+		random_friend = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT 
+					modifier = opinion_courtly_lover
+				}
+			}
+			save_event_target_as = donna_angelo
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3220"
+		trigger = { trait = chaste }
+		event_target:donna_angelo = { 
+			add_lover = ROOT 
+		}
+		remove_trait = chaste
+	}
+	option = {
+		name = "EVTOPTA_equus.3220"
+		trigger = { NOT = { trait = chaste }}
+		event_target:donna_angelo = { 
+			add_lover = ROOT 
+		}
+		add_trait = lustful
+	}
+	option = {
+		name = "EVTOPTB_equus.3220"
+		trigger = { NOT = { trait = lustful }}
+		event_target:donna_angelo = { 
+			opinion = {
+				who = ROOT
+				modifier = opinion_spurned
+				months = 24
+			}
+		}
+		add_trait = chaste
+	}
+	option = {
+		name = "EVTOPTB_equus.3220"
+		trigger = { trait = lustful }
+		event_target:donna_angelo = { 
+			opinion = {
+				who = ROOT
+				modifier = opinion_spurned
+				months = 24
+			}
+		}
+		remove_trait = lustful
+	}
+}
+
+#Drunkard
+
+character_event = {
+	id = equus.3221
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3221
+	picture = GFX_evt_brothel
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+
+	immediate = {
+		set_character_flag = attending_dip_tournament_drunkard
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3221"
+		add_trait = drunkard
+	}
+}
+
+#Gluttonous
+
+character_event = {
+	id = equus.3222
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3222
+	picture = GFX_evt_drunk
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+
+	immediate = {
+		set_character_flag = attending_dip_tournament_gluttonous
+	}
+
+	option = {
+		name = "EVTOPTA_equus.3222"
+		add_trait = gluttonous
+	}
+}
+
+#Agree
+
+character_event = {
+	id = equus.3223
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3223
+	picture = GFX_evt_council_agreement
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.3223"
+		random_list = {
+			90 = {}
+			10 = {
+				event_target:discussion_knight = {
+					add_friend = ROOT
+				}
+			}
+		}
+	}
+}
+
+#Disagree
+
+character_event = {
+	id = equus.3224
+	title = EVTTITLE_equus.3200
+	desc = EVTDESC_equus.3224
+	picture = GFX_evt_leaving_table_angrily
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.3224"
+		random_list = {
+			90 = {}
+			10 = {
+				event_target:discussion_knight = {
+					add_rival = ROOT
+				}
+			}
+		}
+	}
+}

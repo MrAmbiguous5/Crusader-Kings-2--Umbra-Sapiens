@@ -1,0 +1,2928 @@
+namespace = RegPort
+
+
+# these are all the default cultures. To add your own, just copy the format in an additional 'if' block.
+# NOTE:	the code for the actual culture is the same as the code for the graphical culture. very convenient.
+# if the event scopes to a province with a modded culture (not in this list), character will appear as normal.
+
+#	FOR SPAWNED COURTIERS
+#	the 4:3:2:1 ratio between picks. change how you like. individual values are relative to total value (in this case, 10).
+#	4. capital culture. 40% chance of portrait as the culture of the capital where character was spawned. 
+#	3. medium realm. 30% chance of portrait as the general population of the region. 
+#	2. default. 20% chance of portrait as the liege's culture.
+#	1. big realm. 10% chance of looking like dominant culture from any region within greater realm.
+#	portraits will default to liege culture if random pick is not possible.
+
+#	FOR SPAWNED VASSALS
+#	the 3:2:5 ratio between picks. change how you like. individual values are relative to total value.
+#	3. capital culture. 30% chance of portrait as the culture of the capital where character was spawned. 
+#	2. medium realm. 20% chance of portrait as the general population of the region. 
+#	5. default. 50% chance of portrait as the liege's culture.
+#	portraits will default to liege culture if random pick is not possible.
+
+
+character_event = { 
+	id = RegPort.201
+
+	hide_window = yes			
+
+	is_triggered_only = yes
+	
+	trigger = { 
+		FROM = { character = no }	# will only affect newly created characters. FROM is previous employer, which doesn't exist.
+		culture = FROMFROM			# will only affect characters of same culture as the creator (FROMFROM). 
+		age > 1						# won't affect newborns.
+	}
+			
+	option = {	
+		name = EVTOPTA_RegPort_201
+		trigger = { is_landed = no }		# option for characters spawned initially to liege's court
+		random_list = {		 
+			4 = {	# based on capital's culture
+				if = {														
+					limit = { 
+						liege = { 
+							capital_scope = { culture = norse } 
+							NOT = { culture = norse }
+						}
+					}
+					set_graphical_culture = norse	
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { culture = swedish } 
+							NOT = { culture = swedish }
+						}
+					}
+					set_graphical_culture = swedish	
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { culture = norwegian } 
+							NOT = { culture = norwegian }
+						}
+					}
+					set_graphical_culture = norwegian	
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { culture = danish } 
+							NOT = { culture = danish }
+						}
+					}
+					set_graphical_culture = danish 	
+				}
+				if = {
+					limit = { 												
+						liege = { 
+							capital_scope = { culture = german } 
+							NOT = { culture = german }
+						}
+					}
+					set_graphical_culture = german  	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = lombard } 
+							NOT = { culture = lombard }
+						}
+					}
+					set_graphical_culture = lombard   	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = old_frankish } 
+							NOT = { culture = old_frankish }
+						}
+					}
+					set_graphical_culture = old_frankish    	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = suebi } 
+							NOT = { culture = suebi }
+						}
+					}
+					set_graphical_culture = suebi    	
+				}
+				if = {
+					limit = { 												
+						liege = { 
+							capital_scope = { culture = english } 
+							NOT = { culture = english }
+						}
+					}	
+					set_graphical_culture = english     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = saxon } 
+							NOT = { culture = saxon }
+						}
+					}
+					set_graphical_culture = saxon     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = old_saxon } 
+							NOT = { culture = old_saxon }
+						}
+					}
+					set_graphical_culture = old_saxon     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = frisian } 
+							NOT = { culture = frisian }
+						}
+					}
+					set_graphical_culture = frisian     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = dutch } 
+							NOT = { culture = dutch }
+						}
+					}
+					set_graphical_culture = dutch     	
+				}
+				if = {
+					limit = { 												
+						liege = { 
+							capital_scope = { culture = frankish } 
+							NOT = { culture = frankish }
+						}
+					}		
+					set_graphical_culture = frankish     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = norman } 
+							NOT = { culture = norman }
+						}
+					}
+					set_graphical_culture = norman     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = italian } 
+							NOT = { culture = italian }
+						}
+					}
+					set_graphical_culture = italian     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = occitan } 
+							NOT = { culture = occitan }
+						}
+					}
+					set_graphical_culture = occitan     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = roman } 
+							NOT = { culture = roman }
+						}
+					}
+					set_graphical_culture = roman     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = dalmatian } 
+							NOT = { culture = dalmatian }
+						}
+					}
+					set_graphical_culture = dalmatian     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = outremer } 
+							NOT = { culture = outremer }
+						}
+					}
+					set_graphical_culture = outremer     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = sardinian } 
+							NOT = { culture = sardinian }
+						}
+					}
+					set_graphical_culture = sardinian     	
+				}
+				if = {
+					limit = { 										
+						liege = { 
+							capital_scope = { culture = basque } 
+							NOT = { culture = basque }
+						}
+					}
+					set_graphical_culture = basque     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = catalan } 
+							NOT = { culture = catalan }
+						}
+					}
+					set_graphical_culture = catalan     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = castillan } 
+							NOT = { culture = castillan }
+						}
+					}
+					set_graphical_culture = castillan     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = portuguese } 
+							NOT = { culture = portuguese }
+						}
+					}
+					set_graphical_culture = portuguese     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = visigothic } 
+							NOT = { culture = visigothic }
+						}
+					}
+					set_graphical_culture = visigothic     	
+				}
+				if = {
+					limit = { 										
+						liege = { 
+							capital_scope = { culture = arberian } 
+							NOT = { culture = arberian }
+						}
+					}			
+					set_graphical_culture = arberian     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = armenian } 
+							NOT = { culture = armenian }
+						}
+					}
+					set_graphical_culture = armenian     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = greek } 
+							NOT = { culture = greek }
+						}
+					}
+					set_graphical_culture = greek     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = alan } 
+							NOT = { culture = alan }
+						}
+					}
+					set_graphical_culture = alan     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = georgian } 
+							NOT = { culture = georgian }
+						}
+					}
+					set_graphical_culture = georgian     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = assyrian } 
+							NOT = { culture = assyrian }
+						}
+					}
+					set_graphical_culture = assyrian     	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = coptic } 
+							NOT = { culture = coptic }
+						}
+					}
+					set_graphical_culture = coptic      	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = crimean_gothic } 
+							NOT = { culture = crimean_gothic }
+						}
+					}
+					set_graphical_culture = crimean_gothic      	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = irish } 
+							NOT = { culture = irish }
+						}
+					}
+					set_graphical_culture = irish      	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = scottish } 
+							NOT = { culture = scottish }
+						}
+					}
+					set_graphical_culture = scottish      	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = pictish } 
+							NOT = { culture = pictish }
+						}
+					}
+					set_graphical_culture = pictish      	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = welsh } 
+							NOT = { culture = welsh }
+						}
+					}
+					set_graphical_culture = welsh       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = breton } 
+							NOT = { culture = breton }
+						}
+					}
+					set_graphical_culture = breton       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = finnish } 
+							NOT = { culture = finnish }
+						}
+					}
+					set_graphical_culture = finnish       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = lappish } 
+							NOT = { culture = lappish }
+						}
+					}
+					set_graphical_culture = lappish	       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = ugricbaltic } 
+							NOT = { culture = ugricbaltic }
+						}
+					}
+					set_graphical_culture = ugricbaltic       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = komi } 
+							NOT = { culture = komi }
+						}
+					}
+					set_graphical_culture = komi       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = khanty } 
+							NOT = { culture = khanty }
+						}
+					}
+					set_graphical_culture = khanty       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = samoyed } 
+							NOT = { culture = samoyed }
+						}
+					}
+					set_graphical_culture = samoyed       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = mordvin } 
+							NOT = { culture = mordvin }
+						}
+					}
+					set_graphical_culture = mordvin       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = meshchera } 
+							NOT = { culture = meshchera }
+						}
+					}
+					set_graphical_culture = meshchera       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = lettigallish } 
+							NOT = { culture = lettigallish }
+						}
+					}
+					set_graphical_culture = lettigallish       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = lithuanian } 
+							NOT = { culture = lithuanian }
+						}
+					}
+					set_graphical_culture = lithuanian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = prussian } 
+							NOT = { culture = prussian }
+						}
+					}
+					set_graphical_culture = prussian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = turkish } 
+							NOT = { culture = turkish }
+						}
+					}
+					set_graphical_culture = turkish       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = pecheneg } 
+							NOT = { culture = pecheneg }
+						}
+					}
+					set_graphical_culture = pecheneg       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = cuman } 
+							NOT = { culture = cuman }
+						}
+					}
+					set_graphical_culture = cuman       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = khazar } 
+							NOT = { culture = khazar }
+						}
+					}
+					set_graphical_culture = khazar       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = bolghar } 
+							NOT = { culture = bolghar }
+						}
+					}
+					set_graphical_culture = bolghar       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = avar } 
+							NOT = { culture = avar }
+						}
+					}
+					set_graphical_culture = avar       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = karluk } 
+							NOT = { culture = karluk }
+						}
+					}
+					set_graphical_culture = karluk       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = kirghiz } 
+							NOT = { culture = kirghiz }
+						}
+					}
+					set_graphical_culture = kirghiz       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = uyghur } 
+							NOT = { culture = uyghur }
+						}
+					}
+					set_graphical_culture = uyghur       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = mongol } 
+							NOT = { culture = mongol }
+						}
+					}
+					set_graphical_culture = mongol       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = khitan } 
+							NOT = { culture = khitan }
+						}
+					}
+					set_graphical_culture = khitan       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = jurchen } 
+							NOT = { culture = jurchen }
+						}
+					}
+					set_graphical_culture = jurchen       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = bedouin_arabic } 
+							NOT = { culture = bedouin_arabic }
+						}
+					}
+					set_graphical_culture = bedouin_arabic       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = maghreb_arabic } 
+							NOT = { culture = maghreb_arabic }
+						}
+					}
+					set_graphical_culture = maghreb_arabic       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = levantine_arabic } 
+							NOT = { culture = levantine_arabic }
+						}
+					}
+					set_graphical_culture = levantine_arabic       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = egyptian_arabic } 
+							NOT = { culture = egyptian_arabic }
+						}
+					}
+					set_graphical_culture = egyptian_arabic       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = andalusian_arabic } 
+							NOT = { culture = andalusian_arabic }
+						}
+					}
+					set_graphical_culture = andalusian_arabic       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = russian } 
+							NOT = { culture = russian }
+						}
+					}
+					set_graphical_culture = russian        	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = ilmenian } 
+							NOT = { culture = ilmenian }
+						}
+					}
+					set_graphical_culture = ilmenian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = severian } 
+							NOT = { culture = severian }
+						}
+					}
+					set_graphical_culture = severian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = volhynian } 
+							NOT = { culture = volhynian }
+						}
+					}
+					set_graphical_culture = volhynian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = pommeranian } 
+							NOT = { culture = pommeranian }
+						}
+					}
+					set_graphical_culture = pommeranian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = bohemian } 
+							NOT = { culture = bohemian }
+						}
+					}
+					set_graphical_culture = bohemian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = polish } 
+							NOT = { culture = polish }
+						}
+					}
+					set_graphical_culture = polish       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = slovieni } 
+							NOT = { culture = slovieni }
+						}
+					}
+					set_graphical_culture = slovieni       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = croatian } 
+							NOT = { culture = croatian }
+						}
+					}
+					set_graphical_culture = croatian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = serbian } 
+							NOT = { culture = serbian }
+						}
+					}
+					set_graphical_culture = serbian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = romanian } 
+							NOT = { culture = romanian }
+						}
+					}
+					set_graphical_culture = romanian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = bulgarian } 
+							NOT = { culture = bulgarian }
+						}
+					}
+					set_graphical_culture = bulgarian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = bosnian } 
+							NOT = { culture = bosnian }
+						}
+					}
+					set_graphical_culture = bosnian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = carantanian } 
+							NOT = { culture = carantanian }
+						}
+					}
+					set_graphical_culture = carantanian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = hungarian } 
+							NOT = { culture = hungarian }
+						}
+					}
+					set_graphical_culture = hungarian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = persian } 
+							NOT = { culture = persian }
+						}
+					}
+					set_graphical_culture = persian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = sogdian } 
+							NOT = { culture = sogdian }
+						}
+					}
+					set_graphical_culture = sogdian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = tocharian } 
+							NOT = { culture = tocharian }
+						}
+					}
+					set_graphical_culture = tocharian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = kurdish } 
+							NOT = { culture = kurdish }
+						}
+					}
+					set_graphical_culture = kurdish       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = afghan } 
+							NOT = { culture = afghan }
+						}
+					}
+					set_graphical_culture = afghan       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = baloch } 
+							NOT = { culture = baloch }
+						}
+					}
+					set_graphical_culture = baloch       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = saka } 
+							NOT = { culture = saka }
+						}
+					}
+					set_graphical_culture = saka       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = ethiopian } 
+							NOT = { culture = ethiopian }
+						}
+					}
+					set_graphical_culture = ethiopian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = somali } 
+							NOT = { culture = somali }
+						}
+					}
+					set_graphical_culture = somali       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = nubian } 
+							NOT = { culture = nubian }
+						}
+					}
+					set_graphical_culture = nubian       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = daju } 
+							NOT = { culture = daju }
+						}
+					}
+					set_graphical_culture = daju       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = kanuri } 
+							NOT = { culture = kanuri }
+						}
+					}
+					set_graphical_culture = kanuri       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = hausa } 
+							NOT = { culture = hausa }
+						}
+					}
+					set_graphical_culture = hausa       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = zaghawa } 
+							NOT = { culture = zaghawa }
+						}
+					}
+					set_graphical_culture = zaghawa       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = manden } 
+							NOT = { culture = manden }
+						}
+					}
+					set_graphical_culture = manden       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = soninke } 
+							NOT = { culture = soninke }
+						}
+					}
+					set_graphical_culture = soninke       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = songhay } 
+							NOT = { culture = songhay }
+						}
+					}
+					set_graphical_culture = songhay       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = nahuatl } 
+							NOT = { culture = nahuatl }
+						}
+					}
+					set_graphical_culture = nahuatl       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = ashkenazi } 
+							NOT = { culture = ashkenazi }
+						}
+					}
+					set_graphical_culture = ashkenazi       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = sephardi } 
+							NOT = { culture = sephardi }
+						}
+					}
+					set_graphical_culture = sephardi       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = bengali } 
+							NOT = { culture = bengali }
+						}
+					}
+					set_graphical_culture = bengali       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = oriya } 
+							NOT = { culture = oriya }
+						}
+					}
+					set_graphical_culture = oriya       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = assamese } 
+							NOT = { culture = assamese }
+						}
+					}
+					set_graphical_culture = assamese       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = hindustani } 
+							NOT = { culture = hindustani }
+						}
+					}
+					set_graphical_culture = hindustani       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = gujurati } 
+							NOT = { culture = gujurati }
+						}
+					}
+					set_graphical_culture = gujurati       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = panjabi } 
+							NOT = { culture = panjabi }
+						}
+					}
+					set_graphical_culture = panjabi       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = rajput } 
+							NOT = { culture = rajput }
+						}
+					}
+					set_graphical_culture = rajput       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = sindhi } 
+							NOT = { culture = sindhi }
+						}
+					}
+					set_graphical_culture = sindhi       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = marathi } 
+							NOT = { culture = marathi }
+						}
+					}
+					set_graphical_culture = marathi       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = sinhala } 
+							NOT = { culture = sinhala }
+						}
+					}
+					set_graphical_culture = sinhala       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = nepali } 
+							NOT = { culture = nepali }
+						}
+					}
+					set_graphical_culture = nepali       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = tamil } 
+							NOT = { culture = tamil }
+						}
+					}
+					set_graphical_culture = tamil       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = telugu } 
+							NOT = { culture = telugu }
+						}
+					}
+					set_graphical_culture = telugu       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = kannada } 
+							NOT = { culture = kannada }
+						}
+					}
+					set_graphical_culture = kannada       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = bodpa } 
+							NOT = { culture = bodpa }
+						}
+					}
+					set_graphical_culture = bodpa       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = tangut } 
+							NOT = { culture = tangut }
+						}
+					}
+					set_graphical_culture = tangut       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = zhangzhung } 
+							NOT = { culture = zhangzhung }
+						}
+					}
+					set_graphical_culture = zhangzhung       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = sumpa } 
+							NOT = { culture = sumpa }
+						}
+					}
+					set_graphical_culture = sumpa       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = han } 
+							NOT = { culture = han }
+						}
+					}
+					set_graphical_culture = han       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = horse } 
+							NOT = { culture = horse }
+						}
+					}
+					set_graphical_culture = horse       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = cat } 
+							NOT = { culture = cat }
+						}
+					}
+					set_graphical_culture = cat       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = cribearmean_gothic } 
+							NOT = { culture = bear }
+						}
+					}
+					set_graphical_culture = bear       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = hedgehog_culture } 
+							NOT = { culture = hedgehog_culture }
+						}
+					}
+					set_graphical_culture = hedgehog_culture       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = duck_culture } 
+							NOT = { culture = duck_culture }
+						}
+					}
+					set_graphical_culture = duck_culture       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = dog_culture } 
+							NOT = { culture = dog_culture }
+						}
+					}
+					set_graphical_culture = dog_culture       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = elephant_culture } 
+							NOT = { culture = elephant_culture }
+						}
+					}
+					set_graphical_culture = elephant_culture       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = dragon_culture } 
+							NOT = { culture = dragon_culture }
+						}
+					}
+					set_graphical_culture = dragon_culture       	
+				}
+				if = {
+					limit = { 				
+						liege = { 
+							capital_scope = { culture = red_panda } 
+							NOT = { culture = red_panda }
+						}
+					}
+					set_graphical_culture = red_panda       	
+				}	
+				# if you want to add a custom culture only, keep it within this block.
+			}
+			3 = {	# based on capital's region
+				trigger = { top_liege = { realm_size >= 75 } }
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_middle_east_arabia } 
+							NOR = {
+								culture = bedouin_arabic
+								culture = persian
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = bedouin_arabic }
+						1 = { set_graphical_culture = persian }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_asia_minor  } 
+							NOR = {
+								culture = greek
+								culture = persian
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = greek }
+						2 = { set_graphical_culture = persian }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_europe_west_brittania  } 
+							NOR = {
+								culture = welsh
+								culture = saxon
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = welsh }
+						3 = { set_graphical_culture = saxon }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_africa_central } 
+							NOR = {
+								culture = bedouin_arabic
+								culture = hausa
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = hausa }
+						1 = { set_graphical_culture = bedouin_arabic }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_africa_west  } 
+							NOR = {
+								culture = bedouin_arabic
+								culture = hausa
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = hausa }
+						1 = { set_graphical_culture = bedouin_arabic }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_africa_east  } 
+							NOR = {
+								culture = bedouin_arabic
+								culture = egyptian_arabic
+								culture = ethiopian
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = ethiopian }
+						2 = { set_graphical_culture = egyptian_arabic }
+						1 = { set_graphical_culture = bedouin_arabic }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_europe_west_germania  } 
+							NOR = {
+								culture = german
+								culture = bohemian
+								culture = frankish
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = german }
+						2 = { set_graphical_culture = bohemian }
+						1 = { set_graphical_culture = frankish }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_europe_west_francia } 
+							NOR = {
+								culture = frankish
+								culture = german
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = frankish }
+						1 = { set_graphical_culture = german }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_europe_west_iberia  } 
+							NOR = {
+								culture = andalusian_arabic
+								culture = visigothic
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = andalusian_arabic }		# makes spanish more olive
+						3 = { set_graphical_culture = visigothic }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_europe_north  } 
+							NOR = {
+								culture = norse
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = norse }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_europe_south_east  } 
+							NOR = {
+								culture = greek
+								culture = bohemian
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = greek }
+						3 = { set_graphical_culture = bohemian }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_europe_south_italy  } 
+							NOR = {
+								culture = italian
+								culture = greek
+								culture = andalusian_arabic
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = italian }
+						2 = { set_graphical_culture = greek }
+						1 = { set_graphical_culture = andalusian_arabic }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_europe_east  } 
+							NOR = {
+								culture = bohemian
+								culture = lithuanian
+								culture = hungarian
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = bohemian }		# make slav more common
+						2 = { set_graphical_culture = lithuanian }
+						1 = { set_graphical_culture = hungarian }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_middle_east_jerusalem  } 
+							NOR = {
+								culture = bedouin_arabic
+								culture = greek
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = bedouin_arabic }
+						1 = { set_graphical_culture = greek }				# israelites, pilgrims, etc
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_india  } 
+							NOR = {
+								culture = hindustani
+								culture = tamil
+								culture = persian
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = hindustani }
+						3 = { set_graphical_culture = tamil }
+						1 = { set_graphical_culture = persian }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_himalayas  } 
+							NOR = {
+								culture = bodpa
+								culture = han
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = bodpa }
+						1 = { set_graphical_culture = han }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_persia  } 
+							NOR = {
+								culture = khazar
+								culture = persian
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = persian }
+						1 = { set_graphical_culture = khazar }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_africa_north  } 
+							NOR = {
+								culture = andalusian_arabic
+								culture = egyptian_arabic
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = andalusian_arabic }
+						3 = { set_graphical_culture = egyptian_arabic }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_steppe_tarim  } 
+							NOR = {
+								culture = khazar
+								culture = bodpa
+								culture = han
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = khazar }
+						2 = { set_graphical_culture = bodpa }
+						1 = { set_graphical_culture = han }	
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_steppe_west  } 
+							NOR = {
+								culture = lithuanian
+								culture = severian
+								culture = khazar
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = lithuanian }
+						3 = { set_graphical_culture = severian }
+						2 = { set_graphical_culture = khazar }
+					}
+				}
+				if = {
+					limit = { 
+						liege = { 
+							capital_scope = { region = world_steppe_east  } 
+							NOR = {
+								culture = mongol
+								culture = khazar
+								culture = han
+							}
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = mongol }
+						3 = { set_graphical_culture = khazar }
+						1 = { set_graphical_culture = han }
+					}
+				}
+			}			
+			2 = {	# nothing. portrait from liege's culture as per usual
+				
+			}
+			1 = {	# any culture within a large realm
+				trigger = { top_liege = { realm_size >= 150 } }
+				random_list = {
+					1 = { 
+						trigger = {
+							top_liege = { any_realm_character = { capital_scope = { region = world_middle_east_arabia } } }
+							NOT = { culture = bedouin_arabic }
+						}
+						set_graphical_culture = bedouin_arabic 
+					}
+					1 = { 
+						trigger = {
+							top_liege = { any_realm_character = { capital_scope = { region = world_asia_minor } } }
+							NOT = { culture = greek } 
+						}
+						set_graphical_culture = greek 
+					}
+					1 = { 
+						trigger = {
+							top_liege = { any_realm_character = { capital_scope = { region = world_europe_west_brittania } } } 
+							NOT = { culture = welsh }
+						}
+						set_graphical_culture = welsh  
+					}
+					1 = { 
+						trigger = {
+							top_liege = { any_realm_character = { capital_scope = { region = world_africa } } }
+							NOT = { culture = hausa }
+						}
+						set_graphical_culture = hausa
+					}
+					1 = { 
+						trigger = {
+							top_liege = { any_realm_character = { capital_scope = { region = world_europe_west_germania } } } 
+							NOT = { culture = german }
+						}
+						set_graphical_culture = german 
+					}
+					1 = { 
+						trigger = {
+							top_liege = { any_realm_character = { capital_scope = { region = world_europe_west_francia } } } 
+							NOT = { culture = frankish }
+						}
+						set_graphical_culture = frankish 
+					}
+					1 = { 
+						trigger = {
+							top_liege = { any_realm_character = { capital_scope = { region = world_europe_west_iberia } } } 
+							NOT = { culture = andalusian_arabic }
+						}
+						set_graphical_culture = andalusian_arabic
+					}
+					1 = { 
+						trigger = {
+							top_liege = { any_realm_character = { capital_scope = { region = world_europe_north } } } 
+							NOT = { culture = norse }
+						}
+						set_graphical_culture = norse     
+					}
+					1 = { 
+						trigger = {
+							top_liege = { any_realm_character = { capital_scope = { region = world_europe_south_east } } } 
+							NOT = { culture = greek }
+						}
+						set_graphical_culture = greek   
+					}
+					1 = { 
+						trigger = { 
+							top_liege = { any_realm_character = { capital_scope = { region = world_europe_south_italy } } } 
+							NOT = { culture = italian }
+						}
+						set_graphical_culture = italian  
+					}
+					1 = { 
+						trigger = { 
+							top_liege = { any_realm_character = { capital_scope = { region = world_europe_east } } } 
+							NOT = { culture = bohemian }
+						}
+						set_graphical_culture = bohemian  
+					}
+					1 = { 
+						trigger = { 
+							top_liege = { any_realm_character = { capital_scope = { region = world_middle_east_jerusalem } } } 
+							NOT = { culture = bedouin_arabic }
+						}
+						set_graphical_culture = bedouin_arabic  
+					}
+					1 = { 
+						trigger = { 
+							top_liege = { any_realm_character = { capital_scope = { region = world_india } } } 
+							NOT = { culture = hindustani }
+						}
+						set_graphical_culture = hindustani 
+					}
+					1 = { 
+						trigger = { 
+							top_liege = { any_realm_character = { capital_scope = { region = world_himalayas } } } 
+							NOT = { culture = bodpa }
+						}
+						set_graphical_culture = bodpa    
+					}
+					1 = { 
+						trigger = { 
+							top_liege = { any_realm_character = { capital_scope = { region = world_persia } } } 
+							NOT = { culture = persian }
+						}
+						set_graphical_culture = persian  
+					}
+					1 = { 
+						trigger = { 
+							top_liege = { any_realm_character = { capital_scope = { region = world_africa_north } } } 
+							NOR = { 
+								culture = andalusian_arabic 
+								culture = egyptian_arabic 
+							}
+						}
+						random_list = {
+							3 = { set_graphical_culture = andalusian_arabic }
+							1 = { set_graphical_culture = egyptian_arabic }
+						}  
+					}
+					1 = { 
+						trigger = { 
+							top_liege = { any_realm_character = { capital_scope = { region = world_steppe_tarim } } } 
+							NOR = { 
+								culture = khazar 
+								culture = han 
+							}
+						}
+						random_list = {
+							3 = { set_graphical_culture = khazar }
+							1 = { set_graphical_culture = han }
+						}   
+					}
+					1 = { 
+						trigger = { 
+							top_liege = { any_realm_character = { capital_scope = { region = world_steppe_west } } } 
+							NOT = { culture = lithuanian }
+						}
+						set_graphical_culture = lithuanian   
+					}
+					1 = { 
+						trigger = { 
+							top_liege = { any_realm_character = { capital_scope = { region = world_steppe_east } } } 
+							NOR = { 
+								culture = mongol 
+								culture = han 
+							}
+						}
+						random_list = {
+							3 = { set_graphical_culture = mongol }
+							1 = { set_graphical_culture = han }
+						}  
+					}
+				}
+			}
+		}
+	}
+	
+	option = {	
+		name = EVTOPTB_RegPort_201
+		trigger = { is_landed = yes }		# option for characters spawned as created vassals
+		random_list = {		 
+			3 = {	# based on capital's culture
+				if = {
+					limit = { 
+						capital_scope = { culture = norse } 
+						NOT = { culture = norse }
+					}
+					set_graphical_culture = norse	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = swedish } 
+						NOT = { culture = swedish }
+					}
+					set_graphical_culture = swedish	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = norwegian } 
+						NOT = { culture = norwegian }
+					}
+					set_graphical_culture = norwegian	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = danish } 
+						NOT = { culture = danish }
+					}
+					set_graphical_culture = danish 	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = german } 
+						NOT = { culture = german }
+					}
+					set_graphical_culture = german  	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = lombard } 
+						NOT = { culture = lombard }
+					}
+					set_graphical_culture = lombard   	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = old_frankish } 
+						NOT = { culture = old_frankish }
+					}
+					set_graphical_culture = old_frankish    	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = suebi } 
+						NOT = { culture = suebi }
+					}
+					set_graphical_culture = suebi    	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = english } 
+						NOT = { culture = english }
+					}
+					set_graphical_culture = english     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = saxon } 
+						NOT = { culture = saxon }
+					}
+					set_graphical_culture = saxon     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = old_saxon } 
+						NOT = { culture = old_saxon }
+					}
+					set_graphical_culture = old_saxon     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = frisian } 
+						NOT = { culture = frisian }
+					}
+					set_graphical_culture = frisian     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = dutch } 
+						NOT = { culture = dutch }
+					}
+					set_graphical_culture = dutch     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = frankish } 
+						NOT = { culture = frankish }
+					}
+					set_graphical_culture = frankish     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = norman } 
+						NOT = { culture = norman }
+					}
+					set_graphical_culture = norman     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = italian } 
+						NOT = { culture = italian }
+					}
+					set_graphical_culture = italian     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = occitan } 
+						NOT = { culture = occitan }
+					}
+					set_graphical_culture = occitan     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = roman } 
+						NOT = { culture = roman }
+					}
+					set_graphical_culture = roman     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = dalmatian } 
+						NOT = { culture = dalmatian }
+					}
+					set_graphical_culture = dalmatian     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = outremer } 
+						NOT = { culture = outremer }
+					}
+					set_graphical_culture = outremer     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = sardinian } 
+						NOT = { culture = sardinian }
+					}
+					set_graphical_culture = sardinian     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = basque } 
+						NOT = { culture = basque }
+					}
+					set_graphical_culture = basque     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = catalan } 
+						NOT = { culture = catalan }
+					}
+					set_graphical_culture = catalan     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = castillan } 
+						NOT = { culture = castillan }
+					}
+					set_graphical_culture = castillan     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = portuguese } 
+						NOT = { culture = portuguese }
+					}
+					set_graphical_culture = portuguese     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = visigothic } 
+						NOT = { culture = visigothic }
+					}
+					set_graphical_culture = visigothic     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = arberian } 
+						NOT = { culture = arberian }
+					}
+					set_graphical_culture = arberian     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = armenian } 
+						NOT = { culture = armenian }
+					}
+					set_graphical_culture = armenian     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = greek } 
+						NOT = { culture = greek }
+					}
+					set_graphical_culture = greek     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = alan } 
+						NOT = { culture = alan }
+					}
+					set_graphical_culture = alan     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = georgian } 
+						NOT = { culture = georgian }
+					}
+					set_graphical_culture = georgian     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = assyrian } 
+						NOT = { culture = assyrian }
+					}
+					set_graphical_culture = assyrian     	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = coptic } 
+						NOT = { culture = coptic }
+					}
+					set_graphical_culture = coptic      	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = crimean_gothic } 
+						NOT = { culture = crimean_gothic }
+					}
+					set_graphical_culture = crimean_gothic      	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = irish } 
+						NOT = { culture = irish }
+					}
+					set_graphical_culture = irish      	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = scottish } 
+						NOT = { culture = scottish }
+					}
+					set_graphical_culture = scottish      	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = pictish } 
+						NOT = { culture = pictish }
+					}
+					set_graphical_culture = pictish      	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = welsh } 
+						NOT = { culture = welsh }
+					}
+					set_graphical_culture = welsh       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = breton } 
+						NOT = { culture = breton }
+					}
+					set_graphical_culture = breton       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = finnish } 
+						NOT = { culture = finnish }
+					}
+					set_graphical_culture = finnish       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = lappish } 
+						NOT = { culture = lappish }
+					}
+					set_graphical_culture = lappish	       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = ugricbaltic } 
+						NOT = { culture = ugricbaltic }
+					}
+					set_graphical_culture = ugricbaltic       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = komi } 
+						NOT = { culture = komi }
+					}
+					set_graphical_culture = komi       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = khanty } 
+						NOT = { culture = khanty }
+					}
+					set_graphical_culture = khanty       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = samoyed } 
+						NOT = { culture = samoyed }
+					}
+					set_graphical_culture = samoyed       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = mordvin } 
+						NOT = { culture = mordvin }
+					}
+					set_graphical_culture = mordvin       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = meshchera } 
+						NOT = { culture = meshchera }
+					}
+					set_graphical_culture = meshchera       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = lettigallish } 
+						NOT = { culture = lettigallish }
+					}
+					set_graphical_culture = lettigallish       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = lithuanian } 
+						NOT = { culture = lithuanian }
+					}
+					set_graphical_culture = lithuanian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = prussian } 
+						NOT = { culture = prussian }
+					}
+					set_graphical_culture = prussian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = turkish } 
+						NOT = { culture = turkish }
+					}
+					set_graphical_culture = turkish       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = pecheneg } 
+						NOT = { culture = pecheneg }
+					}
+					set_graphical_culture = pecheneg       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = cuman } 
+						NOT = { culture = cuman }
+					}
+					set_graphical_culture = cuman       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = khazar } 
+						NOT = { culture = khazar }
+					}
+					set_graphical_culture = khazar       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = bolghar } 
+						NOT = { culture = bolghar }
+					}
+					set_graphical_culture = bolghar       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = avar } 
+						NOT = { culture = avar }
+					}
+					set_graphical_culture = avar       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = karluk } 
+						NOT = { culture = karluk }
+					}
+					set_graphical_culture = karluk       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = kirghiz } 
+						NOT = { culture = kirghiz }
+					}
+					set_graphical_culture = kirghiz       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = uyghur } 
+						NOT = { culture = uyghur }
+					}
+					set_graphical_culture = uyghur       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = mongol } 
+						NOT = { culture = mongol }
+					}
+					set_graphical_culture = mongol       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = khitan } 
+						NOT = { culture = khitan }
+					}
+					set_graphical_culture = khitan       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = jurchen } 
+						NOT = { culture = jurchen }
+					}
+					set_graphical_culture = jurchen       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = bedouin_arabic } 
+						NOT = { culture = bedouin_arabic }
+					}
+					set_graphical_culture = bedouin_arabic       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = maghreb_arabic } 
+						NOT = { culture = maghreb_arabic }
+					}
+					set_graphical_culture = maghreb_arabic       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = levantine_arabic } 
+						NOT = { culture = levantine_arabic }
+					}
+					set_graphical_culture = levantine_arabic       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = egyptian_arabic } 
+						NOT = { culture = egyptian_arabic }
+					}
+					set_graphical_culture = egyptian_arabic       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = andalusian_arabic } 
+						NOT = { culture = andalusian_arabic }
+					}
+					set_graphical_culture = andalusian_arabic       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = russian } 
+						NOT = { culture = russian }
+					}
+					set_graphical_culture = russian        	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = ilmenian } 
+						NOT = { culture = ilmenian }
+					}
+					set_graphical_culture = ilmenian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = severian } 
+						NOT = { culture = severian }
+					}
+					set_graphical_culture = severian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = volhynian } 
+						NOT = { culture = volhynian }
+					}
+					set_graphical_culture = volhynian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = pommeranian } 
+						NOT = { culture = pommeranian }
+					}
+					set_graphical_culture = pommeranian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = bohemian } 
+						NOT = { culture = bohemian }
+					}
+					set_graphical_culture = bohemian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = polish } 
+						NOT = { culture = polish }
+					}
+					set_graphical_culture = polish       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = slovieni } 
+						NOT = { culture = slovieni }
+					}
+					set_graphical_culture = slovieni       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = croatian } 
+						NOT = { culture = croatian }
+					}
+					set_graphical_culture = croatian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = serbian } 
+						NOT = { culture = serbian }
+					}
+					set_graphical_culture = serbian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = romanian } 
+						NOT = { culture = romanian }
+					}
+					set_graphical_culture = romanian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = bulgarian } 
+						NOT = { culture = bulgarian }
+					}
+					set_graphical_culture = bulgarian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = bosnian } 
+						NOT = { culture = bosnian }
+					}
+					set_graphical_culture = bosnian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = carantanian } 
+						NOT = { culture = carantanian }
+					}
+					set_graphical_culture = carantanian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = hungarian } 
+						NOT = { culture = hungarian }
+					}
+					set_graphical_culture = hungarian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = persian } 
+						NOT = { culture = persian }
+					}
+					set_graphical_culture = persian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = sogdian } 
+						NOT = { culture = sogdian }
+					}
+					set_graphical_culture = sogdian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = tocharian } 
+						NOT = { culture = tocharian }
+					}
+					set_graphical_culture = tocharian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = kurdish } 
+						NOT = { culture = kurdish }
+					}
+					set_graphical_culture = kurdish       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = afghan } 
+						NOT = { culture = afghan }
+					}
+					set_graphical_culture = afghan       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = baloch } 
+						NOT = { culture = baloch }
+					}
+					set_graphical_culture = baloch       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = saka } 
+						NOT = { culture = saka }
+					}
+					set_graphical_culture = saka       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = ethiopian } 
+						NOT = { culture = ethiopian }
+					}
+					set_graphical_culture = ethiopian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = somali } 
+						NOT = { culture = somali }
+					}
+					set_graphical_culture = somali       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = nubian } 
+						NOT = { culture = nubian }
+					}
+					set_graphical_culture = nubian       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = daju } 
+						NOT = { culture = daju }
+					}
+					set_graphical_culture = daju       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = kanuri } 
+						NOT = { culture = kanuri }
+					}
+					set_graphical_culture = kanuri       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = hausa } 
+						NOT = { culture = hausa }
+					}
+					set_graphical_culture = hausa       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = zaghawa } 
+						NOT = { culture = zaghawa }
+					}
+					set_graphical_culture = zaghawa       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = manden } 
+						NOT = { culture = manden }
+					}
+					set_graphical_culture = manden       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = soninke } 
+						NOT = { culture = soninke }
+					}
+					set_graphical_culture = soninke       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = songhay } 
+						NOT = { culture = songhay }
+					}
+					set_graphical_culture = songhay       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = nahuatl } 
+						NOT = { culture = nahuatl }
+					}
+					set_graphical_culture = nahuatl       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = ashkenazi } 
+						NOT = { culture = ashkenazi }
+					}
+					set_graphical_culture = ashkenazi       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = sephardi } 
+						NOT = { culture = sephardi }
+					}
+					set_graphical_culture = sephardi       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = bengali } 
+						NOT = { culture = bengali }
+					}
+					set_graphical_culture = bengali       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = oriya } 
+						NOT = { culture = oriya }
+					}
+					set_graphical_culture = oriya       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = assamese } 
+						NOT = { culture = assamese }
+					}
+					set_graphical_culture = assamese       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = hindustani } 
+						NOT = { culture = hindustani }
+					}
+					set_graphical_culture = hindustani       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = gujurati } 
+						NOT = { culture = gujurati }
+					}
+					set_graphical_culture = gujurati       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = panjabi } 
+						NOT = { culture = panjabi }
+					}
+					set_graphical_culture = panjabi       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = rajput } 
+						NOT = { culture = rajput }
+					}
+					set_graphical_culture = rajput       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = sindhi } 
+						NOT = { culture = sindhi }
+					}
+					set_graphical_culture = sindhi       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = marathi } 
+						NOT = { culture = marathi }
+					}
+					set_graphical_culture = marathi       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = sinhala } 
+						NOT = { culture = sinhala }
+					}
+					set_graphical_culture = sinhala       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = nepali } 
+						NOT = { culture = nepali }
+					}
+					set_graphical_culture = nepali       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = nepali } 
+						NOT = { culture = nepali }
+					}
+					set_graphical_culture = nepali       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = telugu } 
+						NOT = { culture = telugu }
+					}
+					set_graphical_culture = telugu       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = kannada } 
+						NOT = { culture = kannada }
+					}
+					set_graphical_culture = kannada       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = bodpa } 
+						NOT = { culture = bodpa }
+					}
+					set_graphical_culture = bodpa       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = tangut } 
+						NOT = { culture = tangut }
+					}
+					set_graphical_culture = tangut       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = zhangzhung } 
+						NOT = { culture = zhangzhung }
+					}
+					set_graphical_culture = zhangzhung       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = sumpa } 
+						NOT = { culture = sumpa }
+					}
+					set_graphical_culture = sumpa       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = han } 
+						NOT = { culture = han }
+					}
+					set_graphical_culture = han       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = horse } 
+						NOT = { culture = horse }
+					}
+					set_graphical_culture = horse       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = cat } 
+						NOT = { culture = cat }
+					}
+					set_graphical_culture = cat       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = bear } 
+						NOT = { culture = bear }
+					}
+					set_graphical_culture = bear       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = hedgehog_culture } 
+						NOT = { culture = hedgehog_culture }
+					}
+					set_graphical_culture = hedgehog_culture       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = duck_culture } 
+						NOT = { culture = duck_culture }
+					}
+					set_graphical_culture = duck_culture       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = dog_culture } 
+						NOT = { culture = dog_culture }
+					}
+					set_graphical_culture = dog_culture       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = elephant_culture } 
+						NOT = { culture = elephant_culture }
+					}
+					set_graphical_culture = elephant_culture       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = dragon_culture } 
+						NOT = { culture = dragon_culture }
+					}
+					set_graphical_culture = dragon_culture       	
+				}
+				if = {
+					limit = { 
+						capital_scope = { culture = red_panda } 
+						NOT = { culture = red_panda }
+					}
+					set_graphical_culture = red_panda       	
+				}	
+				# if you want to add a custom culture only, keep it within this block.
+			}
+			2 = {	# based on capital's region
+				if = {
+					limit = { capital_scope = { region = world_middle_east_arabia } } 
+					random_list = {
+						4 = { set_graphical_culture = bedouin_arabic }
+						1 = { set_graphical_culture = persian }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_middle_east_arabia } 
+							NOR = {
+								culture = bedouin_arabic
+								culture = persian
+						} 
+					}
+					random_list = {
+						4 = { set_graphical_culture = bedouin_arabic }
+						1 = { set_graphical_culture = persian }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_asia_minor  } 
+							NOR = {
+								culture = greek
+								culture = persian
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = greek }
+						2 = { set_graphical_culture = persian }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_europe_west_brittania  } 
+							NOR = {
+								culture = welsh
+								culture = saxon
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = welsh }
+						3 = { set_graphical_culture = saxon }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_africa_central } 
+							NOR = {
+								culture = bedouin_arabic
+								culture = hausa
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = hausa }
+						1 = { set_graphical_culture = bedouin_arabic }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_africa_west  } 
+							NOR = {
+								culture = bedouin_arabic
+								culture = hausa
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = hausa }
+						1 = { set_graphical_culture = bedouin_arabic }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_africa_east  } 
+							NOR = {
+								culture = bedouin_arabic
+								culture = egyptian_arabic
+								culture = ethiopian
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = ethiopian }
+						2 = { set_graphical_culture = egyptian_arabic }
+						1 = { set_graphical_culture = bedouin_arabic }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_europe_west_germania  } 
+							NOR = {
+								culture = german
+								culture = bohemian
+								culture = frankish
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = german }
+						2 = { set_graphical_culture = bohemian }
+						1 = { set_graphical_culture = frankish }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_europe_west_francia } 
+							NOR = {
+								culture = frankish
+								culture = german
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = frankish }
+						1 = { set_graphical_culture = german }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_europe_west_iberia  } 
+							NOR = {
+								culture = andalusian_arabic
+								culture = visigothic
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = andalusian_arabic }		# makes spanish more olive
+						3 = { set_graphical_culture = visigothic }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_europe_north  } 
+							NOR = {
+								culture = norse
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = norse }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_europe_south_east  } 
+							NOR = {
+								culture = greek
+								culture = bohemian
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = greek }
+						3 = { set_graphical_culture = bohemian }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_europe_south_italy  } 
+							NOR = {
+								culture = italian
+								culture = greek
+								culture = andalusian_arabic
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = italian }
+						2 = { set_graphical_culture = greek }
+						1 = { set_graphical_culture = andalusian_arabic }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_europe_east  } 
+							NOR = {
+								culture = bohemian
+								culture = lithuanian
+								culture = hungarian
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = bohemian }		# make slav more common
+						2 = { set_graphical_culture = lithuanian }
+						1 = { set_graphical_culture = hungarian }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_middle_east_jerusalem  } 
+							NOR = {
+								culture = bedouin_arabic
+								culture = greek
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = bedouin_arabic }
+						1 = { set_graphical_culture = greek }				# israelites, pilgrims, etc
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_india  } 
+							NOR = {
+								culture = hindustani
+								culture = tamil
+								culture = persian
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = hindustani }
+						3 = { set_graphical_culture = tamil }
+						1 = { set_graphical_culture = persian }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_himalayas  } 
+							NOR = {
+								culture = bodpa
+								culture = han
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = bodpa }
+						1 = { set_graphical_culture = han }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_persia  } 
+							NOR = {
+								culture = khazar
+								culture = persian
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = persian }
+						1 = { set_graphical_culture = khazar }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_africa_north  } 
+							NOR = {
+								culture = andalusian_arabic
+								culture = egyptian_arabic
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = andalusian_arabic }
+						3 = { set_graphical_culture = egyptian_arabic }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_steppe_tarim  } 
+							NOR = {
+								culture = khazar
+								culture = bodpa
+								culture = han
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = khazar }
+						2 = { set_graphical_culture = bodpa }
+						1 = { set_graphical_culture = han }	
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_steppe_west  } 
+							NOR = {
+								culture = lithuanian
+								culture = severian
+								culture = khazar
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = lithuanian }
+						3 = { set_graphical_culture = severian }
+						2 = { set_graphical_culture = khazar }
+					}
+				}
+				if = {
+					limit = { 
+							capital_scope = { region = world_steppe_east  } 
+							NOR = {
+								culture = mongol
+								culture = khazar
+								culture = han
+							}
+					}
+					random_list = {
+						4 = { set_graphical_culture = mongol }
+						3 = { set_graphical_culture = khazar }
+						1 = { set_graphical_culture = han }
+					}
+				}
+			}			
+			5 = {	# nothing. portrait from liege's culture as per usual
+				
+			}
+		}
+	}
+}
+
+

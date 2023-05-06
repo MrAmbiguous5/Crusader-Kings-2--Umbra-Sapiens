@@ -1,0 +1,555 @@
+decisions = {   
+	create_roman_republic = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 120
+
+		potential = {
+			is_republic = yes
+			is_playable = yes
+			has_dlc = "Legacy of Rome"
+			OR = { 
+				religion_group = christian 
+				religion = hellenic_pagan 
+				religion = hellenic_pagan_reformed
+			}
+			OR = {
+			    culture = italian
+                culture = greek
+                culture = roman
+                culture = dalmatian
+                culture = sardinian				
+			}
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOR = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			any_demesne_title = {
+				OR = {
+					tier = KING
+					tier = DUKE
+				}
+			}
+			k_roman_republic = {
+				has_holder = no
+			}
+			NOT = { has_landed_title = e_roman_empire }
+		}
+		allow = {
+			wealth = 1000
+			completely_controls = d_latium
+			completely_controls = d_ferrara
+			completely_controls = d_ancona
+			completely_controls = d_spoleto
+			completely_controls = d_toscana
+			completely_controls = d_pisa
+			completely_controls = d_capua
+			completely_controls = d_benevento
+			completely_controls = d_salerno
+			completely_controls = d_calabria
+			completely_controls = d_apulia
+			completely_controls = d_abruzzo
+			
+		}
+		effect = {
+			wealth = -1000
+			custom_tooltip = {
+				grant_title_no_opinion = k_roman_republic
+			}
+			hidden_tooltip = {
+
+				primary_title = {
+					k_roman_republic = {
+						copy_title_laws = PREV
+						copy_title_history = PREV
+					}
+				}
+
+				any_demesne_title = {
+					limit = {
+						tier = KING
+						NOT = { title = k_roman_republic }
+					}
+					destroy_landed_title = THIS
+				}
+				ROOT = {
+					narrative_event = { id = RR.1 }
+				}
+				any_playable_ruler = {
+					narrative_event = { id = RR.1 }
+				}
+			}
+			d_latium = { de_jure_liege = k_roman_republic }
+			d_ferrara = { de_jure_liege = k_roman_republic }
+			d_ancona = { de_jure_liege = k_roman_republic }
+			d_spoleto = { de_jure_liege = k_roman_republic }
+			d_toscana = { de_jure_liege = k_roman_republic }
+			d_pisa = { de_jure_liege = k_roman_republic }
+			d_capua = { de_jure_liege = k_roman_republic }
+			d_benevento = { de_jure_liege = k_roman_republic }
+			d_salerno = { de_jure_liege = k_roman_republic }
+			d_calabria = { de_jure_liege = k_roman_republic }
+			d_apulia = { de_jure_liege = k_roman_republic }
+			d_abruzzo = { de_jure_liege = k_roman_republic }
+	    }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	make_rome_capital_of_republic = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			is_playable = yes
+			ai = no
+			has_dlc = "Legacy of Rome"
+			has_landed_title = k_roman_republic
+			capital_scope = {
+				NOT = { province_id = 333 }
+			}
+			any_realm_lord = { 
+				ai = yes
+				has_landed_title = c_roma 
+			}
+			any_realm_lord = { 
+				ai = yes
+				has_landed_title = b_viterbo
+			}
+			OR = {
+				has_landed_title = k_roman_republic
+                has_landed_title = k_regnum_romanum				
+			}
+		}
+		allow = {
+			any_realm_lord = { has_landed_title = c_roma }
+		}
+		effect = {
+			custom_tooltip = {
+				text = rome_capital
+				hidden_tooltip = {
+					b_viterbo = { province_capital = yes }
+					ROOT = {
+						b_viterbo = {
+							usurp_title = PREV
+						}
+						c_roma = {
+						    usurp_title = PREV
+						}
+					}
+					#b_roma = { set_name = Lateran }
+					b_viterbo = { 
+						set_name = Rome 
+						ROOT = { capital = PREV }
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	roman_renaissance = {
+		ai_check_interval = 120 #check only once every 120 months.
+		only_playable = yes
+		is_high_prio = yes
+		
+		potential = {
+			is_playable = yes
+			OR = {
+			    culture = italian
+                culture = greek
+                culture = roman
+                culture = dalmatian
+                culture = sardinian				
+			}
+			has_dlc = "Holy Fury"
+			OR = {
+			    has_landed_title = e_roman_empire
+				has_landed_title = k_roman_republic
+				has_landed_title = k_regnum_romanum
+				has_landed_title = e_western_roman_empire
+			}	
+			NOT = { government = chinese_imperial_government }
+			NOT = { has_global_flag = flag_started_roman_renaissance }
+			NOT = {
+				has_alternate_start_parameter = { key = culture_names value = random }
+			}
+		}
+		allow = {
+			show_only_failed_conditions = yes
+			OR = { 
+				religion_group = christian 
+				religion = hellenic_pagan
+				religion = hellenic_pagan_reformed
+			}
+			capital_scope = { province = 333 }
+			ruled_years = 10
+			war = no
+		}
+		effect = {
+			set_global_flag = flag_started_roman_renaissance
+			culture = roman
+			hidden_tooltip = {
+				any_courtier_or_vassal = { 
+					limit = { lower_tier_than = COUNT }
+					culture = roman
+				}
+			}
+			capital_scope = { culture = roman }
+			custom_tooltip = {
+				text = tooltip_roman_culture_starts_spreading
+				hidden_tooltip = {
+					any_realm_province = {
+						if = {
+							limit = { any_neighbor_province = { province = 333 } }
+							culture = roman
+						}
+						if = {
+							limit = { 
+								culture = italian
+								NOT = { distance = { where = 333 distance = 100 } } 
+							}
+							random = { 
+								chance = 40 
+								culture = roman 
+							}
+						}
+						if = {
+							limit = { 
+								culture_group = latin
+								NOT = { distance = { where = 333 distance = 200 } } 
+							}
+							random = { 
+								chance = 20 
+								culture = roman 
+							}
+						}
+						if = {
+							limit = { 
+								culture_group = latin
+								NOT = { distance = { where = 333 distance = 400 } } 
+							}
+							random = { 
+								chance = 5
+								culture = roman 
+							}
+						}
+					}
+				}
+			}
+			hidden_tooltip = {
+				if = { #Hellenic Emperor gets chance to spread Hellenism a bit alongside the culture.
+					limit = { OR = { religion = hellenic_pagan religion = hellenic_pagan_reformed } }
+					any_realm_province = {
+						if = {
+							limit = { any_neighbor_province = { province = 333 } }
+							religion = ROOT
+						}
+						if = {
+							limit = { 
+								culture = roman
+								NOT = { distance = { where = 333 distance = 100 } } 
+							}
+							random = { 
+								chance = 10 
+								religion = ROOT
+							}
+						}
+						if = {
+							limit = { 
+								culture = roman
+								NOT = { distance = { where = 333 distance = 200 } } 
+							}
+							random = { 
+								chance = 5 
+								religion = ROOT
+							}
+						}
+					}
+				}
+			}
+			hidden_tooltip = { #Special event if there are still enough christian provinces around (which is very likely)
+				if = {
+					limit = { 
+						any_realm_province = { 
+							religion_group = christian
+							count = 10
+						} 
+					}
+					character_event = { id = HF.23119 days = 150 random = 50 }
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 3
+				religion = hellenic_pagan_reformed
+			}
+			modifier = {
+				factor = 0.01 #Would consider it a step down.
+				culture = greek
+			}
+		}
+	}
+	embrace_roman_culture = {
+		ai_check_interval = 120 #check only once every 120 months.
+		only_playable = yes
+		
+		potential = {
+			is_playable = yes
+			NOT = { culture = roman }
+			OR = { 
+				culture_group = latin 
+				culture_group = byzantine
+			}
+			has_dlc = "Holy Fury"
+			NOT = { government = chinese_imperial_government }
+			has_global_flag = flag_started_roman_renaissance
+			NOT = {
+				has_alternate_start_parameter = { key = culture_names value = random }
+			}
+			OR = { 
+			    top_liege = { has_landed_title = e_roman_empire }
+			    top_liege = { has_landed_title = k_roman_republic }
+				top_liege = { has_landed_title = k_regnum_romanum }
+				top_liege = { has_landed_title = e_western_roman_empire }
+			}
+		}
+		allow = {
+			show_only_failed_conditions = yes
+			OR = { 
+				culture_group = latin 
+				culture_group = byzantine
+			}
+		}
+		effect = {
+			culture = roman
+			hidden_tooltip = {
+				any_courtier_or_vassal = { 
+					limit = { lower_tier_than = COUNT }
+					culture = roman
+				}
+			}
+			capital_scope = { culture = roman }
+			custom_tooltip = {
+				text = tooltip_roman_culture_spreads
+				hidden_tooltip = {
+					any_demesne_province = {
+						if = {
+							limit = { any_neighbor_province = { province = 333 } }
+							culture = roman
+						}
+						if = {
+							limit = { 
+								culture = italian
+								capital_scope = { NOT = { distance = { where = PREV distance = 100 } } } 
+							}
+							random = { 
+								chance = 40 
+								culture = roman 
+							}
+						}
+						if = {
+							limit = { 
+								culture_group = latin
+								capital_scope = { NOT = { distance = { where = PREV distance = 200 } } } 
+							}
+							random = { 
+								chance = 20 
+								culture = roman 
+							}
+						}
+						if = {
+							limit = { 
+								culture_group = latin
+								capital_scope = { NOT = { distance = { where = PREV distance = 400 } } } 
+							}
+							random = { 
+								chance = 5
+								culture = roman 
+							}
+						}
+					}
+				}
+			}
+			if = { #Hellenic Emperor gets chance to spread Hellenism a bit alongside the culture.
+				limit = { OR = { religion = hellenic_pagan religion = hellenic_pagan_reformed } }
+				hidden_tooltip = {
+					any_demesne_province = {
+						if = {
+							limit = { any_neighbor_province = { province = 333 } }
+							religion = ROOT
+						}
+						if = {
+							limit = { 
+								culture = roman
+								capital_scope = { NOT = { distance = { where = PREV distance = 100 } } } 
+							}
+							random = { 
+								chance = 10 
+								religion = ROOT
+							}
+						}
+						if = {
+							limit = { 
+								culture = roman
+								capital_scope = { NOT = { distance = { where = PREV distance = 200 } } } 
+							}
+							random = { 
+								chance = 5 
+								religion = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 3
+				religion = hellenic_pagan_reformed
+			}
+			modifier = {
+				factor = 3
+				capital_scope = { culture = roman } 
+			}
+			modifier = {
+				factor = 0.01 #Would consider it a step down.
+				culture = greek
+			}
+		}
+	}
+	
+	restore_western_roman_empire = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 24
+		potential = {
+			is_playable = yes
+			has_dlc = "Legacy of Rome"
+			OR = {
+			    has_landed_title = e_italy
+			    has_landed_title = k_regnum_romanum
+				has_landed_title = d_latium
+				has_landed_title = d_spoleto
+				has_landed_title = d_ferrara
+				has_landed_title = d_ancona
+				has_landed_title = k_sicily
+				has_landed_title = k_sardinia
+				has_landed_title = k_croatia
+				has_landed_title = k_italy
+			}
+			OR = { 
+				religion_group = christian 
+				religion = hellenic_pagan 
+				religion = hellenic_pagan_reformed
+			}
+			OR = {
+			    culture = italian
+                culture = greek
+                culture = roman
+                culture = dalmatian
+                culture = sardinian				
+			}
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = rome_restored }
+            e_western_roman_empire = {
+				is_titular = yes
+			}
+			e_western_roman_empire = {
+				has_holder = no
+			}
+		}
+		allow = {
+			prestige = 3000
+			completely_controls = d_latium
+			completely_controls = d_ferrara
+			completely_controls = d_ancona
+			completely_controls = d_spoleto
+			completely_controls = d_venice
+			completely_controls = k_sicily
+			completely_controls = k_italy
+			completely_controls = k_croatia
+			completely_controls = k_sardinia
+			completely_controls = k_carinthia
+			completely_controls = k_africa
+		}
+		effect = {
+			prestige = -3000
+			custom_tooltip = {
+				grant_title_no_opinion = e_western_roman_empire
+			}
+			hidden_tooltip = {
+
+				primary_title = {
+					e_western_roman_empire = {
+						copy_title_laws = PREV
+						copy_title_history = PREV
+					}
+				}
+
+				any_demesne_title = {
+					limit = {
+						tier = EMPEROR
+						NOT = { title = e_western_roman_empire }
+					}
+					destroy_landed_title = THIS
+				}
+				ROOT = {
+					narrative_event = { id = WRE.1 }
+				}
+			}
+			k_romagna = { de_jure_liege = e_western_roman_empire }
+			k_venice = { de_jure_liege = e_western_roman_empire }
+			k_sicily = { de_jure_liege = e_western_roman_empire }
+			k_italy = { de_jure_liege = e_western_roman_empire }
+			k_croatia = { de_jure_liege = e_western_roman_empire }
+			k_sardinia = { de_jure_liege = e_western_roman_empire }
+			k_africa = { de_jure_liege = e_western_roman_empire }
+			k_carinthia = { de_jure_liege = e_western_roman_empire }
+	    }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	overthrow_the_republic = {
+        is_high_prio = yes
+		only_playable = yes
+		potential = {
+			prisoner = no
+			age = 16
+			OR = { 
+				has_landed_title = e_roman_empire
+			}
+			NOT = {
+			    has_character_flag = overthrow_republic
+			}
+			is_republic = yes
+		}
+		allow = {
+			wealth = 2000
+			prestige = 1000
+		}
+		effect = {
+		    set_character_flag = overthrow_republic
+			hidden_tooltip = {
+					character_event = { id = CVR.8 }
+				}
+			}
+	}
+
+}	

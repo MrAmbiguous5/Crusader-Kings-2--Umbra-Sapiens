@@ -1,0 +1,403 @@
+military_knights1 = { #society code name
+	primary_attribute = martial #Its main attribute
+	society_ranks_gfx = generic_ranks #which rank icon it will use
+	opinion_to_other_members = +5 #opinion from/of other member, see wiki for all the options
+	opinion_per_rank_above = +10
+	#society_rank_up_decision = request_to_rank_up_within_society #this is the default decision, triggered by the rank-up button
+	society_rank_up_decision = request_to_rank_up_within_military_knights1 #make a new decision like this if you want your own requirements
+	sound = monastic_orders_interface
+	is_secret = no #can be joined openly or not, hide clothing from other members
+	criminal = no #is it considered a "bad" society
+	is_religious = no #affect opinion values
+	devil_worshipper = no #if it will trigger devil society stuff
+	non_interference = { #AI will avoid messing with each others
+		always = yes 
+	}
+	
+	active = { #default to always active, will start empty unless "indestructible = yes" and "startup_populate" are filled.
+		has_global_flag = military_knights1_exist
+	}
+	
+	indestructible = yes #if it can be destroyed and if not will add members up to the start-up limit
+	
+	can_join_society = { #add restriction for joining
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = military_knights
+					rank = 1
+				}
+			}
+			OR = {
+				religion = catholic
+				religion = chalcedonian
+			}
+		}
+		NOT = { trait = incapable }
+		piety = 0 
+		age = 16
+		martial = 10
+		OR = {
+			is_female = no
+			has_game_rule = {
+				name = women
+				value = all
+			}
+			AND = {
+				has_game_rule = {
+					name = women
+					value = marshals
+				}
+				OR = {
+					liege = { 
+						primary_title = {
+							has_law = status_of_women_3
+						}
+					}
+					liege = { 
+						primary_title = {
+							has_law = status_of_women_4
+						}
+					}
+				}
+			}
+		}	
+	}
+
+	show_society = { #society will appear in the list if these are met
+		OR = {
+			religion = catholic
+			religion = chalcedonian
+		}
+	}
+	
+	potential = { #will kick from society if these are no longer met
+		NOT = { trait = incapable }
+	}
+	
+	society_rank = { #society ranks
+		level = 1 #lowest rank
+		limit = 50 #max member of that rank
+		startup_limit = 40
+		modifier = { #modifiers of that rank, like opinion or cheaper holding construction
+			monthly_character_prestige = 0.05
+		}
+		decisions = { #rank based decisions power
+			military_knights_power_1
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 25
+		startup_limit = 20
+		modifier = { 
+			martial = 1
+			combat_rating = 5
+			monthly_character_prestige = 0.10
+		}
+		decisions = {
+			military_knights_power_2
+			military_knights_power_2p
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 12
+		startup_limit = 9
+		modifier = {
+			martial = 2
+			combat_rating = 10
+			monthly_character_prestige = 0.20
+		}
+		decisions = {
+			military_knights_power_3
+			military_knights_power_3s
+			military_knights_power_3a
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 1 #there can be more than max rank member
+		startup_limit = 0
+		modifier = { 
+			martial = 3
+			combat_rating = 15
+			monthly_character_prestige = 0.40
+		}
+		decisions = {
+			military_knights_power_4f
+			military_knights_power_4t
+			military_knights_power_4k
+			military_knights_power_4h
+			military_knights_power_4hh
+		}
+	}
+	
+	plots = {
+	}
+	
+	monthly_currency_gain = { #how much society currency they gain
+		name = military_knights_currency #localization name of the society currency, also see custom_localization
+		
+		per_attribute = { #based on attribute
+    		name = martial
+    		value = 0.5
+    	}
+		per_attribute = { #based on attribute
+    		name = learning
+    		value = 0.25
+    	}
+		
+		has_trait = { #based on traits
+			value = 1
+			trait = brilliant_strategist
+		}
+		has_trait = {
+			value = 0.5
+			trait = skilled_tactician
+		}
+		has_trait = {
+			value = 0.5
+			trait = mastermind_theologian
+		}
+		has_trait = {
+			value = -0.5
+			trait = depressed
+		}
+		has_trait = {
+			value = -1
+			trait = posessed
+		}
+		has_trait = {
+			value = -0.5
+			trait = lunatic
+		}
+		has_trait = {
+			value = -0.5
+			trait = drunkard
+		}
+		has_trait = {
+			value = -0.5
+			trait = syphilitic
+		}
+		has_trait = {
+			value = -0.5
+			trait = bastard
+		}
+		has_trait = {
+			value = -0.5
+			trait = legit_bastard
+		}
+		has_trait = {
+			value = 0.5
+			trait = fair
+		}
+		has_trait = {
+			value = 0.5
+			trait = strong
+		}
+		has_trait = {
+			value = -0.5
+			trait = hunchback
+		}
+		has_trait = {
+			value = -0.5
+			trait = ugly
+		}
+		has_trait = {
+			value = -0.5
+			trait = dwarf
+		}
+		has_trait = {
+			value = -0.5
+			trait = weak
+		}
+		has_trait = {
+			value = 0.5
+			trait = duelist
+		}
+		has_trait = {
+			value = 1
+			trait = celibate
+		}
+		has_trait = {
+			value = -0.5
+			trait = wroth
+		}
+		has_trait = {
+			value = -0.5
+			trait = envious
+		}
+		has_trait = {
+			value = -0.5
+			trait = slothful
+		}
+		has_trait = {
+			value = -0.5
+			trait = greedy
+		}
+		has_trait = {
+			value = -0.5
+			trait = gluttonous
+		}
+		has_trait = {
+			value = 0.5
+			trait = temperate
+		}
+		has_trait = {
+			value = 0.5
+			trait = charitable
+		}
+		has_trait = {
+			value = 0.5
+			trait = patient
+		}
+		has_trait = {
+			value = 0.5
+			trait = kind
+		}
+		has_trait = {
+			value = 0.5
+			trait = humble
+		}
+		has_trait = {
+			value = 1
+			trait = brave
+		}
+		has_trait = {
+			value = 0.5
+			trait = gregarious
+		}
+		has_trait = {
+			value = 0.5
+			trait = honest
+		}
+		has_trait = {
+			value = 0.5
+			trait = just
+		}
+		has_trait = {
+			value = 0.5
+			trait = zealous
+		}
+		has_trait = {
+			value = -1
+			trait = craven
+		}
+		has_trait = {
+			value = -0.5
+			trait = shy
+		}
+		has_trait = {
+			value = -0.5
+			trait = arbitrary
+		}
+		has_trait = {
+			value = -0.5
+			trait = cynical
+		}
+		has_trait = {
+			value = -0.5
+			trait = cruel
+		}
+	}
+
+	member_score_per_attribute = 3 #scores, mostly about who will be the bext leader
+	member_score_per_rank = 100
+
+	#TO CALCULATE MEMBER SCORE
+	#add the attribute and rank points then take (number of modifiers)*10*((sum of the bonuses)/100)
+	member_score = {
+		value = 10
+		modifier = {
+			factor = 101
+			has_character_modifier = society_heir
+		}
+		modifier = { #based on traits
+			factor = 3
+			trait = brilliant_strategist
+		}
+		modifier = {
+			factor = 2
+			trait = skilled_tactician
+		}
+		modifier = {
+			factor = 2
+			trait = mastermind_theologian
+		}
+		modifier = {
+			factor = 2
+			trait = fair
+		}
+		modifier = {
+			factor = 2
+			trait = strong
+		}
+		modifier = {
+			factor = 2
+			trait = duelist
+		}
+		modifier = {
+			factor = 3
+			trait = celibate
+		}
+		modifier = {
+			factor = 2
+			trait = temperate
+		}
+		modifier = {
+			factor = 2
+			trait = charitable
+		}
+		modifier = {
+			factor = 2
+			trait = patient
+		}
+		modifier = {
+			factor = 2
+			trait = kind
+		}
+		modifier = {
+			factor = 2
+			trait = humble
+		}
+		modifier = {
+			factor = 3
+			trait = brave
+		}
+		modifier = {
+			factor = 2
+			trait = gregarious
+		}
+		modifier = {
+			factor = 2
+			trait = honest
+		}
+		modifier = {
+			factor = 2
+			trait = just
+		}
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+	}
+	
+	startup_populate = { #trigger for who can be  the start-up population
+		trigger = {
+			martial = 10
+			ai = yes
+	    	controls_religion = no
+			age = 16
+			is_in_society = no
+			OR = {
+				religion = catholic
+				religion = chalcedonian
+			}
+		}
+	}
+}

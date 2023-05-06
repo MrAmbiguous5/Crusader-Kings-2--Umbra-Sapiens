@@ -1,0 +1,27 @@
+d_Arsiyah = {
+    color={ 220 200 140 }
+ 
+    graphical_culture = bektashigfx
+ 
+    capital = 1812 # Saqsin
+ 
+    title = "Tarkhan"
+    foa = "GRANDHEADMASTER_FOA"
+
+    # Always exists
+    landless = yes
+ 
+    holy_order = yes
+    mercenary_type = Arsiyah_composition
+ 
+    culture = khazar
+ 
+    # Parent Religion
+    religion = sunni
+ 
+    # Cannot be held as a secondary title
+    primary = yes
+ 
+    # Extra income due to banking, etc
+    monthly_income = 10 # (Must be an integer between 1 and 512)
+}

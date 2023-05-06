@@ -1,0 +1,40 @@
+#HOMAGE OPINION MODIFIERS
+
+opinion_da_vassal_refused_homage = {
+	opinion = -25
+	inherit = yes
+	disable_non_aggression_pacts = yes
+	decay = yes
+}
+
+opinion_da_king_refused_homage = {
+	opinion = -20
+	decay = yes
+}
+opinion_da_king_forced_homage = {
+	opinion = -35	
+}
+
+opinion_da_king_forced_homage_2 = {
+	opinion = -10	
+}
+
+opinion_da_king_tried_claim_title = {
+	opinion = -20
+}
+
+opinion_da_king_claimed_mytitle = {
+	opinion = -50
+}
+opinion_da_king_claimed_mytitle_2 = {
+	opinion = -35
+}
+opinion_da_vassal_respected_me = {	
+	opinion = 10
+	decay = yes
+	inherit = yes
+}
+
+opinion_da_used_me_as_shield = {
+	opinion = -30
+}

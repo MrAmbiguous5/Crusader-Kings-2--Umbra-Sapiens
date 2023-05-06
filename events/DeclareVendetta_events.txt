@@ -1,0 +1,85 @@
+namespace = DecVend
+
+character_event = {				# event to confirm the declaree does intend to declare, further info
+	id = DecVend.101
+	desc = EVTDESCDecVend.101
+	picture = GFX_evt_bloody_knife_hf
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTADecVend.101
+		ai_chance = { factor = 10 }
+		
+		hidden_tooltip = {
+			add_blood_splatter_effect = yes
+			sound_effect = assassins_occupy_infidel_holding
+			if = {			# only send notif to player when player isn't already rival
+				limit = { 
+					FROM = { ai = no } 
+					NOT = { is_rival = FROM }
+				} 
+				FROM = {
+					character_event = { id = DecVend.201 }
+				}
+			}
+		}
+		
+		add_rival = FROM
+		add_character_modifier = { 
+			name = vendetta_modifier    
+			years = 5
+		}
+	}
+	
+	option = {		
+		name = EVTOPTBDecVend.101
+		ai_chance = { factor = 1 }
+	}	
+}
+
+character_event = {				# target of the feud is notified they are a target
+	id = DecVend.201
+	desc = EVTDESCDecVend.201
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		sound_effect = assassins_occupy_infidel_holding
+	}
+	
+	option = {
+		name = EVTOPTADecVend.201
+		ai_chance = { factor = 10 }
+	}
+}
+
+character_event = {				# lose modifier, vendetta resolved by whatever means
+	id = DecVend.301
+	desc = EVTDESCDecVend.301
+	picture = GFX_evt_skulls_hf
+	border = GFX_event_normal_frame_war
+	
+	mean_time_to_happen = { days = 30 }
+	
+	trigger = {
+		has_character_modifier = vendetta_modifier
+		num_of_rivals < 1 			# rivals dead or gone
+	}
+		
+	option = {
+		name = EVTOPTADecVend.301
+		ai_chance = { factor = 10 }
+		remove_character_modifier = vendetta_modifier
+	}
+}
+
+
+
+
+
+
+

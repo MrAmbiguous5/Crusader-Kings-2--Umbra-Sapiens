@@ -1,0 +1,2696 @@
+# Targetted decisions are possible vs _all_ other characters and shown are in the Diplomacy View, not the Intrigue View. The taker is in the FROM scope.
+#
+# filter = [self/court/home_court/vassals/sub_realm/realm/dynasty/spouse/liege/religious_head/rivals/society/all] ('self' MUST be set for decisions targetting only the taker, the other filter types can be set to lessen CPU load)
+# ai_target_filter = [self/court/home_court/vassals/sub_realm/realm/dynasty/spouse/liege/religious_head/rivals/society/all] (which characters for which the AI evaluates the decision.)
+#	court: all characters in the host court, including prisoners, and characters currently away (wards, prisoners, etc)
+#	home_court: all characters in the home court, including prisoners, and characters currently away (wards, prisoners, etc)
+#	vassals: direct vassal rulers of the AI's employer
+#	sub_realm: all characters below the AI's employer
+#	realm: all characters in the same top realm as the AI
+#	dynasty: all members of the same dynasty (but not yourself)
+#	rivals: your rivals plus any character you have an opinion modifier with 'crime = yes' set (the same set of characters the 'is_foe' trigger evaluates)
+# society: the other members of your society (but not yourself)
+#	all: all living characters (Avoid if possible. VERY CPU-HEAVY!)
+#	
+
+targetted_decisions = {
+
+	da_assassinate = {
+		ai_target_filter = court
+		ai_check_interval = 12
+		
+		from_potential = {
+			is_within_diplo_range = ROOT
+			OR = {
+				AND = {
+					ai = no
+					NOT = { has_game_rule = { name = murder_prevalence value = off } }
+					is_incapable = no
+					NOT = { trait = resting }
+					prisoner = no
+					is_adult = yes		
+				}
+				
+				AND = {
+					ai = yes
+					treasury = 0
+					NOT = { has_game_rule = { name = murder_prevalence value = off } }
+					is_incapable = no
+					NOT = { trait = resting }
+					prisoner = no
+					is_adult = yes		
+				}
+			}
+		}
+		potential = {
+			NOT = { character = FROM }
+		}
+		allow = {
+			NOT = { has_character_modifier = da_assassination_timer }
+			NOT = { any_demesne_title = { temporary = yes } }
+			FROM = {
+				OR = {
+					ai = no
+					trait = paranoid 
+					trait = possessed
+					trait = lunatic
+					trait = assassin
+					AND = {
+						OR = {
+							trait = envious
+							trait = cruel
+							trait = wroth
+						}
+						NOT = { opinion = { who = ROOT value = 50 } }
+					}					
+					is_rival = ROOT
+					NOT = { opinion = { who = ROOT value = -24 } }
+					has_opinion_modifier = { who = ROOT modifier = opinion_unfaithful_husband }
+					has_opinion_modifier = { who = ROOT modifier = opinion_unfaithful_wife }
+					has_opinion_modifier = { who = ROOT modifier = opinion_former_lover }
+				}			
+				NOT = { has_character_modifier = da_assassin_timer }			
+			}
+		}
+		effect = {
+		
+			if = {
+				limit = {
+					FROM = { ai = yes }
+				}
+				FROM = {
+					wealth = -50
+					piety = -100
+					hidden_tooltip = {				
+						random_list = {
+							1 = { set_character_flag = assassination1 }
+							1 = { set_character_flag = assassination2 }
+							1 = { set_character_flag = assassination3 }
+							1 = { set_character_flag = assassination4 }
+							4 = { }
+						}
+					}	
+				}
+			}
+			else = {
+				FROM = {
+					wealth = -50
+					if = {
+						limit = {
+							OR = {
+								trait = kind
+								trait = honest
+								trait = just
+							}
+						}
+						
+						if = {
+							limit = { trait = kind }
+							remove_trait = kind
+						}
+						if = {
+							limit = { trait = honest }
+							remove_trait = honest
+						}
+						if = {
+							limit = { trait = just }
+							remove_trait = just
+						}						
+						
+						piety = -500
+						
+					}
+					else = {
+						
+						if = {
+							limit = { NOT = { trait = cruel } }
+							random = {
+								chance = 66
+								add_trait = cruel
+							}
+						}
+						if = {
+							limit = { NOT = { trait = envious } }
+							random = {
+								chance = 66
+								add_trait = envious
+							}
+						}	
+						if = {
+							limit = { NOT = { trait = arbitrary } }
+							random = {
+								chance = 66
+								add_trait = arbitrary
+							}
+						}						
+						piety = -100
+					}
+					
+					hidden_tooltip = {				
+						random_list = {
+							1 = { set_character_flag = assassination1 }
+							1 = { set_character_flag = assassination2 }
+							1 = { set_character_flag = assassination3 }
+							1 = { set_character_flag = assassination4 }
+						}
+					}	
+				}			
+			}
+			
+			hidden_tooltip = {
+			
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								has_character_flag = assassination1
+								has_character_flag = assassination2
+								has_character_flag = assassination3
+								has_character_flag = assassination4
+							}
+						}
+					}
+					
+					FROM ={
+						add_character_modifier = {
+							name = da_assassin_timer
+							days = 365
+							hidden = yes
+						}
+						character_event = { id = darkages.72344 days = 100 }
+					}
+					add_character_modifier = {
+						name = da_assassination_timer
+						days = 365
+						hidden = yes
+					}
+				}	
+				
+				character_event = { id = darkages.72128 days = 30 random = 60 }
+			
+			}
+		}
+		ai_will_do = {
+			factor = 0.0006 		# 1 = 100% chance every month (for each allowed target!), so 0.5% chance with half of those being fake (check around line 60)
+			modifier = {
+				factor = 0.5
+				FROM = { has_game_rule = { name = murder_prevalence value = 50 } }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_game_rule = { name = murder_prevalence value = 150 } }
+			}			
+			modifier = {
+				factor = 5
+				has_character_modifier = da_framed
+			}
+			modifier = {
+				factor = 3
+				ai = no
+			}			
+			modifier = {
+				factor = 1.25
+				FROM = {
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					NOR = {
+						trait = arbitrary
+						trait = cruel
+						trait = wroth
+						trait = envious
+					}
+					
+					NOT = { is_friend = ROOT }
+				}
+			}			
+			modifier = {
+				factor = 0.1
+				FROM = {
+					NOR = {
+						trait = arbitrary
+						trait = cruel
+						trait = wroth
+						trait = envious
+					}
+				}
+				
+				FROM = { is_friend = ROOT }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { infamy = 1 }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { infamy = 10 }
+			}
+			modifier = {
+				factor = 0
+				FROM = { infamy = 20 }
+			}			
+			modifier = {
+				factor = 0
+				FROM = {
+					NOR = {
+						trait = arbitrary
+						trait = cruel
+						trait = wroth
+						trait = envious
+					}
+					
+					OR = {
+						trait = content
+						trait = kind
+						trait = just
+						trait = honest
+					}
+				}
+				
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					OR = {
+						trait = just
+						trait = kind
+						trait = honest
+						trait = content
+					}
+				}
+				OR = {
+					FROM = { is_friend = ROOT }
+					FROM = {
+					   spouse = {
+						  character = ROOT
+					   }
+					}
+					FROM = { is_lover = ROOT }						
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { is_former_lover = ROOT }
+				FROM = { trait = envious }
+			}			
+			modifier = {
+				factor = 0.5
+				FROM = {
+					trait = just
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					trait = kind
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					trait = honest
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					trait = content
+				}
+			}
+			modifier = {
+				factor = 0.9
+				FROM = {
+					piety = 100
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					piety = 250
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					piety = 500
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					piety = 1000
+				}
+			}			
+			modifier = {
+				factor = 2
+				FROM = { is_rival = ROOT }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+				   spouse = {
+					  character = ROOT
+				   }
+				}
+				has_character_modifier = da_lack_harmony_1
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+				   spouse = {
+					  character = ROOT
+				   }
+				}
+				has_character_modifier = da_lack_harmony_2
+			}			
+			modifier = {
+				factor = 2.5
+				FROM = {
+				   spouse = {
+					  character = ROOT
+				   }
+				}
+				has_character_modifier = da_lack_harmony_3
+			}			
+			modifier = {
+				factor = 2
+				FROM = {
+				   spouse = {
+					  character = ROOT
+				   }
+				}
+				FROM = { has_opinion_modifier = { who = ROOT modifier = opinion_unfaithful_husband } }
+				OR = {
+					FROM = { trait = cruel	}
+					FROM = { trait = wroth	}
+					FROM = { trait = paranoid }
+					FROM = { trait = lunatic }
+					FROM = { trait = possessed }					
+				}
+			}
+			modifier = {
+				factor = 3
+				FROM = {
+				   spouse = {
+					  character = ROOT
+				   }
+				}
+				FROM = { has_opinion_modifier = { who = ROOT modifier = opinion_unfaithful_husband } }
+				FROM = { trait = proud }
+			}			
+			modifier = {
+				factor = 1.5
+				FROM = {
+				   spouse = {
+					  character = ROOT
+				   }
+				}
+				FROM = { has_opinion_modifier = { who = ROOT modifier = opinion_unfaithful_wife } }
+				OR = {
+					FROM = { trait = cruel	}
+					FROM = { trait = wroth	}
+					FROM = { trait = paranoid }
+					FROM = { trait = lunatic }
+					FROM = { trait = possessed }					
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+				   spouse = {
+					  character = ROOT
+				   }
+				}
+				FROM = { has_opinion_modifier = { who = ROOT modifier = opinion_unfaithful_wife } }
+				FROM = { trait = proud }
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { 
+					NOT = { opinion = { who = ROOT value = -24 } } 
+				
+					OR = {
+						trait = arbitrary
+						trait = cruel
+						trait = wroth
+						trait = envious
+					}				
+				
+				}
+			}			
+			modifier = {
+				factor = 1.25
+				FROM = { 
+					NOT = { opinion = { who = ROOT value = -49 } } 
+				
+					OR = {
+						trait = arbitrary
+						trait = cruel
+						trait = wroth
+						trait = envious
+					}				
+				
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = { 
+					NOT = { opinion = { who = ROOT value = -99 } } 
+				
+					OR = {
+						trait = arbitrary
+						trait = cruel
+						trait = wroth
+						trait = envious
+					}				
+				
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { opinion = { who = ROOT value = 25 } }
+			}			
+			modifier = {
+				factor = 0.33
+				FROM = { opinion = { who = ROOT value = 50 } }
+			}
+			modifier = {
+				factor = 0.33
+				FROM = { opinion = { who = ROOT value = 75 } }
+			}			
+			modifier = {
+				factor = 2
+				FROM = { has_opinion_modifier = { who = ROOT modifier = opinion_killed_close_kin } }
+			}
+			modifier = {
+				factor = 3
+				FROM = { has_opinion_modifier = { who = ROOT modifier = opinion_killed_lover } }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					has_character_modifier = da_warn1_infamy
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					has_character_modifier = da_warn2_infamy
+				}
+			}
+			modifier = {	#Higher probability of planning the demise of the husband
+				factor = 2.5
+				FROM = {
+					has_opinion_modifier = {
+						modifier = da_opinion_rejected_1st_wife
+						who = ROOT
+					}
+				}
+			}
+			modifier = {	#Highest probability of planning the demise of the new first spouse
+				factor = 5
+
+				FROM = {
+					is_main_spouse = no
+					
+					has_opinion_modifier = {
+						modifier = da_opinion_rejected_1st_wife
+						who = spouse
+					}
+
+					spouse = {
+						any_spouse = {
+							is_main_spouse = yes
+							character = ROOT	
+						}
+						
+					}
+				}
+			}			
+		}
+	}
+
+#### END OF ASSASSINATION
+
+
+#### START OF FRAME CHARACTER
+	
+	da_frame = {
+		ai_target_filter = court
+		ai_check_interval = 12
+		
+		from_potential = {
+			
+			is_adult = yes
+			prisoner = no
+			
+			is_incapable = no
+			
+			OR = {
+				num_of_titles = 1
+				is_patrician = yes
+			}		
+			
+		}
+		potential = {
+			is_within_diplo_range = FROM
+			NOT = { character = FROM }			
+		}
+		allow = {
+			FROM = {
+				NOT = { has_character_modifier = da_framed_timer }
+				OR = {
+					has_focus = focus_carousing
+					diplomacy = 15
+					intrigue = 15
+					trait = socializer
+					trait = gregarious
+					trait = silver_tongue
+					trait = schemer
+					trait = grey_eminence
+					trait = elusive_shadow					
+				}
+			}
+			
+			NOT = { has_character_modifier = da_framed }
+ 			
+		}
+		effect = {
+			FROM = { piety = -35 }
+			hidden_tooltip = {
+				FROM = {
+					add_character_modifier = {
+						name = da_framed_timer
+						duration = 1095
+						hidden = yes						
+					}
+				}
+				character_event = { id = darkages.72139 days = 90 random = 90 }
+				FROM = { 
+					set_character_flag = da_framing_character
+					character_event = { id = darkages.72148 }
+					character_event = { id = darkages.72343 days = 181 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.001	# 1 = 100% chance every month (for each allowed target!), so 0.5% chance 
+			modifier = {
+				factor = 0
+				NOR = { 
+					trait = envious
+					trait = wroth
+					trait = slothful
+					trait = lustful
+					trait = gluttonous
+					trait = proud
+					trait = greedy
+					trait = cruel
+					trait = deceitful					
+				}
+			}	
+			modifier = {
+				factor = 3
+				ai = no
+			}			
+			modifier = {
+				factor = 0
+				FROM = { opinion = { who = ROOT	value = 0 } }				
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { FROM = { opinion = { who = ROOT	value = -25 } } }
+			}	
+			modifier = {
+				factor = 1.5	# 1/~650
+				NOT = { FROM = { opinion = { who = ROOT	value = -50 } } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { FROM = { opinion = { who = ROOT	value = -75 } } }
+			}			
+			modifier = {
+				factor = 1.25
+				FROM = {
+					trait = socializer
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = {
+					trait = gregarious
+				}
+			}	
+			modifier = {
+				factor = 0.25
+				FROM = {
+					trait = honest
+				}
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					trait = trusting
+				}
+			}	
+			modifier = {
+				factor = 2
+				FROM = {
+					trait = silver_tongue
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					trait = schemer
+				}
+			}	
+			modifier = {
+				factor = 0.75
+				trait = kind
+			}
+			modifier = {
+				factor = 0.75
+				trait = temperate
+			}			
+			modifier = {
+				factor = 0.75
+				trait = charitable
+			}			
+			modifier = {
+				factor = 0.75
+				trait = just
+			}			
+			modifier = {
+				factor = 0.25
+				FROM = {
+					NOT = { diplomacy = 8 }
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = {
+					diplomacy = 12
+				}
+			}
+			modifier = {
+				factor = 1.35
+				FROM = {
+					diplomacy = 15
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					diplomacy = 18
+				}
+			}
+			modifier = {
+				factor = 1.75
+				FROM = {
+					diplomacy = 21
+				}
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					NOT = { intrigue = 8 }
+				}
+			}			
+			modifier = {
+				factor = 1.25
+				FROM = {
+					intrigue = 12
+				}
+			}
+			modifier = {
+				factor = 1.35
+				FROM = {
+					intrigue = 15
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					intrigue = 18
+				}
+			}
+			modifier = {
+				factor = 1.75
+				FROM = {
+					intrigue = 21
+				}
+			}
+		
+		}
+	}
+	
+	da_move_child = {
+		ai_target_filter = court
+		
+		from_potential = {
+			ai = no
+		}
+		potential = {
+			NOT = { character = FROM }
+			is_adult = no
+			any_host_courtier = {
+				character = FROM
+			}
+		}
+		allow = {
+			FROM = {
+				NOT = { is_parent_of = ROOT }
+				NOT = { has_character_modifier = in_seclusion }
+			}
+			prisoner = no		
+			character_disease_trigger = no		
+			any_playable_ruler = {
+				religion_group = FROM
+			} 			
+		}
+		effect = {
+			FROM = { 
+				piety = -25 
+			}
+			
+			opinion = {
+        		who = FROM
+        		modifier = opinion_da_abandoned_me
+        		years = 100
+        	}
+
+			random_playable_ruler = {
+				limit = {
+					religion_group = FROM
+				}
+				
+				ROOT = {
+					move_character = PREV
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0	# 1 = 100% chance every month (for each allowed target!), so 0.5% chance 
+		}
+	}
+
+	pick_first_wife = {
+		filter = spouse
+		ai_target_filter = spouse
+		ai_check_interval = 12
+
+		from_potential = {
+			is_female = no
+			has_polygamy = yes
+		}
+		
+		potential = {
+			is_female = yes
+			any_spouse = {
+				character = FROM
+			}
+			is_main_spouse = no
+		}
+		allow = {
+
+		}
+		effect = {
+			FROM = {
+				random_spouse = {
+					limit = { is_main_spouse = yes }
+					
+					opinion = {
+						who = prev
+						modifier = da_opinion_rejected_1st_wife
+						years = 25
+					}
+				}
+			}
+			make_primary_spouse = yes
+			opinion = {
+				who = FROM
+				modifier = opinion_infatuated
+				years = 5
+			}			
+		}
+		
+		ai_will_do = {
+			factor = 0.001
+			modifier = {
+				factor = 10
+				FROM = {
+					any_spouse = {
+						is_main_spouse = yes
+						age = 46
+					}
+					trait = lustful
+				}
+				NOT = { age = 30 }
+			}
+			modifier = {
+				factor = 5
+				FROM = {
+					any_spouse = {
+						is_main_spouse = yes
+						age = 46
+						NOR = {
+							diplomacy = 12
+							martial = 12
+							stewardship = 12
+							intrigue = 12
+							learning = 12
+						}						
+					}
+				}
+				NOT = { age = 30 }
+				OR = {
+					trait = fair
+					trait = comely
+				}
+			}
+			modifier = {
+				factor = 5
+				FROM = {
+					any_spouse = {
+						is_main_spouse = yes
+						age = 46
+						NOR = {
+							diplomacy = 12
+							martial = 12
+							stewardship = 12
+							intrigue = 12
+							learning = 12
+						}						
+					}
+				}
+				NOT = { age = 30 }
+				OR = {
+					diplomacy = 12
+					martial = 12
+					stewardship = 12
+					intrigue = 12
+					learning = 12
+				}
+			}
+		}
+	}
+	
+	da_rh_excommunication = {
+		ai_target_filter = self
+		ai_check_interval = 1200
+
+		from_potential = {
+			ai = no
+			has_character_modifier = da_temp_excommunication_pick
+			
+			OR = {
+				religion = catholic
+				religion = fraticelli
+				religion = orthodox
+				religion = miaphysite
+				religion = monophysite
+				religion = monothelite
+				religion = iconoclast
+				religion = paulician
+				religion = nestorian
+				religion = yazidi
+				religion = lollard
+				religion = bogomilist
+				religion = syriac
+				religion = maronite
+				religion = apostolic
+			}
+		}
+		
+		potential = {
+			NOT = { character = FROM }
+		}
+		allow = {
+			religion = FROM
+			NOT = { trait = excommunicated }
+			NOT = { FROM = { rightful_religious_head = ROOT } }
+		}
+		effect = {
+			add_trait = excommunicated
+			
+			hidden_tooltip = {
+				FROM = {
+					remove_character_modifier = da_temp_excommunication_pick
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+
+	da_get_merc_cash = {
+	
+		from_potential = {
+			is_landed = yes
+		}
+		
+		potential = {
+			primary_title = {
+				band_creator = {
+					character = FROM
+				}
+			}		
+			mercenary = yes			
+		}
+		
+		allow = {
+			treasury = 100
+			FROM = {
+				NOT = { has_character_modifier = da_merc_get_cash }
+			}
+		}
+		effect = {
+			
+			hidden_tooltip = {
+			
+	
+				FROM = {
+				
+					if = {
+						limit = {
+							diplomacy = 8
+							NOT = { diplomacy = 12 }
+						}
+						add_character_modifier = {
+							name = da_merc_get_cash
+							duration = 1825
+							hidden = yes
+						}
+					}
+					
+					if = {
+						limit = {
+							diplomacy = 6
+							NOT = { diplomacy = 8 }
+						}
+						add_character_modifier = {
+							name = da_merc_get_cash
+							duration = 2190
+							hidden = yes
+						}
+					}
+
+					if = {
+						limit = {
+							diplomacy = 4
+							NOT = { diplomacy = 6 }
+						}
+						add_character_modifier = {
+							name = da_merc_get_cash
+							duration = 2920
+							hidden = yes
+						}
+					}
+
+					if = {
+						limit = {
+							diplomacy = 2
+							NOT = { diplomacy = 4 }
+						}
+						add_character_modifier = {
+							name = da_merc_get_cash
+							duration = 3650
+							hidden = yes
+						}
+					}	
+
+					if = {
+						limit = {
+							NOT = { diplomacy = 2 }
+						}
+						add_character_modifier = {
+							name = da_merc_get_cash
+							duration = 5475
+							hidden = yes
+						}
+					}	
+
+					if = {
+						limit = {
+							diplomacy = 12
+							NOT = { diplomacy = 15 }
+						}
+						add_character_modifier = {
+							name = da_merc_get_cash
+							duration = 1460
+							hidden = yes
+						}
+					}
+
+					if = {
+						limit = {
+							diplomacy = 15
+							NOT = { diplomacy = 18 }
+						}
+						add_character_modifier = {
+							name = da_merc_get_cash
+							duration = 1095
+							hidden = yes
+						}
+					}	
+
+					if = {
+						limit = {
+							diplomacy = 18
+							NOT = { diplomacy = 21 }
+						}
+						add_character_modifier = {
+							name = da_merc_get_cash
+							duration = 730
+							hidden = yes
+						}
+					}					
+
+					if = {
+						limit = {
+							diplomacy = 21
+						}
+						add_character_modifier = {
+							name = da_merc_get_cash
+							duration = 365
+							hidden = yes
+						}
+					}
+					
+					character_event = { id = darkages.72385 }
+					
+				}
+			}
+			
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			
+			modifier = {
+				factor = 10
+				FROM = { war = yes }
+			}
+		}
+	}
+	
+	
+	da_get_favour = {
+		ai_target_filter = self
+		ai_check_interval = 1200
+		
+		from_potential = {
+			ai = no
+		}
+		
+		potential = {
+			ai = yes
+		}
+		
+		allow = {
+		
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			is_adult = yes		
+		
+			OR = {
+				AND = {
+				
+					liege = {
+						character = FROM
+					}
+				
+					custom_tooltip = {
+						NOT = { 
+							has_opinion_modifier = {
+								modifier = da_opinion_blackmailed
+								who = FROM
+							}						
+						}
+						text = DA_CUSTOMTOOLTIP205
+					}
+					
+					custom_tooltip = {
+						FROM = { holds_favor_on = ROOT }
+						text = DA_CUSTOMTOOLTIP189
+					}
+				}
+				
+				AND = {
+					liege = {
+						NOT = { character = FROM }
+					}
+
+					custom_tooltip = {
+						FROM = { holds_favor_on = ROOT }
+						text = DA_CUSTOMTOOLTIP189
+					}
+					
+				}
+				
+			}
+	
+		}
+
+		effect = {
+			hidden_tooltip = { 
+				FROM = { 
+					character_event = { id = darkages.72392 } 
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	
+	da_pact_enable = {
+	
+		ai_target_filter = independent_rulers
+		ai_check_interval = 24
+		
+		from_potential = {
+			primary_title = { higher_tier_than = BARON }
+			
+			OR = {
+				AND = {
+					ai = no
+					is_landed = yes
+					prisoner = no
+					is_incapable = no
+					is_adult = yes
+					
+				}
+				AND = {
+					ai = yes
+					is_landed = yes
+					is_adult = yes
+					prisoner = no
+					is_incapable = no
+					
+					NOT = { distance_from_realm = { who = ROOT value = 150 } }
+
+				}				
+			}
+		}
+
+		potential = {
+			NOT = { character = FROM }		
+			is_landed = yes
+			is_within_diplo_range = FROM
+			primary_title = { higher_tier_than = BARON }
+		}
+		allow = {
+
+			NOT = { is_allied_with = FROM }
+			NOT = { has_non_aggression_pact_with = FROM }
+			NOT = { war_with = FROM }
+			is_adult = yes
+			FROM = { is_adult = yes }			
+						
+			custom_tooltip = {
+				NOT = { has_opinion_modifier = { who = FROM modifier = da_opinion_sent_pact_proposal } }
+				text = DA_CUSTOMTOOLTIP171				
+			}
+						
+			custom_tooltip = {
+				FROM = { NOT = { has_character_modifier = da_nap_negotiation_temp } }
+				text = DA_CUSTOMTOOLTIP174				
+			}
+
+			custom_tooltip = {
+				relative_power = { who = FROM power = 0.20 }
+				text = DA_CUSTOMTOOLTIP182		
+			}			
+						
+			prisoner = no
+			is_incapable = no
+			opinion = { who = FROM value = 1 }	
+			
+			hidden_tooltip = {			
+				OR = {
+					AND = {
+						FROM = {
+							ai = yes
+							relative_power = { who = ROOT power = 0.66 }
+						}
+					}
+					AND = {
+						FROM = { ai = no }
+					}
+				}
+			}
+	
+		}
+		effect = {
+		
+			FROM = {
+				if = {
+					limit = { ai = no }
+				}
+				
+				scaled_wealth = { value = -0.25 min = -15 max = -45 }
+				
+			}
+		
+			character_event = { id = darkages.72407 days = 30 random = 60 }
+
+			hidden_tooltip = {
+				opinion = {
+					who = FROM
+					modifier = da_opinion_sent_pact_proposal
+					months = 60
+				}
+				
+				FROM = {
+					if = {
+						limit = { ai = no }
+						
+						if = {
+							limit = {
+								diplomacy = 8
+								NOT = { diplomacy = 12 }
+							}
+							add_character_modifier = {
+								name = da_nap_negotiation_temp
+								duration = 730
+								hidden = yes
+							}
+						}
+						if = {
+							limit = {
+								diplomacy = 12
+								NOT = { diplomacy = 15 }
+							}
+							add_character_modifier = {
+								name = da_nap_negotiation_temp
+								duration = 666
+								hidden = yes
+							}
+						}
+						if = {
+							limit = {
+								diplomacy = 15
+								NOT = { diplomacy = 18 }
+							}
+							add_character_modifier = {
+								name = da_nap_negotiation_temp
+								duration = 525
+								hidden = yes
+							}
+						}
+						if = {
+							limit = {
+								diplomacy = 18
+								NOT = { diplomacy = 21 }
+							}
+							add_character_modifier = {
+								name = da_nap_negotiation_temp
+								duration = 430
+								hidden = yes
+							}
+						}
+						if = {
+							limit = {
+								diplomacy = 21
+							}
+							add_character_modifier = {
+								name = da_nap_negotiation_temp
+								duration = 365
+								hidden = yes
+							}
+						}
+						if = {
+							limit = {
+								NOT = { diplomacy = 8 }
+								diplomacy = 6
+							}
+							add_character_modifier = {
+								name = da_nap_negotiation_temp
+								duration = 825
+								hidden = yes
+							}
+						}
+						if = {
+							limit = {
+								NOT = { diplomacy = 6 }
+								diplomacy = 4
+							}
+							add_character_modifier = {
+								name = da_nap_negotiation_temp
+								duration = 999
+								hidden = yes
+							}
+						}						
+						if = {
+							limit = {
+								NOT = { diplomacy = 4 }
+								diplomacy = 2
+							}
+							add_character_modifier = {
+								name = da_nap_negotiation_temp
+								duration = 1095
+								hidden = yes
+							}
+						}						
+						if = {
+							limit = {
+								NOT = { diplomacy = 2 }
+							}
+							add_character_modifier = {
+								name = da_nap_negotiation_temp
+								duration = 1460
+								hidden = yes
+							}
+						}						
+					}
+				}				
+			}
+			
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 4
+				FROM = { trait = gregarious }
+			}			
+			modifier = {
+				factor = 3
+				FROM = { trait = silver_tongue }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { trait = cheerful }
+			}			
+			modifier = {
+				factor = 0.5
+				FROM = { trait = shy }
+			}	
+			modifier = {
+				factor = 0.8
+				FROM = { trait = dour }
+			}				
+			modifier = {
+				factor = 0.66
+				FROM = { NOT = { religion_group = ROOT } }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { NOT = { religion = ROOT } }
+				FROM = { religion_group = ROOT }				
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { NOT = { culture_group = ROOT } }
+			}			
+			modifier = {
+				factor = 0.90
+				FROM = { NOT = { culture = ROOT } }
+				FROM = { culture_group = ROOT }
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					AND = {
+						FROM = { 
+							tier = COUNT
+							NOT = { trait = ambitious }
+						}
+						tier = DUKE
+					}
+					AND = {
+						FROM = { 
+							tier = DUKE
+							NOT = { trait = ambitious }
+						}
+						tier = KING
+					}					
+				}
+			}
+			modifier = {
+				factor = 0.25
+				OR = {
+					AND = {
+						FROM = { 
+							tier = COUNT
+							NOT = { trait = ambitious }
+						}
+						tier = KING
+					}
+					AND = {
+						FROM = { 
+							tier = DUKE
+							NOT = { trait = ambitious }
+						}
+						tier = EMPEROR
+					}					
+				}
+			}
+			modifier = {
+				factor = 0.05
+				FROM = { 
+					tier = COUNT
+				}
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 0
+				any_non_aggression_pact_character = {
+					count = 4
+				}
+			}
+		}
+
+	}	
+	
+	da_money_lent = {
+	
+		ai_target_filter = self
+		ai_check_interval = 1200
+		
+		from_potential = {
+			ai = no
+			NOT = { has_character_modifier = da_character_loans_temp }
+		}
+
+		potential = {
+			is_landed = yes
+			is_within_diplo_range = FROM
+		}
+		
+		allow = {
+		
+			is_adult = yes
+			custom_tooltip = {
+				NOR = {
+					has_character_modifier = da_player_borrower
+					has_character_modifier = da_bankrupt
+					has_character_modifier = small_loan
+					has_character_modifier = medium_loan
+					has_character_modifier = large_loan
+					has_character_modifier = huge_loan
+					has_character_modifier = borrowed_from_jews_special
+					has_character_modifier = borrowed_from_jews
+					has_character_modifier = borrowed_from_knights_templar
+					has_character_modifier = borrowed_from_assassins
+					has_character_modifier = borrowed_from_bektashi
+					has_character_modifier = borrowed_from_haruriyyah
+				}
+				text = DA_CUSTOMTOOLTIP201
+			}
+		
+			FROM = {
+
+				custom_tooltip = {
+					NOT = { has_character_modifier = da_lending_in_effect }
+					text = DA_CUSTOMTOOLTIP188
+				}
+
+				treasury = 100
+
+				OR = {
+					is_patrician = yes
+					stewardship = 15
+					trait = midas_touched
+				}
+				
+			}
+			
+			
+			
+		}
+		
+		effect = {
+		
+			hidden_tooltip = {
+			
+				FROM = {
+					add_character_modifier = {
+						name = da_character_loans_temp
+						duration = 45
+						hidden = yes
+					}
+				}
+
+				FROM = { character_event = { id = darkages.72442 } }
+
+			}
+	
+		
+		}
+		
+	
+		ai_will_do = {
+			factor = 0
+		}
+
+	}	
+
+
+	da_money_borrowed = {
+	
+		ai_target_filter = self
+		ai_check_interval = 1200	
+		
+		from_potential = {
+			ai = no
+			NOT = { has_character_modifier = da_character_loans_temp }
+		}
+
+		potential = {
+			is_landed = yes
+			is_within_diplo_range = FROM
+		}
+		
+		allow = {
+		
+			is_adult = yes
+			war = no
+			treasury = 100
+			prisoner = no
+			is_incapable = no
+
+			OR = {
+				is_patrician = yes
+				stewardship = 15
+				trait = midas_touched
+			}			
+			
+			FROM = {
+				custom_tooltip = {
+					NOR = {
+						has_character_modifier = da_player_borrower
+						has_character_modifier = da_bankrupt
+						has_character_modifier = small_loan
+						has_character_modifier = medium_loan
+						has_character_modifier = large_loan
+						has_character_modifier = huge_loan
+						has_character_modifier = borrowed_from_jews_special
+						has_character_modifier = borrowed_from_jews
+						has_character_modifier = borrowed_from_knights_templar
+						has_character_modifier = borrowed_from_assassins
+						has_character_modifier = borrowed_from_bektashi
+						has_character_modifier = borrowed_from_haruriyyah
+					}
+					text = DA_CUSTOMTOOLTIP201
+				}
+			}
+		
+		}
+		
+		effect = {
+		
+			hidden_tooltip = {
+			
+				FROM = {
+					add_character_modifier = {
+						name = da_character_loans_temp
+						duration = 45
+						hidden = yes
+					}
+				}
+
+				FROM = { character_event = { id = darkages.72461 } }
+
+			}
+	
+		
+		}
+		
+	
+		ai_will_do = {
+			factor = 0
+		}
+
+	}	
+	
+	
+	da_incriminate = { 
+	
+		ai_target_filter = self
+		ai_check_interval = 1200
+		
+		from_potential = {
+			has_character_modifier = da_incriminate_temp
+		}
+
+		potential = {
+			NOT = { character = FROM }
+		}
+		
+		allow = {
+			is_adult = yes
+			
+			liege = {
+				character = FROM
+			}
+			
+			NOT = { character = FROM }
+			
+			custom_tooltip = {
+				any_courtier_or_vassal = {
+					has_character_modifier = da_original_framed_marker_temp
+					NOT = { character = ROOT }
+				}			
+				text = DA_CUSTOMTOOLTIP280
+			}			
+			
+		}
+		
+		effect = {
+		
+			add_character_modifier = {
+				name = da_framed
+				duration = 3650			
+			}
+			
+			FROM = {
+				opinion = {
+					who = ROOT
+					modifier = opinion_framed
+					years = 5			
+				}		
+			}
+			
+			hidden_tooltip = {
+				FROM = { remove_character_modifier = da_incriminate_temp }
+			}
+	
+		
+		}
+		
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				FROM = { opinion = { who = ROOT value = 0 } }
+			}
+			modifier = {
+				factor = 10
+				is_rival = FROM
+			}
+			modifier = {
+				factor = 5
+				FROM = { NOT = { opinion = { who = ROOT value = -24 } } }
+			}
+			modifier = {
+				factor = 5
+				FROM = { NOT = { opinion = { who = ROOT value = -49 } } }
+			}			
+			modifier = {
+				factor = 5
+				FROM = { NOT = { opinion = { who = ROOT value = -74 } } }
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 3
+				trait = cruel
+			}			
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 3
+				trait = envious
+			}			
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}			
+		}
+
+	}		
+	
+	da_alliance = {
+	
+		ai_target_filter = independent_rulers
+		ai_check_interval = 24
+		
+		from_potential = {
+			is_landed = yes
+		}
+
+		potential = {
+			is_landed = yes
+			is_within_diplo_range = FROM
+			NOT = { character = FROM }			
+		}
+		
+		allow = {
+			FROM = {
+				NOT = { has_character_modifier = da_alliance_tmp }
+			}
+			NOT = { war_with = FROM }			
+			NOT = { is_allied_with = FROM }	
+			custom_tooltip = {
+				NOT = { has_opinion_modifier = { who = FROM modifier = da_opinion_accepted_nap_proposal } }
+				text = DA_CUSTOMTOOLTIP312
+			}			
+			custom_tooltip = {
+				NOT = { has_opinion_modifier = { who = FROM modifier = da_opinion_refused_alliance_proposal } }
+				text = DA_CUSTOMTOOLTIP309
+			}			
+			OR = {
+				is_close_relative = FROM
+				has_non_aggression_pact_with = FROM
+			}
+			custom_tooltip = {
+				NOR = {
+					OR = {
+						any_liege = {
+							character = FROM
+						}
+					
+						any_realm_lord = {
+							is_vassal_or_below_of = ROOT
+							character = FROM
+						}				
+					}
+				}
+				text = DA_CUSTOMTOOLTIP308
+			}
+			opinion = { who = FROM value = 1 }
+			is_adult = yes
+			FROM = { is_adult = yes }
+		}
+		
+		effect = {
+		
+			if = {
+				limit = { 
+					FROM = { ai = no }
+				}
+			
+				FROM = {
+					scaled_wealth = { value = -0.25 min = -25 max = -100 }
+				
+					hidden_tooltip = {
+						
+						if = {
+							limit = {
+								diplomacy = 8
+								NOT = { diplomacy = 12 }
+							}
+							
+							add_character_modifier = {
+								name = da_alliance_tmp
+								duration = 1095
+								hidden = yes							
+							}
+							
+						}
+						if = {
+							limit = {
+								diplomacy = 12
+								NOT = { diplomacy = 15 }
+							}
+							
+							add_character_modifier = {
+								name = da_alliance_tmp
+								duration = 913
+								hidden = yes							
+							}
+							
+						}
+						if = {
+							limit = {
+								diplomacy = 15
+								NOT = { diplomacy = 18 }
+							}
+							
+							add_character_modifier = {
+								name = da_alliance_tmp
+								duration = 730
+								hidden = yes							
+							}
+							
+						}
+						if = {
+							limit = {
+								diplomacy = 18
+								NOT = { diplomacy = 21 }
+							}
+							
+							add_character_modifier = {
+								name = da_alliance_tmp
+								duration = 547
+								hidden = yes							
+							}
+							
+						}	
+						if = {
+							limit = {
+								diplomacy = 21
+							}
+							
+							add_character_modifier = {
+								name = da_alliance_tmp
+								duration = 365
+								hidden = yes							
+							}
+							
+						}	
+						if = {
+							limit = {
+								diplomacy = 6
+								NOT = { diplomacy = 8 }
+							}
+							
+							add_character_modifier = {
+								name = da_alliance_tmp
+								duration = 1278
+								hidden = yes							
+							}
+							
+						}	
+						if = {
+							limit = {
+								diplomacy = 4
+								NOT = { diplomacy = 6 }
+							}
+							
+							add_character_modifier = {
+								name = da_alliance_tmp
+								duration = 1460
+								hidden = yes							
+							}
+							
+						}
+						if = {
+							limit = {
+								diplomacy = 2
+								NOT = { diplomacy = 4 }
+							}
+							
+							add_character_modifier = {
+								name = da_alliance_tmp
+								duration = 1643
+								hidden = yes							
+							}
+							
+						}
+						if = {
+							limit = {
+								NOT = { diplomacy = 2 }
+							}
+							
+							add_character_modifier = {
+								name = da_alliance_tmp
+								duration = 1825
+								hidden = yes
+							}
+							
+						}					
+					
+					}
+					
+					character_event = { id = darkages.72577 }
+					
+				}
+			}
+			else = {
+				
+				if = {
+					limit = {
+						ai = yes
+					}
+					FROM = { character_event = { id = darkages.72577 } }
+				}
+				else = {
+					character_event = { id = darkages.72589 }
+				}
+				
+			}
+		
+		
+		}
+		
+		
+		ai_will_do = {
+			factor = 0.05
+			
+			modifier = {
+				factor = 4
+				FROM = { trait = gregarious }
+			}			
+			modifier = {
+				factor = 3
+				FROM = { trait = silver_tongue }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { trait = cheerful }
+			}			
+			modifier = {
+				factor = 0.5
+				FROM = { trait = shy }
+			}	
+			modifier = {
+				factor = 0.8
+				FROM = { trait = dour }
+			}			
+			modifier = {
+				factor = 0.66
+				FROM = { NOT = { religion_group = ROOT } }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { NOT = { religion = ROOT } }
+				FROM = { religion_group = ROOT }				
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { NOT = { culture_group = ROOT } }
+			}			
+			modifier = {
+				factor = 0.90
+				FROM = { NOT = { culture = ROOT } }
+				FROM = { culture_group = ROOT }
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					AND = {
+						FROM = { 
+							tier = COUNT
+							NOT = { trait = ambitious }
+						}
+						tier = DUKE
+					}
+					AND = {
+						FROM = { 
+							tier = DUKE
+							NOT = { trait = ambitious }
+						}
+						tier = KING
+					}					
+				}
+			}
+			modifier = {
+				factor = 0.25
+				OR = {
+					AND = {
+						FROM = { 
+							tier = COUNT
+							NOT = { trait = ambitious }
+						}
+						tier = KING
+					}
+					AND = {
+						FROM = { 
+							tier = DUKE
+							NOT = { trait = ambitious }
+						}
+						tier = EMPEROR
+					}					
+				}
+			}
+			modifier = {
+				factor = 0.05
+				FROM = { 
+					tier = COUNT
+				}
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 0
+				any_allied_character = {
+					count = 4
+				}
+			}
+		}
+		
+	}
+
+	da_break_alliance = {
+	
+		ai_target_filter = rivals
+		
+		from_potential = {
+			num_of_titles = 1
+		}
+
+		potential = {
+			is_landed = yes
+			NOT = { character = FROM }			
+		}
+		
+		allow = {
+		
+			FROM = { NOT = { has_character_modifier = da_break_alliance_temp } }
+		
+			any_allied_character = {
+				NOT = { is_vassal_or_below = ROOT }
+				NOT = { is_vassal_or_below_of = ROOT }
+			}	
+			
+			OR = {
+				FROM = {
+					hidden_tooltip = {
+						ai = no
+					}
+					OR = {
+						is_rival = ROOT
+						trait = schemer
+						trait = silver_tongue
+						trait = envious
+						diplomacy = 15
+						intrigue = 12
+						has_focus = focus_intrigue
+					}
+				}
+				hidden_tooltip = {
+					FROM = {
+						ai = yes
+					}	
+				}
+			}
+		}
+		
+		effect = {
+		
+			FROM = { treasury = -40 }
+		
+			hidden_tooltip = {
+				FROM = { 
+					character_event = { id = darkages.72593 }
+				
+					add_character_modifier = {
+						name = da_break_alliance_temp
+						duration = 365
+						hidden = yes
+					}
+				}
+			}
+		
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+
+	}	
+
+	da_invite_court = {
+	
+		ai_target_filter = self
+		ai_check_interval = 1200
+		
+		from_potential = {
+			ai = no
+			is_within_diplo_range = ROOT
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			is_adult = yes					
+		}
+
+		potential = {
+			ai = yes
+		}
+		
+		allow = {
+			NOT = { has_character_modifier = da_refusal_invited }
+			NOT = { num_of_titles = 1 }
+			liege = { NOT = { character = FROM } }
+			
+			OR = {
+				is_married = no
+				spouse = { NOT = { num_of_titles = 1 } }
+			}
+
+
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			is_adult = yes
+			opinion = { who = FROM value = 1 }
+	
+			FROM = {  
+				NOT = { has_character_modifier = da_invite_court_temp } 
+			}
+
+		}
+		
+		effect = {
+		
+			hidden_tooltip = {
+				FROM = {				
+					add_character_modifier = {
+						name = da_invite_court_temp
+						duration = 365
+						hidden = yes
+					}
+					
+					character_event = { id = darkages.72603 }
+				}
+			}
+		
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+
+	}
+
+	da_ask_influence = {
+	
+		ai_target_filter = self
+		ai_check_interval = 1200
+		
+		from_potential = {
+			ai = no
+		}
+
+		potential = {
+			is_merchant_republic = yes
+		}
+		
+		allow = {
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			is_adult = yes
+			NOT = { has_character_modifier = da_influence_elections }
+			
+			FROM = {  
+				OR = {
+					diplomacy = 12
+					intrigue = 12
+					trait = silver_tongue
+					trait = schemer
+					has_focus = focus_intrigue
+				}
+
+				liege = {
+					character = ROOT
+				}				
+				is_patrician = yes
+				is_merchant_republic = no
+				is_incapable = no
+				NOT = { trait = resting }
+				prisoner = no
+				is_adult = yes
+
+
+			}
+
+		}
+		
+		effect = {
+			FROM = {
+				treasury = -30
+				piety = -40
+				
+				if = {
+					limit = {
+						NOR = {
+							trait = just
+							trait = arbitrary
+						}
+					}
+					
+					add_trait = arbitrary
+				}
+				
+				if = {
+					limit = {
+						trait = just
+					}
+					
+					remove_trait = just
+				}				
+				
+			}
+			
+	
+			hidden_tooltip = {
+
+				treasury = 30
+
+				add_character_modifier = {
+					name = da_influence_elections
+					duration = 3650
+					hidden = yes
+				}			
+				
+				random = {
+					chance = 25
+					modifier = {
+						factor = 0.8
+						FROM = { has_education_intrigue_trigger = yes }
+					}
+					modifier = {
+						factor = 0.8
+						FROM = { intrigue = 12 }
+					}
+					modifier = {
+						factor = 0.8
+						FROM = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 0.8
+						FROM = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 0.8
+						FROM = { intrigue = 21 }
+					}				
+					modifier = {
+						factor = 1.25
+						FROM = { NOT = { intrigue = 8 } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { NOT = { intrigue = 6 } }
+					}				
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { intrigue = 4 } }
+					}				
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { intrigue = 2 } }
+					}
+					modifier = {
+						factor = 0.8
+						FROM = { trait = deceitful }
+					}
+					modifier = {
+						factor = 0.8
+						FROM = { trait = wary }
+					}					
+					
+					FROM = { 
+						set_character_flag = darkages_discovered
+						character_event = { id = darkages.72632 days = 7 random = 22 } 
+					}
+					
+				}
+				
+			}
+			
+			FROM = {				
+				character_event = { id = darkages.72631 days = 30 random = 30 }
+			}				
+		
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+
+	}
+	
+	da_poison_relations = {
+	
+		ai_target_filter = self
+		ai_check_interval = 1200	
+		
+		from_potential = {
+			ai = no
+		}
+
+		potential = {
+			is_within_diplo_range = FROM
+		}
+		
+		allow = {
+			FROM = {
+				NOT = { has_character_modifier = da_poison_relations_temp }
+				is_incapable = no
+				NOT = { trait = resting }
+				prisoner = no
+				is_adult = yes	
+				
+				OR = {
+					trait = deceitful
+					trait = arbitrary
+					trait = silver_tongue
+					trait = schemer
+					intrigue = 15
+					realm_intrigue = 35
+					has_focus = focus_intrigue
+				}
+			}
+			
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			is_adult = yes				
+
+		}
+		
+		effect = {
+
+			FROM = { piety = -40 }
+		
+			hidden_tooltip = {
+			
+				add_character_modifier = {
+					name = da_poison_target
+					duration = 1
+					hidden = yes
+				}
+
+				FROM = { 
+				
+					if = {
+						limit = {
+							intrigue = 21
+						}
+						add_character_modifier = {
+							name =  da_poison_relations_temp
+							duration = 90
+							hidden = yes
+						}
+					}
+					if = {
+						limit = {
+							NOT = { intrigue = 21 }
+							intrigue = 18
+						}
+						add_character_modifier = {
+							name =  da_poison_relations_temp
+							duration = 120
+							hidden = yes
+						}
+					}	
+					if = {
+						limit = {
+							NOT = { intrigue = 18 }
+							intrigue = 15
+						}
+						add_character_modifier = {
+							name =  da_poison_relations_temp
+							duration = 150
+							hidden = yes
+						}
+					}					
+					if = {
+						limit = {
+							NOT = { intrigue = 15 }
+							intrigue = 12
+						}
+						add_character_modifier = {
+							name =  da_poison_relations_temp
+							duration = 180
+							hidden = yes
+						}
+					}					
+					if = {
+						limit = {
+							NOT = { intrigue = 12}
+							intrigue = 8
+						}
+						add_character_modifier = {
+							name =  da_poison_relations_temp
+							duration = 210
+							hidden = yes
+						}
+					}					
+					if = {
+						limit = {
+							NOT = { intrigue = 8 }
+							intrigue = 6
+						}
+						add_character_modifier = {
+							name =  da_poison_relations_temp
+							duration = 360
+							hidden = yes
+						}
+					}
+					if = {
+						limit = {
+							NOT = { intrigue = 6 }
+							intrigue = 4
+						}
+						add_character_modifier = {
+							name =  da_poison_relations_temp
+							duration = 390
+							hidden = yes
+						}
+					}
+					if = {
+						limit = {
+							NOT = { intrigue = 4 }
+							intrigue = 2
+						}
+						add_character_modifier = {
+							name =  da_poison_relations_temp
+							duration = 420
+							hidden = yes
+						}
+					}
+					if = {
+						limit = {
+							NOT = { intrigue = 2 }
+						}
+						add_character_modifier = {
+							name =  da_poison_relations_temp
+							duration = 450
+							hidden = yes
+						}
+					}					
+
+				}
+
+			}
+	
+		
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+
+	}	
+
+	da_poison_relations_source = { #Enacted after previous Decision (poison_relations) is taken
+	
+		ai_target_filter = self
+		ai_check_interval = 1200	
+		
+		from_potential = {
+			ai = no
+			has_character_modifier = da_poison_relations_temp
+		}
+
+		potential = {
+			any_character = {
+				has_character_modifier = da_poison_target
+			}
+		}
+		
+		allow = {
+			is_within_diplo_range = FROM
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			is_adult = yes				
+		}
+		
+		effect = {
+		
+			hidden_tooltip = {
+				FROM = { character_event = { id = darkages.72670 } }
+			}
+	
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+
+	}	
+	
+	da_buy_favour = { #In place of the vanilla "Buy Favor" interaction
+	
+		ai_target_filter = self
+		ai_check_interval = 1200
+		
+		from_potential = {
+			ai = no
+		}
+
+		potential = {
+
+			liege = {
+				character = FROM
+			}
+
+		}
+		
+		allow = {
+			is_incapable = no
+			prisoner = no
+			is_adult = yes
+			
+			FROM = {
+				is_incapable = no
+				NOT = { trait = resting }
+				prisoner = no
+				is_adult = yes			
+				NOT = { has_character_modifier = da_buy_vote_tmp }				
+			}
+			
+		}
+		
+		effect = {
+			
+			FROM = {
+				piety = -35
+
+				if = {
+					limit = { trait = arbitrary }
+					
+					piety = -65
+					
+				}
+
+				if = {
+					limit = { 
+						NOR = {
+							trait = just 
+							trait = arbitrary
+						}
+					}
+					random = {
+						chance = 40
+						add_trait = arbitrary
+					}
+				}
+				
+				if = {
+					limit = { trait = just }
+					
+					random = {
+						chance = 40
+						remove_trait = just
+					}
+				}
+			}
+			
+			
+			hidden_tooltip = {
+				FROM = { 
+					add_character_modifier = {
+						name = da_buy_vote_tmp
+						duration = 183
+						hidden = yes
+					}
+					
+					character_event = { id = darkages.72692 }
+				}	
+					
+			}
+	
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+
+	}
+
+
+	da_buy_favour_ai = { #Now for the AI - In place of the vanilla "Buy Favor" interaction
+	
+		ai_target_filter = court 
+		ai_check_interval = 12
+		
+		from_potential = {
+			is_voter = yes
+			ai = yes
+		}
+
+		potential = {
+			is_voter = yes
+			OR = {
+				same_liege = FROM
+				liege = { character = FROM }
+			}
+		}
+		
+		allow = {
+			is_incapable = no
+			prisoner = no
+			is_adult = yes
+			
+			FROM = {
+				is_incapable = no
+				NOT = { trait = resting }
+				prisoner = no
+				is_adult = yes			
+			}
+			
+		}
+		
+		effect = {
+			
+			random_list = {
+				4 = { set_character_flag = da_opt1 }
+				3 = { set_character_flag = da_opt2 }
+				2 = { set_character_flag = da_opt3 }
+				1 = { set_character_flag = da_opt4 }
+			}
+			
+			character_event = { id = darkages.72703 }
+	
+		}
+		
+		ai_will_do = {
+			factor = 0.02
+			modifier = {
+				factor = 0
+				FROM = { NOT = { treasury = 0 } }
+			}			
+			modifier = {
+				factor = 3.5
+				FROM = { trait = ambitious }
+			}
+			modifier = {
+				factor = 2
+				FROM = { trait = deceitful }
+			}			
+			modifier = {
+				factor = 0.1
+				FROM = { trait = content }
+			}
+			modifier = {
+				factor = 0
+				FROM = { trait = honest }
+			}
+			modifier = {
+				factor = 2
+				FROM = { has_education_intrigue_trigger = yes }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_education_diplomacy_trigger = yes }
+			}			
+		}
+
+	}	
+
+
+}

@@ -1,0 +1,71 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_decision_rest"
+		texturefile = "gfx\\interface\\decision_icon_resting.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_break_rest"
+		texturefile = "gfx\\interface\\decision_icon_break_rest.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_focus"
+		texturefile = "gfx\\interface\\decision_icon_ss_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_nofocus"
+		texturefile = "gfx\\interface\\decision_icon_ss_nofocus.dds"
+	}	
+	spriteType = {
+		name = "GFX_decision_appoint_overseer"
+		texturefile = "gfx\\interface\\decision_icon_appoint_overseer.dds"
+	}	
+	spriteType = {
+		name = "GFX_decision_dismiss_overseer"
+		texturefile = "gfx\\interface\\decision_icon_dismiss_overseer.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_plan_overseer"
+		texturefile = "gfx\\interface\\decision_icon_ss_plan_overseer.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_control_rebellion"
+		texturefile = "gfx\\interface\\decision_icon_ss_control_rebellion.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_da_promote_debate"
+		texturefile = "gfx\\interface\\decision_icon_da_promote_debate.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_da_easter"
+		texturefile = "gfx\\interface\\decision_icon_da_easter.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_da_migration_policy"
+		texturefile = "gfx\\interface\\decision_icon_da_migration_policy.dds"
+	}	
+	spriteType = {
+		name = "GFX_decision_da_piracy"
+		texturefile = "gfx\\interface\\decision_icon_da_piracy.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_da_cancel_piracy"
+		texturefile = "gfx\\interface\\decision_icon_da_cancel_piracy.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_da_smugglers"
+		texturefile = "gfx\\interface\\decision_icon_da_smugglers.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_da_findbastard"
+		texturefile = "gfx\\interface\\decision_icon_da_findbastard.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_da_train_combat"
+		texturefile = "gfx\\interface\\decision_icon_da_train_combat.dds"
+	}	
+	spriteType = {
+		name = "GFX_decision_da_claim"
+		texturefile = "gfx\\interface\\decision_icon_da_claim.dds"
+	}		
+	
+}

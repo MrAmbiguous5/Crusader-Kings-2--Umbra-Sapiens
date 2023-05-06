@@ -1,0 +1,29 @@
+d_lazarists = {
+    color={ 0 132 36 }
+	color2={ 0 132 36 }
+	
+	graphical_culture = holygfx
+	
+	capital = 333 # Rome
+
+	title = "GRANDMASTER"
+	foa = "GRANDMASTER_FOA"
+
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	
+	culture = italian
+	
+	# Parent Religion 
+	religion = catholic
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to donations, etc
+	monthly_income = 4 # (Must be an integer between 1 and 512)
+
+	mercenary_type = lazarists_composition
+}

@@ -1,0 +1,459 @@
+#Look at the vanilla folder for the other society pictures which will be more appropriate than my smiley faces.
+spriteTypes = {
+	##Order of the star
+	spriteType = { #The 4 ranks pictures
+		name = "GFX_military_knights_ranks" #make sure that to replace the military_knights in every name by the code name of your society
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The rank you are
+		name = "GFX_military_knights_ranks_highlight"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_highlight.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The ranks when not available
+		name = "GFX_military_knights_ranks_locked"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_locked.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #the background of the society menu
+		name = "GFX_society_main_background_military_knights"
+		texturefile = "gfx\\interface\\societies\\society_bg_military_knights.dds"
+	}
+	
+	spriteType = { #the background of the side menu with the members/other societies
+		name = "GFX_society_expansion_background_military_knights"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_military_knights.dds"
+	}
+	
+	spriteType = { #icons on the socities list
+		name = "GFX_icon_small_military_knights"
+		texturefile = "gfx\\interface\\societies\\symbol_small_military_knights.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = { #where the influence of the society is written
+		name = "GFX_society_influence_military_knights"
+		texturefile = "gfx\\interface\\societies\\society_influence_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_military_knights"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_small_military_knights"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_military_knights.dds"
+	}
+	
+	spriteType = { #where your society currency is written
+		name = "GFX_society_currency_military_knights"
+		texturefile = "gfx\\interface\\societies\\society_currency_military_knights.dds"
+	}
+	
+	spriteType = { #the background for the society event
+		name = "GFX_event_window_society_quest_background_military_knights"
+		textureFile = "gfx/interface/society_quest/mission_bg_warrior_lodge_zun.dds"
+	}
+	
+	##Order of the dragon
+	
+	spriteType = { #The 4 ranks pictures
+		name = "GFX_military_knights1_ranks" #make sure that to replace the military_knights in every name by the code name of your society
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The rank you are
+		name = "GFX_military_knights1_ranks_highlight"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_highlight.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The ranks when not available
+		name = "GFX_military_knights1_ranks_locked"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_locked.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #the background of the society menu
+		name = "GFX_society_main_background_military_knights1"
+		texturefile = "gfx\\interface\\societies\\society_bg_military_knights1.dds"
+	}
+	
+	spriteType = { #the background of the side menu with the members/other societies
+		name = "GFX_society_expansion_background_military_knights1"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_military_knights.dds"
+	}
+	
+	spriteType = { #icons on the socities list
+		name = "GFX_icon_small_military_knights1"
+		texturefile = "gfx\\interface\\societies\\symbol_small_military_knights1.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = { #where the influence of the society is written
+		name = "GFX_society_influence_military_knights1"
+		texturefile = "gfx\\interface\\societies\\society_influence_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_military_knights1"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_small_military_knights1"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_military_knights.dds"
+	}
+	
+	spriteType = { #where your society currency is written
+		name = "GFX_society_currency_military_knights1"
+		texturefile = "gfx\\interface\\societies\\society_currency_military_knights.dds"
+	}
+
+	spriteType = { #the background for the society event
+		name = "GFX_event_window_society_quest_background_military_knights1"
+		textureFile = "gfx/interface/society_quest/mission_bg_warrior_lodge_norse.dds"
+	}
+
+	##Order of saint george
+	
+	spriteType = { #The 4 ranks pictures
+		name = "GFX_military_knights2_ranks" #make sure that to replace the military_knights in every name by the code name of your society
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The rank you are
+		name = "GFX_military_knights2_ranks_highlight"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_highlight.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The ranks when not available
+		name = "GFX_military_knights2_ranks_locked"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_locked.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #the background of the society menu
+		name = "GFX_society_main_background_military_knights2"
+		texturefile = "gfx\\interface\\societies\\society_bg_military_knights2.dds"
+	}
+	
+	spriteType = { #the background of the side menu with the members/other societies
+		name = "GFX_society_expansion_background_military_knights2"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_military_knights.dds"
+	}
+	
+	spriteType = { #icons on the socities list
+		name = "GFX_icon_small_military_knights2"
+		texturefile = "gfx\\interface\\societies\\symbol_small_military_knights2.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = { #where the influence of the society is written
+		name = "GFX_society_influence_military_knights2"
+		texturefile = "gfx\\interface\\societies\\society_influence_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_military_knights2"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_small_military_knights2"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_military_knights.dds"
+	}
+	
+	spriteType = { #where your society currency is written
+		name = "GFX_society_currency_military_knights2"
+		texturefile = "gfx\\interface\\societies\\society_currency_military_knights.dds"
+	}	
+	spriteType = { #the background for the society event
+		name = "GFX_event_window_society_quest_background_military_knights2"
+		textureFile = "gfx/interface/society_quest/mission_bg_monastic_order_dominican.dds"
+	}
+	
+	##Order of the garter
+	spriteType = { #The 4 ranks pictures
+		name = "GFX_diplomatic_knights_ranks" #make sure that to replace the diplomatic_knights in every name by the code name of your society
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The rank you are
+		name = "GFX_diplomatic_knights_ranks_highlight"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_highlight.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The ranks when not available
+		name = "GFX_diplomatic_knights_ranks_locked"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_locked.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #the background of the society menu
+		name = "GFX_society_main_background_diplomatic_knights"
+		texturefile = "gfx\\interface\\societies\\society_bg_diplomatic_knights.dds"
+	}
+	
+	spriteType = { #the background of the side menu with the members/other societies
+		name = "GFX_society_expansion_background_diplomatic_knights"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_military_knights.dds"
+	}
+	
+	spriteType = { #icons on the socities list
+		name = "GFX_icon_small_diplomatic_knights"
+		texturefile = "gfx\\interface\\societies\\symbol_small_diplomatic_knights.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = { #where the influence of the society is written
+		name = "GFX_society_influence_diplomatic_knights"
+		texturefile = "gfx\\interface\\societies\\society_influence_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_diplomatic_knights"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_small_diplomatic_knights"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_military_knights.dds"
+	}
+	
+	spriteType = { #where your society currency is written
+		name = "GFX_society_currency_diplomatic_knights"
+		texturefile = "gfx\\interface\\societies\\society_currency_military_knights.dds"
+	}
+	
+	spriteType = { #the background for the society event
+		name = "GFX_event_window_society_quest_background_diplomatic_knights"
+		textureFile = "gfx/interface/society_quest/mission_bg_the_trollcrafters.dds"
+	}
+	
+	##Order of the golden fleece
+	
+	spriteType = { #The 4 ranks pictures
+		name = "GFX_diplomatic_knights1_ranks" #make sure that to replace the diplomatic_knights in every name by the code name of your society
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The rank you are
+		name = "GFX_diplomatic_knights1_ranks_highlight"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_highlight.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The ranks when not available
+		name = "GFX_diplomatic_knights1_ranks_locked"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_locked.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #the background of the society menu
+		name = "GFX_society_main_background_diplomatic_knights1"
+		texturefile = "gfx\\interface\\societies\\society_bg_diplomatic_knights1.dds"
+	}
+	
+	spriteType = { #the background of the side menu with the members/other societies
+		name = "GFX_society_expansion_background_diplomatic_knights1"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_military_knights.dds"
+	}
+	
+	spriteType = { #icons on the socities list
+		name = "GFX_icon_small_diplomatic_knights1"
+		texturefile = "gfx\\interface\\societies\\symbol_small_diplomatic_knights1.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = { #where the influence of the society is written
+		name = "GFX_society_influence_diplomatic_knights1"
+		texturefile = "gfx\\interface\\societies\\society_influence_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_diplomatic_knights1"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_small_diplomatic_knights1"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_military_knights.dds"
+	}
+	
+	spriteType = { #where your society currency is written
+		name = "GFX_society_currency_diplomatic_knights1"
+		texturefile = "gfx\\interface\\societies\\society_currency_military_knights.dds"
+	}
+
+	spriteType = { #the background for the society event
+		name = "GFX_event_window_society_quest_background_diplomatic_knights1"
+		textureFile = "gfx/interface/society_quest/mission_bg_the_cold_ones.dds"
+	}
+
+	##Order of the thistle
+	
+	spriteType = { #The 4 ranks pictures
+		name = "GFX_diplomatic_knights2_ranks" #make sure that to replace the diplomatic_knights in every name by the code name of your society
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The rank you are
+		name = "GFX_diplomatic_knights2_ranks_highlight"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_highlight.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #The ranks when not available
+		name = "GFX_diplomatic_knights2_ranks_locked"
+		texturefile = "gfx\\interface\\societies\\rank_icons_military_knights_locked.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { #the background of the society menu
+		name = "GFX_society_main_background_diplomatic_knights2"
+		texturefile = "gfx\\interface\\societies\\society_bg_diplomatic_knights2.dds"
+	}
+	
+	spriteType = { #the background of the side menu with the members/other societies
+		name = "GFX_society_expansion_background_diplomatic_knights2"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_military_knights.dds"
+	}
+	
+	spriteType = { #icons on the socities list
+		name = "GFX_icon_small_diplomatic_knights2"
+		texturefile = "gfx\\interface\\societies\\symbol_small_diplomatic_knights2.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = { #where the influence of the society is written
+		name = "GFX_society_influence_diplomatic_knights2"
+		texturefile = "gfx\\interface\\societies\\society_influence_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_diplomatic_knights2"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_military_knights.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_small_diplomatic_knights2"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_military_knights.dds"
+	}
+	
+	spriteType = { #where your society currency is written
+		name = "GFX_society_currency_diplomatic_knights2"
+		texturefile = "gfx\\interface\\societies\\society_currency_military_knights.dds"
+	}	
+	spriteType = { #the background for the society event
+		name = "GFX_event_window_society_quest_background_diplomatic_knights2"
+		textureFile = "gfx/interface/society_quest/mission_bg_monastic_order_nestorian.dds"
+	}
+	
+##Decisions
+	
+	spriteType = {
+		name = "GFX_military_knights_creation"
+		texturefile = "gfx/interface/decision_icon_tournament.dds"
+	}
+	spriteType = {
+		name = "GFX_diplomatic_knights_creation"
+		texturefile = "gfx/interface/decision_icon_tournament.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_military_knights_power_1"
+		texturefile = "gfx/interface/decision_icon_vassalize_holy_order.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_military_knights_power_2p"
+		texturefile = "gfx/interface/decision_icon_raise_chinese_regiment.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_military_knights_power_3"
+		texturefile = "gfx/interface/decision_icon_vassalize_holy_order.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_military_knights_power_3s"
+		texturefile = "gfx/interface/decision_icon_do_penance.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_military_knights_power_3a"
+		texturefile = "gfx/interface/decision_icon_raise_tribal_army.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_military_knights_power_4t"
+		texturefile = "gfx/interface/decision_icon_tournament.dds"
+	}
+
+	spriteType = {
+		name = "GFX_diplomatic_knights_power_2b"
+		texturefile = "gfx/interface/decision_icon_convert_to_local_culture.dds"
+	}
+	spriteType = {
+		name = "GFX_diplomatic_knights_power_4f"
+		texturefile = "gfx/interface/decision_icon_feast.dds"
+	}
+	
+	#Artifacts
+	
+	spriteType = {
+		name = "GFX_veil_of_dymphna"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\veil_of_dymphna.dds"
+	}
+	spriteType = {
+		name = "GFX_veil_of_dymphna_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\veil_of_dymphna_small.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_heirloom_count"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\heirloom_count.dds"
+	}
+	spriteType = {
+		name = "GFX_heirloom_count_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\heirloom_count_small.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_heirloom_king"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\heirloom_king.dds"
+	}
+	spriteType = {
+		name = "GFX_heirloom_king_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\heirloom_king_small.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_knight_book"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\knight_book.dds"
+	}
+	spriteType = {
+		name = "GFX_knight_book_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\knight_book_small.dds"
+	}
+	spriteType = {
+		name = "GFX_trait_book_seclusion"
+		texturefile = "gfx/traits/book_seclusion.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+}

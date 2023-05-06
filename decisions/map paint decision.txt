@@ -1,0 +1,31 @@
+title_decisions = {
+	paint_map = {
+		potential ={
+			FROM = {
+				AI = no
+			}
+			
+		}
+		allow ={
+			FROM = {
+				AI = no
+				OR = {
+					NOT = {
+						ROOT = { holder = FROM }
+					}
+					NOT = {
+						completely_controls = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			ROOT = {
+				any_de_jure_vassal_title = {
+					gain_title = FROM
+				}
+				gain_title = FROM
+			}
+		}
+	}
+}

@@ -1,0 +1,2093 @@
+namespace = darkages
+
+#######################################################################################
+#
+#	SMUGGLERS - Called from darkages.72331 (spymaster) or Organize Smuggler Operation decision
+#
+#######################################################################################
+
+
+
+character_event = { 		#Success, the smuggler operation is active!
+	id = darkages.72332
+	title = EVTNAMEKK1972332
+	desc = EVTDESCKK1972332
+	picture = GFX_evt_da_carriage
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+
+	immediate = {
+	
+		random_list = {
+			2 = {
+				set_character_flag = darkages_a
+			}
+			3 = {
+				set_character_flag = darkages_b
+			}
+			3 = {
+				set_character_flag = darkages_c
+			}			
+			2 = {
+				set_character_flag = darkages_d
+			}			
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTAKK1972332	#Great!
+	
+		if = {
+			limit = {
+				has_character_flag = darkages_a
+			}
+			
+			clr_character_flag = darkages_a
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_1
+				duration = -1
+			}
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = darkages_b
+			}
+			
+			clr_character_flag = darkages_b
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_2
+				duration = -1
+			}
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = darkages_c
+			}
+			
+			clr_character_flag = darkages_c
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_3
+				duration = -1
+			}
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = darkages_d
+			}
+			
+			clr_character_flag = darkages_d
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_4
+				duration = -1
+			}
+		}
+	
+	}
+	
+}
+
+
+character_event = { 		#Failure, the smuggler operation failed and a neighbour ruler discovers the fact!
+	id = darkages.72333
+	title = EVTNAMEKK1972333
+	desc = EVTDESCKK1972333
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972333	#Oops!
+		
+		prestige = -50
+		
+		random_playable_ruler = {
+			limit = {
+				ai = yes
+				is_adult = yes
+				
+				NOT = {
+					distance = {
+						who = ROOT
+						value = 250
+					}
+				}
+				
+			}
+			
+			add_rival = ROOT
+			
+			
+		}
+	
+	}
+	
+}
+
+
+character_event = { 		#Failure, the smuggler operation failed
+	id = darkages.72334
+	title = EVTNAMEKK1972334
+	desc = EVTDESCKK1972334
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972334	#Oops!
+		
+		prestige = -50
+		
+	}
+	
+}
+
+
+#####################################
+#	CHANGE THE STATE OF THE MAIN SMUGGLER MODIFIER
+
+
+character_event = { 		#roulette event
+	id = darkages.72335
+	title = EVTNAMEKK1972335
+	desc = EVTDESCKK1972335
+	picture = GFX_evt_da_carriage
+	border = GFX_event_normal_frame_intrigue
+	
+	
+	trigger = {
+		OR = {
+			has_character_modifier = da_spymaster_smuggler_1
+			has_character_modifier = da_spymaster_smuggler_2
+			has_character_modifier = da_spymaster_smuggler_3
+			has_character_modifier = da_spymaster_smuggler_4			
+		}
+		
+		NOT = { has_character_modifier = da_temp_smuggler_timer }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	immediate = {
+	
+		add_character_modifier = {
+			name = da_temp_smuggler_timer
+			duration = 1095
+			hidden = yes
+		}
+	
+		trigger_switch = {
+			on_trigger = has_character_modifier
+			
+			da_spymaster_smuggler_1 = {
+				random_list = {
+					1 = { 
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 8 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 6 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 4 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 2 }
+						}
+						
+						set_character_flag = darkages_b 
+					}
+					2 = { set_character_flag = darkages_c }
+					1 = { 
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 12 }
+						}
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 15 }
+						}
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 18 }
+						}						
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 21 }
+						}						
+					
+						set_character_flag = darkages_d 
+					}					
+				}
+			}
+			
+			da_spymaster_smuggler_2 = {
+				random_list = {
+					1 = { 
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 8 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 6 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 4 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 2 }
+						}
+						
+						set_character_flag = darkages_a 
+					}
+					1 = { set_character_flag = darkages_c }
+					1 = { 
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 12 }
+						}
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 15 }
+						}
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 18 }
+						}						
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 21 }
+						}
+						
+						set_character_flag = darkages_d 
+					}					
+				}
+			}
+
+			da_spymaster_smuggler_3 = {
+				random_list = {
+					1 = { set_character_flag = darkages_b }
+					1 = { 
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 8 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 6 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 4 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 2 }
+						}					
+					
+						set_character_flag = darkages_a 
+					}
+					1 = { 
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 12 }
+						}
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 15 }
+						}
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 18 }
+						}						
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 21 }
+						}
+						
+						set_character_flag = darkages_d 
+					}					
+				}
+			}
+
+			da_spymaster_smuggler_4 = {
+				random_list = {
+					1 = { set_character_flag = darkages_b }
+					1 = { 
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 12 }
+						}
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 15 }
+						}
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 18 }
+						}						
+						modifier = {
+							factor = 1.35
+							job_spymaster = { intrigue = 21 }
+						}					
+						set_character_flag = darkages_c 
+					}
+					1 = { 
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 8 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 6 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 4 }
+						}
+						modifier = {
+							factor = 1.35
+							NOT = { intrigue = 2 }
+						}					
+					
+						set_character_flag = darkages_a 
+					}					
+				}
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972335	#Poor environment
+		trigger = { has_character_flag = darkages_a }
+		
+		clr_character_flag = darkages_a
+		
+		hidden_tooltip = {
+			remove_character_modifier = da_spymaster_smuggler_4
+			remove_character_modifier = da_spymaster_smuggler_3
+			remove_character_modifier = da_spymaster_smuggler_2
+		}		
+
+		add_character_modifier = {
+			name = da_spymaster_smuggler_1
+			duration = -1
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTBKK1972335	#medium environment
+		trigger = { has_character_flag = darkages_b }
+		
+		clr_character_flag = darkages_b
+
+		hidden_tooltip = {
+			remove_character_modifier = da_spymaster_smuggler_4
+			remove_character_modifier = da_spymaster_smuggler_3
+			remove_character_modifier = da_spymaster_smuggler_1
+		}		
+
+		add_character_modifier = {
+			name = da_spymaster_smuggler_2
+			duration = -1
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTCKK1972335	#Good environment
+		trigger = { has_character_flag = darkages_c }
+		
+		clr_character_flag = darkages_c
+
+		hidden_tooltip = {
+			remove_character_modifier = da_spymaster_smuggler_4
+			remove_character_modifier = da_spymaster_smuggler_1
+			remove_character_modifier = da_spymaster_smuggler_2
+		}		
+
+		add_character_modifier = {
+			name = da_spymaster_smuggler_3
+			duration = -1
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTDKK1972335	#Excellent environment
+		trigger = { has_character_flag = darkages_d }
+		
+		clr_character_flag = darkages_d
+
+		hidden_tooltip = {
+			remove_character_modifier = da_spymaster_smuggler_1
+			remove_character_modifier = da_spymaster_smuggler_3
+			remove_character_modifier = da_spymaster_smuggler_2
+		}
+
+		add_character_modifier = {
+			name = da_spymaster_smuggler_4
+			duration = -1
+		}
+		
+	}	
+	
+}
+
+#################################
+#	DUE TO EXTERNAL FACTORS, THE SMUGGLER NETWORK IS DESTROYED
+
+
+character_event = { 		#Failure, the smuggler operation failed
+	id = darkages.72336
+	title = EVTNAMEKK1972336
+	desc = EVTDESCKK1972336
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	
+	trigger = {
+		OR = {
+			has_character_modifier = da_spymaster_smuggler_1
+			has_character_modifier = da_spymaster_smuggler_2
+			has_character_modifier = da_spymaster_smuggler_3
+			has_character_modifier = da_spymaster_smuggler_4			
+		}	
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+		
+		modifier = {
+			factor = 0.7
+			NOT = { realm_intrigue = 30 }
+		}
+		
+		modifier = {
+			factor = 0.7
+			NOT = { realm_intrigue = 25 }
+		}	
+
+		modifier = {
+			factor = 0.7
+			NOT = { realm_intrigue = 20 }
+		}
+
+		modifier = {
+			factor = 1.25
+			realm_intrigue = 35
+		}
+
+		modifier = {
+			factor = 1.35
+			realm_intrigue = 40
+		}
+		
+		modifier = {
+			factor = 1.5
+			realm_intrigue = 45
+		}		
+	}	
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972336	#Unfortunately
+		
+		hidden_tooltip = {
+			remove_character_modifier = da_spymaster_smuggler_1
+			remove_character_modifier = da_spymaster_smuggler_2
+			remove_character_modifier = da_spymaster_smuggler_3
+			remove_character_modifier = da_spymaster_smuggler_4			
+		}
+		
+	}
+	
+}
+
+
+#################################
+#	YOUR SPYMASTER WAS AMBUSHED DURING A SMUGGLER OPERATION
+
+
+character_event = { 		#Spymaster is ambushed
+	id = darkages.72337
+	title = EVTNAMEKK1972337
+	desc = EVTDESCKK1972337
+	picture = GFX_evt_da_wounded
+	border = GFX_event_normal_frame_intrigue
+	
+	
+	trigger = {
+		
+		is_landed = yes
+		
+		OR = {
+			has_character_modifier = da_spymaster_smuggler_1
+			has_character_modifier = da_spymaster_smuggler_2
+			has_character_modifier = da_spymaster_smuggler_3
+			has_character_modifier = da_spymaster_smuggler_4			
+		}		
+		
+		job_spymaster = { ai = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		
+		modifier = {
+			factor = 0.7
+			NOT = { realm_intrigue = 20 }
+		}
+		
+		modifier = {
+			factor = 0.7
+			NOT = { realm_intrigue = 25 }
+		}	
+
+		modifier = {
+			factor = 0.7
+			NOT = { realm_intrigue = 30 }
+		}
+
+		modifier = {
+			factor = 1.25
+			realm_intrigue = 35
+		}
+
+		modifier = {
+			factor = 1.35
+			realm_intrigue = 40
+		}
+		
+		modifier = {
+			factor = 1.5
+			realm_intrigue = 45
+		}		
+	}	
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972337	
+		
+		treasury = -20
+		
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.25
+					job_spymaster = { combat_rating = 10 }
+				}
+
+				modifier = {
+					factor = 1.35
+					job_spymaster = { combat_rating = 20 }
+				}
+				
+				modifier = {
+					factor = 1.5
+					job_spymaster = { combat_rating = 35 }
+				}
+
+				modifier = {
+					factor = 1.75
+					job_spymaster = { combat_rating = 50 }
+				}
+
+				job_spymaster = { add_trait = wounded }
+				
+			}
+			
+			1 = {
+				modifier = {
+					factor = 1.5
+					job_spymaster = { NOT = { combat_rating = 0 } }
+				}
+				
+				modifier = {
+					factor = 1.5
+					job_spymaster = { NOT = { combat_rating = -5 } }
+				}	
+
+				modifier = {
+					factor = 1.5
+					job_spymaster = { NOT = { combat_rating = -10 } }
+				}
+
+				modifier = {
+					factor = 1.5
+					job_spymaster = { NOT = { combat_rating = -15 } }
+				}
+
+				modifier = {
+					factor = 1.5
+					job_spymaster = { NOT = { combat_rating = -20 } }
+				}				
+				
+				modifier = {
+					factor = 1.5
+					job_spymaster = { NOT = { combat_rating = -25 } }
+				}	
+
+				job_spymaster = {
+					death = {
+						death_reason = death_battle
+					}
+				}
+				
+			}
+		}
+		
+	}
+	
+}
+
+
+
+#################################
+#	RULER IS INVITED TO GO ON A SPECIAL OPERATION
+
+
+
+character_event = { 		#Setup event
+	id = darkages.72338
+	title = EVTNAMEKK1972338
+	desc = EVTDESCKK1972338
+	picture = GFX_evt_da_carriage
+	border = GFX_event_normal_frame_intrigue
+	
+	
+	trigger = {
+		is_landed = yes
+		
+		OR = {
+			has_character_modifier = da_spymaster_smuggler_1
+			has_character_modifier = da_spymaster_smuggler_2
+			has_character_modifier = da_spymaster_smuggler_3
+			has_character_modifier = da_spymaster_smuggler_4			
+		}	
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+	}	
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972338	#Yes
+		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP138 } 
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				3 = {
+					modifier = {
+						factor = 1.5
+						OR = {
+							has_education_intrigue_trigger = yes
+							has_education_martial_trigger = yes
+						}
+					}
+					modifier = {
+						factor = 3
+						trait = schemer
+					}
+					modifier = {
+						factor = 2
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.75
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 1.75
+						trait = greedy
+					}
+					modifier = {
+						factor = 1.5
+						trait = brave
+					}
+					modifier = {
+						factor = 1.5
+						trait = cynical
+					}
+					modifier = {
+						factor = 2
+						trait = shrewd
+					}					
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}	
+
+					character_event = { id = darkages.72339 days = 30 random = 45 } #Success!
+					
+				}
+				2 = {
+					modifier = {
+						factor = 3
+						trait = honest
+					}
+					modifier = {
+						factor = 2
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						trait = charitable
+					}
+					modifier = {
+						factor = 1.75
+						trait = craven
+					}
+					modifier = {
+						factor = 1.75
+						trait = trusting
+					}					
+					modifier = {
+						factor = 2
+						trait = dull
+					}					
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}
+
+					random_list = {
+						3 = {
+							modifier = {
+								factor = 1.25
+								has_education_martial_trigger = no
+							}
+							modifier = {
+								factor = 1.25
+								NOT = { martial = 8 }
+							}
+							modifier = {
+								factor = 1.35
+								NOT = { martial = 6 }
+							}
+							modifier = {
+								factor = 1.5
+								NOT = { martial = 4 }
+							}
+							modifier = {
+								factor = 1.75
+								NOT = { martial = 2 }
+							}						
+							character_event = { id = darkages.72340 days = 30 random = 45 } #Failure with life risk
+						}
+						4 = {
+							modifier = {
+								factor = 1.25
+								has_education_stewardship_trigger = no
+							}
+							modifier = {
+								factor = 1.25
+								NOT = { stewardship = 8 }
+							}
+							modifier = {
+								factor = 1.35
+								NOT = { stewardship = 6 }
+							}
+							modifier = {
+								factor = 1.5
+								NOT = { stewardship = 4 }
+							}
+							modifier = {
+								factor = 1.75
+								NOT = { stewardship = 2 }
+							}							
+							character_event = { id = darkages.72341 days = 30 random = 45 } #Failure - got cheated by foreign party
+						}
+						5 = {
+							character_event = { id = darkages.72342 days = 30 random = 45 }	#Failure - is prisoner abroad
+						}
+					
+					
+					}
+					
+				
+				}
+			}
+		
+		}
+	}
+	
+	option = {
+		name = EVTOPTBKK1972338	#No
+		prestige = -25
+
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP139 }
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_2 }
+			
+			remove_character_modifier = da_spymaster_smuggler_2
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_1
+				duration = -1
+			}
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_3 }
+			
+			remove_character_modifier = da_spymaster_smuggler_3
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_2
+				duration = -1
+			}
+		}
+
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_4 }
+			
+			remove_character_modifier = da_spymaster_smuggler_4
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_3
+				duration = -1
+			}
+		}		
+	}
+}
+
+
+character_event = { 		#Success!
+	id = darkages.72339
+	title = EVTNAMEKK1972339
+	desc = EVTDESCKK1972339
+	picture = GFX_evt_da_camaraderie
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+	
+		random_list = {
+			4 = {
+				set_character_flag = darkages_a
+			}
+			3 = {
+				set_character_flag = darkages_b
+			}
+			2 = {
+				set_character_flag = darkages_c
+			}			
+			1 = {
+				set_character_flag = darkages_d
+			}			
+		}	
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972339
+		trigger = { has_character_flag = darkages_a }
+		clr_character_flag = darkages_a
+		
+		prestige = 25
+		treasury = 75
+		
+	}
+	
+	option = {
+		name = EVTOPTBKK1972339
+		trigger = { has_character_flag = darkages_b }
+		clr_character_flag = darkages_b
+		
+		prestige = 25
+		treasury = 150
+		
+	}	
+	
+	option = {
+		name = EVTOPTCKK1972339
+		trigger = { has_character_flag = darkages_c }
+		clr_character_flag = darkages_c
+		
+		prestige = 25
+		treasury = 300
+		
+	}	
+	
+	option = {
+		name = EVTOPTDKK1972339
+		trigger = { has_character_flag = darkages_d }
+		clr_character_flag = darkages_d
+		
+		prestige = 25
+		treasury = 600
+		
+	}	
+	
+}
+
+
+character_event = { 		#Failure - Life at risk
+	id = darkages.72340
+	title = EVTNAMEKK1972340
+	desc = EVTDESCKK1972340
+	picture = GFX_evt_da_camaraderie
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+	
+
+	}
+	
+	option = {
+		name = EVTOPTAKK1972340
+		
+		prestige = -25
+
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -5 }
+				}	
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -15 }
+				}
+
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -25 }
+				}
+				
+				death = {
+					death_reason = death_battle
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 10
+					NOT = { combat_rating = 60 }					
+				}
+				modifier = {
+					factor = 1.35
+					combat_rating = 20
+					NOT = { combat_rating = 60 }					
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 35
+					NOT = { combat_rating = 60 }					
+				}
+				modifier = {
+					factor = 1.75
+					combat_rating = 50
+					NOT = { combat_rating = 60 }
+				}
+
+				add_trait = wounded
+				
+			}
+			1 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 60
+				}
+				modifier = {
+					factor = 1.35
+					combat_rating = 70
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 85
+				}
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}	
+				modifier = {
+					factor = 1.75
+					combat_rating = 115
+				}
+				modifier = {
+					factor = 1.75
+					combat_rating = 130
+				}
+				modifier = {
+					factor = 1.75
+					combat_rating = 150
+				}				
+				
+			}
+		
+		}
+		
+	}
+	
+	
+}
+
+
+character_event = { 		#Failure - got cheated by foreign party
+	id = darkages.72341
+	title = EVTNAMEKK1972341
+	desc = EVTDESCKK1972341
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+	
+		random_list = {
+			1 = {
+				set_character_flag = darkages_a
+			}
+			1 = {
+				set_character_flag = darkages_b
+			}
+			1 = {
+				set_character_flag = darkages_c
+			}			
+			1 = {
+				set_character_flag = darkages_d
+			}			
+		}	
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972341
+		trigger = { has_character_flag = darkages_a }
+		clr_character_flag = darkages_a
+		
+		prestige = -25
+		treasury = -25
+		
+	}
+	
+	option = {
+		name = EVTOPTAKK1972341
+		trigger = { has_character_flag = darkages_b }
+		clr_character_flag = darkages_b
+		
+		prestige = -25
+		treasury = -50
+		
+	}	
+	
+	option = {
+		name = EVTOPTAKK1972341
+		trigger = { has_character_flag = darkages_c }
+		clr_character_flag = darkages_c
+		
+		prestige = -25
+		treasury = -75
+		
+	}	
+	
+	option = {
+		name = EVTOPTAKK1972341
+		trigger = { has_character_flag = darkages_d }
+		clr_character_flag = darkages_d
+		
+		prestige = -25
+		treasury = -100
+		
+	}	
+	
+}
+
+character_event = { 		#Failure - got jailed by a foreign ruler
+	id = darkages.72342
+	title = EVTNAMEKK1972342
+	desc = EVTDESCKK1972342
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+	
+		random_playable_ruler = {
+			limit = {
+				ai = yes
+				is_adult = yes
+				
+				NOT = {
+					distance = {
+						who = ROOT
+						value = 250
+					}
+				}
+				
+			}
+			
+			save_event_target_as = smuggler_enemy
+			
+			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972342
+
+		event_target:smuggler_enemy = {
+			opinion = {
+				who = ROOT
+        		modifier = da_opinion_smuggler
+        		years = 10
+			}
+			
+		}
+		
+		imprison = event_target:smuggler_enemy
+		
+	}
+	
+}
+
+#################################################
+#
+#	PROBLEM WITH SMUGGLING BUSINESS, NEED TO INVEST GOLD
+#
+#################################################
+
+character_event = { 		
+	id = darkages.72345
+	title = EVTNAMEKK1972345
+	desc = EVTDESCKK1972345
+	picture = GFX_evt_da_carriage
+	border = GFX_event_normal_frame_intrigue
+	
+	
+	trigger = {
+		OR = {
+			has_character_modifier = da_spymaster_smuggler_1
+			has_character_modifier = da_spymaster_smuggler_2
+			has_character_modifier = da_spymaster_smuggler_3
+			has_character_modifier = da_spymaster_smuggler_4			
+		}	
+		
+		NOT = { has_character_modifier = da_smuggler_operation_risk_temp }
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+	}	
+
+	immediate = {
+		add_character_modifier = {
+			name = da_smuggler_operation_risk_temp
+			duration = 1825
+			hidden = yes
+		}
+		
+		random_list = {
+			6 = {
+				set_character_flag = darkages_a
+			}
+			4 = {
+				set_character_flag = darkages_b
+			}
+			2 = {
+				set_character_flag = darkages_c
+			}			
+			1 = {
+				set_character_flag = darkages_d
+			}			
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTAKK1972345	#Pay
+		trigger = {
+			has_character_flag = darkages_a
+		}
+		ai_chance = {
+			factor = 10
+		}
+		clr_character_flag = darkages_a
+		
+		treasury = -35
+		scaled_wealth = -0.2
+		
+	}
+	
+	option = {
+		name = EVTOPTAKK1972345	#Pay
+		trigger = {
+			has_character_flag = darkages_b
+		}
+		ai_chance = {
+			factor = 5
+		}		
+		clr_character_flag = darkages_b
+		
+		treasury = -70
+		scaled_wealth = -0.2
+		
+	}	
+
+	option = {
+		name = EVTOPTAKK1972345	#Pay
+		trigger = {
+			has_character_flag = darkages_c
+		}
+		ai_chance = {
+			factor = 3
+		}		
+		clr_character_flag = darkages_c
+		
+		treasury = -100
+		scaled_wealth = -0.2
+		
+	}
+	
+	option = {
+		name = EVTOPTAKK1972345	#Pay
+		trigger = {
+			has_character_flag = darkages_d
+		}
+		ai_chance = {
+			factor = 2
+		}				
+		clr_character_flag = darkages_d
+		
+		treasury = -120
+		scaled_wealth = -0.2
+		
+	}	
+	
+	option = {
+		name = EVTOPTBKK1972345	#Don't pay
+		ai_chance = {
+			factor = 7
+		}		
+		
+		random = {
+			chance = 66
+			modifier = {
+				factor = 1.2
+				NOT = { realm_intrigue = 30 }
+			}
+			
+			modifier = {
+				factor = 1.2
+				NOT = { realm_intrigue = 25 }
+			}	
+
+			modifier = {
+				factor = 1.2
+				NOT = { realm_intrigue = 20 }
+			}
+
+			modifier = {
+				factor = 0.75
+				realm_intrigue = 35
+			}
+
+			modifier = {
+				factor = 0.75
+				realm_intrigue = 40
+			}
+			
+			modifier = {
+				factor = 0.75
+				realm_intrigue = 45
+			}		
+			custom_tooltip = { text = DA_CUSTOMTOOLTIP140 }
+			
+			hidden_tooltip = {
+				remove_character_modifier = da_spymaster_smuggler_1
+				remove_character_modifier = da_spymaster_smuggler_2
+				remove_character_modifier = da_spymaster_smuggler_3
+				remove_character_modifier = da_spymaster_smuggler_4			
+			}
+		}
+		
+	}
+	
+}
+
+
+
+
+
+######################################################
+#
+#	A CERTAIN INDIVIDUAL GOT HOLD OF THE SMUGGLER'S ASSETS AND IS PREPARING TO RUN AWAY WITH THEM
+#
+######################################################
+
+
+
+
+character_event = { 		#Failure - got jailed by a foreign ruler
+	id = darkages.72349
+	title = EVTNAMEKK1972349
+	desc = EVTDESCKK1972349
+	picture = GFX_evt_da_carriage
+	border = GFX_event_normal_frame_intrigue
+	
+	
+	trigger = {
+	
+
+		OR = {
+			has_character_modifier = da_spymaster_smuggler_1
+			has_character_modifier = da_spymaster_smuggler_2
+			has_character_modifier = da_spymaster_smuggler_3
+			has_character_modifier = da_spymaster_smuggler_4			
+		}	
+		
+		NOT = { has_character_modifier = da_smuggler_individual_temp }
+	
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+	}	
+	
+	immediate = {
+	
+		add_character_modifier = {
+			name = da_smuggler_individual_temp
+			duration = 7300
+			hidden = yes
+		}
+		
+		random_playable_ruler = {
+			limit = {
+				ai = yes
+				is_adult = yes
+				
+				NOT = {
+					distance = {
+						who = ROOT
+						value = 250
+					}
+				}
+				
+			}
+			
+
+			create_random_intriguer = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				attributes = {
+					intrigue = 10
+				}
+
+			}
+			
+			new_character = {
+				save_event_target_as = smuggler_individual
+				
+				random_list = {
+					5 = {
+						add_trait = schemer
+					}
+					5 = {
+						add_trait = deceitful
+					}
+					2 = {
+						add_trait = duelist
+					}
+					8 = {
+						
+					}					
+				}
+			}
+
+
+			
+			
+		}		
+		
+		
+		character_event = { id = darkages.72352 days = 190 random = 40 } #The individual escapes		
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972349
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP143 }
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.25
+						job_spymaster = { intrigue = 12 }
+					}
+					modifier = {
+						factor = 1.35
+						job_spymaster = { intrigue = 15 }
+					}
+					modifier = {
+						factor = 1.5
+						job_spymaster = { intrigue = 18 }
+					}
+					modifier = {
+						factor = 1.75
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						job_spymaster = { trait = schemer }
+					}
+					modifier = {
+						factor = 1.75
+						job_spymaster = { trait = deceitful }
+					}
+					modifier = {
+						factor = 4
+						job_spymaster = { trait = assassin }
+					}
+					modifier = {
+						factor = 1.5
+						job_spymaster = { trait = arbitrary }
+					}
+					modifier = {
+						factor = 1.5
+						has_education_intrigue_trigger = yes
+					}
+					modifier = {
+						factor = 1.25
+						event_target:smuggler_individual = { NOT = { intrigue = 8 } }
+					}					
+					modifier = {
+						factor = 1.35
+						event_target:smuggler_individual = { NOT = { intrigue = 6 } }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:smuggler_individual = { NOT = { intrigue = 4 } }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:smuggler_individual = { NOT = { intrigue = 2 } }
+					}
+					
+					character_event = { id = darkages.72350 days = 45 random = 45 }
+					
+				}
+				2 = {
+					modifier = {
+						factor = 1.25
+						job_spymaster = { NOT = { intrigue = 8 } }
+					}
+					modifier = {
+						factor = 1.35
+						job_spymaster = { NOT = { intrigue = 6 } }
+					}
+					modifier = {
+						factor = 1.5
+						job_spymaster = { NOT = { intrigue = 4 } }
+					}
+					modifier = {
+						factor = 1.75
+						job_spymaster = { NOT = { intrigue = 2 } }
+					}
+					modifier = {
+						factor = 2
+						job_spymaster = { trait = schemer }
+					}				
+					modifier = {
+						factor = 1.25
+						event_target:smuggler_individual = { intrigue = 12 }
+					}
+					modifier = {
+						factor = 1.35
+						event_target:smuggler_individual = { intrigue = 15 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:smuggler_individual = { intrigue = 18 }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:smuggler_individual = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						event_target:smuggler_individual = { trait = schemer }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:smuggler_individual = { trait = deceitful }
+					}
+					modifier = {
+						factor = 4
+						event_target:smuggler_individual = { trait = assassin }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:smuggler_individual = { trait = arbitrary }
+					}
+					modifier = {
+						factor = 2
+						job_spymaster = { trait = kind }
+					}
+					modifier = {
+						factor = 2
+						job_spymaster = { trait = slothful }
+					}
+					modifier = {
+						factor = 1.5
+						job_spymaster = { trait = just }
+					}					
+					modifier = {
+						factor = 1.25
+						event_target:smuggler_individual = { combat_rating = 10 }
+					}
+					modifier = {
+						factor = 1.35
+						event_target:smuggler_individual = { combat_rating = 25 }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:smuggler_individual = { combat_rating = 40 }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:smuggler_individual = { combat_rating = 60 }
+					}
+
+					character_event = { id = darkages.72351 days = 45 random = 45 }
+					
+				}
+				
+			}
+		
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTBKK1972349
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP144 }	
+	
+	}
+	
+}
+
+character_event = { 		#Success - individual killed!
+	id = darkages.72350
+	title = EVTNAMEKK1972350
+	desc = EVTDESCKK1972350
+	picture = GFX_evt_da_back_hit
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+	
+		job_spymaster = {
+			save_event_target_as = darkages_spymaster
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972350
+
+		event_target:smuggler_individual = {
+
+			death = {
+				death_reason = death_murder
+				killer = event_target:darkages_spymaster
+			}
+			
+		}
+		
+		
+	}
+	
+}
+
+character_event = { 		#Failure - Individual escapes murder attempt by spymaster
+	id = darkages.72351
+	title = EVTNAMEKK1972351
+	desc = EVTDESCKK1972351
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTAKK1972351
+		
+		prestige = -35
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					job_spymaster = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 1.35
+					job_spymaster = { combat_rating = 25 }
+				}
+				modifier = {
+					factor = 1.5
+					job_spymaster = { combat_rating = 40 }
+				}
+				modifier = {
+					factor = 1.75
+					job_spymaster = { combat_rating = 60 }
+				}	
+				modifier = {
+					factor = 3
+					job_spymaster = { trait = duelist }
+				}				
+			}
+			3 = {
+				job_spymaster = {
+					add_trait = wounded
+				}			
+			}
+			1 = {
+				modifier = {
+					factor = 1.25
+					event_target:smuggler_individual = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 1.35
+					event_target:smuggler_individual = { combat_rating = 25 }
+				}
+				modifier = {
+					factor = 1.5
+					event_target:smuggler_individual = { combat_rating = 40 }
+				}
+				modifier = {
+					factor = 1.75
+					event_target:smuggler_individual = { combat_rating = 60 }
+				}
+				modifier = {
+					factor = 3
+					event_target:smuggler_individual = { trait = duelist }
+				}
+				
+				job_spymaster = {
+					death = {
+						death_reason = death_murder
+						killer = event_target:smuggler_individual
+					}					
+				}
+				
+			}
+		}
+
+		
+	}
+	
+}
+
+character_event = { 		#Failure Global - Individual escaped
+	id = darkages.72352
+	title = EVTNAMEKK1972352
+	desc = EVTDESCKK1972352
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		event_target:smuggler_individual = {
+			is_alive = yes
+		}		
+	}
+	
+	immediate = {
+	
+		random_list = {
+			4 = {
+				set_character_flag = darkages_a
+			}
+			3 = {
+				set_character_flag = darkages_b
+			}
+			2 = {
+				set_character_flag = darkages_c
+			}
+			1 = {
+				set_character_flag = darkages_d
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTAKK1972352
+		trigger = {
+			has_character_flag = darkages_a
+		}
+
+		clr_character_flag = darkages_a
+		
+		prestige = -75
+		treasury = -50
+
+		event_target:smuggler_individual = {
+
+			death = {
+				death_reason = death_went_back_to_china
+			}
+			
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_1 }
+			remove_character_modifier = da_spymaster_smuggler_1
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_2 }
+			
+			remove_character_modifier = da_spymaster_smuggler_2
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_1
+				duration = -1
+			}
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_3 }
+			
+			remove_character_modifier = da_spymaster_smuggler_3
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_2
+				duration = -1
+			}
+		}
+
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_4 }
+			
+			remove_character_modifier = da_spymaster_smuggler_4
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_3
+				duration = -1
+			}
+		}		
+		
+		
+	}
+	
+	option = {
+		name = EVTOPTAKK1972352
+		trigger = {
+			has_character_flag = darkages_b
+		}
+
+		clr_character_flag = darkages_b
+		
+		prestige = -75		
+		treasury = -75
+
+		event_target:smuggler_individual = {
+
+			death = {
+				death_reason = death_went_back_to_china
+			}
+			
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_1 }
+			remove_character_modifier = da_spymaster_smuggler_1
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_2 }
+			
+			remove_character_modifier = da_spymaster_smuggler_2
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_1
+				duration = -1
+			}
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_3 }
+			
+			remove_character_modifier = da_spymaster_smuggler_3
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_2
+				duration = -1
+			}
+		}
+
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_4 }
+			
+			remove_character_modifier = da_spymaster_smuggler_4
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_3
+				duration = -1
+			}
+		}		
+				
+		
+		
+	}
+
+	option = {
+		name = EVTOPTAKK1972352
+		trigger = {
+			has_character_flag = darkages_c
+		}
+
+		clr_character_flag = darkages_c
+		
+		prestige = -75
+		treasury = -100
+
+		event_target:smuggler_individual = {
+
+			death = {
+				death_reason = death_went_back_to_china
+			}
+			
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_1 }
+			remove_character_modifier = da_spymaster_smuggler_1
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_2 }
+			
+			remove_character_modifier = da_spymaster_smuggler_2
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_1
+				duration = -1
+			}
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_3 }
+			
+			remove_character_modifier = da_spymaster_smuggler_3
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_2
+				duration = -1
+			}
+		}
+
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_4 }
+			
+			remove_character_modifier = da_spymaster_smuggler_4
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_3
+				duration = -1
+			}
+		}		
+				
+		
+		
+	}	
+	
+	option = {
+		name = EVTOPTAKK1972352
+		trigger = {
+			has_character_flag = darkages_d
+		}
+
+		clr_character_flag = darkages_d
+		
+		prestige = -75		
+		treasury = -150
+
+		event_target:smuggler_individual = {
+
+			death = {
+				death_reason = death_went_back_to_china
+			}
+			
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_1 }
+			remove_character_modifier = da_spymaster_smuggler_1
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_2 }
+			
+			remove_character_modifier = da_spymaster_smuggler_2
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_1
+				duration = -1
+			}
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_3 }
+			
+			remove_character_modifier = da_spymaster_smuggler_3
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_2
+				duration = -1
+			}
+		}
+
+		if = {
+			limit = { has_character_modifier = da_spymaster_smuggler_4 }
+			
+			remove_character_modifier = da_spymaster_smuggler_4
+			
+			add_character_modifier = {
+				name = da_spymaster_smuggler_3
+				duration = -1
+			}
+		}		
+				
+		
+		
+	}	
+	
+}

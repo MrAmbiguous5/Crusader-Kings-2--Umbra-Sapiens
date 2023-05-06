@@ -1,0 +1,213 @@
+namespace = darkages
+
+########################
+#	STORM!
+########################
+character_event = {
+	id = darkages.72001
+	title = EVTNAME1972001
+	desc = EVTDESC1972001
+	picture = GFX_evt_da_shipwreck
+
+	trigger = {
+		in_command = yes
+		
+		location = {
+			county = { has_holder = no }
+		}
+		
+		NOT = { has_game_rule = { name = shipwrecks value = off } }
+	}
+
+	mean_time_to_happen = {
+		months = 36
+		
+		modifier = {
+			factor = 1.5
+			ai = yes
+			liege = { ai = yes }
+		}		
+		
+		modifier = {
+			factor = 0.75
+			has_game_rule = { name = shipwrecks value = increased }
+		}
+
+		modifier = {
+			factor = 1.35
+			has_game_rule = { name = shipwrecks value = decreased }
+		}		
+		
+		modifier = {
+			factor = 0.5
+			month = 10
+			NOT = { month = 1 }
+			ai = no
+		}
+		
+		modifier = {
+			factor = 0.5
+			OR = {
+				ai = no
+				liege = {
+					ai = no
+				}
+			}
+			location = {
+				NOT = {
+					any_neighbor_province = {
+						county = { has_holder = yes }
+					}
+				}
+			}			
+		}		
+	}
+
+	immediate = {
+		hidden_tooltip = {
+			random_list = {
+				7 = { }
+				6 = { set_global_flag = two_victims }
+				5 = { set_global_flag = three_victims }
+			}
+			random_realm_character = {
+				limit = {
+					any_liege = {
+						character = ROOT
+					}
+					OR = {
+						ROOT = { ai = no }
+						NOT = { any_liege = { ai = no } }
+					}
+					in_command = yes
+					location = {
+						NOT = {
+							county = { has_holder = yes }
+						}
+					}
+				}
+				location = {
+					ROOT = {
+						if = {
+							limit = {
+								in_command = yes
+								location = {
+									province_id = PREVPREV
+								}
+							}
+							random_list = {
+								1 = { troops = -0.02 }
+								1 = { troops = -0.07 }
+								1 = { troops = -0.010 }
+								2 = { troops = -0.13 }
+								5 = { troops = -0.15 }
+								5 = { troops = -0.18 }
+								2 = { troops = -0.20 }
+								1 = { troops = -0.30 }
+								1 = { troops = -0.40 }
+								1 = { troops = -0.50 }									
+							}
+						}
+						any_realm_character = {
+							limit = {
+								any_liege = {
+									character = ROOT
+								}
+								in_command = yes
+								location = {
+									province_id = PREVPREVPREV
+								}
+							}
+							random_list = {
+								1 = { troops = -0.02 }
+								1 = { troops = -0.07 }
+								1 = { troops = -0.010 }
+								2 = { troops = -0.13 }
+								5 = { troops = -0.15 }
+								5 = { troops = -0.18 }
+								2 = { troops = -0.20 }
+								1 = { troops = -0.30 }
+								1 = { troops = -0.40 }
+								1 = { troops = -0.50 }										
+							}									
+							set_character_flag = possible_storm_victim
+						}
+					}
+					set_province_flag = possible_drown
+				}
+				random_list = {
+					1 = { troops = -0.02 }
+					1 = { troops = -0.07 }
+					1 = { troops = -0.010 }
+					2 = { troops = -0.13 }
+					5 = { troops = -0.15 }
+					5 = { troops = -0.18 }
+					2 = { troops = -0.20 }
+					1 = { troops = -0.30 }
+					1 = { troops = -0.40 }
+					1 = { troops = -0.50 }									
+				}
+				set_character_flag = storm_victim
+			}
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = two_victims
+						has_global_flag = three_victims
+					}
+				}
+				random_realm_character = {
+					limit = {
+						has_character_flag = possible_storm_victim
+						NOT = { has_character_flag = storm_victim }
+					}
+					set_character_flag = storm_victim
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = three_victims
+				}
+				random_realm_character = {
+					limit = {
+						has_character_flag = possible_storm_victim
+						NOT = { has_character_flag = storm_victim }
+					}
+					set_character_flag = storm_victim
+				}
+			}
+			any_realm_character = {
+				limit = { has_character_flag = possible_storm_victim }
+				clr_character_flag = possible_storm_victim
+			}
+			clr_global_flag = two_victims
+			clr_global_flag = three_victims
+		}
+	}
+
+	option = {
+		name = EVTOPTA1972001
+		any_realm_character = {
+			limit = {
+					has_character_flag = storm_victim
+			}
+			death = { death_reason = death_accident }
+		}
+		
+		location = {
+			if = { 
+				limit = { has_province_flag = possible_drown }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP1 }
+				clr_province_flag = possible_drown
+				ROOT = {
+					random = {
+						chance = 20
+						death = { death_reason = death_accident }
+					}
+				}
+
+			}
+		}
+		
+	}
+}

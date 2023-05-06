@@ -1,0 +1,1037 @@
+namespace = DecVend
+
+
+character_event = {	# confirm challenge, activated by decision
+	id = DecVend.400
+	desc = EVTDESCDecVend.400
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	option = { # send challenge 
+		name = EVTOPTADecVend.400
+		ai_chance = { factor = 10 }
+		add_trait = travelling
+		FROM = { character_event = { id = DecVend.401 } }
+	}
+	option = { # do nothing
+		name = EVTOPTBDecVend.400
+		ai_chance = { factor = 10 }
+	}
+}
+
+
+character_event = {	# target receives challenge from declarer
+	id = DecVend.401
+	desc = EVTDESCDecVend.401
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	option = { # accept challenge 
+		name = EVTOPTADecVend.401
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 20
+				OR = {
+					trait = proud
+					trait = ambitious
+					trait = immortal
+					trait = brave
+					trait = duelist
+					
+				}
+			}		
+		}
+		save_event_target_as = vendetta_duel_target
+		add_trait = travelling
+		FROM = { letter_event = { id = DecVend.402 days = 10 } }	
+	}
+	option = { # refuse challenge, only available under certain conditions
+		name = EVTOPTBDecVend.401
+		ai_chance = { factor = 10 }
+		trigger = { 
+			OR = { 
+				trait = craven
+				trait = depressed
+				trait = humble
+				trait = stubborn
+				has_injury_trigger = yes
+				is_maimed_trigger = yes
+				has_symptom_trigger = yes
+				has_disease_trigger = yes
+				age = 60
+				FROM = { ai = yes }		
+				AND = {		# cannot refuse if already be prisoner of the declarer, or vassal of declarer
+					prisoner = yes 
+					OR = {
+						host = { character = FROM }
+						host = {
+							any_liege = { character = FROM }
+						}
+					}
+				}
+			}
+			NOT = { has_character_flag = vendetta_target_test_flag }	# for testing
+		}
+		FROM = { letter_event = { id = DecVend.4025 days = 10 } }
+	}
+}
+
+letter_event = {	# challenge accepted, i'll meet with you
+	id = DecVend.402
+	desc = EVTDESCDecVend.402
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_letter_frame_war
+	portrait = FROM
+	
+	is_triggered_only = yes
+
+	option = { # excellent
+		name = EVTOPTADecVend.402
+		ai_chance = { factor = 10 }
+		character_event = { id = DecVend.403 days = 10 }
+	}
+}
+
+letter_event = {	# challenge refused, laughable suggestion, village idiot
+	id = DecVend.4025
+	desc = EVTDESCDecVend.4025
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_letter_frame_war
+	portrait = FROM
+	
+	is_triggered_only = yes
+
+	option = { # coward				end of event line
+		name = EVTOPTADecVend.4025
+		ai_chance = { factor = 10 }
+		remove_trait = travelling
+	}
+}
+
+character_event = {	# first round
+	id = DecVend.403
+	desc = EVTDESCDecVend.403
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	portrait = event_target:vendetta_duel_target
+	
+	is_triggered_only = yes
+
+	option = { # we fight
+		name = EVTOPTADecVend.403
+		ai_chance = { factor = 10 }
+		hidden_tooltip = {
+			if = {											# BEGINNING OF GENIUS COMBAT CALCULATION
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value = 50 } } 
+				}
+				random_list = {
+					95 = {
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 70
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					5 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value = 25 } }
+				}
+				random_list = {
+					70 = {
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 60
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					30 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}	
+			}
+			else_if = {
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value = 0 } } 
+				}
+				random_list = {
+					50 = { 
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 50
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					50 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}	
+			}
+			else_if = {
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value < 0 } } 
+				}
+				random_list = {
+					40 = {
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 50
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					60 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}	
+			}												
+		}												# END OF GENIUS COMBAT CALCULATION
+		add_blood_splatter_effect = yes
+		event_target:vendetta_duel_target = {
+			add_blood_splatter_effect = yes
+		}
+		character_event = { id = DecVend.404 }
+	}
+}
+
+character_event = {	# second round
+	id = DecVend.404
+	desc = EVTDESCDecVend.404
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	portrait = event_target:vendetta_duel_target
+	
+	is_triggered_only = yes
+
+	option = { # we fight again
+		name = EVTOPTADecVend.404
+		ai_chance = { factor = 10 }
+		hidden_tooltip = {
+			if = {											# BEGINNING OF GENIUS COMBAT CALCULATION
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value = 50 } } 
+				}
+				random_list = {
+					95 = {
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 70
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					5 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value = 25 } }
+				}
+				random_list = {
+					70 = {
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 60
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					30 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}	
+			}
+			else_if = {
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value = 0 } } 
+				}
+				random_list = {
+					50 = { 
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 50
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					50 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}	
+			}
+			else_if = {
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value < 0 } } 
+				}
+				random_list = {
+					40 = {
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 50
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					60 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}	
+			}												
+		}												# END OF GENIUS COMBAT CALCULATION
+		add_blood_splatter_effect = yes
+		event_target:vendetta_duel_target = {
+			add_blood_splatter_effect = yes
+		}
+		narrative_event = { id = DecVend.405 }
+	}
+}
+
+character_event = {	# third round
+	id = DecVend.405
+	desc = EVTDESCDecVend.405
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	portrait = event_target:vendetta_duel_target
+	
+	is_triggered_only = yes
+
+	option = { # we fight again
+		name = EVTOPTADecVend.405
+		ai_chance = { factor = 10 }
+		hidden_tooltip = {
+			if = {											# BEGINNING OF GENIUS COMBAT CALCULATION
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value = 50 } } 
+				}
+				random_list = {
+					95 = {
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 70
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					5 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value = 25 } }
+				}
+				random_list = {
+					70 = {
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 60
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					30 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}	
+			}
+			else_if = {
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value = 0 } } 
+				}
+				random_list = {
+					50 = { 
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 50
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					50 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}	
+			}
+			else_if = {
+				limit = {
+					ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value < 0 } } 
+				}
+				random_list = {
+					40 = {
+						# not hurt
+						sound_effect = duel_win
+						add_character_modifier = {
+							name = duel_experience        
+							duration = -1
+							stacking = yes
+						}
+						event_target:vendetta_duel_target = {
+							random = {
+								chance = 50
+								if = { 
+									limit = { trait = severely_injured } 
+									add_trait = maimed
+								}
+								if = { 
+									limit = { trait = wounded } 
+									add_trait = severely_injured
+								}
+								if = { 
+									limit = { NOT = { trait = wounded } }
+									add_trait = wounded
+								}
+							}	
+						}
+					}
+					60 = {
+						if = { 
+							limit = { trait = severely_injured } 
+							add_trait = maimed
+						}
+						if = { 
+							limit = { trait = wounded } 
+							add_trait = severely_injured
+						}
+						if = { 
+							limit = { NOT = { trait = wounded } }
+							add_trait = wounded
+						}
+						sound_effect = duel_lose
+					}
+				}	
+			}												
+		}												# END OF GENIUS COMBAT CALCULATION
+		add_blood_splatter_effect = yes
+		event_target:vendetta_duel_target = {
+			add_blood_splatter_effect = yes
+		}
+		character_event = { id = DecVend.406 }
+	}
+}
+
+character_event = {	# all rounds complete, calculate a winner
+	id = DecVend.406
+	desc = EVTDESCDecVend.406
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	portrait = event_target:vendetta_duel_target
+	
+	is_triggered_only = yes
+
+	option = { # challenge successful, stronger
+		name = EVTOPTADecVend.406
+		ai_chance = { factor = 10 }
+		trigger = {
+			ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value > 0 } } 
+		}
+		hidden_tooltip = {
+			event_target:vendetta_duel_target = {
+				if = { 
+					limit = { NOT = { trait = wounded } }
+					add_trait = wounded
+				}
+			}
+		}
+		character_event = { id = DecVend.407 }
+	}
+	option = { # challenge failed, weaker
+		name = EVTOPTBDecVend.406
+		ai_chance = { factor = 10 }
+		trigger = {
+			NOT = { ROOT = { combat_rating_diff = { who = event_target:vendetta_duel_target value > 0 } } }
+		}
+		hidden_tooltip = {
+			if = { 
+				limit = { NOT = { trait = wounded } }
+				add_trait = wounded
+			}
+		}
+		character_event = { id = DecVend.4075 }		
+	}
+}
+
+character_event = {	# victory, decide fate of loser
+	id = DecVend.407
+	desc = EVTDESCDecVend.407
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	portrait = event_target:vendetta_duel_target
+	
+	is_triggered_only = yes
+
+	option = { # beheading, not impaler
+		name = EVTOPTADecVend.407
+		trigger = {
+			NOT = { trait = impaler }
+		}
+		ai_chance = { factor = 10 }
+		event_target:vendetta_duel_target = {
+			death = {
+				death_reason = death_execution_beheading
+				killer = ROOT
+			}
+		}
+		character_event = { id = DecVend.4077 days = 15 }		# return home, remove vendetta
+	}
+	option = { # impaled, are impaler
+		name = EVTOPTBDecVend.407
+		tooltip_info = impaler	
+		trigger = {
+			trait = impaler
+		}
+		ai_chance = { factor = 10 }
+		event_target:vendetta_duel_target = {
+			death = {
+				death_reason = death_execution_impaling
+				killer = ROOT
+			}
+		}
+		character_event = { id = DecVend.4077 days = 15 }		# return home, remove vendetta
+	}
+	option = { # crusified
+		name = EVTOPTCDecVend.407
+		ai_chance = { factor = 10 }
+		event_target:vendetta_duel_target = {
+			death = {
+				death_reason = death_execution_crucifixion	
+				killer = ROOT
+			}
+		}
+		character_event = { id = DecVend.4077 days = 15 }		# return home, remove vendetta
+	}
+	option = { # hanging
+		name = EVTOPTDDecVend.407
+		ai_chance = { factor = 10 }
+		event_target:vendetta_duel_target = {
+			death = {
+				death_reason = death_execution_hanging
+				killer = ROOT
+			}
+		}
+		character_event = { id = DecVend.4077 days = 15 }		# return home, remove vendetta
+	}
+	option = { # burned alive
+		name = EVTOPTEDecVend.407
+		trigger = {
+			NOT = { religion_group = zoroastrian_group }	# mazdans wouldn't burn people
+		}
+		ai_chance = { factor = 10 }
+		event_target:vendetta_duel_target = {
+			death = {
+				death_reason = death_execution_burning
+				killer = ROOT
+			}
+		}
+		character_event = { id = DecVend.4077 days = 15 }		# return home, remove vendetta
+	}
+	option = { # trampled by elephant
+		name = EVTOPTFDecVend.407
+		trigger = {
+			religion_group = zoroastrian_group		# but mazdans would crush with an elephant
+		}
+		ai_chance = { factor = 10 }
+		event_target:vendetta_duel_target = {
+			death = {
+				death_reason = death_execution_elephants
+				killer = ROOT
+			}
+		}
+		character_event = { id = DecVend.4077 days = 15 }		# return home, remove vendetta
+	}
+}
+
+character_event = {	# failure, blinded if healthy, killed if unhealthy
+	id = DecVend.4075
+	desc = EVTDESCDecVend.4075
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	portrait = event_target:vendetta_duel_target
+	
+	is_triggered_only = yes
+
+	option = { # just take my eye instead
+		name = EVTOPTADecVend.4075
+		ai_chance = { factor = 10 }
+		trigger = { 
+			NOT = { trait = severely_injured } 
+		}
+		character_event = { id = DecVend.4076 }		# blinds the challenger
+		hidden_tooltip = {
+			if = {
+				limit = { is_female = no }
+				random_list = {
+					10 = { sound_effect = male_violent_death_01 }
+					10 = { sound_effect = male_violent_death_02 }
+					10 = { sound_effect = male_violent_death_03 }
+					10 = { sound_effect = male_violent_death_04 }
+					10 = { sound_effect = male_violent_death_05 }
+				}
+			}
+			else = {
+				random_list = {
+					10 = { sound_effect = female_violent_death_01 }
+					10 = { sound_effect = female_violent_death_02 }
+					10 = { sound_effect = female_violent_death_03 }
+					10 = { sound_effect = female_violent_death_04 }
+				}
+			}
+		}
+	}
+	option = { # killed fairly with no ability to re-vendetta, damn
+		name = EVTOPTBDecVend.4075
+		ai_chance = { factor = 10 }
+		trigger = { trait = severely_injured } 
+		sound_effect = neutral_beheading_01
+		death = {
+			death_reason = death_duel
+			killer = event_target:vendetta_duel_target
+		}
+		hidden_tooltip = {
+			event_target:vendetta_duel_target = { 
+				remove_trait = travelling 
+				prestige = 500
+				imprison = no 	# if they were imprisoned still
+				remove_character_modifier = the_dungeon 
+				remove_character_modifier = the_oubliette  
+				remove_character_modifier = house_arrest  
+			}
+		}
+		any_player = {
+			limit = { is_close_relative = vendetta_duel_target }
+			character_event = { id = DecVend.408 days = 5 }		# family specially notified of death 
+		}
+	}
+}
+
+character_event = {	# blinded
+	id = DecVend.4076
+	desc = EVTDESCDecVend.4076
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	portrait = event_target:vendetta_duel_target
+	
+	is_triggered_only = yes
+
+	option = { # I'm blind!
+		name = EVTOPTADecVend.4076
+		ai_chance = { factor = 10 }
+		if = {
+			limit = { trait = one_eyed }
+			remove_trait = one_eyed
+		}
+		add_trait = blinded			
+		character_event = { id = DecVend.4078 days = 30 }		# return home blind, remove vendetta
+	}
+}
+
+character_event = {	# return home victorious
+	id = DecVend.4077
+	desc = EVTDESCDecVend.4077
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	portrait = event_target:vendetta_duel_target
+	
+	is_triggered_only = yes
+
+	option = { # huzzah, i guess
+		name = EVTOPTADecVend.4077
+		ai_chance = { factor = 10 }
+		remove_trait = travelling
+		remove_character_modifier = vendetta_modifier
+		prestige = 300
+		add_character_modifier = { 
+			name = hand_of_vengeance_modifier    
+			duration = -1
+			stacking = yes
+		}
+	}
+}
+
+character_event = {	# return home blind and defeated
+	id = DecVend.4078
+	desc = EVTDESCDecVend.4078
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	portrait = event_target:vendetta_duel_target
+	
+	is_triggered_only = yes
+
+	option = { # their face will haunt me 
+		name = EVTOPTADecVend.4078
+		ai_chance = { factor = 10 }	
+		remove_trait = travelling
+		remove_character_modifier = vendetta_modifier
+		prestige = -300
+		hidden_tooltip = {
+			event_target:vendetta_duel_target = { 
+				remove_trait = travelling 
+				prestige = 500
+				imprison = no 	# if they were imprisoned still
+				remove_character_modifier = the_dungeon 
+				remove_character_modifier = the_oubliette  
+				remove_character_modifier = house_arrest  
+			}
+		}
+	}
+}
+
+character_event = {	# players notified that family has been murdered in a vendetta
+	id = DecVend.408
+	desc = EVTDESCDecVend.408
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	portrait = event_target:vendetta_duel_target
+	
+	is_triggered_only = yes
+
+	option = { # the vile beast!
+		name = EVTOPTADecVend.408
+		ai_chance = { factor = 10 }
+	}
+}

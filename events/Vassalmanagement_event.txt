@@ -1,0 +1,255 @@
+namespace = flag_province_p_event
+province_event = {
+	id = flag_province_p_event.250001
+	desc = flag_province_p_event.250001.desc
+	picture = "GFX_evt_garden"
+	is_triggered_only = yes
+	
+	immediate = {
+		capital_scope = {
+			set_province_flag = keep_it
+			add_province_modifier = { name = "keep_it" duration = -1 }
+			duchy = {
+				any_province = {
+					limit = {
+						duchy = {
+							title = PREVPREV
+						}
+					}
+					set_province_flag = keep_it
+					add_province_modifier = { name = "keep_it" duration = -1 }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = flag_province_p_event.250001.opta
+	}
+}
+
+namespace = unflag_province_p_event
+province_event = {
+	id = unflag_province_p_event.250001
+	desc = unflag_province_p_event.250001.desc
+	picture = "GFX_evt_carriage"
+	is_triggered_only = yes
+	
+	immediate = {
+		capital_scope = {
+			clr_province_flag = keep_it
+			remove_province_modifier = keep_it
+			duchy = {
+				any_province = {
+					limit = {
+						duchy = {
+							title = PREVPREV
+						}
+					}
+					clr_province_flag = keep_it
+					remove_province_modifier = keep_it
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = unflag_province_p_event.250001.opta
+	}
+}
+
+namespace = flag_province_marshal
+province_event = {
+	id = flag_province_marshal.250001
+	desc = flag_province_marshal.250001.desc
+	picture = "GFX_evt_garden"
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_vassal = {
+			limit = { has_job_title = job_marshal }
+			location = {
+				set_province_flag = keep_it
+				add_province_modifier = { name = "keep_it" duration = -1 }
+			}
+		}
+		random_courtier  = {
+			limit = { has_job_title = job_marshal }
+			location = {
+				set_province_flag = keep_it
+				add_province_modifier = { name = "keep_it" duration = -1 }
+			}
+		}
+	}
+	
+	option = {
+		name = flag_province_marshal.250001.opta
+	}
+}
+
+namespace = unflag_province_marshal
+province_event = {
+	id = unflag_province_marshal.250001
+	desc = unflag_province_marshal.250001.desc
+	picture = "GFX_evt_carriage"
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_vassal = {
+			limit = { has_job_title = job_marshal }
+			location = {
+				clr_province_flag = keep_it
+				remove_province_modifier = keep_it
+			}
+		}
+		random_courtier  = {
+			limit = { has_job_title = job_marshal }
+			location = {
+				clr_province_flag = keep_it
+				remove_province_modifier = keep_it
+			}
+		}
+	}
+	
+	option = {
+		name = unflag_province_marshal.250001.opta
+	}
+}
+
+
+namespace = banish_all
+character_event = {
+	id = banish_all.250001
+	desc = banish_all.250001.desc
+	picture = "GFX_evt_council"
+	is_triggered_only = yes
+	
+	immediate = {
+		any_courtier = {
+			limit = {
+				is_ruler = no
+				NOT = { dynasty = ROOT }
+				NOT = { is_close_relative = ROOT }
+			}
+			banish = yes
+		}
+	}
+	
+	option = {
+		name = banish_all.250001.opta
+	}
+}
+
+####################################################################################
+
+namespace = revoke_all
+character_event = {
+	id = revoke_all.250001
+	desc = revoke_all.250001.desc
+	picture = "GFX_evt_council"
+	is_triggered_only = yes
+	
+	immediate = {
+		any_realm_lord ={
+			any_courtier = {
+				limit = {
+					is_ruler = no
+					NOT = { dynasty = ROOT }
+				}
+				banish = yes
+			}
+			any_demesne_title = {
+				limit = {
+					temporary = no
+				}
+				usurp_title = ROOT
+			}
+		}
+		any_courtier = {
+			limit = {
+				is_ruler = no
+				NOT = { dynasty = ROOT }
+				NOT = { is_close_relative = ROOT }
+			}
+			banish = yes
+		}
+		any_dynasty_member = {
+			limit = {
+				is_ruler = no
+			}
+			any_courtier = {
+				limit = {
+					is_ruler = no
+					is_close_relative = PREV
+				}
+				move_character = ROOT
+			}
+			move_character = ROOT
+		}
+	}
+	
+	option = {
+		name = revoke_all.250001.opta
+	}
+}
+
+####################################################################################
+
+namespace = revoke_all_others
+character_event = {
+	id = revoke_all_others.250001
+	desc = revoke_all_others.250001.desc
+	picture = "GFX_evt_council"
+	is_triggered_only = yes
+
+	immediate = {
+		any_realm_lord ={
+			limit = {
+				OR = {
+					NOT = { religion = ROOT }
+					NOT = { culture = ROOT }
+				}
+			}
+			any_courtier = {
+				limit = {
+					is_ruler = no
+					NOT = { dynasty = ROOT }
+				}
+				banish = yes
+			}
+			any_demesne_title = {
+				limit = {
+					temporary = no
+				}
+				usurp_title = ROOT
+			}
+		}
+		any_courtier = {
+			limit = {
+				is_ruler = no
+				NOT = { dynasty = ROOT }
+				NOT = { is_close_relative = ROOT }
+			}
+			banish = yes
+		}
+		any_dynasty_member = {
+			limit = {
+				is_ruler = no
+			}
+			any_courtier = {
+				limit = {
+					is_ruler = no
+					is_close_relative = PREV
+				}
+				move_character = ROOT
+			}
+			move_character = ROOT
+		}
+	}
+	
+	option = {
+		name = revoke_all_others.250001.opta
+	}
+}

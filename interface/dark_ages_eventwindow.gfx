@@ -1,0 +1,432 @@
+spriteTypes = 
+{
+	spriteType = {
+		name = "GFX_evt_da_dementia"
+		texturefile = "gfx\\event_pictures\\da_dementia.dds"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_easter"
+		texturefile = "gfx\\event_pictures\\da_easter.dds"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_shipwreck"
+		texturefile = "gfx\\event_pictures\\da_shipwreck.dds"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_city_fire"
+		texturefile = "gfx\\event_pictures\\da_city_fire.dds"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_migration"
+		texturefile = "gfx\\event_pictures\\da_migration.dds"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_impalement"
+		texturefile = "gfx\\event_pictures\da_impalement.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_pirates"
+		texturefile = "gfx\\event_pictures\da_pirates.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_riot"
+		texturefile = "gfx\\event_pictures\da_riot.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_dagger"
+		texturefile = "gfx\\event_pictures\da_dagger.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_tomb"
+		texturefile = "gfx\\event_pictures\da_tomb.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_religion"
+		texturefile = "gfx\\event_pictures\da_religion.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_quarrel"
+		texturefile = "gfx\\event_pictures\da_quarrel.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_small_port"
+		texturefile = "gfx\\event_pictures\da_small_port.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_ship"
+		texturefile = "gfx\\event_pictures\da_ship.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_big_port"
+		texturefile = "gfx\\event_pictures\da_big_port.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_state_diplomacy"
+		texturefile = "gfx\\event_pictures\da_state_diplomacy.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_ruler_working"
+		texturefile = "gfx\\event_pictures\da_ruler_working.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_dice"
+		texturefile = "gfx\\event_pictures\da_dice.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_dancing_feast"
+		texturefile = "gfx\\event_pictures\da_dancing_feast.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_hunt"
+		texturefile = "gfx\\event_pictures\da_hunt.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_dueling_knights"
+		texturefile = "gfx\\event_pictures\da_dueling_knights.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_bad_news"
+		texturefile = "gfx\\event_pictures\da_bad_news.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_court_celebration"
+		texturefile = "gfx\\event_pictures\da_court_celebration.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_gathering"
+		texturefile = "gfx\\event_pictures\da_gathering.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_military_technology"
+		texturefile = "gfx\\event_pictures\da_military_technology.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_countryside"
+		texturefile = "gfx\\event_pictures\da_countryside.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_garden"
+		texturefile = "gfx\\event_pictures\da_garden.tga"
+		allwaystransparent = yes
+	}	
+
+	spriteType = {
+		name = "GFX_evt_da_gloomy_village"
+		texturefile = "gfx\\event_pictures\da_gloomy_village.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_camaraderie"
+		texturefile = "gfx\\event_pictures\da_camaraderie.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_council_assembled"
+		texturefile = "gfx\\event_pictures\da_council_assembled.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_building_house"
+		texturefile = "gfx\\event_pictures\da_building_house.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_burning_castle"
+		texturefile = "gfx\\event_pictures\da_burning_castle.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_spymaster"
+		texturefile = "gfx\\event_pictures\da_spymaster.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_carriage"
+		texturefile = "gfx\\event_pictures\da_carriage.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_wounded"
+		texturefile = "gfx\\event_pictures\da_wounded.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_banquet"
+		texturefile = "gfx\\event_pictures\da_banquet.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_assassination"
+		texturefile = "gfx\\event_pictures\da_assassination.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_back_hit"
+		texturefile = "gfx\\event_pictures\da_back_hit.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_ancient_book"
+		texturefile = "gfx\\event_pictures\da_ancient_book.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_darkages"
+		texturefile = "gfx\\event_pictures\da_darkages.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_gold_chest"
+		texturefile = "gfx\\event_pictures\da_gold_chest.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_dead"
+		texturefile = "gfx\\event_pictures\da_dead.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_private_discussion"
+		texturefile = "gfx\\event_pictures\da_private_discussion.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_scandal"
+		texturefile = "gfx\\event_pictures\da_scandal.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_lust"
+		texturefile = "gfx\\event_pictures\da_lust.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_love"
+		texturefile = "gfx\\event_pictures\da_love.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_pregnant"
+		texturefile = "gfx\\event_pictures\da_pregnant.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_council_agreement"
+		texturefile = "gfx\\event_pictures\da_council_agreement.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_councillor_angry"
+		texturefile = "gfx\\event_pictures\da_councillor_angry.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_family"
+		texturefile = "gfx\\event_pictures\da_family.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_kneeling"
+		texturefile = "gfx\\event_pictures\da_kneeling.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_artifacts"
+		texturefile = "gfx\\event_pictures\da_artifacts.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_couple_quarrel"
+		texturefile = "gfx\\event_pictures\da_couple_quarrel.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_dead_body"
+		texturefile = "gfx\\event_pictures\da_dead_body.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_assassin"
+		texturefile = "gfx\\event_pictures\da_assassin.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_hooded_char"
+		texturefile = "gfx\\event_pictures\da_hooded_char.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_conversation"
+		texturefile = "gfx\\event_pictures\da_conversation.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_tavern"
+		texturefile = "gfx\\event_pictures\da_tavern.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_burning_city"
+		texturefile = "gfx\\event_pictures\da_burning_city.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_letter_and_book"
+		texturefile = "gfx\\event_pictures\da_letter_and_book.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_wasted_road"
+		texturefile = "gfx\\event_pictures\da_wasted_road.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_riddle"
+		texturefile = "gfx\\event_pictures\da_riddle.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_beheading"
+		texturefile = "gfx\\event_pictures\da_beheading.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_bloody_tools"
+		texturefile = "gfx\\event_pictures\da_bloody_tools.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_bloodlines"
+		texturefile = "gfx\\event_pictures\da_bloodlines.tga"
+		allwaystransparent = yes
+	}	
+
+	spriteType = {
+		name = "GFX_evt_da_doge"
+		texturefile = "gfx\\event_pictures\da_doge.tga"
+		allwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_evt_da_heir"
+		texturefile = "gfx\\event_pictures\da_heir.tga"
+		allwaystransparent = yes
+	}	
+
+	spriteType = {
+		name = "GFX_evt_da_child_reading"
+		texturefile = "gfx\\event_pictures\da_child_reading.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_da_children_talking"
+		texturefile = "gfx\\event_pictures\da_children_talking.tga"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_da_diplomat"
+		texturefile = "gfx\\event_pictures\da_diplomat.tga"
+		allwaystransparent = yes
+	}
+	
+
+	spriteType = {
+		name = "GFX_evt_da_emissary"
+		texturefile = "gfx\\event_pictures\da_emissary.tga"
+		allwaystransparent = yes
+	}	
+	
+}
+
+

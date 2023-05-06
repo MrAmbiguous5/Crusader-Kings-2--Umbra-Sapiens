@@ -1,0 +1,33 @@
+#;;;;;;;;;;;;;;x
+#§
+#####################
+## CUSTOM TOOLTIPS ##
+#####################
+#
+lmmpvf_ctt_goal_attack_neighboring_realm;(§G*§!) Enables the §YFaction Assisted War§! Casus Belli against neighboring realms.\n(§G*§!) Can ask faction members to pledge war support during the faction meeting.\n\n§GSUCCESS CONDITIONS§!:\n(§G*§!) Gain Victory in a §YFaction Assisted War§! against a neighboring realm.;;;;;;;;;;;;;x
+lmmpvf_ctt_goal_oust_foreigners_from_realm;(§G*§!) Enables the §YOust Foreigners§! Casus Belli against rulers of different culture-group in the realm.\n(§G*§!) Can ask faction members to pledge war support during the faction meeting.\n\n§GSUCCESS CONDITIONS§!:\n(§G*§!) Gain Victory in an §YOust Foreigners§! war against a ruler in your realm.;;;;;;;;;;;;;x
+lmmpvf_ctt_goal_improve_public_image;(§G*§!) Chance to improve everyone's opinion of you for several years.(§G*§!) The likelihood of success depends on the skills of the faction members.\n\n§GSUCCESS CONDITIONS§!:\n§G*§!) Improve public image through the help of faction members.;;;;;;;;;;;;;x
+lmmpvf_ctt_goal_establish_trade_route;(§G*§!) Chance to establish a Faction Trade Route in the demesne provinces of faction leader and faction members.\n(§G*§!) The likelihood of success depends on the skills of the faction members.\n\n§GSUCCESS CONDITIONS§!:\n§G*§!) Establish a Faction Trade Route through the help of faction members.;;;;;;;;;;;;x
+lmmpvf_ctt_goal_establish_settlement;(§G*§!) Can ask faction members to contribute §YWealth§! during the faction meeting.\n\n§GSUCCESS CONDITIONS§!:\n(§G*§!) Construct a new holding in any province in your demesne.;;;;;;;;;;;;;x
+lmmpvf_ctt_goal_increase_prosperity;(§G*§!) Chance to increase prosperity of all provinces of faction leader and faction members.\n(§G*§!) The likelihood of success depends on the skills of the faction members.\n\n§GSUCCESS CONDITIONS§!:\n§G*§!) Increase the prosperity through the help of faction members.;;;;;;;;;;;;;x
+lmmpvf_ctt_goal_attack_infidel_realm;(§G*§!) Enables the §YFaction Assisted Holy War§! Casus Belli against neighboring infidel realms.\n(§G*§!) Can ask faction members to pledge war support during the faction meeting.\n\n§GSUCCESS CONDITIONS§!:\n(§G*§!) Gain Victory in a Faction Assisted Holy War against a neighboring infidel realm.;;;;;;;;;;;;;x
+lmmpvf_ctt_goal_oust_infidels_from_realm;(§G*§!) Enables the §YOust Infidels§! Casus Belli against rulers of a different religion group or who are heretics in the realm.\n(§G*§!) Can ask faction members to pledge war support during the faction meeting.\n\n§GSUCCESS CONDITIONS§!:\n(§G*§!) Gain Victory in an §YOust Infidels§! war against a ruler in your realm.;;;;;;;;;;;;;x
+lmmpvf_ctt_goal_convert_province_religion;(§G*§!) Chance to convert the religion of one of your demesne provinces to the [Root.Religion.GetName] faith.\n(§G*§!) The likelihood of success depends on the skills of the faction members.\n\n§GSUCCESS CONDITIONS§!:\n§G*§!) Convert a province's religion through the help of faction members.;;;;;;;;;;;;;x
+# Focuses
+lmmpvf_FocusGlory_string;§MGlory§!;;;;;;;;;;;;;x
+lmmpvf_FocusProsperity_string;§GProsperity§!;;;;;;;;;;;;;x
+lmmpvf_FocusFaith_string;§YFaith§!;;;;;;;;;;;;;x
+lmmpvf_None_string;None;;;;;;;;;;;;;x
+lmmpvf_Hidden_string;§CHidden§!;;;;;;;;;;;;;x
+# Glory Focus Goals Strings
+lmmpvf_GoalAttackANeighboringRealm_string;Attack a Neighboring Realm;;;;;;;;;;;;;x
+lmmpvf_GoalOustForeignersFromRealm_string;Oust Foreigners from Realm;;;;;;;;;;;;;x
+lmmpvf_GoalImprovePublicImage_string;Improve Public Image;;;;;;;;;;;;;x
+# Prosperity Focus Goals Strings
+lmmpvf_GoalEstablishTradeRoute_string;Establish a Trade Route;;;;;;;;;;;;;x
+lmmpvf_GoalEstablishSettlement_string;Establish a New Settlement;;;;;;;;;;;;;x
+lmmpvf_GoalIncreaseProsperity_string;Increase Realm Prosperity;;;;;;;;;;;;;x
+# Faith Focus Goals Strings
+lmmpvf_GoalAttackInfidelRealm_string;Attack an Infidel Realm;;;;;;;;;;;;;;x
+lmmpvf_GoalOustInfidelsFromRealm_string;Oust Infidels from Realm;;;;;;;;;;;;;x
+lmmpvf_GoalConvertProvinceReligion_string;Convert Province Religion;;;;;;;;;;;;;x

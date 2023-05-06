@@ -1,0 +1,4146 @@
+namespace = hdarkages
+#trigger on action yearly_pulse
+
+character_event = {
+	id = hdarkages.099
+	hide_window = yes
+	is_triggered_only = yes
+	only_playable = yes
+	min_age = 14
+	only_independent = no
+	only_capable = yes
+	prisoner = no
+	trigger = {
+		NOR = {
+			has_character_flag = payed_homage
+			has_character_flag = did_not_pay_homage
+			has_character_flag = temporary_no_homage
+		}
+		is_feudal = yes 
+		is_vice_royalty	= no
+		OR = {
+			higher_real_tier_than = COUNT
+			among_most_powerful_vassals = 5
+		}		
+		OR = { 
+			AND = {
+				has_dlc = "Holy Fury"
+				liege = { ruler_is_a_crowned_king = yes }
+			}
+			NOT =  { has_dlc = "Holy Fury" }
+		}
+		
+		liege = {
+			current_heir = {
+				vassal_of = PREV
+			}
+			is_incapable = no
+			NOT = { character = ROOT }
+			NOT = {
+				has_character_modifier = da_temp_homage
+			}
+			religion_group = christian
+			in_command = no
+		}
+	} 
+	
+	immediate = { 
+		character_event = { id = hdarkages.002 } 
+		liege = {
+			add_character_modifier = {
+				name = da_temp_homage
+				duration = 365
+				hidden = yes
+			}
+		}
+	}
+}
+
+#Heir or Ruler is prompted to go to his liege.
+
+character_event = {
+	id = hdarkages.002
+	title = FEUDALCONTRACT
+	desc = EVTHDARKAGES002		
+
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {  
+		independent = no
+		age = 12
+		is_feudal = yes
+		OR = { 
+			AND = {
+				has_dlc = "Holy Fury"
+				liege = { ruler_is_a_crowned_king = yes }
+			}
+			NOT =  { has_dlc = "Holy Fury" }
+		}
+		liege = {
+			in_command = no
+			religion_group = christian
+         }
+	}
+
+	option = { #Will go.
+	
+		name = OPTIONDARKAGES002
+		custom_tooltip = { text = tooltip_HDARKGES002_A }
+		prestige = 50
+		hidden_tooltip = { liege = { character_event = { id = hdarkages.004 days = 25 random = 15 } } } #Liege event.
+		tooltip = {	
+			liege = {
+				opinion = {
+					modifier = opinion_da_vassal_respected_me
+					who = ROOT
+					years = 20
+				}
+			}
+		}
+		ai_chance = { 	
+			factor = 9
+			modifier = {
+				factor = 1.5
+				liege = { prestige = 100 }
+			}
+			modifier = {
+				factor = 2
+				liege = { prestige = 200 }
+			}
+			modifier = {
+				factor = 0.5
+				liege = { NOT = { prestige = -100 } }
+			}
+		}
+		
+	}
+	option = { #Will NOT go ai.
+	
+		name = EVTOPDARKAGES002B
+		trigger = { ai = yes }
+		set_character_flag = did_not_pay_homage
+		custom_tooltip = { text = tooltip_HDARKGES002_B }
+		hidden_tooltip = { liege = { character_event = { id = hdarkages.003 days = 25 random = 15 } } } #Notify liege vassal will not go.
+		prestige = -75
+		liege = { 
+			opinion = {
+				modifier = opinion_da_vassal_refused_homage
+				who = ROOT
+				years = 30
+			}
+		}
+		random = {
+			chance = 20
+			add_trait = ambitious
+		}
+					
+		ai_chance = { 	
+			factor = 1
+			modifier = {
+				factor = 0
+				liege = { is_friend = ROOT }
+			}
+			modifier = {
+				factor = 0
+				liege = { is_lover = ROOT }
+			}
+			modifier = {
+				factor = 0.5
+				liege = { is_married = ROOT }
+			}
+			modifier = {
+				factor = 1.5
+				liege = { is_close_relative = ROOT }
+			}
+			modifier = {
+				factor = 5
+				liege = { is_rival = ROOT }
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 4
+				trait = ambitious
+			}
+			
+			modifier = {
+				factor = 2
+				liege = { NOT = { religion = ROOT } }
+			}
+			modifier = {
+				factor = 3
+				liege = { NOT = { religion = ROOT } }
+				trait = zealous 
+			}
+			
+			modifier = {
+				factor = 1.5
+				NOT = { 
+					opinion = { 
+						who = liege
+						value = 0 
+					} 
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = { 
+					opinion = { 
+						who = liege
+						value = -20 
+					} 
+				}
+			}
+			modifier = {
+				factor = 3
+				NOT = { 
+					opinion = { 
+						who = liege
+						value = -40 
+					} 
+				}
+			}
+			modifier = {
+				factor = 4
+				NOT = { 
+					opinion = { 
+						who = liege
+						value = -60 
+					}
+				}
+			}
+			modifier = {
+				factor = 3
+				liege = {
+					trait = crowned_by_priest 
+			
+				}
+			}
+		}
+	
+	}
+	option = { #Will NOT go player.
+		name = EVTOPDARKAGES002C
+		trigger = { ai = no }
+		set_character_flag = did_not_pay_homage
+		custom_tooltip = { text = tooltip_HDARKGES002_B }
+		hidden_tooltip = { liege = { character_event = { id = hdarkages.003 days = 15 random = 15 } } } #Notify liege vassal will not go.
+		prestige = -75
+		liege = { 
+			opinion = {
+				modifier = opinion_da_vassal_refused_homage
+				who = ROOT
+				years = 30
+			}
+		}
+		random_list = {
+			1 = {
+				add_trait = ambitious
+			}
+			2 = {
+				add_trait = brave
+			}
+			1 = {
+			}
+		}
+	}
+	
+	option = { #Do nothing and wait
+		name = EVTOPDARKAGES002D
+		trigger = { 
+			prestige = 750
+			diplomacy = 12
+		}
+		custom_tooltip = { text = tooltip_DARKAGES002D }
+		set_character_flag = temporary_no_homage
+	}	
+}		
+
+
+#Liege notified new vassal won't pay him homage.
+
+character_event = {
+	id = hdarkages.003
+	title = ENDOFEUDALCONTRACT
+	desc = EVTHDARKAGES003
+
+	picture = GFX_evt_courier
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {  
+		religion_group = christian
+		OR = { 
+			AND = {
+				has_dlc = "Holy Fury"
+				ruler_is_a_crowned_king = yes
+			}
+			NOT = { has_dlc = "Holy Fury" }
+		}
+	}
+
+	option = { 
+		name = OPTIONDARKAGES003 
+		custom_tooltip = { text = tooltip_DARKAGES003_A }
+		prestige = -75
+		tooltip = { 
+			opinion = { 
+				modifier = opinion_da_vassal_refused_homage
+				years = 50 
+				who = FROM 
+			}
+		}
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0.5
+					NOT = {
+						prestige = 0
+					}
+				}
+				modifier = {
+					factor = 1.25
+					prestige = 250
+				}
+				modifier = {
+					factor = 1.35
+					prestige = 500
+				}
+				modifier = {
+					factor = 1.5
+					prestige = 1000
+				}				
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.35
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 18
+				}	
+				modifier = {
+					factor = 1.75
+					intrigue = 21
+				}
+				modifier = {
+					factor = 0.8
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 0.6
+					NOT = { intrigue = 4 }
+				}	
+				modifier = {
+					factor = 0.5
+					NOT = { intrigue = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+				modifier = {
+					factor = 0.5
+					trait = honest
+				}
+				modifier = {
+					factor = 0.5
+					trait = content
+				}
+				modifier = {
+					factor = 1.5
+					trait = ambitious
+				}
+				FROM = {
+					primary_title = {
+						ROOT = {
+							add_claim = PREV
+						}
+					}
+				}
+				prestige = 125
+				FROM = { 
+					opinion = {
+						modifier = opinion_da_king_claimed_mytitle_2
+						who = ROOT
+						years = 20
+					}
+				}
+				hidden_tooltip = {
+					character_event = { id = hdarkages.042 } #liege notified he got the claim
+					FROM = { character_event = { id = hdarkages.030 days = 25 random = 10 } } #vassal notified his liege has a claim on him
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					name = king_failed_homage
+					duration = 1095
+				}
+				tooltip = {
+					FROM = {
+						opinion = {
+							modifier = opinion_da_king_tried_claim_title
+							who = ROOT
+							years = 10
+						}	
+					}
+				}
+				hidden_tooltip = {
+					FROM = { character_event = { id = hdarkages.052 days = 20 random = 5 } } #notified vassal liege failed to claim his titles
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = OPTIONDARKAGES003B
+		trigger = { NOT = { ai = yes } }
+		random_list = {
+			1 = {
+				add_trait = kind
+			}
+			1 = { 
+				add_trait = humble
+			}
+			1 = {
+				add_trait = slothful
+			}
+			2 = {
+			}
+		}
+		
+		prestige = -75
+		piety = 25
+	}
+}
+ #vassal notification liege got a claim on his primary title
+ 
+character_event = {
+	id = hdarkages.030
+	title = ENDOFEUDALCONTRACT
+	desc = EVTHDARKAGESB003
+
+	picture = GFX_evt_courier
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	
+	option = { 
+		name = OPTIONDARKAGESN003 
+		primary_title = {
+			FROM = {
+				add_claim = PREV
+			}
+		}
+	}
+}
+
+character_event = { #liege got claim
+	id = hdarkages.042
+	title = ENDOFEUDALCONTRACT
+	desc = EVTHDARKAGES042
+
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	
+	option = { 
+		name = OPTIONDARKAGES042
+		tooltip = {
+			FROMFROM = {
+				primary_title = {
+					ROOT = {
+						add_claim = PREV
+					}
+				}
+			}
+		}
+	}
+}
+
+#Liege receives homage from vassal.
+
+character_event = {
+	id = hdarkages.004
+	title = FEUDALCONTRACT
+	desc = EVTHDARKAGES004
+
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {  
+		religion_group = christian
+		OR = { 
+			AND = {
+				has_dlc = "Holy Fury"
+				ruler_is_a_crowned_king = yes
+			}
+			NOT = { has_dlc = "Holy Fury" }
+		}
+	}
+		
+	option = { #Accept homage
+		name = OPTIONDARKAGES004
+		ai_chance = { 	
+			factor = 95
+		}
+		custom_tooltip = { text = tooltip_HDARKAGES004 }
+		hidden_tooltip = { 
+						
+			if = {
+				limit = {
+					NOT = {	religion = FROM }
+				}
+					set_character_flag = flag_homage_infidel
+					character_event = { id = hdarkages.022 days = 40 random = 15 } #start of infidel liege vassal chain of event
+					FROM = { character_event = { id = 400 days = 15 random = 15 } } #notify vassal ceremony takes place
+					break = yes
+			}
+			
+			else = {
+			
+				random_list = { 
+					14 = { 
+						modifier = {
+							factor = 0
+							NOT = { FROM = { is_beautiful_trigger = yes } }
+						}
+						modifier = {
+							factor = 0
+							FROM = { is_female = yes }
+							prefers_men_trigger = yes
+						}
+						modifier = {
+							factor = 0
+							FROM = { is_female = no }
+							prefers_men_trigger = no
+						}
+						set_character_flag = flag_homage_attractive
+					}
+					10 = { 
+						modifier = {
+							factor = 0
+							NOT = { FROM = { is_disgusting_trigger = yes } } 
+						}
+						set_character_flag = flag_homage_deformed
+					}
+					18 = { 
+						modifier = {
+							factor = 0
+							FROM = { is_female = no }	
+								
+						}
+						modifier = {
+							factor = 0
+							OR = {
+								ROOT = { is_female = yes }
+									has_law = agnatic_succession
+									has_law = cognatic_succession 
+							}
+						}
+						set_character_flag = flag_homage_sex
+					}
+					
+					1 = {
+						set_character_flag = flag_homage_generic
+					}
+				}
+			}
+
+				character_event = { id = hdarkages.006 days = 40 random = 15 } #liege-vassal flavor events
+				FROM = { character_event = { id = hdarkages.400 days = 20 random = 10 } } #notify vassal ceremony takes place
+		}
+		prestige = 50
+		opinion = {
+			modifier = opinion_da_vassal_respected_me
+			who = FROM
+			years = 20
+		}
+		tooltip = {
+			FROM = {
+				opinion = {
+					modifier = opinion_gained_respect
+					who = ROOT
+					years = 5
+				}
+			}
+		}
+		random = {
+			chance = 15
+			change_diplomacy = 1
+		}
+	}
+	
+	option = { #Refuse homage
+		name = WTF004
+		ai_chance = { 	
+			factor = 5
+			modifier = {
+				factor = 0
+				liege = { is_friend = FROM }
+			}
+			modifier = {
+				factor = 0
+				liege = { is_lover = FROM }
+			}
+			modifier = {
+				factor = 0.5
+				liege = { is_married = FROM }
+			}
+			modifier = {
+				factor = 0.5
+				liege = { is_close_relative = FROM }
+			}
+			modifier = {
+				factor = 20
+				liege = { is_rival = FROM }
+			}
+			modifier = {
+				factor = 1.5
+				trait = envious
+			}
+			modifier = {
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = {
+				factor = 3
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { 
+					opinion = { 
+						who = FROM
+						value = 0 
+					} 
+				}
+			}
+			modifier = {
+				factor = 2.5
+				NOT = { 
+					opinion = { 
+						who = FROM
+						value = -20 
+					} 
+				}
+			}
+			modifier = {
+				factor = 4
+				NOT = { 
+					opinion = { 
+						who = FROM
+						value = -40 
+					} 
+				}
+			}
+			modifier = {
+				factor = 7
+				NOT = { 
+					opinion = { 
+						who = FROM
+						value = -60 
+					} 
+				}
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = hdarkages.005 days = 15 random = 20 } } }
+		custom_tooltip = { text = tooltip_DARKAGESWTF }
+		prestige = 150
+		FROM = {
+				opinion = {
+				modifier = opinion_da_king_refused_homage
+				years = 25
+				who = ROOT
+			}
+		}
+		random_list = {
+			7 = {
+				add_character_modifier = {  name = king_refused_homage duration = 1460 } 
+			}
+			4 = {
+				add_character_modifier = { name = king_refused_homage_2 duration = 1460 }
+			}
+			5 = { 
+			}
+		}
+	}
+}
+
+#Vassal notified liege did not accept homage.#
+
+character_event = {
+	id = hdarkages.005
+	title = ENDOFEUDALCONTRACT
+	desc = EVTHDARKAGES005
+
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	immediate = { set_character_flag = payed_homage }
+	
+	option = {
+		name = OPTIONDARKAGES005
+		prestige = -100
+		tooltip = {
+			opinion = {
+				modifier = opinion_da_king_refused_homage
+				years = 25
+				who = FROM
+			}
+		}
+	}
+}
+
+#Vassal notified liege accepted homage and will take place
+
+character_event = {
+	id = hdarkages.400
+	title = FEUDALCONTRACT
+	desc = EVTHDARKAGESB005
+
+	picture = GFX_evt_diplomatic_greeting
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	immediate = { set_character_flag = payed_homage }
+	option = {
+		name = OPTIONDARKAGESB005
+		prestige = 50
+		add_character_modifier = {
+			name = out_traveling
+			duration = 50
+		}
+			opinion = {
+				modifier = opinion_gained_respect
+				who = FROM
+				years = 5
+			}
+		
+		ai_chance = { 	
+			factor = 100
+		}
+	}
+}
+
+
+############################################
+
+#Liege receives homage from vassal - Expanded flavor.
+character_event = {
+	id = hdarkages.006
+	title = HOMAGECEREMONY
+	desc = {
+		text = EVTHDARKAGES006B
+		trigger = { 
+			has_character_flag = flag_homage_attractive
+			FROMFROM = { is_female = no }
+		}
+	}
+	desc = {
+		text = EVTHDARKAGES006C
+		trigger = { 
+			has_character_flag = flag_homage_attractive
+			FROMFROM = { is_female = yes }
+		}
+	}
+	desc = {
+		text = EVTHDARKAGES006D
+		trigger = { 
+			has_character_flag = flag_homage_sex
+		}
+	}
+	desc = {
+		text = EVTHDARKAGES006E
+		trigger = { 
+			has_character_flag = flag_homage_generic
+		}
+	}
+	
+	desc = {
+		text = EVTHDARKAGES006F
+		trigger = { 
+			has_character_flag = flag_homage_deformed
+		}
+	}
+	show_from_from = yes #Vassal
+
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_diplomatic_greeting
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_diplomatic_greeting
+	}
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes	
+	
+	trigger = {
+		FROMFROM = {
+			vassal_of = ROOT
+		}
+	}
+
+		
+	option = { #Attracted
+	
+		name = OPTIONDARKAGES006A
+		custom_tooltip = { text = tooltip_DARKAGES006_A }
+		trigger = { 
+			has_character_flag = flag_homage_attractive 
+			is_adult = yes
+			OR = { 
+				AND = { 
+					FROMFROM = { is_female = yes } 
+					prefers_men_trigger = no
+				}
+				AND = { 
+					FROMFROM = { is_female = no } 
+					prefers_men_trigger = yes
+				}
+			}
+		}
+		hidden_tooltip = { 
+			random_list = {
+				5 = {
+					modifier = {
+						factor = 0
+						FROMFROM = { prefers_men_trigger = yes }
+						is_female = yes
+					}
+					modifier = {
+						factor = 0
+						FROMFROM = { prefers_men_trigger = no }
+						is_female = no
+					}
+					modifier = {
+						factor = 0.5
+						FROMFROM = { trait = chaste }
+					}
+					modifier = {
+						factor = 0.1
+						FROMFROM = { trait = celibate }
+					}
+					modifier = {
+						factor = 0.25
+						is_disgusting_trigger = yes
+					}
+					modifier = {
+						factor = 1.75
+						is_beautiful_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						FROMFROM = { trait = lustful }
+					}
+					modifier = {
+						factor = 1.5
+						FROMFROM = { trait = hedonist }
+					}
+					FROMFROM = { 
+						set_character_flag = flag_homage_seduce_success
+						character_event = { id = hdarkages.007 days = 10 random = 10 }
+					}
+					
+				}
+				5 = { 
+					FROMFROM = { 
+						set_character_flag = flag_homage_seduce_failure 
+						character_event = { id = hdarkages.007 days = 10 random = 10 }
+					}
+				}
+			}
+		}
+			
+		ai_chance = { 	
+			factor = 50
+			modifier = {
+				factor = 0.5
+				trait = chaste
+			}
+			modifier = {
+				factor = 0
+				trait = celibate
+			}
+			modifier = {
+				factor = 1.5
+				trait = lustful
+			}
+			modifier = {
+				factor = 1.5
+				trait = hedonist
+			}
+		}
+	}
+
+	option = { #VASSAL IS DEFORMED
+	
+		name = OPTIONDARKAGES006D
+		trigger = { 
+			has_character_flag = flag_homage_deformed
+		}
+		custom_tooltip = { text = tooltip_DARKAGES006_D }
+		random = { 
+			chance = 50
+			prestige = 200
+		}
+		piety = -25
+		tooltip_info_custom = tooltip_info_DARKAGES006
+		
+		hidden_tooltip = { 
+			random_list = {
+				7 = {
+					modifier = {
+						factor = 0.5
+						FROMFROM = { trait = envious }
+					}
+					modifier = {
+						factor = 0.3
+						FROMFROM = { trait = proud }
+					}
+					modifier = {
+						factor = 0.5
+						FROMFROM = { trait = wroth }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = humble }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = content }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = kind }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = patient }
+					}
+					
+					FROMFROM = { 
+						set_character_flag = flag_homage_deformed_success
+						character_event = { id = hdarkages.007 days = 10 random = 10 }
+					} 
+				}
+				3 = { 
+					modifier = {
+						factor = 0.2
+						FROMFROM = {
+							opinion = {
+								who = ROOT
+								value = -10
+							}
+						}
+					}
+					modifier = {
+						factor = 0.5
+						FROMFROM = {
+							opinion = {
+								who = ROOT
+								value = 0
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						NOT = {
+							FROMFROM = {
+								opinion = { 
+									who = ROOT
+									value = -20
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0
+						FROMFROM = {
+							NOT = {
+								OR = {
+									trait = possessed
+									trait = lunatic
+									trait = wroth
+									trait = drunkard
+									trait = proud
+									trait = insane
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						FROMFROM = {
+							trait = lunatic
+						}
+					}
+					modifier = {
+						factor = 1.5
+						FROMFROM = {
+							trait = drunkard
+						}
+					}
+					modifier = {
+						factor = 3
+						FROMFROM = {
+							trait = possessed
+						}
+					}
+					FROMFROM = { 
+						set_character_flag = flag_homage_deformed_failure
+						character_event = { id = hdarkages.007 days = 10 random = 10 }	
+					} 
+				}
+			}
+		}
+		ai_chance = { 	
+			factor = 20
+			modifier = {
+				factor = 0.5
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = drunkard
+			}
+			modifier = {
+				factor = 2.5
+				trait = lunatic
+			}
+			modifier = {
+				factor = 1.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 3
+				trait = possessed
+			}
+			modifier = {
+				factor = 0.5
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0.5
+				trait = charitable
+			}
+			modifier = {
+				factor = 0.3
+				opinion = { 
+					who = FROMFROM
+					value = 20
+				}
+			}
+			modifier = {	
+				factor = 1.5
+				NOT = {	
+					opinion = { 
+						who = FROMFROM
+						value = -15
+					}
+				}
+			}
+			modifier = {	
+				factor = 2
+				NOT = {	
+					opinion = { 
+						who = FROMFROM
+						value = -30
+					}
+				}
+			}
+			modifier = {	
+				factor = 3
+				NOT = {	
+					opinion = { 
+						who = FROMFROM
+						value = -50
+					}
+				}
+			}
+		}		
+	}
+	
+	option = { #Formal greeting
+		name = OPTIONDARKAGES006B
+		trigger = {
+			 NOT = { has_character_flag = flag_homage_deformed }
+		}
+		custom_tooltip = { text = tooltip_DARKAGES006_B }
+		wealth = -10
+		hidden_tooltip = { 
+			random_list = {
+				8 = {
+					modifier = {
+						factor = 0.5
+						FROMFROM = { trait = just }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = gregarious }
+					}
+					modifier = {
+						factor = 1.5
+						FROMFROM = { trait = proud }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = content }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 0
+						FROMFROM = { is_crazy_trigger = yes }
+					}
+					
+					FROMFROM = { 
+						set_character_flag = flag_homage_formal_success 
+						character_event = { id = hdarkages.007 days = 15 random = 15 }
+					}
+					
+				}
+				2 = { 
+					FROMFROM = { 				
+						set_character_flag = flag_homage_formal_failure 
+						character_event = { id = hdarkages.007 days = 15 random = 15 }
+					}
+				}
+			}
+		}
+		ai_chance = { 	
+			factor = 50
+			modifier = {
+				factor = 2
+				trait = gregarious
+			}
+			modifier = {
+				factor = 2
+				trait = socializer
+			}
+			modifier = {
+				factor = 0.8
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0.5
+				trait = paranoid
+			}
+		}
+	}
+	option = { #Informal greeting
+		name = OPTIONDARKAGES006C
+		custom_tooltip = { text = tooltip_DARKAGES006_C }
+		prestige = 50
+		hidden_tooltip = { 
+			random_list = {
+				65 = {
+					modifier = {
+						factor = 0.5
+						FROMFROM = { trait = gregarious }
+					}
+					modifier = {
+						factor = 0.1
+						FROMFROM = { trait = socializer }
+					}
+					modifier = {
+						factor = 0.5
+						FROMFROM = { trait = arbitrary }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = shy }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = content }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 0
+						FROMFROM = { trait = proud }
+					}
+					FROMFROM = { 
+					set_character_flag = flag_homage_informal_success
+					character_event = { id = hdarkages.007 days = 15 random = 15 }
+					} 
+					
+				}
+				35 = { 
+					FROMFROM = { 
+					set_character_flag = flag_homage_informal_failure
+					character_event = { id = hdarkages.007 days = 15 random = 15 }
+					} 
+				}
+			}
+		}
+		ai_chance = { 	
+			factor = 30
+			modifier = {
+				factor = 1.25
+				trait = shy
+			}
+			modifier = {
+				factor = 0.5
+				trait = humble
+			}
+			modifier = {
+				factor = 1.25
+				trait = just
+			}
+			modifier = {
+				factor = 0.5
+				trait = trusting
+			}
+		}
+	}
+	
+	option = { #VASSAL IS A WOMAN
+		name = OPTIONDARKAGES006E
+		custom_tooltip = { text = tooltip_DARKAGES006_E }
+		trigger = { 
+			has_character_flag = flag_homage_sex
+		}
+		hidden_tooltip = { 
+			random_list = {
+				3 = {
+					modifier = {
+						factor = 0.5
+						FROMFROM = { trait = envious }
+					}
+					modifier = {
+						factor = 0.1
+						FROMFROM = { trait = proud }
+					}
+					modifier = {
+						factor = 0.5
+						FROMFROM = { trait = ambitious }
+					}
+					modifier = {
+						factor = 0.5
+						FROMFROM = { trait = wroth }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = humble }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = content }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = kind }
+					}
+					modifier = {
+						factor = 1.75
+						FROMFROM = { trait = patient }
+					}
+					FROMFROM = { 
+						set_character_flag = flag_homage_sex_success
+						character_event = { id = hdarkages.007 days = 10 random = 5 }
+					} 
+				}
+				7 = { 
+					FROMFROM = { 
+						set_character_flag = flag_homage_sex_failure
+						character_event = { id = hdarkages.007 days = 10 random = 5 }		
+					} 
+				}
+			}
+		}
+		ai_chance = { 	
+			factor = 50
+			modifier = {
+				factor = 0.5
+				trait = kind
+			}
+			modifier = {
+				factor = 0.5
+				trait = humble
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 1.5
+				trait = envious
+			}
+		}
+	}
+	
+	option = { #JUST GET IT OVER WITH
+		name = OPTIONNOTHING
+		custom_tooltip = { text = tooltip_OPTIONNOTHING }
+		trigger = {
+			NOT = { ai = yes }
+			NOR = {
+				trait = lunatic
+				trait = possessed
+				trait = paranoid
+				trait = insane
+			}
+		}
+		prestige = -50
+		random = {
+			chance = 10
+			change_diplomacy = -1
+		}
+		hidden_tooltip = { character_event = { id = hdarkages.043 days = 20 random = 15 } } #just flavor event and description
+	}
+	
+	after = { 
+		clr_character_flag = flag_homage_infidel
+		clr_character_flag = flag_homage_child
+		clr_character_flag = flag_homage_old
+		clr_character_flag = flag_homage_attractive
+		clr_character_flag = flag_homage_deformed
+		clr_character_flag = flag_homage_sex
+		clr_character_flag = flag_homage_evil
+		clr_character_flag = flag_homage_good
+		clr_character_flag = flag_homage_generic
+	}
+}
+
+
+######VASSAL REACTIONS#####
+
+character_event = {
+	id = hdarkages.007
+	title = HOMAGECEREMONY
+	desc = {
+		text = EVTHDARKAGES007
+		trigger = { 
+			has_character_flag = flag_homage_seduce_success
+			FROMFROM = { is_female = no }
+		}
+	}
+	desc = {
+		text = EVTHDARKAGES007B
+		trigger = { 
+			has_character_flag = flag_homage_seduce_failure
+			FROMFROM = { is_female = yes }
+		}
+	}
+	desc = {
+		text = EVTHDARKAGES010
+		trigger = { 
+			has_character_flag = flag_homage_formal_success
+		}
+	}
+	desc = {
+		text = EVTHDARKAGES010B
+		trigger = { 
+			has_character_flag = flag_homage_formal_failure
+		}
+	}
+	
+	desc = {
+		text = EVTHDARKAGES013
+		trigger = { 
+			has_character_flag = flag_homage_informal_success
+		}
+	}
+	
+	desc = {
+		text = EVTHDARKAGES013B
+		trigger = { 
+			has_character_flag = flag_homage_informal_failure
+		}
+	}
+	desc = {
+		text = EVTHDARKAGES016
+		trigger = { 
+			has_character_flag = flag_homage_deformed_success
+		}
+	}
+	desc = {
+		text = EVTHDARKAGES016B
+		trigger = { 
+			has_character_flag = flag_homage_deformed_failure
+		}
+	}
+	desc = {
+		text = EVTHDARKAGES019
+		trigger = { 
+			has_character_flag = flag_homage_sex_success
+		}
+	}
+	desc = {
+		text = EVTHDARKAGES019B
+		trigger = { 
+			has_character_flag = flag_homage_sex_failure
+		}
+	}
+	
+	show_from_from = yes #Vassal
+
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes	
+	
+	option = { #SEDUCE SUCCESS
+		name = OPTIONDARKAGES007 
+		ai_chance = {
+			factor = 1
+		}
+		trigger = { 
+			has_character_flag = flag_homage_seduce_success
+		}
+		
+		opinion = {
+			modifier = opinion_enchanted
+			who = liege
+		}
+		random = {
+			chance = 20
+			liege = {
+				add_lover = ROOT
+			}
+		}
+		
+		hidden_tooltip = {
+			FROM = { character_event = { id = hdarkages.009 } } #notify seduce went okay
+		}
+	}
+	
+	option = { #SEDUCE FAILURE
+		name = OPTIONDARKAGES007B 
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {	
+			has_character_flag = flag_homage_seduce_failure
+		}
+		opinion = {
+			modifier = opinion_disgraceful
+			who = liege
+			years = 10
+		}
+		hidden_tooltip = {
+			liege = { character_event = { id = hdarkages.008 } } #notify the seduce went wrong
+		}
+	}
+	
+	option = { #VASSAL LIKED THE FORMAL HOMAGE
+		name = OPTIONDARKAGES010A
+		ai_chance = {
+			factor = 1
+		}
+		trigger = { 
+			has_character_flag = flag_homage_formal_success 
+		}
+		
+		opinion = {
+			modifier = opinion_thoroughly_impressed
+			who = liege 
+			years = 15
+		}
+		
+		hidden_tooltip = {
+			liege = { character_event = { id = hdarkages.011 } } #notify to the liege formal homage went ok
+		}
+	}
+	
+		
+	option = { #VASSAL DIDNT LIKE FORMAL HOMAGE
+		name = OPTIONDARKAGES010B
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {	
+			has_character_flag = flag_homage_formal_failure
+			is_crazy_trigger = yes
+		}
+		tooltip_info_custom = available_because_crazy
+		opinion = {
+			modifier = opinion_cautious
+			who = liege
+			years = 15
+		}
+		
+		hidden_tooltip = {
+			liege = { character_event = { id = hdarkages.012 } } #notify to the liege formal homage went bad
+		}
+	}
+	
+	option = { #VASSAL LIKED THE FORMAL HOMAGE, POSSIBLE OPTION EVEN IF FORMAL WAS A FAILURE
+		name = OPTIONDARKAGES010C
+		ai_chance = {
+			factor = 1
+		}
+		trigger = { 
+			has_character_flag = flag_homage_formal_failure
+			NOT = { is_crazy_trigger = yes }
+		}
+		
+		opinion = {
+			modifier = opinion_thoroughly_impressed
+			who = liege 
+			years = 15
+		}
+		
+		hidden_tooltip = {
+			liege = { character_event = { id = hdarkages.011 } } #notify to the liege formal homage went ok
+		}
+	}
+	
+	option = { #VASSAL LIKED INFORMAL HOMAGE
+		name = OPTIONDARKAGES013A
+		ai_chance = {
+			factor = 1
+		}
+		trigger = { 
+			has_character_flag = flag_homage_informal_success 
+		}
+		
+		opinion = {
+			modifier = opinion_pleased
+			who = liege 
+			years = 15
+		}
+		
+		hidden_tooltip = {
+			liege = { character_event = { id = hdarkages.014 } } #notify to the liege informal homage went ok
+		}
+	}
+	
+	option = { #VASSAL DIDNT LIKE INFORMAL HOMAGE
+		name = OPTIONDARKAGES013B
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {	
+			has_character_flag = flag_homage_informal_failure
+		}
+		opinion = {
+			modifier = opinion_neglected
+			who = liege
+			years = 10
+		}
+		
+		hidden_tooltip = {
+			liege = { character_event = { id = hdarkages.015 } } #notify to the liege the informal homage went bad
+		}
+	}
+	
+	option = { #VASSAL IS ANGRY AND LEAVES HOMAGE
+		name = OPTIONDARKAGES016A
+		ai_chance = {
+			factor = 1
+		}
+		trigger = { 
+			has_character_flag = flag_homage_deformed_success
+		}
+		tooltip = {
+			random = {
+				chance = 50
+				liege = {
+					add_rival = ROOT
+				}	
+			}
+		}
+		opinion = {
+			modifier = opinion_hate
+			who = FROM
+			years = 15
+		}
+		hidden_tooltip = {
+			liege = { character_event = { id = hdarkages.017 } } #notify to the liege his insult succeded
+		}
+	}
+	
+	option = { #VASSAL ATTACKS LIEGE
+		name = OPTIONDARKAGES016B
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {	
+			has_character_flag = flag_homage_deformed_failure
+			NOT = { trait = duelist }
+		}
+		custom_tooltip = { text = tooltip_DARKAGES0016_B }
+		
+		random_list = { #BOTH DIE.
+			2 = {
+				modifier = {
+					factor = 3
+					combat_rating_diff = {
+						character = FROM
+						value < 10
+					}
+					combat_rating_diff = {
+						character = FROM
+						value > -10
+					}					
+				}
+				modifier = {
+					factor = 0.33
+					combat_rating_diff = {
+						character = FROM
+						value > 25
+					}
+					combat_rating_diff = {
+						character = FROM
+						value < -25
+					}					
+				}				
+				modifier = {
+					factor = 0.33
+					OR = {
+						FROM = { trait = duelist }
+						trait = duelist
+					}
+				}
+				modifier = {
+					factor = 0.5
+					prestige = 500
+				}
+								
+				death = {
+					death_reason = death_by_marshal_arrow
+				}
+							
+				tooltip = {
+					liege = {
+						death = {
+							death_reason = beheaded_in_a_second
+							killer = ROOT
+						}
+					}
+				}
+									
+				hidden_tooltip = {
+					liege = { character_event = { id = hdarkages.018 } } #notify to the liege he died because of insulting. vassal died aswell
+				}
+			}
+			
+			3 = { #liege dies and vassal survives because of prestige 
+				modifier = {
+					factor = 0.33
+					NOT = {
+						prestige = 400
+					}
+				}
+				modifier = {
+					factor = 0.33
+					NOT = {
+						prestige = 200
+					}
+				}				
+				modifier = {
+					factor = 3
+					NOT = { FROM = { trait = duelist } }
+					trait = duelist
+				}
+				modifier = {
+					factor = 0.33
+					FROM = { trait = duelist }
+					NOT = { trait = duelist }
+				}				
+				tooltip = {
+					liege = {
+						death = {
+							death_reason = beheaded_in_a_second
+							killer = ROOT
+						}
+					}
+				}
+				imprison = FROM
+				add_trait = severely_injured
+								
+									
+				hidden_tooltip = {
+					liege = { character_event = { id = hdarkages.019 } } #notify to the liege he died because of insulting and vassal imprisoned
+				}
+			}
+				
+			5 = { #BOTH WOUNDED VASSAL IMPRISONED
+				add_trait = wounded 
+				imprison = FROM
+				liege = { add_trait = wounded }
+				hidden_tooltip = {
+					liege = { character_event = { id = hdarkages.027 } } #notify liege he got wounded and vassal got imprisoned
+				}
+			}
+				
+		
+			2 = { #Liege is duelist, destroys vassal
+				modifier = {
+					factor = 3
+					FROM = {
+						combat_rating_diff = {
+							character = ROOT
+							value > 25
+						}
+					}
+				}
+				modifier = {
+					factor = 3
+					FROM = { trait = duelist }
+					NOT = { trait = duelist }
+				}				
+				death = {	
+					death_reason = beheaded_in_a_second
+					killer = FROM
+				}
+											
+				hidden_tooltip = { 
+					liege = { character_event = { id = hdarkages.028 } } #notify liege he killed vassal.
+			    }
+			}
+	    }
+	}
+	
+	option = { #VASSAL IS DUELIST, LIEGE ISN'T
+		name = OPTIONDARKAGES016C
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {
+			has_character_flag = flag_homage_deformed_failure
+			trait = duelist
+			FROM = { NOT = { trait = duelist } }
+		}
+		
+		tooltip_info = duelist
+		
+		tooltip = {
+			FROM = {
+				death = {
+					death_reason = beheaded_in_a_second
+					killer = ROOT
+				}
+			}
+		}
+		hidden_tooltip = { 
+			liege = { character_event = { id = hdarkages.029 } } #notify liege he got killed by vassal and vassal imprisoned
+		}
+	
+	}
+	
+	
+	option = { #BOTH DUELIST
+		name = OPTIONDARKAGES016D
+		ai_chance = {
+			factor = 1
+		}
+		custom_tooltip = { text = tooltip_DARKAGES016_D }
+		trigger = {
+			has_character_flag = flag_homage_deformed_failure
+			trait = duelist
+			FROM = { trait = duelist }
+		}
+		
+		tooltip_info = duelist
+		hidden_tooltip = { 
+			liege = { character_event = { id = hdarkages.031 } } #notify liege epic battle
+	    }
+	
+	}
+	
+	option = { #VASSAL WOMAN PROMISES TO DO SOMETHING
+		name = OPTIONDARKAGES019A
+		ai_chance = {
+			factor = 1
+		}
+		trigger = { 
+			has_character_flag = flag_homage_sex_success
+		}
+			
+		opinion = {
+			modifier = opinion_afraid
+			who = liege
+			years = 20
+		}	
+		hidden_tooltip = {
+			liege = { character_event = { id = hdarkages.020 } } #notify liege woman accepted 
+		}
+	}
+	
+	option = { #VASSAL WOMAN FEELS HUMILLATED
+		name = OPTIONDARKAGES019B
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {	
+			has_character_flag = flag_homage_sex_failure
+		}
+		opinion = {
+			modifier = opinion_hate
+			who = liege
+			years = 20
+		}
+		hidden_tooltip = {
+			liege = { character_event = { id = hdarkages.021 } } #notify liege woman feels humillated
+		}
+	}
+	
+	option = { #VASSAL IS HUMILLATED
+		name = OPTIONDARKAGES019C
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				trait = proud
+			}
+			modifier = {
+				factor = 0
+				is_crazy_trigger = yes
+			}
+			modifier = {
+				factor = 0
+				trait = wroth
+			}
+			modifier = {
+				factor = 0
+				trait = cruel
+			}
+			modifier = {
+				factor = 0
+				trait = cynical
+			}
+			modifier = {
+				factor = 0
+				trait = brave
+			}
+		}
+		custom_tooltip = { text = tooltip_DARKAGES0019_A }
+		trigger = {	
+			NOR = {
+				has_character_flag = flag_homage_sex_success
+				has_character_flag = flag_homage_informal_success
+				has_character_flag = flag_homage_informal_failure
+				has_character_flag = flag_homage_formal_failure
+				has_character_flag = flag_homage_formal_success
+				has_character_flag = flag_homage_seduce_success
+				has_character_flag = flag_homage_seduce_failure
+			}
+		}
+		random_list = {
+			1 = {
+				add_trait = depressed
+			}
+			1 = {
+				add_trait = craven
+			}
+			1 = {
+			}
+		}
+		add_character_modifier = { name = vassal_gets_humillated duration = 1825 }
+		hidden_tooltip = { liege = { character_event = { id = hdarkages.040 } } } #notify liege vassal is a coward
+	}
+	
+	option = {
+		name = OPTIONDARKAGES007C
+		trigger = { 
+			NOT = { ai = yes }
+			OR = {
+				has_character_flag = flag_homage_seduce_failure
+				has_character_flag = flag_homage_informal_success
+			}
+		}
+		opinion = {
+			modifier = opinion_charmed
+			who = liege
+			years = 10
+		}
+	}
+		
+	after = { 
+		clr_character_flag = flag_homage_deformed_failure
+		clr_character_flag = flag_homage_deformed_success
+		clr_character_flag = flag_homage_seduce_failure
+		clr_character_flag = flag_homage_seduce_success
+		clr_character_flag = flag_homage_informal_failure
+		clr_character_flag = flag_homage_informal_success
+		clr_character_flag = flag_homage_formal_failure
+		clr_character_flag = flag_homage_formal_success
+		clr_character_flag = flag_homage_sex_success
+		clr_character_flag = flag_homage_sex_failure
+	}
+}
+
+
+#seduce went wrong, liege gets notified
+
+character_event = {
+	id = hdarkages.008
+	title = HOMAGECEREMONYB
+	desc = EVTHDARKAGES008
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_whispers
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_whispers
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+		option = {
+			name = OPTIONDARKAGES008
+			tooltip = {	
+				FROM = {
+					opinion = {
+						modifier = opinion_disgraceful
+						who = ROOT
+						years = 10
+					}
+				}
+			}
+		}
+		
+}
+
+#seduce went ok, liege gets notified
+character_event = {
+	id = hdarkages.009
+	title = HOMAGECEREMONYC
+	desc = EVTHDARKAGES009
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_whispers
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_whispers
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES009
+		tooltip = {	
+			FROM = {
+				opinion = {
+					modifier = opinion_enchanted
+					who = ROOT
+					years = 5
+				}
+			}
+		}
+		random = {
+			chance = 35
+			add_lover = FROM
+		}
+	}
+}	
+
+#liege notified seduce went "decent"
+character_event = {
+	id = hdarkages.041
+	title = HOMAGECEREMONYC
+	desc = EVTHDARKAGES009
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_whispers
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_whispers
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES041
+		
+		FROM = {
+			opinion = {
+				modifier = opinion_charmed
+				who = ROOT
+				years = 10
+			}
+		}
+	}
+}	
+		
+		
+#formal went ok, liege notified, DISABLED FOR NOW
+character_event = {
+	id = hdarkages.011
+	title = HOMAGECEREMONYD
+	desc = EVTHDARKAGES011
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_diplomatic_greeting
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_diplomatic_greeting
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+		option = {
+			name = OPTIONDARKAGES011
+			tooltip = {	
+				FROM = {
+					opinion = {
+						modifier = opinion_thoroughly_impressed
+						who = ROOT
+						years = 20
+					}
+				}
+			}
+		}
+}	
+
+
+
+#formal went bad, liege notified	
+		
+character_event = {
+	id = hdarkages.012
+	title = HOMAGECEREMONYB
+	desc = EVTHDARKAGES012
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_emissary
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES012
+		tooltip = {	
+			FROM = {
+				opinion = {
+					modifier = opinion_cautious
+					who = ROOT
+					years = 15
+				}
+			}
+		}
+	}
+}		
+	
+#informal went ok, liege notified 
+
+character_event = {
+	id = hdarkages.014
+	title = HOMAGECEREMONYDE
+	desc = EVTHDARKAGES014
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_diplomatic_greeting
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_diplomatic_greeting
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES014
+		tooltip = {	
+			FROM = {
+				opinion = {
+					modifier = opinion_pleased
+					who = ROOT
+					years = 15
+				}
+			}
+		}
+	}
+	
+}	
+
+#informal went bad, liege notified 
+
+character_event = {
+	id = hdarkages.015
+	title = HOMAGECEREMONYB
+	desc = EVTHDARKAGES015
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_poke_king_in_chest
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_poke_king_in_chest
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+		option = {
+			name = OPTIONDARKAGES015
+			tooltip = {	
+				FROM = {
+					opinion = {
+						modifier = opinion_neglected
+						who = ROOT
+						years = 20
+					}
+				}
+			}
+		}
+}		
+
+
+#deformed success, liege notified 
+
+character_event = {
+	id = hdarkages.017
+	title = HOMAGEDEFORMED
+	desc = EVTHDARKAGES017
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_lunatic
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_lunatic
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES017
+		tooltip = {
+			FROM = {
+				opinion = {
+					modifier = opinion_hate
+					who = ROOT
+					years = 15
+				}
+			}
+		}
+		random = {
+			chance = 50
+			add_rival = FROM
+		}
+	}
+}
+
+
+#deformed failure, liege died vassal died
+
+character_event = {
+	id = hdarkages.018
+	title = DEADLYHOMAGE
+	desc = EVTHDARKAGES018
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_assassination
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_assassination
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES018
+		
+		death = {
+			death_reason = beheaded_in_a_second
+			killer = FROM
+		}
+		tooltip = {
+			FROM = {
+				death = {
+					death_reason = death_by_marshal_arrow
+						
+				}
+			}
+		}
+	}
+}
+
+#deformed failure, liege died vassal imprisoned
+
+character_event = {
+	id = hdarkages.019
+	title = DEADLYHOMAGE
+	desc = EVTHDARKAGESZ019
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_assassination
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_assassination
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES019
+		death = {
+			death_reason = beheaded_in_a_second
+			killer = FROM
+		}
+		tooltip = {
+			FROM = {
+				imprison = ROOT
+			}
+		}
+	}
+}
+		
+#woman accepted sexism
+
+character_event = {
+	id = hdarkages.020
+	title = CHAUVENISMHOMAGE
+	desc = EVTHDARKAGES020
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_poke_king_in_chest
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_poke_king_in_chest
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+		option = {
+			name = OPTIONDARKAGES020
+			tooltip = {	
+				FROM = {
+					opinion = {
+						modifier = opinion_afraid
+						who = ROOT
+						years = 20
+					}
+				}
+			}
+		}
+}
+#woman hates sexism
+
+character_event = {
+	id = hdarkages.021
+	title = CHAUVENISMHOMAGE
+	desc = EVTHDARKAGES021
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_poke_king_in_chest
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_poke_king_in_chest
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+		option = {
+			name = OPTIONDARKAGES021
+			tooltip = {	
+				FROM = {
+					opinion = {
+						modifier = opinion_hate
+						who = ROOT
+						years = 20
+					}
+				}
+			}
+		}
+}
+
+#special event for infidels
+character_event = {
+	id = hdarkages.022
+	title = RELIGIOUSHOMAGE
+	desc = EVTHDARKAGES022
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+		option = { #LIEGES TRIES TO FORCE CONVERTION
+			name = OPTIONDARKAGES022
+			ai_chance = {
+				factor = 5
+				modifier = {
+					factor = 1.5
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.5
+					trait = arbitrary
+				}
+			}
+			custom_tooltip = { text = tooltip_DARKAGES0022A }
+			hidden_tooltip = {	FROMFROM = { character_event = { id = hdarkages.023 days = 15 random = 5 } } } #LIEGES COMMANDS VASSAL TO CONVERT
+		}
+		
+		option = { #LIEGE LETS THE VASSAL KEEP HIS RELIGION
+			name = OPTIONDARKAGESB022
+			ai_chance = {
+				factor = 5
+				modifier = {
+					factor = 1.5
+					trait = kind
+				}
+				modifier = {
+					factor = 1.5
+					trait = patient
+				}
+				modifier = {
+					factor = 1.5
+					trait = just
+				}
+				modifier = {
+					factor = 1.5
+					trait = erudite
+				}
+				modifier = {
+					factor = 0
+					trait = zealous
+				}
+				
+			}		
+			set_character_flag = flag_homage_generic
+			custom_tooltip = { text = tooltip_DARKAGES0022B }
+			hidden_tooltip = {
+				character_event = { id = hdarkages.006 } #GOES BACK TO NORMAL EVENT
+			}
+		}
+		after = { 
+		clr_character_flag = flag_homage_infidel
+	}
+	
+}
+
+#vassal receieves event that liege wants him to convert
+
+character_event = {
+	id = hdarkages.023
+	title = RELIGIOUSHOMAGE
+	desc = EVTHDARKAGES023
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+		option = { #VASSAL CONVERTS 
+			name = OPTIONDARKAGES023
+			ai_chance = {
+				factor = 6
+				modifier = {
+					factor = 0
+					trait = zealous
+				}
+			}
+			religion = FROM
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = hdarkages.025 days = 10 random = 10 } #LIEGE IS INFORMED HIS SUBJECT CHANGE RELIGION
+				}	
+			}
+		}
+		
+		option = { #VASSAL REFUSES
+			name = OPTIONDARKAGESB023
+			ai_chance = {
+				factor = 4
+				modifier = {
+					factor = 2
+					trait = proud
+				}
+			}
+			opinion = {
+				modifier = opinion_afraid
+				who = FROM
+				years = 20
+			}
+			hidden_tooltip = { liege = { character_event = { id = hdarkages.024 days = 10 random = 10 } } } #NOTIFY LIEGE VASSAL REFUSED CONVERSION
+
+		}
+}
+
+#VASSAL REFUSES TO BE CONVERTED, CEREMONY CANCELLED
+character_event = {
+	id = hdarkages.024
+	title = RELIGIOUSHOMAGE
+	desc = EVTHDARKAGES024
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES024
+		prestige = -75
+		opinion = {
+			modifier = opinion_da_vassal_refused_homage
+			who = FROM
+			years = 20
+		}
+		tooltip = {
+			FROM = {
+				opinion = {
+					modifier = opinion_afraid
+					who = ROOT
+					years = 20
+				}
+			}
+		}
+	}
+}
+
+#LIEGE IS INFORMED OF CONVERTION. END OF THE HOMAGE
+character_event = {
+	id = hdarkages.025
+	title = RELIGIOUSHOMAGE
+	desc = EVTHDARKAGES025
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+		option = {
+			name = OPTIONDARKAGES025
+			tooltip = {
+				FROM = {
+					religion = ROOT 
+				}
+			}
+			opinion = { 
+				modifier = opinion_accepted_religion
+				who = FROM
+				years = 40
+			}
+			hidden_tooltip = {
+				FROM = { character_event = { id = hdarkages.026 days = 10 random = 10 } } #vassal is informed ceremony is not needed anymore
+			}
+		}
+		
+}
+
+#vassal is informed ceremony is not needed anymore. End of chain
+character_event = {
+	id = hdarkages.026
+	title = RELIGIOUSHOMAGE
+	desc = EVTHDARKAGES026
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_knight_kneeling
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_knight_kneeling
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+		option = {
+			name = OPTIONDARKAGES026
+			tooltip = {
+				FROM = {
+					opinion = {
+						modifier = opinion_accepted_religion
+						who = FROM
+						years = 40
+					}
+				}
+			}
+		}
+}
+
+#liege is informed vassal got wounded and imprisoned
+character_event = {
+	id = hdarkages.027
+	title = DEADLYHOMAGE
+	desc = EVTHDARKAGES027
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES027
+		
+		tooltip = {
+			FROM = {
+				add_trait = wounded 
+				imprison = ROOT
+			}
+			ROOT = {
+				add_trait = wounded 
+			}
+		}
+		opinion = {
+			modifier = attempted_murder
+			who = FROM
+		}
+				
+	}
+}
+#liege is informed he killed vassal in an attempted murder
+
+character_event = {
+	id = hdarkages.028
+	title = DEADLYHOMAGE
+	desc = EVTHDARKAGES028
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_assassination
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_assassination
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES028
+		add_trait = wounded
+		prestige = 150
+		tooltip = {
+			FROM = {
+				death = {	
+					death_reason = beheaded_in_a_second
+					killer = ROOT
+				}
+			}
+		}
+	}
+}
+
+
+character_event = { #LIEGE KILLED BY DUELIST VASSAL BUT VASSAL IMPRISONED
+	id = hdarkages.029
+	title = SPECTACULARHOMAGE
+	desc = EVTHDARKAGES029
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_assassination
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_assassination
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES29
+		hidden_tooltip = { FROM = { character_event = { id = hdarkages.032 } } } #notify vassal of imprisoment
+		death = {
+			death_reason = beheaded_in_a_second
+			killer = FROM
+		}
+		tooltip = {		
+			FROM = {
+				imprison = ROOT 
+			}
+		}
+	}
+}
+
+character_event = { #LIEGE vs VASSAL EPIC BATTLE #1st casuality
+	id = hdarkages.031
+	title = EPICHOMAGE
+	desc = EVTHDARKAGES031
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_staked_hf
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_staked_hf
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES31
+		hidden_tooltip = { 
+			character_event = { id = hdarkages.033 days = 1 }
+		}
+		
+		random_courtier = { 
+			limit = { 
+				ai = yes
+				prisoner = no
+			}
+			opinion = {
+						modifier = opinion_da_used_me_as_shield
+						who = ROOT 
+						years = 20
+					}
+			random_list = {
+				5 = {
+					death = {
+						death_reason = killed_collateral_damage
+						killer = FROM
+					}
+				}
+				5 = {
+					add_trait = severely_injured
+					
+				}
+			}
+		}
+	}
+	after = { FROM = { character_event = { id = hdarkages.036 } } } #notify vassal epic fight starts
+}
+
+character_event = { #LIEGE vs VASSAL EPIC BATTLE #2nd casuality
+	id = hdarkages.033
+	title = EPICHOMAGE
+	desc = EVTHDARKAGES033
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_staked_hf
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_staked_hf
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES33
+		hidden_tooltip = { character_event = { id = hdarkages.034 days = 1 } }
+		random_courtier = { 
+			limit = { 
+				ai = yes
+				prisoner = no
+			}
+			opinion = {
+						modifier = opinion_da_used_me_as_shield
+						who = FROMFROM
+						years = 20
+					}
+			random_list = {
+				5 = {
+					death = {
+						death_reason = killed_collateral_damage
+						killer = ROOT
+					}
+				}
+				5 = {
+					add_trait = severely_injured
+					
+				}
+			}
+		}
+	}
+}
+
+character_event = { #LIEGE vs VASSAL EPIC BATTLE #3rd and last
+	id = hdarkages.034
+	title = EPICHOMAGE
+	desc = EVTHDARKAGES034
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_staked_hf
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_staked_hf
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES34
+		hidden_tooltip = { character_event = { id = hdarkages.035 } }
+		
+		random_courtier_or_vassal = { 
+			limit = { 
+				ai = yes
+				prisoner = no
+			}
+			opinion = {
+						modifier = opinion_da_used_me_as_shield
+						who = ROOT 
+						years = 20
+					}
+			random_list = {
+				5 = {
+					death = {
+						death_reason = killed_collateral_damage
+						killer = FROMFROMFROM
+					}
+				}
+				5 = {
+					add_trait = severely_injured
+				}
+			}
+		}
+	}
+}
+
+character_event = { #LIEGE vs VASSAL FINAL FIGHT
+	id = hdarkages.035
+	title = EPICHOMAGE
+	desc = EVTHDARKAGES035
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES35
+		random_list = {
+			3 = {
+				death = {
+					death_reason = killed_in_epic_duel_fight
+					killer = FROMFROMFROMFROM
+				}
+				FROMFROMFROMFROM = { add_trait = severely_injured }
+				hidden_tooltip = { FROMFROMFROMFROM = { character_event = { id = hdarkages.037 days = 1 } } } #vassal won and imprisoned
+			}
+			3 = {
+				tooltip = {
+					FROMFROMFROMFROM = {
+						death = {
+							death_reason = killed_in_epic_duel_fight
+							killer = ROOT
+						}
+					}
+				}
+				add_trait = severely_injured
+				hidden_tooltip = { FROMFROMFROMFROM = { character_event = { id = hdarkages.038 days = 1 } } } #vassal died.
+			
+			}
+			3 = {
+				death = {
+					death_reason = killed_in_epic_duel_fight
+					killer = FROMFROMFROMFROM
+				}
+				tooltip = {
+					FROMFROMFROMFROM = {
+						death = {
+							death_reason = killed_in_epic_duel_fight
+							killer = ROOT
+						}
+					}
+				}
+				hidden_tooltip = { FROMFROMFROMFROM = { character_event = { id = hdarkages.039 days = 1 } } } #vassal and king died
+			}
+		}
+	}
+}
+
+character_event = { #vassal notified epic fight starts
+	id = hdarkages.036
+	title = EPICHOMAGE
+	desc = EVTHDARKAGES036
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES36
+		custom_tooltip = { text = tooltip_DARKAGES0036_A }
+		tooltip_info_custom = duelist_liege
+	}
+}
+		
+character_event = { #vassal won epic fight
+	id = hdarkages.037
+	title = EPICHOMAGE
+	desc = EVTHDARKAGES037
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {	
+		name = OPTIONDARKAGES037
+		tooltip = {
+			FROM = { 
+				death = {
+					death_reason = killed_in_epic_duel_fight
+					killer = ROOT
+				}
+			}
+		}
+		imprison = FROM
+		prestige = 200
+	}
+}
+
+character_event = { #vassal lost epic fight
+	id = hdarkages.038
+	title = EPICHOMAGE
+	desc = EVTHDARKAGES038
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {	
+		name = OPTIONDARKAGES038
+		death = {
+			death_reason = killed_in_epic_duel_fight
+			killer = FROM
+		}
+		FROM = { add_trait = severely_injured }
+	}
+}
+
+character_event = { #vassal and liege died after epic fight
+	id = hdarkages.039
+	title = EPICHOMAGE
+	desc = EVTHDARKAGES039
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_da_dueling_knights
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {	
+		name = OPTIONDARKAGES039
+		death = {
+			death_reason = killed_in_epic_duel_fight
+			killer = FROM
+		}
+		tooltip = {
+			FROM = {
+				death = {
+					death_reason = killed_in_epic_duel_fight
+					killer = ROOT
+				}
+			}
+		}
+	}
+}
+
+
+character_event = { #VASSAL IMPRISONED FOR SPECTACULARLY KILLING HIS LIEGE
+	id = hdarkages.032
+	title = EPICHOMAGE
+	desc = EVTHDARKAGES032
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_assassination
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_assassination
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	
+	option = {
+		name = OPTIONDARKAGES32
+		
+		liege = {
+			ROOT = {
+				imprison = PREV
+			}
+		}
+		
+	}
+}
+
+
+character_event = { #liege notify vassal is a coward
+	id = hdarkages.040
+	title = HUMILLATECEREMONY
+	desc = EVTHDARKAGES040
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_humiliation_prisoner
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_humiliation_prisoner
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {	
+		name = OPTIONDARKAGES040
+		random = {
+			chance = 10
+			add_trait = proud
+		}
+	}
+}
+
+character_event = { #liege notify vassal is a coward
+	id = hdarkages.043
+	title = HOMAGECEREMONY
+	desc = EVTHDARKAGES043
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = no
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	picture = { 
+		trigger = { 
+			ROOT = { 
+				is_female = yes
+			} 
+		} 
+		picture = GFX_evt_homage_hf
+	}
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+		
+	option = {
+		name = OPTIONDARKAGES043
+		wealth = -2
+		random = {
+			chance = 50
+			piety = 20
+		}
+	}
+	
+	option = {
+		name = OPTIONDARKAGES043B
+		random = {
+			chance = 50
+			prestige = 35
+		}
+	}
+}
+
+character_event = { #LIEGE MTTH TO CHECK VASSALS THAT PICKED OPTION TEMPORARY_NO_HOMAGE
+	id = hdarkages.044
+	title = HOMAGECEREMONY
+	desc = EVTHDARKAGES044
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_diplomacy
+	only_playable = yes
+	in_command = no
+	min_age = 16
+	only_independent = yes
+	trigger = {
+		religion_group = christian
+		higher_tier_than = DUKE
+		is_vice_royalty = no
+		is_feudal = yes
+		NOT = {
+				has_character_modifier = da_temp_homage
+		}
+		any_vassal = {
+			has_character_flag = temporary_no_homage 
+		}
+	}
+	mean_time_to_happen = { months = 6 }
+	immediate = {
+		random_vassal = {
+			limit = {
+				has_character_flag = temporary_no_homage
+			}
+			save_event_target_as = homage_vassal
+		}
+	}
+	option = { #liege forces vassal to pay homage
+		name = OPTIONDARKAGESA044
+		ai_chance = {
+			factor = 7
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.5
+				trait = diligent 
+			}
+			modifier = { 
+				factor = 0.5
+				trait = humble 
+			}
+			modifier = { 
+				factor = 0.5
+				trait = content 
+			}
+			modifier = { 
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.5
+				liege = { is_friend = event_target:homage_vassal }
+			}
+			modifier = {
+				factor = 0.5
+				liege = { is_lover = event_target:homage_vassal }
+			}
+			modifier = {
+				factor = 0.5
+				liege = { is_married = event_target:homage_vassal }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { 
+					opinion = { 
+						who = event_target:homage_vassal
+						value = 0 
+					} 
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = { 
+					opinion = { 
+						who = event_target:homage_vassal
+						value = -20 
+					} 
+				}
+			}
+			modifier = {
+				factor = 4
+				NOT = { 
+					opinion = { 
+						who = event_target:homage_vassal
+						value = -40 
+					} 
+				}
+			}
+			modifier = {
+				factor = 6
+				NOT = { 
+					opinion = { 
+						who = event_target:homage_vassal
+						value = -60 
+					} 
+				}
+			}
+			modifier = {
+				factor = 0.7
+				opinion = { 
+					who = event_target:homage_vassal
+					value = 20
+				} 
+			}
+			modifier = {
+				factor = 0.6
+				opinion = { 
+					who = event_target:homage_vassal
+					value = 40
+				} 
+			}
+			modifier = {
+				factor = 0.4
+				opinion = { 
+					who = event_target:homage_vassal
+					value = 60
+				} 
+			}
+		}
+		custom_tooltip = { text = tooltip_DARKAGES044_A }
+			event_target:homage_vassal = {	
+				character_event = { id = hdarkages.045 days = 5 random = 5 }
+				clr_character_flag = temporary_no_homage
+			}
+	}
+	
+	option = { #liege let's the vassal avoid homage  
+		name = OPTIONDARKAGESB044
+		ai_chance = {
+			factor = 3
+		}
+		prestige = -125
+		event_target:homage_vassal = {
+			clr_character_flag = temporary_no_homage 
+		}
+		hidden_tooltip = { event_target:homage_vassal = { character_event = { id = hdarkages.051 days = 10 random = 10 } } }
+	}
+}
+
+character_event = { #forced homage 
+	id = hdarkages.045
+	title = FEUDALCONTRACT
+	desc = EVTHDARKAGES045	
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	trigger = {  
+		independent = no
+		age = 12
+		is_feudal = yes 
+		OR = { 
+			AND = {
+				has_dlc = "Holy Fury"
+				liege = { ruler_is_a_crowned_king = yes }
+			}
+			NOT =  { has_dlc = "Holy Fury" }
+		}
+	}
+
+	option = { #Will go.
+	
+		name = OPTIONDARKAGES002
+		custom_tooltip = { text = tooltip_HDARKGES002_A }
+		prestige = -50
+		hidden_tooltip = { liege = { character_event = { id = hdarkages.047 days = 25 random = 15 } } } #Liege event.
+		tooltip = {	
+			liege = {
+				opinion = {
+					modifier = opinion_da_vassal_respected_me
+					who = ROOT
+					years = 20
+				}
+			}
+		}
+		ai_chance = { 	
+			factor = 7
+			modifier = {
+				factor = 1.5
+				liege = { prestige = 100 }
+			}
+			modifier = {
+				factor = 2
+				liege = { prestige = 200 }
+			}
+			modifier = {
+				factor = 0.5
+				liege = { NOT = { prestige = -100 } }
+			}
+		}
+		
+	}
+	option = { #Will NOT go ai.
+	
+		name = EVTOPDARKAGES002B
+		trigger = { ai = yes }
+		set_character_flag = did_not_pay_homage
+		custom_tooltip = { text = tooltip_HDARKGES002_B }
+		hidden_tooltip = { liege = { character_event = { id = hdarkages.046 days = 10 random = 15 } } } #Notify liege vassal will not go.
+		prestige = 150
+		opinion = {
+			modifier = opinion_da_king_forced_homage
+			who = liege
+			years = 15
+		}
+		tooltip = {
+			liege = { 
+				opinion = {
+					modifier = opinion_da_vassal_refused_homage
+					who = ROOT
+					years = 30
+				}
+			}
+		}
+		random = {
+			chance = 20
+			add_trait = ambitious
+		}
+					
+		ai_chance = { 	
+			factor = 3
+			modifier = {
+				factor = 1.5
+				relative_power_to_liege = 0.3
+			}
+			modifier = {
+				factor = 2
+				relative_power_to_liege = 0.4
+			}
+			modifier = {
+				factor = 2.5
+				relative_power_to_liege = 0.5
+			}
+			modifier = {
+				factor = 3
+				relative_power_to_liege = 0.6
+			}
+			modifier = {
+				factor = 0
+				liege = { is_friend = ROOT }
+			}
+			modifier = {
+				factor = 0
+				liege = { is_lover = ROOT }
+			}
+			modifier = {
+				factor = 0.5
+				liege = { is_married = ROOT }
+			}
+			modifier = {
+				factor = 1.5
+				liege = { is_close_relative = ROOT }
+			}
+			modifier = {
+				factor = 5
+				liege = { is_rival = ROOT }
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 4
+				trait = ambitious
+			}
+			
+			modifier = {
+				factor = 2
+				liege = { NOT = { religion = ROOT } }
+			}
+			modifier = {
+				factor = 3
+				liege = { NOT = { religion = ROOT } }
+				trait = zealous 
+			}
+			
+			modifier = {
+				factor = 1.5
+				NOT = { 
+					opinion = { 
+						who = liege
+						value = 0 
+					} 
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = { 
+					opinion = { 
+						who = liege
+						value = -20 
+					} 
+				}
+			}
+			modifier = {
+				factor = 3
+				NOT = { 
+					opinion = { 
+						who = liege
+						value = -40 
+					} 
+				}
+			}
+			modifier = {
+				factor = 4
+				NOT = { 
+					opinion = { 
+						who = liege
+						value = -60 
+					}
+				}
+			}
+			modifier = {
+				factor = 3
+				liege = {
+					trait = crowned_by_priest 
+			
+				}
+			}
+		}
+	
+	}
+	option = { #Will NOT go player.
+		name = OPTIONDARKAGES045
+		trigger = { NOT = { ai = yes } }
+		set_character_flag = did_not_pay_homage
+		custom_tooltip = { text = tooltip_HDARKGES045_B }
+		hidden_tooltip = { liege = { character_event = { id = hdarkages.046 days = 15 random = 15 } } } #Notify liege vassal will not go.
+		prestige = 125
+		opinion = {
+			modifier = opinion_da_king_forced_homage
+			who = liege
+			years = 15
+		}
+		liege = { 
+			opinion = {
+				modifier = opinion_da_vassal_refused_homage
+				who = ROOT
+				years = 30
+			}
+		}
+		random_list = {
+			1 = {
+				add_trait = ambitious
+			}
+			2 = {
+				add_trait = brave
+			}
+			1 = {
+			}
+		}
+	}
+}		
+		
+	
+#Liege notified new vassal won't pay him FORCED homage. 
+
+character_event = {
+	id = hdarkages.046
+	title = ENDOFEUDALCONTRACT
+	desc = EVTHDARKAGES046
+
+	picture = GFX_evt_courier
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {  
+		religion_group = christian
+		OR = { 
+			AND = {
+				has_dlc = "Holy Fury"
+				ruler_is_a_crowned_king = yes
+			}
+			NOT = { has_dlc = "Holy Fury" }
+		}
+	}
+
+	option = { 
+		name = OPTIONDARKAGES046
+		custom_tooltip = { text = tooltip_DARKAGES046_A }
+		opinion = { 
+				modifier = opinion_da_vassal_refused_homage
+				years = 50 
+				who = FROM 
+			}
+		tooltip = {
+			FROM = {
+				opinion = {
+					modifier = opinion_da_king_forced_homage
+					who = ROOT
+					years = 15
+				}
+			}
+		}
+		random_list = {
+			3 = {
+				modifier = {
+					factor = 0.5
+					NOT = {
+						prestige = 0
+					}
+				}
+				modifier = {
+					factor = 1.25
+					prestige = 250
+				}
+				modifier = {
+					factor = 1.35
+					prestige = 500
+				}
+				modifier = {
+					factor = 1.5
+					prestige = 1000
+				}				
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.35
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 18
+				}	
+				modifier = {
+					factor = 1.75
+					intrigue = 21
+				}
+				modifier = {
+					factor = 0.8
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 0.6
+					NOT = { intrigue = 4 }
+				}	
+				modifier = {
+					factor = 0.5
+					NOT = { intrigue = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+				modifier = {
+					factor = 0.5
+					trait = honest
+				}
+				modifier = {
+					factor = 0.5
+					trait = content
+				}
+				modifier = {
+					factor = 1.5
+					trait = ambitious
+				}
+				FROM = {
+					primary_title = {
+						ROOT = {
+							add_claim = PREV
+						}
+					}
+				}
+				FROM = { 
+					opinion = {
+						modifier = opinion_da_king_claimed_mytitle_2
+						who = ROOT
+						years = 20
+					}
+				}
+				prestige = 100
+				hidden_tooltip = {
+					character_event = { id = hdarkages.042 } #liege notified he got the claim
+					FROM = { character_event = { id = hdarkages.030 days = 25 random = 10 } } #vassal notified his liege has a claim on him
+				}
+			}
+			1 = {
+			modifier = {
+					factor = 0.5
+					NOT = {
+						prestige = 0
+					}
+				}
+				modifier = {
+					factor = 1.25
+					prestige = 250
+				}
+				modifier = {
+					factor = 1.35
+					prestige = 500
+				}
+				modifier = {
+					factor = 1.5
+					prestige = 1000
+				}				
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.35
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 18
+				}	
+				modifier = {
+					factor = 1.75
+					intrigue = 21
+				}
+				modifier = {
+					factor = 0.8
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 0.6
+					NOT = { intrigue = 4 }
+				}	
+				modifier = {
+					factor = 0.5
+					NOT = { intrigue = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+				modifier = {
+					factor = 0.5
+					trait = honest
+				}
+				modifier = {
+					factor = 0.5
+					trait = content
+				}
+				modifier = {
+					factor = 1.5
+					trait = ambitious
+				}
+				
+				FROM = {
+					any_demesne_title = {
+						ROOT = {
+							add_claim = PREV
+						}
+					}
+				}
+				FROM = { 
+					opinion = {
+						modifier = opinion_da_king_claimed_mytitle
+						who = ROOT
+						years = 20
+					}
+				}
+				hidden_tooltip = {
+					character_event = { id = hdarkages.050 } #liege notified he got the claim on all vassal's titles
+					FROM = { character_event = { id = hdarkages.049 days = 25 random = 10 } } #vassal notified his liege has a claim on all his titles
+				}
+				prestige = 200
+			}				
+			2 = {
+				add_character_modifier = {
+					name = king_failed_homage_2
+					duration = 1595
+				}
+				prestige = -150
+				tooltip = {
+					FROM = {
+						opinion = {
+							modifier = opinion_da_king_tried_claim_title
+							who = ROOT
+							years = 10
+						}	
+					}
+				}
+				hidden_tooltip = {
+					FROM = { character_event = { id = hdarkages.052 days = 5 random = 5 } } #notified vassal liege failed to claim his titles
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = OPTIONDARKAGES046B
+		trigger = { NOT = { ai = yes } }
+		random_list = {
+			1 = {
+				add_trait = kind
+			}
+			1 = { 
+				add_trait = humble
+			}
+			1 = {
+				add_trait = slothful
+			}
+			2 = {
+			}
+		}
+		
+		prestige = -200
+		piety = 25
+	}
+}	
+
+#LIEGE RECIEVES HOMAGE FROM VASSAL, FORCED ONE.
+character_event = {
+	id = hdarkages.047
+	title = FEUDALCONTRACT
+	desc = EVTHDARKAGES047
+
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {  
+		religion_group = christian
+		OR = { 
+			AND = {
+				has_dlc = "Holy Fury"
+				ruler_is_a_crowned_king = yes
+			}
+			NOT = { has_dlc = "Holy Fury" }
+		}
+	}
+		
+	option = { #Accept homage
+		name = OPTIONDARKAGES047
+		custom_tooltip = { text = tooltip_HDARKAGES004 }
+		hidden_tooltip = { 
+						
+			if = {
+				limit = {
+					NOT = {	religion = FROM }
+				}
+					set_character_flag = flag_homage_infidel
+					character_event = { id = hdarkages.022 days = 40 random = 15 } #start of infidel liege vassal chain of event
+					FROM = { character_event = { id = 400 days = 15 random = 15 } } #notify vassal ceremony takes place
+					break = yes
+			}
+			
+			else = {
+			
+				random_list = { 
+					14 = { 
+						modifier = {
+							factor = 0
+							NOT = { FROM = { is_beautiful_trigger = yes } }
+						}
+						modifier = {
+							factor = 0
+							FROM = { is_female = yes }
+							prefers_men_trigger = yes
+						}
+						modifier = {
+							factor = 0
+							FROM = { is_female = no }
+							prefers_men_trigger = no
+						}
+						set_character_flag = flag_homage_attractive
+					}
+					5 = { 
+						modifier = {
+							factor = 0
+							NOT = { FROM = { is_disgusting_trigger = yes } } 
+						}
+						set_character_flag = flag_homage_deformed
+					}
+					18 = { 
+						modifier = {
+							factor = 0
+							FROM = { is_female = no }	
+								
+						}
+						modifier = {
+							factor = 0
+							OR = {
+								ROOT = { is_female = yes }
+									has_law = agnatic_succession
+									has_law = cognatic_succession 
+							}
+						}
+						set_character_flag = flag_homage_sex
+					}
+					
+					1 = {
+						set_character_flag = flag_homage_generic
+					}
+				}
+			}
+
+				character_event = { id = hdarkages.006 days = 40 random = 15 } #liege-vassal flavor events
+				FROM = { character_event = { id = hdarkages.048 days = 20 random = 10 } } 
+		}
+		prestige = 100
+		opinion = {
+			modifier = opinion_da_vassal_respected_me
+			who = FROM
+			years = 20
+		}
+		tooltip = {
+			FROM = {
+				opinion = {
+					modifier = opinion_da_king_forced_homage_2
+					who = ROOT
+					years = 5
+				}
+			}
+		}
+		random = {
+			chance = 15 
+			change_diplomacy = 1
+		}
+	}
+}
+
+#vassal notification forced homage takes place
+
+character_event = {
+	id = hdarkages.048
+	title = FEUDALCONTRACT
+	desc = EVTHDARKAGESB005
+
+	picture = GFX_evt_diplomatic_greeting
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	immediate = { set_character_flag = payed_homage }
+	option = {
+		name = OPTIONDARKAGESB005
+		add_character_modifier = {
+			name = out_traveling
+			duration = 50
+		}
+			opinion = {
+				modifier = opinion_da_king_forced_homage_2
+				who = FROM
+				years = 5
+			}
+		ai_chance = { 	
+			factor = 100
+		}
+	}
+}
+
+
+#vassal notification liege got a claim on all primary title
+
+character_event = { 
+	id = hdarkages.049
+	title = ENDOFEUDALCONTRACT
+	desc = EVTHDARKAGESB049
+
+	picture = GFX_evt_courier
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	
+	option = { 
+		name = OPTIONDARKAGESN049
+		any_demesne_title = {
+			FROM = {
+				add_claim = PREV
+			}
+		}
+	}
+}
+
+
+#liege notification he got claim on everything of his vassal
+character_event = { 
+	id = hdarkages.050
+	title = ENDOFEUDALCONTRACT
+	desc = EVTHDARKAGES050
+
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	
+	option = { 
+		name = OPTIONDARKAGES050
+		tooltip = {
+			FROMFROM = {
+				any_demesne_title = {
+					ROOT = {
+						add_claim = PREV
+					}
+				}
+			}
+		}
+	}
+}
+
+#inform vassal liege let's him NOT pay homage
+character_event = {
+	id = hdarkages.051
+	title = FEUDALCONTRACT
+	desc = EVTHDARKAGES51
+	picture = GFX_evt_diplomatic_greeting
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	immediate = { set_character_flag = payed_homage }
+	option = {
+		name = OPTIONDARKAGESB51
+		prestige = 200
+	}
+}
+
+#vassal informed liege failed miserably trying to claim titles
+character_event = {
+	id = hdarkages.052
+	title = FEUDALCONTRACT
+	desc = EVTHDARKAGES52
+	picture = GFX_evt_diplomatic_greeting
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	option = {
+		name = OPTIONDARKAGESB52
+		prestige = 150
+		tooltip = {
+			FROM = {
+				add_character_modifier = {
+					name = king_failed_homage
+					duration = 1595
+				}
+			}
+		}
+		opinion = {
+			modifier = opinion_da_king_tried_claim_title
+			who = FROM
+			years = 10
+		}
+	}
+}

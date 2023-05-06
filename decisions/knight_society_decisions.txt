@@ -1,0 +1,1515 @@
+society_decisions = { #only available to members of a society
+	request_to_rank_up_within_military_knights = { #this is the new rank up decision if you want one, you do not need this if you use de default one
+
+		hide_in_decisions_list = yes # This is shown in the Society View
+		
+		potential = {
+			hidden_tooltip = {
+				society_rank <= 2 #is not max rank #Grandmaster chosen through decisions
+				is_in_society = yes #obviously
+				OR = { #Players can always rank up (if they have the power), AI won't if there is no room
+					ai = no
+					AND = {
+						ai = yes
+						society_can_rank_up = yes
+					}
+				}
+			}
+		}
+
+		allow = {
+			#Rank requirements. IMPORTANT!!! If you change the requirements, the customizable loc keys "GetSocietyRankUpTooltip" 1, 2, 3, and 4 must be updated, as it displays these requirements.
+			custom_tooltip = { # Sufficient currency
+				text = request_to_rank_up_within_military_knights_tt
+				OR = {
+					AND = {
+						society_rank == 1
+						society_currency >= 1000
+					}
+					AND = {
+						society_rank == 2
+						society_currency >= 2000
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = must_not_have_sent_request_already_tooltip 
+				NOT = { has_character_flag = has_sent_request_to_rank_up }
+			}
+
+			custom_tooltip = {
+				text = must_be_allowed_to_rank_up_tooltip 
+			}
+
+			custom_tooltip = {
+				text = must_have_grandmaster_tooltip #You must have a grand master
+				any_society_member = {
+					is_society_grandmaster = yes
+					same_society_as = ROOT
+				}
+			}
+		}
+
+		effect = {
+			#Rank up cost
+			if = {
+				limit = { society_rank == 1 }
+				change_society_currency = -1000
+			}
+			if = {
+				limit = { society_rank == 2 }
+				change_society_currency = -2000
+			}
+
+			#Perform rank up
+			hidden_tooltip = {
+				save_event_target_as = rank_up_target #mark the character as the one ranking up
+				set_character_flag = has_sent_request_to_rank_up
+				character_event = { id = equus.120 days = 20 random = 10 } # sends hidden delayed event to self, which then sends request to Leader of the society
+				
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	request_to_rank_up_within_military_knights1 = { #this is the new rank up decision if you want one, you do not need this if you use de default one
+
+		hide_in_decisions_list = yes # This is shown in the Society View
+		
+		potential = {
+			hidden_tooltip = {
+				society_rank <= 2 #is not max rank #Grandmaster chosen through decisions
+				is_in_society = yes #obviously
+				OR = { #Players can always rank up (if they have the power), AI won't if there is no room
+					ai = no
+					AND = {
+						ai = yes
+						society_can_rank_up = yes
+					}
+				}
+			}
+		}
+
+		allow = {
+			#Rank requirements. IMPORTANT!!! If you change the requirements, the customizable loc keys "GetSocietyRankUpTooltip" 1, 2, 3, and 4 must be updated, as it displays these requirements.
+			custom_tooltip = { # Sufficient currency
+				text = request_to_rank_up_within_military_knights_tt
+				OR = {
+					AND = {
+						society_rank == 1
+						society_currency >= 1000
+					}
+					AND = {
+						society_rank == 2
+						society_currency >= 2000
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = must_not_have_sent_request_already_tooltip 
+				NOT = { has_character_flag = has_sent_request_to_rank_up }
+			}
+
+			custom_tooltip = {
+				text = must_be_allowed_to_rank_up_tooltip 
+			}
+
+			custom_tooltip = {
+				text = must_have_grandmaster_tooltip #You must have a grand master
+				any_society_member = {
+					is_society_grandmaster = yes
+					same_society_as = ROOT
+				}
+			}
+		}
+
+		effect = {
+			#Rank up cost
+			if = {
+				limit = { society_rank == 1 }
+				change_society_currency = -1000
+			}
+			if = {
+				limit = { society_rank == 2 }
+				change_society_currency = -2000
+			}
+
+			#Perform rank up
+			hidden_tooltip = {
+				save_event_target_as = rank_up_target #mark the character as the one ranking up
+				set_character_flag = has_sent_request_to_rank_up
+				character_event = { id = equus.120 days = 20 random = 10 } # sends hidden delayed event to self, which then sends request to Leader of the society
+				
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	request_to_rank_up_within_military_knights2 = { #this is the new rank up decision if you want one, you do not need this if you use de default one
+
+		hide_in_decisions_list = yes # This is shown in the Society View
+		
+		potential = {
+			hidden_tooltip = {
+				society_rank <= 2 #is not max rank #Grandmaster chosen through decisions
+				is_in_society = yes #obviously
+				OR = { #Players can always rank up (if they have the power), AI won't if there is no room
+					ai = no
+					AND = {
+						ai = yes
+						society_can_rank_up = yes
+					}
+				}
+			}
+		}
+
+		allow = {
+			#Rank requirements. IMPORTANT!!! If you change the requirements, the customizable loc keys "GetSocietyRankUpTooltip" 1, 2, 3, and 4 must be updated, as it displays these requirements.
+			custom_tooltip = { # Sufficient currency
+				text = request_to_rank_up_within_military_knights_tt
+				OR = {
+					AND = {
+						society_rank == 1
+						society_currency >= 1000
+					}
+					AND = {
+						society_rank == 2
+						society_currency >= 2000
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = must_not_have_sent_request_already_tooltip 
+				NOT = { has_character_flag = has_sent_request_to_rank_up }
+			}
+
+			custom_tooltip = {
+				text = must_be_allowed_to_rank_up_tooltip 
+			}
+
+			custom_tooltip = {
+				text = must_have_grandmaster_tooltip #You must have a grand master
+				any_society_member = {
+					is_society_grandmaster = yes
+					same_society_as = ROOT
+				}
+			}
+		}
+
+		effect = {
+			#Rank up cost
+			if = {
+				limit = { society_rank == 1 }
+				change_society_currency = -1000
+			}
+			if = {
+				limit = { society_rank == 2 }
+				change_society_currency = -2000
+			}
+
+			#Perform rank up
+			hidden_tooltip = {
+				save_event_target_as = rank_up_target #mark the character as the one ranking up
+				set_character_flag = has_sent_request_to_rank_up
+				character_event = { id = equus.120 days = 20 random = 10 } # sends hidden delayed event to self, which then sends request to Leader of the society
+				
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	request_to_rank_up_within_diplomatic_knights = { #this is the new rank up decision if you want one, you do not need this if you use de default one
+
+		hide_in_decisions_list = yes # This is shown in the Society View
+		
+		potential = {
+			hidden_tooltip = {
+				society_rank <= 2 #is not max rank #Grandmaster chosen through decisions
+				is_in_society = yes #obviously
+				OR = { #Players can always rank up (if they have the power), AI won't if there is no room
+					ai = no
+					AND = {
+						ai = yes
+						society_can_rank_up = yes
+					}
+				}
+			}
+		}
+
+		allow = {
+			#Rank requirements. IMPORTANT!!! If you change the requirements, the customizable loc keys "GetSocietyRankUpTooltip" 1, 2, 3, and 4 must be updated, as it displays these requirements.
+			custom_tooltip = { # Sufficient currency
+				text = request_to_rank_up_within_diplomatic_knights_tt
+				OR = {
+					AND = {
+						society_rank == 1
+						society_currency >= 1000
+					}
+					AND = {
+						society_rank == 2
+						society_currency >= 2000
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = must_not_have_sent_request_already_tooltip 
+				NOT = { has_character_flag = has_sent_request_to_rank_up }
+			}
+
+			custom_tooltip = {
+				text = must_be_allowed_to_rank_up_tooltip 
+			}
+
+			custom_tooltip = {
+				text = must_have_grandmaster_tooltip #You must have a grand master
+				any_society_member = {
+					is_society_grandmaster = yes
+					same_society_as = ROOT
+				}
+			}
+		}
+
+		effect = {
+			#Rank up cost
+			if = {
+				limit = { society_rank == 1 }
+				change_society_currency = -1000
+			}
+			if = {
+				limit = { society_rank == 2 }
+				change_society_currency = -2000
+			}
+
+			#Perform rank up
+			hidden_tooltip = {
+				save_event_target_as = rank_up_target #mark the character as the one ranking up
+				set_character_flag = has_sent_request_to_rank_up
+				character_event = { id = equus.120 days = 20 random = 10 } # sends hidden delayed event to self, which then sends request to Leader of the society
+				
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	request_to_rank_up_within_diplomatic_knights1 = { #this is the new rank up decision if you want one, you do not need this if you use de default one
+
+		hide_in_decisions_list = yes # This is shown in the Society View
+		
+		potential = {
+			hidden_tooltip = {
+				society_rank <= 2 #is not max rank #Grandmaster chosen through decisions
+				is_in_society = yes #obviously
+				OR = { #Players can always rank up (if they have the power), AI won't if there is no room
+					ai = no
+					AND = {
+						ai = yes
+						society_can_rank_up = yes
+					}
+				}
+			}
+		}
+
+		allow = {
+			#Rank requirements. IMPORTANT!!! If you change the requirements, the customizable loc keys "GetSocietyRankUpTooltip" 1, 2, 3, and 4 must be updated, as it displays these requirements.
+			custom_tooltip = { # Sufficient currency
+				text = request_to_rank_up_within_diplomatic_knights_tt
+				OR = {
+					AND = {
+						society_rank == 1
+						society_currency >= 1000
+					}
+					AND = {
+						society_rank == 2
+						society_currency >= 2000
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = must_not_have_sent_request_already_tooltip 
+				NOT = { has_character_flag = has_sent_request_to_rank_up }
+			}
+
+			custom_tooltip = {
+				text = must_be_allowed_to_rank_up_tooltip 
+			}
+
+			custom_tooltip = {
+				text = must_have_grandmaster_tooltip #You must have a grand master
+				any_society_member = {
+					is_society_grandmaster = yes
+					same_society_as = ROOT
+				}
+			}
+		}
+
+		effect = {
+			#Rank up cost
+			if = {
+				limit = { society_rank == 1 }
+				change_society_currency = -1000
+			}
+			if = {
+				limit = { society_rank == 2 }
+				change_society_currency = -2000
+			}
+
+			#Perform rank up
+			hidden_tooltip = {
+				save_event_target_as = rank_up_target #mark the character as the one ranking up
+				set_character_flag = has_sent_request_to_rank_up
+				character_event = { id = equus.120 days = 20 random = 10 } # sends hidden delayed event to self, which then sends request to Leader of the society
+				
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	request_to_rank_up_within_diplomatic_knights2 = { #this is the new rank up decision if you want one, you do not need this if you use de default one
+
+		hide_in_decisions_list = yes # This is shown in the Society View
+		
+		potential = {
+			hidden_tooltip = {
+				society_rank <= 2 #is not max rank #Grandmaster chosen through decisions
+				is_in_society = yes #obviously
+				OR = { #Players can always rank up (if they have the power), AI won't if there is no room
+					ai = no
+					AND = {
+						ai = yes
+						society_can_rank_up = yes
+					}
+				}
+			}
+		}
+
+		allow = {
+			#Rank requirements. IMPORTANT!!! If you change the requirements, the customizable loc keys "GetSocietyRankUpTooltip" 1, 2, 3, and 4 must be updated, as it displays these requirements.
+			custom_tooltip = { # Sufficient currency
+				text = request_to_rank_up_within_diplomatic_knights_tt
+				OR = {
+					AND = {
+						society_rank == 1
+						society_currency >= 1000
+					}
+					AND = {
+						society_rank == 2
+						society_currency >= 2000
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = must_not_have_sent_request_already_tooltip 
+				NOT = { has_character_flag = has_sent_request_to_rank_up }
+			}
+
+			custom_tooltip = {
+				text = must_be_allowed_to_rank_up_tooltip 
+			}
+
+			custom_tooltip = {
+				text = must_have_grandmaster_tooltip #You must have a grand master
+				any_society_member = {
+					is_society_grandmaster = yes
+					same_society_as = ROOT
+				}
+			}
+		}
+
+		effect = {
+			#Rank up cost
+			if = {
+				limit = { society_rank == 1 }
+				change_society_currency = -1000
+			}
+			if = {
+				limit = { society_rank == 2 }
+				change_society_currency = -2000
+			}
+
+			#Perform rank up
+			hidden_tooltip = {
+				save_event_target_as = rank_up_target #mark the character as the one ranking up
+				set_character_flag = has_sent_request_to_rank_up
+				character_event = { id = equus.120 days = 20 random = 10 } # sends hidden delayed event to self, which then sends request to Leader of the society
+				
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Get Squire
+	military_knights_power_1 = {
+		is_high_prio = yes
+		potential = { #who can see it
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			NOT = { 
+				any_courtier_or_vassal = {
+					has_minor_title = title_knight_squire
+				}
+				had_character_flag = { flag = 3_year_squire_cooldown days = 1095 }
+			}
+			ai = no
+		}
+
+		allow = { #requirement to press it
+		}
+
+		effect = { 
+			character_event = { id = equus.1000 }
+			clr_character_flag = 3_year_squire_cooldown
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	
+	#Set up a pas d'armes
+	military_knights_power_2p = {
+		potential = { #who can see it
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+			}
+			society_rank >= 2
+			ai = no
+			NOT = { has_character_flag = start_pas_darmes }
+		}
+
+		allow = { #requirement to press it
+			society_currency >= 100 
+		}
+
+		effect = { 
+			society_currency = -100
+			character_event = { id = equus.2258 }
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	#Write book
+	diplomatic_knights_power_2b = {
+		potential = { #who can see it
+			OR = {
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			society_rank >= 2 
+			NOT = { has_character_flag = writing_k_book }
+			OR = {
+				NOT = { has_character_flag = wrote_k_book }
+				had_character_flag = { flag = wrote_k_book months = 36 }
+			}
+		}
+
+		allow = { #requirement to press it
+			society_currency >= 500 
+			learning = 5
+		}
+
+		effect = { 
+			change_society_currency = -500
+			character_event = { id = equus.5119 }
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Knight squire
+	military_knights_power_3 = { 
+		is_high_prio = yes
+		potential = { #who can see it
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			society_rank >= 3 
+			had_character_flag = { flag = has_squire months = 36 }
+		}
+
+		allow = { #requirement to press it
+			society_currency >= 700 
+		}
+
+		effect = { 
+			change_society_currency = -700
+			character_event = { id = equus.1020 }
+			clr_character_flag = has_squire
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Lose sin
+	military_knights_power_3s = {
+
+		potential = { #who can see it
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			society_rank >= 3 
+			OR = {
+				trait = lustful
+				trait = greedy
+				trait = wroth
+				trait = slothful
+				trait = possessed
+				trait = envious
+				trait = proud
+				trait = impaler
+				trait = cruel
+				trait = kinslayer
+				trait = familial_kinslayer
+				trait = cannibal_trait
+			}
+		}
+
+		allow = { #requirement to press it
+			society_currency >= 500
+		}
+
+		effect = { 
+			change_society_currency = -500
+			character_event = { id = equus.1050 }
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Raise army
+	military_knights_power_3a = {
+		only_playable = yes
+		is_high_prio = yes
+		is_mercenary = yes
+		ai_check_interval = 12
+
+		potential = {
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			society_rank >= 3 
+		}
+
+		allow = {
+			war = yes
+			society_currency >= 1000
+		}
+
+		effect = {
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							heavy_infantry = { 1000 1000 }
+							knights = { 670 670 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+						maintenance_multiplier = 1
+					}	
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							heavy_infantry = { 1000 1000 }
+							knights = { 670 670 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+						maintenance_multiplier = 1
+					}
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							heavy_infantry = { 1000 1000 }
+							knights = { 670 670 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+						maintenance_multiplier = 1
+					}
+				}
+			}
+			change_society_currency = -1000
+			sound_effect = generic_click_01
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.2 #Slowdown
+			}
+		}
+	}
+	
+	#Organize grand tournament
+	military_knights_power_4t = {
+		is_high_prio = yes
+		potential = { #who can see it
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+			}
+			society_rank == 4
+			NOT = { has_character_flag = recent_grand_tourney }
+		}
+
+		allow = { #requirement to press it
+			society_currency >= 700 
+		}
+
+		effect = { 
+			set_character_flag = recent_grand_tourney #Remember to remove after n years
+			character_event = { id = equus.1200 }
+			change_society_currency = -700
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Organize grand feast
+	diplomatic_knights_power_4f = {
+		is_high_prio = yes
+		potential = { #who can see it
+			OR = {
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			society_rank == 4
+			OR = {
+				had_character_flag = { flag = recent_grand_feast days = 3650 }
+				NOT = { has_character_flag = recent_grand_feast }
+			}
+		}
+
+		allow = { #requirement to press it
+			society_currency >= 700 
+		}
+
+		effect = { 
+			clr_character_flag = recent_grand_feast
+			character_event = { id = equus.3200 }
+			change_society_currency = -700
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+targetted_decisions = {
+	#Duel sinner
+	military_knights_power_2 = {
+		
+		from_potential = { #who can see it
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+			}
+			society_rank >= 2 
+			ai = no
+		}
+		
+		potential = {
+			NOT = { dynasty = FROM }
+			age = 16
+			OR = {
+				is_female = no
+				same_society_as = yes 
+			}
+			OR = {
+				religion = catholic
+				religion = chalcedonian
+			}
+			ROOT = { is_within_diplo_range = FROM }
+			ROOT = {
+				NOT = {
+					calc_true_if = {
+						amount = 2
+						trait = theologian
+						trait = celibate
+						trait = kind
+						trait = humble
+						trait = charitable
+						trait = temperate
+						trait = honest
+						trait = just
+					}
+				}
+			}
+		}
+		
+		allow = { #requirement to press it
+			FROM = { society_currency >= 300 }
+			NOT = {
+				trait = incapable
+				trait = infirm
+			}
+			prisoner = no
+			ROOT = {
+				calc_true_if = {
+					amount = 2
+					trait = lunatic
+					trait = possessed
+					trait = impaler
+					trait = arbitrary
+					trait = cruel
+					trait = kinslayer
+					trait = familial_kinslayer
+					trait = excommunicated
+					trait = cannibal_trait
+					NOT = { piety = 0 }
+				}
+			}
+		}
+
+		effect = {
+			change_society_currency = -300
+			character_event = { id = HFP.10095 }
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Chaste "seduction"
+	diplomatic_knights_power_2s = {
+		ai_target_filter = realm
+		ai_check_interval = 3
+	
+		from_potential = {
+			OR = {
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			society_rank >= 2 
+			is_marriage_adult = yes
+			NOT = { has_trait = incapable }
+			prisoner = no
+			NOT = {
+				any_friend = {
+					has_opinion_modifier = {
+						who = ROOT 
+						modifier = opinion_courtly_lover
+					}
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					OR = {
+						is_female = no
+						AND = {
+							has_trait = homosexual
+							OR = {
+								is_married = yes
+								is_consort = yes
+							}
+						}
+						any_spouse = {
+							has_trait = homosexual
+						}
+						any_consort = {
+							has_trait = homosexual
+						}
+					}
+					is_ill = no
+					NOT = { has_trait = eunuch }
+					NOT = { has_trait = infirm }
+					NOT = { has_trait = inbred }
+					NOT = { has_trait = imbecile }
+				}
+			}
+			NOT = { has_character_flag = seducing_courtly }
+		}
+		
+		potential = {
+			age = 16
+			NOT = { character = FROM }
+			NOT = { has_trait = incapable }
+			prisoner = no
+			NOT = { is_lover = FROM }
+			NOT = { is_consort = FROM }
+			NOT = { has_character_flag = seducing_courtly }
+			
+			OR = {
+				AND = {
+					NOT = { is_child_of = FROM }
+					NOT = { mother_even_if_dead = { is_child_of = FROM } }
+					NOT = { father_even_if_dead = { is_child_of = FROM } }
+					FROM = {
+						NOT = { is_child_of = ROOT }
+						NOT = { mother_even_if_dead = { is_child_of = ROOT } }
+						NOT = { father_even_if_dead = { is_child_of = ROOT } }
+					}
+				}
+				AND = {
+					religion_group = zoroastrian_group
+					FROM = { religion_group = zoroastrian_group }
+				}
+				AND = {
+					religion = messalian
+					FROM = { religion = messalian }
+				}
+			}
+			
+			OR = {
+				AND = {
+					FROM = { NOT = { has_trait = homosexual } }
+					NOT = { has_trait = homosexual }
+					NOT = { same_sex = FROM }
+				}
+				AND = {
+					FROM = { has_trait = homosexual }
+					has_trait = homosexual
+					same_sex = FROM
+				}
+			}
+		}
+		
+		allow = {
+			NOR = {
+				has_opinion_modifier = { who = FROM modifier = opinion_courtly_refused } #add opinion
+				has_character_modifier = dismissed_courtly
+			}
+			NOT = { has_trait = celibate }
+			NOT = { FROM = { has_trait = celibate } }
+			OR = {
+				religion_group = FROM
+				is_liege_or_above = FROM
+			}
+			is_within_diplo_range = FROM
+		}
+		
+		effect = {
+			set_character_flag = seducing_courtly
+			clr_character_flag = stopped_courtship
+			hidden_tooltip = {
+				FROM = {	
+					if = {
+						limit = {
+							is_close_relative = ROOT
+							NOT = { religion = messalian }
+							NOT = { religion = zoroastrian }
+						}
+						character_event = { id = equus.4102 days = 1 } # Warning - Incest scandal risk
+						break = yes
+					}
+					
+					if = {
+						limit = {
+							same_sex = ROOT
+						}
+						character_event = { id = equus.4104 days = 1 } # Warning - Homosexual scandal risk
+						break = yes
+					}
+					
+					if = {
+						limit = {
+							religion_group = christian
+							OR = {
+								is_priest = yes
+								is_ascetic_trigger = yes
+								ROOT = { is_priest = yes }
+								ROOT = { is_ascetic_trigger = yes }
+							}
+						}
+						character_event = { id = equus.4103 days = 1 } # Warning - Priest scandal risk
+						break = yes
+					}
+					
+					character_event = { id = equus.4100 days = 1 } # No warning - Let the chase begin!
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1 		# 1 = 100% chance every month (for each allowed target!)
+			modifier = {
+				factor = 0.15
+			}
+			modifier = {
+				factor = 0
+				is_female = yes
+				age = 40
+			}
+			modifier = {
+				factor = 0
+				is_female = yes
+				has_character_modifier = lustful_affair_timer
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					is_female = no
+					num_of_children = 3
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					is_female = no
+					num_of_children = 6
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					is_female = no
+					num_of_children = 8
+				}
+			}
+			
+			modifier = {
+				factor = 0
+				num_of_lovers = 1
+				NOT = { trait = lustful }
+				NOT = { trait = hedonist }
+				NOT = { trait = seducer }
+				NOT = { trait = seductress }
+				NOT = { has_focus = focus_seduction }
+			}
+			
+			modifier = {
+				factor = 0.25
+				ai = no
+			}
+			
+			modifier = {
+				factor = 0.1
+				is_ruler = no
+				OR = {
+					any_spouse = {
+						ai = no
+					}
+					any_consort = {
+						ai = no
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0
+				OR = {
+					trait = ugly
+					trait = dwarf
+					trait = inbred
+					trait = imbecile
+					trait = clubfooted
+					trait = harelip
+					trait = hunchback
+					trait = eunuch
+					is_ill = yes
+					is_pregnant = yes
+				}
+			}
+			modifier = {
+				factor = 0.25
+				is_close_relative = FROM
+				FROM = {
+					NOT = { trait = lustful }
+					NOT = { trait = arbitrary }
+					NOT = { trait = possessed }
+					NOT = { trait = lunatic }
+				}
+			}
+			
+			modifier = {
+				factor = 2
+				trait = gregarious
+			}
+			modifier = {
+				factor = 5 # A more interesting quarry
+				OR = {
+					is_playable = yes
+					is_married = yes
+					father_even_if_dead = {
+						always = yes
+					}
+					mother_even_if_dead = {
+						always = yes
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 10
+				trait = fair
+			}
+		}
+	}
+	
+	#Request favor
+	military_knights_power_4f = {
+
+		from_potential = { #who can see it
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			society_rank == 4
+		}
+		
+		potential = {
+			same_society_as = FROM
+			NOT = { owes_favor_to = FROM } 
+			ai = yes
+		}
+
+		allow = { #requirement to press it
+			FROM = { society_currency >= 1500 }
+		}
+
+		effect = { 
+			change_society_currency = -1500
+			FROM = { add_favor = ROOT }
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Knight person
+	military_knights_power_4k = {
+
+		from_potential = { #who can see it
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			society_rank == 4 
+			ai = no
+		}
+		
+		potential = {
+			OR = {
+				religion = catholic
+				religion = chalcedonian
+			}
+			age = 16
+			NOT = { 
+				trait = incapable
+			}
+			NOT = { same_society_as = FROM }
+			NOT = { has_minor_title = title_knight_squire }
+			OR = {
+				is_female = no
+				has_game_rule = {
+					name = gender
+					value = all
+				}
+				AND = {
+					has_game_rule = {
+						name = gender
+						value = default
+					}
+					OR = {
+						liege = { 
+							primary_title = {
+								has_law = status_of_women_3
+							}
+						}
+						liege = { 
+							primary_title = {
+								has_law = status_of_women_4
+							}
+						}
+					}
+				}
+			}
+		}
+		allow = { #requirement to press it
+			FROM = { society_currency >= 700 }
+		}
+
+		effect = { 
+			if = {
+				limit = {
+					FROM = { society_member_of = military_knights }
+				}
+				join_society = military_knights
+			}
+			if = {
+				limit = {
+					FROM = { society_member_of = military_knights1 }
+				}
+				join_society = military_knights1
+			}
+			if = {
+				limit = {
+					FROM = { society_member_of = military_knights2 }
+				}
+				join_society = military_knights2
+			}
+			if = {
+				limit = {
+					FROM = { society_member_of = diplomatic_knights }
+				}
+				join_society = diplomatic_knights
+			}
+			if = {
+				limit = {
+					FROM = { society_member_of = diplomatic_knights1 }
+				}
+				join_society = diplomatic_knights1
+			}
+			if = {
+				limit = {
+					FROM = { society_member_of = diplomatic_knights2 }
+				}
+				join_society = diplomatic_knights2
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	#Choose heir
+	military_knights_power_4h = {
+		filter = self
+		third_party_filter = society 
+		show_third_party_potential = yes
+		
+		from_potential = { #who can see it
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			society_rank == 4
+			ai = no
+		}
+		
+		potential = {
+			NOT = {
+				any_society_member = {
+					has_character_modifier = society_heir
+				}
+			}
+		}
+		
+		third_party_potential = {
+			same_society_as = FROM
+		}
+		
+		third_party_allow = {
+		}
+		
+		allow = { #requirement to press it
+		}
+
+		effect = { 
+			FROMFROM = {
+				add_character_modifier = { name = society_heir duration = 36000 }
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		third_party_score = {
+			factor = 100
+			
+			additive_modifier = {
+				value = 500
+				FROMFROM = { 
+					is_heir = ROOT
+				}
+			}
+			additive_modifier = {
+				value = 500
+				FROMFROM = { 
+					dynasty = ROOT
+				}
+			}
+			additive_modifier = {
+				value = 20
+				FROMFROM = { 
+					show_scope_change = no
+					diplomacy = 16				
+					hidden_trigger = {
+						NOT = { diplomacy = 20 }
+					}
+				}
+			}
+			additive_modifier = {
+				value = 40
+				FROMFROM = { 
+					show_scope_change = no
+					diplomacy = 20
+				}
+			}
+			additive_modifier = {
+				value = 20
+				FROMFROM = { 
+					show_scope_change = no
+					martial = 8					
+					hidden_trigger = {
+						NOT = { martial = 12 }
+					}
+				}
+			}
+			additive_modifier = {
+				value = 40
+				FROMFROM = { 
+					show_scope_change = no
+					martial = 12					
+					hidden_trigger = {
+						NOT = { martial = 16 }
+					}
+				}
+			}
+			additive_modifier = {
+				value = 75
+				FROMFROM = {
+					show_scope_change = no 
+					martial = 16				
+					hidden_trigger = {
+						NOT = { martial = 20 }
+					}
+				}
+			}
+			additive_modifier = {
+				value = 120
+				FROMFROM = { 
+					show_scope_change = no
+					martial = 20
+				}
+			}
+			additive_modifier = {
+				value = 40
+				FROMFROM = { 
+					show_scope_change = no
+					trait = genius
+				}
+			}
+			additive_modifier = {
+				value = 30
+				FROMFROM = { 
+					show_scope_change = no
+					trait = quick
+				}
+			}
+			additive_modifier = {
+				value = 20
+				FROMFROM = { 
+					show_scope_change = no
+					trait = strong
+				}
+			}
+			additive_modifier = {
+				value = 20
+				FROMFROM = {
+					show_scope_change = no
+					trait = robust
+				}
+			}
+			additive_modifier = {
+				value = 40
+				FROMFROM = { 
+					show_scope_change = no
+					trait = strategist
+				}
+			}
+		}
+	}
+	
+	#Remove designated heir
+	military_knights_power_4hh = {
+		filter = society
+		
+		from_potential = { #who can see it
+			OR = {
+				society_member_of = military_knights 
+				society_member_of = military_knights1
+				society_member_of = military_knights2
+				society_member_of = diplomatic_knights 
+				society_member_of = diplomatic_knights1
+				society_member_of = diplomatic_knights2
+			}
+			society_rank == 4
+		}
+		
+		potential = {
+			has_character_modifier = society_heir
+		}
+		
+		allow = { #requirement to press it
+		}
+
+		effect = { 
+			ROOT = {
+				remove_character_modifier = society_heir
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

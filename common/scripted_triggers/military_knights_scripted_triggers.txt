@@ -1,0 +1,13 @@
+is_military_knights_trigger = { #trigger for members, useful if you have several similar society who all share events so you do not have to make trigger for all of them.
+	custom_tooltip = {
+		text = IS_military_knights_TRIGGER
+		OR = {
+			society_member_of = military_knights
+			society_member_of = military_knights1
+			society_member_of = military_knights2
+		}
+	}
+} 
+
+#call it using this:
+#	is_military_knights_trigger = yes 

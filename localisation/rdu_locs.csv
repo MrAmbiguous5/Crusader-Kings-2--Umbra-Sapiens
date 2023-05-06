@@ -1,0 +1,165 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+rdu_one_1;Add 1 Year;;;;;;;;;;;;;x
+rdu_one_2;Add 1 Year;;;;;;;;;;;;;x
+rdu_one_3;Add 1 Year;;;;;;;;;;;;;x
+rdu_one_4;Add 1 Year;;;;;;;;;;;;;x
+rdu_one_5;Add 1 Year;;;;;;;;;;;;;x
+rdu_one_6;Add 1 Year;;;;;;;;;;;;;x
+rdu_one_7;Add 1 Year;;;;;;;;;;;;;x
+rdu_one_8;Add 1 Year;;;;;;;;;;;;;x
+rdu_one_9;Add 1 Year;;;;;;;;;;;;;x
+rdu_one_10;Add 1 Year;;;;;;;;;;;;;x
+rdu_five_1;Add 5 Years;;;;;;;;;;;;;x
+rdu_five_2;Add 5 Years;;;;;;;;;;;;;x
+rdu_five_3;Add 5 Years;;;;;;;;;;;;;x
+rdu_five_4;Add 5 Years;;;;;;;;;;;;;x
+rdu_five_5;Add 5 Years;;;;;;;;;;;;;x
+rdu_five_6;Add 5 Years;;;;;;;;;;;;;x
+rdu_five_7;Add 5 Years;;;;;;;;;;;;;x
+rdu_five_8;Add 5 Years;;;;;;;;;;;;;x
+rdu_five_9;Add 5 Years;;;;;;;;;;;;;x
+rdu_five_10;Add 5 Years;;;;;;;;;;;;;x
+rdu_ten_1;Add 10 Years;;;;;;;;;;;;;x
+rdu_ten_2;Add 10 Years;;;;;;;;;;;;;x
+rdu_ten_3;Add 10 Years;;;;;;;;;;;;;x
+rdu_ten_4;Add 10 Years;;;;;;;;;;;;;x
+rdu_ten_5;Add 10 Years;;;;;;;;;;;;;x
+rdu_ten_6;Add 10 Years;;;;;;;;;;;;;x
+rdu_ten_7;Add 10 Years;;;;;;;;;;;;;x
+rdu_ten_8;Add 10 Years;;;;;;;;;;;;;x
+rdu_ten_9;Add 10 Years;;;;;;;;;;;;;x
+rdu_ten_10;Add 10 Years;;;;;;;;;;;;;x
+rdu_minusone_1;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusone_2;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusone_3;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusone_4;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusone_5;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusone_6;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusone_7;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusone_8;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusone_9;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusone_10;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusone_5;Subtract 1 Year;;;;;;;;;;;;;x
+rdu_minusfive_1;Subtract 5 Years;;;;;;;;;;;;;x
+rdu_minusfive_2;Subtract 5 Years;;;;;;;;;;;;;x
+rdu_minusfive_3;Subtract 5 Years;;;;;;;;;;;;;x
+rdu_minusfive_4;Subtract 5 Years;;;;;;;;;;;;;x
+rdu_minusfive_5;Subtract 5 Years;;;;;;;;;;;;;x
+rdu_minusfive_6;Subtract 5 Years;;;;;;;;;;;;;x
+rdu_minusfive_7;Subtract 5 Years;;;;;;;;;;;;;x
+rdu_minusfive_8;Subtract 5 Years;;;;;;;;;;;;;x
+rdu_minusfive_9;Subtract 5 Years;;;;;;;;;;;;;x
+rdu_minusfive_10;Subtract 5 Years;;;;;;;;;;;;;x
+rdu_minusten_1;Subtract 10 Years;;;;;;;;;;;;;x
+rdu_minusten_2;Subtract 10 Years;;;;;;;;;;;;;x
+rdu_minusten_3;Subtract 10 Years;;;;;;;;;;;;;x
+rdu_minusten_4;Subtract 10 Years;;;;;;;;;;;;;x
+rdu_minusten_5;Subtract 10 Years;;;;;;;;;;;;;x
+rdu_minusten_6;Subtract 10 Years;;;;;;;;;;;;;x
+rdu_minusten_7;Subtract 10 Years;;;;;;;;;;;;;x
+rdu_minusten_8;Subtract 10 Years;;;;;;;;;;;;;x
+rdu_minusten_9;Subtract 10 Years;;;;;;;;;;;;;x
+rdu_minusten_10;Subtract 10 Years;;;;;;;;;;;;;x
+rdu_minusfifty_1;Subtract 50 Years;;;;;;;;;;;;;x
+rdu_minusfifty_2;Subtract 50 Years;;;;;;;;;;;;;x
+rdu_minusfifty_3;Subtract 50 Years;;;;;;;;;;;;;x
+rdu_minushundred_1;Subtract 100 Years;;;;;;;;;;;;;x
+rdu_more_options;RDU More Options;;;;;;;;;;;;;x
+rdu_more_options_desc;Unlocks a decision to start with money or event troops for the created character.;;;;;;;;;;;;;x
+EVTDESCrdu_events.1;I awoke this morning with no knowledge of my past or of where I was. I was assured by confused servants who, assuming that this was some prank or test, told me that I am their ruler...;;;;;;;x
+EVTOPTArdu_events.1;Who am I!? Where did I come from?!;;;;;;;;;;;;;x
+rdu_more_options;RDU More Options;;;;;;;;;;;;;x
+remove_rdu_more_options;Remove "RDU More Options" Decision;;;;;;;;;;;;;x
+remove_rdu_more_options_desc;Removes the decision from the list to prevent yourself from cheating or to reduce clutter.;;;;;;;;;;;;;x
+EVTDESCrdu_events.2;More options for RDU;;;;;;;;;;;;;x
+EVTOPTArdu_events.2;Start with Event Troops;;;;;;;;;;;;;x
+EVTOPTBrdu_events.2;Start with money;;;;;;;;;;;;;x
+EVTOPTCrdu_events.2;I reject my humanity!;;;;;;;;;;;;;x
+EVTOPTDrdu_events.2;Never mind (Exit);;;;;;;;;;;;;x
+EVTDESCrdu_events.3;What kind of troops?;;;;;;;;;;;;;x
+EVTOPTArdu_events.3;Spawn Pikemen;;;;;;;;;;;;;x
+EVTOPTBrdu_events.3;Spawn Light Cavalry;;;;;;;;;;;;;x
+EVTOPTCrdu_events.3;Spawn Heavy Cavalry;;;;;;;;;;;;;x
+EVTOPTDrdu_events.3;More Options;;;;;;;;;;;;;x
+EVTOPTErdu_events.3;Spawn Special Cavalry Troops;;;;;;;;;;;;;x
+EVTDESCrdu_events.4;What kind of troops?;;;;;;;;;;;;;x
+EVTOPTArdu_events.4;Spawn Heavy Infantry;;;;;;;;;;;;;x
+EVTOPTBrdu_events.4;Spawn Light Infantry;;;;;;;;;;;;;x
+EVTOPTCrdu_events.4;Spawn Archers;;;;;;;;;;;;;x
+EVTOPTDrdu_events.4;More Options;;;;;;;;;;;;;x
+EVTDESCrdu_events.5;How much gold?;;;;;;;;;;;;;x
+EVTOPTArdu_events.5;100 Gold;;;;;;;;;;;;;x
+EVTOPTBrdu_events.5;1000 Gold;;;;;;;;;;;;;x
+EVTOPTCrdu_events.5;Never mind (Exit);;;;;;;;;;;;;x
+EVTDESCrdu_events.6;How many Horse Archers?;;;;;;;;;;;;;x
+EVTOPTArdu_events.6;1000;;;;;;;;;;;;;x
+EVTOPTBrdu_events.6;3000;;;;;;;;;;;;;x
+EVTOPTCrdu_events.6;5000;;;;;;;;;;;;;x
+EVTOPTDrdu_events.6;Never mind;;;;;;;;;;;;;x
+EVTDESCrdu_events.7;How many Light Cavalry?;;;;;;;;;;;;;x
+EVTOPTArdu_events.7;1000;;;;;;;;;;;;;x
+EVTOPTBrdu_events.7;3000;;;;;;;;;;;;;x
+EVTOPTCrdu_events.7;5000;;;;;;;;;;;;;x
+EVTOPTDrdu_events.7;Never mind (Exit);;;;;;;;;;;;;x
+EVTDESCrdu_events.8;How many Heavy Cavalry?;;;;;;;;;;;;;x
+EVTOPTArdu_events.8;1000;;;;;;;;;;;;;x
+EVTOPTBrdu_events.8;3000;;;;;;;;;;;;;x
+EVTOPTCrdu_events.8;5000;;;;;;;;;;;;;x
+EVTOPTDrdu_events.8;Never mind (Exit);;;;;;;;;;;;;x
+EVTDESCrdu_events.9;How many Heavy Infantry?;;;;;;;;;;;;;x
+EVTOPTArdu_events.9;1000;;;;;;;;;;;;;x
+EVTOPTBrdu_events.9;3000;;;;;;;;;;;;;x
+EVTOPTCrdu_events.9;5000;;;;;;;;;;;;;x
+EVTOPTDrdu_events.9;Never mind (Exit);;;;;;;;;;;;;x
+EVTDESCrdu_events.10;How many Light Infantry?;;;;;;;;;;;;;x
+EVTOPTArdu_events.10;1000;;;;;;;;;;;;;x
+EVTOPTBrdu_events.10;3000;;;;;;;;;;;;;x
+EVTOPTCrdu_events.10;5000;;;;;;;;;;;;;x
+EVTOPTDrdu_events.10;Never mind (Exit);;;;;;;;;;;;;x
+EVTDESCrdu_events.11;How many Archers?;;;;;;;;;;;;;x
+EVTOPTArdu_events.11;1000;;;;;;;;;;;;;x
+EVTOPTBrdu_events.11;3000;;;;;;;;;;;;;x
+EVTOPTCrdu_events.11;5000;;;;;;;;;;;;;x
+EVTOPTDrdu_events.11;Never mind (Exit);;;;;;;;;;;;;x
+EVTDESCrdu_events.12;Convert to what government type?;;;;;;;;;;;;;x
+EVTOPTArdu_events.12;Feudal/Iqta;;;;;;;;;;;;;x
+EVTOPTBrdu_events.12;Merchant Republic;;;;;;;;;;;;;x
+EVTOPTCrdu_events.12;Tribal;;;;;;;;;;;;;x
+EVTOPTDrdu_events.12;Nomadic;;;;;;;;;;;;;x
+EVTOPTArdu_events.13;Spawn Horse Archers;;;;;;;;;;;;;x
+EVTOPTBrdu_events.13;Spawn War Elephants;;;;;;;;;;;;;x
+EVTOPTCrdu_events.13;Spawn Camel Cavalry;;;;;;;;;;;;;x
+EVTDESCrdu_events.14;How many War Elephants?;;;;;;;;;;;;;x
+EVTOPTArdu_events.14;25;;;;;;;;;;;;;x
+EVTOPTBrdu_events.14;100;;;;;;;;;;;;;x
+EVTOPTCrdu_events.14;300;;;;;;;;;;;;;x
+EVTDESCrdu_events.15;How many Camel Cavalry?;;;;;;;;;;;;;x
+EVTOPTArdu_events.15;1000;;;;;;;;;;;;;x
+EVTOPTBrdu_events.15;3000;;;;;;;;;;;;;x
+EVTOPTCrdu_events.15;5000;;;;;;;;;;;;;x
+EVTDESCrdu_events.16;I am...;;;;;;;;;;;;;x
+EVTOPTArdu_events.16;Immortal!;;;;;;;;;;;;;x
+EVTOPTBrdu_events.16;A beast!;;;;;;;;;;;;;x
+EVTOPTCrdu_events.16;Indecisive! (Exit);;;;;;;;;;;;;x
+EVTDESCrdu_events.17;Are you sure you want to remove the "RDU More Options" decision?;;;;;;;;;;;;;x
+EVTOPTArdu_events.17;Yes;;;;;;;;;;;;;x
+EVTOPTBrdu_events.17;No (Exit);;;;;;;;;;;;;x
+EVTDESCrdu_events.18;I am...;;;;;;;;;;;;;x
+EVTOPTArdu_events.18;A horse!;;;;;;;;;;;;;x
+EVTOPTBrdu_events.18;A cat!;;;;;;;;;;;;;x
+EVTOPTCrdu_events.18;(More Options);;;;;;;;;;;;;x
+EVTOPTDrdu_events.18;Indecisive! (Exit);;;;;;;;;;;;;x
+EVTOPTArdu_events.19;A bear!;;;;;;;;;;;;;x
+EVTOPTBrdu_events.19;A hedgehog!;;;;;;;;;;;;;x
+EVTOPTArdu_events.20;A duck!;;;;;;;;;;;;;x
+EVTOPTBrdu_events.20;A dog!;;;;;;;;;;;;;x
+EVTOPTArdu_events.21;An elephant!;;;;;;;;;;;;;x
+EVTOPTBrdu_events.21;A dragon!;;;;;;;;;;;;;x
+EVTDESCrdu_events.22;What kind of troops?;;;;;;;;;;;;;x
+EVTOPTArdu_events.22;Spawn Special Troops;;;;;;;;;;;;;x
+EVTOPTBrdu_events.22;Back To First Options;;;;;;;;;;;;;x
+EVTOPTCrdu_events.22;Never Mind (Exit);;;;;;;;;;;;;x
+EVTDESCrdu_events.23;How many Pikemen?;;;;;;;;;;;;;x
+EVTOPTArdu_events.23;1000;;;;;;;;;;;;;x
+EVTOPTBrdu_events.23;3000;;;;;;;;;;;;;x
+EVTOPTCrdu_events.23;5000;;;;;;;;;;;;;x

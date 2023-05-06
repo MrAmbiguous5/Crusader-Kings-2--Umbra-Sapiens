@@ -1,0 +1,3567 @@
+namespace = darkages
+
+###############################################################
+#
+#		MIGRATION
+#
+###############################################################
+
+character_event = {	#	START OF MIGRATION
+	id = darkages.72165
+	title = EVTNAME1972165
+	desc = EVTDESC1972165
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_religion
+	
+	trigger = {
+		is_landed = yes
+		NOT = { has_character_flag = da_migration_in_play }
+		NOT = { has_game_rule = { name = migration_duration value = off } } 	
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+	}
+	
+	option = {
+		name = EVTOPTA1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_integration
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP83 }
+		
+		random_demesne_province = {
+			add_province_modifier = {
+				name = da_large_migration
+				duration = -1
+			}
+
+			add_province_modifier = {
+				name = da_province_migration_timer
+				duration = 1825
+				hidden = yes
+			}				
+			
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_segregation
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP84 }
+		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+			}
+			
+			add_trait = zealous
+		}
+
+		random_demesne_province = {
+			add_province_modifier = {
+				name = da_large_migration
+				duration = -1
+			}
+			
+			add_province_modifier = {
+				name = da_province_migration_timer
+				duration = 1825
+				hidden = yes
+			}				
+		}
+		
+	}	
+
+	
+	option = {
+		name = EVTOPTC1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_exploitation
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP85 }
+		
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			
+			add_trait = cruel
+		}		
+
+		random_demesne_province = {
+			add_province_modifier = {
+				name = da_large_migration
+				duration = -1
+			}
+			
+			add_province_modifier = {
+				name = da_province_migration_timer
+				duration = 1825
+				hidden = yes
+			}				
+		}		
+		
+	}	
+	
+	
+	option = {
+		name = EVTOPTD1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_extermination
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP86 }
+		
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			
+			add_trait = cruel
+		}
+
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+			}
+			
+			add_trait = wroth
+		}		
+
+		random_demesne_province = {
+			add_province_modifier = {
+				name = da_large_migration
+				duration = -1
+			}
+			
+			add_province_modifier = {
+				name = da_province_migration_timer
+				duration = 1825
+				hidden = yes
+			}			
+		}
+		
+		
+		if = {
+			limit = {
+				NOT = { diplomacy = 8 }
+			}
+			change_diplomacy = -1
+			
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = 1460
+			}			
+			
+		}
+		if = {
+			limit = {
+				diplomacy = 8
+				NOT = { diplomacy = 12 }
+			}
+			change_diplomacy = -2
+			
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = 1460
+			}			
+			
+		}
+		if = {
+			limit = {
+				diplomacy = 12
+			}
+			change_diplomacy = -3
+			
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = 1460
+			}			
+			
+		}		
+		
+		hidden_tooltip = {
+			random_list = {
+				3 = {
+					modifier = {
+						factor = 1.25
+						martial = 12
+					}
+					modifier = {
+						factor = 1.35
+						martial = 15
+					}
+					modifier = {
+						factor = 1.5
+						martial = 18
+					}
+					modifier = {
+						factor = 1.75
+						martial = 21
+					}
+					modifier = {
+						factor = 0.75
+						NOT = { martial = 8 }
+					}
+					modifier = {
+						factor = 0.75
+						NOT = { martial = 6 }
+					}
+					modifier = {
+						factor = 0.75
+						NOT = { martial = 4 }
+					}
+					modifier = {
+						factor = 0.75
+						NOT = { martial = 2 }
+					}
+					character_event = { id = darkages.72184 days = 90	random = 90 }
+				}
+				
+				2 = {
+					character_event = { id = darkages.72185 days = 90	random = 90 }
+				}
+			}
+		}
+
+	}	
+}
+
+## DECREASE IN POPULATION SIZE FOR THE MIGRANTS###
+province_event = {			
+	id = darkages.72167
+	title = EVTNAME1972167
+	desc = EVTDESC1972167
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_religion
+	
+	
+	trigger = {
+		OR = {
+			has_province_modifier = da_small_migration
+			has_province_modifier = da_medium_migration
+			has_province_modifier = da_large_migration
+			has_province_modifier = da_very_large_migration
+		}
+		
+		NOT = { has_province_modifier = da_province_migration_timer }
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		
+		modifier = {
+			factor = 0.66
+			has_game_rule = { name = migration_duration value = decreased } 					
+		}
+
+		modifier = {
+			factor = 1.33
+			has_game_rule = { name = migration_duration value = increased } 					
+		}		
+		
+		modifier = {
+			factor = 0.66
+			owner = {
+				has_character_flag = da_migration_integration
+			}
+		}
+
+		modifier = {
+			factor = 4
+			has_province_modifier = da_resented_population
+		}
+		
+		modifier = {
+			factor = 2
+			owner = {
+				has_character_flag = da_migration_segregation
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_integration
+				NOT = { diplomacy = 8 }
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_integration
+				NOT = { diplomacy = 6 }
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_integration
+				NOT = { diplomacy = 4 }
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_integration
+				NOT = { diplomacy = 2 }
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_integration
+				diplomacy = 12
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_integration
+				diplomacy = 15
+			}
+		}		
+		
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_integration
+				diplomacy = 18
+			}
+		}		
+		
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_integration
+				diplomacy = 21
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_segregation
+				NOT = { stewardship = 8 }
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_segregation
+				NOT = { stewardship = 6 }
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_segregation
+				NOT = { stewardship = 4 }
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_segregation
+				NOT = { stewardship = 2 }
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_segregation
+				stewardship = 12
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_segregation
+				stewardship = 15
+			}
+		}		
+		
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_segregation
+				stewardship = 18
+			}
+		}		
+		
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_segregation
+				stewardship = 21
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_exploitation
+				NOT = { intrigue = 8 }
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_exploitation
+				NOT = { intrigue = 6 }
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_exploitation
+				NOT = { intrigue = 4 }
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			owner = {
+				has_character_flag = da_migration_exploitation
+				NOT = { intrigue = 2 }
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_exploitation
+				intrigue = 12
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_exploitation
+				intrigue = 15
+			}
+		}		
+		
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_exploitation
+				intrigue = 18
+			}
+		}		
+		
+		modifier = {
+			factor = 0.8
+			owner = {
+				has_character_flag = da_migration_exploitation
+				intrigue = 21
+			}
+		}
+
+
+		
+	}
+	
+	option = {
+		name = "EVTOPTA1972167"
+
+		if = {
+			limit = {
+				has_province_modifier = da_small_migration	
+			}
+			
+			owner = {
+				clr_character_flag = da_migration_in_play
+				clr_character_flag = da_migration_exploitation
+				clr_character_flag = da_migration_integration
+				clr_character_flag = da_migration_segregation
+				clr_character_flag = da_migration_extermination			
+			}
+			
+			remove_province_modifier = da_small_migration
+			
+			
+		}
+		
+		if = {
+			limit = {
+				has_province_modifier = da_medium_migration	
+			}
+			
+			remove_province_modifier = da_medium_migration
+			
+			add_province_modifier = {
+				name = da_small_migration
+				duration = -1
+			}
+		}		
+
+		if = {
+			limit = {
+				has_province_modifier = da_large_migration	
+			}
+			
+			remove_province_modifier = da_large_migration
+			
+			add_province_modifier = {
+				name = da_medium_migration
+				duration = -1
+			}
+		}
+
+
+		if = {
+			limit = {
+				has_province_modifier = da_very_large_migration	
+			}
+			
+			remove_province_modifier = da_very_large_migration
+			
+			add_province_modifier = {
+				name = da_large_migration
+				duration = -1
+			}
+		}		
+
+	}
+	
+}
+
+##############################################
+#
+#	GENERAL EFFECTS BEFORE ASSIMILATION
+#
+##############################################
+
+province_event = {			#Generic Effect
+	id = darkages.72168
+	title = EVTNAME1972168
+	desc = EVTDESC1972168
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_war
+	
+	trigger = {
+		OR = {
+			has_province_modifier = da_small_migration
+			has_province_modifier = da_medium_migration
+			has_province_modifier = da_large_migration
+			has_province_modifier = da_very_large_migration
+		}
+		NOT = { has_province_modifier = event168_timer }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 2
+			owner = { has_character_flag = da_migration_segregation }
+		}
+	}
+
+	immediate = {
+		
+		if = {
+			limit = { 
+				owner = { diplomacy = 12}
+				NOT = { owner = { diplomacy = 15} }
+			}
+			
+			random = {
+				chance = 35
+				set_province_flag = a
+			}
+		}
+		
+		if = {
+			limit = { 
+				owner = { diplomacy = 15}
+				NOT = { owner = { diplomacy = 18} }
+			}
+			
+			random = {
+				chance = 50
+				set_province_flag = a
+			}
+		}
+
+		if = {
+			limit = { 
+				owner = { diplomacy = 18}
+				NOT = { owner = { diplomacy = 21} }
+			}
+			
+			random = {
+				chance = 66
+				set_province_flag = a
+			}
+		}
+
+		if = {
+			limit = { 
+				owner = { diplomacy = 21}
+			}
+			
+			random = {
+				chance = 90
+				set_province_flag = a
+			}
+		}		
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972168
+
+		clr_province_flag = a
+		
+		owner = {
+			wealth = -25
+			scaled_wealth = -0.1
+		}
+		
+		add_province_modifier = {
+			name = event168_timer
+			duration = 1825
+			hidden = yes
+		}		
+		
+	}
+
+	option = {
+		name = EVTOPTB1972168
+		
+		clr_province_flag = a		
+
+		random = {
+			chance = 75
+			
+			add_province_modifier = {
+				name = da_disruptive_migration
+				duration = -1
+			}
+		}
+		
+		add_province_modifier = {
+			name = event168_timer
+			duration = 1095
+			hidden = yes
+		}		
+		
+	}
+
+	option = {
+		name = EVTOPTC1972168
+		trigger = {
+			has_province_flag = a
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP87 }
+		clr_province_flag = a
+		
+		add_province_modifier = {
+			name = event168_timer
+			duration = 2920
+			hidden = yes			
+		}
+
+	}	
+	
+}
+
+province_event = {			#Drop in Stability
+	id = darkages.72169
+	title = EVTNAME1972169
+	desc = EVTDESC1972169
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_war
+	
+	trigger = {
+		OR = {
+			has_province_modifier = da_small_migration
+			has_province_modifier = da_medium_migration
+			has_province_modifier = da_large_migration
+			has_province_modifier = da_very_large_migration
+		}
+		
+		NOT = { has_province_modifier = instability_2 }
+	}
+
+	mean_time_to_happen = {
+		months = 84
+		
+		modifier = {
+			factor = 1.33
+			owner = { has_character_flag = da_migration_segregation }
+		}
+		
+		modifier = {
+			factor = 0.66
+			owner = { has_character_flag = da_migration_exploitation }
+		}		
+	}
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972169
+
+		if = {
+			limit = {
+				has_province_modifier = instability_1
+			}
+			
+			remove_province_modifier = instability_1
+			
+			add_province_modifier = {
+				name = instability_2
+				days = -1
+			}
+		}
+		
+		if = {
+			limit = {
+				NOR = {
+					has_province_modifier = stability_2				
+					has_province_modifier = stability_1
+					has_province_modifier = instability_1
+					has_province_modifier = instability_2
+				}
+			}
+			
+			add_province_modifier = {
+				name = instability_1
+				days = -1
+			}
+		}
+
+		if = {
+			limit = {
+				has_province_modifier = stability_1
+			}
+			
+			remove_province_modifier = stability_1
+		}
+		
+		if = {
+			limit = {
+				has_province_modifier = stability_2
+			}
+
+			remove_province_modifier = stability_2
+			
+			add_province_modifier = {
+				name = stability_1
+				days = -1
+			}
+		}
+				
+	}
+	
+	option = {
+		name = EVTOPTB1972169
+		trigger = {
+			owner = { has_character_flag = da_migration_integration }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP88 }
+		
+		owner = {
+			wealth = -10
+			scaled_wealth = -0.05
+		}
+		
+		random = {
+			chance = 50
+
+			if = {
+				limit = {
+					has_province_modifier = instability_1
+				}
+				
+				remove_province_modifier = instability_1
+				
+				add_province_modifier = {
+					name = instability_2
+					days = -1
+				}
+			}
+			
+			if = {
+				limit = {
+					NOR = {
+						has_province_modifier = stability_2				
+						has_province_modifier = stability_1
+						has_province_modifier = instability_1
+						has_province_modifier = instability_2
+					}
+				}
+				
+				add_province_modifier = {
+					name = instability_1
+					days = -1
+				}
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = stability_1
+				}
+				
+				remove_province_modifier = stability_1
+			}
+			
+			if = {
+				limit = {
+					has_province_modifier = stability_2
+				}
+
+				remove_province_modifier = stability_2
+				
+				add_province_modifier = {
+					name = stability_1
+					days = -1
+				}
+			}
+
+		}
+	
+	}
+	
+}
+
+province_event = {			
+	id = darkages.72170
+	title = EVTNAME1972170
+	desc = EVTDESC1972170
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_war
+	
+	
+	trigger = {
+		OR = {
+			has_province_modifier = da_small_migration
+			has_province_modifier = da_medium_migration
+			has_province_modifier = da_large_migration
+			has_province_modifier = da_very_large_migration
+		}
+		
+		NOT = { has_province_modifier = da_trade_curtailed }
+	}
+	
+	mean_time_to_happen = {
+		months = 90
+
+		modifier = {
+			factor = 1.5
+			owner = { has_character_flag = da_migration_segregation }
+		}
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972170"
+
+		add_province_modifier = {
+			name = da_trade_curtailed
+			duration = 1825
+		}
+		
+
+	}
+	
+	option = {
+		name = "EVTOPTB1972170"
+		trigger = {
+			owner = { has_character_flag = da_migration_integration	}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP88 }
+		
+		owner = {
+			wealth = -10
+			scaled_wealth = -0.1
+		}
+		
+		random_list = {
+		
+			1 = {
+				add_province_modifier = {
+					name = da_trade_curtailed
+					duration = 2555
+				}
+			}
+			
+			1 = {
+				modifier = {
+					factor = 3
+					owner = { trait = just }
+				}
+				modifier = {
+					factor = 2
+					owner = { trait = kind }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { trait = socializer }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { trait = gregarious }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { trait = patient }
+				}				
+				modifier = {
+					factor = 1.25
+					owner = { diplomacy = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					owner = { diplomacy = 15 }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { diplomacy = 18 }
+				}
+				modifier = {
+					factor = 1.75
+					owner = { diplomacy = 21 }
+				}	
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { diplomacy = 8 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { diplomacy = 6 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { diplomacy = 4 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { diplomacy = 2 } }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = wroth }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = envious }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = deceitful }
+				}
+				modifier = {
+					factor = 0.5
+					owner = { trait = arbitrary }
+				}								
+				
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTC1972170"
+		trigger = {
+			owner = { has_character_flag = da_migration_exploitation }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP89 }
+		
+		owner = {
+			wealth = -20
+			scaled_wealth = -0.15
+		}
+		
+		random_list = {
+		
+			1 = {
+				add_province_modifier = {
+					name = da_trade_curtailed
+					duration = 3650
+				}
+				
+				if = {
+					limit = {
+						has_province_modifier = instability_1
+					}
+					
+					remove_province_modifier = instability_1
+					
+					add_province_modifier = {
+						name = instability_2
+						days = -1
+					}
+				}
+				
+				if = {
+					limit = {
+						NOR = {
+							has_province_modifier = stability_2				
+							has_province_modifier = stability_1
+							has_province_modifier = instability_1
+							has_province_modifier = instability_2
+						}
+					}
+					
+					add_province_modifier = {
+						name = instability_1
+						days = -1
+					}
+				}
+
+				if = {
+					limit = {
+						has_province_modifier = stability_1
+					}
+					
+					remove_province_modifier = stability_1
+				}
+				
+				if = {
+					limit = {
+						has_province_modifier = stability_2
+					}
+
+					remove_province_modifier = stability_2
+					
+					add_province_modifier = {
+						name = stability_1
+						days = -1
+					}
+				}
+						
+				
+				
+			}
+			
+			1 = {
+				modifier = {
+					factor = 3
+					owner = { trait = administrator }
+				}
+				modifier = {
+					factor = 2
+					owner = { trait = midas_touched }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { trait = diligent }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { trait = wroth }
+				}
+				modifier = {
+					factor = 1.25
+					owner = { stewardship = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					owner = { stewardship = 15 }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { stewardship = 18 }
+				}
+				modifier = {
+					factor = 1.75
+					owner = { stewardship = 21 }
+				}	
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { stewardship = 8 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { stewardship = 6 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { stewardship = 4 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { stewardship = 2 } }
+				}
+				modifier = {
+					factor = 0.5
+					owner = { trait = slothful }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = kind }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = charitable }
+				}
+				
+				add_province_modifier = {
+					name = da_influx_miners
+					duration = 1825
+				}
+				
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTD1972170"
+		trigger = {
+			owner = { has_character_flag = da_migration_segregation }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP90 }
+
+		owner = {
+			wealth = -10
+			scaled_wealth = -0.2
+		}
+		
+		random_list = {
+		
+			1 = {
+				add_province_modifier = {
+					name = da_trade_curtailed
+					duration = 1095
+				}
+				
+			}
+			
+			1 = {
+				modifier = {
+					factor = 3
+					owner = { trait = schemer }
+				}
+				modifier = {
+					factor = 2
+					owner = { trait = elusive_shadow }
+				}
+				modifier = {
+					factor = 2
+					owner = { trait = deceitful }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { trait = envious }
+				}
+				modifier = {
+					factor = 1.25
+					owner = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					owner = { intrigue = 15 }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { intrigue = 18 }
+				}
+				modifier = {
+					factor = 1.75
+					owner = { intrigue = 21 }
+				}	
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { intrigue = 8 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { intrigue = 6 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { intrigue = 4 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { intrigue = 2 } }
+				}
+				modifier = {
+					factor = 0.5
+					owner = { trait = honest }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = kind }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = humble }
+				}
+				
+			}
+		}	
+	
+	}
+	
+}
+
+province_event = {			# MIGRANTS RAID PROVINCE SETTLEMENTS
+	id = darkages.72171
+	title = EVTNAME1972171
+	desc = EVTDESC1972171
+	picture = GFX_evt_da_city_fire
+	border = GFX_event_normal_frame_war
+	
+	trigger = {
+		OR = {
+			has_province_modifier = da_medium_migration		
+			has_province_modifier = da_large_migration
+			has_province_modifier = da_very_large_migration
+		}
+		NOR = {
+			has_province_modifier = da_migration_slaves		
+			has_province_modifier = da_migrant_raids
+			has_province_modifier = da_migrant_security
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		
+		modifier = {
+			factor = 0.5
+			has_province_modifier = instability_2
+		}
+		
+		modifier = {
+			factor = 0.75
+			has_province_modifier = instability_1
+		}		
+	}
+	
+	option = {
+		name = "EVTOPTA1972171" #BAD LUCK
+		
+		random_province_holding = {
+			destroy_random_building = THIS
+		}
+
+		
+		owner = {
+			wealth = -25
+		}
+		
+		add_province_modifier = {
+			name = da_migrant_raids
+			duration = 1825
+		}		
+
+		if = {
+			limit = {
+				has_province_modifier = instability_1
+			}
+			
+			remove_province_modifier = instability_1
+			
+			add_province_modifier = {
+				name = instability_2
+				days = -1
+			}
+		}
+		
+		if = {
+			limit = {
+				NOR = {
+					has_province_modifier = stability_2				
+					has_province_modifier = stability_1
+					has_province_modifier = instability_1
+					has_province_modifier = instability_2
+				}
+			}
+			
+			add_province_modifier = {
+				name = instability_1
+				days = -1
+			}
+		}
+
+		if = {
+			limit = {
+				has_province_modifier = stability_1
+			}
+			
+			remove_province_modifier = stability_1
+		}
+		
+		if = {
+			limit = {
+				has_province_modifier = stability_2
+			}
+
+			remove_province_modifier = stability_2
+			
+			add_province_modifier = {
+				name = stability_1
+				days = -1
+			}
+		}		
+	}	
+	option = {
+		name = "EVTOPTB1972171" #ATTEMPT PEACE NEGOTIATIONS
+		trigger = {
+			owner = { has_character_flag = da_migration_integration }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP88 }
+		
+		owner = {
+			wealth = -20
+			scaled_wealth = -0.2
+		}
+		
+		random_list = {
+		
+			3 = {
+		
+				random_province_holding = {
+					destroy_random_building = THIS
+				}
+				owner = {
+					wealth = -25
+				}
+				
+				add_province_modifier = {
+					name = da_migrant_raids
+					duration = 2555
+				}
+				
+				if = {
+					limit = {
+						has_province_modifier = instability_1
+					}
+					
+					remove_province_modifier = instability_1
+					
+					add_province_modifier = {
+						name = instability_2
+						days = -1
+					}
+				}
+				
+				if = {
+					limit = {
+						NOR = {
+							has_province_modifier = stability_2				
+							has_province_modifier = stability_1
+							has_province_modifier = instability_1
+							has_province_modifier = instability_2
+						}
+					}
+					
+					add_province_modifier = {
+						name = instability_1
+						days = -1
+					}
+				}
+
+				if = {
+					limit = {
+						has_province_modifier = stability_1
+					}
+					
+					remove_province_modifier = stability_1
+				}
+				
+				if = {
+					limit = {
+						has_province_modifier = stability_2
+					}
+
+					remove_province_modifier = stability_2
+					
+					add_province_modifier = {
+						name = stability_1
+						days = -1
+					}
+				}				
+				
+			}
+			
+			2 = {
+				modifier = {
+					factor = 1.5
+					owner = { trait = just }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { trait = kind }
+				}
+				modifier = {
+					factor = 3
+					owner = { trait = socializer }
+				}
+				modifier = {
+					factor = 2
+					owner = { trait = gregarious }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { trait = patient }
+				}				
+				modifier = {
+					factor = 1.25
+					owner = { diplomacy = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					owner = { diplomacy = 15 }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { diplomacy = 18 }
+				}
+				modifier = {
+					factor = 1.75
+					owner = { diplomacy = 21 }
+				}	
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { diplomacy = 8 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { diplomacy = 6 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { diplomacy = 4 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { diplomacy = 2 } }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = wroth }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = envious }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = deceitful }
+				}
+				modifier = {
+					factor = 0.5
+					owner = { trait = arbitrary }
+				}	
+			
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTC1972171" #ATTACK & ENSLAVE MIGRANTS AS RETALIATION
+		trigger = {
+			owner = { has_character_flag = da_migration_exploitation }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP89 }
+		
+		owner = {
+			wealth = -40
+			scaled_wealth = -0.2
+		}
+		
+		random_list = {
+			4 = {
+				random_province_holding = {
+					destroy_random_building = THIS
+				}
+				
+				owner = {
+					wealth = -25
+				}
+				
+				add_province_modifier = {
+					name = da_migrant_raids
+					duration = 2555
+				}	
+
+				if = {
+					limit = {
+						has_province_modifier = instability_1
+					}
+					
+					remove_province_modifier = instability_1
+					
+					add_province_modifier = {
+						name = instability_2
+						days = -1
+					}
+				}
+				
+				if = {
+					limit = {
+						NOR = {
+							has_province_modifier = stability_2				
+							has_province_modifier = stability_1
+							has_province_modifier = instability_1
+							has_province_modifier = instability_2
+						}
+					}
+					
+					add_province_modifier = {
+						name = instability_1
+						days = -1
+					}
+				}
+
+				if = {
+					limit = {
+						has_province_modifier = stability_1
+					}
+					
+					remove_province_modifier = stability_1
+				}
+				
+				if = {
+					limit = {
+						has_province_modifier = stability_2
+					}
+
+					remove_province_modifier = stability_2
+					
+					add_province_modifier = {
+						name = stability_1
+						days = -1
+					}
+				}								
+			
+			}
+			
+			2 = {
+
+				modifier = {
+					factor = 1.5
+					owner = { trait = administrator }
+				}
+				modifier = {
+					factor = 3
+					owner = { trait = midas_touched }
+				}
+				modifier = {
+					factor = 2
+					owner = { trait = diligent }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { trait = wroth }
+				}
+				modifier = {
+					factor = 1.25
+					owner = { stewardship = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					owner = { stewardship = 15 }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { stewardship = 18 }
+				}
+				modifier = {
+					factor = 1.75
+					owner = { stewardship = 21 }
+				}	
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { stewardship = 8 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { stewardship = 6 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { stewardship = 4 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { stewardship = 2 } }
+				}
+				modifier = {
+					factor = 0.5
+					owner = { trait = slothful }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = kind }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = charitable }
+				}
+
+				add_province_modifier = {
+					name = da_migration_slaves
+					duration = 3650
+				}
+
+				if = {
+					limit = {
+						has_province_modifier = da_medium_migration
+					}
+					remove_province_modifier = da_medium_migration
+					
+					add_province_modifier = {
+						name = da_small_migration
+						duration = -1
+					}
+				}
+				
+				if = {
+					limit = {
+						has_province_modifier = da_large_migration
+					}
+					remove_province_modifier = da_large_migration
+					
+					add_province_modifier = {
+						name = da_medium_migration
+						duration = -1
+					}
+				}
+				
+				if = {
+					limit = {
+						has_province_modifier = da_very_large_migration
+					}
+					remove_province_modifier = da_very_large_migration
+					
+					add_province_modifier = {
+						name = da_large_migration
+						duration = -1
+					}
+				}				
+			
+			}
+		}
+		
+	}
+
+	option = {
+		name = "EVTOPTD1972171" #ORGANIZE PROVINCIAL PATROLS TO SECURE A PERIMETER AROUND MIGRANTS
+		trigger = {
+			owner = { has_character_flag = da_migration_segregation }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP90 }
+		
+		owner = {
+			wealth = -30
+			scaled_wealth = -0.15
+		}
+		
+		
+		random_list = {
+			1 = {
+			
+				random_province_holding = {
+					destroy_random_building = THIS
+				}
+				
+				owner = {
+					wealth = -25
+				}
+				
+				add_province_modifier = {
+					name = da_migrant_raids
+					duration = 2555
+				}	
+
+				if = {
+					limit = {
+						has_province_modifier = instability_1
+					}
+					
+					remove_province_modifier = instability_1
+					
+					add_province_modifier = {
+						name = instability_2
+						days = -1
+					}
+				}
+				
+				if = {
+					limit = {
+						NOR = {
+							has_province_modifier = stability_2				
+							has_province_modifier = stability_1
+							has_province_modifier = instability_1
+							has_province_modifier = instability_2
+						}
+					}
+					
+					add_province_modifier = {
+						name = instability_1
+						days = -1
+					}
+				}
+
+				if = {
+					limit = {
+						has_province_modifier = stability_1
+					}
+					
+					remove_province_modifier = stability_1
+				}
+				
+				if = {
+					limit = {
+						has_province_modifier = stability_2
+					}
+
+					remove_province_modifier = stability_2
+					
+					add_province_modifier = {
+						name = stability_1
+						days = -1
+					}
+				}							
+			
+			}
+			
+			1 = {
+			
+				modifier = {
+					factor = 3
+					owner = { trait = schemer }
+				}
+				modifier = {
+					factor = 2
+					owner = { trait = elusive_shadow }
+				}
+				modifier = {
+					factor = 2
+					owner = { trait = deceitful }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { trait = envious }
+				}
+				modifier = {
+					factor = 1.25
+					owner = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					owner = { intrigue = 15 }
+				}
+				modifier = {
+					factor = 1.5
+					owner = { intrigue = 18 }
+				}
+				modifier = {
+					factor = 1.75
+					owner = { intrigue = 21 }
+				}	
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { intrigue = 8 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { intrigue = 6 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { intrigue = 4 } }
+				}
+				modifier = {
+					factor = 0.8
+					owner = { NOT = { intrigue = 2 } }
+				}
+				modifier = {
+					factor = 0.5
+					owner = { trait = honest }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = kind }
+				}
+				modifier = {
+					factor = 0.75
+					owner = { trait = humble }
+				}
+				
+				add_province_modifier = {
+					name = da_migrant_security
+					duration = 1825
+				}
+			
+			}
+		
+		}
+	}
+}
+
+province_event = {			#MIGRANTS SPLIT INTO A NEW GROUP
+	id = darkages.72172
+	title = EVTNAME1972172
+	desc = EVTDESC1972172
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		OR = {
+			has_province_modifier = da_medium_migration		
+			has_province_modifier = da_large_migration
+			has_province_modifier = da_very_large_migration
+		}
+		
+		any_neighbor_province = {
+				county = { has_holder = yes }
+				owner = { NOT = { has_game_rule = { name = migration_duration value = off } } }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	option = {
+		name = "EVTOPTA1972172"
+
+		if = {
+			limit = {
+				has_province_modifier = da_medium_migration
+			}
+			remove_province_modifier = da_medium_migration
+			
+			add_province_modifier = {
+				name = da_small_migration
+				duration = -1
+			}
+		}
+				
+		if = {
+			limit = {
+				has_province_modifier = da_large_migration
+			}
+			remove_province_modifier = da_large_migration
+					
+			add_province_modifier = {
+				name = da_medium_migration
+				duration = -1
+			}
+		}
+				
+		if = {
+			limit = {
+				has_province_modifier = da_very_large_migration
+			}
+			remove_province_modifier = da_very_large_migration
+					
+			add_province_modifier = {
+				name = da_large_migration
+				duration = -1
+			}
+		}	
+
+		random_neighbor_province = {
+			limit = {
+				county = { has_holder = yes }
+				owner = { NOT = { has_game_rule = { name = migration_duration value = off } } }
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = da_large_migration
+				}
+				
+				remove_province_modifier = da_large_migration
+						
+				add_province_modifier = {
+					name = da_very_large_migration
+					duration = -1
+				}
+				
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = da_medium_migration
+				}
+				
+				remove_province_modifier = da_medium_migration
+						
+				add_province_modifier = {
+					name = da_large_migration
+					duration = -1
+				}
+				
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = da_small_migration
+				}
+				
+				remove_province_modifier = da_small_migration
+						
+				add_province_modifier = {
+					name = da_medium_migration
+					duration = -1
+				}
+				
+			}
+
+			
+			if = {
+				limit = {
+					NOR = {
+						has_province_modifier = da_small_migration
+						has_province_modifier = da_medium_migration
+						has_province_modifier = da_large_migration
+						has_province_modifier = da_very_large_migration
+					}
+				}
+				
+				add_province_modifier = {
+					name = da_small_migration
+					duration = -1
+				}				
+				
+			}
+			
+			add_province_modifier = {
+				name = da_province_migration_timer
+				duration = 1825
+				hidden = yes
+			}			
+			
+			province_event = { id = darkages.72173 }
+			
+		}
+		
+
+	}
+	
+}
+
+province_event = {			#CALLED FROM 72172 TO ANNOUNCE THE NEW MIGRANT SETTLEMENT TO OWNER
+	id = darkages.72173
+	title = EVTNAME1972173
+	desc = EVTDESC1972173
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972173"
+		
+		owner = {
+			set_character_flag = da_migration_in_play
+		}
+
+	}
+	
+}
+
+character_event = {			#FORCE A NEW POLICY IF THERE IS NONE
+	id = darkages.72174
+	title = EVTNAME1972174
+	desc = EVTDESC1972174
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_religion
+	
+	
+	trigger = {
+		has_character_flag = da_migration_in_play
+		is_landed = yes		
+		NOR = {
+			has_character_flag = da_migration_integration
+			has_character_flag = da_migration_segregation
+			has_character_flag = da_migration_exploitation
+			has_character_flag = da_migration_extermination
+		}
+
+		
+		any_demesne_province = {
+			OR = {
+				has_province_modifier = da_small_migration
+				has_province_modifier = da_medium_migration
+				has_province_modifier = da_large_migration
+				has_province_modifier = da_very_large_migration
+			}
+		}
+		
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "EVTOPTA1972174"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP83 }		
+		set_character_flag = da_migration_integration
+
+	}
+	
+	option = {
+		name = "EVTOPTB1972174"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP84 }		
+		set_character_flag = da_migration_segregation
+
+	}
+
+	option = {
+		name = "EVTOPTC1972174"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP85 }		
+		set_character_flag = da_migration_exploitation
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			
+			add_trait = cruel
+		}		
+
+	}
+
+	option = {
+		name = "EVTOPTD1972174"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP86 }		
+		set_character_flag = da_migration_extermination
+		
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			
+			add_trait = cruel
+		}
+
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+			}
+			
+			add_trait = wroth
+		}		
+		
+		if = {
+			limit = {
+				diplomacy = 3
+			}
+			change_diplomacy = -3
+			
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = 1095
+			}
+		}
+		else = {
+		
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = -1
+			}
+		
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				3 = {
+					modifier = {
+						factor = 1.25
+						martial = 12
+					}
+					modifier = {
+						factor = 1.35
+						martial = 15
+					}
+					modifier = {
+						factor = 1.5
+						martial = 18
+					}
+					modifier = {
+						factor = 1.75
+						martial = 21
+					}
+					modifier = {
+						factor = 0.75
+						NOT = { martial = 8 }
+					}
+					modifier = {
+						factor = 0.75
+						NOT = { martial = 6 }
+					}
+					modifier = {
+						factor = 0.75
+						NOT = { martial = 4 }
+					}
+					modifier = {
+						factor = 0.75
+						NOT = { martial = 2 }
+					}
+					character_event = { id = darkages.72184 days = 90	random = 90 }
+				}
+				
+				2 = {
+					character_event = { id = darkages.72185 days = 90	random = 90 }
+				}
+			}
+		}		
+		
+
+	}	
+	
+}
+
+character_event = {			#DELETE FLAGS IF NO MORE MIGRATION SETTLEMENTS
+	id = darkages.72220
+	title = EVTNAME1972174
+	desc = EVTDESC1972174
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_religion
+	hide_window = yes
+	
+	trigger = {
+		has_character_flag = da_migration_in_play
+		is_landed = yes		
+		NOT = {
+			any_demesne_province = {
+				OR = {
+					has_province_modifier = da_small_migration
+					has_province_modifier = da_medium_migration
+					has_province_modifier = da_large_migration
+					has_province_modifier = da_very_large_migration
+				}
+			}
+		}
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "EVTOPTA1972174"
+		
+		clr_character_flag = da_migration_integration
+		clr_character_flag = da_migration_segregation
+		clr_character_flag = da_migration_exploitation
+		clr_character_flag = da_migration_extermination
+		clr_character_flag = da_migration_in_play
+	}
+	
+}
+
+province_event = {			#MIGRANTS RAID A NEIGHBOUR PROVINCE
+	id = darkages.72175
+	title = EVTNAME1972175
+	desc = EVTDESC1972175
+	picture = GFX_evt_da_city_fire
+	border = GFX_event_normal_frame_war
+	
+	
+	trigger = {
+		OR = {
+			has_province_modifier = da_small_migration
+			has_province_modifier = da_medium_migration
+			has_province_modifier = da_large_migration
+			has_province_modifier = da_very_large_migration
+		}
+		
+		any_neighbor_province = {
+				county = { has_holder = yes }
+		}		
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 2
+			owner = { has_character_flag = da_migration_segregation }
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1972175"
+
+		owner = { 
+			prestige = -30
+		}
+		
+		random_neighbor_province = {
+		
+			add_province_modifier = {
+				name = da_province_raided
+				duration = 1460
+			}
+			
+			province_event = { id = darkages.72176 }
+		
+		}
+		
+
+	}
+	
+}
+
+province_event = {			#CALLED FROM 72175 TO ANNOUNCE THE RAID BY THE MIGRANTS
+	id = darkages.72176
+	title = EVTNAME1972176
+	desc = EVTDESC1972176
+	picture = GFX_evt_da_city_fire
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972176"
+		
+
+
+	}
+	
+}
+
+character_event = {			#INITIALIZE FLAG IF THERE ARE MIGRANTS PRESENT
+	id = darkages.72177
+	title = EVTNAME1972177
+	desc = EVTDESC1972177
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_religion
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_character_flag = da_migration_in_play }
+		is_landed = yes
+		any_demesne_province = {
+			OR = {
+				has_province_modifier = da_small_migration
+				has_province_modifier = da_medium_migration
+				has_province_modifier = da_large_migration
+				has_province_modifier = da_very_large_migration
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "EVTOPTA1972177"
+		
+		set_character_flag = da_migration_in_play
+		
+	}
+	
+}
+
+
+character_event = {			#MIGRANTS POSE DILEMMA TO RULER
+	id = darkages.72178
+	title = EVTNAME1972178
+	desc = EVTDESC1972178
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {
+		has_character_flag = da_migration_in_play
+		is_landed = yes
+		NOT = { has_character_modifier = da_migration_dilemma }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 0.66
+			has_character_flag = da_migration_exploitation
+		}
+		
+		modifier = {
+			factor = 1.5
+			has_character_flag = da_migration_segregation
+		}		
+	}
+	
+	option = {
+		name = "EVTOPTA1972178"	#LET IT BE
+		
+		prestige = -50
+		
+		add_character_modifier = {
+			name = da_migration_dilemma
+			duration = 1460
+			hidden = yes
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972178"	#FIGHT BACK
+		
+		piety = -35
+		
+		add_character_modifier = {
+			name = da_migration_dilemma
+			duration = 1460
+			hidden = yes
+		}
+		
+	}	
+
+	option = {
+		name = "EVTOPTC1972178"	#ENSLAVE
+		
+		piety = -50
+		
+		random_demesne_province = {
+			limit = {
+				OR = {
+					has_province_modifier = da_small_migration
+					has_province_modifier = da_medium_migration
+					has_province_modifier = da_large_migration
+					has_province_modifier = da_very_large_migration
+				}
+			}
+			
+			add_province_modifier = {
+				name = da_influx_miners
+				duration = 1095
+			}
+			
+			if = {
+				limit = {
+					has_province_modifier = instability_1
+				}
+				
+				remove_province_modifier = instability_1
+				
+				add_province_modifier = {
+					name = instability_2
+					days = -1
+				}
+			}
+			
+			if = {
+				limit = {
+					NOR = {
+						has_province_modifier = stability_2				
+						has_province_modifier = stability_1
+						has_province_modifier = instability_1
+						has_province_modifier = instability_2
+					}
+				}
+				
+				add_province_modifier = {
+					name = instability_1
+					days = -1
+				}
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = stability_1
+				}
+				
+				remove_province_modifier = stability_1
+			}
+			
+			if = {
+				limit = {
+					has_province_modifier = stability_2
+				}
+
+				remove_province_modifier = stability_2
+				
+				add_province_modifier = {
+					name = stability_1
+					days = -1
+				}
+			}			
+			
+			
+		}
+		
+		add_character_modifier = {
+			name = da_migration_dilemma
+			duration = 1460
+			hidden = yes
+		}
+		
+	}
+	
+}
+
+character_event = {			#MIGRANTS OFFER TO SHARE KNOWLEDGE
+	id = darkages.72179
+	title = EVTNAME1972179
+	desc = EVTDESC1972179
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_economy
+	
+	trigger = {
+		has_character_flag = da_migration_in_play
+		is_landed = yes		
+		NOT = { has_character_flag = da_migration_extermination }
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		
+		modifier = {
+			factor = 0.33
+			has_character_flag = da_migration_integration
+		}
+		
+		modifier = {
+			factor = 0.75
+			has_character_flag = da_migration_segregation
+		}		
+	}
+	
+	option = {
+		name = "EVTOPTA1972179"
+		
+		random_list = {
+			1 = {
+				military_techpoints = 25
+			}
+			1 = {
+				culture_techpoints = 25
+			}			
+			1 = {
+				economy_techpoints = 25
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972179"
+		
+		wealth = -150
+		
+		random_list = {
+			1 = {
+				military_techpoints = 75
+			}
+			1 = {
+				culture_techpoints = 75
+			}			
+			1 = {
+				economy_techpoints = 75
+			}
+		}
+		
+	}	
+	
+}
+
+
+character_event = {			#USE MIGRANTS TO POLICE PROVINCE DWELLERS
+	id = darkages.72180
+	title = EVTNAME1972180
+	desc = EVTDESC1972180
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {
+		has_character_flag = da_migration_in_play
+		is_landed = yes		
+		NOT = { has_character_flag = da_migration_extermination }
+
+		any_demesne_province = {
+			OR = {
+				has_province_modifier = da_small_migration
+				has_province_modifier = da_medium_migration
+				has_province_modifier = da_large_migration
+				has_province_modifier = da_very_large_migration
+			}
+			NOT = { has_province_modifier = da_resented_population }
+		}
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		
+		modifier = {
+			factor = 0.66
+			trait = cruel
+		}
+		
+		modifier = {
+			factor = 0.75
+			trait = cynical
+		}
+
+		modifier = {
+			factor = 0.5
+			trait = schemer
+		}
+
+		modifier = {
+			factor = 0.8
+			intrigue = 12
+		}
+
+		modifier = {
+			factor = 0.8
+			intrigue = 15
+		}		
+
+		modifier = {
+			factor = 0.8
+			intrigue = 18
+		}
+		
+		modifier = {
+			factor = 0.8
+			intrigue = 21
+		}
+
+		modifier = {
+			factor = 1.2
+			NOT = { intrigue = 8 }
+		}		
+
+		modifier = {
+			factor = 1.2
+			NOT = { intrigue = 6 }
+		}
+		
+		modifier = {
+			factor = 1.2
+			NOT = { intrigue = 4 }
+		}
+		
+		modifier = {
+			factor = 1.2
+			NOT = { intrigue = 2 }
+		}		
+		
+		modifier = {
+			factor = 2
+			has_character_flag = da_migration_exploitation
+		}
+		
+		modifier = {
+			factor = 0.66
+			has_character_flag = da_migration_integration
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTA1972180"
+		
+		random_demesne_province = {
+			limit = {
+				OR = {
+					has_province_modifier = da_small_migration
+					has_province_modifier = da_medium_migration
+					has_province_modifier = da_large_migration
+					has_province_modifier = da_very_large_migration
+				}
+				NOT = { has_province_modifier = da_resented_population }				
+			}
+		
+			if = {
+				limit = {
+					has_province_modifier = stability_1
+				}
+				
+				remove_province_modifier = stability_1
+				
+				add_province_modifier = {
+					name = stability_2
+					days = -1
+				}
+			}
+			
+			if = {
+				limit = {
+					NOR = {
+						has_province_modifier = stability_2
+						has_province_modifier = stability_1
+						has_province_modifier = instability_1
+						has_province_modifier = instability_2
+					}
+				}
+				
+				add_province_modifier = {
+					name = stability_1
+					days = -1
+				}
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = instability_1
+				}
+				
+				remove_province_modifier = instability_1
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = instability_2
+				}
+				
+				remove_province_modifier = instability_2
+				
+				add_province_modifier = {
+					name = instability_1
+					days = -1
+				}
+			}
+			
+			add_province_modifier = {
+				name = da_resented_population
+				duration = 1825
+			}
+			
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972180"
+	
+	}
+	
+}
+
+
+
+province_event = {			##### EVENT TO INCREASE MIGRANT SIZE
+	id = darkages.72181
+	title = EVTNAME1972181
+	desc = EVTDESC1972181
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_religion
+
+	
+	trigger = {
+		OR = {
+			has_province_modifier = da_small_migration
+			has_province_modifier = da_medium_migration
+			has_province_modifier = da_large_migration
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+	}
+	
+	option = {
+		name = "EVTOPTA1972181"	#OK
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP92 }		
+		if = {
+			limit = {
+				has_province_modifier = da_large_migration
+			}
+			
+			remove_province_modifier = da_large_migration
+			
+			add_province_modifier = {
+				name = da_very_large_migration
+				duration = -1
+			}
+			
+		}
+		
+		if = {
+			limit = {
+				has_province_modifier = da_medium_migration
+			}
+			
+			remove_province_modifier = da_medium_migration
+			
+			add_province_modifier = {
+				name = da_large_migration
+				duration = -1
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_province_modifier = da_small_migration
+			}
+			
+			remove_province_modifier = da_small_migration
+			
+			add_province_modifier = {
+				name = da_medium_migration
+				duration = -1
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_province_modifier = instability_1
+			}
+				
+			remove_province_modifier = instability_1
+				
+			add_province_modifier = {
+				name = instability_2
+				days = -1
+			}
+		}
+			
+		if = {
+			limit = {
+				NOR = {
+					has_province_modifier = stability_2				
+					has_province_modifier = stability_1
+					has_province_modifier = instability_1
+					has_province_modifier = instability_2
+				}
+			}
+				
+			add_province_modifier = {
+				name = instability_1
+				days = -1
+			}
+		}
+
+		if = {
+			limit = {
+				has_province_modifier = stability_1
+			}
+				
+			remove_province_modifier = stability_1
+		}
+			
+		if = {
+			limit = {
+				has_province_modifier = stability_2
+			}
+
+			remove_province_modifier = stability_2
+				
+			add_province_modifier = {
+				name = stability_1
+				days = -1
+			}
+		}
+		
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972181"	#ATTACK NEW GROUP OF MIGRANTS
+		trigger = {
+			owner = {
+				NOT = {	has_character_flag = da_migration_integration }
+				NOT = { trait = kind }
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP91 }
+		
+		owner = {
+			piety = -35
+			wealth = -20
+			scaled_wealth = -0.20
+		}
+		
+		if = {
+			limit = {
+				owner = { NOT = { trait = cruel } }
+			}
+			
+			
+			random = {
+				chance = 33
+				owner = { add_trait = cruel }
+			}
+		}
+
+		
+		add_province_modifier = {
+			name = da_cruel_measures
+			duration = 2555
+		}
+	
+	
+	}
+	
+}
+
+province_event = {			#####	EVENT WHERE MIGRANTS HELP IN WAR WITH LEVY
+	id = darkages.72183
+	title = EVTNAME1972183
+	desc = EVTDESC1972183
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_war
+	
+	trigger = {
+	
+		OR = {
+			has_province_modifier = da_small_migration
+			has_province_modifier = da_medium_migration
+			has_province_modifier = da_large_migration
+			has_province_modifier = da_very_large_migration
+		}
+
+		owner = { 
+			war = yes
+			has_character_flag = da_migration_integration
+			NOT = { has_character_modifier = da_migration_temp_levy }
+			NOT = { has_earmarked_regiments = da_migration_levy_offer }
+		}
+
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = {
+		name = "EVTOPTA1972183"	#THANKS
+		
+		if = {
+			limit = {
+				has_province_modifier = da_small_migration
+			}
+			
+			owner = {
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 25 25 }
+						light_infantry = { 70 70 }
+						heavy_infantry = { 5 5 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes
+					attrition = 1.0
+				}
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 25 25 }
+						light_infantry = { 70 70 }
+						heavy_infantry = { 5 5 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 25 25 }
+						light_infantry = { 70 70 }
+						heavy_infantry = { 5 5 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}				
+				
+			}
+			
+		}
+		
+		if = {
+			limit = {
+				has_province_modifier = da_medium_migration
+			}
+			
+			owner = {
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 40 40 }
+						light_infantry = { 125 125 }
+						heavy_infantry = { 10 10 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 40 40 }
+						light_infantry = { 125 125 }
+						heavy_infantry = { 10 10 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 40 40 }
+						light_infantry = { 125 125 }
+						heavy_infantry = { 10 10 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}				
+				
+			}
+			
+		}
+		
+		if = {
+			limit = {
+				has_province_modifier = da_large_migration
+			}
+			
+			owner = {
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 65 65 }
+						light_infantry = { 175 175 }
+						heavy_infantry = { 20 20 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 65 65 }
+						light_infantry = { 175 175 }
+						heavy_infantry = { 20 20 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 65 65 }
+						light_infantry = { 175 175 }
+						heavy_infantry = { 20 20 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}				
+				
+			}
+			
+		}
+
+		if = {
+			limit = {
+				has_province_modifier = da_very_large_migration
+			}
+			
+			owner = {
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 100 100 }
+						light_infantry = { 250 250 }
+						heavy_infantry = { 40 40 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes	
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 100 100 }
+						light_infantry = { 250 250 }
+						heavy_infantry = { 40 40 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}
+				spawn_unit = {
+					owner = THIS
+					leader = THIS
+					province = ROOT
+					home = ROOT
+					troops = {
+						archers = { 100 100 }
+						light_infantry = { 250 250 }
+						heavy_infantry = { 40 40 }
+					}
+					can_toggle_looting = yes
+					disband_on_peace = yes
+					earmark = da_migration_levy_offer
+					reinforces = yes					
+					attrition = 1.0
+				}				
+				
+			}
+			
+		}	
+
+		owner = {
+			add_character_modifier = {
+				name = da_migration_temp_levy
+				duration = 1825
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972183" #I DON'T NEED YOUR TROOPS
+	
+		if = {
+			limit = {
+				owner = { NOT = { trait = ambitious } }
+			}
+			owner = {
+				random = {
+					chance = 10
+					add_trait = ambitious
+				}
+			}
+		}
+		
+		owner = {
+			add_character_modifier = {
+				name = da_migration_temp_levy
+				duration = 1825
+				hidden = yes
+				inherit = yes				
+			}
+		}
+		
+	}	
+	
+}
+
+########################################################
+#
+#	EXTERMINATION POLICY
+#
+########################################################
+
+character_event = {			#SUCCESSFUL EXTERMINATION
+	id = darkages.72184
+	title = EVTNAME1972184
+	desc = EVTDESC1972184
+	picture = GFX_evt_impalement
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972184"
+		
+		clr_character_flag = da_migration_in_play
+		clr_character_flag = da_migration_extermination
+
+		wealth = 50		
+		
+		random_demesne_province = {
+			limit = {
+				OR = {
+					has_province_modifier = da_small_migration
+					has_province_modifier = da_medium_migration
+					has_province_modifier = da_large_migration
+					has_province_modifier = da_very_large_migration
+				}
+			}
+			
+			remove_province_modifier = da_small_migration
+			remove_province_modifier = da_medium_migration
+			remove_province_modifier = da_large_migration
+			remove_province_modifier = da_very_large_migration			
+		}
+		
+	}
+	
+}
+
+character_event = {			#EXTERMINATION FAILURE
+	id = darkages.72185
+	title = EVTNAME1972185
+	desc = EVTDESC1972185
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_integration
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP83 }
+	}
+	
+	option = {
+		name = EVTOPTB1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_segregation
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP84 }
+		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+			}
+			
+			add_trait = zealous
+		}
+
+	}	
+
+	
+	option = {
+		name = EVTOPTC1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_exploitation
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP85 }
+		
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			
+			add_trait = cruel
+		}		
+
+	}	
+	
+	
+	option = {
+		name = EVTOPTD1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_extermination
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP86 }
+		
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			
+			add_trait = cruel
+		}
+
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+			}
+			
+			add_trait = wroth
+		}
+
+		if = {
+			limit = {
+				NOT = { diplomacy = 8 }
+			}
+			change_diplomacy = -1
+			
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = 1460
+			}			
+			
+		}
+		if = {
+			limit = {
+				diplomacy = 8
+				NOT = { diplomacy = 12 }
+			}
+			change_diplomacy = -2
+			
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = 1460
+			}			
+			
+		}
+		if = {
+			limit = {
+				diplomacy = 12
+			}
+			change_diplomacy = -3
+			
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = 1460
+			}			
+			
+		}				
+
+	}
+	
+}
+
+character_event = {			#CALLED FROM DECISIONS TO RESET MIGRATION POLICY
+	id = darkages.72186
+	title = EVTNAME1972186
+	desc = EVTDESC1972186
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only	= yes
+	
+	trigger = {
+
+	}
+
+	
+	option = {
+		name = EVTOPTA1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_integration
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP83 }
+	}
+	
+	
+	option = {
+		name = EVTOPTB1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_segregation
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP84 }
+		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+			}
+			
+			add_trait = zealous
+		}
+
+	}	
+
+	
+	option = {
+		name = EVTOPTC1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_exploitation
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP85 }
+		
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			
+			add_trait = cruel
+		}		
+
+	}	
+	
+	
+	option = {
+		name = EVTOPTD1972165
+		set_character_flag = da_migration_in_play
+		set_character_flag = da_migration_extermination
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP86 }
+		
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			
+			add_trait = cruel
+		}
+
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+			}
+			
+			add_trait = wroth
+		}
+
+		if = {
+			limit = {
+				NOT = { diplomacy = 8 }
+			}
+			change_diplomacy = -1
+			
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = 1460
+			}			
+			
+		}
+		if = {
+			limit = {
+				diplomacy = 8
+				NOT = { diplomacy = 12 }
+			}
+			change_diplomacy = -2
+			
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = 1460
+			}			
+			
+		}
+		if = {
+			limit = {
+				diplomacy = 12
+			}
+			change_diplomacy = -3
+			
+			add_character_modifier = {
+				name = da_exterminated_innocents
+				duration = 1460
+			}			
+			
+		}				
+
+	}	
+	
+}
+
+character_event = {			#EXPLOITATION OF MIGRANTS
+	id = darkages.72187
+	title = EVTNAME1972187
+	desc = EVTDESC1972187
+	picture = GFX_evt_da_migration
+	border = GFX_event_normal_frame_economy
+	
+	trigger = {
+		NOT = { has_character_modifier = da_migration_slavery }
+		has_character_flag = da_migration_exploitation
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = "EVTOPTA1972187"
+		
+		add_character_modifier = {
+			name = da_migration_slavery
+			duration = 1825
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972187"
+		
+		add_character_modifier = {
+			name = da_migration_slavery
+			duration = 2555
+		}
+		
+		random_demesne_province = {
+			limit = {
+				OR = {
+					has_province_modifier = da_small_migration
+					has_province_modifier = da_medium_migration
+					has_province_modifier = da_large_migration
+					has_province_modifier = da_very_large_migration
+				}				
+			}
+			
+			if = {
+				limit = {
+					has_province_modifier = instability_1
+				}
+				
+				remove_province_modifier = instability_1
+				
+				add_province_modifier = {
+					name = instability_2
+					days = -1
+				}
+			}
+			
+			if = {
+				limit = {
+					NOR = {
+						has_province_modifier = stability_2				
+						has_province_modifier = stability_1
+						has_province_modifier = instability_1
+						has_province_modifier = instability_2
+					}
+				}
+				
+				add_province_modifier = {
+					name = instability_1
+					days = -1
+				}
+			}
+
+			if = {
+				limit = {
+					has_province_modifier = stability_1
+				}
+				
+				remove_province_modifier = stability_1
+			}
+			
+			if = {
+				limit = {
+					has_province_modifier = stability_2
+				}
+
+				remove_province_modifier = stability_2
+				
+				add_province_modifier = {
+					name = stability_1
+					days = -1
+				}
+			}			
+		
+		}
+		
+		
+	}	
+	
+}
+
+
+
+################################################################################################
+#
+#	CLEANUP EVENT TO CLEAR THE PROVINCE OF MODIFIERS RELATED WITH MIGRATION IF NO MIGRANTS THERE
+#
+################################################################################################
+
+province_event = {			
+	id = darkages.72633
+	title = EVTNAME1972184
+	desc = EVTDESC1972184
+	picture = GFX_evt_impalement
+	border = GFX_event_normal_frame_war
+	hide_window = yes
+	
+	trigger = {
+
+		OR = {
+			has_province_modifier = da_disruptive_migration
+			has_province_modifier = da_cruel_measures
+			has_province_modifier = da_resented_population
+			has_province_modifier = da_migrant_security
+			has_province_modifier = da_trade_curtailed
+		}
+		
+		NOR = {
+			has_province_modifier = da_small_migration
+			has_province_modifier = da_medium_migration
+			has_province_modifier = da_large_migration
+			has_province_modifier = da_very_large_migration
+		}
+		
+
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		remove_province_modifier = da_disruptive_migration
+		remove_province_modifier = da_cruel_measures
+		remove_province_modifier = da_resented_population
+		remove_province_modifier = da_migrant_security
+		remove_province_modifier = da_trade_curtailed
+	}
+	
+	option = {
+		name = "EVTOPTA1972184"
+		
+		
+		
+	}
+	
+}

@@ -1,0 +1,614 @@
+namespace = MC
+# Province culture changes from French to Occitan
+province_event = {
+	id = MC.0002
+	desc = EVTDESCMC0002
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		OR = {
+			culture = frankish
+			culture = occitan
+		}
+		region = custom_burgundy
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = burgundian
+	}
+}
+
+# Province culture changes from Italian to Tuscan
+province_event = {
+	id = MC.0003
+	desc = EVTDESCMC0003
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = italian
+		region = custom_tuscany
+		NOT = {
+			d_toscana = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = tuscan
+	}
+}
+
+# Province culture changes from Italian to Ligurian
+province_event = {
+	id = MC.0004
+	desc = EVTDESCMC0004
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = italian
+		region = custom_genoa
+		NOT = {
+			d_genoa = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = ligurian
+	}
+}
+
+# Province culture changes from Italian/Norman to Sicilian
+province_event = {
+	id = MC.0005
+	desc = EVTDESCMC0005
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		OR = {
+			culture = italian
+			culture = norman
+		}
+		region = custom_sicily
+		NOT = {
+			k_sicily = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = sicilian
+	}
+}
+
+# Province culture changes from Italian to Venetian
+province_event = {
+	id = MC.0006
+	desc = EVTDESCMC0006
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = italian
+		region = custom_venice
+		NOT = {
+			d_venice = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = venetian
+	}
+}
+
+# Province culture changes from Italian to Neapolitan
+province_event = {
+	id = MC.0007
+	desc = EVTDESCMC0007
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = italian
+		region = custom_naples
+		NOT = {
+			k_naples = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = neapolitan
+	}
+}
+
+# Province culture changes from Italian to Piedmontese
+province_event = {
+	id = MC.0008
+	desc = EVTDESCMC0008
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = italian
+		region = custom_susa
+		NOT = {
+			d_susa = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = piedmontese
+	}
+}
+
+# Province culture changes from Italian to Romagnan
+province_event = {
+	id = MC.0009
+	desc = EVTDESCMC0009
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = italian
+		region = custom_ferrara
+		NOT = {
+			d_ferrara = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = romagnan
+	}
+}
+
+# Province culture changes from Italian to Sardinian
+province_event = {
+	id = MC.0010
+	desc = EVTDESCMC0010
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = italian
+		region = custom_sardinia
+		NOT = {
+			d_sardinia = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = sardinian
+	}
+}
+
+# Province culture changes from Italian to Umbrian
+province_event = {
+	id = MC.0011
+	desc = EVTDESCMC0011
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = italian
+		region = custom_ancona
+		NOT = {
+			d_ancona = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = umbrian
+	}
+}
+
+# Province culture changes from Castillian to Aragonese
+province_event = {
+	id = MC.0012
+	desc = EVTDESCMC0012
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = castillan
+		region = custom_aragon
+		NOT = {
+			d_aragon = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = aragonese
+	}
+}
+
+# Province culture changes from Castillian/Portuguese to Galician
+province_event = {
+	id = MC.0013
+	desc = EVTDESCMC0013
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		OR = {
+			culture = castillan
+			culture = portuguese
+		}
+		region = custom_galicia
+		NOT = {
+			d_galicia = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = galician
+	}
+}
+
+# Province culture changes from Castillian to Leonese
+province_event = {
+	id = MC.0014
+	desc = EVTDESCMC0014
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = castillan
+		region = custom_leon
+		NOT = {
+			d_leon = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = leonese
+	}
+}
+
+# Province culture changes from Italian to Tuscan
+province_event = {
+	id = MC.0015
+	desc = EVTDESCMC0015
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = italian
+		region = custom_lombardy
+		NOT = {
+			d_lombardia = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = new_lombard
+	}
+}
+
+# Province culture changes from Occitan to Gascon
+province_event = {
+	id = MC.0016
+	desc = EVTDESCMC0016
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = occitan
+		region = custom_gascogne
+		NOT = {
+			d_gascogne = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = gascon
+	}
+}
+
+# Province culture changes from Polish to Silesian
+province_event = {
+	id = MC.0017
+	desc = EVTDESCMC0017
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		culture = polish
+		region = custom_silesia
+		NOT = {
+			d_silesia = { has_holder = no }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		culture = silesian
+	}
+}

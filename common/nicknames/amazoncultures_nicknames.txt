@@ -1,0 +1,71 @@
+
+nick_warrior_princess = {
+	allow = {
+		age = 16
+		is_female = yes
+		is_attractive_trigger = yes
+		is_strong_trigger = yes
+		has_injury_trigger = no
+		is_maimed_trigger = no
+		has_disability_trigger = no
+		has_mental_disorder_trigger = no 	
+		has_negative_congenital_trigger = no 
+		has_nickname = no
+		trait = homosexual
+		trait = brave
+		combat_rating = 20	
+	}
+	chance = {
+		factor = 5
+	}
+}
+
+nick_the_she_devil = {
+	allow = {
+		age = 16
+		is_female = yes
+		is_attractive_trigger = yes
+		is_strong_trigger = yes
+		has_injury_trigger = no
+		is_maimed_trigger = no
+		has_disability_trigger = no
+		has_mental_disorder_trigger = no 	
+		has_negative_congenital_trigger = no 
+		has_nickname = no
+		NOT = { trait = homosexual }
+		trait = brave
+		combat_rating = 20
+	}
+	chance = {
+		factor = 5
+	}
+}
+
+nick_the_legendary_amazonian = {
+	allow = {
+		trait = is_amazonian_immortal
+	}
+	chance = {
+		factor = 5
+	}
+}
+
+nick_the_giant_king = {
+	allow = {
+		trait = giant_king
+	}
+	chance = {
+		factor = 5
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

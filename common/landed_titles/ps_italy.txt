@@ -1,0 +1,1544 @@
+### Padova
+
+b_padova = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_este = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_polesine = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}								
+}
+b_chioggia = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}
+}
+
+### Mantua
+
+b_mantua = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 197
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Piemonte
+
+b_torino = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 174
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_novara = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+				
+### Saluzzo
+				
+b_saluzzo = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 140
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_pinerolo = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 196
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+} 
+b_cuneo = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 150
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_busca = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 232
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_paesana = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 127
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_verzuolo = {
+	coat_of_arms = {
+		template = 1
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 1
+			color = 0
+		}
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Monferrato
+
+b_monferrato = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 140
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_asti = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_tortona = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}				
+
+### Ivrea
+
+b_ivrea = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Brescia
+
+b_brescia = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_bergamo = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Lombardia
+
+b_milano = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_monza = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 368
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_lodi = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Leventina
+
+### Como
+b_como = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+### Pavia
+
+b_pavia = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_bobbio = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_piacenza = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_voghera = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 394
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_alessandria = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Cremona
+
+b_cremona = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 150
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_crema = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 140
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Genoa
+
+b_genoa = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+				
+
+### Noli
+
+b_ventimiglia = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 140
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Modena
+
+b_modena = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}					
+}
+b_carpi = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 394
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_mirandola = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Parma
+
+b_parma = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 120
+            emblem = 0
+            color = 4
+            color = 0
+            color = 0
+        }
+    }				
+}
+b_guastalla = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 174
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Lucca
+
+b_lucca = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 497
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_pistoia = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 172
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Firenze
+
+b_firenze = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 73
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}					
+}
+b_prato = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 33
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}
+}
+
+### Arezzo
+
+b_arezzo = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 4
+            texture_internal = 171
+            emblem = 0
+            color = 0
+            color = 4
+            color = 0
+        }
+    }				
+}
+b_cortona = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 72
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}
+}
+
+### Siena
+
+b_siena = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 127
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}				
+}
+b_montepulciano = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 57
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}
+}
+
+### Pisa
+
+b_pisa = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 62 ### Vidée
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+    }
+}
+b_sanminiato = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 247
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}
+}
+
+### Piombino
+
+b_piombino = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 173
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+##############
+### Venice ###
+##############
+
+### Venezia
+
+b_venezia = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 40
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}					
+}
+b_jesolo = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 59
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}					
+}				
+
+################
+### Sardinia ###
+################
+
+### Arborea
+
+b_oristano = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 84
+			emblem = 0
+			color = 0
+			color = 3
+			color = 0
+		}
+	}					
+}
+
+### Cagliari
+
+### Ogliastra
+
+### Torres
+
+b_sassari = {
+	catalan = "Sàsser"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}					
+}
+b_portotorres = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 177
+			emblem = 0
+			color = 4
+			color = 1
+			color = 4
+		}
+	}				
+}
+
+### Gallura
+
+### Corsica
+
+### Cinarca
+
+##############
+### Sicily ###
+##############
+
+### Benevento
+
+b_avellino = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 83
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}
+}
+
+### Foggia
+
+### Capua
+
+b_caserta = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 8
+			color = 2
+			color = 1
+			color = 0
+		}
+	}
+}
+b_acerra = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 163
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}
+}				
+
+### Napoli
+
+b_napoli = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 127
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}					
+}
+b_pozzuoli = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}				
+}
+				
+### Apulia
+
+### Bari
+
+b_bari = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 169
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}
+}
+
+# b_andria
+
+### Lecce
+
+### Chieti
+
+b_crecchio = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 74
+            emblem = 0
+            color = 0
+            color = 2
+            color = 0
+        }
+    }
+}
+
+b_chieti = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 120
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }
+}	
+
+b_vasto = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 169
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }
+}
+	
+### Aprutium
+
+b_aquila = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 30
+            emblem = 0
+            color = 3
+            color = 1
+            color = 0
+        }
+    }
+}
+
+b_atri = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}
+}
+b_pescara = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 21
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}
+}				
+
+### Salerno
+
+b_nocera = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 155
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}
+}
+
+### Taranto
+
+b_mottola = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 231
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_tricanico = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}
+}				
+
+### Amalfi
+
+b_ravello={
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 435
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_tramonti={
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 331
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_capri = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 111
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}				
+
+### Cosenza
+
+b_rossano = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 180
+            emblem = 0
+            color = 4
+            color = 1
+            color = 0
+        }
+    }
+}
+
+### Catanzaro
+
+b_catanzaro = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 135
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}
+}
+
+### Reggio
+
+b_gerace = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 463
+			emblem = 15
+			color = 0
+			color = 2
+			color = 0
+		}
+	}
+}
+b_squillace = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 22
+			emblem = 31
+			color = 1
+			color = 2
+			color = 0
+		}
+	}
+}				
+
+### Palermo
+
+b_palermo = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}					
+}
+
+### Messina
+
+### Siracusa
+
+b_paterno = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 142
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Agrigento
+
+b_butera = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 142
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}
+}
+
+### Trapani
+
+### Malta
+
+### Carinthia (Verona) ###
+
+### Verona
+
+b_verona = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 100
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_vicenza = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Treviso
+
+b_treviso = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 151
+			emblem = 0
+			color = 0
+			color = 5
+			color = 0
+		}
+	}				
+}
+b_oderzo = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 125
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Bologna
+
+b_faenza = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 168
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_bologna = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}				
+}
+b_forli = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 18
+			emblem = 0
+			color = 5
+			color = 0
+			color = 0
+		}
+	}				
+}				
+b_imola = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 5
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Ferrara
+
+b_ferrara = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 127
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Ravenna
+
+b_ravenna = {
+    coat_of_arms = {
+        template = 2
+        layer = {
+            texture = 4
+            texture_internal = 109
+            emblem = 0
+            color = 2
+            color = 0
+            color = 2
+        }
+        layer = {
+            texture = 4
+            texture_internal = 109
+            emblem = 0
+            color = 0
+            color = 2
+            color = 0
+        }
+    }
+}
+
+
+
+
+### Ancona
+
+b_ancona = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 120
+            emblem = 0
+            color = 0
+            color = 2
+            color = 0
+        }
+    }				
+}
+
+b_camerino = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 178
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Rimini
+
+b_rimini = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 370
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }				
+}
+
+### Urbino
+
+b_urbino = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_montefeltro = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 163
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}
+}			
+
+### Spoleto
+
+b_spoleto = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}				
+}
+b_nursia = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}	
+			
+### Perugia
+
+b_perugia = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+	
+### Roma
+
+b_tusculum = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 143
+			emblem = 0
+			color = 0
+			color = 2
+			color = 3
+		}
+	}				
+}
+b_roma = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 4
+            texture_internal = 191
+            emblem = 0
+            color = 0
+            color = 2
+            color = 1
+        }
+    }				
+}
+b_viterbo = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 40
+            emblem = 0
+            color = 0
+            color = 4
+            color = 0
+        }
+    }				
+}
+
+### Orvieto
+
+b_orvieto = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}
+}
+
+### Orbetello
+
+b_grosseto = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 57
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_pitigliano = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 129
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}	

@@ -1,0 +1,1146 @@
+namespace = darkages
+
+character_event = { 		
+	id = darkages.72670
+	title = EVTNAME1972670
+	desc = EVTDESC1972670
+	picture = GFX_evt_da_spymaster
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		random_character = {
+			limit = {
+				has_character_modifier = da_poison_target
+			}
+			
+			save_event_target_as = da_target
+			
+		}
+		
+		FROM = {
+			save_event_target_as = da_source
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972670
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP363 }
+
+
+		set_character_flag = da_safe	
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				4 = {				#WIN
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}
+					modifier = {
+						factor = 1.75
+						trait = schemer
+					}				
+					modifier = {
+						factor = 1.66
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_target = { trait = dim }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = slow }
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = imbecile }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = dull }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_source = { trait = trusting }
+					}				
+					
+					character_event = { id = darkages.72672 days = 30 random = 90 }
+				}
+				
+
+				5 = {			#LOSE
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_target = { has_education_intrigue_trigger = yes }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = wary }
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = schemer }
+					}				
+					modifier = {
+						factor = 1.35
+						event_target:da_target = { trait = silver_tongue }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_target = { trait = bright }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = quick }
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = genius }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.35
+						OR = {
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 35 }
+							}
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 35
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.5
+						OR = {
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 40 }
+							}
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 40
+							}							
+						}
+					}				
+					modifier = {
+						factor = 1.75
+						OR = {
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 45 }
+							}
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 45
+							}							
+						}
+					}			
+					modifier = {
+						factor = 1.35
+						OR = {
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 35 }
+							}
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 35
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.5
+						OR = {
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 40 }
+							}
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 40
+							}							
+						}
+					}				
+					modifier = {
+						factor = 1.75
+						OR = {
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 45 }
+							}
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 45
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						event_target:da_source = { trait = shrewd }
+					}
+					
+					
+					character_event = { id = darkages.72673 days = 30 random = 90 }
+				}
+				
+			}
+			
+		}
+		
+		
+
+		if = {
+			limit = {
+				NOR = {
+					trait = deceitful
+					trait = honest
+				}
+			}
+					
+			random = {
+				chance = 66
+					
+				add_trait = deceitful
+			}
+					
+		}
+
+		if = {
+			limit = {
+				trait = honest
+			}
+				
+			random = {
+				chance = 75
+				
+				remove_trait = honest
+			}
+					
+		}	
+				
+		if = {
+			limit = {
+				NOR = {
+					trait = just
+					trait = arbitrary
+				}
+			}
+					
+			random = {
+				chance = 66
+				
+				add_trait = arbitrary
+			}
+					
+		}
+
+		if = {
+			limit = {
+				trait = just
+			}
+			
+			random = {
+				chance = 75
+				
+				remove_trait = just
+			}
+			
+		}	
+	
+	}
+	
+	option = {
+		name = EVTOPTB1972670
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP364 }
+		
+		set_character_flag = da_risky		
+		
+		hidden_tooltip = {
+			random_list = {
+				2 = {				#WIN
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}
+					modifier = {
+						factor = 1.75
+						trait = schemer
+					}				
+					modifier = {
+						factor = 1.66
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_target = { trait = dim }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = slow }
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = imbecile }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = dull }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_source = { trait = trusting }
+					}				
+					
+					character_event = { id = darkages.72672 days = 30 random = 90 }
+					
+					
+				}
+				3 = {			#LOSE
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_target = { has_education_intrigue_trigger = yes }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = wary }
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = schemer }
+					}				
+					modifier = {
+						factor = 1.35
+						event_target:da_target = { trait = silver_tongue }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_target = { trait = bright }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = quick }
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = genius }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.35
+						OR = {
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 35 }
+							}
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 35
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.5
+						OR = {
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 40 }
+							}
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 40
+							}							
+						}
+					}				
+					modifier = {
+						factor = 1.75
+						OR = {
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 45 }
+							}
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 45
+							}							
+						}
+					}			
+					modifier = {
+						factor = 1.35
+						OR = {
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 35 }
+							}
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 35
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.5
+						OR = {
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 40 }
+							}
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 40
+							}							
+						}
+					}				
+					modifier = {
+						factor = 1.75
+						OR = {
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 45 }
+							}
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 45
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						event_target:da_source = { trait = shrewd }
+					}
+					
+					character_event = { id = darkages.72673 days = 30 random = 90 }
+					
+				}
+			}
+		}
+		
+		
+
+		if = {
+			limit = {
+				NOR = {
+					trait = deceitful
+					trait = honest
+				}
+			}
+					
+			random = {
+				chance = 66
+					
+				add_trait = deceitful
+			}
+					
+		}
+
+		if = {
+			limit = {
+				trait = honest
+			}
+				
+			random = {
+				chance = 75
+				
+				remove_trait = honest
+			}
+					
+		}	
+				
+		if = {
+			limit = {
+				NOR = {
+					trait = just
+					trait = arbitrary
+				}
+			}
+					
+			random = {
+				chance = 66
+				
+				add_trait = arbitrary
+			}
+					
+		}
+
+		if = {
+			limit = {
+				trait = just
+			}
+			
+			random = {
+				chance = 75
+				
+				remove_trait = just
+			}
+			
+		}		
+		
+	}	
+	
+	option = {
+		name = EVTOPTC1972670
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP365 }
+
+		set_character_flag = da_ultra_risky
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {				#WIN
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}
+					modifier = {
+						factor = 1.75
+						trait = schemer
+					}				
+					modifier = {
+						factor = 1.66
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.5
+						trait = arbitrary
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.5
+						event_target:da_target = { trait = dim }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = slow }
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = imbecile }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = dull }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_source = { trait = trusting }
+					}
+
+					character_event = { id = darkages.72672 days = 30 random = 90 }
+					
+					
+				}
+				1 = {			#LOSE
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_target = { has_education_intrigue_trigger = yes }
+					}
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = wary }
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = schemer }
+					}				
+					modifier = {
+						factor = 1.35
+						event_target:da_target = { trait = silver_tongue }
+					}				
+					modifier = {
+						factor = 1.5
+						event_target:da_target = { trait = bright }
+					}				
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = quick }
+					}				
+					modifier = {
+						factor = 2
+						event_target:da_target = { trait = genius }
+					}
+					
+					set_character_flag = da_losereduced
+					character_event = { id = darkages.72673 days = 30 random = 90 }
+					
+				}
+				1 = {	#LOSE EXTRA
+					modifier = {
+						factor = 1.75
+						event_target:da_target = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.35
+						OR = {
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 35 }
+							}
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 35
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.5
+						OR = {
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 40 }
+							}
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 40
+							}							
+						}
+					}				
+					modifier = {
+						factor = 1.75
+						OR = {
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 45 }
+							}
+							event_target:da_target = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 45
+							}							
+						}
+					}			
+					modifier = {
+						factor = 1.35
+						OR = {
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 35 }
+							}
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 35
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.5
+						OR = {
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 40 }
+							}
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 40
+							}							
+						}
+					}				
+					modifier = {
+						factor = 1.75
+						OR = {
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								NOT = { num_of_titles = 1 }
+								liege = { realm_intrigue = 45 }
+							}
+							event_target:da_source = { 
+								liege = { NOT = { character = ROOT } }
+								num_of_titles = 1
+								realm_intrigue = 45
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						event_target:da_source = { trait = shrewd }
+					}
+					
+					character_event = { id = darkages.72673 days = 30 random = 90 }			
+				}
+			}
+		}
+		
+		
+
+		if = {
+			limit = {
+				NOR = {
+					trait = deceitful
+					trait = honest
+				}
+			}
+					
+			random = {
+				chance = 66
+					
+				add_trait = deceitful
+			}
+					
+		}
+
+		if = {
+			limit = {
+				trait = honest
+			}
+				
+			random = {
+				chance = 75
+				
+				remove_trait = honest
+			}
+					
+		}	
+				
+		if = {
+			limit = {
+				NOR = {
+					trait = just
+					trait = arbitrary
+				}
+			}
+					
+			random = {
+				chance = 66
+				
+				add_trait = arbitrary
+			}
+					
+		}
+
+		if = {
+			limit = {
+				trait = just
+			}
+			
+			random = {
+				chance = 75
+				
+				remove_trait = just
+			}
+			
+		}		
+		
+	}	
+	
+}
+
+
+character_event = { 		#WIN
+	id = darkages.72672
+	title = EVTNAME1972672
+	desc = EVTDESC1972672
+	picture = GFX_evt_da_scandal
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+
+	}
+	
+	option = {
+		name = EVTOPTA1972672
+		trigger = {
+			has_character_flag = da_safe
+		}
+		
+		event_target:da_source = {
+			opinion = {
+				who = event_target:da_target
+				modifier = da_relations_poisoned
+				months = 120
+			}
+		}
+
+	}	
+	
+	option = {
+		name = EVTOPTA1972672
+		trigger = {
+			has_character_flag = da_risky
+		}
+		
+		event_target:da_source = {
+			opinion = {
+				who = event_target:da_target
+				modifier = da_relations_poisoned2
+				months = 120
+			}
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972672
+		trigger = {
+			has_character_flag = da_ultra_risky
+		}
+		
+		event_target:da_source = {
+			add_rival = event_target:da_target
+		}
+
+	}
+
+	after = {
+		clr_character_flag = da_safe
+		clr_character_flag = da_risky		
+		clr_character_flag = da_ultra_risky	
+		hidden_tooltip = {
+			event_target:da_target = { remove_character_modifier = da_poison_target }		
+		}
+	}
+	
+}
+
+character_event = { 		#FAILURE
+	id = darkages.72673
+	title = EVTNAME1972673
+	desc = {
+		trigger = { NOT = { has_character_flag = da_ultra_risky } }
+		text = EVTDESC1972673_1
+	}
+	desc = {
+		trigger = { has_character_flag = da_ultra_risky }
+		text = EVTDESC1972673_2
+	}	
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		if = {
+			limit = { has_character_flag = da_ultra_risky }
+			
+			random = {
+				chance = 30
+				modifier = {
+					factor = 2
+					OR = {
+						event_target:da_target = { trait = wroth }
+						event_target:da_source = { trait = wroth }					
+					}
+				}
+				modifier = {
+					factor = 1.25
+					OR = {
+						event_target:da_target = { trait = envious }
+						event_target:da_source = { trait = envious }					
+					}
+				}
+
+				set_character_flag = da_payback
+			}
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972673
+		trigger = {
+			has_character_flag = da_safe
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972673
+		trigger = {
+			has_character_flag = da_risky
+		}
+		
+		prestige = -50
+		
+		event_target:da_target = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+			}
+		}
+	}	
+
+	option = {
+		name = EVTOPTC1972673
+		trigger = {
+			has_character_flag = da_ultra_risky
+			NOT = { has_character_flag = da_payback }
+			NOT = { has_character_flag = da_losereduced }
+		}
+		
+		event_target:da_target = {
+			add_rival = ROOT
+		}
+		
+		event_target:da_source = {
+			add_rival = ROOT
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTE1972673
+		trigger = {
+			has_character_flag = da_ultra_risky
+			has_character_flag = da_losereduced
+		}
+		
+		prestige = -100
+		
+		event_target:da_target = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+			}
+		}
+		
+		event_target:da_source = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+			}
+		}		
+		
+	}	
+	
+	option = {
+		name = EVTOPTD1972673
+		trigger = {
+			has_character_flag = da_payback
+		}
+
+		event_target:da_target = {
+			add_rival = ROOT
+		}
+		
+		event_target:da_source = {
+			add_rival = ROOT
+		}
+
+	
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 10
+				}
+				modifier = {
+					factor = 1.35
+					combat_rating = 20
+				}				
+				modifier = {
+					factor = 1.5
+					combat_rating = 35
+				}				
+				modifier = {
+					factor = 1.75
+					combat_rating = 50
+				}					
+			}
+			2 = {
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -7 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -15 }
+				}					
+				add_trait = wounded
+			
+			}
+			2 = {
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -21 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -29 }
+				}
+				death = {
+					death_reason = death_murder_unknown
+				}
+			}
+			
+		}	
+	
+	}
+	
+	after = {
+		clr_character_flag = da_safe
+		clr_character_flag = da_risky		
+		clr_character_flag = da_ultra_risky
+		clr_character_flag = da_payback
+		clr_character_flag = da_losereduced		
+		hidden_tooltip = {
+			event_target:da_target = { remove_character_modifier = da_poison_target }		
+		}
+	}	
+	
+}

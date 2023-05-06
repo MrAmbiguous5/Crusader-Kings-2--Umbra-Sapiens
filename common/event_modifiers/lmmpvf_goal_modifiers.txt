@@ -1,0 +1,23 @@
+lmmpvf_improved_public_image_modifier = {
+	icon = 16
+	general_opinion = 10
+}
+
+lmmpvf_improved_public_image_member_modifier = {
+	icon = 16
+	general_opinion = 5
+}
+
+lmmpvf_faction_trade_route_modifier = {
+	icon = 4
+	city_tax_modifier = 0.2
+	castle_tax_modifier = 0.1
+	tribal_tax_modifier = 0.1	
+}
+
+lmmpvf_prospering_modifier = {
+	icon = 87
+	city_tax_modifier = 0.1
+	castle_tax_modifier = 0.05
+	tribal_tax_modifier = 0.05	
+}

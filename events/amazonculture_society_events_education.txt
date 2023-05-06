@@ -1,0 +1,378 @@
+# education events
+
+character_event = {	# education
+	id = AmzCulSoc.301
+	desc = EVTDESC_AmzCulSoc_301
+	picture = GFX_evt_library
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { 
+		name = EVTOPTA_AmzCulSoc_301
+		ai_chance = { factor = 10 }
+		trigger = { 
+			NOR = {
+				trait = misguided_warrior
+				trait = tough_soldier
+				trait = skilled_tactician
+			} 
+		}
+		if = {
+			limit = { learning <= 4 }
+			random_list = {
+				10 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				90 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					learning == 5 
+					learning == 6
+				}
+			}
+			random_list = {
+				30 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				70 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					learning == 7 
+					learning == 8
+				}
+			}
+			random_list = {
+				40 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				60 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { learning = 9 }
+			random_list = {
+				60 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				40 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTB_AmzCulSoc_301
+		ai_chance = { factor = 10 }
+		trigger = { 
+			trait = misguided_warrior
+		}
+		if = {
+			limit = { learning <= 4 }
+			random_list = {
+				10 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				90 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					learning == 5 
+					learning == 6
+				}
+			}
+			random_list = {
+				30 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				70 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					learning == 7 
+					learning == 8
+				}
+			}
+			random_list = {
+				40 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				60 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { learning = 9 }
+			random_list = {
+				60 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				40 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTC_AmzCulSoc_301
+		ai_chance = { factor = 10 }
+		trigger = { 
+			trait = tough_soldier
+		}
+		if = {
+			limit = { learning <= 4 }
+			random_list = {
+				10 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				90 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					learning == 5 
+					learning == 6
+				}
+			}
+			random_list = {
+				30 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				70 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					learning == 7 
+					learning == 8
+				}
+			}
+			random_list = {
+				40 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				60 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { learning = 9 }
+			random_list = {
+				60 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				40 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTD_AmzCulSoc_301
+		ai_chance = { factor = 10 }
+		trigger = { 
+			trait = skilled_tactician
+		}
+		if = {
+			limit = { learning <= 4 }
+			random_list = {
+				10 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				90 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					learning == 5 
+					learning == 6
+				}
+			}
+			random_list = {
+				30 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				70 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					learning == 7 
+					learning == 8
+				}
+			}
+			random_list = {
+				40 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				60 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+		if = {
+			limit = { learning = 9 }
+			random_list = {
+				60 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.302 days = 14 } } #pass
+					custom_tooltip = { text = learn_better_martial_tt }
+				}
+				40 = {
+					hidden_tooltip = { character_event = { id = AmzCulSoc.303 days = 14 } } #fail
+					custom_tooltip = { text = not_learn_better_martial_tt }
+				}
+			}
+		}
+	}
+}
+
+character_event = {	# education pass
+	id = AmzCulSoc.302
+	picture = GFX_evt_library
+	border = GFX_event_normal_frame_war
+	
+	desc = EVTDESC_AmzCulSoc_302a
+	desc = EVTDESC_AmzCulSoc_302b
+	desc = EVTDESC_AmzCulSoc_302c
+	desc = EVTDESC_AmzCulSoc_302d
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # I'm learnding
+		name = EVTOPTA_AmzCulSoc_302
+		ai_chance = { factor = 10 }
+		if = {
+			limit = { 
+				trait = skilled_tactician 
+			}
+			remove_trait = skilled_tactician
+			add_trait = brilliant_strategist
+			clr_character_flag = amazonian_education_flag
+		}
+		if = {
+			limit = { 
+				trait = tough_soldier 
+			}
+			remove_trait = tough_soldier
+			add_trait = skilled_tactician
+		}
+		if = {
+			limit = { 
+				trait = misguided_warrior 
+			}
+			remove_trait = misguided_warrior
+			add_trait = tough_soldier
+		}
+		if = {
+			limit = { 
+				NOR = {
+					trait = misguided_warrior
+					trait = tough_soldier
+					trait = skilled_tactician
+					trait = brilliant_strategist
+				}
+			}
+			add_trait = misguided_warrior
+			change_learning = 1
+		}
+		random = {
+			chance = 20
+			add_trait = diligent
+		}
+		if = {
+			limit = { learning < 12 }
+			random = {
+				chance = 75
+				change_learning = 1
+			}
+		}
+	}
+}
+
+character_event = {	# education fail
+	id = AmzCulSoc.303
+	desc = EVTDESC_AmzCulSoc_303
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # try again later
+		name = EVTOPTA_AmzCulSoc_303
+		ai_chance = { factor = 10 }
+		if = {
+			limit = { learning < 15 }
+			random = {
+				chance = 20
+				change_learning = 1
+			}
+		}
+	}
+}

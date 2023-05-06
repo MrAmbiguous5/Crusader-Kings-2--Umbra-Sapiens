@@ -1,0 +1,1872 @@
+spriteTypes = {
+	
+	####ANGLO
+	
+	spriteType = {
+		name = "GFX_ecclesiastical_history1"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_ecclesiastical_history1_small"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	spriteType = {
+		name = "GFX_ecclesiastical_history2"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_ecclesiastical_history2_small"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+		
+	spriteType = {
+		name = "GFX_ecclesiastical_history3"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_ecclesiastical_history3_small"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	spriteType = {
+		name = "GFX_ecclesiastical_history4"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_ecclesiastical_history4_small"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	spriteType = {
+		name = "GFX_ecclesiastical_history5"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_ecclesiastical_history5_small"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	spriteType = {
+		name = "GFX_ecclesiastical_history_girdle"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history_girdle.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_ecclesiastical_history_girdle_small"
+		texturefile = "gfx/interface/inventory/ecclesiastical_history_girdle_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}			
+	
+	####BAYEUX TAPESTRY
+	
+	spriteType = {
+		name = "GFX_bayeux_tapestry"
+		texturefile = "gfx/interface/inventory/bayeux_tapestry.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bayeux_tapestry_small"
+		texturefile = "gfx/interface/inventory/bayeux_tapestry_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+
+	
+	####PAPAL BULL
+	
+	spriteType = {
+		name = "GFX_papal_bull"
+		texturefile = "gfx/interface/inventory/papal_bull.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_papal_bull_small"
+		texturefile = "gfx/interface/inventory/papal_bull_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	####HORN OF LEHEL
+	
+	spriteType = {
+		name = "GFX_horn_of_lehel"
+		texturefile = "gfx/interface/inventory/horn_of_lehel.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_horn_of_lehel_small"
+		texturefile = "gfx/interface/inventory/horn_of_lehel_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	####AESOP'S FABLES
+	
+	spriteType = {
+		name = "GFX_aesopfables"
+		texturefile = "gfx/interface/inventory/aesopfables.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_aesopfables_small"
+		texturefile = "gfx/interface/inventory/aesopfables_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	
+	####BOOK OF THE CONSULATE OF THE SEA
+	
+	spriteType = {
+		name = "GFX_book_consulate_sea"
+		texturefile = "gfx/interface/inventory/book_consulate_sea.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_book_consulate_sea_small"
+		texturefile = "gfx/interface/inventory/book_consulate_sea_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	####THE CITY OF GOD
+	
+	spriteType = {
+		name = "GFX_book_title_spqr"
+		texturefile = "gfx/interface/inventory/book_title_spqr.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_book_title_spqr_small"
+		texturefile = "gfx/interface/inventory/book_title_spqr_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+		
+	####CASTLE PLANS
+	
+	spriteType = {
+		name = "GFX_blueprints_castle"
+		texturefile = "gfx/interface/inventory/blueprints_castle.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_blueprints_castle_small"
+		texturefile = "gfx/interface/inventory/blueprints_castle_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	spriteType = {
+		name = "GFX_blueprints_castle2"
+		texturefile = "gfx/interface/inventory/blueprints_castle2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_blueprints_castle2_small"
+		texturefile = "gfx/interface/inventory/blueprints_castle2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}				
+	
+	####OLD CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_early"
+		texturefile = "gfx/interface/inventory/bishop_crozier_early.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_early_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_early_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+
+	####YUM YUM CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_fancy"
+		texturefile = "gfx/interface/inventory/bishop_crozier_fancy.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_fancy_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_fancy_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	####ORMOND CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_ormond"
+		texturefile = "gfx/interface/inventory/bishop_crozier_lismore.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_ormond_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_lismore_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	####ORTHODOX CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_basic"
+		texturefile = "gfx/interface/inventory/bishop_crozier_basic.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_basic_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_basic_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+
+	####SHITTY CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_orthodox"
+		texturefile = "gfx/interface/inventory/bishop_crozier_orthodox.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_orthodox_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_orthodox_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####DESMOND CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_desmond"
+		texturefile = "gfx/interface/inventory/bishop_crozier_desmond.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_desmond_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_desmond_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####ST ANNO CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_st_anno"
+		texturefile = "gfx/interface/inventory/bishop_crozier_st_anno.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_st_anno_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_st_anno_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+
+		####1100 CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_1100"
+		texturefile = "gfx/interface/inventory/bishop_crozier_1100.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_1100_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_1100_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+		####1200 CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_1200"
+		texturefile = "gfx/interface/inventory/bishop_crozier_1200.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_1200_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_1200_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+		####CELTIC CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_celtic"
+		texturefile = "gfx/interface/inventory/bishop_crozier_irish.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_celtic_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_irish_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####COPTIC CROZIER
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_coptic"
+		texturefile = "gfx/interface/inventory/bishop_crozier_coptic.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_bishop_crozier_coptic_small"
+		texturefile = "gfx/interface/inventory/bishop_crozier_coptic_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####ASSASSIN'S BLADE
+	
+	spriteType = {
+		name = "GFX_dagger_of_an_assassin"
+		texturefile = "gfx/interface/inventory/dagger_of_an_assassin.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_dagger_of_an_assassin_small"
+		texturefile = "gfx/interface/inventory/dagger_of_an_assassin_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+		####GIRDLEBOOK
+	
+	spriteType = {
+		name = "GFX_girdlebook"
+		texturefile = "gfx/interface/inventory/girdlebook.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_girdlebook_small"
+		texturefile = "gfx/interface/inventory/girdlebook_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+		####THE TAIN
+	
+	spriteType = {
+		name = "GFX_cattle_raid_of_cooley"
+		texturefile = "gfx/interface/inventory/cattle_raid_of_cooley.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_cattle_raid_of_cooley_small"
+		texturefile = "gfx/interface/inventory/cattle_raid_of_cooley_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+		####THE GARDEN OF PAGES
+	
+	spriteType = {
+		name = "GFX_garden_of_pages"
+		texturefile = "gfx/interface/inventory/islamic_work_garden.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_garden_of_pages_small"
+		texturefile = "gfx/interface/inventory/islamic_work_garden_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+		####SUM OF LOGIC (OCKHAM's RAZOR)
+	
+	spriteType = {
+		name = "GFX_ockham_sum_of_logic"
+		texturefile = "gfx/interface/inventory/ockham_sum_of_logic2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_ockham_sum_of_logic_small"
+		texturefile = "gfx/interface/inventory/ockham_sum_of_logic2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+		####TREATMENT OF DANGEROUS DISEASES
+	
+	spriteType = {
+		name = "GFX_treatment_of_dangerous_diseases"
+		texturefile = "gfx/interface/inventory/islamic_work_cairo3.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_treatment_of_dangerous_diseases_small"
+		texturefile = "gfx/interface/inventory/islamic_work_cairo3_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+		####DANISHMEND
+	
+	spriteType = {
+		name = "GFX_islamic_work_orange2"
+		texturefile = "gfx/interface/inventory/islamic_work_orange2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_islamic_work_orange2_small"
+		texturefile = "gfx/interface/inventory/islamic_work_orange2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####ROMAN SCROLL
+	
+	spriteType = {
+		name = "GFX_roman_scroll"
+		texturefile = "gfx/interface/inventory/roman_scroll.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_roman_scroll_small"
+		texturefile = "gfx/interface/inventory/roman_scroll_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+		####IN PRAISE OF THE NEW KNIGHTHOOD
+	
+	spriteType = {
+		name = "GFX_in_praise_of_the_new_knighthood"
+		texturefile = "gfx/interface/inventory/in_praise_of_the_new_knighthood.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_in_praise_of_the_new_knighthood_small"
+		texturefile = "gfx/interface/inventory/in_praise_of_the_new_knighthood_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+		####THRONE OF CHARLEMAGNE
+	
+	spriteType = {
+		name = "GFX_chair_throne_of_charlemagne"
+		texturefile = "gfx/interface/inventory/chair_throne_of_charlemagne.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_chair_throne_of_charlemagne_small"
+		texturefile = "gfx/interface/inventory/chair_throne_of_charlemagne_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####THRONE OF NORTHUMBRIA
+	
+	spriteType = {
+		name = "GFX_chair_northumbria"
+		texturefile = "gfx/interface/inventory/chair_of_northumbria.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_chair_northumbria_small"
+		texturefile = "gfx/interface/inventory/chair_of_northumbria_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####THRONE OF MAN
+	
+	spriteType = {
+		name = "GFX_chair_man"
+		texturefile = "gfx/interface/inventory/chair_man.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_chair_man_small"
+		texturefile = "gfx/interface/inventory/chair_man_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+		####ALTAR
+	
+	spriteType = {
+		name = "GFX_altar_stone"
+		texturefile = "gfx/interface/inventory/altar_stone.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_altar_stone_small"
+		texturefile = "gfx/interface/inventory/altar_stone_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+
+		####CROSS OF AETHELBURH
+	
+	spriteType = {
+		name = "GFX_cross_anglosaxon5"
+		texturefile = "gfx/interface/inventory/cross_anglosaxon5.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_cross_anglosaxon5_small"
+		texturefile = "gfx/interface/inventory/cross_anglosaxon5_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+
+		####LAIS MARIE DE FRANCE
+	
+	spriteType = {
+		name = "GFX_lais"
+		texturefile = "gfx/interface/inventory/book_of_genericism.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_lais_small"
+		texturefile = "gfx/interface/inventory/book_of_genericism_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+		####RING OF THE DOVE
+	
+	spriteType = {
+		name = "GFX_islamic_work_red"
+		texturefile = "gfx/interface/inventory/islamic_work_red.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_islamic_work_red_small"
+		texturefile = "gfx/interface/inventory/islamic_work_red_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####BOOK OF THE PONTIFFS
+	
+	spriteType = {
+		name = "GFX_book_of_pontiffs"
+		texturefile = "gfx/interface/inventory/book_of_pontiffs.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_book_of_pontiffs_small"
+		texturefile = "gfx/interface/inventory/book_of_pontiffs_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####BOOK OF KINGS
+	
+	spriteType = {
+		name = "GFX_islamic_work_mughal"
+		texturefile = "gfx/interface/inventory/islamic_work_mughal.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_islamic_work_mughal_small"
+		texturefile = "gfx/interface/inventory/islamic_work_mughal_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+		####BATTLE-STANDARD - AEGEAN
+	
+	spriteType = {
+		name = "GFX_battle_standard_aegean"
+		texturefile = "gfx/interface/inventory/battle_standard_agean.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_aegean_small"
+		texturefile = "gfx/interface/inventory/battle_standard_agean_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+		####BATTLE-STANDARD - DANISH
+	
+	spriteType = {
+		name = "GFX_battle_standard_danish"
+		texturefile = "gfx/interface/inventory/battle_standard_danish.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_danish_small"
+		texturefile = "gfx/interface/inventory/battle_standard_danish_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####BATTLE-STANDARD - BRITTANY
+	
+	spriteType = {
+		name = "GFX_battle_standard_brittany"
+		texturefile = "gfx/interface/inventory/battle_standard_brittany.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_brittany_small"
+		texturefile = "gfx/interface/inventory/battle_standard_brittany_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	####BATTLE-STANDARD - SCOTLAND
+	
+	spriteType = {
+		name = "GFX_battle_standard_k_scotland"
+		texturefile = "gfx/interface/inventory/battle_standard_k_scotland.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_k_scotland_small"
+		texturefile = "gfx/interface/inventory/battle_standard_k_scotland_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	####BATTLE-STANDARD - WELSH
+	
+	spriteType = {
+		name = "GFX_battle_standard_wales"
+		texturefile = "gfx/interface/inventory/battle_standard_wales.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_wales_small"
+		texturefile = "gfx/interface/inventory/battle_standard_wales_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	####BATTLE-STANDARD - CORNWALL
+	
+	spriteType = {
+		name = "GFX_battle_standard_cornwall"
+		texturefile = "gfx/interface/inventory/battle_standard_cornwall.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_cornwall_small"
+		texturefile = "gfx/interface/inventory/battle_standard_cornwall_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	####BATTLE-STANDARD - IN MOTLEY
+	
+	spriteType = {
+		name = "GFX_battle_standard_in_motley"
+		texturefile = "gfx/interface/inventory/battle_standard_in_motley.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_in_motley_small"
+		texturefile = "gfx/interface/inventory/battle_standard_in_motley_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	####BATTLE-STANDARD - ORIFLAMME
+	
+	spriteType = {
+		name = "GFX_battle_standard_oriflamme"
+		texturefile = "gfx/interface/inventory/battle_standard_oriflamme.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_oriflamme_small"
+		texturefile = "gfx/interface/inventory/battle_standard_oriflamme_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	####BATTLE-STANDARD - GEORGIA
+	
+	spriteType = {
+		name = "GFX_battle_standard_georgia"
+		texturefile = "gfx/interface/inventory/battle_standard_georgia.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_georgia_small"
+		texturefile = "gfx/interface/inventory/battle_standard_georgia_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+		####BATTLE-STANDARD - ULSTER
+	
+	spriteType = {
+		name = "GFX_battle_standard_ulster"
+		texturefile = "gfx/interface/inventory/battle_standard_ulster.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_ulster_small"
+		texturefile = "gfx/interface/inventory/battle_standard_ulster_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####BATTLE-STANDARD - MONGOL
+	
+	spriteType = {
+		name = "GFX_battle_standard_o_mongolian_thou_art_mongol"
+		texturefile = "gfx/interface/inventory/battle_standard_o_mongolian_thou_art_mongol.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_o_mongolian_thou_art_mongol_small"
+		texturefile = "gfx/interface/inventory/battle_standard_o_mongolian_thou_art_mongol_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+		####BATTLE-STANDARD - HENRY II
+	
+	spriteType = {
+		name = "GFX_battle_standard_henry2"
+		texturefile = "gfx/interface/inventory/battle_standard_henry2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_henry2_small"
+		texturefile = "gfx/interface/inventory/battle_standard_henry2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	####BATTLE-STANDARD - DRAGON STANDARD
+	
+	spriteType = {
+		name = "GFX_battle_standard_anglo_saxon"
+		texturefile = "gfx/interface/inventory/battle_standard_anglo_saxon.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_anglo_saxon_small"
+		texturefile = "gfx/interface/inventory/battle_standard_anglo_saxon_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	####BATTLE-STANDARD - MOORISH STANDARD
+	
+	spriteType = {
+		name = "GFX_battle_standard_fah_dah_prophet_boyz"
+		texturefile = "gfx/interface/inventory/battle_standard_fah_dah_prophet_boyz.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_fah_dah_prophet_boyz_small"
+		texturefile = "gfx/interface/inventory/battle_standard_fah_dah_prophet_boyz_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	####BATTLE-STANDARD - MIERCE
+	
+	spriteType = {
+		name = "GFX_battle_standard_mierce"
+		texturefile = "gfx/interface/inventory/battle_standard_mierce.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_mierce_small"
+		texturefile = "gfx/interface/inventory/battle_standard_mierce_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	####BATTLE-STANDARD - CONNACHT
+	
+	spriteType = {
+		name = "GFX_battle_standard_connacht"
+		texturefile = "gfx/interface/inventory/battle_standard_connacht.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_connacht_small"
+		texturefile = "gfx/interface/inventory/battle_standard_connacht_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	####BATTLE-STANDARD - DESMOND
+	
+	spriteType = {
+		name = "GFX_battle_standard_desmond"
+		texturefile = "gfx/interface/inventory/battle_standard_desmond.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_desmond_small"
+		texturefile = "gfx/interface/inventory/battle_standard_desmond_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	####BATTLE-STANDARD - GWYNEDD
+	
+	spriteType = {
+		name = "GFX_battle_standard_gwynedd"
+		texturefile = "gfx/interface/inventory/battle_standard_gwynedd.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_gwynedd_small"
+		texturefile = "gfx/interface/inventory/battle_standard_gwynedd_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}			
+
+	####BATTLE-STANDARD - ATHENS
+	
+	spriteType = {
+		name = "GFX_battle_standard_athens"
+		texturefile = "gfx/interface/inventory/battle_standard_athens_1205.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_athens_small"
+		texturefile = "gfx/interface/inventory/battle_standard_athens_1205_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	####BATTLE-STANDARD - MEGENZER
+	
+	spriteType = {
+		name = "GFX_battle_standard_german_generic"
+		texturefile = "gfx/interface/inventory/battle_standard_german_generic.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_german_generic_small"
+		texturefile = "gfx/interface/inventory/battle_standard_german_generic_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}			
+		
+	
+		####BATTLE-STANDARD - BYZANTINE AQUILA
+	
+	spriteType = {
+		name = "GFX_battle_standard_labarum"
+		texturefile = "gfx/interface/inventory/battle_standard_labarum.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_labarum_small"
+		texturefile = "gfx/interface/inventory/battle_standard_labarum_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	spriteType = {
+		name = "GFX_battle_standard_aquila"
+		texturefile = "gfx/interface/inventory/battle_standard_aquila.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_battle_standard_aquila_small"
+		texturefile = "gfx/interface/inventory/battle_standard_aquila_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}				
+	
+	
+	####GIRDLE BOOK ARMORIAL
+	
+	spriteType = {
+		name = "GFX_girdle_book_armorial"
+		texturefile = "gfx/interface/inventory/girdle_book_armorial.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_girdle_book_armorial_small"
+		texturefile = "gfx/interface/inventory/girdle_book_armorial_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	
+	
+		####ANTIQUITIES OF THE JEWS
+	
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews_small"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews2"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews2_small"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews3"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews3.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews3_small"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews3_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews4"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews4.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews4_small"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews4_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews5"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews5.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews5_small"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews5_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews6"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews6.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_antiquities_of_the_jews6_small"
+		texturefile = "gfx/interface/inventory/antiquities_of_the_jews6_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+		####PLATO'S REPUBLIC
+	
+	spriteType = {
+		name = "GFX_fantastic_book1"
+		texturefile = "gfx/interface/inventory/fantastic_book1.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_fantastic_book1_small"
+		texturefile = "gfx/interface/inventory/fantastic_book1_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	spriteType = {
+		name = "GFX_fantastic_book2"
+		texturefile = "gfx/interface/inventory/fantastic_book2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_fantastic_book2_small"
+		texturefile = "gfx/interface/inventory/fantastic_book2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+		####KNIGHT IN THE PANTHER SKIN
+	
+	spriteType = {
+		name = "GFX_knight_in_panther_skin"
+		texturefile = "gfx/interface/inventory/knight_in_panther_skin.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_knight_in_panther_skin_small"
+		texturefile = "gfx/interface/inventory/knight_in_panther_skin_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	spriteType = {
+		name = "GFX_knight_in_panther_skin2"
+		texturefile = "gfx/interface/inventory/knight_in_panther_skin_x.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_knight_in_panther_skin2_small"
+		texturefile = "gfx/interface/inventory/knight_in_panther_skin_x_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	spriteType = {
+		name = "GFX_knight_in_panther_skin3"
+		texturefile = "gfx/interface/inventory/knight_in_panther_skin_z.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_knight_in_panther_skin3_small"
+		texturefile = "gfx/interface/inventory/knight_in_panther_skin_z_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+		####PANDECTS
+	
+	spriteType = {
+		name = "GFX_pandects"
+		texturefile = "gfx/interface/inventory/islamic_work_persia.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_pandects_small"
+		texturefile = "gfx/interface/inventory/islamic_work_persia_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	spriteType = {
+		name = "GFX_pandects2"
+		texturefile = "gfx/interface/inventory/islamic_work_persia2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_pandects2_small"
+		texturefile = "gfx/interface/inventory/islamic_work_persia2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	spriteType = {
+		name = "GFX_pandects3"
+		texturefile = "gfx/interface/inventory/islamic_work_persia3.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_pandects3_small"
+		texturefile = "gfx/interface/inventory/islamic_work_persia3_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	spriteType = {
+		name = "GFX_pandects4"
+		texturefile = "gfx/interface/inventory/islamic_work_persia4.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_pandects4_small"
+		texturefile = "gfx/interface/inventory/islamic_work_persia4_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	####SIEGE ENGINE BLUEPRINTS
+	
+	spriteType = {
+		name = "GFX_blueprints_siege_engine"
+		texturefile = "gfx/interface/inventory/blueprints_siege_engine.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_blueprints_siege_engine_small"
+		texturefile = "gfx/interface/inventory/blueprints_siege_engine_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	####MAGNA CARTA
+	
+	spriteType = {
+		name = "GFX_magna_carta_libertatum"
+		texturefile = "gfx/interface/inventory/magna_carta_libertatum.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_magna_carta_libertatum_small"
+		texturefile = "gfx/interface/inventory/magna_carta_libertatum_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+		
+	
+	####SAINT PETERS CHAIR
+	
+	spriteType = {
+		name = "GFX_chair_st_peter"
+		texturefile = "gfx/interface/inventory/chair_st_peter.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_chair_st_peter_small"
+		texturefile = "gfx/interface/inventory/chair_st_peter_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+
+	####KING EDWARDS CHAIR, STONE OF SCONE
+	
+	spriteType = {
+		name = "GFX_chair_king_edwards"
+		texturefile = "gfx/interface/inventory/chair_king_edwards.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_chair_king_edwards_small"
+		texturefile = "gfx/interface/inventory/chair_king_edwards_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	spriteType = {
+		name = "GFX_stone_of_scone"
+		texturefile = "gfx/interface/inventory/stone_of_scone.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_stone_of_scone_small"
+		texturefile = "gfx/interface/inventory/stone_of_scone_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+		####THE CONSOLATION OF PHILOSOPHY
+	
+	spriteType = {
+		name = "GFX_consolation_of_philosphy"
+		texturefile = "gfx/interface/inventory/consolation_of_philosphy.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_consolation_of_philosphy_small"
+		texturefile = "gfx/interface/inventory/consolation_of_philosphy_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	spriteType = {
+		name = "GFX_consolation_of_philosphy2"
+		texturefile = "gfx/interface/inventory/consolation_of_philosphy2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_consolation_of_philosphy2_small"
+		texturefile = "gfx/interface/inventory/consolation_of_philosphy2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	####LICENCE TO CRENELLATE
+	
+	spriteType = {
+		name = "GFX_licence_to_crenellate"
+		texturefile = "gfx/interface/inventory/licence_to_crenellate.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_licence_to_crenellate_small"
+		texturefile = "gfx/interface/inventory/licence_to_crenellate_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	####ROMAN HELMET
+	
+	spriteType = {
+		name = "GFX_roman_helmet"
+		texturefile = "gfx/interface/inventory/helmet_roman.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_roman_helmet_small"
+		texturefile = "gfx/interface/inventory/helmet_roman_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	####DEEDS OF THE DANES
+	
+	spriteType = {
+		name = "GFX_deeds_of_the_danes"
+		texturefile = "gfx/interface/inventory/deeds_of_the_danes.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_deeds_of_the_danes_small"
+		texturefile = "gfx/interface/inventory/deeds_of_the_danes_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	spriteType = {
+		name = "GFX_deeds_of_the_danes5"
+		texturefile = "gfx/interface/inventory/deeds_of_the_danes5.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_deeds_of_the_danes5_small"
+		texturefile = "gfx/interface/inventory/deeds_of_the_danes5_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	spriteType = {
+		name = "GFX_deeds_of_the_danes14"
+		texturefile = "gfx/interface/inventory/deeds_of_the_danes14.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_deeds_of_the_danes14_small"
+		texturefile = "gfx/interface/inventory/deeds_of_the_danes14_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	####SKULL CAP
+	
+	spriteType = {
+		name = "GFX_skull_cup"
+		texturefile = "gfx/interface/inventory/skull_cup.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_skull_cup_small"
+		texturefile = "gfx/interface/inventory/skull_cup_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	####ANGLO CHRONICLE
+	
+	spriteType = {
+		name = "GFX_anglo_chronicle"
+		texturefile = "gfx/interface/inventory/anglo_chronicle.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_anglo_chronicle_small"
+		texturefile = "gfx/interface/inventory/anglo_chronicle_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	####ANGLO
+	
+	spriteType = {
+		name = "GFX_anglo_saxon_looseleaf"
+		texturefile = "gfx/interface/inventory/anglo_saxon_looseleaf.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_anglo_saxon_looseleaf_small"
+		texturefile = "gfx/interface/inventory/anglo_saxon_looseleaf_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	###LIBER MONSTORORUM
+	
+	spriteType = {
+		name = "GFX_book_of_monsters"
+		texturefile = "gfx/interface/inventory/book_of_monsters_of_various_kinds.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_book_of_monsters_small"
+		texturefile = "gfx/interface/inventory/book_of_monsters_of_various_kinds_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	####PASTORAL OFFICE
+	
+	spriteType = {
+		name = "GFX_pastoral_office_fred"
+		texturefile = "gfx/interface/inventory/book_pastoral_office_alfreds_copy.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_pastoral_office_fred_small"
+		texturefile = "gfx/interface/inventory/book_pastoral_office_alfreds_copy_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	#^^^^
+	
+	spriteType = {
+		name = "GFX_pastoral_office"
+		texturefile = "gfx/interface/inventory/book_pastoral_office_basic.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_pastoral_office_small"
+		texturefile = "gfx/interface/inventory/book_pastoral_office_basic_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+
+	####YSTRAD CLUD #Made up book, as no history survives from Alt Clut
+	
+	spriteType = {
+		name = "GFX_ystrad_clud"
+		texturefile = "gfx/interface/inventory/Ystrad_Clud.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_ystrad_clud_small"
+		texturefile = "gfx/interface/inventory/Ystrad_Clud_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+		
+	
+	####GOSPEL OF HENRY THE LION
+	
+	spriteType = {
+		name = "GFX_gospel_of_henry_the_lion"
+		texturefile = "gfx/interface/inventory/gospel_of_henry_the_lion.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_gospel_of_henry_the_lion_small"
+		texturefile = "gfx/interface/inventory/gospel_of_henry_the_lion_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+
+	####SONG OF WILLIAM
+	
+	spriteType = {
+		name = "GFX_song_of_william"
+		texturefile = "gfx/interface/inventory/song_of_william.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_song_of_william_small"
+		texturefile = "gfx/interface/inventory/song_of_william_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	spriteType = {
+		name = "GFX_song_of_william2"
+		texturefile = "gfx/interface/inventory/song_of_william2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_song_of_william2_small"
+		texturefile = "gfx/interface/inventory/song_of_william2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	####CHRONICLE OF ARMAGH
+	
+	spriteType = {
+		name = "GFX_annals_of_ulster"
+		texturefile = "gfx/interface/inventory/annals_of_ulster.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_annals_of_ulster_small"
+		texturefile = "gfx/interface/inventory/annals_of_ulster_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	####ANNALS OF WINCHCOMBE
+	
+	spriteType = {
+		name = "GFX_winchcombe_annals"
+		texturefile = "gfx/interface/inventory/winchcombe_annals.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_winchcombe_annals_small"
+		texturefile = "gfx/interface/inventory/winchcombe_annals_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	spriteType = {
+		name = "GFX_annals_of_winchcombe"
+		texturefile = "gfx/interface/inventory/annals_of_winchcombe.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_annals_of_winchcombe_small"
+		texturefile = "gfx/interface/inventory/annals_of_winchcombe_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	
+	####ANNALS OF MAN
+	
+	spriteType = {
+		name = "GFX_annals_man"
+		texturefile = "gfx/interface/inventory/annals_man.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_annals_man_small"
+		texturefile = "gfx/interface/inventory/annals_man_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	####ANNALS OF TEWKESBURY
+	
+	spriteType = {
+		name = "GFX_tewkesbury_annals"
+		texturefile = "gfx/interface/inventory/tewkesbury_annals.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_tewkesbury_annals_small"
+		texturefile = "gfx/interface/inventory/tewkesbury_annals_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	####ANNALS OF MARGAM
+	
+	spriteType = {
+		name = "GFX_margan_annals"
+		texturefile = "gfx/interface/inventory/margan_annals.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_margan_annals_small"
+		texturefile = "gfx/interface/inventory/margan_annals_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}			
+	
+	####COVENTRY CHRONICLE
+	
+	spriteType = {
+		name = "GFX_coventry_chronicle"
+		texturefile = "gfx/interface/inventory/coventry_chronicle.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_coventry_chronicle_small"
+		texturefile = "gfx/interface/inventory/coventry_chronicle_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	####ANNALES CAMBRIAE
+	
+	spriteType = {
+		name = "GFX_annales_cambriae"
+		texturefile = "gfx/interface/inventory/annales_cambriae.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_annales_cambriae_small"
+		texturefile = "gfx/interface/inventory/annales_cambriae_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}			
+
+	spriteType = {
+		name = "GFX_annales_cambriae2"
+		texturefile = "gfx/interface/inventory/annales_cambriae2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_annales_cambriae2_small"
+		texturefile = "gfx/interface/inventory/annales_cambriae2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+
+	####BENEDICTIONAL OF ST AETHELWOLD
+	
+	spriteType = {
+		name = "GFX_benedictional_aethelwold"
+		texturefile = "gfx/interface/inventory/benedictional_aethelwold_v2.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_benedictional_aethelwold_small"
+		texturefile = "gfx/interface/inventory/benedictional_aethelwold_v2_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+	
+	####CEDAR OF GOD
+	
+	spriteType = {
+		name = "GFX_cedar_of_god_sapling"
+		texturefile = "gfx/interface/inventory/cedar_of_god_sapling.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_cedar_of_god_sapling_small"
+		texturefile = "gfx/interface/inventory/cedar_of_god_sapling_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+
+	####HISTORY OF DEEDS DONE BEYOND THE SEA
+	
+	spriteType = {
+		name = "GFX_deeds_done"
+		texturefile = "gfx/interface/inventory/annals_new.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_deeds_done_small"
+		texturefile = "gfx/interface/inventory/annals_new_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}			
+	
+	#BOOK VERSION
+	
+	spriteType = {
+		name = "GFX_deed_done_beyond"
+		texturefile = "gfx/interface/inventory/deed_done_beyond.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_deed_done_beyond_small"
+		texturefile = "gfx/interface/inventory/deed_done_beyond_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}			
+	
+	####CHRONICA PROPHETICA
+	
+	spriteType = {
+		name = "GFX_chronica_prophetica"
+		texturefile = "gfx/interface/inventory/chronica_prophetica.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_chronica_prophetica_small"
+		texturefile = "gfx/interface/inventory/chronica_prophetica_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}		
+	
+	
+	
+	
+	####ARMORIAL ROLL
+	
+	spriteType = {
+		name = "GFX_armorial_roll"
+		texturefile = "gfx/interface/inventory/armorial_roll.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_armorial_roll_small"
+		texturefile = "gfx/interface/inventory/armorial_roll_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+ 
+	####GRIMOIRES
+	
+	spriteType = {
+		name = "GFX_testament_solomon"
+		texturefile = "gfx/interface/inventory/testament_solomon.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_testament_solomon_small"
+		texturefile = "gfx/interface/inventory/testament_solomon_small.dds"
+		noOfFrames = 1
+		norefcount = yes		
+	}	
+}

@@ -1,0 +1,104 @@
+decisions = {
+	form_cadetsystem_branch = {
+		is_high_prio = yes
+		potential = {
+			is_landed = yes
+			higher_tier_than = count
+			NOT = { has_character_flag = created_cadet_branch }
+			NOT = {
+				dynasty_head = {
+					character = ROOT
+				}
+			}
+			is_lowborn = no
+		}
+		allow = {
+			OR = {
+				AND = {
+					higher_tier_than = duke
+					prestige = 350
+				}
+				AND = {
+					higher_tier_than = count
+					prestige = 500
+				}
+			}
+			NOT = {
+				is_heir = yes
+			}
+			ruled_years = 5
+			wealth = 10
+			is_adult = yes
+			prisoner = no
+			NOT = {
+				dynasty_head = {
+					is_close_relative = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					is_female = yes
+					is_married = yes
+					is_married_matrilineally = yes
+				}
+				AND = {
+					is_female = no
+					is_married = yes
+					is_married_matrilineally = no
+				}
+			}
+			any_child = {
+					dynasty = ROOT
+				}
+		}
+		effect = {
+			prestige = -200
+			wealth = -10
+			set_character_flag = created_cadet_branch
+			narrative_event = { id = TEMPTDCADETSYSTEM.3 }
+			dynasty_head = {
+				ROOT = {
+					dynasty = father_bastard
+					
+					any_child = {
+						if = {
+							limit = { dynasty = PREVPREV }
+							dynasty = ROOT
+							
+							any_child = {
+								if = {
+									limit = { dynasty = PREVPREVPREV }
+									dynasty = ROOT
+									
+									any_child = {
+										if = {
+											limit = { dynasty = PREVPREVPREVPREV }
+											dynasty = ROOT
+											
+											any_child = {
+												if = {
+													limit = { dynasty = PREVPREVPREVPREVPREV }
+													dynasty = ROOT
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				
+				any_dynasty_member = {
+					opinion = {
+						modifier = insulted
+						who = ROOT
+						years = 5
+					}
+				}
+			}
+			ai_will_do = 1
+		}
+	}
+}
+

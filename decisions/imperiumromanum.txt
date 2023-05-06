@@ -1,0 +1,267 @@
+decisions = {    
+	restore_roman_empire_not_byz = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 24
+		
+		potential = {
+			is_playable = yes
+			has_dlc = "Legacy of Rome"
+			OR = { 
+				religion_group = christian 
+				religion = hellenic_pagan 
+				religion = hellenic_pagan_reformed
+			}
+			OR = { 
+			    has_landed_title = e_western_roman_empire
+			}
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = rome_restored }
+			NOR = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			e_roman_empire = {
+				has_holder = no
+			}
+		}
+		allow = {
+			OR { 
+			   primary_title = { title = e_western_roman_empire }
+			}
+			NOT = {
+				is_title_active = e_byzantium
+		    }
+			prestige = 3000
+			completely_controls = d_latium
+			completely_controls = d_ferrara
+			completely_controls = d_ancona
+			completely_controls = d_spoleto
+			completely_controls = k_sicily
+			completely_controls = k_africa
+			completely_controls = k_italy
+			completely_controls = k_carinthia
+			completely_controls = k_burgundy
+			completely_controls = k_croatia
+			completely_controls = k_epirus
+			completely_controls = k_greece
+			completely_controls = k_thrace
+			completely_controls = k_aquitaine
+			completely_controls = d_venice
+		}
+		effect = {
+		    prestige = -3000
+			custom_tooltip = {
+				grant_title_no_opinion = e_roman_empire
+			}
+			hidden_tooltip = {
+
+				primary_title = {
+					e_roman_empire = {
+						copy_title_laws = PREV
+						copy_title_history = PREV
+					}
+				}
+
+				any_demesne_title = {
+					limit = {
+						tier = EMPEROR
+						NOT = { title = e_roman_empire }
+					}
+					destroy_landed_title = THIS
+				}
+				ROOT = {
+					narrative_event = { id = IR.1 }
+				}
+			}
+			k_romagna = { de_jure_liege = e_roman_empire }
+			k_venice = { de_jure_liege = e_roman_empire }
+			k_sicily = { de_jure_liege = e_roman_empire }
+			k_italy = { de_jure_liege = e_roman_empire }
+			k_croatia = { de_jure_liege = e_roman_empire }
+			k_sardinia = { de_jure_liege = e_roman_empire }
+			k_africa = { de_jure_liege = e_roman_empire }
+			k_burgundy = { de_jure_liege = e_roman_empire }
+			k_epirus = { de_jure_liege = e_roman_empire }
+			k_greece = { de_jure_liege = e_roman_empire }
+			k_thrace = { de_jure_liege = e_roman_empire }
+			k_aquitaine = { de_jure_liege = e_roman_empire }
+			set_global_flag = rome_restored
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	restore_roman_empire_rep = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 24
+		
+		potential = {
+			is_playable = yes
+			has_dlc = "Legacy of Rome"
+			OR = { 
+				religion_group = christian 
+				religion = hellenic_pagan 
+				religion = hellenic_pagan_reformed
+			}
+			has_landed_title = k_roman_republic
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = rome_restored }
+			NOR = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			e_roman_empire = {
+				has_holder = no
+			}
+		}
+		allow = {
+			primary_title = { title = k_roman_republic }
+			prestige = 3000
+			completely_controls = k_roman_republic
+			completely_controls = k_italy
+			completely_controls = k_sicily
+			completely_controls = k_carinthia
+			completely_controls = k_sardinia
+			completely_controls = k_venice
+		}
+		effect = {
+		    prestige = -3000
+			custom_tooltip = {
+				grant_title_no_opinion = e_roman_empire
+			}
+			hidden_tooltip = {
+
+				primary_title = {
+					e_roman_empire = {
+						copy_title_laws = PREV
+						copy_title_history = PREV
+					}
+				}
+
+				any_demesne_title = {
+					limit = {
+						tier = KING
+						NOT = { title = e_roman_empire }
+					}
+					destroy_landed_title = THIS
+				}
+				ROOT = {
+					narrative_event = { id = IR.4 }
+				}
+			}
+			k_roman_republic = { de_jure_liege = e_roman_empire }
+			k_italy = { de_jure_liege = e_roman_empire }
+			k_sicily = { de_jure_liege = e_roman_empire }
+			k_venice = { de_jure_liege = e_roman_empire }
+			k_carinthia = { de_jure_liege = e_roman_empire }
+			k_sardinia = { de_jure_liege = e_roman_empire }
+			k_roman_republic = { de_jure_liege = e_roman_empire }
+			set_global_flag = rome_restored
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	reunite_roman_empire = {
+	    only_independent = yes
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Legacy of Rome"
+			e_western_roman_empire = { has_holder = yes }
+			e_byzantium = { has_holder = yes }
+			OR = {
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+			}
+			OR = {
+				religion_group = christian
+				religion = hellenic_pagan 
+				religion = hellenic_pagan_reformed
+			}
+			age = 16
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = rome_restored }
+		}
+		allow = {
+			prestige = 3000
+			has_landed_title = e_western_roman_empire
+			has_landed_title = e_byzantium
+		}
+		effect = {
+			set_global_flag = rome_restored
+			custom_tooltip = {
+				grant_title_no_opinion = e_roman_empire
+			}
+			hidden_tooltip = {
+				primary_title = {
+					e_roman_empire = {
+						copy_title_laws = PREV
+						copy_title_history = PREV
+					}
+				}
+			}
+			narrative_event = { id = IR.11 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	restore_roman_empire = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 24
+		
+		potential = {
+			is_playable = yes
+			has_dlc = "Legacy of Rome"
+			has_landed_title = e_byzantium
+			OR = { 
+				religion_group = christian 
+				religion = hellenic_pagan 
+				religion = hellenic_pagan_reformed
+			}
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = rome_restored }
+			NOR = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+		}
+		allow = {
+			primary_title = { title = e_byzantium }
+			NOT = {
+				is_title_active = e_western_roman_empire
+		    }
+			prestige = 3000
+			completely_controls = d_latium
+			completely_controls = d_venice
+			completely_controls = d_ferrara
+			completely_controls = d_sicily
+			completely_controls = d_genoa
+			completely_controls = d_capua
+			completely_controls = d_apulia
+			completely_controls = d_thrace
+			completely_controls = d_antioch
+			completely_controls = d_jerusalem
+			completely_controls = d_alexandria
+			completely_controls = d_athens
+			completely_controls = d_tunis
+			completely_controls = d_croatia
+		}
+		effect = {
+			set_global_flag = rome_restored
+			narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}	

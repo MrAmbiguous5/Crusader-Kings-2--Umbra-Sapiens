@@ -1,0 +1,1942 @@
+namespace = darkages
+
+character_event = { 		#Called from decision to train combat
+	id = darkages.72674
+	title = EVTNAME1972674
+	desc = EVTDESC1972674
+	picture = GFX_evt_da_dueling_knights
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972674
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP366 }
+		
+		add_character_modifier = {
+			name = da_relaxed_training
+			duration = -1
+		}
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972674
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP367 }
+		
+		add_character_modifier = {
+			name = da_intensive_training
+			duration = -1
+		}
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}
+		
+	}	
+	
+}
+
+character_event = { 		#Called from setup event to train combat (multiplexes to results)
+	id = darkages.72675
+	title = EVTNAME1972675
+	desc = EVTDESC1972675
+	picture = GFX_evt_da_dueling_knights
+	border = GFX_event_normal_frame_war
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+	
+		if = {
+			limit = {
+				has_character_modifier = da_relaxed_training
+			}
+			
+			random_list = {
+				40 = {	#improve
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}					
+					}				
+				
+					character_event = { id = darkages.72676 days = 365 random = 730 }
+				}
+				20 = {	#no improvement
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}					
+					}
+
+					character_event = { id = darkages.72677 days = 365 random = 730 }
+
+				}
+				15 = {	#wounded
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}					
+					}
+					modifier = {
+						factor = 1.25
+						age = 30
+					}
+					modifier = {
+						factor = 1.35
+						age = 40
+					}
+					modifier = {
+						factor = 1.5
+						age = 50
+					}					
+				
+					character_event = { id = darkages.72678 days = 365 random = 730 }				
+				}
+				16 = {	#+ health
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}					
+					}				
+				
+					character_event = { id = darkages.72679 days = 365 random = 730 }					
+				}
+				1 = {	#one_handed
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}					
+					}				
+				
+					character_event = { id = darkages.72680 days = 365 random = 730 }					
+				}
+				1 = {	#incapable-killed
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+	
+					}				
+					modifier = {
+						factor = 1.25
+						age = 30
+					}
+					modifier = {
+						factor = 1.35
+						age = 40
+					}
+					modifier = {
+						factor = 1.5
+						age = 50
+					}
+					
+					character_event = { id = darkages.72681 days = 365 random = 730 }				
+				}
+				1 = {	#da_situational_awareness
+					modifier = {
+						factor = 0
+						has_character_modifier = da_situational_awareness
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}
+					modifier = {
+						factor = 10
+						trait = shrewd
+					}
+
+					character_event = { id = darkages.72683 days = 365 random = 730 }
+					
+				}
+				1 = {	#tenacious_duelist
+					modifier = {
+						factor = 0
+						has_character_modifier = tenacious_duelist
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}
+					modifier = {
+						factor = 10
+						trait = brave
+					}					
+					
+					character_event = { id = darkages.72684 days = 365 random = 730 }					
+					
+				}
+				1 = {	#lightning_reflexes
+					modifier = {
+						factor = 0
+						has_character_modifier = lightning_reflexes
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}
+					modifier = {
+						factor = 10
+						trait = wroth
+					}					
+					
+					character_event = { id = darkages.72685 days = 365 random = 730 }					
+					
+				}	
+				1 = {	#clever_planner
+					modifier = {
+						factor = 0
+						has_character_modifier = clever_planner
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}
+					modifier = {
+						factor = 10
+						OR = {
+							trait = quick
+							trait = genius
+						}
+					}					
+					
+					character_event = { id = darkages.72686 days = 365 random = 730 }					
+					
+				}
+				1 = {	#ruthless_commander
+					modifier = {
+						factor = 0
+						has_character_modifier = ruthless_commander
+					}
+					modifier = {
+						factor = 0
+						trait = kind
+					}					
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}						
+					modifier = {
+						factor = 10
+						trait = cruel
+					}				
+					
+					character_event = { id = darkages.72687 days = 365 random = 730 }					
+					
+				}
+				1 = {	#poisoned_weapons
+					modifier = {
+						factor = 0
+						has_character_modifier = poisoned_weapons
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}					
+					modifier = {
+						factor = 10
+						trait = elusive_shadow
+					}
+					character_event = { id = darkages.72688 days = 365 random = 730 }					
+					
+				}
+				1 = {	#the_dour_duellist
+					modifier = {
+						factor = 0
+						trait = cheerful
+					}
+					modifier = {
+						factor = 0
+						has_character_modifier = the_dour_duellist
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}					
+					modifier = {
+						factor = 10
+						trait = dour
+					}					
+				
+					character_event = { id = darkages.72689 days = 365 random = 730 }					
+				
+				}				
+				1 = {
+					modifier = {
+						factor = 0
+						NOR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}
+
+					character_event = { id = darkages.72690 }
+
+				}
+			
+			}
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_intensive_training
+			}
+			
+			random_list = {
+				51 = {	#improve
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}					
+					}				
+				
+					character_event = { id = darkages.72676 days = 180 random = 365 }
+				}
+
+				25 = {	#wounded
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}					
+					}
+					modifier = {
+						factor = 1.25
+						age = 30
+					}
+					modifier = {
+						factor = 1.35
+						age = 40
+					}
+					modifier = {
+						factor = 1.5
+						age = 50
+					}					
+					
+					character_event = { id = darkages.72678 days = 180 random = 365 }				
+				}
+				15 = {	#+ health
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}					
+					}				
+				
+					character_event = { id = darkages.72679 days = 180 random = 365 }					
+				}
+				1 = {	#one_handed
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}					
+					}				
+				
+					character_event = { id = darkages.72680 days = 180 random = 365 }					
+				}
+				1 = {	#incapable-killed
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+	
+					}				
+					modifier = {
+						factor = 1.25
+						age = 30
+					}
+					modifier = {
+						factor = 1.35
+						age = 40
+					}
+					modifier = {
+						factor = 1.5
+						age = 50
+					}
+					
+					character_event = { id = darkages.72681 days = 365 random = 730 }				
+				}
+				1 = {	#da_situational_awareness
+					modifier = {
+						factor = 0
+						has_character_modifier = da_situational_awareness
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}
+					modifier = {
+						factor = 10
+						trait = shrewd
+					}
+
+					character_event = { id = darkages.72683 days = 180 random = 365 }
+					
+				}
+				1 = {	#tenacious_duelist
+					modifier = {
+						factor = 0
+						has_character_modifier = tenacious_duelist
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}						
+					modifier = {
+						factor = 10
+						trait = brave
+					}
+					
+					character_event = { id = darkages.72684 days = 180 random = 365 }					
+					
+				}
+				1 = {	#lightning_reflexes
+					modifier = {
+						factor = 0
+						has_character_modifier = lightning_reflexes
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}						
+					modifier = {
+						factor = 10
+						trait = wroth
+					}
+					
+					character_event = { id = darkages.72685 days = 180 random = 365 }					
+					
+				}	
+				1 = {	#clever_planner
+					modifier = {
+						factor = 0
+						has_character_modifier = clever_planner
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}						
+					modifier = {
+						factor = 10
+						OR = {
+							trait = genius
+							trait = quick
+						}
+					}					
+					character_event = { id = darkages.72686 days = 180 random = 365 }					
+					
+				}
+				1 = {	#ruthless_commander
+					modifier = {
+						factor = 0
+						has_character_modifier = ruthless_commander
+					}
+					modifier = {
+						factor = 0
+						trait = kind
+					}					
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}						
+					modifier = {
+						factor = 10
+						trait = cruel
+					}				
+					
+					character_event = { id = darkages.72687 days = 180 random = 365 }					
+					
+				}
+				1 = {	#poisoned_weapons
+					modifier = {
+						factor = 0
+						has_character_modifier = poisoned_weapons
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}					
+					modifier = {
+						factor = 10
+						trait = elusive_shadow
+					}
+					
+					character_event = { id = darkages.72688 days = 180 random = 365 }					
+					
+				}
+				1 = {	#the_dour_duellist
+					modifier = {
+						factor = 0
+						trait = cheerful
+					}
+					modifier = {
+						factor = 0
+						has_character_modifier = the_dour_duellist
+					}
+					modifier = {
+						factor = 0
+						OR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}					
+					modifier = {
+						factor = 10
+						trait = dour
+					}					
+				
+					character_event = { id = darkages.72689 days = 180 random = 365 }					
+				
+				}				
+				1 = {
+					modifier = {
+						factor = 0
+						NOR = {
+							AND = {
+								has_character_modifier = da_marshal_training1
+								has_character_flag = da_ct_1
+							}
+							AND = {
+								has_character_modifier = da_marshal_training2
+								has_character_flag = da_ct_2
+							}
+							AND = {
+								has_character_modifier = da_marshal_training3
+								has_character_flag = da_ct_3
+							}
+							AND = {
+								has_character_modifier = da_marshal_training4
+								has_character_flag = da_ct_4
+							}							
+							
+						}
+					}
+
+					character_event = { id = darkages.72690 }
+
+				}
+			
+			}		
+			
+			
+		}		
+		
+	}
+	
+	
+}
+
+
+character_event = { 		#Successful training
+	id = darkages.72676
+	title = EVTNAME1972676
+	desc = EVTDESC1972676
+	picture = GFX_evt_da_court_celebration
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}		
+	}
+
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972676
+
+		if = {
+			limit = {
+				has_character_modifier = da_marshal_training3
+			}
+		
+			remove_character_modifier = da_marshal_training3
+			
+			add_character_modifier = {
+				name = da_marshal_training4
+				duration = -1
+			}
+		
+			hidden_tooltip = {
+				character_event = { id = darkages.72691 days = 7 }
+			}
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_marshal_training2
+			}
+		
+			remove_character_modifier = da_marshal_training2
+			
+			add_character_modifier = {
+				name = da_marshal_training3
+				duration = -1
+			}
+
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_marshal_training1
+			}
+		
+			remove_character_modifier = da_marshal_training1
+			
+			add_character_modifier = {
+				name = da_marshal_training2
+				duration = -1
+			}
+
+		}
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_marshal_training1			
+					has_character_modifier = da_marshal_training2
+					has_character_modifier = da_marshal_training3
+					has_character_modifier = da_marshal_training4				
+				}
+			}
+			add_character_modifier = {
+				name = da_marshal_training1
+				duration = -1
+			}
+
+		}		
+
+	}
+	
+	after = {
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}
+	
+	}
+	
+}
+
+
+character_event = { 		#No improvement
+	id = darkages.72677
+	title = EVTNAME1972677
+	desc = EVTDESC1972677
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972677
+
+		prestige = -10
+	}
+	
+	after = {
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}
+	
+	}	
+	
+}
+
+
+character_event = { 		#Wounded
+	id = darkages.72678
+	title = EVTNAME1972678
+	desc = EVTDESC1972678
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+		random_list = {
+			3 = {
+				set_character_flag = darkages_a
+			}
+			1 = {
+				set_character_flag = darkages_b			
+			}
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972678
+		trigger = { has_character_flag = darkages_a }
+
+		add_trait = wounded
+
+	}
+	
+	option = {
+		name = EVTOPTB1972678
+		trigger = { has_character_flag = darkages_b }
+
+		add_trait = infection
+
+	}
+	
+	after = {
+		clr_character_flag = darkages_a
+		clr_character_flag = darkages_b	
+
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}
+
+		
+	}
+
+}
+
+
+character_event = { 		#Improved Health
+	id = darkages.72679
+	title = EVTNAME1972679
+	desc = EVTDESC1972679
+	picture = GFX_evt_da_court_celebration
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}	
+
+	}
+
+	immediate = {
+
+		random_list = {
+			3 = {
+				set_character_flag = darkages_a
+			}
+			1 = {
+				modifier = {
+					factor = 5
+					has_character_modifier = da_intensive_training
+				}
+				set_character_flag = darkages_b			
+			}
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972679
+		trigger = { has_character_flag = darkages_a }
+
+		health = 0.25
+
+	}
+	
+	option = {
+		name = EVTOPTB1972679
+		trigger = { has_character_flag = darkages_b }
+
+		health = 0.50
+
+	}
+	
+	after = {
+		clr_character_flag = darkages_a
+		clr_character_flag = darkages_b	
+
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}
+
+		
+	}
+
+}
+
+
+character_event = { 		#One Handed
+	id = darkages.72680
+	title = EVTNAME1972680
+	desc = EVTDESC1972680
+	picture = GFX_evt_da_bloody_tools
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972680
+		trigger = { NOT = { trait = one_handed } }
+
+		add_trait = one_handed
+		add_trait = severely_injured
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}
+		
+
+	}
+
+	option = {
+		name = EVTOPTB1972680
+		trigger = { trait = one_handed }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP368 }
+
+		remove_trait = one_handed
+		add_trait = maimed
+		add_trait = severely_injured
+		
+		hidden_tooltip = {
+			remove_character_modifier =  da_marshal_training1
+			remove_character_modifier =  da_marshal_training2
+			remove_character_modifier =  da_marshal_training3
+			remove_character_modifier =  da_marshal_training4
+			remove_character_modifier =  da_relaxed_training
+			remove_character_modifier =  da_intensive_training			
+			clr_character_flag = da_ct_1
+			clr_character_flag = da_ct_2
+			clr_character_flag = da_ct_3
+			clr_character_flag = da_ct_4
+		}
+
+	}	
+
+}
+
+character_event = { 		#incapable-killed
+	id = darkages.72681
+	title = EVTNAME1972681
+	desc = EVTDESC1972681
+	picture = GFX_evt_da_bloody_tools
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972681
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP369 }
+		
+		random_list = {
+			35 = {
+				modifier = {
+					factor = 1.25
+					any_courtier_or_vassal = {
+						has_minor_title = title_court_physician 
+						trait = physician
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_courtier_or_vassal = {
+						has_minor_title = title_court_physician 
+						learning = 12
+					}
+				}
+				modifier = {
+					factor = 1.35
+					any_courtier_or_vassal = {
+						has_minor_title = title_court_physician 
+						learning = 15
+					}
+				}				
+				modifier = {
+					factor = 1.5
+					any_courtier_or_vassal = {
+						has_minor_title = title_court_physician 
+						learning = 18
+					}
+				}				
+				modifier = {
+					factor = 1.75
+					any_courtier_or_vassal = {
+						has_minor_title = title_court_physician 
+						learning = 21
+					}
+				}				
+				add_trait = wounded
+			}
+			20 = {
+				add_trait = infection
+			}
+			20 = {
+				add_trait = incapable
+			}
+			25 = {
+				death = {
+					death_reason = death_accident
+				}
+			}			
+		
+		}
+
+	}
+
+	after = {
+
+		if = {
+			limit = {
+				trait = incapable
+			}
+
+			hidden_tooltip = {
+				remove_trait = wounded
+				remove_trait = infection
+				remove_character_modifier =  da_marshal_training1
+				remove_character_modifier =  da_marshal_training2
+				remove_character_modifier =  da_marshal_training3
+				remove_character_modifier =  da_marshal_training4
+				remove_character_modifier =  da_relaxed_training
+				remove_character_modifier =  da_intensive_training			
+				clr_character_flag = da_ct_1
+				clr_character_flag = da_ct_2
+				clr_character_flag = da_ct_3
+				clr_character_flag = da_ct_4				
+			}
+
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					trait = wounded
+					trait = infection
+				}
+			}
+
+			hidden_tooltip = {
+				character_event = { id = darkages.72675 }
+			}
+
+		}		
+
+
+	}	
+
+}
+
+
+character_event = { 		#Catch event to cover sudden change in critical traits
+	id = darkages.72682
+	title = EVTNAME1972682
+	desc = EVTDESC1972682
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_war
+
+	trigger = {
+		OR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+		
+		has_character_modifier = da_picked_combat_training
+		NOR = {
+			AND = {
+				has_character_modifier = da_marshal_training1
+				has_character_flag = da_ct_1
+			}
+			AND = {
+				has_character_modifier = da_marshal_training2
+				has_character_flag = da_ct_2
+			}
+			AND = {
+				has_character_modifier = da_marshal_training3
+				has_character_flag = da_ct_3
+			}
+			AND = {
+				has_character_modifier = da_marshal_training4
+				has_character_flag = da_ct_4
+			}							
+					
+		}
+
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972682
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP370 }
+
+	}
+	
+	after = {
+
+		hidden_tooltip = {
+			remove_character_modifier =  da_marshal_training1
+			remove_character_modifier =  da_marshal_training2
+			remove_character_modifier =  da_marshal_training3
+			remove_character_modifier =  da_marshal_training4
+			remove_character_modifier =  da_relaxed_training
+			remove_character_modifier =  da_intensive_training
+			remove_character_modifier = da_picked_combat_training
+			clr_character_flag = da_ct_1
+			clr_character_flag = da_ct_2
+			clr_character_flag = da_ct_3
+			clr_character_flag = da_ct_4			
+		}
+		
+	}
+	
+}
+
+
+character_event = { 		#Situational Awareness
+	id = darkages.72683
+	title = EVTNAME1972683
+	desc = EVTDESC1972683
+	picture = GFX_evt_da_dueling_knights
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972677
+
+		add_character_modifier = {
+			name = da_situational_awareness
+			duration = -1
+		}
+	}
+
+	after = {
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}	
+	}
+}
+
+character_event = { 		#Tenacious Duelist
+	id = darkages.72684
+	title = EVTNAME1972683
+	desc = EVTDESC1972683
+	picture = GFX_evt_da_dueling_knights
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972683
+
+		add_character_modifier = {
+			name = tenacious_duelist
+			duration = -1
+		}
+	}
+
+	after = {
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}	
+	}
+	
+}
+
+character_event = { 		#Lightning Reflexes
+	id = darkages.72685
+	title = EVTNAME1972683
+	desc = EVTDESC1972683
+	picture = GFX_evt_da_dueling_knights
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972683
+
+		add_character_modifier = {
+			name = lightning_reflexes
+			duration = -1
+		}
+	}
+
+	after = {
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}	
+	}
+	
+}
+
+
+character_event = { 		#clever_planner
+	id = darkages.72686
+	title = EVTNAME1972683
+	desc = EVTDESC1972683
+	picture = GFX_evt_da_dueling_knights
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972683
+
+		add_character_modifier = {
+			name = clever_planner
+			duration = -1
+		}
+	}
+
+	after = {
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}	
+	}
+	
+}
+
+
+character_event = { 		#ruthless_commander
+	id = darkages.72687
+	title = EVTNAME1972683
+	desc = EVTDESC1972683
+	picture = GFX_evt_da_dueling_knights
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972683
+
+		add_character_modifier = {
+			name = ruthless_commander
+			duration = -1
+		}
+	}
+
+	after = {
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}	
+	}
+	
+}
+
+
+character_event = { 		#Poisoned Weapons
+	id = darkages.72688
+	title = EVTNAME1972683
+	desc = EVTDESC1972683
+	picture = GFX_evt_da_dueling_knights
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972683
+
+		add_character_modifier = {
+			name = poisoned_weapons
+			duration = -1
+		}
+	}
+
+	after = {
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}	
+	}
+	
+}
+
+character_event = { 		#Dour Duelist
+	id = darkages.72689
+	title = EVTNAME1972683
+	desc = EVTDESC1972683
+	picture = GFX_evt_da_dueling_knights
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972683
+
+		add_character_modifier = {
+			name = the_dour_duellist
+			duration = -1
+		}
+	}
+
+	after = {
+		hidden_tooltip = {
+			character_event = { id = darkages.72675 }
+		}	
+	}
+	
+}
+
+character_event = { 		#Current level reaches maximum level
+	id = darkages.72690
+	title = EVTNAME1972690
+	desc = {
+		trigger = { NOT = { has_character_modifier = da_marshal_training4 } }
+		text = EVTDESC1972690_1
+	}
+	desc = {
+		trigger = { has_character_modifier = da_marshal_training4 }
+		text = EVTDESC1972690_2
+	}	
+	picture = GFX_evt_da_dueling_knights
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = blinded
+			trait = maimed
+			trait = incapable
+			trait = one_legged
+		}
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972690
+		trigger = {
+			NOT = { has_character_modifier = da_marshal_training4 }
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_relaxed_training
+			}
+			
+			remove_character_modifier = da_relaxed_training
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_intensive_training
+			}
+			
+			remove_character_modifier = da_intensive_training
+		}	
+
+		clr_character_flag = da_ct_1
+		clr_character_flag = da_ct_2
+		clr_character_flag = da_ct_3
+		clr_character_flag = da_ct_4		
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972690
+		trigger = {
+			has_character_modifier = da_marshal_training4
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = da_relaxed_training
+			}
+			
+			remove_character_modifier = da_relaxed_training
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = da_intensive_training
+			}
+			
+			remove_character_modifier = da_intensive_training
+		}
+		
+		if = {
+			limit = { 
+				NOT = { lifestyle_traits = 1 } 
+			}
+			character_event = { id = darkages.72691 }
+		}
+		
+		clr_character_flag = da_ct_1
+		clr_character_flag = da_ct_2
+		clr_character_flag = da_ct_3
+		clr_character_flag = da_ct_4		
+		
+	}	
+
+	
+}
+
+
+
+character_event = { 		#Gain Duelist
+	id = darkages.72691
+	title = EVTNAME1972691
+	desc = EVTDESC1972691
+	picture = GFX_evt_da_court_celebration
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972691
+		trigger = {
+			NOT = { trait = duelist }
+		}
+
+		prestige = 100
+		add_trait = duelist
+		change_learning = -1
+		change_intrigue = -1
+		change_stewardship = -1
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972691
+		
+	}	
+
+	
+}
+

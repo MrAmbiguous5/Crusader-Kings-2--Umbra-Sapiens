@@ -1,0 +1,33 @@
+society_heir = {
+    icon = 9
+}
+
+diplo_horse = {
+	icon = 3
+	diplomacy = 1
+}
+
+mil_horse = {
+	icon = 1
+	martial = 1
+}
+
+plus_diplo_horse = {
+	icon = 3
+	diplomacy = 2
+}
+
+plus_mil_horse = {
+	icon = 1
+	martial = 2
+}
+
+dismissed_courtly = {
+	sex_appeal_opinion = 10
+	icon = 39
+}
+
+partial_book_seclusion = {
+	diplomacy = -3
+	icon = 36
+}

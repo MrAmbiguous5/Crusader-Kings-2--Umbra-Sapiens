@@ -1,0 +1,1296 @@
+namespace = equus
+
+#Creation
+narrative_event = {
+    id = equus.500
+    desc = EVTDESC_equus.500
+	title = EVTTITLE_equus.500
+    picture = "GFX_evt_war_planning"
+
+    is_triggered_only = yes
+	hide_new = yes
+	
+	immediate = {
+		set_global_flag = military_knights_exist
+		any_realm_character = {
+			limit = {
+				martial = 15
+				is_in_society = no
+				OR = {
+					religion = catholic
+					religion = chalcedonian
+				}
+				is_female = no
+			}
+			letter_event = { id = equus.501 days = 1 }
+		}
+		if = {
+			limit = { ai = yes }	
+			any_playable_ruler = {
+				limit = { ai = no }
+				narrative_event = { id = equus.9500 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.500
+		join_society = military_knights
+		set_society_grandmaster = yes
+	}
+	option = {
+		trigger = {
+			ai = no
+		}
+		name = EVTOPTB_equus.500
+		join_society = military_knights
+		set_society_grandmaster = yes
+		set_global_flag = military_knights_noauto
+	}
+}
+
+#Inform player
+narrative_event = {
+    id = equus.9500
+    desc = EVTDESC_equus.500
+    picture = "GFX_evt_war_planning"
+
+    is_triggered_only = yes
+	option = {
+		name = EVTOPTA_equus.9500
+	}
+}
+
+#First members 
+letter_event = {
+    id = equus.501
+    desc = {
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				martial = 25
+			}
+		}
+		text = EVTDESC_equus.501d
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { martial = 25 }
+				}
+				tier = count
+				AND = {
+					martial = 20
+					NOT = { martial = 25 }
+				}
+			} 
+		}
+		text = EVTDESC_equus.501c
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				martial = 20
+			}
+			martial = 15
+		}
+		text = EVTDESC_equus.501o
+	}
+
+    is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = military_knights_noauto }
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA_equus.501 #Duke or above
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				martial = 25
+			}
+		}
+		join_society = military_knights
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+			if = {
+				limit = { 
+					OR = {	
+						ai = no
+						society_can_rank_up = yes
+					}
+				}
+				society_rank_up = 1
+			}
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Count 
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { martial = 25 }
+				}
+				tier = count
+				AND = {
+					martial = 20
+					NOT = { martial = 25 }
+					NOT = { tier = duke }
+					NOT = { tier = king }
+				}
+			}
+		}
+		join_society = military_knights
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Under
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				martial = 20
+			}
+			martial = 15
+			OR = {	
+				ai = no
+				society_can_rank_up = yes
+			}
+		}
+		join_society = military_knights
+	}
+	option = {
+		name = EVTOPTD_equus.501 #Refuse
+		trigger = {
+			ai = no
+		}
+	}
+}
+
+
+#Creation
+narrative_event = {
+    id = equus.502
+    desc = EVTDESC_equus.502
+	title = EVTTITLE_equus.500
+    picture = "GFX_evt_war_planning"
+
+    is_triggered_only = yes
+	hide_new = yes
+	
+	immediate = {
+		set_global_flag = military_knights1_exist
+		any_realm_character = {
+			limit = {
+				martial = 15
+				is_in_society = no
+				OR = {
+					religion = catholic
+					religion = chalcedonian
+				}
+				is_female = no
+			}
+			letter_event = { id = equus.503 days = 1}
+		}
+		if = {
+			limit = { ai = yes }	
+			any_playable_ruler = {
+				limit = { ai = no }
+				narrative_event = { id = equus.9502 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.500
+		join_society = military_knights1
+		set_society_grandmaster = yes
+	}
+	
+	option = {
+		trigger = {
+			ai = no
+		}
+		name = EVTOPTB_equus.500
+		join_society = military_knights1
+		set_society_grandmaster = yes
+		set_global_flag = military_knights1_noauto
+	}
+}
+
+#Inform player
+narrative_event = {
+    id = equus.9502
+    desc = EVTDESC_equus.502
+    picture = "GFX_evt_war_planning"
+
+    is_triggered_only = yes
+	option = {
+		name = EVTOPTA_equus.9500
+	}
+}
+
+#First members
+letter_event = {
+    id = equus.503
+    desc = {
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				martial = 25
+			}
+		}
+		text = EVTDESC_equus.503d
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { martial = 25 }
+				}
+				tier = count
+				AND = {
+					martial = 20
+					NOT = { martial = 25 }
+					NOT = { tier = duke }
+					NOT = { tier = king }
+				}
+			} 
+		}
+		text = EVTDESC_equus.503c
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				martial = 20
+			}
+			martial = 15
+		}
+		text = EVTDESC_equus.503o
+	}
+
+    is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = military_knights1_noauto }
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA_equus.501 #Duke or above
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				martial = 25
+			}
+		}
+		join_society = military_knights1
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+			if = {
+				limit = { 
+					OR = {	
+						ai = no
+						society_can_rank_up = yes
+					}
+				}
+				society_rank_up = 1
+			}
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Count 
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { martial = 25 }
+				}
+				tier = count
+				AND = {
+					martial = 20
+					NOT = { martial = 25 }
+				}
+			}
+		}
+		join_society = military_knights1
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Under
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				martial = 20
+			}
+			martial = 15
+			OR = {	
+				ai = no
+				society_can_rank_up = yes
+			}
+		}
+		join_society = military_knights1
+	}
+	option = {
+		name = EVTOPTD_equus.501 #Refuse
+		trigger = {
+			ai = no
+		}
+	}
+}
+
+
+
+#Creation
+narrative_event = {
+    id = equus.504
+    desc = EVTDESC_equus.504
+	title = EVTTITLE_equus.500
+    picture = "GFX_evt_war_planning"
+
+    is_triggered_only = yes
+	hide_new = yes
+	
+	immediate = {
+		set_global_flag = military_knights2_exist
+		any_realm_character = {
+			limit = {
+				martial = 15
+				is_in_society = no
+				OR = {
+					religion = catholic
+					religion = chalcedonian
+				}
+				is_female = no
+			}
+			letter_event = { id = equus.505 days = 1}
+		}
+		if = {
+			limit = { ai = yes }	
+			any_playable_ruler = {
+				limit = { ai = no }
+				narrative_event = { id = equus.9500 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.500
+		join_society = military_knights2
+		set_society_grandmaster = yes
+	}
+	
+	option = {
+		trigger = {
+			ai = no
+		}
+		name = EVTOPTB_equus.500
+		join_society = military_knights2
+		set_society_grandmaster = yes
+		set_global_flag = military_knights2_noauto
+	}
+}
+
+#Inform player
+narrative_event = {
+    id = equus.9504
+    desc = EVTDESC_equus.504
+    picture = "GFX_evt_war_planning"
+	
+    is_triggered_only = yes
+	option = {
+		name = EVTOPTA_equus.9500
+	}
+}
+
+#First members 
+letter_event = {
+    id = equus.505
+    desc = {
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				martial = 25
+			}
+		}
+		text = EVTDESC_equus.505d
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { martial = 25 }
+				}
+				tier = count
+				AND = {
+					martial = 20
+					NOT = { martial = 25 }
+					NOT = { tier = duke }
+					NOT = { tier = king }
+				}
+			} 
+		}
+		text = EVTDESC_equus.505c
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				martial = 20
+			}
+			martial = 15
+		}
+		text = EVTDESC_equus.505o
+	}
+
+    is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = military_knights2_noauto }
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA_equus.501 #Duke or above
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				martial = 25
+			}
+		}
+		join_society = military_knights2
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+			if = {
+				limit = { 
+					OR = {	
+						ai = no
+						society_can_rank_up = yes
+					}
+				}
+				society_rank_up = 1
+			}
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Count 
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { martial = 25 }
+				}
+				tier = count
+				AND = {
+					martial = 20
+					NOT = { martial = 25 }
+				}
+			}
+		}
+		join_society = military_knights2
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Under
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				martial = 20
+			}
+			martial = 15
+			OR = {	
+				ai = no
+				society_can_rank_up = yes
+			}
+		}
+		join_society = military_knights2
+	}
+	option = {
+		name = EVTOPTD_equus.501 #Refuse
+		trigger = {
+			ai = no
+		}
+	}
+}
+
+#Creation
+narrative_event = {
+    id = equus.506
+    desc = EVTDESC_equus.506
+	title = EVTTITLE_equus.500
+    picture = "GFX_evt_war_planning"
+
+    is_triggered_only = yes
+	hide_new = yes
+	
+	immediate = {
+		set_global_flag = diplomatic_knights_exist
+		any_realm_character = {
+			limit = {
+				diplomacy = 15
+				is_in_society = no
+				OR = {
+					religion = catholic
+					religion = chalcedonian
+				}
+				is_female = no
+			}
+			letter_event = { id = equus.507 days = 1 }
+		}
+		if = {
+			limit = { ai = yes }	
+			any_playable_ruler = {
+				limit = { ai = no }
+				narrative_event = { id = equus.9506 }
+			}
+		}
+		hidden_tooltip = {
+			if = {
+				limit = { 
+					NOR = {
+						has_global_flag = diplomatic_knights1_exist
+						has_global_flag = diplomatic_knights2_exist
+					}
+				}
+				create_character = {
+					age = 16
+					name = Cassie
+					attributes = {
+						martial = 4
+						diplomacy = 11
+						stewardship = 7
+						intrigue = 1
+						learning = 5
+					}
+					trait = charismatic_negotiator
+					trait = poet
+					trait = lustful
+					trait = diligent
+					trait = gregarious
+					trait = fair
+					female = yes
+					religion = catholic
+					culture = irish
+					dynasty = 123456790
+					dna="aehc00ccfb0"
+					historical = yes
+				}
+				new_character = { join_society = diplomatic_knights }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.500
+		join_society = diplomatic_knights
+		set_society_grandmaster = yes
+	}
+	
+	option = {
+		trigger = {
+			ai = no
+		}
+		name = EVTOPTB_equus.500
+		join_society = diplomatic_knights
+		set_society_grandmaster = yes
+		set_global_flag = diplomatic_knights_noauto
+	}
+}
+
+#Inform player
+narrative_event = {
+    id = equus.9506
+    desc = EVTDESC_equus.506
+    picture = "GFX_evt_war_planning"
+
+    is_triggered_only = yes
+	option = {
+		name = EVTOPTA_equus.9500
+	}
+}
+
+#First members 
+letter_event = {
+    id = equus.507
+    desc = {
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				diplomacy = 25
+			}
+		}
+		text = EVTDESC_equus.507d
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { diplomacy = 25 }
+				}
+				tier = count
+				AND = {
+					diplomacy = 20
+					NOT = { diplomacy = 25 }
+				}
+			} 
+		}
+		text = EVTDESC_equus.507c
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				diplomacy = 20
+			}
+			diplomacy = 15
+		}
+		text = EVTDESC_equus.507o
+	}
+
+    is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = diplomatic_knights_noauto }
+	}
+	
+	option = {
+		name = EVTOPTA_equus.501 #Duke or above
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				diplomacy = 25
+			}
+		}
+		join_society = diplomatic_knights
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+			if = {
+				limit = { 
+					OR = {	
+						ai = no
+						society_can_rank_up = yes
+					}
+				}
+				society_rank_up = 1
+			}
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Count 
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { diplomacy = 25 }
+				}
+				tier = count
+				AND = {
+					diplomacy = 20
+					NOT = { diplomacy = 25 }
+					NOT = { tier = duke }
+					NOT = { tier = king }
+				}
+			}
+		}
+		join_society = diplomatic_knights
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Under
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				diplomacy = 20
+			}
+			diplomacy = 15
+			OR = {	
+				ai = no
+				society_can_rank_up = yes
+			}
+		}
+		join_society = diplomatic_knights
+	}
+	option = {
+		name = EVTOPTD_equus.501 #Refuse
+		trigger = {
+			ai = no
+		}
+	}
+}
+
+
+#Creation
+narrative_event = {
+    id = equus.508
+    desc = EVTDESC_equus.508
+	title = EVTTITLE_equus.500
+    picture = "GFX_evt_war_planning"
+
+    is_triggered_only = yes
+	hide_new = yes
+	
+	immediate = {
+		set_global_flag = diplomatic_knights1_exist
+		any_realm_character = {
+			limit = {
+				diplomacy = 15
+				is_in_society = no
+				OR = {
+					religion = catholic
+					religion = chalcedonian
+				}
+				is_female = no
+			}
+			letter_event = { id = equus.509 days = 1}
+		}
+		if = {
+			limit = { ai = yes }	
+			any_playable_ruler = {
+				limit = { ai = no }
+				narrative_event = { id = equus.9508 }
+			}
+		}
+		hidden_tooltip = {
+			if = {
+				limit = { 
+					NOR = {
+						has_global_flag = diplomatic_knights_exist
+						has_global_flag = diplomatic_knights2_exist
+					}
+				}
+				create_character = {
+					age = 16
+					name = Cassie
+					attributes = {
+						martial = 4
+						diplomacy = 11
+						stewardship = 7
+						intrigue = 1
+						learning = 5
+					}
+					trait = charismatic_negotiator
+					trait = poet
+					trait = lustful
+					trait = diligent
+					trait = gregarious
+					trait = fair
+					female = yes
+					religion = catholic
+					culture = irish
+					dynasty = 123456790
+					dna="aehc00ccfb0"
+					historical = yes
+				}
+				new_character = { join_society = diplomatic_knights1 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.500
+		join_society = diplomatic_knights1
+		set_society_grandmaster = yes
+	}
+	
+	option = {
+		trigger = {
+			ai = no
+		}
+		name = EVTOPTB_equus.500
+		join_society = diplomatic_knights1
+		set_society_grandmaster = yes
+		set_global_flag = diplomatic_knights1_noauto
+	}
+}
+
+#Inform player
+narrative_event = {
+    id = equus.9508
+    desc = EVTDESC_equus.508
+    picture = "GFX_evt_war_planning"
+
+    is_triggered_only = yes
+	option = {
+		name = EVTOPTA_equus.9500
+	}
+}
+
+#First members
+letter_event = {
+    id = equus.509
+    desc = {
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				diplomacy = 25
+			}
+		}
+		text = EVTDESC_equus.509d
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { diplomacy = 25 }
+				}
+				tier = count
+				AND = {
+					diplomacy = 20
+					NOT = { diplomacy = 25 }
+					NOT = { tier = duke }
+					NOT = { tier = king }
+				}
+			} 
+		}
+		text = EVTDESC_equus.509c
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				diplomacy = 20
+			}
+			diplomacy = 15
+		}
+		text = EVTDESC_equus.509o
+	}
+
+    is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = diplomatic_knights1_noauto }
+	}
+	
+	option = {
+		name = EVTOPTA_equus.501 #Duke or above
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				diplomacy = 25
+			}
+		}
+		join_society = diplomatic_knights1
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+			if = {
+				limit = { 
+					OR = {	
+						ai = no
+						society_can_rank_up = yes
+					}
+				}
+				society_rank_up = 1
+			}
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Count 
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { diplomacy = 25 }
+				}
+				tier = count
+				AND = {
+					diplomacy = 20
+					NOT = { diplomacy = 25 }
+				}
+			}
+		}
+		join_society = diplomatic_knights1
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Under
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				diplomacy = 20
+			}
+			diplomacy = 15
+			OR = {	
+				ai = no
+				society_can_rank_up = yes
+			}
+		}
+		join_society = diplomatic_knights1
+	}
+	option = {
+		name = EVTOPTD_equus.501 #Refuse
+		trigger = {
+			ai = no
+		}
+	}
+}
+
+
+
+#Creation
+narrative_event = {
+    id = equus.510
+    desc = EVTDESC_equus.510
+	title = EVTTITLE_equus.500
+    picture = "GFX_evt_war_planning"
+
+    is_triggered_only = yes
+	hide_new = yes
+	
+	immediate = {
+		set_global_flag = diplomatic_knights2_exist
+		any_realm_character = {
+			limit = {
+				diplomacy = 15
+				is_in_society = no
+				OR = {
+					religion = catholic
+					religion = chalcedonian
+				}
+				is_female = no
+			}
+			letter_event = { id = equus.511 days = 1}
+		}
+		if = {
+			limit = { ai = yes }	
+			any_playable_ruler = {
+				limit = { ai = no }
+				narrative_event = { id = equus.9506 }
+			}
+		}
+		hidden_tooltip = {
+			if = {
+				limit = { 
+					NOR = {
+						has_global_flag = diplomatic_knights1_exist
+						has_global_flag = diplomatic_knights_exist
+					}
+				}
+				create_character = {
+					age = 16
+					name = Cassie
+					attributes = {
+						diplomacy = 11
+						martial = 4
+						stewardship = 7
+						intrigue = 1
+						learning = 5
+					}
+					trait = charismatic_negotiator
+					trait = poet
+					trait = lustful
+					trait = diligent
+					trait = gregarious
+					trait = fair
+					female = yes
+					religion = catholic
+					culture = irish
+					dynasty = 123456790
+					dna="aehc00ccfb0"
+					historical = yes
+				}
+				new_character = { join_society = diplomatic_knights2 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.500
+		join_society = diplomatic_knights2
+		set_society_grandmaster = yes
+	}
+	option = {
+		trigger = {
+			ai = no
+		}
+		name = EVTOPTB_equus.500
+		join_society = diplomatic_knights2
+		set_society_grandmaster = yes
+		set_global_flag = diplomatic_knights2_noauto
+	}
+}
+
+#Inform player
+narrative_event = {
+    id = equus.9510
+    desc = EVTDESC_equus.510
+    picture = "GFX_evt_war_planning"
+	
+    is_triggered_only = yes
+	option = {
+		name = EVTOPTA_equus.9500
+	}
+}
+
+#First members 
+letter_event = {
+    id = equus.511
+    desc = {
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				diplomacy = 25
+			}
+		}
+		text = EVTDESC_equus.511d
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { diplomacy = 25 }
+				}
+				tier = count
+				AND = {
+					diplomacy = 20
+					NOT = { diplomacy = 25 }
+					NOT = { tier = duke }
+					NOT = { tier = king }
+				}
+			} 
+		}
+		text = EVTDESC_equus.511c
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				diplomacy = 20
+			}
+			diplomacy = 15
+		}
+		text = EVTDESC_equus.511o
+	}
+
+    is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = diplomatic_knights2_noauto }
+	}
+	
+	option = {
+		name = EVTOPTA_equus.501 #Duke or above
+		trigger = {
+			OR = {
+				tier = king
+				tier = duke
+				diplomacy = 25
+			}
+		}
+		join_society = diplomatic_knights2
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+			if = {
+				limit = { 
+					OR = {	
+						ai = no
+						society_can_rank_up = yes
+					}
+				}
+				society_rank_up = 1
+			}
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Count 
+		trigger = {
+			OR = {
+				AND = {
+					from_ruler_dynasty = yes
+					NOT = { tier = duke }
+					NOT = { tier = king }
+					NOT = { diplomacy = 25 }
+				}
+				tier = count
+				AND = {
+					diplomacy = 20
+					NOT = { diplomacy = 25 }
+				}
+			}
+		}
+		join_society = diplomatic_knights2
+		if = {
+			limit = { 
+				OR = {	
+					ai = no
+					society_can_rank_up = yes
+				}
+			}
+			society_rank_up = 1
+		}
+	}
+	option = {
+		name = EVTOPTA_equus.501 #Under
+		trigger = {
+			NOT = {
+				tier = king	
+				tier = duke
+				tier = count
+				diplomacy = 20
+			}
+			diplomacy = 15
+			OR = {	
+				ai = no
+				society_can_rank_up = yes
+			}
+		}
+		join_society = diplomatic_knights2
+	}
+	option = {
+		name = EVTOPTD_equus.501 #Refuse
+		trigger = {
+			ai = no
+		}
+	}
+}
+

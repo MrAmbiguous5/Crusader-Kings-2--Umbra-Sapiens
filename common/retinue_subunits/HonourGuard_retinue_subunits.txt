@@ -1,0 +1,48 @@
+# Types:
+# 0 - Light Infantry
+# 1 - Heavy Infantry
+# 2 - Pikemen
+# 3 - Light Cavalry
+# 4 - Knights (heavy cav)
+# 5 - Archers
+# 6 - Horse Archers
+
+RETTYPE_HONOURGUARD = {
+	first_type = 2
+	first_amount = 200
+	second_type = 1
+	second_amount = 100
+	
+	potential = {
+		OR = {
+			has_character_modifier = honour_guard_1_modifier
+			has_character_modifier = honour_guard_2_modifier
+			has_character_modifier = honour_guard_3_modifier
+			has_character_modifier = honour_guard_4_modifier
+			has_character_modifier = honour_guard_5_modifier
+			has_character_modifier = honour_guard_6_modifier
+			has_character_modifier = honour_guard_7_modifier
+			has_character_modifier = honour_guard_8_modifier
+			has_character_modifier = honour_guard_9_modifier
+			has_character_modifier = honour_guard_10_modifier
+			has_character_modifier = honour_guard_11_modifier
+			has_character_modifier = honour_guard_12_modifier
+			has_character_modifier = honour_guard_13_modifier
+			has_character_modifier = honour_guard_14_modifier
+			has_character_modifier = honour_guard_15_modifier
+			has_character_modifier = honour_guard_16_modifier
+		}
+	}
+	
+	hire_cost = 500
+	costs_prestige = yes
+	
+	maintenance_multiplier = 1.0
+	
+	modifier = {
+		pikemen_defensive = 0.3
+		pikemen_morale = 0.3
+		heavy_infantry_defensive = 0.3
+		heavy_infantry_morale = 0.3
+	}
+}

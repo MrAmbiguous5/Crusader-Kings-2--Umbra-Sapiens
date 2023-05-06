@@ -1,0 +1,377 @@
+namespace = darkages
+
+#################################################################################
+#################################################################################
+##
+##		POSSESSED TURNS MORE IINTERESTING
+##
+#################################################################################
+#################################################################################
+
+character_event = {			#POSSESSED BEATS COURTIER
+	id = darkages.72120
+	title = EVTNAME1972120
+	desc = "EVTDESC1972120"
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+	
+	
+	
+	trigger = {
+		trait = possessed
+		NOT = { has_character_modifier = da_possessed_effect }
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972120"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP48 }
+		
+		random_courtier_or_vassal = {
+			limit = { ai = yes }
+			add_trait = wounded
+			
+			opinion = {
+				modifier = opinion_harmed
+				who = ROOT
+				years = 5
+			}
+			
+		}
+		
+		hidden_tooltip = {
+		
+			add_character_modifier = {
+				name = da_possessed_effect
+				duration = 1095
+				hidden = yes
+			}
+		}
+		
+	}
+}
+
+province_event = {			#POSSESSED ORGANIZES CAMP TO HUNT DEMONS
+	id = darkages.72121
+	title = EVTNAME1972121
+	desc = "EVTDESC1972121"
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+	
+	
+	
+	trigger = {
+		owner = {
+			trait = possessed
+			NOT = { has_character_modifier = da_possessed_effect }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972121"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP48 }
+		
+		owner = {
+			treasury = -50
+			scaled_wealth = -0.5
+		}
+		
+		hidden_tooltip = {
+			remove_province_modifier = instability_1
+			remove_province_modifier = stability_1
+			remove_province_modifier = stability_2
+		}
+		
+		add_province_modifier = {
+			name = instability_2
+			duration = -1
+		}
+		
+		hidden_tooltip = {
+			owner = {
+				add_character_modifier = {
+					name = da_possessed_effect
+					duration = 1095
+					hidden = yes
+				}
+			}
+		}
+		
+	}
+}
+
+
+character_event = {			#POSSESSED HAS COMMON FITS OF RAGE
+	id = darkages.72122
+	title = EVTNAME1972122
+	desc = "EVTDESC1972122"
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+	
+	
+	
+	trigger = {
+		trait = possessed
+		NOT = { has_character_modifier = da_possessed_effect }
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972122"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP48 }
+		
+		add_trait = wounded
+
+		add_character_modifier = {
+			name = da_fits_rage
+			duration = 1825
+		}
+		
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_possessed_effect
+				duration = 1095
+				hidden = yes
+			}
+		}
+		
+	}
+}
+
+character_event = {			#POSSESSED IS DISTURBED
+	id = darkages.72123
+	title = EVTNAME1972123
+	desc = "EVTDESC1972123"
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+	
+	
+	
+	trigger = {
+		trait = possessed
+		NOT = { has_character_modifier = da_possessed_effect }
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972123"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP48 }
+		
+		add_character_modifier = {
+			name = da_disturbed
+			duration = 1825
+		}
+		
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_possessed_effect
+				duration = 1095
+				hidden = yes
+			}
+		}
+		
+	}
+}
+
+
+character_event = {			#POSSESSED HEARS VOICE
+	id = darkages.72124
+	title = EVTNAME1972124
+	desc = "EVTDESC1972124"
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+	
+	
+	
+	trigger = {
+		trait = possessed
+		NOT = { has_character_modifier = da_possessed_effect }
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972124"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP48 }
+		
+		add_character_modifier = {
+			name = da_thevoice
+			duration = 3650
+		}
+		
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_possessed_effect
+				duration = 1095
+				hidden = yes
+			}
+		}
+		
+	}
+}
+
+character_event = {			#POSSESSED SPEAKS IN VOICES
+	id = darkages.72125
+	title = EVTNAME1972125
+	desc = "EVTDESC1972125"
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+	
+	
+	
+	trigger = {
+		trait = possessed
+		NOT = { has_character_modifier = da_possessed_effect }
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972125"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP48 }
+		
+		piety = -50
+		
+		add_character_modifier = {
+			name = da_speaksvoices
+			duration = 1825
+		}
+		
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_possessed_effect
+				duration = 1095
+				hidden = yes
+			}
+		}
+		
+	}
+}
+
+character_event = {			#POSSESSED GETS STRESSED
+	id = darkages.72126
+	title = EVTNAME1972126
+	desc = "EVTDESC1972126"
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+	
+	
+	
+	trigger = {
+		trait = possessed
+		NOT = { trait = stressed }
+		NOT = { has_character_modifier = da_possessed_effect }
+		NOT = { has_character_modifier = da_stress_temp }		
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972126"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP48 }
+		
+		add_trait = stressed
+		
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_possessed_effect
+				duration = 1095
+				hidden = yes
+			}
+			
+			add_character_modifier = {
+				name = da_stress_temp
+				duration = 365
+				hidden = yes
+			}
+			
+		}
+		
+	}
+}
+
+character_event = {			#POSSESSED LOSES STRESSED
+	id = darkages.72127
+	title = EVTNAME1972127
+	desc = "EVTDESC1972127"
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+	
+	
+	
+	trigger = {
+		trait = possessed
+		trait = stressed
+		NOT = { has_character_modifier = da_stress_temp }
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972127"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP49 }		
+		remove_trait = stressed
+		
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = da_stress_temp
+				duration = 365
+				hidden = yes
+			}
+		}
+		
+	}
+}

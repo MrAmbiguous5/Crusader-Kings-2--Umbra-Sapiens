@@ -1,0 +1,224 @@
+namespace = equus
+
+#Start others pas d'armes
+character_event = {
+	id = equus.2258
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		ROOT = { 
+			save_event_target_as = combatant_1
+			set_character_flag = mock_duel
+		}
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { has_character_flag = pas_darmes_received }  
+				NOT = { character = ROOT }
+				is_incapable = no
+				prisoner = no
+			}
+			save_event_target_as = combatant_2
+			set_character_flag = pas_darmes_received
+			character_event = { id = equus.2271 days = 1000 }
+			character_event = { id = equus.2259 }
+		}
+		set_character_flag = start_pas_darmes
+		character_event = { id = equus.2271 days = 1000 }
+	}
+}
+
+
+#Ping
+character_event = {
+	id = equus.2259
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		FROM = { character_event = { id = equus.2260 } }
+	}
+}
+
+
+# Selection
+character_event = {
+	id = equus.2260
+	desc = EVTDESC_equus.2260
+	picture = "GFX_evt_family_feud_republic"
+	is_triggered_only = yes
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+
+	option = {
+		name = "EVTOPTA_equus.2260"
+		hidden_tooltip = {
+			character_event = { id = equus.2261 }
+			character_event = { id = equus.2262 days = 10 }
+		}
+	}
+}
+
+character_event = {
+	id = equus.2261
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		#Chooses a body part for injury (if it occurs), also for loc purposes (effect handles both characters)
+        set_potential_injury_flag_effect = yes
+
+        #Scripted effect requiring event-targets combatant_1 & combatant_2! RAW NUMBERS...
+        evaluate_duel_result_score_effect = yes
+
+        #Room for extra special calculations... (based on traits, and other special circumstances?)
+        evaluate_extra_duel_result_score_effect = yes
+
+        #Send the correct result event (from random_list)...
+        send_duel_result_event_effect = yes 
+	}
+}
+
+#Continue?
+character_event = {
+	id = equus.2262
+	
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = finish_second }
+		}
+		text = EVTDESC_equus.2262
+	}
+	desc = {
+		trigger = {
+			has_character_flag = finish_second
+		}
+		text = EVTDESC_equus.2262lf
+	}
+	
+	picture = "GFX_evt_family_feud_republic"
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_equus.2262" #Keep going
+		trigger = {
+			NOT = { has_character_flag = finish_second }
+		}
+		if = {
+			limit = {
+				ai = no
+			}
+			character_event = { id = equus.2258 days = 10 }
+		}	
+		if = {
+			limit = {
+				has_character_flag = finish_first
+			}
+			set_character_flag = finish_second
+			clr_character_flag = finish_first
+		}
+		if = {
+			limit = {
+				NOT = { has_character_flag = finish_first }
+				NOT = { has_character_flag = finish_second }
+			}
+			set_character_flag = finish_first
+		}
+	}
+	option = {
+		name = "EVTOPTB_equus.2262" #Stop
+		trigger = {
+			NOT = { has_character_flag = finish_second }
+		}
+		prestige = -100
+		clr_character_flag = finish_first
+	}
+	option = {
+		name = "EVTOPTC_equus.2262" #Final victory
+		trigger = {
+			has_character_flag = finish_second
+		}
+		change_society_currency = 300
+		prestige = 300
+	}
+} 
+
+#Start others pas d'armes
+character_event = {
+	id = equus.2268
+	hide_window = yes
+	trigger = {
+		OR = {
+			society_member_of = military_knights
+			society_member_of = military_knights1
+			society_member_of = military_knights2
+		}
+		ai = no
+		is_incapable = no
+		age = 16
+	}
+
+	mean_time_to_happen = { months = 100 }
+	
+	immediate = {
+		ROOT = { save_event_target_as = combatant_1 }
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { has_character_flag = pas_darmes_received }  
+				NOT = { character = ROOT }
+				is_incapable = no
+			}
+			save_event_target_as = combatant_2 
+			set_character_flag = pas_darmes_received
+			character_event = { id = equus.2269 } #Ping
+		}
+	}
+}
+
+
+#Ping
+character_event = {
+	id = equus.2269
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		FROM = { character_event = { id = equus.2270 } }
+	}
+}
+
+
+
+# Selection
+character_event = {
+	id = equus.2270
+	desc = EVTDESC_equus.2270
+	picture = "GFX_evt_family_feud_republic"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.2270"
+		hidden_tooltip = {
+			character_event = { id = equus.2261 }
+			character_event = { id = equus.2271 days = 1000 }
+		}
+	}
+	option = {
+		name = "EVTOPTB_equus.2270"
+		prestige = -150
+	}
+}
+
+
+character_event = {
+	id = equus.2271
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		clr_character_flag = pas_darmes_received
+		clr_character_flag = start_pas_darmes
+	}
+}

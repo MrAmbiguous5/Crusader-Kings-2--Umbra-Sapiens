@@ -1,0 +1,241 @@
+amazonian_legend_themiskyran = {
+	vassal_opinion = 10
+	saintly_cultural_bloodline = 1
+	flags = { created_bloodline cultural_saintly_bloodline imperial_themiskyran }
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_themiskyran
+	active = {
+		culture = themiskyran_amz
+	}
+}
+
+amazonian_legend_valkyrie = {
+	vassal_opinion = 10
+	saintly_cultural_bloodline = 1
+	flags = { created_bloodline cultural_saintly_bloodline imperial_valkyrie }
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_valkyrie
+	active = {
+		culture = valkyrie_amz
+	}
+}
+
+amazonian_legend_scythian = {
+	vassal_opinion = 10
+	saintly_cultural_bloodline = 1
+	flags = { created_bloodline cultural_saintly_bloodline imperial_scythian }
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_scythian
+	active = {
+		culture = scythian_amz
+	}
+}
+
+amazonian_legend_parthian = {
+	vassal_opinion = 10
+	saintly_cultural_bloodline = 1
+	flags = { created_bloodline cultural_saintly_bloodline imperial_parthian }
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_parthian
+	active = {
+		culture = parthian_amz
+	}
+}
+
+amazonian_legend_kushite = {
+	vassal_opinion = 10
+	saintly_cultural_bloodline = 1
+	flags = { created_bloodline cultural_saintly_bloodline imperial_kushite }
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_kushite
+	active = {
+		culture = kushite_amz
+	}
+}
+
+amazonian_legend_carthaginian = {
+	vassal_opinion = 10
+	saintly_cultural_bloodline = 1
+	flags = { created_bloodline cultural_saintly_bloodline imperial_carthaginian }
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_carthaginian
+	active = {
+		culture = carthaginian_amz
+	}
+}
+
+amazonian_legend_etruscan = {
+	vassal_opinion = 10
+	saintly_cultural_bloodline = 1
+	flags = { created_bloodline cultural_saintly_bloodline imperial_etruscan }
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_etruscan
+	active = {
+		culture = etruscan_amz
+	}
+}
+
+amazonian_legend_pritani = {
+	vassal_opinion = 10
+	saintly_cultural_bloodline = 1
+	flags = { created_bloodline cultural_saintly_bloodline imperial_pritani }
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_pritani
+	active = {
+		culture = pritani_amz
+	}
+}
+
+amazonian_legend_illyrian = {
+	vassal_opinion = 10
+	saintly_cultural_bloodline = 1
+	flags = { created_bloodline cultural_saintly_bloodline imperial_illyrian }
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_illyrian
+	active = {
+		culture = illyrian_amz
+	}
+}
+
+amazonian_heroine_legacy = {
+	combat_rating = 10
+	retinuesize_perc = 0.2
+	command_modifier = {
+		speed = 0.10
+		center = 0.05
+	}
+	flags = { created_bloodline legendary_warrior_lodge_bloodline battle_survivor_bloodline heroine_bloodline }
+	bloodline_effect_battle_survivor = 1
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_heroine_legacy
+	active = {
+		OR = {
+			society_member_of = warrior_lodge_amazonian 
+			custom_tooltip = { 
+			text = amazonian_trait_tooltip
+				OR = {
+					trait = is_amazonian
+					trait = is_amazonian_immortal
+				}
+			}
+		}
+	}
+}
+
+amazonian_heroine_champion = {
+	combat_rating = 15
+	monthly_character_piety = 0.2
+	vassal_opinion = 10
+	command_modifier = {
+		morale_defence = 0.1
+	}
+	flags = { created_bloodline legendary_warrior_lodge_bloodline duelist_bloodline heroine_bloodline }
+	bloodline_effect_duel = 1
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_heroine_champion
+	active = {
+		OR = {
+			society_member_of = warrior_lodge_amazonian 
+			custom_tooltip = { 
+			text = amazonian_trait_tooltip
+				OR = {
+					trait = is_amazonian
+					trait = is_amazonian_immortal
+				}
+			}
+		}
+	}
+}
+
+amazonian_heroine_dread = {
+	combat_rating = 10
+	general_opinion = -10
+	command_modifier = {
+		siege = 0.1
+		morale_offence = 0.2
+	}
+	flags = { created_bloodline legendary_warrior_lodge_bloodline bloodline_fearsome heroine_bloodline }
+	bloodline_effect_fearsome = 1
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_heroine_dread
+	active = {
+		OR = {
+			society_member_of = warrior_lodge_amazonian 
+			custom_tooltip = { 
+			text = amazonian_trait_tooltip
+				OR = {
+					trait = is_amazonian
+					trait = is_amazonian_immortal
+				}
+			}
+		}
+	}
+}
+
+amazonian_heroine_hooded = {
+	combat_rating = 10
+	monthly_character_prestige = 0.2
+	plot_power_modifier = 0.3
+	defensive_plot_power_modifier = 0.3
+	flags = { created_bloodline legendary_warrior_lodge_bloodline bloodline_murder_stalk heroine_bloodline }
+	bloodline_effect_murder_stalk = 1
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_amazonian_heroine_hooded
+	active = {
+		OR = {
+			society_member_of = warrior_lodge_amazonian 
+			custom_tooltip = { 
+			text = amazonian_trait_tooltip
+				OR = {
+					trait = is_amazonian
+					trait = is_amazonian_immortal
+				}
+			}
+		}
+	}
+}
+
+ancient_mountain_dragon = {
+	combat_rating = 20
+	global_tax_modifier = 0.2
+	health = 2.0
+	flags = { created_bloodline bloodline_murder_burn bloodline_dragon }
+	bloodline_effect_murder_burn = 1
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_midgard
+	active = {
+		war = yes
+	}
+}
+
+god_king_giant = {
+	combat_rating = 20
+	general_opinion = -20
+	command_modifier = {
+		religious_enemy = 0.5
+	}
+	bloodline_effect_fearsome = 1
+	flags = { created_bloodline bloodline_fearsome }		
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_generic_pagan
+	active = {
+		trait = giant
+	}
+}
+
+daughters_of_fatimah = {
+	muslim_opinion = 10
+	monthly_character_piety = 0.25
+	sex_appeal_opinion = 5
+	bloodline_effect_inquisitional = 1
+	allow_bastards = yes
+	inheritance = matrilineal
+	picture = GFX_bloodlines_symbol_sunni
+	flags = { created_bloodline inquisitional_bloodline }
+	active = {
+		religion_group = muslim
+		is_female = yes
+	}
+}
+
+

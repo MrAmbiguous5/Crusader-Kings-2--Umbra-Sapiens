@@ -1,0 +1,78 @@
+on_yearly_pulse = {
+	events = {
+		darkages.72551
+		darkages.72586
+	}
+}
+
+on_rebel_revolt = {
+	events = {
+		darkages.72160
+	}
+}
+
+on_birth = {
+	events = {
+		zdarkages.72289
+		darkages.72648
+		darkages.72671
+	}	
+}
+
+on_death = {
+	events = {
+		darkages.72357
+		darkages.72453
+		darkages.72454
+		darkages.72460	
+		darkages.72466		
+		darkages.72467
+		darkages.72481
+		darkages.72518
+		darkages.72508	
+		darkages.72620
+		darkages.72635	
+		darkages.72539
+		darkages.72732		
+	}
+}
+
+on_new_holder = {
+
+	events = {
+		darkages.72388
+	}
+
+}
+
+on_startup = {
+
+	events = {
+		darkages.72520
+		darkages.72574
+		darkages.72581	
+		darkages.72585
+		darkages.72624
+		darkages.00000
+	}
+
+}
+
+on_divorce = {
+	events = {
+		darkages.72510	
+	}
+}
+
+on_post_birth_stillbirth = {
+	events = {
+		darkages.72512
+	}
+}
+
+# Sent to employers of both spouses - ROOT is employer. FROM is employers "employee". new_character is the other spouse.
+on_marriage = {
+	events = {
+		darkages.72306
+	}
+}

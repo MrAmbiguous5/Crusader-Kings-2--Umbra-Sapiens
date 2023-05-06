@@ -1,0 +1,70 @@
+
+declarevendetta;Declare Vendetta;;;;;;;;;;;;x
+declarevendetta_desc;Swear a vendetta against [Root.GetFirstNameWithNick]. ;;;;;;;;;;;;x
+
+EVTDESCDecVend.101;[From.GetFirstNameWithNick] has committed heinous acts against my family. This cannot be allowed to stand. \nFor the honour of House [Root.GetOnlyDynastyName], the dead shall have their vengeance!;;;;;;;;;;;;x
+EVTOPTADecVend.101;I will not rest until the villain lies cold at my feet!;;;;;;;;;;;;x
+EVTOPTBDecVend.101;The time is not right.;;;;;;;;;;;;x
+
+EVTDESCDecVend.201;The crazed [From.GetFirstNameWithNick] has declared a blood feud against me, citing my supposed crimes against some relative or another. \nEven now [From.GetSheHe] conspires towards my downfall. ;;;;;;;;;;;;x
+EVTOPTADecVend.201;If it's a feud [From.GetSheHe] wants, it's a feud [From.GetSheHe]'ll get!;;;;;;;;;;;;x
+
+EVTDESCDecVend.301;With no more rivals, it is finally time to lay down arms and put aside my rage. The blood feud is settled.;;;;;;;;;;;;x
+EVTOPTADecVend.301;For now.;;;;;;;;;;;;x
+
+vendetta_modifier;Vendetta;;;;;;;;;;;;x
+vendetta_modifier_desc;This character has sworn a vendetta against another for crimes too grievous to forgive. With tempers flared, it would be best to strike while the iron is hot.;;;;;;;;;;;;x
+
+hand_of_vengeance_modifier;Hand of Vengeance;;;;;;;;;;;;x
+hand_of_vengeance_modifier_desc;This character has fatally demonstrated how dangerous it is to incur a vendetta.;;;;;;;;;;;;x
+
+duel_vendetta_target;Duel for Vendetta;;;;;;;;;;;;x
+duel_vendetta_target_desc;Challenge [Root.GetFirstNameWithNick] to a duel to the death! ;;;;;;;;;;;;x
+recent_vendetta_challenge_tooltip;Has not issued a challenge against a vendetta target within the last six months;;;;;;;;;;;;x
+
+EVTDESCDecVend.400;[From.GetFirstNameWithNick] deserves death. But as I do not wish for the passage of time to carry out the deed, I may expedite the process by my own hand. \nOf course, as a fight to the death, there's a definite chance I won't walk away from it.;;;;;;;;;;;;x
+EVTOPTADecVend.400;Blood will have blood! Issue the challenge!;;;;;;;;;;;;x
+EVTOPTBDecVend.400;It is too risky. ;;;;;;;;;;;;x
+
+EVTDESCDecVend.401;accept challenge?;;;;;;;;;;;;x
+EVTOPTADecVend.401;yes accept;;;;;;;;;;;;x
+EVTOPTBDecVend.401;no decline;;;;;;;;;;;;x
+EVTDESCDecVend.402;To the misguided [Root.GetSonDaughter] of [Root.GetOnlyDynastyName], \n\nIf you truly insist on pruning your family tree by such foolish means then I am only too happy to oblige. \nYour challenge is accepted. I shall meet you on neutral ground. \n\nYour demise, [From.GetTitledFirstName];;;;;;;;;;;;x
+EVTOPTADecVend.402;And so we fight!;;;;;;;;;;;;x
+EVTDESCDecVend.4025;To the dimwitted child of [Root.GetOnlyDynastyName], \n\nA duel? What a laughable suggestion! Did you come up with it yourself or did you have help from the village idiot? I have better things to do than wash your blood out of my clothes. \n\nYour intellectual superior, [From.GetTitledFirstName];;;;;;;;;;;;x
+EVTOPTADecVend.4025;Snivelling coward.;;;;;;;;;;;;x
+EVTDESCDecVend.403;We meet in an empty paddock beneath an amber sky. I see [vendetta_duel_target.GetFirstNameWithNick] has come armed and ready to fight. \n"This will only end one way," [vendetta_duel_target.GetSheHe] warns. "You've seen your last sunrise.";;;;;;;;;;;;x
+EVTOPTADecVend.403;"Lay on, [vendetta_duel_target.GetFirstName]!";;;;;;;;;;;;x
+EVTDESCDecVend.404;Our blades clash in thunderous assault. The atmosphere is thick with hatred, suffocating. We trade blow for blow, fuelled by a single desire to kill.;;;;;;;;;;;;x
+EVTOPTADecVend.404;"You're going down!";;;;;;;;;;;;x
+EVTDESCDecVend.405;Minutes pass. Sweat drips down my brow to sting my eyes. I've lost track of whose blood is whose. \nStill, I envision all manner of ways to end this [vendetta_duel_target.GetManWoman]'s life.;;;;;;;;;;;;x
+EVTOPTADecVend.405;"To the death!";;;;;;;;;;;;x
+EVTDESCDecVend.406;A single resounding strike marks the end of the fight, the metallic clangour carrying long across the field. The sun sets on the bloody scene as only one of us yet stands.;;;;;;;;;;;;x
+EVTOPTADecVend.406;The souls of the dead may at last find peace.;;;;;;;;;;;;x
+EVTOPTBDecVend.406;How... how could I lose?;;;;;;;;;;;;x
+EVTDESCDecVend.407;I lay my blade against [vendetta_duel_target.GetFirstName]'s throat, resisting the violent urge to end [vendetta_duel_target.GetHerHis] life right there. [vendetta_duel_target.GetSheHeCap] stares up at me, shaking in terror, and asks, "What now?";;;;;;;;;;;;x
+EVTOPTADecVend.407;"You'd better hope this blade has kept its edge.";;;;;;;;;;;;x
+EVTOPTBDecVend.407;"I have something special in mind.";;;;;;;;;;;;x
+EVTOPTCDecVend.407;"When in Rome, do as the Romans do.";;;;;;;;;;;;x
+EVTOPTDDecVend.407;"Such a beautiful paddock. Shall we find a better view?";;;;;;;;;;;;x
+EVTOPTEDecVend.407;"Perhaps we can settle our differences over a nice warm fire.";;;;;;;;;;;;x
+EVTOPTFDecVend.407;"Tell me, have you ever seen an elephant up close?";;;;;;;;;;;;x
+EVTDESCDecVend.4075;[vendetta_duel_target.GetHerHisCap] shadow looms over me as I feel a cold blade slide under my throat. My quest for vengeance has arrived at this, my failure. What a disaster I've wrought upon myself. \n"If you want a clean death," [vendetta_duel_target.GetFirstName] says, "then I suggest you provide me a cleaner angle.";;;;;;;;;;;;x
+EVTOPTADecVend.4075;"Please! Anything but my life!";;;;;;;;;;;;x
+EVTOPTBDecVend.4075;Damn.;;;;;;;;;;;;x
+EVTDESCDecVend.4076;[vendetta_duel_target.GetFirstName]'s blade flashes across my face. There's a sharp sting as everything goes dark, and, but for a moment, I believe myself dead. But the pain I feel doesn't yield to death.\n "I did warn you," [vendetta_duel_target.GetFirstName] says cruelly. "You've seen your last sunrise.";;;;;;;;;;;;x
+EVTOPTADecVend.4076;"Aargh!";;;;;;;;;;;;x
+EVTDESCDecVend.4077;Justice served, I return home. News of the villain's demise has already spread throughout the capital. I am greeted as a hero, a hand of vengeance, a champion. \nOur enemies will sooner think twice about crossing House [Root.GetOnlyDynastyName].;;;;;;;;;;;;x
+EVTOPTADecVend.4077;The vendetta is resolved.;;;;;;;;;;;;x
+EVTDESCDecVend.4078;I finally return home to the capital, albeit in disgrace. It comes as something of a relief that I cannot witness the looks of contempt from those around me. I only wish I could have exacted justice from [vendetta_duel_target.GetFirstNameWithNick] before losing my sight.;;;;;;;;;;;;x
+EVTOPTADecVend.4078;[vendetta_duel_target.GetHerHisCap] face will haunt this waking dream of blindness.;;;;;;;;;;;;x
+EVTDESCDecVend.408;It seems my [GetFromRelation] [From.GetFirstName] was killed pursuing [From.GetHerHis] vendetta against [vendetta_duel_target.GetFirstNameWithNick]. Thus another life is lost.;;;;;;;;;;;;x
+EVTOPTADecVend.408;Damn.;;;;;;;;;;;;x
+
+
+
+
+
+
+
+;;;;;;;;;;;;x

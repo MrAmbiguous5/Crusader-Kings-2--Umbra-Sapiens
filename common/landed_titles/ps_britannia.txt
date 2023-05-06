@@ -1,0 +1,1169 @@
+### Northumberland
+
+b_alnwick = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Durham
+
+b_durham = {
+	norwegian = "Dunholm"
+	danish = "Dunholm"
+	swedish = "Dunholm"
+	norse = "Dunholm"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 374
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}					
+}
+
+### Cumberland
+
+b_carlisle = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 120
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+    }
+}
+b_gilsland = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 170
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+b_penrith = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 451
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+    }
+}
+b_egremont = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 196
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+    }
+}
+b_dacre = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 118
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }
+}
+
+### Lancaster
+
+### Westmorland
+
+b_appleby = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 60
+			emblem = 0
+			color = 4
+			color = 0
+			color = 2
+		}
+	}	
+}
+b_kendal = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 4
+            color = 1
+            color = 0
+        }
+    }
+}
+b_lowther = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 78
+            emblem = 0
+            color = 3
+            color = 0
+            color = 0
+        }
+    }
+}
+b_kirkby = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 3
+            color = 1
+            color = 0
+        }
+    }
+}
+b_brougham = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 78
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+				
+### Chester
+
+b_chester = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 324
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_halton = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 68
+			emblem = 0
+			color = 2
+			color = 1
+			color = 4
+		}
+	}
+}	
+
+### Derby	
+
+b_derby = {
+	norwegian = "Djuraby"
+	danish = "Djuraby"
+	swedish = "Djuraby"
+	norse = "Djuraby"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 108
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}					
+}	
+
+### York	
+
+b_york = {
+	norwegian = "Jorvik"
+	danish = "Jorvik"
+	swedish = "Jorvik"
+	norse = "Jorvik"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 189
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}					
+}
+b_richmond = {
+	saxon = "Catterick"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 475
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}					
+}
+b_thirsk = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }
+}
+
+### Yoredale
+
+b_skipton = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 60
+			emblem = 0
+			color = 4
+			color = 0
+			color = 2
+		}
+	}				
+}
+
+### Leeds
+
+b_pontefract = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 0
+			emblem = 25
+			color = 0
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Lincoln
+
+b_gainsborough = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 70
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_lincoln = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Norfolk
+
+b_norwich = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 115
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_buckenham = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 172
+            emblem = 36
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+b_castle_rising = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 1
+            color = 4
+            color = 0
+        }
+    }
+}
+b_chatteris = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 60
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }
+}
+b_elmham = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 13
+            emblem = 0
+            color = 1
+            color = 4
+            color = 0
+        }
+    }
+}
+
+### Suffolk
+
+b_ely = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 107
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Bedford
+
+b_bedford = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_hertford = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 207
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_st_albans = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 147
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_luton = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 169
+            emblem = 0
+            color = 0
+            color = 4
+            color = 0
+        }
+    }
+}
+
+
+### Middlesex
+
+b_tottenham = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 60
+            emblem = 0
+            color = 2
+            color = 1
+            color = 4
+        }
+    }
+}
+
+### Essex
+
+b_havering = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_dunmow = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 442
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_colchester = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 93
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Northampton
+
+b_peterborough = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 4
+            texture_internal = 120
+            emblem = 0
+            color = 0
+            color = 2
+            color = 0
+        }
+    }
+}
+b_huntingdon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 155
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_northampton = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 129
+            emblem = 0
+            color = 1
+            color = 4
+            color = 0
+        }
+    }
+}
+b_cambridge = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}				
+
+### Leicester
+
+b_leicester = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 369
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}
+}
+
+### Warwick
+
+b_coventry = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 363
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+		religion = "orthodox"
+	}				
+}
+b_lichfield = {
+	coat_of_arms = {
+		template = 2
+		layer = {
+			texture = 0
+			texture_internal = 342
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+		layer = {
+			texture = 0
+			texture_internal = 342
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+		religion = "orthodox"
+	}				
+}
+
+### Worcester
+
+b_worcester = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 220
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}				
+
+### Gloucester
+
+### Wiltshire
+
+### Oxford
+
+b_buckingham = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 16
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Surrey
+
+### Kent
+
+b_rochester = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 147
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_canterbury = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 131
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}	
+b_sandwich = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 135
+            emblem = 0
+            color = 4
+            color = 0
+            color = 0
+        }
+    }
+}	
+
+### Sussex
+
+b_hastings = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 98
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}	
+b_arundel = {
+	saxon = "Selsey"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}					
+}
+b_bramber = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 261
+            emblem = 0
+            color = 0
+            color = 4
+            color = 0
+        }
+    }
+}
+
+### Winchester
+
+b_winchester = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Dorset
+
+### Somerset
+
+#############
+### Wales ###
+#############
+
+### Gwynedd
+
+### Perfeddwlad
+
+### Powys
+
+b_mathrafal = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}
+}
+
+### Shrewsbury
+
+b_oswestry = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 268
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Hereford
+
+b_hereford = {
+	welsh = "Din Aricon"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 310
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}					
+}
+
+### Dyfed
+
+b_dinefwr = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 92
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}
+}
+b_llandeilo = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 21
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_pembroke = {
+	coat_of_arms = {
+		template = 2
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 2
+			color = 5
+			color = 0
+		}
+	}				
+}
+
+### Glamorgan
+
+### Gwent
+
+### Cornwall
+
+b_bodmin = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 206
+            emblem = 0
+            color = 1
+            color = 3
+            color = 0
+        }
+    }
+}
+b_launceston = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 118
+            emblem = 0
+            color = 0
+            color = 3
+            color = 0
+        }
+    }
+}
+
+### Devon
+
+################
+### Scotland ###
+################
+
+### Isle of Mann
+
+### Galloway
+
+b_wigtown = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 206
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}					
+}
+
+### Carrick
+
+### Clydesdale
+
+b_bothwell = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 82
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}
+}
+
+### Innse Gall
+
+b_dunvegan = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 76
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}	
+}
+
+### Argyll
+
+b_loch_awe = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 138
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}
+}
+
+### Lothian
+
+### Dunbar
+
+b_dunbar = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}					
+}
+b_gordon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 103
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}
+}
+b_crichton = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}	
+}
+
+### Teviotdale
+
+b_roxburgh = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 144
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}					
+}
+b_peebles = {
+	# Annandale
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 4
+			emblem = 0
+			color = 0
+			color = 2
+			color = 2
+		}
+	}					
+}	
+
+### Gowrie
+
+b_forteviot = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}					
+}		
+b_abernethy = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 1
+			emblem = 34
+			color = 2
+			color = 0
+			color = 0
+		}
+	}					
+}	
+b_errol = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 116
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}
+}
+
+### Fife
+
+### Strathearn
+
+b_tullibardine = {
+# d'azur à trois étoiles d'argent, au trescheur d'or	
+}
+
+### Atholl
+
+### Moray
+
+### Ross
+
+### Buchan
+
+### Caithness
+
+b_dunrobin = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 82
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}						
+}
+
+###############
+### Ireland ###
+###############
+
+### Ulster
+
+### Oriel
+
+### Tyrone
+
+### Kildare
+
+b_kildare = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 147
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}					
+}

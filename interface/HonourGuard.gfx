@@ -1,0 +1,14 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_recruit_honour_guard"
+		texturefile = "gfx/decisions/recruit_honour_guard.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_disband_honour_guard"
+		texturefile = "gfx/decisions/disband_honour_guard.dds"
+	}
+	
+}
+

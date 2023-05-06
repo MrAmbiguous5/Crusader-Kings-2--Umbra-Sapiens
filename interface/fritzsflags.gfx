@@ -1,0 +1,650 @@
+spriteTypes = {
+  spriteType = {
+    name = "GFX_hide_fritz_flags"
+    texturefile = "gfx\\interface\\decision_icon_fritz_flags_one.dds"
+  }
+  spriteType = {
+    name = "GFX_reveal_fritz_flags"
+    texturefile = "gfx\\interface\\decision_icon_fritz_flags_one.dds"
+  }
+  spriteType = {
+    name = "GFX_reset_primary_coa"
+    texturefile = "gfx\\interface\\decision_icon_fritz_flags_one.dds"
+  }
+  spriteType = {
+    name = "GFX_england_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_england_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_england_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_england_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_england_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_england_coa_six"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_six.dds"
+  }
+  spriteType = {
+    name = "GFX_england_coa_seven"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_seven.dds"
+  }
+  spriteType = {
+    name = "GFX_england_coa_eight"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_eight.dds"
+  }
+  spriteType = {
+    name = "GFX_england_coa_nine"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_nine.dds"
+  }
+  spriteType = {
+    name = "GFX_england_coa_ten"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_ten.dds"
+  }
+  spriteType = {
+    name = "GFX_scotland_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_seven.dds"
+  }
+  spriteType = {
+    name = "GFX_scotland_coa_one_true"
+    texturefile = "gfx\\interface\\decision_icon_scotland_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_britannia_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_seven.dds"
+  }
+  spriteType = {
+    name = "GFX_britannia_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_eight.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_six"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_six.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_seven"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_seven.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_eight"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_nine"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_nine.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_ten"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_ten.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_salian_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_carolingian_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_carolingian_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_carolingian_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_carolingian_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_six"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_six.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_seven"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_seven.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_eight"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_eight.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_nine"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_nine.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_ten"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_ten.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_eleven"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_eleven.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_twelve"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_twelve.dds"
+  }
+  spriteType = {
+    name = "GFX_hre_coa_ten_france"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_ten.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_six"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_six.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_seven"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_seven.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_eight"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_eight.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_nine"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_nine.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_ten"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_ten.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_eleven"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_eleven.dds"
+  }
+  spriteType = {
+    name = "GFX_hreg_coa_twelve"
+    texturefile = "gfx\\interface\\decision_icon_hre_flag_twelve.dds"
+  }
+  spriteType = {
+    name = "GFX_pre_coa_what"
+    texturefile = "gfx\\interface\\decision_icon_what_flag.dds"
+  }
+  spriteType = {
+    name = "GFX_pre_coa_cookin"
+    texturefile = "gfx\\interface\\decision_icon_cookin_flag.dds"
+  }
+  spriteType = {
+    name = "GFX_kosj_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_kosj_flag.dds"
+  }
+  spriteType = {
+    name = "GFX_kosj_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_kosj_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_kosj_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_kosj_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_koj_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_jerusalem_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_bavaria_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_bavaria_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_bavaria_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_bavaria_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_ireland_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_ireland_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_poland_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_poland_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_poland_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_poland_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_poland_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_poland_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_egypt_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_egypt_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_egypt_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_egypt_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_persia_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_persia_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_persia_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_persia_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_burgundy_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_burgundy_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_castille_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_castille_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_castille_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_burgundy_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_aragon_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_aragon_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_aragon_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_aragon_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_mongol_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_mongol_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_mongol_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_mongol_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_mongol_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_mongol_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_mongol_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_mongol_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_mongol_coa_four_gh"
+    texturefile = "gfx\\interface\\decision_icon_mongol_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_mongol_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_mongol_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_mongol_coa_six"
+    texturefile = "gfx\\interface\\decision_icon_mongol_flag_six.dds"
+  }
+  spriteType = {
+    name = "GFX_mongol_coa_six_yuan"
+    texturefile = "gfx\\interface\\decision_icon_mongol_flag_six.dds"
+  }
+  spriteType = {
+    name = "GFX_france_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_france_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_france_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_france_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_france_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_france_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_france_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_france_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_france_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_france_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_france_coa_six"
+    texturefile = "gfx\\interface\\decision_icon_france_flag_six.dds"
+  }
+  spriteType = {
+    name = "GFX_france_coa_seven"
+    texturefile = "gfx\\interface\\decision_icon_england_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_france_coa_seven_true"
+    texturefile = "gfx\\interface\\decision_icon_france_flag_seven.dds"
+  }
+  spriteType = {
+    name = "GFX_france_coa_eight"
+    texturefile = "gfx\\interface\\decision_icon_france_flag_eight.dds"
+  }
+  spriteType = {
+    name = "GFX_france_coa_nine"
+    texturefile = "gfx\\interface\\decision_icon_france_flag_nine.dds"
+  }
+  spriteType = {
+    name = "GFX_efrance_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_efrance_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_efrance_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_efrance_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_efrance_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_efrance_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_venice_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_venice_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_hungary_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_hungary_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_hungary_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_hungary_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_hungary_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_hungary_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_hungary_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_hungary_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_papacy_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_papacy_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_papacy_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_papacy_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_papacy_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_papacy_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_papacy_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_papacy_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_papacy_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_papacy_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_visigoth_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_visigoth_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_visigoth_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_visigothic_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_visigoth_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_visigoth_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_visigoth_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_visigoth_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_visigoth_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_visigoth_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_french_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_french_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_french_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_french_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_french_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_french_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_french_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_french_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_french_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_french_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_german_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_german_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_german_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_german_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_german_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_german_flag_three.dds"
+  }
+   spriteType = {
+    name = "GFX_switzerland_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_switzerland_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_switzerland_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_switzerland_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_roman_empire_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_roman_empire_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_roman_empire_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_roman_empire_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_roman_empire_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_roman_empire_coa_six"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_six.dds"
+  }
+  spriteType = {
+    name = "GFX_roman_empire_coa_seven"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_seven.dds"
+  }
+  spriteType = {
+    name = "GFX_roman_empire_coa_eight"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_eight.dds"
+  }
+  spriteType = {
+    name = "GFX_roman_empire_coa_nine"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_nine.dds"
+  }
+  spriteType = {
+    name = "GFX_arabia_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_arabia_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_antioch_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_antioch_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_aztec_colony_england_coa"
+    texturefile = "gfx\\interface\\decision_icon_aztec_colony_england.dds"
+  }
+  spriteType = {
+    name = "GFX_aztec_colony_france_coa"
+    texturefile = "gfx\\interface\\decision_icon_aztec_colony_france.dds"
+  }
+  spriteType = {
+    name = "GFX_aztec_colony_spain_coa"
+    texturefile = "gfx\\interface\\decision_icon_aztec_colony_spain.dds"
+  }
+  spriteType = {
+    name = "GFX_latin_empire_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_latin_empire_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_eleven"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_eleven.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_twelve"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_twelve.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_thirteen"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_thirteen.dds"
+  }
+  spriteType = {
+    name = "GFX_ere_coa_fourteen"
+    texturefile = "gfx\\interface\\decision_icon_ere_flag_fourteen.dds"
+  }
+  spriteType = {
+    name = "GFX_italy_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_italy_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_italy_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_italy_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_italy_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_italy_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_italy_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_italy_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_italy_coa_five"
+    texturefile = "gfx\\interface\\decision_icon_italy_flag_five.dds"
+  }
+  spriteType = {
+    name = "GFX_italy_coa_six"
+    texturefile = "gfx\\interface\\decision_icon_italy_flag_six.dds"
+  }
+  spriteType = {
+    name = "GFX_roman_empire_coa_ten"
+    texturefile = "gfx\\interface\\decision_icon_roman_empire_flag_ten.dds"
+  }
+  spriteType = {
+    name = "GFX_burgundy_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_burgundy_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_koj_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_jerusalem_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_koj_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_jerusalem_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_koj_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_jerusalem_flag_four.dds"
+  }
+  spriteType = {
+    name = "GFX_french_coa_six"
+    texturefile = "gfx\\interface\\decision_icon_french_flag_six.dds"
+  }
+  spriteType = {
+    name = "GFX_french_coa_seven"
+    texturefile = "gfx\\interface\\decision_icon_french_flag_seven.dds"
+  }
+  spriteType = {
+    name = "GFX_french_coa_eight"
+    texturefile = "gfx\\interface\\decision_icon_french_flag_eight.dds"
+  }
+  spriteType = {
+    name = "GFX_french_coa_nine"
+    texturefile = "gfx\\interface\\decision_icon_french_flag_nine.dds"
+  }
+  spriteType = {
+    name = "GFX_french_coa_ten"
+    texturefile = "gfx\\interface\\decision_icon_french_flag_ten.dds"
+  }
+   spriteType = {
+    name = "GFX_italian_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_italian_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_italian_coa_two"
+    texturefile = "gfx\\interface\\decision_icon_italian_flag_two.dds"
+  }
+  spriteType = {
+    name = "GFX_italian_coa_three"
+    texturefile = "gfx\\interface\\decision_icon_italian_flag_three.dds"
+  }
+  spriteType = {
+    name = "GFX_sicily_coa_one"
+    texturefile = "gfx\\interface\\decision_icon_sicily_flag_one.dds"
+  }
+  spriteType = {
+    name = "GFX_german_coa_four"
+    texturefile = "gfx\\interface\\decision_icon_german_flag_four.dds"
+  }
+}

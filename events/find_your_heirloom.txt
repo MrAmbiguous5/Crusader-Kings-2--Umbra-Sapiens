@@ -1,0 +1,885 @@
+namespace = equus
+
+#Accept or refuse quest event
+character_event = {
+    id = equus.6254
+    desc = EVTDESC_equus.6254
+    picture = GFX_evt_library
+    border = GFX_event_normal_frame_war
+
+    trigger = {
+		OR = {
+			society_member_of = military_knights 
+			society_member_of = military_knights1
+			society_member_of = military_knights2
+			society_member_of = diplomatic_knights 
+			society_member_of = diplomatic_knights1
+			society_member_of = diplomatic_knights2
+		}
+		any_dynasty_member_even_if_dead = {
+			OR = {
+				tier = count
+				tier = duke
+				tier = king
+				tier = emperor
+			}
+		}
+		NOT = {
+			OR = {
+				has_artifact = ancestor_ring_4
+				has_artifact = ancestor_ring_3
+				has_artifact = ancestor_ring_2
+				has_artifact = ancestor_ring_1
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 5
+	}
+   
+    option = { 
+		name = EVTOPTA_equus.6254 #Let's go
+		character_event = { id = equus.6255 days = 14 random = 7 }
+	}
+
+	option = {
+		name = EVTOPTB_equus.6254 #Nah
+		add_trait = cynical
+	}
+}
+
+##Info
+
+character_event = {
+    id = equus.6255
+    desc = EVTDESC_equus.6255
+    picture = GFX_evt_library
+    border = GFX_event_normal_frame_war
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.6256 days = 14 random = 7 }
+		set_variable = { which = "self_heirloom_success" value = 0 }
+	}
+
+    option = { 
+        name = EVTOPTA_equus.6255 #Talk
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					change_variable = { which = "self_heirloom_success" value = 1 }  #Success
+					set_character_flag = self_heirloom_success
+					modifier = {
+						factor = 2
+						trait = socializer
+					}
+					modifier = {
+						factor = 1.33
+						trait = patient
+					}
+					modifier = {
+						factor = 1.33
+						trait = kind
+					}
+					modifier = {
+						factor = 1.33
+						trait = humble
+					}
+					modifier = {
+						factor = 1.33
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.33
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.33
+						diplomacy = 20
+					}
+					modifier = {
+						factor = 1.33
+						diplomacy = 25
+					}
+				}
+				50 = {
+					set_character_flag = heirloom_failure #Failure
+					modifier = {
+						factor = 1.33
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.33
+						trait = envious
+					}
+					modifier = {
+						factor = 1.33
+						trait = proud
+					}
+					modifier = {
+						factor = 1.33
+						trait = shy
+					}
+				}
+			}
+		}
+    }
+	option = { 
+        name = EVTOPTB_equus.6255 #Study
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					change_variable = { which = "self_heirloom_success" value = 1 }  #Success
+					set_character_flag = self_heirloom_success
+					modifier = {
+						factor = 2
+						trait = mystic
+					}
+					modifier = {
+						factor = 2
+						trait = scholar
+					}
+					modifier = {
+						factor = 2
+						trait = theologian
+					}
+					modifier = {
+						factor = 1.33
+						trait = patient
+					}
+					modifier = {
+						factor = 1.33
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.33
+						learning = 15
+					}
+					modifier = {
+						factor = 1.33
+						learning = 20
+					}
+					modifier = {
+						factor = 1.33
+						learning = 25
+					}
+				}
+				50 = {
+					set_character_flag = heirloom_failure #Failure
+					modifier = {
+						factor = 1.33
+						trait = wroth
+					}
+				}
+			}
+		}
+    }
+	option = {
+        name = EVTOPTC_equus.6255 #Steal
+		trigger = {
+			intrigue = 10
+		}
+		tooltip_info = intrigue
+		hidden_tooltip = {
+			random_list = {
+				75 = {
+					change_variable = { which = "self_heirloom_success" value = 1 }  #Success
+					set_character_flag = self_heirloom_success
+					modifier = {
+						factor = 1.33
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.33
+						intrigue = 20
+					}
+					modifier = {
+						factor = 1.33
+						intrigue = 25
+					}
+					modifier = {
+						factor = 1.33
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.33
+						trait = paranoid
+					}
+					modifier = {
+						factor = 1.33
+						trait = patient
+					}
+					modifier = {
+						factor = 1.33
+						trait = diligent
+					}
+				}
+				25 = {
+					set_character_flag = heirloom_failure #Failure
+					modifier = {
+						factor = 1.33
+						trait = honest
+					}
+					modifier = {
+						factor = 1.33
+						trait = trusting
+					}
+					modifier = {
+						factor = 1.33
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.33
+						trait = slothful
+					}
+				}
+			}
+		}
+    }
+	option = {
+        name = EVTOPTD_equus.6255 #Squire
+		trigger = {
+			random_courtier = {
+				has_minor_title = title_knight_squire
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					change_variable = { which = "self_heirloom_success" value = 1 }  #Success
+					set_character_flag = self_heirloom_success
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							learning = 20
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							diplomacy = 20
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = erudite
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = gregarious
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = patient
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = humble
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = kind
+						}
+					}
+				}
+				50 = {
+					set_character_flag = heirloom_failure #Failure
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = shy
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = wroth
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = proud
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = envious
+						}
+					}
+				}
+			}
+		}
+    }
+}
+
+##Beast fight 
+character_event = {
+    id = equus.6256
+    desc = {
+		trigger = {
+			has_character_flag = self_heirloom_success
+		}
+		text = EVTDESC_equus.6256s
+	}
+	desc = {
+		trigger = {
+			has_character_flag = heirloom_failure
+		}
+		text = EVTDESC_equus.6256f
+	}
+    picture = GFX_evt_bandits
+    border = GFX_event_normal_frame_war
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.6257 days = 14 random = 7 }
+		clr_character_flag = self_heirloom_success
+		clr_character_flag = heirloom_failure
+	}
+
+    option = { 
+        name = EVTOPTA_equus.6256 #Fight
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					change_variable = { which = "self_heirloom_success" value = 1 }  #Success
+					set_character_flag = self_heirloom_success
+					modifier = {
+						factor = 2
+						trait = hunter
+					}
+					modifier = {
+						factor = 1.33
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.33
+						trait = brave
+					}
+					modifier = {
+						factor = 1.33
+						combat_rating = 30
+					}
+					modifier = {
+						factor = 1.33
+						combat_rating = 40
+					}
+					modifier = {
+						factor = 1.33
+						combat_rating = 50
+					}
+				}
+				50 = {
+					set_character_flag = heirloom_failure #Failure
+					modifier = {
+						factor = 1.33
+						trait = patient
+					}
+					modifier = {
+						factor = 1.33
+						trait = craven
+					}
+				}
+			}
+		}
+    }
+	option = {
+        name = EVTOPTB_equus.6256 #Squire
+		trigger = {
+			random_courtier = {
+				has_minor_title = title_knight_squire
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					change_variable = { which = "self_heirloom_success" value = 1 }  #Success
+					set_character_flag = self_heirloom_success
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							combat_rating = 40
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = brave
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = wroth
+						}
+					}
+				}
+				50 = {
+					set_character_flag = heirloom_failure #Failure
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = craven
+						}
+					}
+					modifier = {
+						factor = 1.33
+						random_courtier = {
+							limit = {
+								has_minor_title = title_knight_squire
+							}
+							trait = patient
+						}
+					}
+				}
+			}
+		}
+    }
+	option = {
+        name = EVTOPTC_equus.6256 #Sneak
+		trigger = {
+			intrigue = 10
+		}
+		tooltip_info = intrigue
+		hidden_tooltip = {
+			random_list = {
+				75 = {
+					change_variable = { which = "self_heirloom_success" value = 1 }  #Success
+					set_character_flag = self_heirloom_success
+					modifier = {
+						factor = 1.33
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.33
+						intrigue = 20
+					}
+					modifier = {
+						factor = 1.33
+						intrigue = 25
+					}
+					modifier = {
+						factor = 1.33
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.33
+						trait = paranoid
+					}
+					modifier = {
+						factor = 1.33
+						trait = patient
+					}
+					modifier = {
+						factor = 1.33
+						trait = diligent
+					}
+				}
+				25 = {
+					set_character_flag = heirloom_failure #Failure
+					modifier = {
+						factor = 1.33
+						trait = honest
+					}
+					modifier = {
+						factor = 1.33
+						trait = trusting
+					}
+					modifier = {
+						factor = 1.33
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.33
+						trait = slothful
+					}
+				}
+			}
+		}
+    }
+}
+
+##Challenge 
+character_event = {
+    id = equus.6257
+    desc = {
+		trigger = {
+			has_character_flag = self_heirloom_success
+		}
+		text = EVTDESC_equus.6257s
+	}
+	desc = {
+		trigger = {
+			has_character_flag = heirloom_failure
+		}
+		text = EVTDESC_equus.6257f
+	}
+    picture = GFX_evt_leaning_tower
+    border = GFX_event_normal_frame_war
+
+    is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = equus.6258 days = 14 random = 7 }
+		clr_character_flag = self_heirloom_success
+		clr_character_flag = heirloom_failure
+	}
+
+    option = { 
+        name = EVTOPTA_equus.6257 #Force
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					change_variable = { which = "self_heirloom_success" value = 1 }  #Success
+					set_character_flag = self_heirloom_success
+					modifier = {
+						factor = 2
+						trait = hunter
+					}
+					modifier = {
+						factor = 1.33
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.33
+						trait = brave
+					}
+					modifier = {
+						factor = 1.33
+						martial = 15
+					}
+					modifier = {
+						factor = 1.33
+						martial = 20
+					}
+					modifier = {
+						factor = 1.33
+						martial = 25
+					}
+				}
+				50 = {
+					set_character_flag = heirloom_failure #Failure
+					modifier = {
+						factor = 1.33
+						trait = patient
+					}
+					modifier = {
+						factor = 1.33
+						trait = craven
+					}
+				}
+			}
+		}
+    }
+	option = {
+        name = EVTOPTB_equus.6257 #Symbol
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					change_variable = { which = "self_heirloom_success" value = 1 }  #Success
+					set_character_flag = self_heirloom_success
+					modifier = {
+						factor = 2
+						trait = mystic
+					}
+					modifier = {
+						factor = 2
+						trait = scholar
+					}
+					modifier = {
+						factor = 1.33
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.33
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.33
+						trait = patient
+					}
+					modifier = {
+						factor = 1.33
+						trait = paranoid
+					}
+					modifier = {
+						factor = 1.33
+						learning = 15
+					}
+					modifier = {
+						factor = 1.33
+						learning = 20
+					}
+					modifier = {
+						factor = 1.33
+						learning = 25
+					}
+				}
+				50 = {
+					set_character_flag = heirloom_failure #Failure
+					modifier = {
+						factor = 1.33
+						trait = slothful
+					}
+					modifier = {
+						factor = 1.33
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.33
+						trait = trusting
+					}
+				}
+			}
+		}
+    }
+	option = {
+        name = EVTOPTC_equus.6257 #Architecture
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					change_variable = { which = "self_heirloom_success" value = 1 }  #Success
+					set_character_flag = self_heirloom_success
+					modifier = {
+						factor = 1.33
+						stewardship = 15
+					}
+					modifier = {
+						factor = 1.33
+						stewardship = 20
+					}
+					modifier = {
+						factor = 1.33
+						stewardship = 25
+					}
+					modifier = {
+						factor = 2
+						trait = architect
+					}
+					modifier = {
+						factor = 1.33
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.33
+						trait = erudite
+					}
+					modifier = {
+						factor = 1.33
+						trait = patient
+					}
+				}
+				50 = {
+					set_character_flag = heirloom_failure #Failure
+					modifier = {
+						factor = 1.33
+						trait = slothful
+					}
+					modifier = {
+						factor = 1.33
+						trait = wroth
+					}
+				}
+			}
+		}
+    }
+}
+
+#Heirloom resolution
+character_event = {
+    id = equus.6258
+    desc = {
+		trigger = {
+			is_variable_equal = { which = "self_heirloom_success" value = 3 } #Bonus win
+		}
+		text = EVTDESC_equus.6258bw
+	}
+	desc = {
+		trigger = {
+			is_variable_equal = { which = "self_heirloom_success" value = 2 } #Plain win
+		}
+		text = EVTDESC_equus.6258pw
+	}
+	desc = {
+		trigger = {
+			is_variable_equal = { which = "self_heirloom_success" value = 1 } #Loss
+		}
+		text = EVTDESC_equus.6258l
+	}
+	desc = {
+		trigger = {
+			is_variable_equal = { which = "self_heirloom_success" value = 0 } #Disease loss
+		}
+		text = EVTDESC_equus.6258dl
+	}
+    picture = "GFX_evt_carriage"
+    border = GFX_event_normal_frame_war
+
+    is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = self_heirloom_success
+		clr_character_flag = heirloom_failure
+		random_dynasty_member_even_if_dead = {
+			limit = {
+				is_alive = no
+				is_ruler = yes
+				NOT = { tier = baron }
+			}
+			save_event_target_as = ancestor
+		}
+		if = {
+			limit = { is_variable_equal = { which = "self_heirloom_success" value = 3 }}
+			wealth = 100
+		}
+		if = {
+			limit = { is_variable_equal = { which = "self_heirloom_success" value = 0 }}
+			if = {
+				limit = {
+					has_dlc = "Reapers"
+				}
+				give_flu_effect = yes
+			}
+			else = {
+				give_ill_effect = yes
+			}
+		}
+	}
+
+    option = { 
+        name = EVTOPTA_equus.6258 #Win
+		trigger = {
+			OR = {
+				is_variable_equal = { which = "self_heirloom_success" value = 3 }
+				is_variable_equal = { which = "self_heirloom_success" value = 2 }
+			}
+			event_target:ancestor = {
+				tier = emperor
+			}
+		}
+		add_artifact = ancestor_ring_4
+		new_artifact = {
+			set_original_owner = event_target:ancestor
+		}
+    }
+	option = { 
+        name = EVTOPTA_equus.6258 #Win
+		trigger = {
+			OR = {
+				is_variable_equal = { which = "self_heirloom_success" value = 3 }
+				is_variable_equal = { which = "self_heirloom_success" value = 2 }
+			}
+			event_target:ancestor = {
+				tier = king
+			}
+		}
+		add_artifact = ancestor_ring_3
+		new_artifact = {
+			set_original_owner = event_target:ancestor
+		}
+    }
+	option = { 
+        name = EVTOPTA_equus.6258 #Win
+		trigger = {
+			OR = {
+				is_variable_equal = { which = "self_heirloom_success" value = 3 }
+				is_variable_equal = { which = "self_heirloom_success" value = 2 }
+			}
+			event_target:ancestor = {
+				tier = duke
+			}
+		}
+		add_artifact = ancestor_ring_2
+		new_artifact = {
+			set_original_owner = event_target:ancestor
+		}
+    }
+	option = { 
+        name = EVTOPTA_equus.6258 #Win
+		trigger = {
+			OR = {
+				is_variable_equal = { which = "self_heirloom_success" value = 3 }
+				is_variable_equal = { which = "self_heirloom_success" value = 2 }
+			}
+			event_target:ancestor = {
+				tier = count
+			}
+		}
+		add_artifact = ancestor_ring_1
+		new_artifact = {
+			set_original_owner = event_target:ancestor
+		}
+    }
+	option = {
+        name = EVTOPTB_equus.6258 #Loss
+		trigger = {
+			OR = {
+				is_variable_equal = { which = "self_heirloom_success" value = 1 }
+				is_variable_equal = { which = "self_heirloom_success" value = 0 }
+			}
+		}
+		random_list = {
+			80 = {}
+			20 = { add_trait = stressed }
+		}
+    }
+}

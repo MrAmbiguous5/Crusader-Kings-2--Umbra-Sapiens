@@ -1,0 +1,1396 @@
+# This file contains (hopefully) all artifacts tagged with "book", as they were becoming quite a few. Consider this THE LIBRARY. It's a thing now.
+
+#########################################################################################################################################
+##### Hisotrical Artifacts ##                                                        ####                                            ####
+#########################################################################################################################################
+
+slots = {
+	battle_standard = 1
+}
+
+
+
+##
+#############################
+##### TAPESTRIES AND WALL HANGINGS
+#############################
+###
+
+#### BAYEUX TAPESTRY #### ------------------------------------------
+
+bayeux_tapestry = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 5
+	diplomacy = 2
+	active = { 
+		OR= {
+			has_landed_title = k_england			
+			has_landed_title = e_britannia		
+			trait = ambitious
+			culture = norman
+		}	
+		OR= {
+			culture_group = north_germanic	
+			culture_group = west_germanic			
+			culture_group = latin	
+			culture_group = celtic	
+		}
+	}
+	
+	#original_artifact_owner = { 148 }
+	
+	quality = 3
+	flags = { unique textile }
+	picture = "GFX_bayeux_tapestry"
+}
+
+
+##
+#############################
+##### CROWNS AND CEREMONIAL WEAR
+#############################
+###
+
+#### ROMAN HELMET #### ------------------------------------------
+
+roman_helmet = {
+	monthly_character_prestige = 0.25
+	tribal_opinion = 7
+	castle_opinion = 5
+	hellenic_pagan_opinion = 5
+	christian_opinion = -2
+	
+
+	stacking = no	
+	slot = crown	
+	
+	quality = 3
+	flags = { crown jewelry crown_jewel }
+	picture = "GFX_roman_helmet"
+}
+
+#### BISHOP CROZIERS #### ------------------------------------------
+
+bishop_crozier1 = {  #YE OLDE CROZIER OF EARLY STARTS, ARR
+
+	
+	monthly_character_piety = 0.25
+	christian_opinion = 4
+	castle_opinion = 2
+	tribal_opinion = 241
+	town_opinion = 2
+	
+	build_cost_temple_modifier = -0.1
+	
+	active = {
+		religion_group = christian
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}
+	
+
+	stacking = no	
+	slot = scepter		
+	quality = 3
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_early"
+}
+
+
+bishop_crozier2 = {  #YE FANCY CROZIER
+	
+	monthly_character_piety = 0.1
+	christian_opinion = 2
+	castle_opinion = 4
+	tribal_opinion = 2
+	town_opinion = 4
+	
+	temple_tax_modifier = 0.25
+	
+	active = {
+		religion_group = christian
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}	
+
+	stacking = no	
+	slot = scepter		
+	quality = 3
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_fancy"
+}
+
+bishop_crozier_ormond = {  #LISMORE, 1100
+	
+	monthly_character_piety = 0.1
+	christian_opinion = 4
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	
+	culture_flex = -0.5
+	
+	active = {
+		religion_group = christian
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}	
+
+	stacking = no	
+	slot = scepter		
+	quality = 4
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_ormond"
+}
+
+bishop_crozier_desmond = {  #DESMOND, 1100
+	
+	monthly_character_piety = 0.1
+	christian_opinion = 8
+	castle_opinion = 3
+	tribal_opinion = 3
+	town_opinion = 3
+	
+	plot_discovery_chance = 0.5
+	
+	active = {
+		religion_group = christian
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}	
+
+	stacking = no	
+	slot = scepter		
+	quality = 5
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_desmond"
+}
+
+
+bishop_crozier_orthodox = {  #ORTHODOX GENERIC CROZIER
+	monthly_character_piety = 0.25
+	christian_opinion = 4
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	
+	build_cost_temple_modifier = -0.1
+	
+	active = {
+		OR = {
+			religion = orthodox
+			religion = monothelite
+			religion = iconoclast
+			religion = paulician			
+			religion = bogomilist
+			
+		}
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}
+	
+
+	stacking = no	
+	slot = scepter		
+	quality = 3
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_orthodox"
+}
+
+bishop_crozier3 = {  #SHITTY CROZIER
+	
+	monthly_character_piety = 0.05
+	christian_opinion = 2
+	castle_opinion = 1
+	tribal_opinion = 1
+	town_opinion = 1
+	
+	active = {
+		religion_group = christian
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}	
+
+	stacking = no	
+	slot = scepter		
+	quality = 1
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_basic"
+}
+
+bishop_crozier_saint_anno = {  #SAINT ANNO
+	
+	monthly_character_piety = 0.5
+	christian_opinion = 8
+	castle_opinion = 1
+	tribal_opinion = 1
+	town_opinion = 1
+	
+	monthly_character_prestige = 0.25
+	
+	active = {
+		religion_group = christian
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}	
+
+	stacking = no	
+	slot = scepter		
+	quality = 5
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_st_anno"
+}
+
+bishop_crozier_twelfth = {  #1100s
+	
+	monthly_character_piety = 0.25
+	christian_opinion = 4
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	
+	build_cost_temple_modifier = -0.1
+	
+	active = {
+		religion_group = christian
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}	
+
+	stacking = no	
+	slot = scepter		
+	quality = 3
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_1100"
+}
+
+bishop_crozier_thirteenth = {  #1200s
+	
+	monthly_character_piety = 0.25
+	christian_opinion = 4
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	
+	build_cost_temple_modifier = -0.1
+	
+	active = {
+		religion_group = christian
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}	
+
+	stacking = no	
+	slot = scepter		
+	quality = 3
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_1200"
+}
+
+bishop_crozier_celtic = {  #1200s
+	
+	monthly_character_piety = 0.25
+	christian_opinion = 4
+	castle_opinion = 1
+	tribal_opinion = 4
+	town_opinion = 1
+
+	monthly_character_prestige = 0.1
+	
+	active = {
+		religion_group = christian
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}	
+
+	stacking = no	
+	slot = scepter		
+	quality = 3
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_celtic"
+}
+
+bishop_crozier_coptic = {  #COPTIC GENERIC CROZIER
+	monthly_character_piety = 0.25
+	christian_opinion = 4
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	
+	temple_tax_modifier = 0.25
+	
+	active = {
+		OR = {
+			religion = miaphysite
+			religion = monophysite
+		}
+		is_priest = yes			
+			#trait = theologian 
+			#society_member_of = monastic_order_benedictine 
+			#society_member_of = monastic_order_dominican 			
+	}
+	
+
+	stacking = no	
+	slot = scepter		
+	quality = 3
+	flags = { scepter jewelry crown_jewel }
+	picture = "GFX_bishop_crozier_coptic"
+}
+
+##############ASSASSINS BLADE
+
+blade_of_an_assassin = {  #BLADE OF AN ASSASSIN
+	monthly_character_prestige = 0.3
+	
+	muslim_opinion = -4
+	dynasty_opinion = 2
+	castle_opinion = 2
+	
+	murder_plot_power_modifier = 0.05
+	plot_discovery_chance = 0.05
+	
+	active = {
+		OR = {
+			dynasty = 106
+			society_member_of = the_assassins 
+		}
+	}
+	
+
+	stacking = no	
+	slot = ceremonial_weapon	
+	quality = 2
+	flags = { dagger jewelry crown_jewel }
+	picture = "GFX_dagger_of_an_assassin"
+}
+
+
+##
+#############################
+##### WEAPONS
+#############################
+###
+
+horn_of_lehel = { 
+	monthly_character_prestige = 1.25
+	martial = 4
+	intrigue = 4
+	diplomacy = -5
+	combat_rating = 1
+	
+	active = {
+		OR = {
+			dynasty = 708
+			culture_group = magyar
+			religion = tengri_pagan 
+		}
+		OR = {
+			trait = strong
+			trait = robust		
+		}
+		is_adult = yes
+	}	
+	
+	quality = 4
+	flags = { combat_weapon mace }
+	stacking = no
+	picture = "GFX_horn_of_lehel"
+	slot = weapon
+}
+
+##
+#############################
+##### STANDARDS
+#############################
+###
+
+aegean_standard = { 
+	#martial = 2
+	levy_reinforce_rate = 0.05
+	land_morale = 0.05
+
+	command_modifier = {
+		light_infantry = 0.05
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes
+			OR = {
+				culture = greek	
+				culture = italian	
+				culture = catalan	
+			}
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 2
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_aegean"
+	slot = battle_standard
+}
+
+athens_crusader_standard = { 
+	#martial = 2
+	levy_reinforce_rate = 0.05
+	land_morale = 0.05
+
+	command_modifier = {
+		heavy_infantry = 0.15
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes
+			OR = {
+				culture = greek	
+				culture = italian	
+				has_landed_title = d_athens
+			}
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 3
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_athens"
+	slot = battle_standard
+}
+
+ulster_standard = { 
+	#martial = 1
+	levy_reinforce_rate = 0.05
+	land_morale = 0.05
+
+	command_modifier = {
+		light_infantry = 0.05
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes		
+			culture = irish		
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 2
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_ulster"
+	slot = battle_standard
+}
+
+connacht_standard = { 
+	#martial = 1
+	land_morale = 0.15
+
+	command_modifier = {
+		light_infantry = 0.05
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes	
+			OR = {
+				culture = irish	
+				has_landed_title = c_connacht
+			}	
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 3
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_connacht"
+	slot = battle_standard
+}
+
+desmond_standard = { 
+	#martial = 1
+	land_morale = 0.15
+
+	command_modifier = {
+		light_infantry = 0.05
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes	
+			OR = {
+				culture = irish	
+				has_landed_title = c_desmond
+			}	
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 3
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_desmond"
+	slot = battle_standard
+}
+
+breton_standard = { 
+	#martial = 2
+	levy_reinforce_rate = 0.1
+
+	command_modifier = {
+		heavy_infantry = 0.05
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes
+			OR = {
+				culture = breton	
+				culture = welsh	
+			}	
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 1
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_brittany"
+	slot = battle_standard
+}
+
+cornwall_standard = { 
+	#martial = 2
+	land_morale = 0.1
+
+	command_modifier = {
+		#archers = 0.1
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes
+			OR = {
+				culture = breton	
+				culture = welsh	
+				has_landed_title = c_cornwall
+				has_landed_title = d_cornwall
+			}	
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 1
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_cornwall"
+	slot = battle_standard
+}
+
+motley_standard = { 
+	#martial = 2
+	land_morale = 0.35
+	monthly_character_prestige = -0.15
+	
+	active = {
+		AND = {
+			is_landed = yes
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 3
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_in_motley"
+	slot = battle_standard
+}
+
+welsh_standard = { 
+	#martial = 2
+	land_morale = 0.3
+
+	command_modifier = {
+		light_infantry = 0.3
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes
+			OR = {
+				culture = breton	
+				culture = welsh	
+				dynasty = 101920
+				has_landed_title = k_wales
+				has_landed_title = d_gwynedd
+			}	
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 4
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_wales"
+	slot = battle_standard
+}
+
+gwynedd_standard = { 
+	#martial = 1
+	land_morale = 0.15
+
+	command_modifier = {
+		light_infantry = 0.05
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes	
+			OR = {
+				culture = welsh	
+				has_landed_title = c_gwynedd
+			}	
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 3
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_gwynedd"
+	slot = battle_standard
+}
+
+georgian_standard = { 
+	#martial = 2
+
+	command_modifier = {
+		heavy_infantry = 0.15
+		morale_defence = 0.15
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes
+			culture = georgian		
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 3
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_georgia"
+	slot = battle_standard
+}
+
+roman_aquila = { 
+	#martial = 3
+
+	command_modifier = {
+		heavy_infantry = 0.25
+		light_infantry = 0.25
+		speed = 0.25
+	}	
+	
+	active = {
+		is_landed = yes		
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 4
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_aquila"
+	slot = battle_standard
+}
+
+roman_labarum = { 
+	#martial = 3
+
+	command_modifier = {
+		heavy_infantry = 0.15
+		light_infantry = 0.15
+		speed = 0.15
+	}	
+	
+	active = {
+		is_landed = yes				
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 3
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_labarum"
+	slot = battle_standard
+}
+
+denmark_standard = { 
+	#martial = 3
+
+	command_modifier = {
+		light_infantry = 0.3
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes
+			culture = danish		
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 2
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_danish"
+	slot = battle_standard
+}
+
+megenzer_standard = { 
+	#martial = 3
+
+	command_modifier = {
+		light_infantry = 0.3
+	}	
+	
+	active = {
+		AND = {
+			is_landed = yes
+			OR = {
+				culture_group = central_germanic
+				culture_group = west_germanic		
+			}
+		}
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 2
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_german_generic"
+	slot = battle_standard
+}
+
+oriflamme_standard = { 
+	#martial = 3
+	frankish_opinion = 3
+	
+	command_modifier = {
+		#knights = 0.05
+		speed = 0.15
+	}	
+	
+	active = {
+		is_landed = yes
+		OR = {			
+			culture = frankish
+			title = k_france
+			title = e_france
+		}	
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 4
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_oriflamme"
+	slot = battle_standard
+}
+
+scotland_standard = { 
+	#martial = 3
+	
+	command_modifier = {
+		light_infantry = 0.15
+		speed = 0.15
+	}	
+	
+	active = {
+		is_landed = yes
+		OR = {			
+			culture = scottish
+			culture = pictish
+			title = k_scotland
+		}	
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 3
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_k_scotland"
+	slot = battle_standard
+}
+
+mongol_standard = { 
+	#martial = 3
+	
+	command_modifier = {
+		horse_archers = 0.05
+		speed = 0.2
+	}	
+	
+	active = {
+		is_landed = yes
+		OR = {			
+			culture = mongol
+		}	
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 4
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_o_mongolian_thou_art_mongol"
+	slot = battle_standard
+}
+
+henry_ii_standard = { 
+	#martial = 3
+	
+	english_opinion = 1
+	
+	levy_reinforce_rate = 0.05
+	land_morale = 0.05
+
+	command_modifier = {
+		#archers = 0.15
+	}	
+	
+	active = {
+		OR = {			
+			has_landed_title = k_england			
+			has_landed_title = e_britannia
+			dynasty=106
+		}	
+		OR = {
+			culture = english
+			culture = welsh
+			culture = breton
+			culture = norman
+			dynasty=106
+		}				
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 3
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_henry2"
+	slot = battle_standard
+}
+
+dragon_standard = { 
+	#martial = 3
+	
+	saxon_opinion = 2
+	
+	levy_reinforce_rate = 0.05
+	land_morale = 0.05
+
+	command_modifier = {
+		#archers = 0.15
+	}	
+	
+	active = {
+		OR = {			
+			has_landed_title = k_england			
+			has_landed_title = e_britannia
+			culture = saxon
+		}			
+		OR = {			
+			culture = english
+			culture_group = celtic	
+			culture = saxon
+		}				
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 3
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_anglo_saxon"
+	slot = battle_standard
+}
+
+moorish_standard = { 
+	#martial = 3
+	
+	land_morale = 0.05
+
+	command_modifier = {
+		light_infantry = 0.10
+	}	
+	
+	active = {
+		OR = {			
+			culture_group = arabic
+			religion_group = muslim
+		}				
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 2
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_fah_dah_prophet_boyz"
+	slot = battle_standard
+}
+
+mierce_standard = { 
+	#martial = 3
+	
+	levy_reinforce_rate = 0.15
+
+	command_modifier = {
+		light_infantry = 0.10
+		#archers = 0.10		
+	}	
+	
+	active = {
+		OR = {			
+			culture = saxon
+			culture = english			
+		}				
+		AND = {
+			in_command = yes
+		}
+	}	
+	
+	quality = 2
+	flags = { blazon }
+	stacking = no
+	picture = "GFX_battle_standard_mierce"
+	slot = battle_standard
+}
+
+
+##
+#############################
+##### ARMOUR
+#############################
+###
+
+##
+#############################
+##### TREES
+#############################
+###
+
+cedar_of_god_sapling  = {  
+	monthly_character_wealth = 0.1
+	monthly_character_prestige = 0.25
+	
+	active = {
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			religion_group = zoroastrian_group
+			religion_group = jewish_group
+			religion = hellenic_pagan
+		}
+	}	
+
+	#indestructible = yes
+	stacking = no
+	quality = 1
+	flags = { tree_sapling }
+	picture = "GFX_cedar_of_god_sapling"
+}
+
+#Add Events to kill or mature into capital bonus
+#Add Events to cure Leper's Disease
+
+##
+#############################
+##### ALTARS
+#############################
+###
+
+altar_of_campodonum  = {  
+	monthly_character_piety = 0.05
+	saxon_opinion = 1
+
+	active = {
+		OR = {
+			has_landed_title = b_st_peters 			
+			AND = {
+				has_landed_title = yes
+				is_priest = yes
+				OR = {
+					culture = saxon
+					culture = english
+				}			
+			}
+		}
+		religion_group = christian
+	}	
+
+	#indestructible = yes
+	stacking = no
+	quality = 1
+	flags = { unique }
+	picture = "GFX_altar_stone"
+}
+
+cross_of_aethlburh  = {  
+	monthly_character_piety = 0.15
+
+	active = {
+		OR = {
+			has_landed_title = b_canterbury
+			has_landed_title = c_kent
+			has_landed_title = d_northumberland
+			AND = {
+				is_landed = yes
+				is_priest = yes
+				OR = {
+					culture = saxon
+					culture = english
+				}			
+			}
+			AND = {
+				is_landed = yes
+				OR = {
+					dynasty = 1047001 #Aethelburh
+					dynasty = 1047009 #Eadwine
+				}			
+			}			
+		}
+		religion_group = christian
+	}	
+
+	#indestructible = yes
+	stacking = no
+	quality = 2
+	flags = { unique }
+	picture = "GFX_cross_anglosaxon5"
+}
+
+##
+#############################
+##### CHAIRS AND ALSO SCONE OF STONE
+#############################
+###
+
+
+st_peters_chair = {  
+	monthly_character_piety = 1.0
+	christian_opinion = 5
+	threat_decay_speed = 0.1
+
+	active = {
+		OR = {
+			piety = 1000
+			is_priest = yes
+			has_landed_title = k_papal_state			
+		}	
+		OR = {
+			religion_group = christian		
+		}			
+	}	
+
+	indestructible = yes
+	stacking = no
+	quality = 4
+	flags = { unique throne }
+	picture = "GFX_chair_st_peter"
+}
+
+stone_of_scone = {  #1296
+	
+	vassal_opinion = 8
+	dynasty_opinion = 4
+	tribal_opinion = 4
+	levy_size = 0.05
+
+	active = {
+		OR = {
+			has_landed_title = e_britannia			
+			has_landed_title = k_scotland
+			has_landed_title = k_ireland
+			has_landed_title = k_wales
+			AND = {
+				has_landed_title = k_england
+				has_artifact = king_edwards_chair
+			}
+		}	
+	}	
+
+	indestructible = yes
+	stacking = no
+	quality = 4
+	flags = { unique }
+	picture = "GFX_stone_of_scone"
+}
+
+
+
+king_edwards_chair = {  
+	monthly_character_prestige = 0.25
+	vassal_opinion = 3
+	short_reign_length = -2
+	
+
+	active = {
+		OR = {
+			has_landed_title = e_britannia			
+			has_landed_title = k_scotland	
+			has_landed_title = k_england
+			has_landed_title = k_ireland
+			has_landed_title = k_wales
+		}
+		OR = {
+			has_artifact = stone_of_scone
+		}
+	}	
+
+	#indestructible = yes
+	stacking = no
+	quality = 3
+	flags = { unique throne }
+	picture = "GFX_chair_king_edwards"
+}
+
+
+throne_of_northumbria = {  
+	monthly_character_prestige = 0.35
+	vassal_opinion = 2
+	short_reign_length = -2
+	
+
+	active = {
+		OR = {
+			has_landed_title = e_britannia			
+			has_landed_title = k_scotland	
+			has_landed_title = k_england		
+			has_landed_title = d_northumberland			
+			has_landed_title = c_northumberland	
+			
+			AND = {
+				is_landed = yes
+				OR = {
+					dynasty = 814 #Osberht 848 + Aella 862
+					dynasty = 1047022 #Aethelred 774 + Aethelwald 759 
+					dynasty = 1047021 #Aelfwald 779 + Oswulf 758 + Eadberht 737 + Coelwulf 729
+					dynasty = 1047023 #Osred 788 + Ealred 765				
+				}
+			}
+		}
+	}	
+
+	#indestructible = yes
+	stacking = no
+	quality = 3
+	flags = { unique throne }
+	picture = "GFX_chair_northumbria"
+}
+
+throne_of_man = {  
+	monthly_character_prestige = 0.15
+	plot_discovery_chance = 0.15	
+
+	active = {
+		OR = {		
+			has_landed_title = e_britannia			
+			has_landed_title = k_scotland	
+			has_landed_title = k_england
+			has_landed_title = k_wales
+			has_landed_title = k_ireland
+			
+			has_landed_title = d_the_isles			
+			has_landed_title = c_isle_of_man
+			
+			AND = {
+				is_landed = yes
+				dynasty = 1029131 #Manaw
+					#dynasty = 9612 #Viking
+			}
+		}
+	}	
+
+	#indestructible = yes
+	stacking = no
+	quality = 1
+	flags = { unique throne }
+	picture = "GFX_chair_man"
+}
+
+throne_of_charlemagne = {  
+	monthly_character_prestige = 0.45
+	short_reign_length = -4
+	
+
+	active = {
+		OR = {
+			has_landed_title = e_hre			
+			has_landed_title = e_france
+			has_landed_title = e_germany
+			has_landed_title = k_bavaria
+			has_landed_title = k_france
+			has_landed_title = k_bohemia
+			has_landed_title = k_aquitaine
+			has_landed_title = k_lotharingia
+			has_landed_title = k_burgundy
+			has_landed_title = k_italy
+			
+			AND = {
+				is_landed = yes
+				dynasty=25061
+			}			
+		}
+	}	
+
+	#indestructible = yes
+	stacking = no
+	quality = 3
+	flags = { unique throne }
+	picture = "GFX_chair_throne_of_charlemagne"
+}
+
+##
+#############################
+##### CUTLERY AND DINNER SERVICE
+#############################
+###
+
+### NIKEPHOROS DRINKING CUP #### ------------------------------------------
+
+nikephoros_cup = {
+
+	monthly_character_prestige = 1.75	
+	tengri_pagan_opinion = 8	
+	slavic_pagan_opinion = 8
+	orthodox_opinion = -16
+
+	
+	#effect = {
+	#	any_independent_ruler = {
+	#		limit = {
+	#			OR = {
+	#				dynasty=8645
+	#				culture = greek
+	#				culture = roman
+	#				has_landed_title = e_byzantium 
+	#			}
+	#		}
+	#		opinion = -50		
+	#	}
+	#}
+	
+	
+	active = { 
+		OR= {
+			culture = bulgarian
+			culture = romanian
+			culture = serbian
+			culture = croatian
+			culture = avar	
+			culture = hungarian		
+			dynasty=591 #DULO
+			dynasty=8636 #BALGARSKO	
+		}
+		OR= {
+			religion_group = pagan_group				
+			trait = sympathy_pagans	
+			trait = impaler
+			society_member_of = the_satanists 	
+			dynasty=591 #DULO
+			dynasty=8636 #BALGARSKO
+		}		
+	}
+	
+	quality = 4
+	flags = { unique }
+	picture = "GFX_skull_cup"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

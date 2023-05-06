@@ -1,0 +1,17 @@
+on_startup = {
+	events = {
+		lmmpvf_maintenance.1
+	}
+}
+
+on_settlement_construction_completed = {
+	events = {
+		lmmpvf_goal.101
+	}
+}
+
+on_death = {
+	events = {
+		lmmpvf_maintenance.10
+	}
+}

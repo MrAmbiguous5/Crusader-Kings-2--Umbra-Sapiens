@@ -1,0 +1,8 @@
+spriteTypes = {
+	
+	
+	spriteType = {
+		name = "GFX_form_cadetsystem_branch"
+		texturefile = "gfx\\interface\\form_cadetsystem_branch.dds"
+	}
+}

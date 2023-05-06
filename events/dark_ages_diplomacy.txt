@@ -1,0 +1,8096 @@
+namespace = darkages
+
+##########################################################################################
+#
+#	EVENT CALLED FROM DECISION WHEN PLAYER PICKS THE CHOICE OF OFFERING ALLIANCE 
+#
+##########################################################################################
+
+character_event = {			
+	id = darkages.72577
+	title = EVTNAME1972577
+	desc = {
+		trigger = { has_character_flag = darkages_1 }
+		text = EVTDESC1972577_1
+	}
+		desc = {
+		trigger = { has_character_flag = darkages_2 }
+		text = EVTDESC1972577_2
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_3 }
+		text = EVTDESC1972577_3
+	}	
+	desc = {
+		trigger = { has_character_flag = darkages_4 }
+		text = EVTDESC1972577_4
+	}	
+	desc = {
+		trigger = { 
+			NOR = {
+				has_character_flag = darkages_1 
+				has_character_flag = darkages_2
+				has_character_flag = darkages_3 
+				has_character_flag = darkages_4 				
+			}
+		}
+		text = EVTDESC1972577_5
+	}	
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+
+
+	immediate = {
+	
+		FROM = {
+			save_event_target_as = darkages_diplomatic_target
+		}
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 40
+				}				
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 45
+				}	
+				
+				set_character_flag = darkages_1
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 40
+				}				
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 45
+				}
+				
+				set_character_flag = darkages_2
+			}			
+			1 = {
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 40
+				}				
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 45
+				}			
+				
+				set_character_flag = darkages_3
+			}			
+			1 = {
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 40
+				}				
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 45
+				}
+				
+				set_character_flag = darkages_4
+			}			
+			6 = {
+				modifier = {
+					factor = 1.5
+					NOT = { realm_intrigue = 30 }
+				}
+				modifier = {
+					factor = 2
+					NOT = { realm_intrigue = 25 }
+				}				
+				modifier = {
+					factor = 2
+					NOT = { realm_intrigue = 20 }
+				}				
+			}			
+		}
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972577"	#Adopt a friendly, intimate attitude
+		ai_chance = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				has_education_diplomacy_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				has_character_flag = darkages_1
+			}
+			modifier = {
+				factor = 2
+				diplomacy = 12
+			}
+			modifier = {
+				factor = 2
+				diplomacy = 15
+			}				
+			modifier = {
+				factor = 2
+				diplomacy = 18
+			}				
+			modifier = {
+				factor = 2
+				diplomacy = 21
+			}
+			modifier = {
+				factor = 2
+				trait = socializer
+			}				
+			modifier = {
+				factor = 2
+				trait = gregarious
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP301 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP305 }
+
+		hidden_tooltip = {
+			random_list = {
+				3 = {
+					modifier = {
+						factor = 1.4
+						NOT = {
+							any_allied_character = {
+								is_allied_with = ROOT 
+								count = 1
+							}
+						}
+					}			
+					modifier = {
+						factor = 1.33
+						has_character_flag = darkages_1
+					}			
+					modifier = {
+						factor = 1.33
+						has_education_diplomacy_trigger = yes
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}				
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = socializer
+					}				
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { distance_from_realm = { who = FROM value = 75 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = ROOT value = 25 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = ROOT value = 50 } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { opinion = { who = ROOT value = 75 } }
+					}				
+					modifier = {
+						factor = 1.5
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}
+					modifier = {
+						factor = 1.35
+						OR = {
+							AND = {
+								tier = DUKE
+								FROM = { tier = COUNT }
+							}
+							AND = {
+								tier = KING
+								FROM = { tier = DUKE }
+							}						
+							AND = {
+								tier = EMPEROR
+								FROM = { tier = KING }
+							}						
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							AND = {
+								tier = KING
+								FROM = { tier = COUNT }
+							}
+							AND = {
+								tier = EMPEROR
+								FROM = { tier = DUKE }
+							}						
+						}
+					}
+					modifier = {
+						factor = 3
+						tier = EMPEROR
+						FROM = { tier = COUNT }
+					}				
+					#####
+					modifier = {
+						factor = 1.75
+						trait = kind
+					}				
+					modifier = {
+						factor = 1.75
+						FROM = { trait = kind }
+					}
+					modifier = {
+						factor = 1.5
+						trait = cheerful
+					}				
+					modifier = {
+						factor = 1.5
+						FROM = { trait = cheerful }
+					}				
+					modifier = {
+						factor = 1.75
+						trait = silver_tongue
+					}
+			
+					character_event = { id = darkages.72578 days = 45 random = 45 }
+				}
+				
+
+				3 = {
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}				
+					modifier = {
+						factor = 1.35
+						OR = {
+							AND = {
+								tier = COUNT
+								FROM = { tier = DUKE }
+							}
+							AND = {
+								tier = DUKE
+								FROM = { tier = KING }
+							}						
+							AND = {
+								tier = KING
+								FROM = { tier = EMPEROR }
+							}						
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							AND = {
+								tier = COUNT
+								FROM = { tier = KING }
+							}
+							AND = {
+								tier = DUKE
+								FROM = { tier = EMPEROR }
+							}						
+						}
+					}
+					modifier = {
+						factor = 3
+						tier = COUNT
+						FROM = { tier = EMPEROR }
+					}	
+					modifier = {
+						factor = 1.5
+						distance_from_realm = { who = FROM value = 175 }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { NOT = { opinion = { who = ROOT value = -24 } } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}				
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}
+					modifier = {
+						factor = 1.5
+						trait = dour
+					}
+
+
+					character_event = { id = darkages.72579 days = 45 random = 45 }				
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0
+						NOT = {
+							any_allied_character = {
+								is_allied_with = ROOT 
+								count = 1
+							}
+						}
+					}			
+					modifier = {
+						factor = 2
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 2
+						}
+					}
+					modifier = {
+						factor = 2
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 3
+						}
+					}				
+					modifier = {
+						factor = 4
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 5
+						}
+					}				
+					modifier = {
+						factor = 5
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 6
+						}
+					}
+
+					character_event = { id = darkages.72580 days = 45 random = 45 }
+					
+				}
+			}
+		}
+		
+		clr_character_flag = darkages_1
+		clr_character_flag = darkages_2
+		clr_character_flag = darkages_3
+		clr_character_flag = darkages_4		
+	
+	}
+	
+	option = {
+		name = "EVTOPTB1972577"	#Impress your interlocutor with military prowess
+		ai_chance = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				has_character_flag = darkages_2
+			}			
+			modifier = {
+				factor = 2
+				has_education_martial_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				martial = 12
+			}				
+			modifier = {
+				factor = 2
+				martial = 15
+			}				
+			modifier = {
+				factor = 2
+				martial = 18
+			}				
+			modifier = {
+				factor = 2
+				martial = 21
+			}
+			modifier = {
+				factor = 2
+				trait = brave
+			}				
+			modifier = {
+				factor = 2
+				trait = strategist
+			}			
+		}		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP302 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP305 }
+		
+		hidden_tooltip = {
+			random_list = {
+				3 = {
+					modifier = {
+						factor = 1.4
+						NOT = {
+							any_allied_character = {
+								is_allied_with = ROOT 
+								count = 1
+							}
+						}
+					}			
+					modifier = {
+						factor = 1.33
+						has_character_flag = darkages_2
+					}			
+					modifier = {
+						factor = 1.5
+						has_education_martial_trigger = yes
+					}
+					modifier = {
+						factor = 1.33
+						martial = 12
+					}				
+					modifier = {
+						factor = 1.33
+						martial = 15
+					}				
+					modifier = {
+						factor = 1.33
+						martial = 18
+					}				
+					modifier = {
+						factor = 1.33
+						martial = 21
+					}				
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}				
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = socializer
+					}				
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { distance_from_realm = { who = FROM value = 75 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = ROOT value = 25 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = ROOT value = 50 } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { opinion = { who = ROOT value = 75 } }
+					}				
+					modifier = {
+						factor = 1.5
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}
+					modifier = {
+						factor = 1.35
+						OR = {
+							AND = {
+								tier = DUKE
+								FROM = { tier = COUNT }
+							}
+							AND = {
+								tier = KING
+								FROM = { tier = DUKE }
+							}						
+							AND = {
+								tier = EMPEROR
+								FROM = { tier = KING }
+							}						
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							AND = {
+								tier = KING
+								FROM = { tier = COUNT }
+							}
+							AND = {
+								tier = EMPEROR
+								FROM = { tier = DUKE }
+							}						
+						}
+					}
+					modifier = {
+						factor = 3
+						tier = EMPEROR
+						FROM = { tier = COUNT }
+					}				
+					#####
+					modifier = {
+						factor = 1.75
+						trait = brave
+					}				
+					modifier = {
+						factor = 1.75
+						FROM = { trait = brave }
+					}
+					modifier = {
+						factor = 1.5
+						trait = wroth
+					}				
+					modifier = {
+						factor = 1.5
+						FROM = { trait = wroth }
+					}				
+					modifier = {
+						factor = 1.75
+						trait = strategist
+					}
+				
+					character_event = { id = darkages.72578 days = 45 random = 45 }
+					
+				}
+				3 = {
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}			
+					modifier = {
+						factor = 1.35
+						OR = {
+							AND = {
+								tier = COUNT
+								FROM = { tier = DUKE }
+							}
+							AND = {
+								tier = DUKE
+								FROM = { tier = KING }
+							}						
+							AND = {
+								tier = KING
+								FROM = { tier = EMPEROR }
+							}						
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							AND = {
+								tier = COUNT
+								FROM = { tier = KING }
+							}
+							AND = {
+								tier = DUKE
+								FROM = { tier = EMPEROR }
+							}						
+						}
+					}
+					modifier = {
+						factor = 3
+						tier = COUNT
+						FROM = { tier = EMPEROR }
+					}	
+					modifier = {
+						factor = 1.5
+						distance_from_realm = { who = FROM value = 175 }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { NOT = { opinion = { who = ROOT value = -24 } } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}				
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}
+					modifier = {
+						factor = 1.5
+						trait = craven
+					}
+					
+					character_event = { id = darkages.72579 days = 45 random = 45 }				
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0
+						NOT = {
+							any_allied_character = {
+								is_allied_with = ROOT 
+								count = 1
+							}
+						}
+					}			
+					modifier = {
+						factor = 2
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 2
+						}
+					}
+					modifier = {
+						factor = 2
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 3
+						}
+					}				
+					modifier = {
+						factor = 4
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 5
+						}
+					}				
+					modifier = {
+						factor = 5
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 6
+						}
+					}
+					
+					character_event = { id = darkages.72580 days = 45 random = 45 }
+					
+				}
+			}
+		}
+
+		clr_character_flag = darkages_1
+		clr_character_flag = darkages_2
+		clr_character_flag = darkages_3
+		clr_character_flag = darkages_4		
+	
+	}	
+	
+	option = {
+		name = "EVTOPTC1972577"	#Adopt a clean, businesslike attitude
+		ai_chance = {
+			factor = 5
+			
+			modifier = {
+				factor = 2
+				has_character_flag = darkages_3
+			}			
+			modifier = {
+				factor = 2
+				has_education_stewardship_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				stewardship = 12
+			}				
+			modifier = {
+				factor = 2
+				stewardship = 15
+			}				
+			modifier = {
+				factor = 2
+				stewardship = 18
+			}				
+			modifier = {
+				factor = 2
+				stewardship = 21
+			}
+			modifier = {
+				factor = 2
+				trait = administrator
+			}				
+			modifier = {
+				factor = 2
+				trait = diligent
+			}			
+		}		
+		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP303 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP305 }
+
+
+		hidden_tooltip = {
+			random_list = {
+				4 = {
+					modifier = {
+						factor = 1.4
+						NOT = {
+							any_allied_character = {
+								is_allied_with = ROOT 
+								count = 1
+							}
+						}
+					}
+					modifier = {
+						factor = 1.33
+						has_character_flag = darkages_3
+					}		
+					modifier = {
+						factor = 1.5
+						has_education_stewardship_trigger = yes
+					}
+					modifier = {
+						factor = 1.33
+						stewardship = 12
+					}				
+					modifier = {
+						factor = 1.33
+						stewardship = 15
+					}				
+					modifier = {
+						factor = 1.33
+						stewardship = 18
+					}				
+					modifier = {
+						factor = 1.33
+						stewardship = 21
+					}				
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}				
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = socializer
+					}				
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { distance_from_realm = { who = event_target:darkages_diplomatic_target value = 75 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = ROOT value = 25 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = ROOT value = 50 } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { opinion = { who = ROOT value = 75 } }
+					}				
+					modifier = {
+						factor = 1.5
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}
+					modifier = {
+						factor = 1.35
+						OR = {
+							AND = {
+								tier = DUKE
+								FROM = { tier = COUNT }
+							}
+							AND = {
+								tier = KING
+								FROM = { tier = DUKE }
+							}						
+							AND = {
+								tier = EMPEROR
+								FROM = { tier = KING }
+							}						
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							AND = {
+								tier = KING
+								FROM = { tier = COUNT }
+							}
+							AND = {
+								tier = EMPEROR
+								FROM = { tier = DUKE }
+							}						
+						}
+					}
+					modifier = {
+						factor = 3
+						tier = EMPEROR
+						FROM = { tier = COUNT }
+					}				
+					#####
+					modifier = {
+						factor = 1.75
+						trait = greedy
+					}				
+					modifier = {
+						factor = 1.75
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}				
+					modifier = {
+						factor = 1.5
+						FROM = { trait = diligent }
+					}				
+					modifier = {
+						factor = 1.75
+						trait = administrator
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { is_patrician = yes }
+					}				
+				
+					character_event = { id = darkages.72578 days = 45 random = 45 }
+					
+				}
+				3 = {
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}			
+					modifier = {
+						factor = 1.35
+						OR = {
+							AND = {
+								tier = COUNT
+								FROM = { tier = DUKE }
+							}
+							AND = {
+								tier = DUKE
+								FROM = { tier = KING }
+							}						
+							AND = {
+								tier = KING
+								FROM = { tier = EMPEROR }
+							}						
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							AND = {
+								tier = COUNT
+								FROM = { tier = KING }
+							}
+							AND = {
+								tier = DUKE
+								FROM = { tier = EMPEROR }
+							}						
+						}
+					}
+					modifier = {
+						factor = 3
+						tier = COUNT
+						FROM = { tier = EMPEROR }
+					}	
+					modifier = {
+						factor = 1.5
+						distance_from_realm = { who = FROM value = 175 }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { NOT = { opinion = { who = ROOT value = -24 } } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}				
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}
+					modifier = {
+						factor = 1.5
+						trait = charitable
+					}
+					
+					character_event = { id = darkages.72579 days = 45 random = 45 }				
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0
+						NOT = {
+							any_allied_character = {
+								is_allied_with = ROOT 
+								count = 1
+							}
+						}
+					}			
+					modifier = {
+						factor = 2.15
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 2
+						}
+					}
+					modifier = {
+						factor = 2.15
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 3
+						}
+					}				
+					modifier = {
+						factor = 4.30
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 5
+						}
+					}				
+					modifier = {
+						factor = 5.65
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 6
+						}
+					}
+
+					character_event = { id = darkages.72580 days = 45 random = 45 }
+					
+				}
+			}
+		}
+		
+		clr_character_flag = darkages_1
+		clr_character_flag = darkages_2
+		clr_character_flag = darkages_3
+		clr_character_flag = darkages_4		
+	
+	}	
+	
+	option = {
+		name = "EVTOPTD1972577"	#Try to deceive your interlocutor
+		ai_chance = {
+			factor = 2
+			
+			modifier = {
+				factor = 2
+				has_character_flag = darkages_4
+			}			
+			modifier = {
+				factor = 3
+				has_education_intrigue_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				intrigue = 12
+			}				
+			modifier = {
+				factor = 2
+				intrigue = 15
+			}				
+			modifier = {
+				factor = 2
+				intrigue = 18
+			}				
+			modifier = {
+				factor = 2
+				intrigue = 21
+			}
+			modifier = {
+				factor = 2
+				trait = schemer
+			}				
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}			
+		}		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP304 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP305 }
+		
+		hidden_tooltip = {
+			random_list = {
+				3 = {
+					modifier = {
+						factor = 1.4
+						NOT = {
+							any_allied_character = {
+								is_allied_with = ROOT 
+								count = 1
+							}
+						}
+					}			
+					modifier = {
+						factor = 1.33
+						has_character_flag = darkages_4
+					}
+					modifier = {
+						factor = 1.5
+						has_education_intrigue_trigger = yes
+					}
+					modifier = {
+						factor = 1.33
+						intrigue = 12
+					}				
+					modifier = {
+						factor = 1.33
+						intrigue = 15
+					}				
+					modifier = {
+						factor = 1.33
+						intrigue = 18
+					}				
+					modifier = {
+						factor = 1.33
+						intrigue = 21
+					}				
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}				
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.5
+						trait = socializer
+					}				
+					modifier = {
+						factor = 1.5
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { distance_from_realm = { who = event_target:darkages_diplomatic_target value = 75 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = ROOT value = 25 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = ROOT value = 50 } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { opinion = { who = ROOT value = 75 } }
+					}				
+					modifier = {
+						factor = 1.5
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}
+					modifier = {
+						factor = 1.35
+						OR = {
+							AND = {
+								tier = DUKE
+								FROM = { tier = COUNT }
+							}
+							AND = {
+								tier = KING
+								FROM = { tier = DUKE }
+							}						
+							AND = {
+								tier = EMPEROR
+								FROM = { tier = KING }
+							}						
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							AND = {
+								tier = KING
+								FROM = { tier = COUNT }
+							}
+							AND = {
+								tier = EMPEROR
+								FROM = { tier = DUKE }
+							}						
+						}
+					}
+					modifier = {
+						factor = 3
+						tier = EMPEROR
+						FROM = { tier = COUNT }
+					}				
+					#####
+					modifier = {
+						factor = 1.75
+						trait = deceitful
+					}				
+					modifier = {
+						factor = 1.75
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.5
+						trait = shrewd
+					}				
+					modifier = {
+						factor = 1.5
+						FROM = { trait = dull }
+					}				
+					modifier = {
+						factor = 1.75
+						trait = schemer
+					}
+				
+					character_event = { id = darkages.72578 days = 45 random = 45 }
+					
+				}
+				3 = {
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}			
+					modifier = {
+						factor = 1.35
+						OR = {
+							AND = {
+								tier = COUNT
+								FROM = { tier = DUKE }
+							}
+							AND = {
+								tier = DUKE
+								FROM = { tier = KING }
+							}						
+							AND = {
+								tier = KING
+								FROM = { tier = EMPEROR }
+							}						
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							AND = {
+								tier = COUNT
+								FROM = { tier = KING }
+							}
+							AND = {
+								tier = DUKE
+								FROM = { tier = EMPEROR }
+							}						
+						}
+					}
+					modifier = {
+						factor = 3
+						tier = COUNT
+						FROM = { tier = EMPEROR }
+					}	
+					modifier = {
+						factor = 1.5
+						distance_from_realm = { who = event_target:darkages_diplomatic_target value = 175 }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { NOT = { opinion = { who = ROOT value = -24 } } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}				
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = wary }
+					}
+					
+					character_event = { id = darkages.72579 days = 45 random = 45 }				
+					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 0
+						NOT = {
+							any_allied_character = {
+								is_allied_with = ROOT 
+								count = 1
+							}
+						}
+					}			
+					modifier = {
+						factor = 2
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 2
+						}
+					}
+					modifier = {
+						factor = 2
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 3
+						}
+					}				
+					modifier = {
+						factor = 4
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 5
+						}
+					}				
+					modifier = {
+						factor = 5
+						any_allied_character = {
+							is_allied_with = ROOT 
+							count = 6
+						}
+					}
+
+					character_event = { id = darkages.72580 days = 45 random = 45 }
+				}
+			}
+		}
+		
+		clr_character_flag = darkages_1
+		clr_character_flag = darkages_2
+		clr_character_flag = darkages_3
+		clr_character_flag = darkages_4		
+	
+	}
+	
+}
+
+
+character_event = {			#ACCEPTED
+	id = darkages.72578
+	title = EVTNAME1972578
+	desc = EVTDESC1972578
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+
+
+	immediate = {
+	
+		random_list = {
+			8 = {
+				set_character_flag = darkages_null			
+			}
+			1 = {
+				modifier = {
+					factor = 8
+					diplomacy = 12
+					NOT = { diplomacy = 15 }
+				}
+				modifier = {
+					factor = 3
+					diplomacy = 15
+				}				
+				set_character_flag = darkages_a
+			}
+			1 = {
+				modifier = {
+					factor = 8
+					diplomacy = 15
+					NOT = { diplomacy = 18 }
+				}
+				modifier = {
+					factor = 3
+					diplomacy = 18
+				}			
+				set_character_flag = darkages_b
+			}			
+			1 = {
+				modifier = {
+					factor = 8
+					diplomacy = 18
+					NOT = { diplomacy = 21 }
+				}
+				modifier = {
+					factor = 3
+					diplomacy = 21
+				}			
+				set_character_flag = darkages_c
+			}			
+			1 = {
+				modifier = {
+					factor = 8
+					diplomacy = 21
+				}
+				set_character_flag = darkages_d
+			}			
+
+		}
+
+	}
+	
+	option = {
+		name = "EVTOPTC1972578"
+		trigger = {
+			has_character_flag = darkages_null
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP307 }
+		
+		 add_alliance = { who = FROMFROM years = 5 }
+		 
+		clr_character_flag = darkages_null
+		 
+	}
+	
+	option = {
+		name = "EVTOPTA1972578"
+		trigger = {
+			NOT = { has_character_flag = darkages_null }
+		}		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP307 }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			darkages_a = { add_alliance = { who = event_target:darkages_diplomatic_target years = 8 } }
+			darkages_b = { add_alliance = { who = event_target:darkages_diplomatic_target years = 12 } }			
+			darkages_c = { add_alliance = { who = event_target:darkages_diplomatic_target years = 16 } }			
+			darkages_d = { add_alliance = { who = event_target:darkages_diplomatic_target years = 20 } }
+		}
+		
+		clr_character_flag = darkages_a
+		clr_character_flag = darkages_b
+		clr_character_flag = darkages_c
+		clr_character_flag = darkages_d
+	
+	}
+	
+	option = {
+		name = "EVTOPTB1972578"
+		trigger = {
+			NOT = { has_character_flag = darkages_null }
+		}
+		
+		add_alliance = { who = event_target:darkages_diplomatic_target years = 5 }
+		
+		clr_character_flag = darkages_a
+		clr_character_flag = darkages_b
+		clr_character_flag = darkages_c
+		clr_character_flag = darkages_d		
+	
+	}
+	
+}
+
+character_event = {			#REFUSED ALLIANCE
+	id = darkages.72579
+	title = EVTNAME1972579
+	desc = EVTDESC1972579
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	
+	}
+
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972579"	
+	
+		prestige = -75
+		
+		add_character_modifier = {
+			name = da_failed_negotiator
+			duration = 1825
+			stacking = yes
+		}		
+		
+		opinion = {
+			who = event_target:darkages_diplomatic_target
+			modifier = da_opinion_disgusted
+			years = 5
+		}
+		
+		event_target:darkages_diplomatic_target = {
+			prestige = -75
+			
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_disgusted
+				years = 5
+			}
+		}
+		
+	}
+	
+}
+
+
+character_event = {			#REFUSED ALLIANCE DUE TO POLITICAL CONCERNS
+	id = darkages.72580
+	title = EVTNAME1972580
+	desc = EVTDESC1972580
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	
+	}
+
+
+	immediate = {
+		random_allied_character = {
+			save_event_target_as = darkages_guilty_ally
+		}		
+	}
+	
+	option = {
+		name = "EVTOPTA1972580"	
+		
+		add_character_modifier = {
+			name = da_failed_negotiator
+			duration = 1825
+			stacking = yes
+		}		
+		
+	}
+	
+}
+
+
+##########################################################################################
+#
+#	EVENT CALLED FROM DECISION WHEN AI PICKS THE CHOICE OF OFFERING ALLIANCE TO PLAYER
+#
+##########################################################################################
+
+character_event = { 		
+	id = darkages.72589
+	title = EVTNAME1972589
+	desc = EVTDESC1972589
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+		FROMFROM = {
+			save_event_target_as = da_ai_offer_alliance
+		}
+	
+		random_list = {
+			1 = {
+				set_character_flag = darkages_opt1
+			}
+			1 = {
+				set_character_flag = darkages_opt2
+			}
+			1 = {
+				modifier = {
+					factor = 2
+					FROMFROM = { trait = greedy }
+				}
+				set_character_flag = darkages_opt3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					FROMFROM = { trait = deceitful }
+				}
+				set_character_flag = darkages_opt4
+			}
+
+		}
+		
+		random_list = {
+			12 = {
+				modifier = {
+					factor = 2
+					FROMFROM = { trait = wary }
+				}			
+				set_character_flag = darkages_1
+			}
+			5 = {
+				set_character_flag = darkages_2
+			}
+			2 = {
+				modifier = {
+					factor = 4
+					FROMFROM = { trait = kind }
+				}
+				set_character_flag = darkages_3
+			}
+			1 = {
+				modifier = {
+					factor = 4
+					FROMFROM = { trait = kind }
+				}
+				set_character_flag = darkages_4
+			}
+
+		}		
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972589
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP172 }
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = COUNT } }
+			}
+			
+			treasury = -30
+			piety = -25			
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = DUKE } }
+			}
+			
+			treasury = -110
+			piety = -45	
+			
+		}	
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = KING } }
+			}
+			
+			treasury = -225
+			piety = -80		
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = EMPEROR } }
+			}
+			
+			treasury = -390
+			piety = -125		
+			
+		}
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			darkages_1 = {
+				add_alliance = { who = FROMFROM years = 5 }				
+			}
+			darkages_2 = {
+				add_alliance = { who = FROMFROM years = 10 }				
+			}
+			darkages_3 = {
+				add_alliance = { who = FROMFROM years = 15 }				
+			}			
+			darkages_4 = {
+				add_alliance = { who = FROMFROM years = 20 }				
+			}			
+		}
+		
+		clr_character_flag = darkages_1
+		clr_character_flag = darkages_2
+		clr_character_flag = darkages_3
+		clr_character_flag = darkages_4		
+		
+		clr_character_flag = darkages_opt1
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972589
+		trigger = {
+			has_character_flag = darkages_opt2
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP172 }
+		
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = COUNT } }
+			}
+			
+			treasury = -50
+			prestige = -50			
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = DUKE } }
+			}
+			
+			treasury = -150
+			prestige = -150			
+			
+		}	
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = KING } }
+			}
+			
+			treasury = -300
+			prestige = -300			
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = EMPEROR } }
+			}
+			
+			treasury = -500
+			prestige = -500		
+			
+		}		
+
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			darkages_1 = {
+				add_alliance = { who = FROMFROM years = 5 }				
+			}
+			darkages_2 = {
+				add_alliance = { who = FROMFROM years = 10 }				
+			}
+			darkages_3 = {
+				add_alliance = { who = FROMFROM years = 15 }				
+			}			
+			darkages_4 = {
+				add_alliance = { who = FROMFROM years = 20 }				
+			}			
+		}
+		
+		clr_character_flag = darkages_1
+		clr_character_flag = darkages_2
+		clr_character_flag = darkages_3
+		clr_character_flag = darkages_4			
+		
+		clr_character_flag = darkages_opt2
+		
+	}
+
+	option = {
+		name = EVTOPTA1972589
+		trigger = {
+			has_character_flag = darkages_opt3
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP172 }
+		
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = COUNT } }
+			}
+			
+			treasury = -100
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = DUKE } }
+			}
+			
+			treasury = -225
+			
+		}	
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = KING } }
+			}
+			
+			treasury = -500
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = EMPEROR } }
+			}
+			
+			treasury = -750
+	
+		}		
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			darkages_1 = {
+				add_alliance = { who = FROMFROM years = 5 }				
+			}
+			darkages_2 = {
+				add_alliance = { who = FROMFROM years = 10 }				
+			}
+			darkages_3 = {
+				add_alliance = { who = FROMFROM years = 15 }				
+			}			
+			darkages_4 = {
+				add_alliance = { who = FROMFROM years = 20 }				
+			}			
+		}
+		
+		clr_character_flag = darkages_1
+		clr_character_flag = darkages_2
+		clr_character_flag = darkages_3
+		clr_character_flag = darkages_4			
+		
+		clr_character_flag = darkages_opt3
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972589
+		trigger = {
+			has_character_flag = darkages_opt4
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP172 }
+		
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = COUNT } }
+			}
+			
+			prestige = -80
+			piety = -70
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = DUKE } }
+			}
+			
+			prestige = -175
+			piety = -145
+			
+		}	
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = KING } }
+			}
+			
+			prestige = -280
+			piety = -210
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = EMPEROR } }
+			}
+			
+			prestige = -370
+			piety = -285
+	
+		}
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			darkages_1 = {
+				add_alliance = { who = FROMFROM years = 5 }				
+			}
+			darkages_2 = {
+				add_alliance = { who = FROMFROM years = 10 }				
+			}
+			darkages_3 = {
+				add_alliance = { who = FROMFROM years = 15 }				
+			}			
+			darkages_4 = {
+				add_alliance = { who = FROMFROM years = 20 }				
+			}			
+		}
+		
+		clr_character_flag = darkages_1
+		clr_character_flag = darkages_2
+		clr_character_flag = darkages_3
+		clr_character_flag = darkages_4			
+		
+		clr_character_flag = darkages_opt4
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972589
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP173 }
+		
+		FROMFROM ={
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_refused_alliance_proposal
+				months = 60
+			}
+		}
+		
+		ROOT ={
+			opinion = {
+				who = FROMFROM
+				modifier = da_opinion_refused_alliance_proposal
+				months = 60
+			}
+		}		
+
+		clr_character_flag = darkages_1
+		clr_character_flag = darkages_2
+		clr_character_flag = darkages_3
+		clr_character_flag = darkages_4			
+		
+		clr_character_flag = darkages_opt4
+		clr_character_flag = darkages_opt1
+		clr_character_flag = darkages_opt2
+		clr_character_flag = darkages_opt3		
+
+	}
+	
+}
+
+
+
+
+
+
+
+####################################################################################################
+#
+#	CREATE NON AGGRESSION PACT
+#
+####################################################################################################
+
+character_event = { 		#FIRED FROM TARGETED DECISION
+	id = darkages.72407
+	title = EVTNAME1972407
+	desc = EVTDESC1972407
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+
+	immediate = {
+
+		if = {
+			limit = { ai = no }
+			
+			random_list = {
+				1 = {
+					set_character_flag = darkages_opt1
+				}
+				1 = {
+					set_character_flag = darkages_opt2
+				}
+				1 = {
+					modifier = {
+						factor = 2
+						FROMFROM = { trait = greedy }
+					}
+					set_character_flag = darkages_opt3
+				}
+				1 = {
+					modifier = {
+						factor = 3
+						FROMFROM = { trait = deceitful }
+					}
+					set_character_flag = darkages_opt4
+				}
+
+			}
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972407
+		trigger = {
+			has_character_flag = darkages_opt1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP172 }
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = COUNT } }
+			}
+			
+			treasury = -30
+			piety = -25			
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = DUKE } }
+			}
+			
+			treasury = -110
+			piety = -45	
+			
+		}	
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = KING } }
+			}
+			
+			treasury = -225
+			piety = -80		
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = EMPEROR } }
+			}
+			
+			treasury = -390
+			piety = -125		
+			
+		}
+		
+		opinion = {
+			who = FROMFROM
+			modifier = da_nap
+			months = 60
+		}
+		
+		opinion = {
+			who = FROMFROM
+			modifier = da_opinion_accepted_nap_proposal
+			months = 12
+		}		
+		
+		hidden_tooltip = {
+			FROMFROM = { 
+				character_event = { id = darkages.72409 } 
+			}
+		}		
+		
+		clr_character_flag = darkages_opt1
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972407
+		trigger = {
+			has_character_flag = darkages_opt2
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP172 }
+		
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = COUNT } }
+			}
+			
+			treasury = -50
+			prestige = -50			
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = DUKE } }
+			}
+			
+			treasury = -150
+			prestige = -150			
+			
+		}	
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = KING } }
+			}
+			
+			treasury = -300
+			prestige = -300			
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = EMPEROR } }
+			}
+			
+			treasury = -500
+			prestige = -500		
+			
+		}		
+
+		
+		opinion = {
+			who = FROMFROM
+			modifier = da_nap
+			months = 60
+		}
+		
+		opinion = {
+			who = FROMFROM
+			modifier = da_opinion_accepted_nap_proposal
+			months = 12
+		}		
+		
+		hidden_tooltip = {
+			FROMFROM = { 
+				character_event = { id = darkages.72409 } 
+			}
+		}		
+		
+		clr_character_flag = darkages_opt2
+		
+	}
+
+	option = {
+		name = EVTOPTA1972407
+		trigger = {
+			has_character_flag = darkages_opt3
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP172 }
+		
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = COUNT } }
+			}
+			
+			treasury = -100
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = DUKE } }
+			}
+			
+			treasury = -225
+			
+		}	
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = KING } }
+			}
+			
+			treasury = -500
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = EMPEROR } }
+			}
+			
+			treasury = -750
+	
+		}		
+		
+		opinion = {
+			who = FROMFROM
+			modifier = da_nap
+			months = 60
+		}
+		
+		opinion = {
+			who = FROMFROM
+			modifier = da_opinion_accepted_nap_proposal
+			months = 12
+		}		
+		
+		hidden_tooltip = {
+			FROMFROM = { 
+				character_event = { id = darkages.72409 } 
+			}
+		}		
+		
+		clr_character_flag = darkages_opt3
+		
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972407
+		trigger = {
+			has_character_flag = darkages_opt4
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP172 }
+		
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = COUNT } }
+			}
+			
+			prestige = -80
+			piety = -70
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = DUKE } }
+			}
+			
+			prestige = -175
+			piety = -145
+			
+		}	
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = KING } }
+			}
+			
+			prestige = -280
+			piety = -210
+			
+		}
+
+		if = {
+			limit = {
+				FROMFROM = { primary_title = { tier = EMPEROR } }
+			}
+			
+			prestige = -370
+			piety = -285
+	
+		}
+		
+		opinion = {
+			who = FROMFROM
+			modifier = da_nap
+			months = 60
+		}
+		
+		opinion = {
+			who = FROMFROM
+			modifier = da_opinion_accepted_nap_proposal
+			months = 12
+		}		
+		
+		hidden_tooltip = {
+			FROMFROM = { 
+				character_event = { id = darkages.72409 } 
+			}
+		}		
+		
+		clr_character_flag = darkages_opt4
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972407
+		trigger = {
+			ai = yes
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.25
+				opinion = { who = FROMFROM value = 60 }
+			}
+			modifier = {
+				factor = 1.35
+				opinion = { who = FROMFROM value = 75 }
+			}
+			modifier = {
+				factor = 1.50
+				opinion = { who = FROMFROM value = 90 }
+			}	
+			modifier = {
+				factor = 1.75
+				is_friend = FROMFROM
+			}			
+			modifier = {
+				factor = 1.25
+				FROMFROM = { relative_power = { who = ROOT power = 0.8 } }
+			}
+			modifier = {
+				factor = 1.35
+				FROMFROM = { relative_power = { who = ROOT power = 1.0 } }
+			}
+			modifier = {
+				factor = 1.5
+				FROMFROM = { relative_power = { who = ROOT power = 1.2 } }
+			}
+			modifier = {
+				factor = 1.75
+				FROMFROM = { relative_power = { who = ROOT power = 1.35 } }
+			}			
+			modifier = {
+				factor = 1.25
+				has_education_diplomacy_trigger = yes
+			}
+			modifier = {
+				factor = 1.25
+				diplomacy = 12
+			}			
+			modifier = {
+				factor = 1.35
+				diplomacy = 15
+			}
+			modifier = {
+				factor = 1.5
+				diplomacy = 18
+			}
+			modifier = {
+				factor = 1.75
+				diplomacy = 21
+			}
+			modifier = {
+				factor = 1.33
+				trait = just
+			}	
+			modifier = {
+				factor = 1.33	
+				trait = kind
+			}
+			modifier = {
+				factor = 1.33	
+				trait = socializer
+			}
+			modifier = {
+				factor = 1.33	
+				trait = honest
+			}
+			modifier = {
+				factor = 1.33	
+				trait = cheerful
+			}			
+			modifier = {
+				factor = 1.25
+				FROMFROM = { has_education_diplomacy_trigger = yes }
+			}
+			modifier = {
+				factor = 1.25
+				FROMFROM = { diplomacy = 12 }
+			}			
+			modifier = {
+				factor = 1.35
+				FROMFROM = { diplomacy = 15 }
+			}
+			modifier = {
+				factor = 1.5
+				FROMFROM = { diplomacy = 18 }
+			}
+			modifier = {
+				factor = 1.75
+				FROMFROM = { diplomacy = 21 }
+			}
+			modifier = {
+				factor = 1.33
+				FROMFROM = { trait = just }
+			}	
+			modifier = {
+				factor = 1.33	
+				FROMFROM = { trait = kind }
+			}
+			modifier = {
+				factor = 1.33	
+				FROMFROM = { trait = socializer }
+			}
+			modifier = {
+				factor = 1.33	
+				FROMFROM = { trait = honest }
+			}			
+		}
+		
+		opinion = {
+			who = FROMFROM
+			modifier = da_nap
+			months = 60
+		}
+		
+		opinion = {
+			who = FROMFROM
+			modifier = da_opinion_accepted_nap_proposal
+			months = 12
+		}		
+		
+		hidden_tooltip = {
+			FROMFROM = { 
+				character_event = { id = darkages.72409 } 
+			}
+		}	
+		
+		clr_character_flag = darkages_opt1		
+		clr_character_flag = darkages_opt2		
+		clr_character_flag = darkages_opt3		
+		clr_character_flag = darkages_opt4		
+		
+	}	
+
+	option = {
+		name = EVTOPTB1972407
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP173 }
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 1.25
+				NOT = { opinion = { who = FROMFROM value = 10 } }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { opinion = { who = FROMFROM value = 25 } }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { diplomacy = 8 }
+			}			
+			modifier = {
+				factor = 1.35
+				NOT = { diplomacy = 6 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { diplomacy = 4 }
+			}
+			modifier = {
+				factor = 1.75
+				NOT = { diplomacy = 2 }
+			}
+			modifier = {
+				factor = 1.33
+				trait = arbitrary
+			}	
+			modifier = {
+				factor = 1.33	
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.33	
+				trait = envious
+			}
+			modifier = {
+				factor = 1.33	
+				trait = deceitful
+			}
+			modifier = {
+				factor = 1.33	
+				trait = dour
+			}			
+			modifier = {
+				factor = 1.25
+				FROMFROM = { NOT = { diplomacy = 8 } }
+			}			
+			modifier = {
+				factor = 1.35
+				FROMFROM = { NOT = { diplomacy = 6 } }
+			}
+			modifier = {
+				factor = 1.5
+				FROMFROM = { NOT = { diplomacy = 4 } }
+			}
+			modifier = {
+				factor = 1.75
+				FROMFROM = { NOT = { diplomacy = 2 } }
+			}
+			modifier = {
+				factor = 1.33
+				FROMFROM = { trait = arbitrary }
+			}	
+			modifier = {
+				factor = 1.33	
+				FROMFROM = { trait = wroth }
+			}
+			modifier = {
+				factor = 1.33	
+				FROMFROM = { trait = envious }
+			}
+			modifier = {
+				factor = 1.33	
+				FROMFROM = { trait = deceitful }
+			}			
+		}
+		
+		FROMFROM ={
+			opinion = {
+				who = ROOT
+				modifier = da_opinion_refused_pact_proposal
+				months = 60
+			}
+		}
+
+		hidden_tooltip = {
+			FROMFROM = { character_event = { id = darkages.72408 } }
+		}
+		
+	
+		clr_character_flag = darkages_opt1
+		clr_character_flag = darkages_opt2
+		clr_character_flag = darkages_opt3
+		clr_character_flag = darkages_opt4		
+		
+	}		
+	
+}
+
+character_event = { 		#ANSWER IS NO
+	id = darkages.72408
+	title = EVTNAME1972408
+	desc = EVTDESC1972408
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972408
+
+		prestige = -35
+		
+		add_character_modifier = {
+			name = da_failed_negotiator
+			duration = 1825
+			stacking = yes
+		}
+		
+	}
+	
+}
+
+character_event = { 		#ANSWER IS YES
+	id = darkages.72409
+	title = EVTNAME1972409
+	desc = EVTDESC1972409
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972409
+
+		
+
+	}
+	
+}
+
+
+
+######################################################################################################
+###############################################################################################
+#
+#	PLAYER DOESN'T HELP AN ALLY AT WAR
+#
+###############################################################################################
+######################################################################################################
+
+
+
+
+character_event = {			
+	id = darkages.72590
+	title = EVTNAME1972590
+	desc = EVTDESC1972590
+	picture = GFX_evt_da_quarrel
+	border = GFX_event_normal_frame_war
+	
+	trigger = {
+	
+		ai = no
+		NOT = { has_character_modifier = da_war_iddle_tmp }
+		
+		OR = {
+	
+			any_war = {
+				NOR = {
+					using_cb = crusade
+					using_cb = new_crusade
+				}
+				is_primary_war_attacker = no
+				days_since_last_hostile_action = {
+					who = ROOT     # The character whose activity is being checked
+					days = 730    # Number of days since last battle participation or offensive siege (2 years)
+				}
+			}
+			
+			any_war = { 
+				NOR = {
+					using_cb = crusade
+					using_cb = new_crusade
+				}			
+				is_primary_war_defender = no
+				days_since_last_hostile_action = {
+					who = ROOT     # The character whose activity is being checked
+					days = 730    # Number of days since last battle participation or offensive siege (2 years)
+				}
+			}			
+			
+		}
+		
+		any_allied_character = {	#Is this allied or NAP? In the debug trigger in the command console it appears to be NAP but I know it also picks allied...
+			is_allied_with = ROOT	#Better place this here
+			OR = {
+				is_primary_war_attacker = yes
+				is_primary_war_defender = yes					
+			}
+		}
+		
+	}
+
+	mean_time_to_happen = {
+		months = 36
+		
+		modifier = {
+			factor = 0.75
+			NOT = { diplomacy = 8 }
+		}
+		
+		modifier = {
+			factor = 0.75
+			NOT = { diplomacy = 6 }
+		}		
+		
+		modifier = {
+			factor = 0.75
+			NOT = { diplomacy = 4 }
+		}		
+		
+		modifier = {
+			factor = 0.75
+			NOT = { diplomacy = 2 }
+		}
+		
+		modifier = {
+			factor = 0.75
+			NOR = { 
+				has_education_diplomacy_trigger = yes
+				trait = gregarious
+				trait = silver_tongue
+				trait = cheerful
+				trait = socializer
+				diplomacy = 12
+			}
+		}		
+		
+	}
+	
+	immediate = {
+	
+		add_character_modifier = {
+			name = da_war_iddle_tmp
+			duration = 1825
+			hidden = yes
+		}
+		
+		random_allied_character = {
+			limit = {
+				is_allied_with = ROOT
+				OR = {
+					is_primary_war_attacker = yes
+					is_primary_war_defender = yes					
+				}
+			}
+			
+			save_event_target_as = darkages_war_leader_rage
+			
+		}
+		
+		random_list = {
+			1 = {
+				set_character_flag = darkages_a
+			}
+			1 = {
+				set_character_flag = darkages_b
+			}
+			1 = {
+				set_character_flag = darkages_c
+			}
+			1 = {
+				set_character_flag = darkages_d
+			}
+			1 = {
+				set_character_flag = darkages_e
+			}			
+		}		
+		
+	}
+	
+	option = {
+		name = "EVTOPTA1972590"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP311 }
+
+		transfer_scaled_wealth = { to = event_target:darkages_war_leader_rage value = 0.75 min = 50	max = 750 }
+
+		add_character_modifier = {
+			name = da_unreliable_ally
+			duration = 730
+		}
+		
+		event_target:darkages_war_leader_rage = {
+			opinion = {
+				who = ROOT
+				modifier = ally_inactive_in_war
+				years = 2
+			}
+		}
+		
+		prestige = -25
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.66
+					NOT = { trait = brave }
+				}
+				modifier = {
+					factor = 1.66
+					trait = craven
+				}				
+				change_diplomacy = -1
+			}
+			1 = {
+				modifier = {
+					factor = 1.66
+					NOT = { trait = brave }
+				}
+				modifier = {
+					factor = 1.66
+					trait = craven
+				}				
+				change_martial = -1
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { trait = brave }
+				}
+				remove_trait = brave
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = craven
+				}					
+				add_trait = craven
+			}
+			12 = {
+				custom_tooltip = { text = DARKAGES_NOEFFECT }
+			}			
+		}		
+		
+				
+		clr_character_flag = darkages_e
+		clr_character_flag = darkages_d
+		clr_character_flag = darkages_c
+		clr_character_flag = darkages_b
+		clr_character_flag = darkages_a	
+		
+	}
+	
+	option = {
+		name = "EVTOPTB1972590"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP310 }
+		
+		add_character_modifier = {
+			name = da_unreliable_ally
+			duration = 1095
+		}	
+
+		event_target:darkages_war_leader_rage = {
+			opinion = {
+				who = ROOT
+				modifier = ally_inactive_in_war
+				years = 5
+			}
+		}		
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			
+			darkages_a = {
+				prestige = -75
+				piety = -50
+				
+				random_list = {
+					5 = {
+						change_diplomacy = -1
+					}
+					5 = {
+						change_martial = -1
+					}					
+					10 = {
+						custom_tooltip = { text = DARKAGES_NOEFFECT }
+					}
+				}
+			}
+			
+			darkages_b = {
+				prestige = -150
+			}			
+			
+			darkages_c = {
+				prestige = -100
+				
+				change_martial = -1
+			}			
+			
+			darkages_d = {
+				prestige = -200
+				piety = -100
+				
+				change_diplomacy = -1
+			}
+
+			darkages_e = {
+				prestige = -250
+				piety = -125
+				
+				random_list = {
+					5 = {
+						modifier = {
+							factor = 0
+							NOT = { trait = brave }
+						}
+						remove_trait = brave
+					}
+					5 = {
+						modifier = {
+							factor = 0
+							trait = craven
+						}					
+						add_trait = craven
+					}					
+					3 = {
+						change_diplomacy = -2					
+					}
+					3 = {
+						change_martial = -2					
+					}					
+					4 = {
+						custom_tooltip = { text = DARKAGES_NOEFFECT }
+					}
+				}
+			}			
+			
+		}
+		
+		
+		clr_character_flag = darkages_e
+		clr_character_flag = darkages_d
+		clr_character_flag = darkages_c
+		clr_character_flag = darkages_b
+		clr_character_flag = darkages_a		
+		
+		
+	}	
+	
+}
+
+
+#####################################################################################################
+#
+#	EVENT TO CREATE ALLIANCES BETWEEN AI
+#
+#####################################################################################################
+
+
+character_event = { 		
+	id = darkages.72592
+	title = EVTNAME1972486
+	desc = EVTDESC1972486
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_diplomacy
+	hide_window = yes
+
+	trigger = {
+	
+		is_landed = yes
+		ai = yes
+		war = no
+		
+		any_playable_ruler = {
+			has_non_aggression_pact_with = ROOT
+			ai = yes
+			war = no		
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+
+		modifier = {
+			factor = 0.5
+			NOT = { distance_from_realm = { who = ROOT value = 100 } }
+		}
+		
+		modifier = {
+			factor = 0.5
+			NOT = { distance_from_realm = { who = ROOT value = 50 } }
+		}
+
+		modifier = {
+			factor = 2
+			distance_from_realm = { who = ROOT value = 200 }
+		}
+		
+		modifier = {
+			factor = 2
+			distance_from_realm = { who = ROOT value = 300 }
+		}
+		
+		modifier = {
+			factor = 0.5
+			NOT = {
+				any_allied_character = {
+					is_allied_with = ROOT 
+					count = 1
+				}
+			}			
+		}
+		
+		modifier = {
+			factor = 1.5
+			any_allied_character = {
+				is_allied_with = ROOT 
+				count = 2
+			}
+		}
+		
+		modifier = {
+			factor = 1.5
+			any_allied_character = {
+				is_allied_with = ROOT 
+				count = 3
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			diplomacy = 12
+		}
+
+		modifier = {
+			factor = 0.8
+			diplomacy = 15
+		}		
+		
+		modifier = {
+			factor = 0.8
+			diplomacy = 18
+		}		
+			
+		modifier = {
+			factor = 0.8
+			diplomacy = 21
+		}			
+		
+		modifier = {
+			factor = 1.25
+			NOT = { diplomacy = 8 }
+		}	
+
+		modifier = {
+			factor = 1.35
+			NOT = { diplomacy = 6 }
+		}		
+		
+		modifier = {
+			factor = 1.5
+			NOT = { diplomacy = 4 }
+		}		
+		
+		modifier = {
+			factor = 1.75
+			NOT = { diplomacy = 2 }
+		}
+		
+	}
+	
+	immediate = {
+	
+		random_list = {
+		
+			2 = {
+				random_playable_ruler = {
+					limit = {
+						has_non_aggression_pact_with = ROOT 
+						war = no
+						ai = yes
+					}
+					add_alliance = { who = ROOT years = 5 }
+				}
+			}
+			
+			3 = {
+				random_playable_ruler = {
+					limit = {
+						has_non_aggression_pact_with = ROOT 
+						war = no
+						ai = yes
+					}				
+					add_alliance = { who = ROOT years = 7 }
+				}
+			}
+
+			2 = {
+				random_playable_ruler = {
+					limit = {
+						has_non_aggression_pact_with = ROOT 
+						war = no
+						ai = yes
+					}				
+					add_alliance = { who = ROOT years = 9 }
+				}
+			}			
+			
+			1 = {
+				random_playable_ruler = {
+					limit = {
+						has_non_aggression_pact_with = ROOT 
+						war = no
+						ai = yes
+					}				
+					add_alliance = { who = ROOT years = 12 }
+				}
+			}			
+			
+			1 = {
+				random_playable_ruler = {
+					limit = {
+						has_non_aggression_pact_with = ROOT 
+						war = no
+						ai = yes
+					}				
+					add_alliance = { who = ROOT years = 15 }
+				}
+			}			
+
+		}
+		
+	}
+	
+}
+
+
+
+
+############################################################################################################
+#
+#	SUPPORT FOR BREAK ALLIANCE
+#
+############################################################################################################
+
+
+character_event = { 		#CALLED FROM TARGETED DECISION
+	id = darkages.72593
+	title = EVTNAME1972593
+	desc = {
+		trigger = { has_character_flag = da_opt_1 }
+		text = EVTDESC1972593_1
+	}
+	desc = {
+		trigger = { has_character_flag = da_opt_2 }
+		text = EVTDESC1972593_2
+	}
+	desc = {
+		trigger = { has_character_flag = da_opt_3 }
+		text = EVTDESC1972593_3
+	}
+	desc = {
+		trigger = { has_character_flag = da_opt_4 }
+		text = EVTDESC1972593_4
+	}	
+	picture = GFX_evt_da_spymaster
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+		random_list = {
+			8 = {
+			
+				modifier = {
+					factor = 1.2
+					OR = {
+						FROM = { NOT = { realm_intrigue = 30 } }
+						FROM = { NOT = { realm_diplomacy = 30 } }
+					}
+				}
+				modifier = {
+					factor = 1.2
+					OR = {
+						FROM = { NOT = { realm_intrigue = 25 } }
+						FROM = { NOT = { realm_diplomacy = 25 } }
+					}
+				}
+				modifier = {
+					factor = 1.2
+					OR = {
+						FROM = { NOT = { realm_intrigue = 20 } }
+						FROM = { NOT = { realm_diplomacy = 20 } }
+					}
+				}				
+			
+				set_character_flag = da_opt_1			
+			
+			}
+			5 = {
+				modifier = {
+					factor = 1.5
+					OR = {
+						FROM = { realm_intrigue = 35 }
+						FROM = { realm_diplomacy = 35 }
+					}
+				}
+				modifier = {
+					factor = 1.5
+					OR = {
+						FROM = { realm_intrigue = 40 }
+						FROM = { realm_diplomacy = 40 }
+					}
+				}				
+				modifier = {
+					factor = 1.5
+					OR = {
+						FROM = { realm_intrigue = 45 }
+						FROM = { realm_diplomacy = 45 }
+					}
+				}
+
+				set_character_flag = da_opt_2
+				
+			}
+			3 = {
+				modifier = {
+					factor = 2
+					OR = {
+						FROM = { realm_intrigue = 35 }
+						FROM = { realm_diplomacy = 35 }
+					}
+				}
+				modifier = {
+					factor = 2
+					OR = {
+						FROM = { realm_intrigue = 40 }
+						FROM = { realm_diplomacy = 40 }
+					}
+				}				
+				modifier = {
+					factor = 2
+					OR = {
+						FROM = { realm_intrigue = 45 }
+						FROM = { realm_diplomacy = 45 }
+					}
+				}
+
+				set_character_flag = da_opt_3
+				
+			}
+			2 = {
+				modifier = {
+					factor = 3
+					OR = {
+						FROM = { realm_intrigue = 35 }
+						FROM = { realm_diplomacy = 35 }
+					}
+				}
+				modifier = {
+					factor = 3
+					OR = {
+						FROM = { realm_intrigue = 40 }
+						FROM = { realm_diplomacy = 40 }
+					}
+				}				
+				modifier = {
+					factor = 3
+					OR = {
+						FROM = { realm_intrigue = 45 }
+						FROM = { realm_diplomacy = 45 }
+					}
+				}
+
+				set_character_flag = da_opt_4
+				
+			}			
+		}
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972593"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP314 }	
+		
+		#event tombola
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				6 = {
+				}
+				2 = {	#Unexpected expenses
+					character_event = { id = darkages.72597 days = 10 random = 19 }
+				}
+				1 = {	#Chancellor Killed
+					character_event = { id = darkages.72598 days = 10 random = 19 }
+				}
+				1 = {	#Diplomatic blunder
+					character_event = { id = darkages.72599 days = 10 random = 19 }				
+				}			
+			}
+
+			random_list = {
+				1 = {		#Success
+					modifier = {
+						factor = 1.5
+						has_education_diplomacy_trigger = yes
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}					
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}					
+					modifier = {
+						factor = 1.25
+						realm_intrigue = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_intrigue = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_intrigue = 45
+					}
+					modifier = {
+						factor = 1.4
+						trait = gregarious
+					}				
+					modifier = {
+						factor = 1.75
+						trait = silver_tongue
+					}				
+					modifier = {
+						factor = 1.35
+						trait = shrewd
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = da_opt_1					
+					}
+					modifier = {
+						factor = 1.4
+						has_character_flag = da_opt_2
+					}				
+
+					character_event = { id = darkages.72595 days = 30 random = 30 }
+					
+				}
+				1 = {		#Failure
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}	
+					modifier = {
+						factor = 1.25
+						NOT = { realm_intrigue = 30 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { realm_intrigue = 25 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { realm_intrigue = 20 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}				
+					modifier = {
+						factor = 1.5
+						trait = dull
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}						
+					modifier = {
+						factor = 2
+						has_character_flag = da_opt_4
+					}
+					modifier = {
+						factor = 1.4
+						has_character_flag = da_opt_3
+					}
+					
+					character_event = { id = darkages.72596 days = 30 random = 30 }
+					
+				}	
+				
+			}
+
+		
+		}
+		
+		
+		clr_character_flag = da_opt_1
+		clr_character_flag = da_opt_2
+		clr_character_flag = da_opt_3
+		clr_character_flag = da_opt_4		
+	
+	
+	}
+	
+	option = {
+		name = "EVTOPTB1972593"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP315 }	
+
+		#event tombola
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				5 = {
+				}
+				2 = {	#Unexpected expenses
+					character_event = { id = darkages.72597 days = 10 random = 19 }
+				}
+				1 = {	#Spymaster Killed
+					character_event = { id = darkages.72600 days = 10 random = 19 }
+				}
+				2 = {	#Attempt on PC life
+					character_event = { id = darkages.72601 days = 10 random = 19 }				
+				}			
+			}
+
+			random_list = {
+				1 = {		#Success
+					modifier = {
+						factor = 1.5
+						has_education_intrigue_trigger = yes
+					}
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}					
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}					
+					modifier = {
+						factor = 1.25
+						realm_intrigue = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_intrigue = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_intrigue = 45
+					}
+					modifier = {
+						factor = 1.4
+						trait = deceitful
+					}				
+					modifier = {
+						factor = 1.75
+						trait = schemer
+					}				
+					modifier = {
+						factor = 1.35
+						trait = shrewd
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = da_opt_1					
+					}
+					modifier = {
+						factor = 1.4
+						has_character_flag = da_opt_2
+					}				
+
+					character_event = { id = darkages.72595 days = 30 random = 30 }
+					
+				}
+				1 = {		#Failure
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}	
+					modifier = {
+						factor = 1.25
+						NOT = { realm_intrigue = 30 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { realm_intrigue = 25 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { realm_intrigue = 20 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = honest
+					}				
+					modifier = {
+						factor = 1.5
+						trait = dull
+					}
+					modifier = {
+						factor = 1.5
+						trait = just
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = da_opt_4
+					}
+					modifier = {
+						factor = 1.4
+						has_character_flag = da_opt_3
+					}					
+
+					character_event = { id = darkages.72596 days = 30 random = 30 }
+					
+				}	
+				
+			}
+	
+		}
+		
+		clr_character_flag = da_opt_1
+		clr_character_flag = da_opt_2
+		clr_character_flag = da_opt_3
+		clr_character_flag = da_opt_4
+	
+	}
+
+	option = {
+		name = "EVTOPTC1972593"
+		trigger = { scaled_wealth = { value = 0.75 min = 200 } }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP316 }	
+	
+		scaled_wealth = { value = -0.75 min = -200 max = -750 }
+		
+		
+		#event tombola
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				6 = {
+				}
+				2 = {	#Court Complaints
+					character_event = { id = darkages.72602 days = 10 random = 19 }
+				}
+				1 = {	#Spymaster Killed
+					set_character_flag = darkages_dip_all
+					character_event = { id = darkages.72600 days = 10 random = 19 }
+				}
+				1 = {	#Chancellor Killed
+					set_character_flag = darkages_dip_all				
+					character_event = { id = darkages.72598 days = 10 random = 19 }				
+				}			
+			}
+
+			random_list = {
+				3 = {		#Success
+					modifier = {
+						factor = 1.5
+						OR = {
+							has_education_intrigue_trigger = yes
+							has_education_diplomacy_trigger = yes
+						}
+					}
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}					
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}					
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}					
+					modifier = {
+						factor = 1.25
+						realm_intrigue = 35
+					}
+					modifier = {
+						factor = 1.5
+						realm_intrigue = 40
+					}				
+					modifier = {
+						factor = 1.75
+						realm_intrigue = 45
+					}
+					modifier = {
+						factor = 1.4
+						trait = deceitful
+					}	
+					modifier = {
+						factor = 1.4
+						trait = gregarious
+					}						
+					modifier = {
+						factor = 1.75
+						trait = schemer
+					}				
+					modifier = {
+						factor = 1.75
+						trait = silver_tongue
+					}									
+					modifier = {
+						factor = 1.35
+						trait = shrewd
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = da_opt_1					
+					}
+					modifier = {
+						factor = 1.4
+						has_character_flag = da_opt_2
+					}				
+
+					character_event = { id = darkages.72595 days = 30 random = 30 }
+					
+				}
+				2 = {		#Failure
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}					
+					modifier = {
+						factor = 1.25
+						NOT = { realm_intrigue = 30 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { realm_intrigue = 25 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { realm_intrigue = 20 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = da_opt_4
+					}
+					modifier = {
+						factor = 1.4
+						has_character_flag = da_opt_3
+					}					
+
+					character_event = { id = darkages.72596 days = 30 random = 30 }
+					
+				}	
+				
+			}		
+		}
+		
+		clr_character_flag = da_opt_1
+		clr_character_flag = da_opt_2
+		clr_character_flag = da_opt_3
+		clr_character_flag = da_opt_4
+	
+	}	
+	
+}
+
+
+character_event = {			#SUCCESS
+	id = darkages.72595
+	title = EVTNAME1972595
+	desc = "EVTDESC1972595"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		
+		FROMFROM = {
+			save_event_target_as = darkages_diptarget
+		}
+		
+		event_target:darkages_diptarget = {
+			random_allied_character = {
+				save_event_target_as = darkages_dipally
+			}
+		}
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972595"
+		
+		add_character_modifier = {
+			name = da_master_manipulator
+			duration = 1095
+		}
+		
+		event_target:darkages_diptarget = {
+			break_alliance = event_target:darkages_dipally
+		}
+	}
+}
+
+
+character_event = {			#FAILURE
+	id = darkages.72596
+	title = EVTNAME1972596
+	desc = "EVTDESC1972596"
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		
+		FROMFROM = {
+			save_event_target_as = darkages_diptarget
+		}
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972596"
+		
+
+
+	}
+}
+
+
+character_event = {			#EXTRA EXPENSES
+	id = darkages.72597
+	title = EVTNAME1972597
+	desc = "EVTDESC1972597"
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972597"
+		
+		scaled_wealth = { value = -0.25 min = -25 max = -75 }
+
+	}
+}
+
+character_event = {			#CHANCELLOR KILLED
+	id = darkages.72598
+	title = EVTNAME1972598
+	desc = {
+		trigger = { has_character_flag = darkages_dip_all }
+		text = EVTDESC1972598_1
+	}
+	desc = {
+		trigger = { NOT = { has_character_flag = darkages_dip_all } }
+		text = EVTDESC1972598_2
+	}
+	picture = GFX_evt_da_back_hit
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972598"
+		
+		prestige = -25
+		
+		job_chancellor = {
+			death = {
+				death_reason = death_murder_unknown
+			}
+		}
+		
+		clr_character_flag = darkages_dip_all			
+
+	}
+	
+	option = {
+		name = "EVTOPTB1972598"
+	
+		treasury = -25
+		prestige = -25
+		piety = 30
+		
+		job_chancellor = {
+			death = {
+				death_reason = death_murder_unknown
+			}
+		}
+		
+		clr_character_flag = darkages_dip_all			
+
+	}	
+	
+}
+
+
+character_event = {			#DIPLOMATIC BLUNDER
+	id = darkages.72599
+	title = EVTNAME1972599
+	desc = EVTDESC1972599
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972599"
+		
+		prestige = -40
+
+		add_character_modifier = {
+			name = da_dip_blunder
+			duration = 1825
+		}
+
+	}
+	
+}
+
+
+character_event = {			#SPYMASTER KILLED
+	id = darkages.72600
+	title = EVTNAME1972600
+	desc = {
+		trigger = { has_character_flag = darkages_dip_all }
+		text = EVTDESC1972600_1
+	}
+	desc = {
+		trigger = { NOT = { has_character_flag = darkages_dip_all } }
+		text = EVTDESC1972600_2
+	}	
+	picture = GFX_evt_da_assassination
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972600"
+		
+		prestige = -25
+		
+		job_spymaster = {
+			death = {
+				death_reason = death_murder_unknown
+			}
+		}
+		
+		clr_character_flag = darkages_dip_all		
+
+	}
+	
+	option = {
+		name = "EVTOPTB1972600"
+		
+		treasury = -25
+		prestige = -25
+		piety = 30
+		
+		job_spymaster = {
+			death = {
+				death_reason = death_murder_unknown
+			}
+		}
+		
+		clr_character_flag = darkages_dip_all		
+
+	}	
+	
+	
+}
+
+
+character_event = {			#ATTEMPT ON PLAYER LIFE
+	id = darkages.72601
+	title = EVTNAME1972601
+	desc = EVTDESC1972601
+	picture = GFX_evt_da_assassination
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972601"
+		trigger = { NOT = { trait = craven } }
+		
+		if = {
+			limit = { NOT = { trait = brave } }
+			random = {
+				chance = 75
+				add_trait = brave
+			}
+		}
+		
+		prestige = 75
+		
+		random_list = {
+			3 = {
+				modifier = {
+					factor = 1.75
+					combat_rating = 50
+				}				
+				modifier = {
+					factor = 1.75
+					combat_rating = 75
+				}				
+				modifier = {
+					factor = 2
+					combat_rating = 100
+				}				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP318 }
+			}
+			4 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 10
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 25
+				}			
+				modifier = {
+					factor = 1.5
+					trait = brave
+				}			
+				modifier = {
+					factor = 3
+					trait = duelist
+				}				
+				add_trait = wounded
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP318 }
+			}
+			3 = {
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = 0 }
+				}	
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -10 }
+				}				
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				modifier = {
+					factor = 2
+					NOT = { combat_rating = -30 }
+				}				
+				death = {
+					death_reason = death_murder_unknown
+				}
+				
+			}			
+
+		}
+
+	}
+	
+	option = {
+		name = "EVTOPTB1972601"
+		trigger = { NOT = { trait = brave } }
+		
+		if = {
+			limit = { NOT = { trait = craven } }
+			random = {
+				chance = 75
+				add_trait = craven
+			}
+		}
+		
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 50
+				}				
+				modifier = {
+					factor = 1.25
+					combat_rating = 75
+				}				
+				modifier = {
+					factor = 1.5
+					combat_rating = 100
+				}				
+
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP319 }
+			}
+			4 = {
+				modifier = {
+					factor = 1.2
+					combat_rating = 10
+				}
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}			
+				modifier = {
+					factor = 2
+					trait = duelist
+				}				
+
+				add_trait = wounded
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP319 }
+			}
+			3 = {
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = 0 }
+				}	
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -20 }
+				}				
+				modifier = {
+					factor = 2
+					NOT = { combat_rating = -30 }
+				}				
+
+				death = {
+					death_reason = death_murder_unknown
+				}
+				
+			}			
+
+		}	
+
+	}	
+	
+}
+
+
+
+
+character_event = {			#Court Complaints
+	id = darkages.72602
+	title = EVTNAME1972602
+	desc = EVTDESC1972602
+	picture = GFX_evt_da_scandal
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972602"
+		
+		prestige = -25
+		
+		any_courtier_or_vassal = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_annoyed
+				years = 3
+			}
+		}
+
+	}
+	
+
+}
+
+
+
+####################################################################################################
+###########################################################################################
+#
+#	INVITE TO COURT
+#
+###########################################################################################
+####################################################################################################
+
+character_event = {			#Called from Targeted decision
+	id = darkages.72603
+	title = EVTNAME1972603
+	desc = EVTDESC1972603
+	picture = GFX_evt_da_letter_and_book
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+	
+		FROM = {
+		
+			save_event_target_as = da_invitee
+		
+			liege = {
+				save_event_target_as = da_liege_target
+			}
+		}
+		
+		
+		
+	}
+	
+	option = {	#GOLD
+		name = "EVTOPTA1972603"
+		trigger = { treasury = 50 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP320 }
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72604 }
+		}
+		
+		
+	}
+	
+	option = {	#Prestige
+		name = "EVTOPTB1972603"
+		trigger = { prestige = 100 }		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP321 }
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72605 }
+		}
+	}
+
+	option = {	#Power
+		name = "EVTOPTC1972603"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP322 }
+		
+		set_character_flag = darkages_power
+		
+		hidden_tooltip = {
+		
+			random_list = {
+			
+				3 = {	#YES
+					modifier = {
+						factor = 1.5
+						OR = {
+							AND = {
+								has_education_diplomacy_trigger = yes
+								FROM = { has_education_diplomacy_trigger = yes }
+							}
+							AND = {
+								has_education_martial_trigger = yes
+								FROM = { has_education_martial_trigger = yes }
+							}							
+							AND = {
+								has_education_stewardship_trigger = yes
+								FROM = { has_education_stewardship_trigger = yes }
+							}	
+							AND = {
+								has_education_intrigue_trigger = yes
+								FROM = { has_education_intrigue_trigger = yes }
+							}							
+							AND = {
+								has_education_learning_trigger = yes
+								FROM = { has_education_learning_trigger = yes }
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.33
+						trait = cheerful
+					}
+					modifier = {
+						factor = 1.33
+						prestige = 500
+					}
+					modifier = {
+						factor = 1.33
+						prestige = 1000
+					}					
+					modifier = {
+						factor = 1.33
+						prestige = 2000
+					}					
+					modifier = {
+						factor = 1.33
+						prestige = 4000
+					}					
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.66
+						FROM = { trait = diligent }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { trait = ambitious }
+					}					
+					modifier = {
+						factor = 3
+						FROM = { is_friend = ROOT }
+					}
+					modifier = {
+						factor = 4
+						FROM = { is_lover = ROOT }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 30 } }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 70 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 90 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}	
+
+					letter_event = { id = darkages.72606 days = 23 random = 21 }
+					
+				}
+				2 = {	#NO
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}	
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = humble }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = wary }
+					}	
+					modifier = {
+						factor = 10
+						FROM = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = slothful }
+					}	
+					modifier = {
+						factor = 1.8
+						FROM = { trait = content }
+					}				
+					modifier = {
+						factor = 99
+						FROM = { is_rival = ROOT }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = ROOT value = -27 } } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -53 } } }
+					}	
+					modifier = {
+						factor = 3
+						FROM = { NOT = { opinion = { who = ROOT value = -79 } } }
+					}					
+					modifier = {
+						factor = 4
+						FROM = { NOT = { opinion = { who = ROOT value = -99 } } }
+					}
+					modifier = {
+						factor = 25
+						FROM = { 
+							OR = {
+								father = {
+									NOT = { num_of_titles = 1 }
+								}
+								mother = {
+									NOT = { num_of_titles = 1 }			
+								}
+							}
+						}
+					}					
+
+					letter_event = { id = darkages.72607 days = 23 random = 21 }					
+					
+				}
+			
+			}
+
+		}		
+
+	}
+
+	option = {	#Estates
+		name = "EVTOPTD1972603"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP323 }
+
+		set_character_flag = darkages_estates
+		
+		hidden_tooltip = {
+		
+			random_list = {
+			
+				3 = {	#YES
+					modifier = {
+						factor = 1.5
+						OR = {
+							AND = {
+								has_education_diplomacy_trigger = yes
+								FROM = { has_education_diplomacy_trigger = yes }
+							}
+							AND = {
+								has_education_martial_trigger = yes
+								FROM = { has_education_martial_trigger = yes }
+							}							
+							AND = {
+								has_education_stewardship_trigger = yes
+								FROM = { has_education_stewardship_trigger = yes }
+							}	
+							AND = {
+								has_education_intrigue_trigger = yes
+								FROM = { has_education_intrigue_trigger = yes }
+							}							
+							AND = {
+								has_education_learning_trigger = yes
+								FROM = { has_education_learning_trigger = yes }
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.33
+						trait = cheerful
+					}
+					modifier = {
+						factor = 1.25
+						tier = DUKE
+					}
+					modifier = {
+						factor = 1.25
+						tier = KING
+					}				
+					modifier = {
+						factor = 1.25
+						tier = EMPEROR
+					}					
+					modifier = {
+						factor = 1.35
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { trait = diligent }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = proud }
+					}					
+					modifier = {
+						factor = 3
+						FROM = { is_friend = ROOT }
+					}
+					modifier = {
+						factor = 4
+						FROM = { is_lover = ROOT }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 30 } }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 70 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 90 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}		
+
+					letter_event = { id = darkages.72606 days = 23 random = 21 }
+					
+				}
+				2 = {	#NO
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}	
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = humble }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = wary }
+					}	
+					modifier = {
+						factor = 10
+						FROM = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = slothful }
+					}	
+					modifier = {
+						factor = 1.8
+						FROM = { trait = content }
+					}				
+					modifier = {
+						factor = 99
+						FROM = { is_rival = ROOT }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}	
+					modifier = {
+						factor = 3
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}					
+					modifier = {
+						factor = 4
+						FROM = { NOT = { opinion = { who = ROOT value = -99 } } }
+					}	
+					modifier = {
+						factor = 25
+						FROM = { 
+							OR = {
+								father = {
+									NOT = { num_of_titles = 1 }
+								}
+								mother = {
+									NOT = { num_of_titles = 1 }			
+								}
+							}
+						}
+					}										
+					
+
+					letter_event = { id = darkages.72607 days = 23 random = 21 }					
+					
+				}
+			
+			}
+
+		}
+		
+	}	
+	
+
+}
+
+
+character_event = {			#Amount
+	id = darkages.72604
+	title = EVTNAME1972604
+	desc = EVTDESC1972604
+	picture = GFX_evt_da_letter_and_book
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972604"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP324 }
+		
+		set_character_flag = darkages_gold_1
+		
+		hidden_tooltip = {
+		
+			random_list = {
+			
+				1 = {	#YES
+					modifier = {
+						factor = 1.5
+						OR = {
+							AND = {
+								has_education_diplomacy_trigger = yes
+								FROM = { has_education_diplomacy_trigger = yes }
+							}
+							AND = {
+								has_education_martial_trigger = yes
+								FROM = { has_education_martial_trigger = yes }
+							}							
+							AND = {
+								has_education_stewardship_trigger = yes
+								FROM = { has_education_stewardship_trigger = yes }
+							}	
+							AND = {
+								has_education_intrigue_trigger = yes
+								FROM = { has_education_intrigue_trigger = yes }
+							}							
+							AND = {
+								has_education_learning_trigger = yes
+								FROM = { has_education_learning_trigger = yes }
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.33
+						trait = cheerful
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { trait = diligent }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = ambitious }
+					}					
+					modifier = {
+						factor = 3
+						FROM = { is_friend = ROOT }
+					}
+					modifier = {
+						factor = 4
+						FROM = { is_lover = ROOT }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 30 } }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 70 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 90 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}		
+
+					letter_event = { id = darkages.72606 days = 23 random = 21 }
+					
+				}
+				1 = {	#NO
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}	
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 3
+						FROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = wary }
+					}	
+					modifier = {
+						factor = 10
+						FROM = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = slothful }
+					}	
+					modifier = {
+						factor = 1.8
+						FROM = { trait = content }
+					}				
+					modifier = {
+						factor = 99
+						FROM = { is_rival = ROOT }
+					}
+					modifier = {
+						factor = 2
+						FROM = { is_councillor = yes }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}	
+					modifier = {
+						factor = 3
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}					
+					modifier = {
+						factor = 4
+						FROM = { NOT = { opinion = { who = ROOT value = -99 } } }
+					}
+					modifier = {
+						factor = 25
+						FROM = { 
+							OR = {
+								father = {
+									NOT = { num_of_titles = 1 }
+								}
+								mother = {
+									NOT = { num_of_titles = 1 }			
+								}
+							}
+						}
+					}										
+
+					letter_event = { id = darkages.72607 days = 23 random = 21 }					
+					
+				}
+			
+			}
+
+		}	
+
+	}
+	
+	option = {
+		name = "EVTOPTB1972604"
+		trigger = { treasury = 100 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP324 }		
+		
+		set_character_flag = darkages_gold_2
+		
+		hidden_tooltip = {
+		
+			random_list = {
+			
+				3 = {	#YES
+					modifier = {
+						factor = 1.5
+						OR = {
+							AND = {
+								has_education_diplomacy_trigger = yes
+								FROM = { has_education_diplomacy_trigger = yes }
+							}
+							AND = {
+								has_education_martial_trigger = yes
+								FROM = { has_education_martial_trigger = yes }
+							}							
+							AND = {
+								has_education_stewardship_trigger = yes
+								FROM = { has_education_stewardship_trigger = yes }
+							}	
+							AND = {
+								has_education_intrigue_trigger = yes
+								FROM = { has_education_intrigue_trigger = yes }
+							}							
+							AND = {
+								has_education_learning_trigger = yes
+								FROM = { has_education_learning_trigger = yes }
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.33
+						trait = cheerful
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { trait = diligent }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = ambitious }
+					}					
+					modifier = {
+						factor = 3
+						FROM = { is_friend = ROOT }
+					}
+					modifier = {
+						factor = 4
+						FROM = { is_lover = ROOT }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 30 } }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 70 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 90 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}		
+
+					letter_event = { id = darkages.72606 days = 23 random = 21 }
+					
+				}
+				2 = {	#NO
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}	
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 3
+						FROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = wary }
+					}	
+					modifier = {
+						factor = 10
+						FROM = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = slothful }
+					}	
+					modifier = {
+						factor = 1.8
+						FROM = { trait = content }
+					}				
+					modifier = {
+						factor = 99
+						FROM = { is_rival = ROOT }
+					}
+					modifier = {
+						factor = 2
+						FROM = { is_councillor = yes }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}	
+					modifier = {
+						factor = 3
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}					
+					modifier = {
+						factor = 4
+						FROM = { NOT = { opinion = { who = ROOT value = -99 } } }
+					}	
+					modifier = {
+						factor = 25
+						FROM = { 
+							OR = {
+								father = {
+									NOT = { num_of_titles = 1 }
+								}
+								mother = {
+									NOT = { num_of_titles = 1 }			
+								}
+							}
+						}
+					}					
+					letter_event = { id = darkages.72607 days = 23 random = 21 }					
+					
+				}
+			
+			}
+
+		}	
+
+	}	
+	
+	option = {
+		name = "EVTOPTC1972604"
+		trigger = { treasury = 150 }		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP324 }
+		
+		set_character_flag = darkages_gold_3
+		
+		hidden_tooltip = {
+		
+			random_list = {
+			
+				2 = {	#YES
+					modifier = {
+						factor = 1.5
+						OR = {
+							AND = {
+								has_education_diplomacy_trigger = yes
+								FROM = { has_education_diplomacy_trigger = yes }
+							}
+							AND = {
+								has_education_martial_trigger = yes
+								FROM = { has_education_martial_trigger = yes }
+							}							
+							AND = {
+								has_education_stewardship_trigger = yes
+								FROM = { has_education_stewardship_trigger = yes }
+							}	
+							AND = {
+								has_education_intrigue_trigger = yes
+								FROM = { has_education_intrigue_trigger = yes }
+							}							
+							AND = {
+								has_education_learning_trigger = yes
+								FROM = { has_education_learning_trigger = yes }
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.33
+						trait = cheerful
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { trait = diligent }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = ambitious }
+					}					
+					modifier = {
+						factor = 3
+						FROM = { is_friend = ROOT }
+					}
+					modifier = {
+						factor = 4
+						FROM = { is_lover = ROOT }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 30 } }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 70 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 90 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}		
+
+					letter_event = { id = darkages.72606 days = 23 random = 21 }
+					
+				}
+				1 = {	#NO
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}	
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 3
+						FROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { trait = wary }
+					}	
+					modifier = {
+						factor = 10
+						FROM = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = shy }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { trait = slothful }
+					}	
+					modifier = {
+						factor = 2
+						FROM = { trait = content }
+					}				
+					modifier = {
+						factor = 99
+						FROM = { is_rival = ROOT }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { opinion = { who = event_target:da_liege_target value = 1 } }
+					}
+					modifier = {
+						factor = 1.4
+						FROM = { opinion = { who = event_target:da_liege_target value = 25 } }
+					}					
+					modifier = {
+						factor = 1.7
+						FROM = { opinion = { who = event_target:da_liege_target value = 50 } }
+					}					
+					modifier = {
+						factor = 2
+						FROM = { opinion = { who = event_target:da_liege_target value = 75 } }
+					}
+					modifier = {
+						factor = 3
+						FROM = { opinion = { who = event_target:da_liege_target value = 100 } }
+					}
+					modifier = {
+						factor = 2.5
+						FROM = { is_councillor = yes }
+					}
+					modifier = {
+						factor = 25
+						FROM = { 
+							OR = {
+								father = {
+									NOT = { num_of_titles = 1 }
+								}
+								mother = {
+									NOT = { num_of_titles = 1 }			
+								}
+							}
+						}
+					}					
+					letter_event = { id = darkages.72607 days = 23 random = 21 }					
+					
+				}
+			
+			}
+
+		}		
+
+	}	
+
+	option = {
+		name = "EVTOPTD1972604"
+		trigger = { treasury = 200 }		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP324 }
+		
+		set_character_flag = darkages_gold_4
+		
+		hidden_tooltip = {
+		
+			random_list = {
+			
+				3 = {	#YES
+					modifier = {
+						factor = 1.5
+						OR = {
+							AND = {
+								has_education_diplomacy_trigger = yes
+								FROM = { has_education_diplomacy_trigger = yes }
+							}
+							AND = {
+								has_education_martial_trigger = yes
+								FROM = { has_education_martial_trigger = yes }
+							}							
+							AND = {
+								has_education_stewardship_trigger = yes
+								FROM = { has_education_stewardship_trigger = yes }
+							}	
+							AND = {
+								has_education_intrigue_trigger = yes
+								FROM = { has_education_intrigue_trigger = yes }
+							}							
+							AND = {
+								has_education_learning_trigger = yes
+								FROM = { has_education_learning_trigger = yes }
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.33
+						trait = cheerful
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { trait = diligent }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = ambitious }
+					}					
+					modifier = {
+						factor = 3
+						FROM = { is_friend = ROOT }
+					}
+					modifier = {
+						factor = 4
+						FROM = { is_lover = ROOT }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = 0 } } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -24 } } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -49 } } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -74 } } }
+					}					
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -99 } } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 25 } }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 50 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 75 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}	
+
+					letter_event = { id = darkages.72606 days = 23 random = 21 }
+					
+				}
+				1 = {	#NO
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}	
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 4
+						FROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = wary }
+					}	
+					modifier = {
+						factor = 10
+						FROM = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { trait = shy }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = slothful }
+					}	
+					modifier = {
+						factor = 2.5
+						FROM = { trait = content }
+					}				
+					modifier = {
+						factor = 99
+						FROM = { is_rival = ROOT }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = event_target:da_liege_target value = 1 } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { opinion = { who = event_target:da_liege_target value = 25 } }
+					}					
+					modifier = {
+						factor = 2
+						FROM = { opinion = { who = event_target:da_liege_target value = 50 } }
+					}					
+					modifier = {
+						factor = 4
+						FROM = { opinion = { who = event_target:da_liege_target value = 75 } }
+					}
+					modifier = {
+						factor = 5
+						FROM = { opinion = { who = event_target:da_liege_target value = 100 } }
+					}
+					modifier = {
+						factor = 3
+						FROM = { is_councillor = yes }
+					}
+					modifier = {
+						factor = 25
+						FROM = { 
+							OR = {
+								father = {
+									NOT = { num_of_titles = 1 }
+								}
+								mother = {
+									NOT = { num_of_titles = 1 }			
+								}
+							}
+						}
+					}					
+
+					letter_event = { id = darkages.72607 days = 23 random = 21 }					
+					
+				}
+			
+			}
+
+		}		
+
+	}	
+
+}
+
+
+character_event = {			#GIVE PRESTIGE
+	id = darkages.72605
+	title = EVTNAME1972605
+	desc = EVTDESC1972605
+	picture = GFX_evt_da_scandal
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972605"
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP325 }
+		
+		set_character_flag = darkages_prestige_1
+		
+		hidden_tooltip = {
+		
+			random_list = {
+			
+				1 = {	#YES
+					modifier = {
+						factor = 1.5
+						OR = {
+							AND = {
+								has_education_diplomacy_trigger = yes
+								FROM = { has_education_diplomacy_trigger = yes }
+							}
+							AND = {
+								has_education_martial_trigger = yes
+								FROM = { has_education_martial_trigger = yes }
+							}							
+							AND = {
+								has_education_stewardship_trigger = yes
+								FROM = { has_education_stewardship_trigger = yes }
+							}	
+							AND = {
+								has_education_intrigue_trigger = yes
+								FROM = { has_education_intrigue_trigger = yes }
+							}							
+							AND = {
+								has_education_learning_trigger = yes
+								FROM = { has_education_learning_trigger = yes }
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.33
+						trait = cheerful
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { trait = diligent }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = ambitious }
+					}
+					modifier = {
+						factor = 1.33
+						tier = DUKE
+					}
+					modifier = {
+						factor = 1.5
+						tier = KING
+					}				
+					modifier = {
+						factor = 1.75
+						tier = EMPEROR
+					}					
+					modifier = {
+						factor = 3
+						FROM = { is_friend = ROOT }
+					}
+					modifier = {
+						factor = 4
+						FROM = { is_lover = ROOT }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = 0 } } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -24 } } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -49 } } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -74 } } }
+					}					
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -99 } } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 25 } }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 50 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 75 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}	
+
+					letter_event = { id = darkages.72606 days = 23 random = 21 }
+					
+				}
+				1 = {	#NO
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}	
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 3
+						FROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = wary }
+					}	
+					modifier = {
+						factor = 10
+						FROM = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = slothful }
+					}	
+					modifier = {
+						factor = 1.8
+						FROM = { trait = content }
+					}				
+					modifier = {
+						factor = 99
+						FROM = { is_rival = ROOT }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { opinion = { who = event_target:da_liege_target value = 1 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = event_target:da_liege_target value = 25 } }
+					}					
+					modifier = {
+						factor = 1.35
+						FROM = { opinion = { who = event_target:da_liege_target value = 50 } }
+					}					
+					modifier = {
+						factor = 1.5
+						FROM = { opinion = { who = event_target:da_liege_target value = 75 } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { opinion = { who = event_target:da_liege_target value = 100 } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { is_councillor = yes }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}	
+					modifier = {
+						factor = 3
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}					
+					modifier = {
+						factor = 4
+						FROM = { NOT = { opinion = { who = ROOT value = -99 } } }
+					}	
+					modifier = {
+						factor = 25
+						FROM = { 
+							OR = {
+								father = {
+									num_of_titles = 1
+								}
+								mother = {
+									num_of_titles = 1
+								}
+							}
+						}
+					}					
+					letter_event = { id = darkages.72607 days = 23 random = 21 }					
+					
+				}
+			
+			}
+
+		}		
+
+	}	
+	
+	
+	option = {
+		name = "EVTOPTB1972605"
+		trigger = { prestige = 200 }		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP325 }
+		
+		set_character_flag = darkages_prestige_2
+		
+		hidden_tooltip = {
+		
+			random_list = {
+			
+				3 = {	#YES
+					modifier = {
+						factor = 1.5
+						OR = {
+							AND = {
+								has_education_diplomacy_trigger = yes
+								FROM = { has_education_diplomacy_trigger = yes }
+							}
+							AND = {
+								has_education_martial_trigger = yes
+								FROM = { has_education_martial_trigger = yes }
+							}							
+							AND = {
+								has_education_stewardship_trigger = yes
+								FROM = { has_education_stewardship_trigger = yes }
+							}	
+							AND = {
+								has_education_intrigue_trigger = yes
+								FROM = { has_education_intrigue_trigger = yes }
+							}							
+							AND = {
+								has_education_learning_trigger = yes
+								FROM = { has_education_learning_trigger = yes }
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.33
+						trait = cheerful
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { trait = diligent }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = ambitious }
+					}
+					modifier = {
+						factor = 1.33
+						tier = DUKE
+					}
+					modifier = {
+						factor = 1.5
+						tier = KING
+					}				
+					modifier = {
+						factor = 1.75
+						tier = EMPEROR
+					}					
+					modifier = {
+						factor = 3
+						FROM = { is_friend = ROOT }
+					}
+					modifier = {
+						factor = 4
+						FROM = { is_lover = ROOT }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = 0 } } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -24 } } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -49 } } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -74 } } }
+					}					
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -99 } } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 25 } }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 50 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 75 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}	
+
+					letter_event = { id = darkages.72606 days = 23 random = 21 }
+					
+				}
+				2 = {	#NO
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}	
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 3
+						FROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = wary }
+					}	
+					modifier = {
+						factor = 10
+						FROM = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = slothful }
+					}	
+					modifier = {
+						factor = 1.8
+						FROM = { trait = content }
+					}				
+					modifier = {
+						factor = 99
+						FROM = { is_rival = ROOT }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { opinion = { who = event_target:da_liege_target value = 1 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = event_target:da_liege_target value = 25 } }
+					}					
+					modifier = {
+						factor = 1.35
+						FROM = { opinion = { who = event_target:da_liege_target value = 50 } }
+					}					
+					modifier = {
+						factor = 1.5
+						FROM = { opinion = { who = event_target:da_liege_target value = 75 } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { opinion = { who = event_target:da_liege_target value = 100 } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { is_councillor = yes }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}	
+					modifier = {
+						factor = 3
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}					
+					modifier = {
+						factor = 4
+						FROM = { NOT = { opinion = { who = ROOT value = -99 } } }
+					}	
+					modifier = {
+						factor = 25
+						FROM = { 
+							OR = {
+								father = {
+									num_of_titles = 1
+								}
+								mother = {
+									num_of_titles = 1
+								}
+							}
+						}
+					}					
+					letter_event = { id = darkages.72607 days = 23 random = 21 }					
+					
+				}
+			
+			}
+
+		}		
+
+	}
+
+	option = {
+		name = "EVTOPTC1972605"
+		trigger = { prestige = 300 }		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP325 }	
+		
+		set_character_flag = darkages_prestige_3
+		
+		hidden_tooltip = {
+		
+			random_list = {
+			
+				9 = {	#YES
+					modifier = {
+						factor = 1.5
+						OR = {
+							AND = {
+								has_education_diplomacy_trigger = yes
+								FROM = { has_education_diplomacy_trigger = yes }
+							}
+							AND = {
+								has_education_martial_trigger = yes
+								FROM = { has_education_martial_trigger = yes }
+							}							
+							AND = {
+								has_education_stewardship_trigger = yes
+								FROM = { has_education_stewardship_trigger = yes }
+							}	
+							AND = {
+								has_education_intrigue_trigger = yes
+								FROM = { has_education_intrigue_trigger = yes }
+							}							
+							AND = {
+								has_education_learning_trigger = yes
+								FROM = { has_education_learning_trigger = yes }
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.33
+						trait = cheerful
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { trait = diligent }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = ambitious }
+					}
+					modifier = {
+						factor = 1.33
+						tier = DUKE
+					}
+					modifier = {
+						factor = 1.5
+						tier = KING
+					}				
+					modifier = {
+						factor = 1.75
+						tier = EMPEROR
+					}					
+					modifier = {
+						factor = 3
+						FROM = { is_friend = ROOT }
+					}
+					modifier = {
+						factor = 4
+						FROM = { is_lover = ROOT }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = 0 } } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -24 } } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -49 } } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -74 } } }
+					}					
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -99 } } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 25 } }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 50 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 75 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}	
+
+					letter_event = { id = darkages.72606 days = 23 random = 21 }
+					
+				}
+				4 = {	#NO
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}	
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 3
+						FROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = wary }
+					}	
+					modifier = {
+						factor = 10
+						FROM = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = slothful }
+					}	
+					modifier = {
+						factor = 1.8
+						FROM = { trait = content }
+					}				
+					modifier = {
+						factor = 99
+						FROM = { is_rival = ROOT }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { opinion = { who = event_target:da_liege_target value = 1 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = event_target:da_liege_target value = 25 } }
+					}					
+					modifier = {
+						factor = 1.35
+						FROM = { opinion = { who = event_target:da_liege_target value = 50 } }
+					}					
+					modifier = {
+						factor = 1.5
+						FROM = { opinion = { who = event_target:da_liege_target value = 75 } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { opinion = { who = event_target:da_liege_target value = 100 } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { is_councillor = yes }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}	
+					modifier = {
+						factor = 3
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}					
+					modifier = {
+						factor = 4
+						FROM = { NOT = { opinion = { who = ROOT value = -99 } } }
+					}	
+					modifier = {
+						factor = 25
+						FROM = { 
+							OR = {
+								father = {
+									num_of_titles = 1
+								}
+								mother = {
+									num_of_titles = 1
+								}
+							}
+						}
+					}					
+					letter_event = { id = darkages.72607 days = 23 random = 21 }					
+					
+				}
+			
+			}
+
+		}		
+
+	}	
+
+	option = {
+		name = "EVTOPTD1972605"
+		trigger = { prestige = 400 }		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP325 }
+		
+		set_character_flag = darkages_prestige_4
+		
+		hidden_tooltip = {
+		
+			random_list = {
+			
+				3 = {	#YES
+					modifier = {
+						factor = 1.5
+						OR = {
+							AND = {
+								has_education_diplomacy_trigger = yes
+								FROM = { has_education_diplomacy_trigger = yes }
+							}
+							AND = {
+								has_education_martial_trigger = yes
+								FROM = { has_education_martial_trigger = yes }
+							}							
+							AND = {
+								has_education_stewardship_trigger = yes
+								FROM = { has_education_stewardship_trigger = yes }
+							}	
+							AND = {
+								has_education_intrigue_trigger = yes
+								FROM = { has_education_intrigue_trigger = yes }
+							}							
+							AND = {
+								has_education_learning_trigger = yes
+								FROM = { has_education_learning_trigger = yes }
+							}							
+						}
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}
+					modifier = {
+						factor = 1.33
+						trait = cheerful
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = greedy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = trusting }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { trait = diligent }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = ambitious }
+					}
+					modifier = {
+						factor = 1.33
+						tier = DUKE
+					}
+					modifier = {
+						factor = 1.5
+						tier = KING
+					}				
+					modifier = {
+						factor = 1.75
+						tier = EMPEROR
+					}					
+					modifier = {
+						factor = 3
+						FROM = { is_friend = ROOT }
+					}
+					modifier = {
+						factor = 4
+						FROM = { is_lover = ROOT }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = 0 } } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -24 } } }
+					}
+					modifier = {
+						factor = 1.35
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -49 } } }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -74 } } }
+					}					
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = event_target:da_liege_target value = -99 } } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 25 } }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 50 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 75 } }
+					}					
+					modifier = {
+						factor = 1.33
+						FROM = { opinion = { who = ROOT value = 100 } }
+					}	
+
+					letter_event = { id = darkages.72606 days = 23 random = 21 }
+					
+				}
+				1 = {	#NO
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}	
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}					
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}
+					modifier = {
+						factor = 3
+						FROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = wary }
+					}	
+					modifier = {
+						factor = 10
+						FROM = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.33
+						FROM = { trait = shy }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = slothful }
+					}	
+					modifier = {
+						factor = 1.8
+						FROM = { trait = content }
+					}				
+					modifier = {
+						factor = 99
+						FROM = { is_rival = ROOT }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { opinion = { who = event_target:da_liege_target value = 1 } }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { opinion = { who = event_target:da_liege_target value = 25 } }
+					}					
+					modifier = {
+						factor = 1.35
+						FROM = { opinion = { who = event_target:da_liege_target value = 50 } }
+					}					
+					modifier = {
+						factor = 1.5
+						FROM = { opinion = { who = event_target:da_liege_target value = 75 } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { opinion = { who = event_target:da_liege_target value = 100 } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { is_councillor = yes }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
+					}	
+					modifier = {
+						factor = 3
+						FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+					}					
+					modifier = {
+						factor = 4
+						FROM = { NOT = { opinion = { who = ROOT value = -99 } } }
+					}	
+					modifier = {
+						factor = 25
+						FROM = { 
+							OR = {
+								father = {
+									num_of_titles = 1
+								}
+								mother = {
+									num_of_titles = 1
+								}
+							}
+						}
+					}					
+					letter_event = { id = darkages.72607 days = 23 random = 21 }					
+					
+				}
+			
+			}
+
+		}		
+
+	}		
+
+}
+
+letter_event = {	#Success
+	id = darkages.72606
+	desc = EVTDESC72606
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = EVTOPTA72606
+		
+		treasury = -15
+		
+		
+		
+		if = {
+			limit = {
+				has_character_flag = darkages_power
+			}
+			
+			add_character_modifier = {
+				name = da_power_concession
+				duration = 3650
+			}
+			
+			
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = darkages_estates
+			}
+			
+			add_character_modifier = {
+				name = da_estates_g
+				duration = 3650
+			}
+				
+			
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_flag = darkages_gold_1
+			}
+			
+			treasury = -50
+				
+
+			
+		}	
+		
+		if = {
+			limit = {
+				has_character_flag = darkages_gold_2
+			}
+			
+			treasury = -100
+				
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_flag = darkages_gold_3
+			}
+			
+			treasury = -150
+		
+			
+		}	
+
+		if = {
+			limit = {
+				has_character_flag = darkages_gold_4
+			}
+			
+			treasury = -200
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_flag = darkages_prestige_1
+			}
+			
+			prestige = -100
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_flag = darkages_prestige_2
+			}
+			
+			prestige = -200
+		
+		}			
+
+		
+		if = {
+			limit = {
+				has_character_flag = darkages_prestige_3
+			}
+			
+			prestige = -300
+		
+		}	
+
+		if = {
+			limit = {
+				has_character_flag = darkages_prestige_4
+			}
+			
+			prestige = -400
+		
+		}			
+
+		event_target:da_invitee = {
+			move_character = ROOT
+		}		
+		
+		clr_character_flag = darkages_estates
+		clr_character_flag = darkages_power		
+		
+		clr_character_flag = darkages_gold_1
+		clr_character_flag = darkages_gold_2
+		clr_character_flag = darkages_gold_3
+		clr_character_flag = darkages_gold_4		
+		
+		clr_character_flag = darkages_prestige_1
+		clr_character_flag = darkages_prestige_2
+		clr_character_flag = darkages_prestige_3
+		clr_character_flag = darkages_prestige_4
+		
+	}
+}
+
+
+
+letter_event = {
+	id = darkages.72607
+	
+	desc = {
+		trigger = { has_character_flag = darkages_1 }
+		text = EVTDESC72607_1
+	}
+	
+	desc = {
+		trigger = { has_character_flag = darkages_2 }
+		text = EVTDESC72607_2
+	}
+
+	desc = {
+		trigger = { has_character_flag = darkages_3 }
+		text = EVTDESC72607_3
+	}
+
+	desc = {
+		trigger = { has_character_flag = darkages_4 }
+		text = EVTDESC72607_4
+	}	
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+		random_list = {
+		
+			1 = {
+				set_character_flag = darkages_1
+			}
+			
+			1 = {
+				set_character_flag = darkages_2
+			}
+			
+			1 = {
+				set_character_flag = darkages_3
+			}
+			
+			1 = {
+				set_character_flag = darkages_4
+			}
+	
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA72607
+		
+		prestige = -40
+		
+		event_target:da_invitee = {
+			add_character_modifier = {
+				name = da_refusal_invited
+				duration = 3650
+				hidden = yes
+			}
+		}
+		
+		clr_character_flag = darkages_estates
+		clr_character_flag = darkages_power		
+		
+		clr_character_flag = darkages_gold_1
+		clr_character_flag = darkages_gold_2
+		clr_character_flag = darkages_gold_3
+		clr_character_flag = darkages_gold_4		
+		
+		clr_character_flag = darkages_prestige_1
+		clr_character_flag = darkages_prestige_2
+		clr_character_flag = darkages_prestige_3
+		clr_character_flag = darkages_prestige_4
+		
+	}
+	
+	
+}
+
+
+
+
+
+###########################################################################################
+#####################################################################################################
+##################################################################################################################
+#
+#	BUY FAVOR
+#
+##################################################################################################################
+######################################################################################################
+############################################################################################
+
+
+
+
+character_event = { 		#Pick the strategy (called from targeted decision)
+	id = darkages.72692
+	title = EVTNAME1972692
+	desc = EVTDESC1972692
+	picture = GFX_evt_da_conversation
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		FROM = {
+			save_event_target_as = da_buy_favour_target
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972692	#Use Diplomacy
+		trigger = { 
+			NOR = {
+				NOT = { diplomacy = 1 }
+				NOT = { martial = 1 }
+				NOT = { stewardship = 1 }
+				NOT = { intrigue = 1 }
+				NOT = { learning = 1 }				
+			}
+		
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP371 }
+		
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {	#Success
+					modifier = {
+						factor = 1.25
+						has_education_diplomacy_trigger = yes
+					}
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}	
+					modifier = {
+						factor = 2
+						trait = socializer
+					}
+					modifier = {
+						factor = 1.25
+						trait = cheerful
+					}	
+					modifier = {
+						factor = 1.35
+						trait = gregarious
+					}
+					modifier = {
+						factor = 1.5
+						trait = trusting
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = arbitrary }
+					}
+					character_event = { id = darkages.72693 days = 4 random = 15 }
+					
+				}
+				1 = {	#Failure
+					modifier = {
+						factor = 3
+						FROM = { trait = honest }
+					}
+					modifier = {
+						factor = 4
+						FROM = { trait = just }
+					}					
+					modifier = {
+						factor = 2
+						FROM = { trait = wary }
+					}					
+					modifier = {
+						factor = 1.5
+						FROM = { trait = craven }
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { trait = dour }
+					}					
+					modifier = {
+						factor = 1.25
+						has_education_diplomacy_trigger = no
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { diplomacy = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { diplomacy = 6 }
+					}				
+					modifier = {
+						factor = 1.5
+						NOT = { diplomacy = 4 }
+					}				
+					modifier = {
+						factor = 1.75
+						NOT = { diplomacy = 2 }
+					}	
+					modifier = {
+						factor = 1.5
+						trait = shy
+					}	
+					
+					character_event = { id = darkages.72694 days = 4 random = 15 }
+					
+				}				
+			}
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972692	#Use Stewardship
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP372 }
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72695 }
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTC1972692	#Use Learning
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP373 }
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {	#Success
+					modifier = {
+						factor = 1.25
+						has_education_learning_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { has_education_learning_trigger = yes }
+					}					
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.35
+						learning = 15
+					}				
+					modifier = {
+						factor = 1.5
+						learning = 18
+					}				
+					modifier = {
+						factor = 1.75
+						learning = 21
+					}					
+					modifier = {
+						factor = 1.25
+						trait = mystic
+					}
+					modifier = {
+						factor = 1.75
+						trait = scholar
+					}
+					modifier = {
+						factor = 1.5
+						trait = tutor
+					}
+					modifier = {
+						factor = 1.25
+						FROM = { trait = mystic }
+					}					
+					modifier = {
+						factor = 1.75
+						FROM = { trait = scholar }
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { trait = tutor }
+					}
+					modifier = {
+						factor = 1.5
+						trait = diligent
+					}
+					
+					character_event = { id = darkages.72696 days = 4 random = 15 }					
+					
+				}
+				1 = {	#Failure
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { learning = 6 }
+					}					
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 4 }
+					}
+					modifier = {
+						factor = 1.75
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						trait = slothful
+					}
+					modifier = {
+						factor = 1.75
+						trait = wroth
+					}					
+					modifier = {
+						factor = 1.5
+						FROM = { trait = slothful }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { trait = wroth }
+					}					
+					
+					
+					character_event = { id = darkages.72697 days = 4 random = 15 }
+					
+				}
+			}
+		
+		}
+	}	
+	
+	option = {
+		name = EVTOPTD1972692	#Use Intrigue
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP374 }
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {	#Success
+					modifier = {
+						factor = 1.5
+						has_education_intrigue_trigger = yes
+					}
+					modifier = {
+						factor = 1.25
+						intrigue = 12
+					}
+					modifier = {
+						factor = 1.35
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 18
+					}
+					modifier = {
+						factor = 1.75
+						intrigue = 21
+					}	
+					modifier = {
+						factor = 2.5
+						trait = deceitful
+					}					
+					modifier = {
+						factor = 1.75
+						trait = shrewd
+					}
+					modifier = {
+						factor = 1.5
+						trait = bright
+					}
+					modifier = {
+						factor = 1.75
+						trait = quick
+					}				
+					modifier = {
+						factor = 2
+						trait = genius
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.5
+						FROM = { trait = dim }
+					}									
+					modifier = {
+						factor = 1.75
+						FROM = { trait = slow }
+					}
+					modifier = {
+						factor = 2
+						FROM = { trait = imbecile }
+					}
+					
+					character_event = { id = darkages.72698 days = 4 random = 15 }
+					
+				}
+				2 = {	#Failure
+					modifier = {
+						factor = 1.75
+						FROM = { trait = shrewd }
+					}				
+					modifier = {
+						factor = 1.5
+						FROM = { trait = bright }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { trait = quick }
+					}				
+					modifier = {
+						factor = 2
+						FROM = { trait = genius }
+					}
+					modifier = {
+						factor = 1.75
+						trait = dull
+					}					
+					modifier = {
+						factor = 1.5
+						trait = dim
+					}									
+					modifier = {
+						factor = 1.75
+						trait = slow
+					}
+					modifier = {
+						factor = 2
+						trait = imbecile
+					}
+					modifier = {
+						factor = 2.5
+						trait = honest
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { intrigue = 8 }
+					}
+					modifier = {
+						factor = 1.35
+						NOT = { intrigue = 6 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { intrigue = 4 }
+					}
+					modifier = {
+						factor = 1.75
+						NOT = { intrigue = 2 }
+					}
+
+					character_event = { id = darkages.72699 days = 4 random = 15 }
+				}
+			}
+		
+		}
+		
+		
+	}
+	
+	
+}
+
+
+character_event = { 		#SUCCESS DIPLOMACY
+	id = darkages.72693
+	title = EVTNAME1972693
+	desc = EVTDESC1972693
+	picture = GFX_evt_da_conversation
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+		random_list = {
+			1 = {
+				set_character_flag = darkages_a
+			}
+			1 = {
+				set_character_flag = darkages_b
+			}
+			
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972693
+		trigger = { has_character_flag = darkages_a }
+		
+		add_character_modifier = {
+			name = da_favour_diplomacy_1
+			duration = 1825
+			stacking = yes
+		}
+
+		add_favor = FROMFROM
+
+	}
+	
+	option = {
+		name = EVTOPTA1972693
+		trigger = { has_character_flag = darkages_b }
+		
+		add_character_modifier = {
+			name = da_favour_diplomacy_2
+			duration = 1825
+			stacking = yes
+		}
+
+		add_favor = FROMFROM
+
+	}	
+
+	option = {
+		name = EVTOPTB1972693
+		
+	}	
+	
+	after = {
+		set_character_flag = darkages_a
+		set_character_flag = darkages_b
+	}
+	
+}
+
+
+character_event = { 		#FAILURE DIPLOMACY
+	id = darkages.72694
+	title = EVTNAME1972694
+	desc = EVTDESC1972694
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+	
+
+	}
+	
+	option = {
+		name = EVTOPTA1972694
+
+	}
+	
+}
+
+character_event = { 		#DECIDE HOW MUCH TO OFFER
+	id = darkages.72695
+	title = EVTNAME1972695
+	desc = EVTDESC1972695
+	picture = GFX_evt_da_gold_chest
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+	
+
+	}
+	
+	option = {
+		name = EVTOPTA1972695	#25
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP375 }
+		
+		set_character_flag = da_favour_1
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				3 = {	#Success
+					modifier = {
+						factor = 1.25
+						has_education_stewardship_trigger = yes
+					}				
+					modifier = {
+						factor = 1.25
+						stewardship = 12
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 15
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 18
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 21
+					}										
+					modifier = {
+						factor = 1.75
+						trait = administrator
+					}
+					modifier = {
+						factor = 1.5
+						trait = trusting
+					}					
+					modifier = {
+						factor = 1.5
+						trait = greedy
+					}
+					modifier = {
+						factor = 1.25
+						trait = cheerful
+					}					
+					character_event = { id = darkages.72700 days = 4 random = 15 }
+				
+				}
+				
+				7 = { #Failure
+					modifier = {
+						factor = 3
+						FROMFROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 2
+						FROMFROM = { trait = wary }
+					}
+					modifier = {
+						factor = 5
+						FROMFROM = { trait = paranoid }
+					}					
+					modifier = {
+						factor = 2
+						FROMFROM = { tier = COUNT }
+					}	
+					modifier = {
+						factor = 3
+						FROMFROM = { tier = DUKE }
+					}				
+					modifier = {
+						factor = 4
+						FROMFROM = { tier = KING }
+					}				
+					modifier = {
+						factor = 5
+						FROMFROM = { tier = EMPEROR }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { stewardship = 8 }
+					}						
+					modifier = {
+						factor = 1.35
+						NOT = { stewardship = 6 }
+					}	
+					modifier = {
+						factor = 1.5
+						NOT = { stewardship = 4 }
+					}	
+					modifier = {
+						factor = 1.75
+						NOT = { stewardship = 2 }
+					}						
+
+					character_event = { id = darkages.72701 days = 4 random = 15 }
+					
+				}
+			
+			}
+		
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972695	#75
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP375 }
+				
+		set_character_flag = da_favour_2
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				2 = {	#Success
+					modifier = {
+						factor = 1.25
+						has_education_stewardship_trigger = yes
+					}				
+					modifier = {
+						factor = 1.25
+						stewardship = 12
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 15
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 18
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 21
+					}										
+					modifier = {
+						factor = 1.75
+						trait = administrator
+					}
+					modifier = {
+						factor = 1.5
+						trait = trusting
+					}					
+					modifier = {
+						factor = 1.5
+						trait = greedy
+					}
+					modifier = {
+						factor = 1.25
+						trait = cheerful
+					}
+					
+					
+					character_event = { id = darkages.72700 days = 4 random = 15 }
+				
+				}
+				
+				3 = { #Failure
+					modifier = {
+						factor = 2.5
+						FROMFROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 2
+						FROMFROM = { trait = wary }
+					}
+					modifier = {
+						factor = 5
+						FROMFROM = { trait = paranoid }
+					}					
+					modifier = {
+						factor = 2
+						FROMFROM = { tier = DUKE }
+					}				
+					modifier = {
+						factor = 3
+						FROMFROM = { tier = KING }
+					}				
+					modifier = {
+						factor = 4
+						FROMFROM = { tier = EMPEROR }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { stewardship = 8 }
+					}						
+					modifier = {
+						factor = 1.35
+						NOT = { stewardship = 6 }
+					}	
+					modifier = {
+						factor = 1.5
+						NOT = { stewardship = 4 }
+					}	
+					modifier = {
+						factor = 1.75
+						NOT = { stewardship = 2 }
+					}						
+
+					character_event = { id = darkages.72701 days = 4 random = 15 }
+					
+				}
+			
+			}
+		
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTC1972695	#250
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP375 }
+				
+		set_character_flag = da_favour_3
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {	#Success
+					modifier = {
+						factor = 1.25
+						has_education_stewardship_trigger = yes
+					}				
+					modifier = {
+						factor = 1.25
+						stewardship = 12
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 15
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 18
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 21
+					}										
+					modifier = {
+						factor = 1.75
+						trait = administrator
+					}
+					modifier = {
+						factor = 1.5
+						trait = trusting
+					}					
+					modifier = {
+						factor = 1.5
+						trait = greedy
+					}
+					modifier = {
+						factor = 1.25
+						trait = cheerful
+					}										
+					character_event = { id = darkages.72700 days = 4 random = 15 }
+				
+				}
+				
+				1 = { #Failure
+					modifier = {
+						factor = 2
+						FROMFROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 2
+						FROMFROM = { trait = wary }
+					}
+					modifier = {
+						factor = 5
+						FROMFROM = { trait = paranoid }
+					}					
+					modifier = {
+						factor = 2
+						FROMFROM = { tier = KING }
+					}				
+					modifier = {
+						factor = 3
+						FROMFROM = { tier = EMPEROR }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { stewardship = 8 }
+					}						
+					modifier = {
+						factor = 1.35
+						NOT = { stewardship = 6 }
+					}	
+					modifier = {
+						factor = 1.5
+						NOT = { stewardship = 4 }
+					}	
+					modifier = {
+						factor = 1.75
+						NOT = { stewardship = 2 }
+					}						
+					character_event = { id = darkages.72701 days = 4 random = 15 }
+					
+				}
+			
+			}
+		
+		}
+		
+	}
+
+	option = {
+		name = EVTOPTD1972695	#500
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP375 }
+				
+		set_character_flag = da_favour_4
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				2 = {	#Success
+					modifier = {
+						factor = 1.25
+						has_education_stewardship_trigger = yes
+					}				
+					modifier = {
+						factor = 1.25
+						stewardship = 12
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 15
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 18
+					}					
+					modifier = {
+						factor = 1.25
+						stewardship = 21
+					}										
+					modifier = {
+						factor = 1.75
+						trait = administrator
+					}
+					modifier = {
+						factor = 1.5
+						trait = trusting
+					}					
+					modifier = {
+						factor = 1.5
+						trait = greedy
+					}
+					modifier = {
+						factor = 1.25
+						trait = cheerful
+					}										
+					character_event = { id = darkages.72700 days = 4 random = 15 }
+				
+				}
+				
+				1 = { #Failure
+					modifier = {
+						factor = 2
+						FROMFROM = { trait = charitable }
+					}
+					modifier = {
+						factor = 2
+						FROMFROM = { trait = wary }
+					}
+					modifier = {
+						factor = 5
+						FROMFROM = { trait = paranoid }
+					}					
+					modifier = {
+						factor = 1.25
+						NOT = { stewardship = 8 }
+					}						
+					modifier = {
+						factor = 1.35
+						NOT = { stewardship = 6 }
+					}	
+					modifier = {
+						factor = 1.5
+						NOT = { stewardship = 4 }
+					}	
+					modifier = {
+						factor = 1.75
+						NOT = { stewardship = 2 }
+					}						
+
+					character_event = { id = darkages.72701 days = 4 random = 15 }
+					
+				}
+			
+			}
+		
+		}
+		
+	}
+	
+}
+
+character_event = { 		#SUCCESS CULTURE
+	id = darkages.72696
+	title = EVTNAME1972696
+	desc = EVTDESC1972696
+	picture = GFX_evt_da_conversation
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+		random_list = {
+			1 = {
+				set_character_flag = darkages_a
+			}
+			1 = {
+				set_character_flag = darkages_b
+			}
+			
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972696
+		trigger = { has_character_flag = darkages_a }
+		
+		transfer_scaled_wealth = { to = FROMFROM value = 0.10 min = 10 max = 30 } 
+
+		add_favor = FROMFROM
+
+	}
+	
+	option = {
+		name = EVTOPTA1972696
+		trigger = { has_character_flag = darkages_b }
+		
+		transfer_scaled_wealth = { to = FROMFROM value = 0.20 min = 20 max = 50 } 
+
+		add_favor = FROMFROM
+
+	}	
+
+	option = {
+		name = EVTOPTB1972696
+		
+	}	
+	
+	after = {
+		set_character_flag = darkages_a
+		set_character_flag = darkages_b
+	}
+	
+}
+
+character_event = { 		#Failure CULTURAL
+	id = darkages.72697
+	title = EVTNAME1972697
+	desc = EVTDESC1972697
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+	
+
+	}
+	
+	option = {
+		name = EVTOPTA1972697
+
+	}
+	
+}
+
+
+character_event = { 		#SUCCESS INTRIGUE
+	id = darkages.72698
+	title = EVTNAME1972698
+	desc = EVTDESC1972698
+	picture = GFX_evt_da_spymaster
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972698
+		trigger = { has_character_flag = darkages_b }
+		
+		add_favor = FROMFROM
+		
+		if = {
+			limit = {
+				NOT = { lifestyle_traits = 1 }
+				NOT = { trait = silver_tongue }
+				NOT = { has_character_flag = da_refused_silver_tongue }
+			}
+			hidden_tooltip = {
+				random = {
+					chance = 5
+					modifier = {
+						factor = 1.25
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 1.35
+						diplomacy = 15
+					}				
+					modifier = {
+						factor = 1.5
+						diplomacy = 18
+					}				
+					modifier = {
+						factor = 1.75
+						diplomacy = 21
+					}				
+					character_event = { id = darkages.72702 }
+				}
+			}
+		}
+
+	}	
+
+}
+
+character_event = { 		#Failure INTRIGUE
+	id = darkages.72699
+	title = EVTNAME1972699
+	desc = EVTDESC1972699
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+	
+
+	}
+	
+	option = {
+		name = EVTOPTA1972699
+
+		FROMFROM = {
+			opinion = {
+				modifier = da_opinion_cheater
+				who = ROOT
+				months = 60
+			}
+		}
+		
+		random = {
+			chance = 10
+			modifier = {
+				factor = 1.25
+				NOT = { diplomacy = 8 }
+			}
+			modifier = {
+				factor = 1.35
+				NOT = { diplomacy = 6 }
+			}				
+			modifier = {
+				factor = 1.5
+				NOT = { diplomacy = 4 }
+			}				
+			modifier = {
+				factor = 1.75
+				NOT = { diplomacy = 2 }
+			}	
+			
+			add_rival = FROMFROM
+			
+		}
+
+	}
+	
+}
+
+
+character_event = { 		#Success Stewardship
+	id = darkages.72700
+	title = EVTNAME1972700
+	desc = EVTDESC1972700
+	picture = GFX_evt_da_private_discussion
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+	
+
+	}
+	
+	option = {
+		name = EVTOPTA1972700
+		trigger = { has_character_flag = da_favour_1 }
+
+		treasury = -25
+
+		event_target:da_buy_favour_target = {
+			treasury = 25
+		}
+
+		add_favor = event_target:da_buy_favour_target
+
+	}
+	
+	option = {
+		name = EVTOPTA1972700
+		trigger = { has_character_flag = da_favour_2 }
+
+		treasury = -75
+
+		event_target:da_buy_favour_target = {
+			treasury = 75
+		}
+
+		add_favor = event_target:da_buy_favour_target
+
+	}	
+	
+	option = {
+		name = EVTOPTA1972700
+		trigger = { has_character_flag = da_favour_3 }
+
+		treasury = -250
+
+		event_target:da_buy_favour_target = {
+			treasury = 250
+		}
+
+		add_favor = event_target:da_buy_favour_target
+
+	}
+
+	option = {
+		name = EVTOPTA1972700
+		trigger = { has_character_flag = da_favour_4 }
+
+		treasury = -500
+
+		event_target:da_buy_favour_target = {
+			treasury = 500
+		}
+
+		add_favor = event_target:da_buy_favour_target
+
+	}	
+
+	after = {
+		clr_character_flag = da_favour_4
+		clr_character_flag = da_favour_3
+		clr_character_flag = da_favour_2
+		clr_character_flag = da_favour_1
+	}
+	
+}
+
+
+character_event = { 		#Failure Stewardship
+	id = darkages.72701
+	title = EVTNAME1972701
+	desc = EVTDESC1972701
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+	
+
+	}
+	
+	option = {
+		name = EVTOPTA1972701
+
+		prestige = -25
+
+	}
+	
+	after = {
+		clr_character_flag = da_favour_4
+		clr_character_flag = da_favour_3
+		clr_character_flag = da_favour_2
+		clr_character_flag = da_favour_1
+	}	
+	
+}
+
+character_event = { 		#Silver Tongue lifestyle
+	id = darkages.72702
+	title = EVTNAME1972702
+	desc = EVTDESC1972702
+	picture = GFX_evt_da_diplomat
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+	
+
+	}
+	
+	option = {
+		name = EVTOPTA1972702
+
+		add_trait = silver_tongue
+
+	}
+	
+	option = {
+		name = EVTOPTB1972702
+		
+		set_character_flag = da_refused_silver_tongue
+
+		
+	}	
+	
+}
+
+
+##############################################################################################
+#
+# ADD FAVOR AI
+#
+##############################################################################################
+
+
+character_event = { 		#Player receives event generated from AI decision
+	id = darkages.72703
+	title = EVTNAME1972703
+	desc = EVTDESC1972703
+	picture = GFX_evt_da_conversation
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+		FROMFROM = {
+			save_event_target_as = darkages_offer_favour
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972703
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}		
+			modifier = {
+				factor = 1.75
+				trait = ambitious
+			}			
+		}		
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+				
+			da_opt1 = {
+				treasury = 25
+				reverse_add_favor = event_target:darkages_offer_favour
+			}
+			
+			da_opt2 = {
+				treasury = 50 
+				reverse_add_favor = event_target:darkages_offer_favour
+			}			
+
+			da_opt3 = {
+				treasury = 75
+				reverse_add_favor = event_target:darkages_offer_favour
+			}			
+				
+			da_opt4 = {
+				treasury = 100
+				reverse_add_favor = event_target:darkages_offer_favour
+			}							
+		
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972703	
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 3
+				trait = honest
+			}		
+			modifier = {
+				factor = 2.5
+				trait = content
+			}	
+		}
+	
+		piety = 10
+	
+	}
+	
+	after = {
+		clr_character_flag = da_opt4
+		clr_character_flag = da_opt3
+		clr_character_flag = da_opt2
+		clr_character_flag = da_opt1		
+	}
+	
+}

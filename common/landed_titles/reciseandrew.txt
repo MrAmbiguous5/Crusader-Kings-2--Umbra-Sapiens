@@ -1,0 +1,29 @@
+d_knights_of_andrew = {
+	color={ 20 96 162 }
+	color2={ 20 96 162 }
+	
+	graphical_culture = holygfx
+
+	
+	capital = 43
+	
+	title = "GRANDMASTER"
+	foa = "GRANDMASTER_FOA"
+
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	mercenary_type = teutonic_order_composition
+	
+	# Parent Religion 
+	religion = catholic
+
+	replace_captain_on_death = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to banking, etc
+	monthly_income = 15 # (Must be an integer between 1 and 512)
+}

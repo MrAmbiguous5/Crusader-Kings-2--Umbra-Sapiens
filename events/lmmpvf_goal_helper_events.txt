@@ -1,0 +1,682 @@
+namespace = lmmpvf_goal_helper
+
+# Helper events related to war goals. Reserved 1 to 100
+# Event received by faction member when faction leader asks him to pledge war support
+character_event = {
+	id = lmmpvf_goal_helper.1
+	picture = GFX_evt_council
+	desc = EVTDESC_LeaderAskedToPledgeWarSupport_lmmpvf_goal_helper.1
+	is_triggered_only = yes
+	
+	# Pledge war support
+	option = {
+		name = EVTOPT_PledgeWarSupport_lmmpvf_goal_helper.1
+		hidden_tooltip = {
+			set_character_flag = lmmpvf_pledged_war_support_to_@FROM
+			set_character_flag = lmmpvf_pledged_notification_accepted
+		}
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 2
+				trait = brave				
+			}
+			
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			
+			modifier = {
+				factor = 0.5
+				trait = craven
+			}
+			
+			modifier = {
+				factor = 2
+				OR = {
+					has_education_martial_trigger = yes
+					has_lifestyle_martial_trigger = yes
+				}
+			}
+		}
+	}
+	
+	# Not yet
+	option = {
+		name = EVTOPT_NotYet_lmmpvf_goal_helper.1
+		hidden_tooltip = {
+			set_character_flag = lmmpvf_pledged_notification_refused			
+		}
+		
+		ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+# Faction leader gets the result of the request to pledge war support
+character_event = {
+	id = lmmpvf_goal_helper.2
+	picture = GFX_evt_council
+	desc = EVTDESC_ResultsOfPledgeWarSupport_lmmpvf_goal_helper.2
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+		liege = {
+			show_scope_change = no
+			any_vassal = {
+				show_scope_change = no
+				limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+				custom_tooltip = {
+					text = lmmpvf_ctt_MemberPledgedOrRefusedWarSupport
+					clear_flags_with_prefix = lmmpvf_pledged_notification_					
+				}
+			}
+		}
+	}
+}
+
+# Event received by faction member when leader asks to join the war he just declared
+letter_event = {
+	id = lmmpvf_goal_helper.3
+	
+	# Description if this ruler does NOT have non-aggression pact with target.
+	desc = {
+		text = EVTDESC_CalledToFactionWar_lmmpvf_goal_helper.3
+		trigger = {
+			NOT = {	has_non_aggression_pact_with = event_target:lmmpvf_war_target }
+		}
+	}	
+	
+	# Description if this ruler has non-aggression pact with target.
+	desc = {
+		text = EVTDESC_CalledToFactionWarNAPact_lmmpvf_goal_helper.3
+		trigger = {
+			has_non_aggression_pact_with = event_target:lmmpvf_war_target
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	# Join War
+	option = {
+		name = EVTOPT_JoinWar_lmmpvf_goal_helper.3
+		trigger = {
+			NOT = {	has_non_aggression_pact_with = event_target:lmmpvf_war_target }
+		}
+		join_attacker_wars = FROM
+		reverse_opinion = { modifier = lmmpvf_honored_war_pledge_opinion who = FROM }
+		set_character_flag = lmmpvf_call_to_war_accepted
+	}
+	
+	# Refuse
+	option = {
+		name = EVTOPT_RefuseToJoinWar_lmmpvf_goal_helper.3
+		trigger = {
+			ai = no # AI will never refuse
+			NOT = {	has_non_aggression_pact_with = event_target:lmmpvf_war_target }
+		}
+		reverse_opinion = { modifier = lmmpvf_dishonored_war_pledge_opinion who = FROM }
+		set_character_flag = lmmpvf_call_to_war_refused
+		# AI will never refuse
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	# Option available when this ruler has non-aggression pact with target. 
+	option = {
+		name = EVTOPT_HaveNAPact_lmmpvf_goal_helper.3
+		trigger = {
+			has_non_aggression_pact_with = event_target:lmmpvf_war_target
+		}
+		set_character_flag = lmmpvf_call_to_war_cannot
+	}
+}
+
+# Faction leader gets the results of his call to war
+character_event = {
+	id = lmmpvf_goal_helper.4
+	picture = GFX_evt_council
+	desc = EVTDESC_ResultsOfCallToWar_lmmpvf_goal_helper.4
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_LetOurEnemiesTremble_lmmpvf_goal_helper.4
+		liege = {
+			show_scope_change = no
+			any_vassal = {
+				show_scope_change = no
+				limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+				custom_tooltip = {
+					text = lmmpvf_ctt_MemberJoinedOrRefusedWar
+					clear_flags_with_prefix = lmmpvf_call_to_war_				
+				}
+			}
+		}
+	}
+}
+
+# Event received by all faction members to count their levies and add to faction levies
+character_event = {
+	id = lmmpvf_goal_helper.5
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_non_aggression_pact_with = event_target:lmmpvf_war_target }				
+	}
+	
+	option = {		
+		export_to_variable = { which = local_lmmpvf_faction_member_levies value = realm_levies }
+		FROM = { change_variable = { which = lmmpvf_faction_levies which = local_lmmpvf_faction_member_levies } }
+	}
+}
+
+# Event received by war target allies to count their levies and add to war target levies
+# character_event = {
+	# id = lmmpvf_goal_helper.6
+	# hide_window = yes
+	# is_triggered_only = yes
+	
+	# trigger = {
+		
+	# }
+	
+	# option = {		
+		# export_to_variable = { which = local_lmmpvf_war_target_ally_levies value = realm_levies }
+		# FROM = { change_variable = { which = lmmpvf_war_target_levies which = local_lmmpvf_war_target_ally_levies } }
+	# }
+# }
+
+# Event fired every month for AI rulers when a war goal is selected to check if they can or should declare war
+character_event = {
+	id = lmmpvf_goal_helper.7
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		#lmmpvf_has_goal_war_trigger = yes
+		OR = {
+			has_character_flag = lmmpvf_goal_attack_neighboring_realm		
+			has_character_flag = lmmpvf_goal_attack_infidel_realm
+			has_character_flag = lmmpvf_goal_oust_foreigners_from_realm
+			has_character_flag = lmmpvf_goal_oust_infidels_from_realm
+		}
+	}
+	
+	option = {
+		# Declare war if stronger than target		
+		if = {
+			limit = {
+				lmmpvf_ai_can_declare_war_trigger = yes	
+			}
+			lmmpvf_ai_choose_war_target_effect = yes
+			if = {
+				limit = {
+					event_target:lmmpvf_war_target = {
+						lmmpvf_can_be_declared_war_on_by_ROOT_trigger = yes
+					}
+				}
+				lmmpvf_calculate_war_target_levies_effect = yes
+				lmmpvf_calculate_faction_levies_effect = yes				
+				if = {
+					limit = {						
+						check_variable = { which = lmmpvf_faction_levies which = lmmpvf_war_target_levies }
+					}					
+					lmmpvf_ai_declare_war_effect = yes
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_character_flag = lmmpvf_faction_war_underway }				
+			}
+			repeat_event = { id = lmmpvf_goal_helper.7 days = 30 } # Check again next month for a valid target
+		}
+	}
+}
+
+# Helper events related to Contribution. Reserved 101 to 200
+# Event received by faction member when faction leader asks for wealth contribution
+character_event = {
+	id = lmmpvf_goal_helper.101
+	picture = GFX_evt_council
+	desc = EVTDESC_LeaderAskedToContributeWealth_lmmpvf_goal_helper.101
+	
+	is_triggered_only = yes
+	
+	# Small amount
+	option = {
+		trigger = { wealth = global_lmmpvf_small_contribution_wealth }
+		name = EVTOPT_SmallAmount_lmmpvf_goal_helper.101
+		set_character_flag = lmmpvf_contribution_small		
+		wealth = global_lmmpvf_small_contribution_wealth_negative
+		
+		ai_chance = {
+			factor = 10			
+		}
+	}
+	# Medium amount
+	option = {
+		trigger = { wealth = global_lmmpvf_medium_contribution_wealth }
+		name = EVTOPT_MediumAmount_lmmpvf_goal_helper.101
+		set_character_flag = lmmpvf_contribution_medium
+		wealth = global_lmmpvf_medium_contribution_wealth_negative		
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 3
+				trait = charitable
+			}
+		}
+	}
+	# Large amount
+	option = {
+		trigger = { wealth = global_lmmpvf_large_contribution_wealth }
+		name = EVTOPT_LargeAmount_lmmpvf_goal_helper.101
+		set_character_flag = lmmpvf_contribution_large
+		wealth = global_lmmpvf_large_contribution_wealth_negative		
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+		}
+	}
+	
+	# Contribute nothing
+	option = {
+		trigger = { ai = no }
+		name = EVTOPT_Nothing_lmmpvf_goal_helper.101
+		set_character_flag = lmmpvf_contribution_nothing
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 2
+				trait = greedy
+			}
+		}
+	}
+	
+	# Cannot afford to contribute
+	option = {
+		name = EVTOPT_CannotAfford_lmmpvf_goal_helper.101
+		trigger = {
+			NOT = { wealth = 5 }			
+		}
+		set_character_flag = lmmpvf_contribution_cannot_afford
+	}
+}
+
+# Event received by faction leader to show him the results of the wealth contributions
+character_event = {
+	id = lmmpvf_goal_helper.102
+	picture = GFX_evt_council
+	desc = EVTDESC_ResultsOfWealthContribution_lmmpvf_goal_helper.102
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+		liege = {
+			show_scope_change = no
+			any_vassal = {
+				limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+				trigger_switch = {
+					on_trigger = has_character_flag
+					
+					lmmpvf_contribution_small = { 
+						if = {
+							limit = { ROOT =  { ai = yes } }
+							ROOT = { change_variable = { which = lmmpvf_faction_fund_wealth value = 5 } }
+						}
+						else = {
+							custom_tooltip = {
+								text = lmmpvf_ctt_made_small_contribution_wealth
+								ROOT = { wealth = global_lmmpvf_small_contribution_wealth } 
+							}
+						}
+					}
+					lmmpvf_contribution_medium = { 
+						if = {
+							limit = { ROOT =  { ai = yes } }
+							ROOT = { change_variable = { which = lmmpvf_faction_fund_wealth value = 10 } }
+						}
+						else = {
+							custom_tooltip = {
+								text = lmmpvf_ctt_made_medium_contribution_wealth
+								ROOT = { wealth = global_lmmpvf_medium_contribution_wealth } 
+							}
+						}
+					}
+					lmmpvf_contribution_large = {
+						if = {
+							limit = { ROOT =  { ai = yes } }
+							ROOT = { change_variable = { which = lmmpvf_faction_fund_wealth value = 20 } }
+						}
+						else = {
+							custom_tooltip = {
+								text = lmmpvf_ctt_made_large_contribution_wealth
+								ROOT = { wealth = global_lmmpvf_large_contribution_wealth } 
+							}
+						}
+					}
+					lmmpvf_contribution_nothing = {
+						custom_tooltip = {
+							text = lmmpvf_ctt_made_contribution_nothing							
+						}
+					}
+					lmmpvf_contribution_cannot_afford = {
+						custom_tooltip = {
+							text = lmmpvf_ctt_cannot_afford_to_contribute					
+						}
+					}
+				}
+				clear_flags_with_prefix = lmmpvf_contribution_
+			}
+		}
+	}
+}
+# Event received by faction member when faction leader asks for prestige contribution
+character_event = {
+	id = lmmpvf_goal_helper.103
+	picture = GFX_evt_council
+	desc = EVTDESC_LeaderAskedToContributePrestige_lmmpvf_goal_helper.103
+	
+	is_triggered_only = yes
+	
+	# Small amount
+	option = {
+		trigger = { prestige = 10 }
+		name = EVTOPT_SmallAmount_lmmpvf_goal_helper.103
+		set_character_flag = lmmpvf_contribution_small
+		prestige = -10
+	}
+	# Medium amount
+	option = {
+		trigger = { prestige = 25 }
+		name = EVTOPT_MediumAmount_lmmpvf_goal_helper.103
+		set_character_flag = lmmpvf_contribution_medium
+		prestige = -25
+	}
+	# Large amount
+	option = {
+		trigger = { prestige = 50 }
+		name = EVTOPT_LargeAmount_lmmpvf_goal_helper.103
+		set_character_flag = lmmpvf_contribution_large
+		prestige = -50	
+	}
+	
+	# Contribute nothing
+	option = {
+		trigger = { ai = no }
+		name = EVTOPT_Nothing_lmmpvf_goal_helper.103
+		set_character_flag = lmmpvf_contribution_nothing
+	}
+	
+	# Cannot afford to contribute
+	option = {
+		name = EVTOPT_CannotAfford_lmmpvf_goal_helper.103
+		trigger = {
+			NOT = { prestige = 10 }			
+		}
+		set_character_flag = lmmpvf_contribution_cannot_afford
+	}
+}
+
+# Event received by faction leader to show him the results of the prestige contributions
+character_event = {
+	id = lmmpvf_goal_helper.104
+	picture = GFX_evt_council
+	desc = EVTDESC_ResultsOfPrestigeContribution_lmmpvf_goal_helper.104
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_ResultsOfPrestigeContribution_lmmpvf_goal_helper.104
+		liege = {
+			show_scope_change = no
+			any_vassal = {
+				limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+				trigger_switch = {
+					on_trigger = has_character_flag
+					
+					lmmpvf_contribution_small = {
+						custom_tooltip = {
+							text = lmmpvf_ctt_made_small_contribution_prestige
+							ROOT = { prestige = 10 } 
+						}
+					}
+					lmmpvf_contribution_medium = { 
+						custom_tooltip = {
+							text = lmmpvf_ctt_made_medium_contribution_prestige
+							ROOT = { prestige = 25 } 
+						}
+					}
+					lmmpvf_contribution_large = { 
+						custom_tooltip = {
+							text = lmmpvf_ctt_made_large_contribution_prestige
+							ROOT = { prestige = 50 } 
+						}
+					}
+					lmmpvf_contribution_nothing = {
+						custom_tooltip = {
+							text = lmmpvf_ctt_made_contribution_nothing							
+						}
+					}
+					lmmpvf_contribution_cannot_afford = {
+						custom_tooltip = {
+							text = lmmpvf_ctt_cannot_afford_to_contribute					
+						}
+					}
+				}
+				clear_flags_with_prefix = lmmpvf_contribution_
+			}
+		}
+	}
+}
+
+# Event received by faction member when faction leader asks for piety contribution
+character_event = {
+	id = lmmpvf_goal_helper.105
+	picture = GFX_evt_council
+	desc = EVTDESC_LeaderAskedToContributePiety_lmmpvf_goal_helper.105
+	
+	is_triggered_only = yes
+	
+	# Small amount
+	option = {
+		trigger = { piety = 10 }
+		name = EVTOPT_SmallAmount_lmmpvf_goal_helper.103
+		set_character_flag = lmmpvf_contribution_small
+		piety = -10
+	}
+	# Medium amount
+	option = {
+		trigger = { piety = 25 }
+		name = EVTOPT_MediumAmount_lmmpvf_goal_helper.103
+		set_character_flag = lmmpvf_contribution_medium
+		piety = -25
+	}
+	# Large amount
+	option = {
+		trigger = { piety = 50 }
+		name = EVTOPT_LargeAmount_lmmpvf_goal_helper.103
+		set_character_flag = lmmpvf_contribution_large
+		piety = -50	
+	}
+	
+	# Contribute nothing
+	option = {
+		trigger = { ai = no }
+		name = EVTOPT_Nothing_lmmpvf_goal_helper.103
+		set_character_flag = lmmpvf_contribution_nothing
+	}
+	
+	# Cannot afford to contribute
+	option = {
+		name = EVTOPT_CannotAfford_lmmpvf_goal_helper.103
+		trigger = {
+			NOT = { piety = 10 }			
+		}
+		set_character_flag = lmmpvf_contribution_cannot_afford
+	}
+}
+
+# Event received by faction leader to show him the results of the piety contributions
+character_event = {
+	id = lmmpvf_goal_helper.106
+	picture = GFX_evt_council
+	desc = EVTDESC_ResultsOfPietyContribution_lmmpvf_goal_helper.106
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_ResultsOfPietyContribution_lmmpvf_goal_helper.106
+		liege = {
+			show_scope_change = no
+			any_vassal = {
+				limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+				trigger_switch = {
+					on_trigger = has_character_flag
+					
+					lmmpvf_contribution_small = {
+						custom_tooltip = {
+							text = lmmpvf_ctt_made_small_contribution_piety
+							ROOT = { piety = 10 } 
+						}
+					}
+					lmmpvf_contribution_medium = { 
+						custom_tooltip = {
+							text = lmmpvf_ctt_made_medium_contribution_piety
+							ROOT = { piety = 25 } 
+						}
+					}
+					lmmpvf_contribution_large = { 
+						custom_tooltip = {
+							text = lmmpvf_ctt_made_large_contribution_piety
+							ROOT = { piety = 50 } 
+						}
+					}
+					lmmpvf_contribution_nothing = {
+						custom_tooltip = {
+							text = lmmpvf_ctt_made_contribution_nothing							
+						}
+					}
+					lmmpvf_contribution_cannot_afford = {
+						custom_tooltip = {
+							text = lmmpvf_ctt_cannot_afford_to_contribute					
+						}
+					}
+				}
+				clear_flags_with_prefix = lmmpvf_contribution_
+			}
+		}
+	}
+}
+
+# Skill check related events. Reserved 201-300
+# Get Diplomacy based score
+character_event = {
+	id = lmmpvf_goal_helper.201
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		trigger_switch = {
+			on_trigger = diplomacy
+			
+			15	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 4 } } }
+			10	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 2 } } }
+			5	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 1 } } }
+		}
+	}
+}
+
+# Get Martial based score
+# character_event = {
+	# id = lmmpvf_goal_helper.202
+	# hide_window = yes
+	
+	# is_triggered_only = yes
+	
+	# immediate = {
+		# trigger_switch = {
+			# on_trigger = martial
+			
+			# 15	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 4 } } }
+			# 10	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 2 } } }
+			# 5	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 1 } } }
+		# }
+	# }
+# }
+
+# Get Stewardship based score
+character_event = {
+	id = lmmpvf_goal_helper.203
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		trigger_switch = {
+			on_trigger = stewardship
+			
+			15	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 4 } } }
+			10	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 2 } } }
+			5	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 1 } } }
+		}
+	}
+}
+
+# Get Intrigue based score
+# character_event = {
+	# id = lmmpvf_goal_helper.204
+	# hide_window = yes
+	
+	# is_triggered_only = yes
+	
+	# immediate = {
+		# trigger_switch = {
+			# on_trigger = intrigue
+			
+			# 15	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 4 } } }
+			# 10	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 2 } } }
+			# 5	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 1 } } }
+		# }
+	# }
+# }
+
+# Get Learning based score
+character_event = {
+	id = lmmpvf_goal_helper.205
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		trigger_switch = {
+			on_trigger = learning
+			
+			15	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 4 } } }
+			10	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 2 } } }
+			5	=	{ FROM = { change_variable = { which = lmmpvf_skill_check_score value = 1 } } }
+		}
+	}
+}

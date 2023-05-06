@@ -1,0 +1,606 @@
+song = {
+	name = "Game of Thrones - Blood of My Blood.ogg"
+	song_name = "Game of Thrones - Blood of My Blood"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Game of Thrones - Light of the Seven.ogg"
+	song_name = "Game of Thrones - Light of the Seven"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Game of Thrones - Service of the Gods.ogg"
+	song_name = "Game of Thrones - Service of the Gods"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Game of Thrones - The Army of the Dead.ogg"
+	song_name = "Game of Thrones - The Army of the Dead"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Game of Thrones - The Kings Arrival.ogg"
+	song_name = "Game of Thrones - The Kings Arrival"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Game of Thrones - The Rains of Castamere.ogg"
+	song_name = "Game of Thrones - The Rains of Castamere"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Game of Thrones - The Spoils of War Part 2.ogg"
+	song_name = "Game of Thrones - The Spoils of War: Part I"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Game of Thrones - The Winds of Winter.ogg"
+	song_name = "Game of Thrones - The Winds of Winter"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Game of Thrones - Trust Each Other.ogg"
+	song_name = "Game of Thrones - Trust Each Other"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "King Arthur - All of Them.ogg"
+	song_name = "King Arthur - All of Them"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "King Arthur - Knights March.ogg"
+	song_name = "King Arthur - Knights March"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "King Arthur - Woad to Ruin.ogg"
+	song_name = "King Arthur - Woad to Ruin"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Kingdom of Heaven - Crusaders.ogg"
+	song_name = "Kingdom of Heaven - Crusaders"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = christian }
+		}
+	}
+}
+song = {
+	name = "Kingdom of Heaven - Ibelin.ogg"
+	song_name = "Kingdom of Heaven - Ibelin"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = muslim }
+			NOT = { religion_group = zoroastrian_group }
+			NOT = { culture_group = iranian }
+		}
+	}
+}
+song = {
+	name = "Kingdom of Heaven - To Jerusalem.ogg"
+	song_name = "Kingdom of Heaven - To Jerusalem"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Kingdom of Heaven - Swordplay.ogg"
+	song_name = "Kingdom of Heaven - Swordplay"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Kingdom of Heaven - To Messina.ogg"
+	song_name = "Kingdom of Heaven - To Messina"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = muslim }
+			NOT = { religion_group = zoroastrian_group }
+		}
+	}
+}
+song = {
+	name = "TES V Skyrim - Dragonborn.ogg"
+	song_name = "The Elder Scrolls V Skyrim - Dragonborn"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			war = no
+		}
+	}
+}
+song = {
+	name = "TES V Skyrim - Steel on Steel.ogg"
+	song_name = "The Elder Scrolls V Skyrim - Steel on Steel"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "TES V Skyrim - Tooth and Claw.ogg"
+	song_name = "The Elder Scrolls V Skyrim - Tooth and Claw"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "TES V Skyrim - Unbroken Road.ogg"
+	song_name = "The Elder Scrolls V Skyrim - Unbroken Road"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "TES V Skyrim - Sovngarde.ogg"
+	song_name = "The Elder Scrolls V Skyrim - Sovngarde"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - BaW Main Theme.ogg"
+	song_name = "The Witcher 3 - Blood and Wine Main Theme"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - Eredin King of the Hunt.ogg"
+	song_name = "The Witcher 3 - Eredin, King of the Hunt"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - For Honor! For Toussaint!.ogg"
+	song_name = "The Witcher 3 - For Honor! For Toussaint!"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = {
+				capital_scope = { region = world_europe }
+			}
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - Geralt of Rivia.ogg"
+	song_name = "The Witcher 3 - Geralt of Rivia"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - Hail To Caranthir.ogg"
+	song_name = "The Witcher 3 - Hail To Caranthir"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - HoS Main Theme.ogg"
+	song_name = "The Witcher 3 - Hearts of Stone Main Theme"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - Hunt Or Be Hunted.ogg"
+	song_name = "The Witcher 3 - Hunt Or Be Hunted"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - On the Champs Desoles.ogg"
+	song_name = "The Witcher 3 - On the Champs Désolés"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = {
+				capital_scope = { region = world_europe }
+			}
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - Silver For Monsters.ogg"
+	song_name = "The Witcher 3 - Silver For Monsters"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - Steel For Humans.ogg"
+	song_name = "The Witcher 3 - Steel For Humans"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - The Hunt is Coming.ogg"
+	song_name = "The Witcher 3 - The Hunt is Coming"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - The Trail.ogg"
+	song_name = "The Witcher 3 - The Trail"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+			NOT = { culture_group = west_slavic}
+			NOT = { culture_group = baltic}
+			NOT = { culture_group = south_slavic}
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - Wine Wars.ogg"
+	song_name = "The Witcher 3 - Wine Wars"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = {
+				capital_scope = { region = world_europe }
+			}
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - You're Immortal.ogg"
+	song_name = "The Witcher 3 - You're Immortal"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Warhammer - Chaos Undivided.ogg"
+	song_name = "Total War Warhammer - Chaos Undivided"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Warhammer - Danse Macabre.ogg"
+	song_name = "Total War Warhammer - Danse Macabre"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Warhammer - Demonslayer.ogg"
+	song_name = "Total War Warhammer - Demonslayer"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Warhammer - Faith, Steel and Gunpowder.ogg"
+	song_name = "Total War Warhammer - Faith, Steel and Gunpowder"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Warhammer - For The Lady.ogg"
+	song_name = "Total War Warhammer - For The Lady"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Warhammer - Hammer Time.ogg"
+	song_name = "Total War Warhammer - Hammer Time"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Warhammer - Heresy.ogg"
+	song_name = "Total War Warhammer - Heresy!"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Warhammer - Ride of the Demigryphs.ogg"
+	song_name = "Total War Warhammer - Ride of the Demigryphs"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Total War Warhammer - The Wild Hunt.ogg"
+	song_name = "Total War Warhammer - The Wild Hunt"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "Marco Polo - Main Theme.ogg"
+	song_name = "Marco Polo - Main Theme"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { government = nomadic_government}
+			NOT = { culture_group = altaic }
+			NOT = { culture_group = chinese_group }
+		}
+	}
+}
+song = {
+	name = "Marco Polo - Marcos Journey.ogg"
+	song_name = "Marco Polo - Marco's Journey"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			AND = {
+				NOT = { war = yes }
+				OR = {
+					NOT = { government = nomadic_government }
+					NOT = { culture_group = altaic }
+					NOT = { culture_group = chinese_group }
+				}
+			}
+		}
+	}
+}
+song = {
+	name = "Marco Polo - It is Coming at Dawn.ogg"
+	song_name = "Marco Polo - It is Coming at Dawn"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { government = nomadic_government}
+			NOT = { culture_group = altaic }
+			NOT = { culture_group = chinese_group }
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - The Beast Of Beauclair.ogg"
+	song_name = "The Witcher 3 - The Beast Of Beauclair"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = {
+				capital_scope = { region = world_europe }
+			}
+		}
+	}
+}
+song = {
+	name = "Kingdom of Heaven - Burning the Past.ogg"
+	song_name = "Kingdom of Heaven - Burning the Past"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - Blood on the Cobblestones.ogg"
+	song_name = "The Witcher 3 - Blood on the Cobblestones"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - Aen Seidhe.ogg"
+	song_name = "The Witcher 3 - Aen Seidhe"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - The Fields of Ard Skellig.ogg"
+	song_name = "The Witcher 3 - The Fields of Ard Skellig"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+			NOT = { religion = norse_pagan_reformed }
+			NOT = { religion = norse_pagan }
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - The Song of the Sword-Dancer.ogg"
+	song_name = "The Witcher 3 - The Song of the Sword-Dancer"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+			NOT = { culture_group = west_slavic}
+			NOT = { culture_group = baltic}
+			NOT = { culture_group = south_slavic}
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - Emhyr var Emreis.ogg"
+	song_name = "The Witcher 3 - Emhyr var Emreis"
+	
+	chance = {
+		factor = 2
+	}
+}
+song = {
+	name = "The Witcher 3 - City of Intrigues.ogg"
+	song_name = "The Witcher 3 - City of Intrigues"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - Widow-maker.ogg"
+	song_name = "The Witcher 3 - Widow-maker"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = yes }
+			NOT = { culture_group = west_slavic}
+			NOT = { culture_group = baltic}
+			NOT = { culture_group = south_slavic}
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - Fanfares and Flowers.ogg"
+	song_name = "The Witcher 3 - Fanfares and Flowers"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+			NOT = { culture_group = latin}
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - The Banks Of The Sansretour.ogg"
+	song_name = "The Witcher 3 - The Banks Of The Sansretour"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - The Slopes Of The Blessure.ogg"
+	song_name = "The Witcher 3 - The Slopes Of The Blessure"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}
+song = {
+	name = "The Witcher 3 - Lady Of The Lake.ogg"
+	song_name = "The Witcher 3 - Lady Of The Lake"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { war = no }
+		}
+	}
+}

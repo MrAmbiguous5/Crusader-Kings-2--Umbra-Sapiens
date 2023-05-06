@@ -1,0 +1,700 @@
+namespace = lmmpvf_focus
+
+# TESTING  EVENT#
+# character_event = {
+	# id = lmmpvf_focus.1
+	# desc = EVTDESC_ChooseFactionFocus_lmmpvf_focus.1
+	# is_triggered_only = yes
+	
+	# trigger = {
+		# lmmpvf_is_faction_leader_trigger =  yes
+	# }	
+	
+	# option = {
+		# name = OK
+	# }
+	
+	# after = {
+		# hidden_tooltip = {
+			
+			# # Set focus
+			# #set_character_flag = lmmpvf_focus_glory
+			# #set_character_flag = lmmpvf_focus_prosperity
+			# set_character_flag = lmmpvf_focus_faith
+			# # set_character_flag = lmmpvf_focus_set
+			# lmmpvf_focus_set_after_effect = yes
+			
+			# # Set Goal
+			# #set_character_flag = lmmpvf_goal_attack_neighboring_realm
+			# #set_character_flag = lmmpvf_goal_improve_public_image
+			# #set_character_flag = lmmpvf_goal_oust_foreigners_from_realm
+			# #set_character_flag = lmmpvf_goal_establish_settlement
+			 # set_character_flag = lmmpvf_goal_attack_infidel_realm
+			# character_event = { id = lmmpvf_goal_helper.7 days = 30 } # Check for war declaration every 30 days
+			# set_character_flag = lmmpvf_goal_set
+			
+			# # Post set effects
+			# # set_variable = { which = lmmpvf_total_received_from_faction value = 0 }
+			# # set_variable = { which = lmmpvf_faction_fund value = 0 }	
+			# lmmpvf_goal_set_after_effect = yes	
+		# }
+	# }
+# }
+
+
+# Faction leader sets faction focus. # Reserved 1 to 10
+character_event = {
+	id = lmmpvf_focus.1
+	picture = GFX_evt_noble_in_castle
+	desc = EVTDESC_ChooseFactionFocus_lmmpvf_focus.1
+	
+	hide_from = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		lmmpvf_is_faction_leader_trigger =  yes
+		OR = { 
+			NOT = { has_character_flag = lmmpvf_focus_set }
+			had_character_flag = { flag = lmmpvf_focus_set days = 3650 }
+		}
+	}
+	
+	immediate = {
+		clear_flags_with_prefix = lmmpvf_focus_		
+		clr_character_flag = lmmpvf_faction_war_underway
+		if = {
+			limit = { has_character_modifier = lmmpvf_focus_glory_modifier }
+			remove_character_modifier = lmmpvf_focus_glory_modifier
+		}
+		else_if = {
+			limit = { has_character_modifier = lmmpvf_focus_prosperity_modifier }
+			remove_character_modifier = lmmpvf_focus_prosperity_modifier
+		}
+		else_if = {
+			limit = { has_character_modifier = lmmpvf_focus_faith_modifier }
+			remove_character_modifier = lmmpvf_focus_faith_modifier
+		}
+	}
+	
+	# Glory Focus
+	option = {
+		name = EVTOPT_FocusGlory_lmmpvf_focus.1
+		trigger = {
+			lmmpvf_can_choose_focus_glory_trigger = yes
+		}
+		
+		set_character_flag = lmmpvf_focus_glory
+		
+		custom_tooltip = {
+			text = lmmpvf_ctt_available_goals
+		}
+		
+		if = {
+			limit = { lmmpvf_can_choose_goal_attack_neighboring_realm_trigger = yes }
+			custom_tooltip = {
+				 text = lmmpvf_ctt_available_goal_attack_neighboring_realm
+			}
+		}
+		if = {
+			limit = { lmmpvf_can_choose_goal_oust_foreigners_from_realm_trigger = yes }
+			custom_tooltip = {
+				 text = lmmpvf_ctt_available_goal_oust_foreigners_from_realm
+			}
+		}
+		if = {
+			limit = { lmmpvf_can_choose_goal_improve_public_image_trigger = yes }
+			custom_tooltip = {
+				 text = lmmpvf_ctt_available_goal_improve_public_image
+			}
+		}
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 2
+				trait = proud				
+			}
+			
+			modifier = {
+				factor = 1.5
+				real_tier = king
+			}
+			
+			modifier = {
+				factor = 1.5
+				has_education_martial_trigger = yes
+			}
+			
+			modifier = {
+				factor = 1.25
+				has_lifestyle_martial_trigger = yes
+			}
+
+			modifier = {
+				factor = 0.25
+				trait = humble
+			}
+		}
+	}
+	
+	# Prosperity focus
+	option = {
+		name = EVTOPT_FocusPropserity_lmmpvf_focus.1
+		trigger = {
+			lmmpvf_can_choose_focus_prosperity_trigger = yes
+		}
+		set_character_flag = lmmpvf_focus_prosperity
+		
+		custom_tooltip = {
+			text = lmmpvf_ctt_available_goals
+		}
+		
+		if = {
+			limit = { lmmpvf_can_choose_goal_establish_trade_route_trigger = yes }
+			custom_tooltip = {
+				 text = lmmpvf_ctt_available_goal_establish_trade_route
+			}
+		}
+		if = {
+			limit = { lmmpvf_can_choose_goal_establish_settlement_trigger = yes }
+			custom_tooltip = {
+				 text = lmmpvf_ctt_available_goal_establish_settlement
+			}
+		}
+		if = {
+			limit = { lmmpvf_can_choose_goal_increase_prosperity_trigger = yes }
+			custom_tooltip = {
+				 text = lmmpvf_ctt_available_goal_increase_prosperity
+			}
+		}
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+			
+			modifier = {
+				factor = 2
+				trait = greedy
+			}
+			
+			modifier = {
+				factor = 1.5
+				has_education_stewardship_trigger = yes
+			}
+			
+			modifier = {
+				factor = 1.25
+				has_lifestyle_stewardship_trigger = yes
+			}
+		}
+	}
+	
+	# Faith focus
+	option = {
+		name = EVTOPT_FocusFaith_lmmpvf_focus.1
+		trigger = {
+			lmmpvf_can_choose_focus_faith_trigger = yes
+		}
+		set_character_flag = lmmpvf_focus_faith
+		
+		custom_tooltip = {
+			text = lmmpvf_ctt_available_goals
+		}
+		
+		if = {
+			limit = { lmmpvf_can_choose_goal_attack_infidel_realm_trigger = yes }
+			custom_tooltip = {
+				 text = lmmpvf_ctt_available_goal_attack_infidel_realm
+			}
+		}
+		if = {
+			limit = { lmmpvf_can_choose_goal_oust_infidels_from_realm_trigger = yes }
+			custom_tooltip = {
+				 text = lmmpvf_ctt_available_goal_oust_infidels_from_realm
+			}
+		}
+		if = {
+			limit = { lmmpvf_can_choose_goal_convert_province_religion_trigger = yes }
+			custom_tooltip = {
+				 text = lmmpvf_ctt_available_goal_convert_province_religion
+			}
+		}
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			
+			modifier = {
+				factor = 1.5
+				trait = holy_warrior
+			}
+			
+			modifier = {
+				factor = 0.25
+				trait = cynical
+			}
+			
+			modifier = {
+				factor = 1.5
+				has_education_learning_trigger	 = yes
+			}
+			
+			modifier = {
+				factor = 1.25
+				has_lifestyle_learning_trigger = yes
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPT_NoFocusAvailable_lmmpvf_focus.1
+		trigger = {
+			NOR = {
+				lmmpvf_can_choose_focus_glory_trigger = yes
+				lmmpvf_can_choose_focus_prosperity_trigger = yes
+				lmmpvf_can_choose_focus_faith_trigger = yes
+			}
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {			
+			lmmpvf_focus_set_after_effect = yes
+			lmmpvf_fire_appropriate_goal_choice_event_effect = yes
+		}
+	}
+}
+
+# Glory based goals. # Reserved 11 to 20
+character_event = {
+	id = lmmpvf_focus.11
+	picture = GFX_evt_powerful_ruler
+	
+	desc = {
+		text = EVTDESC_ChooseGoalGlory
+		trigger = { lmmpvf_can_choose_focus_glory_trigger = yes }
+	}
+	
+	desc = {
+		text = EVTDESC_NoGoalAvailable
+		trigger = { NOT = { lmmpvf_can_choose_focus_glory_trigger = yes } }
+	}
+	
+	hide_from = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		clear_flags_with_prefix = lmmpvf_goal_
+	}
+	
+	option = {
+		name = EVTOPT_GoalAttackNeighboringRealm
+		trigger = { 
+			ai = no 
+			lmmpvf_can_choose_goal_attack_neighboring_realm_trigger = yes
+		}
+		custom_tooltip = {
+			text = lmmpvf_ctt_goal_attack_neighboring_realm
+			set_character_flag = lmmpvf_goal_attack_neighboring_realm
+			lmmpvf_goal_set_after_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPT_GoalOustForeignersFromRealm
+		trigger = { 
+			ai = no 
+			lmmpvf_can_choose_goal_oust_foreigners_from_realm_trigger = yes
+		}
+		custom_tooltip = {
+			text = lmmpvf_ctt_goal_oust_foreigners_from_realm
+			set_character_flag = lmmpvf_goal_oust_foreigners_from_realm
+			lmmpvf_goal_set_after_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPT_GoalImprovePublicImage
+		trigger = {
+			ai = no
+			lmmpvf_can_choose_goal_improve_public_image_trigger = yes
+		}
+		custom_tooltip = {
+			text = lmmpvf_ctt_goal_improve_public_image
+			set_character_flag = lmmpvf_goal_improve_public_image
+			lmmpvf_goal_set_after_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPT_NoGoalAvailable
+		trigger = {
+			ai = no
+			NOT = { lmmpvf_can_choose_focus_glory_trigger = yes }
+		}
+	}
+	
+	# All AI logic for choosing any goal from this focus goes here
+	option = {
+		name = OK
+		trigger = { ai = yes }
+		
+		random_list = {
+			# Goal Attack a Neighboring Realm
+			1 = {
+				modifier = {
+					factor = 0					
+					NOT = { lmmpvf_can_choose_goal_attack_neighboring_realm_trigger = yes }
+				}
+				modifier = {
+					factor = 2
+					trait = ambitious
+				}
+				
+				modifier = {
+					factor = 0.25
+					trait = craven
+				}
+				set_character_flag = lmmpvf_goal_attack_neighboring_realm
+			}
+			
+			# Goal Oust Foreigners from Realm
+			1 = {
+				modifier = {
+					factor = 0					
+					NOT = { lmmpvf_can_choose_goal_oust_foreigners_from_realm_trigger = yes }
+				}
+				modifier = {
+					factor = 2
+					trait = proud
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				set_character_flag = lmmpvf_goal_oust_foreigners_from_realm
+			}
+			
+						
+			# Goal Improve Public Image
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { lmmpvf_can_choose_goal_improve_public_image_trigger = yes }					
+				}
+				modifier = {
+					factor = 2
+					has_education_diplomacy_trigger = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_lifestyle_diplomacy_trigger = yes
+				}
+				set_character_flag = lmmpvf_goal_improve_public_image
+			}
+			
+			fallback = {
+				set_character_flag = lmmpvf_goal_none
+			}
+		}
+		
+		lmmpvf_goal_set_after_effect = yes
+	}
+}
+
+# Prosperity based goals. # Reserved 21 to 30
+character_event = {
+	id = lmmpvf_focus.21
+	picture = GFX_evt_powerful_ruler
+	desc = {
+		text = EVTDESC_ChooseGoalProsperity
+		trigger = { lmmpvf_can_choose_focus_prosperity_trigger = yes }
+	}
+	
+	desc = {
+		text = EVTDESC_NoGoalAvailable
+		trigger = { NOT = { lmmpvf_can_choose_focus_prosperity_trigger= yes } }
+	}
+	
+	hide_from = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		clear_flags_with_prefix = lmmpvf_goal_
+	}
+	
+	option = {
+		name = EVTOPT_GoalEstablishTradeRoute
+		trigger = { 
+			ai = no 
+			lmmpvf_can_choose_goal_establish_trade_route_trigger = yes
+		}
+		custom_tooltip = {
+			text = lmmpvf_ctt_goal_establish_trade_route
+			set_character_flag = lmmpvf_goal_establish_trade_route
+			lmmpvf_goal_set_after_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPT_GoalEstablishSettlement
+		trigger = { 
+			ai = no 
+			lmmpvf_can_choose_goal_establish_settlement_trigger = yes
+		}
+		custom_tooltip = {
+			text = lmmpvf_ctt_goal_establish_settlement
+			set_character_flag = lmmpvf_goal_establish_settlement
+			lmmpvf_goal_set_after_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPT_GoalIncreaseProsperity
+		trigger = { 
+			ai = no 
+			lmmpvf_can_choose_goal_increase_prosperity_trigger = yes
+		}
+		custom_tooltip = {
+			text = lmmpvf_ctt_goal_increase_prosperity
+			set_character_flag = lmmpvf_goal_increase_prosperity
+			lmmpvf_goal_set_after_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPT_NoGoalAvailable
+		trigger = {
+			ai = no
+			NOT = { lmmpvf_can_choose_focus_prosperity_trigger = yes }
+		}
+	}
+	
+	# All AI logic for choosing any goal from this focus goes here
+	option = {
+		name = OK
+		trigger = { ai = yes }
+		
+		random_list = {			
+			# Goal Establish Trade Route
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { lmmpvf_can_choose_goal_establish_trade_route_trigger = yes }
+				}
+				modifier = {
+					factor = 2
+					trait = greedy
+				}
+				set_character_flag = lmmpvf_goal_establish_trade_route
+			}
+			
+			# Goal Establish Settlement
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { lmmpvf_can_choose_goal_establish_settlement_trigger = yes }
+				}
+				modifier = {	
+					factor = 2
+					trait = architect
+				}				
+				set_character_flag = lmmpvf_goal_establish_settlement
+			}
+			
+			# Goal Increase Realm Prosperity
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { lmmpvf_can_choose_goal_increase_prosperity_trigger = yes }
+				}				
+				modifier = {
+					factor = 2
+					trait = gardener
+				}
+				set_character_flag = lmmpvf_goal_increase_prosperity
+			}
+			
+			fallback = {
+				set_character_flag = lmmpvf_goal_none
+			}
+		}
+		
+		lmmpvf_goal_set_after_effect = yes
+	}
+}
+
+# Faith based goals. # Reserved 31 to 40
+character_event = {
+	id = lmmpvf_focus.31
+	picture = GFX_evt_powerful_ruler
+	desc = {
+		text = EVTDESC_ChooseGoalFaith
+		trigger = { lmmpvf_can_choose_focus_faith_trigger = yes }
+	}
+	
+	desc = {
+		text = EVTDESC_NoGoalAvailable
+		trigger = { NOT = { lmmpvf_can_choose_focus_faith_trigger = yes } }
+	}
+	
+	hide_from = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		clear_flags_with_prefix = lmmpvf_goal_
+	}
+	
+	option = {
+		name = EVTOPT_GoalAttackInfidelRealm
+		trigger = { 
+			ai = no 
+			lmmpvf_can_choose_goal_attack_infidel_realm_trigger = yes
+		}
+		custom_tooltip = {
+			text = lmmpvf_ctt_goal_attack_infidel_realm
+			set_character_flag = lmmpvf_goal_attack_infidel_realm
+			lmmpvf_goal_set_after_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPT_GoalOustInfidelsFromRealm
+		trigger = { 
+			ai = no 
+			lmmpvf_can_choose_goal_oust_infidels_from_realm_trigger = yes
+		}
+		custom_tooltip = {
+			text = lmmpvf_ctt_goal_oust_infidels_from_realm
+			set_character_flag = lmmpvf_goal_oust_infidels_from_realm
+			lmmpvf_goal_set_after_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPT_GoalConvertProvince
+		trigger = { 
+			ai = no 
+			lmmpvf_can_choose_goal_convert_province_religion_trigger = yes
+		}
+		custom_tooltip = {
+			text = lmmpvf_ctt_goal_convert_province_religion
+			set_character_flag = lmmpvf_goal_convert_province_religion
+			lmmpvf_goal_set_after_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPT_NoGoalAvailable
+		trigger = {
+			ai = no
+			NOT = { lmmpvf_can_choose_focus_faith_trigger = yes }
+		}
+	}
+	
+	# option = {
+		# name = EVTOPT_GoalMoreOptions
+		# trigger = { ai = no }
+		# hidden_tooltip = {
+			# character_event = { id = lmmpvf_focus.32 }
+		# }
+	# }
+	
+	# All AI logic for choosing any goal from this focus goes here
+	option = {
+		name = OK
+		trigger = { ai = yes }
+		
+		random_list = {
+			# Goal Attack Infidel Realm
+			1 = {
+				modifier = {
+					factor = 0					
+					NOT = { lmmpvf_can_choose_goal_attack_infidel_realm_trigger = yes }
+				}
+				modifier = {
+					factor = 2
+					trait = zealous
+				}
+				modifier = {
+					factor = 2
+					trait = ambitious
+				}
+				modifier = {
+					factor = 2
+					trait = holy_warrior
+				}
+				modifier = {
+					factor = 0.25
+					trait = craven
+				}
+				set_character_flag = lmmpvf_goal_attack_infidel_realm
+			}
+			
+			# Goal Oust Infidels from Realm
+			1 = {
+				modifier = {
+					factor = 0					
+					NOT = { lmmpvf_can_choose_goal_oust_infidels_from_realm_trigger = yes }
+				}
+				modifier = {
+					factor = 2
+					trait = zealous
+				}
+				modifier = {
+					factor = 1.5
+					trait = proud
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = {
+					factor = 0.5
+					trait = kind
+				}
+				modifier = {
+					factor = 0.5
+					trait = craven
+				}
+				set_character_flag = lmmpvf_goal_oust_infidels_from_realm
+			}			
+			
+			# Goal Convert Province Religion
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { lmmpvf_can_choose_goal_convert_province_religion_trigger = yes }
+				}
+				modifier = {
+					factor = 2
+					trait = zealous
+				}
+				modifier = {
+					factor = 1.5
+					trait = proud
+				}
+				modifier = {
+					factor = 1.25
+					trait = cruel
+				}
+				set_character_flag = lmmpvf_goal_convert_province_religion
+			}
+			
+			fallback = {
+				set_character_flag = lmmpvf_goal_none
+			}
+		}
+		
+		lmmpvf_goal_set_after_effect = yes
+	}
+}

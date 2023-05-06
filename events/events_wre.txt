@@ -1,0 +1,132 @@
+namespace = WRE
+#The Restoratian of Western Roman Empire
+narrative_event = {
+	id = WRE.1
+	title = WREET.1
+	desc = {
+		text = WREETXT.1
+		trigger = { 
+			is_alternate_start = no
+		}
+	}
+	desc = {
+		text = WREETXT.1
+		trigger = { 
+			is_alternate_start = yes
+		}
+	}
+	
+	picture = GFX_evt_wre
+	
+	is_triggered_only = yes
+	
+	trigger = {
+        has_landed_title = e_western_roman_empire
+    }
+		
+	immediate = { 
+	    ROOT = {
+            primary_title = {
+                e_western_roman_empire = {  	   
+	                add_law_w_cooldown = { law = ze_administration_laws_2 }
+			        add_law = succ_byzantine_elective
+			    }
+			}
+		}  
+	
+	}	
+	
+	option = {
+		name = WREEO.1
+        trigger = {
+		    has_landed_title = e_western_roman_empire	
+		}
+		any_direct_de_jure_vassal_title = {
+			de_jure_liege = e_western_roman_empire
+			}
+		hidden_tooltip = {
+			if = { #Hellenic Resurgence
+				limit = { 
+					has_dlc = "Holy Fury" 
+					religion_group = christian
+					has_game_rule = {
+						name = hellenism_rule
+						value = on
+					}
+					OR = { 
+						culture = greek 
+						culture = italian
+						culture = roman
+					}
+				}
+				character_event = { id = HF.23106 days = 15 }				
+			}
+			if = { #Burn and Rebuild Rome.
+				limit = { 
+					has_dlc = "Holy Fury" 
+					333 = { any_province_holding = { holding_type = temple count = 2 } } #Check if Gengis Khan or whomever hasn't already leveled the place down.
+				}
+				333 = { province_event = { id = HF.23100 days = 155 } }				
+			}
+			ROOT = {
+            primary_title = {
+                    e_western_roman_empire = {  	   
+			            set_government_type = roman_imperial_government
+			        }
+			    }
+		    }
+		} 
+	
+		give_nickname = nick_the_great
+		if = { #New Imperial Bloodline. (male)
+				limit = { 
+					has_dlc = "Holy Fury" 
+					is_female = no
+					is_alternate_start = no
+					is_republic = no
+					OR = { 
+						religion_group = christian
+						religion = hellenic_pagan
+						religion = hellenic_pagan_reformed
+					}
+	    			NOT = {
+	    				any_owned_bloodline = {
+    						has_bloodline_flag = roman_bloodline #Not if already member of a famous historical Roman Bloodline.
+    					}
+    				}
+				}
+				create_bloodline = {
+					type = western_roman_emperor_male
+				}
+				new_bloodline = {
+					set_description = "bloodline_desc_roman_emperor_wre"
+				}	
+				sound_effect = bloodline_added			
+			}
+		if = { #New Imperial Bloodline. (female)
+			limit = { 
+				has_dlc = "Holy Fury" 
+				is_female = yes
+				is_alternate_start = no
+				is_republic = no
+				OR = { 
+					religion_group = christian
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
+				}
+    			NOT = {
+    				any_owned_bloodline = {
+						has_bloodline_flag = roman_bloodline #Not if already member of a famous historical Roman Bloodline.
+					}
+				}
+			}
+			create_bloodline = {
+				type = western_roman_emperor_female
+			}
+			new_bloodline = {
+				set_description = "bloodline_desc_roman_emperor_wre"
+			}				
+			sound_effect = bloodline_added
+		}
+    }
+}

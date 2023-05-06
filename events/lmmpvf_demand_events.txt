@@ -1,0 +1,568 @@
+namespace = lmmpvf_demand
+
+# Demand council position. Reserved 1 to 50
+letter_event = {
+	id = lmmpvf_demand.1
+	desc = EVTDESC_DemandCouncilPosition_lmmpvf_demand.1
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:lmmpvf_demander = {
+			export_to_variable = { which = local_lmmiwp_diplomacy value = diplomacy }
+			export_to_variable = { which = local_lmmiwp_martial value = martial }
+			export_to_variable = { which = local_lmmiwp_stewardship value = stewardship }
+			export_to_variable = { which = local_lmmiwp_intrigue value = intrigue }
+			export_to_variable = { which = local_lmmiwp_learning value = learning }
+			
+			if = {
+				limit = {				
+					can_hold_title = job_chancellor								
+				}
+				set_variable = { which = local_lmmiwp_preferred_council_position value = 1 }
+			}
+			if = {
+				limit = {
+					can_hold_title = job_marshal					
+					check_variable = { which = local_lmmiwp_martial which = local_lmmiwp_diplomacy }
+					
+				}
+				set_variable = { which = local_lmmiwp_preferred_council_position value = 2 }
+			}
+			if = {
+				limit = {				
+					can_hold_title = job_treasurer
+					check_variable = { which = local_lmmiwp_stewardship which = local_lmmiwp_diplomacy }
+					check_variable = { which = local_lmmiwp_stewardship which = local_lmmiwp_martial }				
+				}
+				set_variable = { which = local_lmmiwp_preferred_council_position value = 3 }
+			}
+			if = {
+				limit = {				
+					can_hold_title = job_spymaster
+					check_variable = { which = local_lmmiwp_intrigue which = local_lmmiwp_diplomacy }
+					check_variable = { which = local_lmmiwp_intrigue which = local_lmmiwp_martial }
+					check_variable = { which = local_lmmiwp_intrigue which = local_lmmiwp_stewardship }				
+				}
+				set_variable = { which = local_lmmiwp_preferred_council_position value = 4 }
+			}
+			if = {
+				limit = {
+					can_hold_title = job_spiritual						
+					check_variable = { which = local_lmmiwp_learning which = local_lmmiwp_diplomacy }
+					check_variable = { which = local_lmmiwp_learning which = local_lmmiwp_martial }
+					check_variable = { which = local_lmmiwp_learning which = local_lmmiwp_stewardship }
+					check_variable = { which = local_lmmiwp_learning which = local_lmmiwp_intrigue }				
+				}
+				set_variable = { which = local_lmmiwp_preferred_council_position value = 5 }
+			}
+		}
+	}
+	
+	# Grant a position immediately
+	option = {
+		name = EVTOPT_GrantPosition_lmmpvf_demand.1
+		if = {
+			limit = {
+				is_liege_of = event_target:lmmpvf_demander
+			}
+			event_target:lmmpvf_demander = {
+				show_scope_change = no
+				if = {
+					limit = {
+						is_variable_equal = { which = local_lmmiwp_preferred_council_position value = 1 }
+					}
+					event_target:lmmpvf_liege = {
+						show_scope_change = no
+						job_chancellor = {
+							show_scope_change = no
+							remove_title = job_chancellor
+						}
+					}
+					give_job_title = job_chancellor
+				}
+				else_if = {
+					limit = {
+						is_variable_equal = { which = local_lmmiwp_preferred_council_position value = 2 }
+					}
+					event_target:lmmpvf_liege = {
+						show_scope_change = no
+						job_marshal = {
+							show_scope_change = no
+							remove_title = job_marshal
+						}
+					}			
+					give_job_title = job_marshal
+				}
+				else_if = {
+					limit = {
+						is_variable_equal = { which = local_lmmiwp_preferred_council_position value = 3 }
+					}
+					event_target:lmmpvf_liege = {
+						show_scope_change = no
+						job_treasurer = {
+							show_scope_change = no
+							remove_title = job_treasurer
+						}
+					}			
+					give_job_title = job_treasurer
+				}
+				else_if = {
+					limit = {
+						is_variable_equal = { which = local_lmmiwp_preferred_council_position value = 4 }
+					}
+					event_target:lmmpvf_liege = {
+						show_scope_change = no
+						job_spymaster = {
+							show_scope_change = no
+							remove_title = job_spymaster
+						}
+					}			
+					give_job_title = job_spymaster
+				}
+				else_if = {
+					limit = {
+						is_variable_equal = { which = local_lmmiwp_preferred_council_position value = 5 }
+					}
+					event_target:lmmpvf_liege = {
+						show_scope_change = no
+						job_spiritual = {
+							show_scope_change = no
+							remove_title = job_spiritual
+						}
+					}			
+					give_job_title = job_spiritual
+				}
+				opinion = { modifier = lmmpvf_faction_pleased_leader_opinion who = event_target:lmmpvf_liege }
+				liege = {
+					show_scope_change = no
+					any_vassal = {
+						show_scope_change = no
+						limit = { lmmpvf_is_faction_member_of_demander_trigger = yes }
+						opinion = { modifier = lmmpvf_faction_pleased_member_opinion who = event_target:lmmpvf_liege }
+					}
+				}
+				hidden_tooltip = {
+					letter_event = { id = lmmpvf_demand.2 } # Inform that demand was accepted
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 70
+		}
+	}
+	
+	# Promise to grant soon
+	option = {
+		name = EVTOPT_PromiseToGrant_lmmpvf_demand.1
+		hidden_tooltip = {
+			if = {
+				limit = {
+					is_liege_of = event_target:lmmpvf_demander
+				}
+				event_target:lmmpvf_demander = {
+					letter_event = { id = lmmpvf_demand.3 } # Inform that I promised a position
+					character_event = { id = lmmpvf_demand.5 days = 90 } # Check in 3 months if position was granted or not
+				}
+			}
+			
+		}
+		
+		ai_chance = {
+			factor = 50
+		}
+	}
+	
+	# Don't bother me for another 5 years
+	option = {
+		name = EVTOPT_DelayForSeveralYears_lmmpvf_demand.1		
+		
+		hidden_tooltip = {
+			if = {
+				limit = {
+					is_liege_of = event_target:lmmpvf_demander
+				}
+				
+				set_character_flag = lmmpvf_refused_council_position_to_@event_target:lmmpvf_demander
+				character_event = { id = lmmpvf_demand.9 days = 1825 } # Remove flag so that the vassal can demand again.
+				
+				event_target:lmmpvf_demander = {			
+					show_scope_change = no
+					opinion = { modifier = lmmpvf_faction_displeased_leader_opinion who = event_target:lmmpvf_liege }
+					liege = {				
+						show_scope_change = no
+						any_vassal = {			
+							show_scope_change = no
+							limit = { lmmpvf_is_faction_member_of_demander_trigger = yes }
+							opinion = { modifier = lmmpvf_faction_displeased_member_opinion who = event_target:lmmpvf_liege }
+						}
+					}
+					hidden_tooltip = {
+						letter_event = { id = lmmpvf_demand.4 } #Inform of refusal
+					}
+				}				
+			}			
+		}
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 5
+				trait = stubborn
+			}
+		}
+	}
+	
+	# Refuse
+	option = {
+		name = EVTOPT_Refuse_lmmpvf_demand.1
+		if = {
+			limit = {
+				is_liege_of = event_target:lmmpvf_demander
+			}
+			event_target:lmmpvf_demander = {				
+				show_scope_change = no
+				opinion = { modifier = lmmpvf_faction_displeased_leader_opinion who = event_target:lmmpvf_liege }
+				liege = {					
+					show_scope_change = no
+					any_vassal = {					
+						show_scope_change = no
+						limit = { lmmpvf_is_faction_member_of_demander_trigger = yes }
+						opinion = { modifier = lmmpvf_faction_displeased_member_opinion who = event_target:lmmpvf_liege }
+					}
+				}
+				hidden_tooltip = {
+					letter_event = { id = lmmpvf_demand.4 } #Inform of refusal
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 30
+		}
+	}
+}
+
+# Demander is informed that liege has granted him a position
+letter_event = {
+	id = lmmpvf_demand.2
+	desc = EVTDESC_PositionGranted_lmmpvf_demand.2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK		
+	}
+}
+
+# Inform that liege promised a position
+letter_event = {
+	id = lmmpvf_demand.3
+	desc = EVTDESC_PositionPromised_lmmpvf_demand.3
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK		
+	}
+}
+
+# Inform that liege refused the position
+letter_event = {
+	id = lmmpvf_demand.4
+	desc = {
+		text = EVTDESC_PositionRefused_lmmpvf_demand.4
+		trigger = {
+			event_target:lmmpvf_liege = { NOT = { has_character_flag = lmmpvf_refused_council_position_to_@event_target:lmmpvf_demander } }
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_PositionRefusedForSeveralYears_lmmpvf_demand.4
+		trigger = {
+			event_target:lmmpvf_liege = { has_character_flag = lmmpvf_refused_council_position_to_@event_target:lmmpvf_demander }
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK		
+	}
+}
+
+# Event to check whether council position was granted or not
+character_event = {
+	id = lmmpvf_demand.5
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		prisoner = no
+		liege = {
+			character = event_target:lmmpvf_liege
+		}
+	}
+	
+	option = {
+		if = {
+			limit = { is_councillor = yes }
+			liege = { letter_event = { id = lmmpvf_demand.8 days = 7 } } # Inform liege that I'm happy
+		}
+		else = {		
+			character_event = { id = lmmpvf_demand.6 } # Get some options about how to proceed			
+		}
+	}
+}
+
+# If promised council position is still not granted, get some options
+character_event = {
+	id = lmmpvf_demand.6	
+	picture = GFX_evt_upsetting_letter
+	desc = EVTDESC_NotYetGranted_lmmpvf_demand.6		
+		
+	is_triggered_only = yes
+	
+	trigger = {		
+		liege = {
+			character = event_target:lmmpvf_liege
+		}
+	}
+	
+	option = {
+		name = EVTOPT_RemindLiege_lmmpvf_demand.6
+		event_target:lmmpvf_liege = {
+			letter_event = { id = lmmpvf_demand.7 } # Inform that I am not happy
+		}
+	}
+	
+	option = {
+		name = EVTOPT_GiveUp_lmmpvf_demand.6
+		trigger = {
+			ai = no
+		}
+	}
+}
+
+# Event received liege when demander reminds him that he has still not fulfilled the promise
+letter_event = {
+	id = lmmpvf_demand.7
+	desc = EVTDESC_RemindNotHappy_lmmpvf_demand.7
+	
+	is_triggered_only = yes
+	
+	# Grant a position
+	option = {
+		name = EVTOPT_GrantPosition_lmmpvf_demand.7
+		event_target:lmmpvf_demander = {
+			if = {
+				limit = {
+					is_variable_equal = { which = local_lmmiwp_preferred_council_position value = 1 }
+				}
+				event_target:lmmpvf_liege = {
+					job_chancellor = {
+						remove_title = job_chancellor
+					}
+				}
+				give_job_title = job_chancellor
+			}
+			else_if = {
+				limit = {
+					is_variable_equal = { which = local_lmmiwp_preferred_council_position value = 2 }
+				}
+				event_target:lmmpvf_liege = {
+					job_marshal = {
+						remove_title = job_marshal
+					}
+				}			
+				give_job_title = job_marshal
+			}
+			else_if = {
+				limit = {
+					is_variable_equal = { which = local_lmmiwp_preferred_council_position value = 3 }
+				}
+				event_target:lmmpvf_liege = {
+					job_treasurer = {
+						remove_title = job_treasurer
+					}
+				}			
+				give_job_title = job_treasurer
+			}
+			else_if = {
+				limit = {
+					is_variable_equal = { which = local_lmmiwp_preferred_council_position value = 4 }
+				}
+				event_target:lmmpvf_liege = {
+					job_spymaster = {
+						remove_title = job_spymaster
+					}
+				}			
+				give_job_title = job_spymaster
+			}
+			else_if = {
+				limit = {
+					is_variable_equal = { which = local_lmmiwp_preferred_council_position value = 5 }
+				}
+				event_target:lmmpvf_liege = {
+					job_spiritual = {
+						remove_title = job_spiritual
+					}
+				}			
+				give_job_title = job_spiritual
+			}
+			opinion = { modifier = lmmpvf_faction_pleased_leader_opinion who = event_target:lmmpvf_liege }
+			liege = {
+				show_scope_change = no
+				any_vassal = {
+					show_scope_change = no
+					limit = { lmmpvf_is_faction_member_of_demander_trigger = yes }
+					opinion = { modifier = lmmpvf_faction_pleased_member_opinion who = event_target:lmmpvf_liege }
+				}
+			}
+			hidden_tooltip = {
+				letter_event = { id = lmmpvf_demand.2 } # Inform that demand was accepted
+			}
+		}
+		
+		ai_chance = {
+			factor = 70
+		}
+	}
+	
+	# Refuse
+	option = {
+		name = EVTOPT_Refuse_lmmpvf_demand.7
+		FROM = {
+			show_scope_change = no
+			opinion = { modifier = lmmpvf_faction_displeased_leader_opinion who = event_target:lmmpvf_liege }
+			liege = {
+				show_scope_change = no
+				any_vassal = {
+					show_scope_change = no
+					limit = { lmmpvf_is_faction_member_of_demander_trigger = yes }
+					opinion = { modifier = lmmpvf_faction_displeased_member_opinion who = event_target:lmmpvf_liege }
+				}
+			}
+			hidden_tooltip = {
+				letter_event = { id = lmmpvf_demand.4 } #Inform of refusal
+			}
+		}
+		
+		ai_chance = {
+			factor = 30
+		}
+	}
+}
+
+# Event received by liege when demander detects that he has been granted the promised position
+letter_event = {
+	id = lmmpvf_demand.8
+	desc = EVTDESC_Happy_lmmpvf_demand.8
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+	}
+}
+
+# Event received by liege to clear his flag of refused position for several years so that the vassal can demand again.
+character_event = {
+	id = lmmpvf_demand.9
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		clr_character_flag = lmmpvf_refused_council_position_to_@event_target:lmmpvf_demander
+	}
+}
+
+# Reserved 51 to 100
+# Demand release family members from prison
+letter_event = {
+	id = lmmpvf_demand.51
+	desc = EVTDESC_DemandReleaseFamily_lmmpvf_demand.51
+	
+	is_triggered_only = yes
+	
+	# Comply
+	option = {
+		name = EVTOPT_ReleasePrisoners_lmmpvf_demand.51
+		any_courtier = {
+			limit = { 
+				prisoner = yes 
+				OR = {
+					any_close_relative = { character = event_target:lmmpvf_demander }
+					any_spouse = { character = event_target:lmmpvf_demander }
+				}
+			}
+			prisoner = no
+		}
+		event_target:lmmpvf_demander = {
+			opinion = { modifier = lmmpvf_faction_pleased_leader_opinion who = event_target:lmmpvf_liege }
+			liege = {
+				show_scope_change = no
+				any_vassal = {
+					show_scope_change = no
+					limit = { lmmpvf_is_faction_member_of_demander_trigger = yes }
+					opinion = { modifier = lmmpvf_faction_pleased_member_opinion who = event_target:lmmpvf_liege }
+				}
+			}
+			letter_event = { id = lmmpvf_demand.52 } # Inform about acceptance
+		}
+		
+		ai_chance = {
+			factor = 70
+		}
+	}
+	
+	# Refuse
+	option = {
+		name = EVTOPT_Refuse_lmmpvf_demand.51
+		event_target:lmmpvf_demander = {
+			opinion = { modifier = lmmpvf_faction_displeased_leader_opinion who = event_target:lmmpvf_liege }
+			liege = {
+				show_scope_change = no
+				any_vassal = {
+					show_scope_change = no
+					limit = { lmmpvf_is_faction_member_of_demander_trigger = yes }
+					opinion = { modifier = lmmpvf_faction_displeased_member_opinion who = event_target:lmmpvf_liege }
+				}
+			}
+			hidden_tooltip = {
+				letter_event = { id = lmmpvf_demand.53 } # Inform about refusal
+			}
+		}
+		
+		ai_chance = {
+			factor = 30
+		}
+	}
+}
+
+# Liege accepted to release prisoners
+letter_event = {
+	id = lmmpvf_demand.52
+	desc = EVTDESC_LiegeAccepted_lmmpvf_demand.52
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+	}
+}
+
+# Liege refused to release prisoners
+letter_event = {
+	id = lmmpvf_demand.53
+	desc = EVTDESC_LiegeRefused_lmmpvf_demand.53
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+	}
+}

@@ -1,0 +1,13 @@
+ckrpg_recent_getaway = {
+  fertility = 0.3
+  icon = 39
+}
+ckrpg_recent_small_gift = {
+    fertility = 0.1
+    icon = 39
+}
+
+ckrpg_recent_big_gift = {
+    fertility = 0.2
+    icon = 39
+}

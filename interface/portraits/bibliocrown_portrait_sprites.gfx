@@ -1,0 +1,43 @@
+# hair, mouth, chin, nose, eyes, cheek, ear, neck
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_roman_helmet_headgear"
+		texturefile = "gfx\\characters\\roman_helmet_headgear.dds"
+		noOfFrames = 1
+		norefcount = yes
+		can_be_lowres = yes
+	}
+	
+	spriteType = {
+		name = "GFX_roman_helmet_headgear_behind"
+		texturefile = "gfx\\characters\\roman_helmet_headgear_behind.dds"
+		noOfFrames = 1
+		norefcount = yes
+		can_be_lowres = yes
+	}	
+	
+
+#	portraitType = {
+#		effectFile = "gfx/FX/portrait.lua"
+#		name = "PORTRAIT_roman_helmet_headgear_male"
+#		
+#		weight = {
+#			additive_modifier = {
+#				value = 10000
+#				portrait_age > child
+#				portrait_is_female = no
+#				portrait_clothing = yes
+#				OR = {
+#					is_artifact_equipped = roman_helmet
+#				}
+#			}
+#		}
+#		
+#		layer = { 
+#			"GFX_roman_helmet_headgear:c5"
+#			"GFX_roman_helmet_headgear_behind:c1"
+#		}
+#	}	
+	
+}

@@ -1,0 +1,18 @@
+spriteTypes = {
+	#FACTIONS
+	spriteType = {
+		name = "GFX_faction_lmmpvf_one"
+		texturefile = "gfx/lmmpvf_faction_icon.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	
+	spriteType = {
+		name = "GFX_faction_lmmpvf_two"
+		texturefile = "gfx/lmmpvf_faction_icon.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+}

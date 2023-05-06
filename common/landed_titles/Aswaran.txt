@@ -1,0 +1,27 @@
+d_Aswaran = {
+    color={ 180 205 20 }
+ 
+    graphical_culture = immortalsgfx
+ 
+    capital = 663 # Rayy
+ 
+    title = "Aswaran Sarda"
+    foa = "GRANDMASTER_FOA"
+
+    # Always exists
+    landless = yes
+ 
+    holy_order = yes
+    mercenary_type = aswaran_composition
+ 
+    culture = persian
+ 
+    # Parent Religion
+    religion = zoroastrian
+ 
+    # Cannot be held as a secondary title
+    primary = yes
+ 
+    # Extra income due to banking, etc
+    monthly_income = 10 # (Must be an integer between 1 and 512)
+}

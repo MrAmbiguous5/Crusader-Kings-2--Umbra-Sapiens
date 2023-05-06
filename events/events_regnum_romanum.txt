@@ -1,0 +1,82 @@
+namespace = REG
+# Res Publica Romana become Regnum Romanum if it not a merchant republic
+character_event = {
+    id = REG.1
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_landed_title = k_roman_republic
+		is_feudal = yes
+    }
+
+    immediate = {
+        destroy_landed_title = k_roman_republic
+        k_roman_republic = {
+            any_direct_de_jure_vassal_title = {
+                de_jure_liege = k_regnum_romanum
+            }
+        }
+        any_playable_ruler = {
+            limit = {
+                any_demesne_province = {
+                    region = world_europe_south_italy
+                }
+            }
+            character_event = { id = REG.2 }
+        }
+    }
+}
+
+# Narrative Event - Fall of Roman Republic, establishment of Regnum Romanum
+narrative_event = {
+    id = REG.2
+    desc = REGDESC.2
+    title = REGTITLE.2
+    picture = GFX_evt_magnificent_castle
+    is_triggered_only = yes
+
+    option = {      
+        name = REGOPT.1
+    }
+}
+
+# Regnum Romanum destroyed, establishment of Roman Republic
+character_event = {
+    id = REG.3
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_landed_title = k_regnum_romanum
+		is_feudal = yes
+    }
+
+    immediate = {
+        destroy_landed_title = k_regnum_romanum
+        k_regnum_romanum = {
+            any_direct_de_jure_vassal_title = {
+                de_jure_liege = k_roman_republic
+            }
+        }
+        any_playable_ruler = {
+            limit = {
+                any_demesne_province = {
+                    region = world_europe_south_italy
+                }
+            }
+            character_event = { id = REG.4 }
+        }
+    }
+}
+
+# Narrative Event - Fall of Regnum Romanum, establishment of Roman Republic
+narrative_event = {
+    id = REG.4
+    desc = REGDESC.4
+    title = REGTITLE.4
+    picture = GFX_evt_magnificent_castle
+    is_triggered_only = yes
+
+    option = {      
+        name = REGOPT.2    
+	}
+}

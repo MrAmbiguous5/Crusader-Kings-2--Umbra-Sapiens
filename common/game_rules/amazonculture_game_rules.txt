@@ -1,0 +1,66 @@
+
+succession_law_amz = {					
+	name = "SUCCESSION_LAW_AMZ"						# the title of the rule
+	group = "RULE_GROUP_SUCCESSION_AMZ"				# what category it falls under
+
+	option = {
+		name = default_succession_amz
+		text = "RULE_OPTION_DEFAULT_SUCCESSION_AMZ"
+		desc = "DEFAULT_SUCCESSION_AMZ"
+	}
+	option = {
+		name = true_cognatic_amz
+		text = "RULE_OPTION_COGNATIC_SUCCESSION_AMZ"
+		desc = "COGNATIC_SUCCESSION_AMZ"
+	}
+	option = {
+		name = enatic_cognatic_amz
+		text = "RULE_OPTION_ENATIC_COGNATIC_SUCCESSION_AMZ"
+		desc = "ENATIC_COGNATIC_SUCCESSION_AMZ"
+	}
+	option = {
+		name = enatic_amz
+		text = "RULE_OPTION_ENATIC_SUCCESSION_AMZ"
+		desc = "ENATIC_SUCCESSION_AMZ"
+	}
+}
+
+culture_freq_amz = {			
+	name = "CULTURE_FREQ_AMZ"						# the title of the rule
+	group = "RULE_GROUP_SUCCESSION_AMZ"				# what category it falls under
+
+	option = {
+		name = default_amz
+		text = "RULE_OPTION_DEFAULT_FREQ_AMZ"
+		desc = "DEFAULT_FREQ_AMZ"
+	}
+	option = {
+		name = common_amz
+		text = "RULE_OPTION_COMMON_FREQ_AMZ"
+		desc = "COMMON_FREQ_AMZ"
+	}
+	option = {
+		name = never_amz
+		text = "RULE_OPTION_NEVER_FREQ_AMZ"
+		desc = "NEVER_FREQ_AMZ"
+	}
+	option = {
+		name = rare_amz
+		text = "RULE_OPTION_RARE_FREQ_AMZ"
+		desc = "RARE_FREQ_AMZ"
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

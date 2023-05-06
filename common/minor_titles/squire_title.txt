@@ -1,0 +1,53 @@
+#Squire title
+title_knight_squire = {
+	is_high_prio = yes
+	attribute = martial
+    dignity = 1
+    realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	monthly_salary = 0.5
+	monthly_prestige = 0.1
+	
+	allowed_to_grant = {
+		OR = {
+			society_member_of = military_knights
+			society_member_of = military_knights1
+			society_member_of = military_knights2
+			society_member_of = diplomatic_knights
+			society_member_of = diplomatic_knights1
+			society_member_of = diplomatic_knights2
+		}
+		ai = no
+	}
+	
+	allowed_to_hold = {
+		NOT = { has_character_flag = retired_squire }
+		is_adult = yes
+		NOT = { trait = incapable }
+		prisoner = no
+		NOT = { has_character_flag = old_squire }
+		hidden_trigger = {
+			OR = {
+				liege = { society_member_of = military_knights }
+				liege = { society_member_of = military_knights1 }
+				liege = { society_member_of = military_knights2 }
+				liege = { society_member_of = diplomatic_knights }
+				liege = { society_member_of = diplomatic_knights1 }
+				liege = { society_member_of = diplomatic_knights2 }
+			}
+		}
+		OR = {
+			NOT = { age = 25 }
+			has_minor_title = title_knight_squire
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+	retire_effect = {
+	}
+	message = yes
+}

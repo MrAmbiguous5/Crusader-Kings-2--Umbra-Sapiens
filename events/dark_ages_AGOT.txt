@@ -1,0 +1,28 @@
+namespace = darkages
+
+character_event = { 		#Check if AGOT is playing and assign a global flag
+	id = darkages.72520
+	title = EVTNAME1972517
+	desc = EVTDESC1972517
+	picture = GFX_evt_da_easter
+	border = GFX_event_normal_frame_religion
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+		any_playable_ruler = {
+			culture_group = andal
+		}		
+
+	}
+	
+	
+	immediate = {
+		set_global_flag = darkages_AGOT
+	}
+	
+	
+}
+

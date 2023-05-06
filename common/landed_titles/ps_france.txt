@@ -1,0 +1,3297 @@
+### Tourraine
+
+### Bourges
+
+### Sancerre
+
+### Anjou
+
+b_angers = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 13
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Saumur
+
+### Maine
+
+b_beaumont = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 149
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}								
+}
+b_mayenne = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 356
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_laval = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_sable = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_craon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 173
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Perche
+
+### Vendôme
+
+b_vendome = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 6
+			emblem = 0
+			color = 4
+			color = 1
+			color = 2
+		}
+	}				
+}
+b_freteval = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 38
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_montmirail = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Artois
+
+b_bethune = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 231
+		  emblem = 0
+		  color = 0
+		  color = 4
+		  color = 0
+	  }
+  }				
+}
+b_lens = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 168
+			emblem = 0
+			color = 0
+			color = 3
+			color = 0
+		}
+	}				
+}
+b_lille = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 73
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_bouvines = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 164
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_beaumetz = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 136
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_bapaume = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 236
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Boulogne
+
+b_boulogne = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 111
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_montreuil = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 190
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_saintpol = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 324
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_hesdin = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 12
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}
+}
+b_fauquembergues = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_ardres = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 30
+			emblem = 0
+			color = 3
+			color = 1
+			color = 3
+		}
+	}				
+}
+
+### Guines
+
+b_guines = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 179
+			emblem = 0
+			color = 4
+			color = 0
+			color = 3
+		}
+	}
+}
+b_saintomer = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_calais = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 331
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Ypres
+
+b_ypres = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 15
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_cassel = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 92
+			emblem = 0
+			color = 2
+			color = 0
+			color = 3
+		}
+	}				
+}
+b_menen = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 208
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_wervik = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 456
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Bruges
+
+b_brugge = {
+	frankish="Bruges"
+	norman="Bruges"	
+
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 70
+			emblem = 0
+			color = 2
+			color = 1
+			color = 4
+		}
+	}					
+}
+b_damme = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 65
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Gand
+
+b_gent = {
+	frankish="Gand"
+	norman="Gand"
+	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}				
+}
+b_doornik = {
+	frankish="Tournai"
+	norman="Tournai"
+	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}					
+
+}
+b_oudenaarde = {
+	frankish="Audernarde"
+	norman="Audernarde"
+	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 150
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_aalst = {
+	frankish="Alost"
+	norman="Alost"		
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 140
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}					
+}
+b_dendermonde = {
+	frankish="Termonde"
+	norman="Termonde"	
+
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}					
+}
+b_kortrijk = {
+	frankish="Courtrai"
+	norman="Courtrai"					
+
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 206
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}
+}
+b_geraardsbergen = {
+	frankish="Grammont"
+	norman="Grammont"	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 115
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}					
+}
+
+### Evreux
+
+b_evreux = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 129
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_falaise = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 231
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_alencon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 231
+			emblem = 2
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_argentan = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 65
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_sees = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 321
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Avranches
+
+b_caen = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 15
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_avranches = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 498
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_mortain = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Caen
+
+### Vexin
+
+b_larocheguyon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 73
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
+}
+b_pontoise = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 18
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+    }
+}
+b_harcourt = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 190
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}
+}
+b_ivry = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 207
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_abbayedemortemer = {
+	short_name = yes
+	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 136
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}
+}
+
+### Rouen
+
+b_rouen = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 285
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_longueville = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 16
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Eu
+
+b_gournay = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 22
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}
+}
+b_aumale = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 189
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Orléans
+
+b_lepuiset = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_sully = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 250
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Blois
+
+b_beaugency = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 60
+			emblem = 0
+			color = 4
+			color = 0
+			color = 2
+		}
+	}				
+}
+b_blois = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 211
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_chaumontsurloire = {
+	frankish = "Chaumont"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 166
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}					
+}
+
+### Chartres
+
+b_chateaudun = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 31
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_chartres = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 49
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_dreux = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_nogent = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 207
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Dunois
+
+### Troyes
+
+b_brienne = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_troyes = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 211
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_langres = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 128
+			emblem = 0
+			color = 4
+			color = 0
+			color = 2
+		}
+	}				
+}
+
+### Reims
+
+b_reims = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 127
+			emblem = 0
+			color = 4
+			color = 0
+			color = 1
+		}
+	}				
+}
+b_chalons = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 127
+			emblem = 0
+			color = 4
+			color = 0
+			color = 2
+		}
+	}				
+}
+b_chatillon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 3
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_roucy = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Sens
+
+b_sens = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 143
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_nemours = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 236
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_joigny = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Ile de Fr.
+
+b_paris = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 122
+            emblem = 0
+            color = 1
+            color = 2
+            color = 0
+        }
+    }					
+}
+b_melun = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 143
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}					
+}
+b_stdenis = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 71
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_meaux = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 479
+			emblem = 0
+			color = 1
+			color = 3
+			color = 0
+		}
+	}				
+}
+b_montfortlamaury = {
+	frankish = "Montfort"
+	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 22
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}  
+	}
+}
+b_corbeil = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 95
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}
+}
+
+### Senlis 
+
+b_senlis = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 168
+		  emblem = 0
+		  color = 0
+		  color = 2
+		  color = 1
+	  }
+  }						
+}
+b_beaumont_IdF = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 138
+            emblem = 0
+            color = 2
+            color = 1
+            color = 0
+        }
+    }
+}	
+
+### Vermandois
+
+b_coucy = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 2
+		  texture_internal = 1
+		  emblem = 0
+		  color = 0
+		  color = 0
+		  color = 0
+	  }
+  }					
+}
+b_stquentin = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 170
+		  emblem = 0
+		  color = 4
+		  color = 0
+		  color = 0
+	  }
+  }						
+}
+b_crepy = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_rethel = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 121
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}					
+}
+b_guise = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 179
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}					
+}
+
+### Amiens
+
+b_peronne = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 140
+            emblem = 0
+            color = 0
+            color = 2
+            color = 0
+        }
+    }
+}
+b_montdidier = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 78
+			emblem = 0
+			color = 4
+			color = 1
+			color = 2
+		}
+	}
+}
+b_nesle = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 157
+            emblem = 0
+            color = 4
+            color = 1
+            color = 0
+        }
+    }
+}
+b_amiens = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 145
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_soissons = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 1
+		  texture_internal = 8
+		  emblem = 0
+		  color = 2
+		  color = 0
+		  color = 2
+	  }
+  }					
+}
+b_corbie = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 293
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_noyon = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 180
+		  emblem = 0
+		  color = 2
+		  color = 1
+		  color = 0
+	  }
+  }					
+}
+b_breteuil = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Clermont
+b_clermont_PIC = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 4
+            texture_internal = 153
+            emblem = 0
+            color = 0
+            color = 2
+            color = 0
+        }
+    }
+}
+b_gisors = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 374
+            emblem = 0
+            color = 2
+            color = 0
+            color = 0
+        }
+    }
+}
+b_beauvais = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 126
+			emblem = 0
+			color = 0
+			color = 2
+			color = 1
+		}
+	}				
+}
+
+### Chalon
+
+b_brancion = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 435
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_chalon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 226
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}					
+}
+
+### Auxerre
+
+b_auxerre = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 11
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Mâcon
+
+b_macon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_cluny = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 129
+			emblem = 0
+			color = 0
+			color = 2
+			color = 1
+		}
+	}
+}
+b_beaujeu = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 1
+			emblem = 3
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Dijon
+
+b_dijon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 12
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_avallon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 464
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_citeaux = {
+# de Bourgogne, à la bordure de France
+}
+b_beaune = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 93
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_noyers = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Nevers
+
+b_courtenay = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 111
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_nevers = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 11
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_donzy = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 17
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Charollais
+
+b_semurenbrionnais = {
+	frankish = "Semur"
+	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 231
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_digoine = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+#################
+### Aquitaine ###
+#################
+
+### Bordeaux
+
+b_bordeaux = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Agen
+
+b_luzech = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 57
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_blanquefort = {
+  coat_of_arms = {
+	  template = 2
+	  layer = {
+		  texture = 1
+		  texture_internal = 180
+		  emblem = 0
+		  color = 0
+		  color = 2
+		  color = 0
+	  }
+	  layer = {
+		  texture = 1
+		  texture_internal = 180
+		  emblem = 0
+		  color = 2
+		  color = 0
+		  color = 0
+	  }
+  }				
+}
+
+### Périgord
+
+b_biron = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 169
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_bergerac = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 81
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Angoulême
+
+b_jarnac = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 173
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_angouleme = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 173
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_larochefoucauld = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 1
+		  texture_internal = 159
+		  emblem = 0
+		  color = 4
+		  color = 1
+		  color = 2
+	  }
+  }					
+}
+
+### Montpellier
+
+b_beaucaire = {
+   coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 227
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_montpellier = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 114
+		  emblem = 0
+		  color = 2
+		  color = 1
+		  color = 0
+	  }
+  }					
+}
+
+b_melgueil = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 140
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Narbonne
+
+b_narbonne = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+} 
+b_beziers = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 2
+		  texture_internal = 14
+		  emblem = 0
+		  color = 0
+		  color = 0
+		  color = 0
+	  }
+  }					
+} 
+
+### Carcassonne
+
+b_carcassonne = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 2
+		  texture_internal = 50
+		  emblem = 0
+		  color = 0
+		  color = 0
+		  color = 0
+	  }
+  }					
+} 
+b_termes = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+} 
+
+### Rouergue
+
+b_rodez = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+} 
+b_millau = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 167
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Foix
+
+b_mirepoix = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 207
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+} 
+b_roquefeuil = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 1
+		  texture_internal = 160
+		  emblem = 0
+		  color = 0
+		  color = 2
+		  color = 1
+	  }
+  }					
+}
+
+### Béarn
+
+b_mauleonlicharre = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Armagnac
+
+b_auch = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_lisle = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 74
+			emblem = 0
+			color = 2
+			color = 0
+			color = 1
+		}
+	}				
+}
+b_mirande = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 169
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Albret
+
+b_labrit = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 0
+			emblem = 0
+			color = 3
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_roquefort = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 84
+		  emblem = 0
+		  color = 4
+		  color = 0
+		  color = 0
+	  }
+  }				
+}
+b_gabarret = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 12
+			emblem = 0
+			color = 3
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_latestedebuch = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 144
+			emblem = 0
+			color = 3
+			color = 0
+			color = 1
+		}
+	}				
+}
+
+### Lusignan
+
+b_lusignan = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 155
+		  emblem = 0
+		  color = 1
+		  color = 4
+		  color = 1
+	  }
+  }					
+}
+
+### Saintonge
+
+b_taillebourg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 171
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Poitiers
+
+b_chauvigny = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 87
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_poitiers = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 3
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_parthenay = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 155
+		  emblem = 10 # bande (gueules)
+		  color = 1
+		  color = 4
+		  color = 0
+	  }
+  }					
+}
+
+### Thouars
+
+b_thouars = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 177
+			emblem = 2
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+
+### Auvergne
+
+b_clermont = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 50
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_aurillac = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 139
+			emblem = 0
+			color = 0
+			color = 5
+			color = 0
+		}
+	}				
+}
+b_carlat = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 40
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Gévaudan
+
+b_mende = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 234
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_apchier = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 74
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_tournel = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 478
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Bourbon
+
+b_bourbon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 97
+			emblem = 0
+			color = 4
+			color = 0
+			color = 2
+		}
+	}				
+}
+b_montpensier = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Limousin
+
+b_turenne = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 163
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_limoges = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 12
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_comborn = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 165
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_rochechouart = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 126
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_ventadour = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### La Marche
+
+b_aubusson = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 65
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+################
+### Bretagne ###
+################
+
+### Nantes
+
+b_chateaubriant = {
+	breton = Kastell-Briant
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 128
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}						
+}
+b_clisson = {
+	breton = Klison
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 1
+			emblem = 0
+			color = 1
+			color = 2
+			color = 1
+		}
+	}						
+}
+b_donges = {
+	breton = Dined
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}						
+}
+b_la_roche-bernard = {
+	breton = "Ar Roc'h-Bernez"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 30
+			emblem = 0
+			color = 3
+			color = 0
+			color = 3
+		}
+	}					
+}
+b_st_nazaire = {
+	breton = "Sant-Nazer"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 220
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}					
+}
+
+### Penthièvre
+
+b_quintin = {
+	breton = "Kintin"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 140
+			emblem = 30
+			color = 2
+			color = 1
+			color = 0
+		}
+	}					
+}
+
+### Rennes
+
+b_rennes = {
+	breton = "Roazhon"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 80
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}						
+}
+b_dinan = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 170
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}					
+}
+b_porhoet = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+#################
+### Bourgogne ###
+#################
+
+### Provence
+
+b_arles = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 83
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_marseille = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 62
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_grimaud = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4part4
+			texture_internal = 69
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_grasse = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_castellane = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 76
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_tarascon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+### Forcalquier
+
+b_forcalquier = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 62
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_apt = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 45
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}				
+}	
+
+### Comtat
+
+b_orange = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 113
+			emblem = 0
+			color = 4
+			color = 0
+			color = 2
+		}
+	}				
+}
+b_avignon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 122
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_cavaillon = {
+	occitan = "Cavalhon"
+	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_venasque = {
+	frankish = "Venasque"
+	occitan = "Venasca"
+	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 62
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_mondragon = {
+	frankish = "Mondragon"
+	occitan = "Montdragon"
+	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 147
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}				
+}		
+
+### Nice
+
+b_monaco = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 173
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_mentone = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_antibes = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}	
+
+### Savoie
+
+b_faucigny = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 166
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}	
+}
+b_tarentaise = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}
+}
+b_conflens = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}
+}
+
+### Valais
+
+b_sitten = {
+	frankish = "Sion"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_greyerz = {
+	frankish = "Gruyère"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 172
+			emblem = 0
+			color = 1
+			color = 2
+			color = 0
+		}
+	}					
+}
+
+### Genève
+
+b_geneve = {
+	frankish = "Genève"
+	german = "Genf"
+	italian = "Ginvera"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 131
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}					
+}
+b_romainmotier = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 102
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_nyon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}
+}
+b_lausanne = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_aubonne = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+### Aosta
+
+b_aosta = {
+	frankish = "Aoste"
+	german = "Augschtal"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 140
+			emblem = 34
+			color = 2
+			color = 1
+			color = 0
+		}
+	}	
+}
+
+### Viennois
+
+b_montelimar = {
+	frankish = "Monteil"
+	occitan = "Montelh"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 52
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}					
+}
+b_vienne = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 0
+			color = 2
+			color = 1
+		}
+	}					
+}
+b_valence = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 3
+			emblem = 0
+			color = 0
+			color = 1
+			color = 4
+		}
+	}					
+}
+b_grenoble = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 93
+			emblem = 0
+			color = 0
+			color = 2
+			color = 1
+		}
+	}					
+}
+b_albon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 112
+			emblem = 0
+			color = 4
+			color = 0
+			color = 2
+		}
+	}					
+}
+b_stantoine = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 123
+			emblem = 0
+			color = 4
+			color = 0
+			color = 0
+		}
+	}
+}
+b_valreas = {
+	frankish = "Grignan"
+	occitan = "Grignan"
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 163
+			emblem = 0
+			color = 0
+			color = 4
+			color = 1
+		}
+	}	
+}
+
+### Forez
+
+b_couzan = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 65
+		  emblem = 0
+		  color = 2
+		  color = 0
+		  color = 0
+	  }
+  }				
+}
+b_feurs = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 50
+		  emblem = 0
+		  color = 0
+		  color = 2
+		  color = 0
+	  }
+  }					
+}
+b_roanne = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_chalmazel = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 1
+		  texture_internal = 83
+		  emblem = 0
+		  color = 0
+		  color = 3
+		  color = 0
+	  }
+  }					
+}
+
+### Vivarais
+
+b_tournon = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 1
+		  emblem = 0
+		  color = 0
+		  color = 2
+		  color = 0
+	  }
+  }				
+}
+b_joyeuse = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 0
+		  texture_internal = 166
+		  emblem = 14
+		  color = 4
+		  color = 0
+		  color = 0
+	  }
+  }				
+}
+
+### Grisons
+
+### Neuchâtel
+
+b_neuchatel = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 1
+		  texture_internal = 80
+		  emblem = 0
+		  color = 2
+		  color = 0
+		  color = 1
+	  }
+  }					
+}
+b_grandson = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 2
+		  texture_internal = 57
+		  emblem = 0
+		  color = 0
+		  color = 0
+		  color = 0
+	  }
+  }					
+}
+b_estavayer = {
+  coat_of_arms = {
+	  template = 0
+	  layer = {
+		  texture = 1
+		  texture_internal = 68
+		  emblem = 0
+		  color = 4
+		  color = 1
+		  color = 2
+	  }
+  }				
+}
+
+### Berne
+
+b_luzern = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 137
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Schwyz
+
+b_schwyz = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_zurich = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 49
+			emblem = 0
+			color = 1
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_zug = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 180
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+### Argau
+
+b_basel = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 4
+			texture_internal = 151
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_solothurn = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 127
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_habsburg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_rheinfelden = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 150
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_schaffhausen = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 484
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_lenzburg = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 74
+			emblem = 0
+			color = 4
+			color = 1
+			color = 0
+		}
+	}				
+}
+
+
+
+### Besançon
+
+b_besancon = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_arlay = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 218
+            emblem = 0
+            color = 0
+            color = 2
+            color = 4
+        }
+    }
+}
+
+### Montbéliard
+
+b_montbeliard = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 51
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}					
+}
+
+### Amous
+
+### Salins (Escuens)
+
+b_salins = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 211
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}	
+}
+b_frontenay = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 138
+            emblem = 0
+            color = 0
+            color = 4
+            color = 0
+        }
+    }
+}
+
+### Vesoul
+
+b_vesoul = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 339
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_champlitte = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 1
+			emblem = 0
+			color = 0
+			color = 2
+			color = 1
+		}
+	}
+}
+b_jussey = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 11
+            emblem = 0
+            color = 0
+            color = 4
+            color = 0
+        }
+    }
+}

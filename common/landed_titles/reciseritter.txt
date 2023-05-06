@@ -1,0 +1,35 @@
+d_kaiserliche_ritter = {
+	color={ 70 70 70 }
+	color2={ 70 70 70 }
+	
+	graphical_culture = holygfx
+
+	capital = 90
+	
+	# Parent Religion 
+	religion = catholic
+	
+	culture = german
+	
+	allow = {
+	has_landed_title = e_hre
+	}
+	
+	mercenary = yes
+
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+	title_female = "CAPTAIN_FEMALE"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	replace_captain_on_death = yes
+	
+	strength_growth_per_century = 0.05
+	
+	mercenary_type = hre_ritterboiz_composition
+}

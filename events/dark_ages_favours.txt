@@ -1,0 +1,2052 @@
+namespace = darkages
+
+character_event = { 		#CALLED FROM TARGETED DECISION
+	id = darkages.72392
+	title = EVTNAME1972392
+	desc = EVTDESC1972392
+	picture = GFX_evt_da_gold_chest
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972392	#GOLD
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP317 }	
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72594 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972392	#PIETY
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP166 }
+
+		
+		hidden_tooltip = {
+			random_list = {
+				2 = {			#UNSUCCESSFUL
+					modifier = {
+						factor = 1.4
+						trait = envious
+					}
+					modifier = {
+						factor = 1.4
+						trait = proud
+					}
+					modifier = {
+						factor = 1.4
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.4
+						trait = slothful
+					}
+					modifier = {
+						factor = 1.4
+						trait = gluttonous
+					}
+					modifier = {
+						factor = 1.4
+						trait = greedy
+					}
+					modifier = {
+						factor = 1.4
+						trait = lustful
+					}
+					modifier = {
+						factor = 1.4
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.4
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { piety = 75 } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { piety = 50 } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { piety = 25 } }
+					}
+					modifier = {
+						factor = 10
+						FROM = { NOT = { piety = 0 } }
+					}					
+					character_event = { id = darkages.72393 days = 15 random = 15 }
+				}
+				2 = {			#SUCCESS!
+					modifier = {
+						factor = 1.4
+						trait = chaste
+					}
+					modifier = {
+						factor = 1.4
+						trait = charitable
+					}
+					modifier = {
+						factor = 1.4
+						trait = patient
+					}
+					modifier = {
+						factor = 1.4
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.4
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.4
+						trait = kind
+					}
+					modifier = {
+						factor = 1.4
+						trait = humble
+					}
+					modifier = {
+						factor = 1.4
+						trait = honest
+					}
+					modifier = {
+						factor = 1.4
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { piety = 150 }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { piety = 300 }
+					}
+					modifier = {
+						factor = 2
+						FROM = { piety = 500 }
+					}				
+					
+					character_event = { id = darkages.72395 days = 15 random = 15 }
+				}
+				
+			}
+		}		
+
+	}
+	
+	option = {
+		name = EVTOPTC1972392	#PRESTIGE
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP167 }		
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {			#UNSUCCESSFUL
+					modifier = {
+						factor = 1.4
+						trait = envious
+					}
+					modifier = {
+						factor = 1.4
+						trait = proud
+					}
+					modifier = {
+						factor = 1.4
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.4
+						trait = slothful
+					}
+					modifier = {
+						factor = 1.4
+						trait = gluttonous
+					}
+					modifier = {
+						factor = 1.4
+						trait = greedy
+					}
+					modifier = {
+						factor = 1.4
+						trait = lustful
+					}
+					modifier = {
+						factor = 1.4
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.4
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { prestige = 300 } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { prestige = 150} }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { prestige = 75 } }
+					}
+					modifier = {
+						factor = 10
+						FROM = { NOT = { prestige = 0 } }
+					}					
+					character_event = { id = darkages.72393 days = 15 random = 15 }
+				}
+				1 = {			#SUCCESS!
+					modifier = {
+						factor = 1.4
+						trait = chaste
+					}
+					modifier = {
+						factor = 1.4
+						trait = charitable
+					}
+					modifier = {
+						factor = 1.4
+						trait = patient
+					}
+					modifier = {
+						factor = 1.4
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.4
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.4
+						trait = kind
+					}
+					modifier = {
+						factor = 1.4
+						trait = humble
+					}
+					modifier = {
+						factor = 1.4
+						trait = honest
+					}
+					modifier = {
+						factor = 1.4
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { prestige = 750 }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { prestige = 1500 }
+					}
+					modifier = {
+						factor = 2
+						FROM = { prestige = 3000 }
+					}				
+					if = {
+						limit = {
+							is_merchant_republic = no
+						}
+						character_event = { id = darkages.72396 days = 15 random = 15 }
+					}
+					else = {
+						character_event = { id = darkages.72394 days = 15 random = 15 }
+					}
+				}
+				
+			}
+		}		
+
+	}	
+	
+	option = {
+		name = EVTOPTD1972392
+		trigger = {
+			FROM = { 
+				higher_tier_than = BARON
+				NOT = { is_allied_with = ROOT }
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP168 }		
+
+
+		hidden_tooltip = {
+			random_list = {
+				1 = {			#UNSUCCESSFUL
+					modifier = {
+						factor = 1.4
+						trait = envious
+					}
+					modifier = {
+						factor = 1.4
+						trait = proud
+					}
+					modifier = {
+						factor = 1.4
+						trait = wroth
+					}
+					modifier = {
+						factor = 1.4
+						trait = slothful
+					}
+					modifier = {
+						factor = 1.4
+						trait = gluttonous
+					}
+					modifier = {
+						factor = 1.4
+						trait = greedy
+					}
+					modifier = {
+						factor = 1.4
+						trait = lustful
+					}
+					modifier = {
+						factor = 1.4
+						trait = deceitful
+					}
+					modifier = {
+						factor = 1.4
+						trait = arbitrary
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { NOT = { opinion = { who = ROOT value =  0 } } }
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { NOT = { opinion = { who = ROOT value =  -10 } } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { NOT = { opinion = { who = ROOT value =  -25 } } }
+					}
+					modifier = {
+						factor = 10
+						FROM = { NOT = { opinion = { who = ROOT value =  -50 } } }
+					}				
+					character_event = { id = darkages.72393 days = 15 random = 15 }
+				}
+				1 = {			#SUCCESS!
+					modifier = {
+						factor = 1.4
+						trait = chaste
+					}
+					modifier = {
+						factor = 1.4
+						trait = charitable
+					}
+					modifier = {
+						factor = 1.4
+						trait = patient
+					}
+					modifier = {
+						factor = 1.4
+						trait = diligent
+					}
+					modifier = {
+						factor = 1.4
+						trait = temperate
+					}
+					modifier = {
+						factor = 1.4
+						trait = kind
+					}
+					modifier = {
+						factor = 1.4
+						trait = humble
+					}
+					modifier = {
+						factor = 1.4
+						trait = honest
+					}
+					modifier = {
+						factor = 1.4
+						trait = just
+					}
+					modifier = {
+						factor = 1.5
+						FROM = { opinion = { who = ROOT value =  25 } } 
+					}
+					modifier = {
+						factor = 1.75
+						FROM = { opinion = { who = ROOT value =  50 } }
+					}
+					modifier = {
+						factor = 2
+						FROM = { opinion = { who = ROOT value =  75 } }
+					}				
+					
+					character_event = { id = darkages.72397 days = 15 random = 15 }
+				}
+				
+			}
+		}
+		
+
+	}	
+	
+}
+
+character_event = { 		#UNSUCCESSFUL
+	id = darkages.72393
+	title = EVTNAME1972393
+	desc = EVTDESC1972393
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+		
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972393
+		
+		prestige = -25
+		
+		remove_favor = FROMFROM
+		
+	}
+	
+}
+
+character_event = { 		#GAIN GOLD
+	id = darkages.72594
+	title = EVTNAME1972594
+	desc = EVTDESC1972594
+	picture = GFX_evt_da_gold_chest
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+		
+	}
+
+	immediate = {
+	
+		random_list = {
+			40 = {	#option for unlanded
+				modifier = {
+					factor = 0
+					FROMFROM = { num_of_titles = 1 }
+				}				
+				set_character_flag = da_opt_0
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { num_of_titles = 1 } }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { NOT = { opinion = { who = ROOT value = -24 } } }
+				}				
+				set_character_flag = da_opt_1
+			}
+			
+			8 = {
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { treasury = 100 } }
+				}
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { num_of_titles = 1 } }
+				}
+				modifier = {
+					factor = 1.65
+					FROMFROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+				}					
+				set_character_flag = da_opt_2			
+			}
+			
+			6 = {
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { treasury = 150 } }
+				}
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { num_of_titles = 1 } }
+				}
+				modifier = {
+					factor = 2
+					FROMFROM = { opinion = { who = ROOT value = -25 } }
+				}					
+				set_character_flag = da_opt_3			
+			}
+			
+			4 = {
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { treasury = 250 } }
+				}
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { num_of_titles = 1 } }
+				}
+				modifier = {
+					factor = 2.5
+					FROMFROM = { opinion = { who = ROOT value = -50 } }
+				}					
+				set_character_flag = da_opt_4			
+			}
+		
+		}
+	
+	
+	}
+
+	option = {
+		name = EVTOPTA1972594
+		trigger = {
+			has_character_flag = da_opt_0
+		}
+
+		treasury = 30
+		
+		FROMFROM = { treasury = -30 }
+		
+		remove_favor = FROMFROM	
+
+		clr_character_flag = da_opt_0
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972594
+		trigger = {
+			has_character_flag = da_opt_1
+		}
+
+		treasury = 40
+		
+		FROMFROM = { treasury = -40 }
+		
+		remove_favor = FROMFROM	
+
+		clr_character_flag = da_opt_1
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972594
+		trigger = {
+			has_character_flag = da_opt_2
+		}
+
+		treasury = 65
+		
+		FROMFROM = { treasury = -65 }
+		
+		remove_favor = FROMFROM	
+
+		clr_character_flag = da_opt_2
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972594
+		trigger = {
+			has_character_flag = da_opt_3
+		}
+
+		treasury = 90
+		
+		FROMFROM = { treasury = -90 }
+		
+		remove_favor = FROMFROM	
+
+		clr_character_flag = da_opt_3
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972594
+		trigger = {
+			has_character_flag = da_opt_4
+		}
+
+		treasury = 125
+		
+		FROMFROM = { treasury = -125 }
+		
+		remove_favor = FROMFROM	
+
+		clr_character_flag = da_opt_4
+		
+	}	
+		
+	
+}
+
+
+
+character_event = { 		#successful PRESTIGE (For Doges)
+	id = darkages.72394
+	title = EVTNAME1972396
+	desc = EVTDESC1972396
+	picture = GFX_evt_da_gold_chest
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+		
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 ={	#50
+				set_character_flag = darkages_favour1
+			}
+			1 ={	#75
+				set_character_flag = darkages_favour2
+			}
+			1 ={	#125
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 75 } }
+				}
+				set_character_flag = darkages_favour3
+			}
+			1 ={	#175
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 100 } }
+				}
+				set_character_flag = darkages_favour4
+			}
+			1 ={	#225
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 125 } }
+				}
+				set_character_flag = darkages_favour5
+			}
+			1 ={	#260
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 150 } }
+				}
+				set_character_flag = darkages_favour6
+			}
+			1 ={	#300
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 200 } }
+				}
+				set_character_flag = darkages_favour7
+			}			
+			1 ={	#400
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 300 } }
+				}
+				set_character_flag = darkages_favour8
+			}			
+			1 ={	#500
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { treasury = 500 } }
+				}
+				set_character_flag = darkages_favour9
+			}			
+		
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972396
+		trigger = {
+			has_character_flag = darkages_favour1
+		}
+		
+		clr_character_flag = darkages_favour1
+		
+		prestige = 50
+
+		remove_favor = FROMFROM		
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972396
+		trigger = {
+			has_character_flag = darkages_favour2
+		}
+		
+		clr_character_flag = darkages_favour2
+		
+		prestige = 75
+		remove_favor = FROMFROM		
+	
+	}	
+	
+	option = {
+		name = EVTOPTA1972396
+		trigger = {
+			has_character_flag = darkages_favour3
+		}
+		
+		clr_character_flag = darkages_favour3
+		
+		prestige = 125
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTB1972396
+		trigger = {
+			has_character_flag = darkages_favour4
+		}
+		
+		clr_character_flag = darkages_favour4
+		
+		prestige = 175
+		remove_favor = FROMFROM		
+		
+	}	
+	
+	option = {
+		name = EVTOPTB1972396
+		trigger = {
+			has_character_flag = darkages_favour5
+		}
+		
+		clr_character_flag = darkages_favour5
+		
+		prestige = 225
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTB1972396
+		trigger = {
+			has_character_flag = darkages_favour6
+		}
+		
+		clr_character_flag = darkages_favour6
+		
+		prestige = 260
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTC1972396
+		trigger = {
+			has_character_flag = darkages_favour7
+		}
+		
+		clr_character_flag = darkages_favour7
+		
+		prestige = 300
+		remove_favor = FROMFROM
+		
+	}	
+	
+	option = {
+		name = EVTOPTC1972396
+		trigger = {
+			has_character_flag = darkages_favour8
+		}
+		
+		clr_character_flag = darkages_favour8
+		
+		prestige = 400
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTC1972396
+		trigger = {
+			has_character_flag = darkages_favour9
+		}
+		
+		clr_character_flag = darkages_favour9
+		
+		prestige = 500
+		remove_favor = FROMFROM		
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972394
+		trigger = {
+			has_character_flag = darkages_favour1
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP313 }
+		
+		clr_character_flag = darkages_favour1
+		
+		player_heir = { prestige = 50 }
+
+		remove_favor = FROMFROM		
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972394
+		trigger = {
+			has_character_flag = darkages_favour2
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP313 }
+		
+		clr_character_flag = darkages_favour2
+		
+		player_heir = { prestige = 75 }
+		remove_favor = FROMFROM		
+	
+	}	
+	
+	option = {
+		name = EVTOPTA1972394
+		trigger = {
+			has_character_flag = darkages_favour3
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP313 }
+		
+		clr_character_flag = darkages_favour3
+		
+		player_heir = { prestige = 125 }
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTA1972394
+		trigger = {
+			has_character_flag = darkages_favour4
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP313 }
+		
+		clr_character_flag = darkages_favour4
+		
+		player_heir = { prestige = 175 }
+		remove_favor = FROMFROM		
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972394
+		trigger = {
+			has_character_flag = darkages_favour5
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP313 }
+		
+		clr_character_flag = darkages_favour5
+		
+		player_heir = { prestige = 225 }
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTA1972394
+		trigger = {
+			has_character_flag = darkages_favour6
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP313 }
+		
+		clr_character_flag = darkages_favour6
+		
+		player_heir = { prestige = 260 }
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTA1972394
+		trigger = {
+			has_character_flag = darkages_favour7
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP313 }
+		
+		clr_character_flag = darkages_favour7
+		
+		player_heir = { prestige = 300 }
+		remove_favor = FROMFROM
+		
+	}	
+	
+	option = {
+		name = EVTOPTA1972394
+		trigger = {
+			has_character_flag = darkages_favour8
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP313 }
+		
+		clr_character_flag = darkages_favour8
+		
+		player_heir = { prestige = 400 }
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTA1972394
+		trigger = {
+			has_character_flag = darkages_favour9
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP313 }
+		
+		clr_character_flag = darkages_favour9
+		
+		player_heir = { prestige = 500 }
+		remove_favor = FROMFROM		
+		
+	}		
+	
+}
+
+
+
+
+character_event = { 		#successful piety
+	id = darkages.72395
+	title = EVTNAME1972395
+	desc = EVTDESC1972395
+	picture = GFX_evt_da_gold_chest
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+		
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 ={	
+				set_character_flag = darkages_favour1
+			}
+			1 ={	
+				set_character_flag = darkages_favour2
+			}
+			1 ={	
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { piety = 50 } }
+				}
+				set_character_flag = darkages_favour3
+			}
+			1 ={	
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { piety = 50 } }
+				}
+				set_character_flag = darkages_favour4
+			}
+			1 ={	
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { piety = 75 } }
+				}
+				set_character_flag = darkages_favour5
+			}
+			1 ={	
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { piety = 75 } }
+				}
+				set_character_flag = darkages_favour6
+			}
+			1 ={	
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { piety = 100 } }
+				}
+				set_character_flag = darkages_favour7
+			}			
+			1 ={	
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { piety = 125 } }
+				}
+				set_character_flag = darkages_favour8
+			}			
+			1 ={	
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { piety = 150 } }
+				}
+				set_character_flag = darkages_favour9
+			}			
+		
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972395
+		trigger = {
+			has_character_flag = darkages_favour1
+		}
+		
+		clr_character_flag = darkages_favour1
+		
+		piety = 35
+		
+		remove_favor = FROMFROM		
+	}
+	
+	option = {
+		name = EVTOPTA1972395
+		trigger = {
+			has_character_flag = darkages_favour2
+		}
+		
+		clr_character_flag = darkages_favour2
+		
+		piety = 50
+		remove_favor = FROMFROM		
+	
+	}	
+	
+	option = {
+		name = EVTOPTA1972395
+		trigger = {
+			has_character_flag = darkages_favour3
+		}
+		
+		clr_character_flag = darkages_favour3
+		
+		piety = 75
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTB1972395
+		trigger = {
+			has_character_flag = darkages_favour4
+		}
+		
+		clr_character_flag = darkages_favour4
+		
+		piety = 100
+		remove_favor = FROMFROM		
+		
+	}	
+	
+	option = {
+		name = EVTOPTB1972395
+		trigger = {
+			has_character_flag = darkages_favour5
+		}
+		
+		clr_character_flag = darkages_favour5
+		
+		piety = 125
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTB1972395
+		trigger = {
+			has_character_flag = darkages_favour6
+		}
+		
+		clr_character_flag = darkages_favour6
+		
+		piety = 150
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTC1972395
+		trigger = {
+			has_character_flag = darkages_favour7
+		}
+		
+		clr_character_flag = darkages_favour7
+		
+		piety = 175
+		remove_favor = FROMFROM
+		
+	}	
+	
+	option = {
+		name = EVTOPTC1972395
+		trigger = {
+			has_character_flag = darkages_favour8
+		}
+		
+		clr_character_flag = darkages_favour8
+		
+		piety = 200
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTC1972395
+		trigger = {
+			has_character_flag = darkages_favour9
+		}
+		
+		clr_character_flag = darkages_favour9
+		
+		piety = 300
+		remove_favor = FROMFROM		
+		
+	}	
+	
+}
+
+
+character_event = { 		#successful PRESTIGE
+	id = darkages.72396
+	title = EVTNAME1972396
+	desc = EVTDESC1972396
+	picture = GFX_evt_da_gold_chest
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+		
+	}
+
+	immediate = {
+	
+		random_list = {
+			1 ={	#50
+				set_character_flag = darkages_favour1
+			}
+			1 ={	#75
+				set_character_flag = darkages_favour2
+			}
+			1 ={	#125
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 75 } }
+				}
+				set_character_flag = darkages_favour3
+			}
+			1 ={	#175
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 100 } }
+				}
+				set_character_flag = darkages_favour4
+			}
+			1 ={	#225
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 125 } }
+				}
+				set_character_flag = darkages_favour5
+			}
+			1 ={	#260
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 150 } }
+				}
+				set_character_flag = darkages_favour6
+			}
+			1 ={	#300
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 200 } }
+				}
+				set_character_flag = darkages_favour7
+			}			
+			1 ={	#400
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { prestige = 300 } }
+				}
+				set_character_flag = darkages_favour8
+			}			
+			1 ={	#500
+				modifier = {
+					factor = 0
+					FROMFROM = { NOT = { treasury = 500 } }
+				}
+				set_character_flag = darkages_favour9
+			}			
+		
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972396
+		trigger = {
+			has_character_flag = darkages_favour1
+		}
+		
+		clr_character_flag = darkages_favour1
+		
+		prestige = 50
+
+		remove_favor = FROMFROM		
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972396
+		trigger = {
+			has_character_flag = darkages_favour2
+		}
+		
+		clr_character_flag = darkages_favour2
+		
+		prestige = 75
+		remove_favor = FROMFROM		
+	
+	}	
+	
+	option = {
+		name = EVTOPTA1972396
+		trigger = {
+			has_character_flag = darkages_favour3
+		}
+		
+		clr_character_flag = darkages_favour3
+		
+		prestige = 125
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTB1972396
+		trigger = {
+			has_character_flag = darkages_favour4
+		}
+		
+		clr_character_flag = darkages_favour4
+		
+		prestige = 175
+		remove_favor = FROMFROM		
+		
+	}	
+	
+	option = {
+		name = EVTOPTB1972396
+		trigger = {
+			has_character_flag = darkages_favour5
+		}
+		
+		clr_character_flag = darkages_favour5
+		
+		prestige = 225
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTB1972396
+		trigger = {
+			has_character_flag = darkages_favour6
+		}
+		
+		clr_character_flag = darkages_favour6
+		
+		prestige = 260
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTC1972396
+		trigger = {
+			has_character_flag = darkages_favour7
+		}
+		
+		clr_character_flag = darkages_favour7
+		
+		prestige = 300
+		remove_favor = FROMFROM
+		
+	}	
+	
+	option = {
+		name = EVTOPTC1972396
+		trigger = {
+			has_character_flag = darkages_favour8
+		}
+		
+		clr_character_flag = darkages_favour8
+		
+		prestige = 400
+		remove_favor = FROMFROM		
+		
+	}
+
+	option = {
+		name = EVTOPTC1972396
+		trigger = {
+			has_character_flag = darkages_favour9
+		}
+		
+		clr_character_flag = darkages_favour9
+		
+		prestige = 500
+		remove_favor = FROMFROM		
+		
+	}	
+	
+}
+
+character_event = { 		#SUCCESSFUL ALLIANCE
+	id = darkages.72397
+	title = EVTNAME1972397
+	desc = EVTDESC1972397
+	picture = GFX_evt_da_gold_chest
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+	}
+
+	immediate = {
+	
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972397
+		
+		FROMFROM = { 
+			add_alliance = { who = ROOT years = 10 }
+		}
+		remove_favor = FROMFROM
+	}
+	
+}
+
+
+
+############################################################################################################################################
+#
+#	POSSIBLE CONSEQUENCES TO THE PLAYER OF OWING A FAVOUR TO AN AI CHARACTER
+#
+#############################################################################################################################################
+
+character_event = { 		#Main event
+	id = darkages.72625
+	title = EVTNAME1972625
+	desc = EVTDESC1972625
+	picture = GFX_evt_da_conversation
+	border = GFX_event_normal_frame_diplomacy
+
+	ai = no
+
+	trigger = {
+		any_character = {
+			is_within_diplo_range = ROOT
+			is_adult = yes
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			holds_favor_on = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180	#CONSTANT VALUE
+	}
+
+	immediate = {
+	
+		random_character = {
+			limit = {
+				is_within_diplo_range = ROOT
+				is_adult = yes
+				is_incapable = no
+				NOT = { trait = resting }
+				prisoner = no
+				holds_favor_on = ROOT
+			}
+			
+			save_event_target_as = darkages_favoured_char
+			
+		}
+
+		random_list = {
+			3 = {	#Gold
+				set_character_flag = darkages_1
+			}
+			1 = {	#Political support (loses general opinion)
+				set_character_flag = darkages_2
+			}
+			2 = {	#Prestige
+				set_character_flag = darkages_3			
+			}
+			1 = {	#Piety
+				set_character_flag = darkages_4			
+			}
+			1 = {	#Economic Support through the capital (negative modifier in capital)
+				set_character_flag = darkages_5			
+			}
+			1 = {	#Personal Economic support (negative character modifier)
+				set_character_flag = darkages_6			
+			}
+			1 = {	#Personal Advice (character will be away from court with the possibility of a bad event happening)
+				set_character_flag = darkages_7			
+			}
+		
+		}
+
+
+	}
+	
+	option = {	#GOLD
+		name = EVTOPTA1972625
+		trigger = {
+			has_character_flag = darkages_1
+		}
+
+		transfer_scaled_wealth = { to = event_target:darkages_favoured_char value = 1 min = 50 max = 200 }
+		
+		reverse_remove_favor = event_target:darkages_favoured_char
+		clr_character_flag = darkages_1
+
+	}
+	
+	option = {	#POLITICAL SUPPORT
+		name = EVTOPTB1972625
+		trigger = {
+			has_character_flag = darkages_2
+		}
+		
+		random = {
+			chance = 50
+			change_diplomacy = -1
+		}
+
+		add_character_modifier = {
+			name = da_politically_compromised
+			duration = 1825		
+		}
+		
+		reverse_remove_favor = event_target:darkages_favoured_char		
+		clr_character_flag = darkages_2
+
+
+	}
+
+	option = {	#PRESTIGE
+		name = EVTOPTC1972625
+		trigger = {
+			has_character_flag = darkages_3
+		}
+		
+		random_list = {
+			1 = {
+				prestige = -50
+				set_character_flag = da_aux_1
+			}
+			2 = {
+				prestige = -75
+				set_character_flag = da_aux_2
+			}			
+			2 = {
+				prestige = -100
+				set_character_flag = da_aux_3
+			}			
+			2 = {
+				prestige = -125
+				set_character_flag = da_aux_4
+			}			
+			1 = {
+				prestige = -150
+				set_character_flag = da_aux_5
+			}			
+		
+		}
+		
+		trigger_switch = {
+			on_trigger = has_character_flag 
+			
+			da_aux_1 = { event_target:darkages_favoured_char = { prestige = 50 } }
+			da_aux_2 = { event_target:darkages_favoured_char = { prestige = 75 } }
+			da_aux_3 = { event_target:darkages_favoured_char = { prestige = 100 } }
+			da_aux_4 = { event_target:darkages_favoured_char = { prestige = 125 } }
+			da_aux_5 = { event_target:darkages_favoured_char = { prestige = 150 } }			
+			
+			
+		}
+		
+		reverse_remove_favor = event_target:darkages_favoured_char		
+		clr_character_flag = darkages_3
+		clr_character_flag = da_aux_1
+		clr_character_flag = da_aux_2
+		clr_character_flag = da_aux_3
+		clr_character_flag = da_aux_4
+		clr_character_flag = da_aux_5		
+
+	}
+
+	option = {	#PIETY
+		name = EVTOPTD1972625
+		trigger = {
+			has_character_flag = darkages_4
+		}
+
+		random_list = {
+			1 = {
+				piety = -50
+				set_character_flag = da_aux_1
+			}
+			2 = {
+				piety = -75
+				set_character_flag = da_aux_2
+			}			
+			2 = {
+				piety = -100
+				set_character_flag = da_aux_3
+			}			
+			2 = {
+				piety = -125
+				set_character_flag = da_aux_4
+			}			
+			1 = {
+				piety = -150
+				set_character_flag = da_aux_5
+			}			
+		
+		}
+		
+		trigger_switch = {
+			on_trigger = has_character_flag 
+			
+			da_aux_1 = { event_target:darkages_favoured_char = { piety = 50 } }
+			da_aux_2 = { event_target:darkages_favoured_char = { piety = 75 } }
+			da_aux_3 = { event_target:darkages_favoured_char = { piety = 100 } }
+			da_aux_4 = { event_target:darkages_favoured_char = { piety = 125 } }
+			da_aux_5 = { event_target:darkages_favoured_char = { piety = 150 } }			
+			
+			
+		}
+
+		reverse_remove_favor = event_target:darkages_favoured_char
+		clr_character_flag = darkages_4
+		clr_character_flag = da_aux_1
+		clr_character_flag = da_aux_2
+		clr_character_flag = da_aux_3
+		clr_character_flag = da_aux_4
+		clr_character_flag = da_aux_5			
+		
+
+	}
+
+	option = {		#CAPITAL TAXES LOWERED
+		name = EVTOPTE1972625
+		trigger = {
+			has_character_flag = darkages_5
+		}
+
+		capital_scope = {
+			add_province_modifier = {
+				name = da_free_access
+				duration = 3650
+			}
+		}
+		
+		reverse_remove_favor = event_target:darkages_favoured_char
+		clr_character_flag = darkages_5
+
+
+	}
+
+	option = {	#MONTHLY PAYMENTS
+		name = EVTOPTF1972625
+		trigger = {
+			has_character_flag = darkages_6
+		}
+		
+		if = {
+			limit = { NOT = { monthly_income = 3 } }
+			
+			add_character_modifier = {
+				name = da_monthly_stipend_1
+				duration = 1825		
+			}
+
+			hidden_tooltip = {
+				event_target:darkages_favoured_char = { treasury = 60 }
+			}
+			
+		}
+
+		if = {
+			limit = { 
+				monthly_income = 3
+				NOT = { monthly_income = 6 } 
+			}
+			
+			add_character_modifier = {
+				name = da_monthly_stipend_2
+				duration = 1825		
+			}
+
+			hidden_tooltip = {
+				event_target:darkages_favoured_char = { treasury = 120 }
+			}			
+			
+		}	
+
+		if = {
+			limit = { 
+				monthly_income = 6
+				NOT = { monthly_income = 9 } 
+			}
+			
+			hidden_tooltip = {
+				event_target:darkages_favoured_char = { treasury = 240 }
+			}			
+			
+			add_character_modifier = {
+				name = da_monthly_stipend_3
+				duration = 1825		
+			}			
+			
+		}	
+
+		if = {
+			limit = { 
+				monthly_income = 9
+			}
+			
+			add_character_modifier = {
+				name = da_monthly_stipend_4
+				duration = 1825		
+			}	
+
+			hidden_tooltip = {
+				event_target:darkages_favoured_char = { treasury = 360 }
+			}			
+			
+		}		
+		
+		reverse_remove_favor = event_target:darkages_favoured_char
+		clr_character_flag = darkages_6
+
+
+	}
+
+	option = {
+		name = EVTOPTG1972625
+		trigger = {
+			has_character_flag = darkages_7
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP340 }
+		
+		add_trait = travelling
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				3 = {
+					character_event = { id = darkages.72626 days = 90 random = 90 }
+				}
+				2 = {
+					character_event = { id = darkages.72628 days = 90 random = 90 }
+				}
+				2 = {
+					character_event = { id = darkages.72629 days = 90 random = 90 }
+				}				
+				13 = {
+				}
+			}
+			
+			character_event = { id = darkages.72627 days = 181}
+		}
+		
+		reverse_remove_favor = event_target:darkages_favoured_char		
+		clr_character_flag = darkages_7
+
+	}	
+	
+	option = {
+		name = EVTOPTH1972625
+		
+		prestige = -100
+		
+		add_character_modifier = {
+			name = da_ungrateful
+			duration = 1825		
+		}
+
+
+	}	
+	
+}
+
+
+character_event = {			#ATTEMPT ON PLAYER LIFE
+	id = darkages.72626
+	title = EVTNAME1972626
+	desc = EVTDESC1972626
+	picture = GFX_evt_da_assassination
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		
+	
+	}
+	
+	option = {
+		name = "EVTOPTA1972626"
+		trigger = { NOT = { trait = craven } }
+		
+		if = {
+			limit = { NOT = { trait = brave } }
+			random = {
+				chance = 75
+				add_trait = brave
+			}
+		}
+		
+		prestige = 75
+		
+		random_list = {
+			4 = {
+				modifier = {
+					factor = 1.75
+					combat_rating = 50
+				}				
+				modifier = {
+					factor = 1.75
+					combat_rating = 75
+				}				
+				modifier = {
+					factor = 2
+					combat_rating = 100
+				}				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP338 }
+			}
+			4 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 10
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 25
+				}			
+				modifier = {
+					factor = 1.5
+					trait = brave
+				}			
+				modifier = {
+					factor = 3
+					trait = duelist
+				}				
+				add_trait = wounded
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP338 }
+			}
+			3 = {
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = 0 }
+				}	
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -10 }
+				}				
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				modifier = {
+					factor = 2
+					NOT = { combat_rating = -30 }
+				}				
+				death = {
+					death_reason = death_murder_unknown
+				}
+				
+			}			
+
+		}
+
+	}
+	
+	option = {
+		name = "EVTOPTB1972626"
+		trigger = { NOT = { trait = brave } }
+		
+		if = {
+			limit = { NOT = { trait = craven } }
+			random = {
+				chance = 75
+				add_trait = craven
+			}
+		}
+		
+		random_list = {
+			6 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 50
+				}				
+				modifier = {
+					factor = 1.25
+					combat_rating = 75
+				}				
+				modifier = {
+					factor = 1.5
+					combat_rating = 100
+				}				
+
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP339 }
+			}
+			4 = {
+				modifier = {
+					factor = 1.2
+					combat_rating = 10
+				}
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}			
+				modifier = {
+					factor = 2
+					trait = duelist
+				}				
+
+				add_trait = wounded
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP339 }
+			}
+			3 = {
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = 0 }
+				}	
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -20 }
+				}				
+				modifier = {
+					factor = 2
+					NOT = { combat_rating = -30 }
+				}				
+
+				death = {
+					death_reason = death_murder_unknown
+				}
+				
+			}			
+
+		}	
+
+	}	
+	
+}
+
+character_event = { 		#Remove travelling trait
+	id = darkages.72627
+	title = EVTNAME1972627
+	desc = EVTDESC1972627
+	picture = GFX_evt_da_carriage
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972627
+		
+		remove_trait = travelling
+	}
+	
+}
+
+character_event = { 		#Attack by bandits
+	id = darkages.72628
+	title = EVTNAME1972628
+	desc = EVTDESC1972628
+	picture = GFX_evt_da_carriage
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972628
+		
+		treasury = -30
+		prestige = -25
+		
+	}
+
+	option = {
+		name = EVTOPTB1972628
+		
+		random_list = {
+			6 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 50
+				}				
+				modifier = {
+					factor = 1.25
+					combat_rating = 75
+				}				
+				modifier = {
+					factor = 1.5
+					combat_rating = 100
+				}				
+
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP338 }
+			}
+			7 = {
+				modifier = {
+					factor = 1.2
+					combat_rating = 10
+				}
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}			
+				modifier = {
+					factor = 2
+					trait = duelist
+				}				
+
+				add_trait = wounded
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP339 }
+			}
+			3 = {
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = 0 }
+				}	
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -20 }
+				}				
+				modifier = {
+					factor = 2
+					NOT = { combat_rating = -30 }
+				}				
+
+				death = {
+					death_reason = death_murder_unknown
+				}
+				
+			}			
+
+		}
+		
+	}
+	
+}
+
+character_event = { 		#Loss of Piety
+	id = darkages.72629
+	title = EVTNAME1972629
+	desc = {
+		trigger = {
+			event_target:darkages_favoured_char = { religion = ROOT }
+		}
+		text = EVTDESC1972629_1
+	}
+	desc = {
+		trigger = {
+			NOT = { event_target:darkages_favoured_char = { religion = ROOT } }
+		}
+		text = EVTDESC1972629_2
+	}	
+	picture = GFX_evt_da_scandal
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972629
+		trigger = { 
+			event_target:darkages_favoured_char = { religion = ROOT }	
+		}
+		
+		piety = -25
+	}
+	
+	option = {
+		name = EVTOPTB1972629
+		trigger = { 
+			NOT = { event_target:darkages_favoured_char = { religion = ROOT } }
+		}
+		
+		piety = -25
+	}	
+	
+}

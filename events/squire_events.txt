@@ -1,0 +1,2935 @@
+namespace = equus
+
+#Squire flag events
+character_event = {
+    id = equus.998
+	hide_window = yes
+	trigger = {
+		any_courtier_or_vassal = {
+			has_minor_title = title_knight_squire
+		}
+		NOT = { has_character_flag = has_squire }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		set_character_flag = has_squire
+	}
+}
+
+character_event = {
+    id = equus.999
+	hide_window = yes
+	trigger = {
+		NOT = {
+			any_courtier_or_vassal = {
+				has_minor_title = title_knight_squire
+			}
+		}
+		has_character_flag = has_squire
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		clr_character_flag = has_squire
+	}
+}
+
+
+#Squire selection
+character_event = {
+    id = equus.1000
+    is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		set_character_flag = has_squire
+		set_character_flag = 3_year_squire_cooldown
+		random_list = {
+			20 = { character_event = { id = equus.1001 }}
+			10 = { character_event = { id = equus.1002 }}
+			20 = { character_event = { id = equus.1003 }}
+			10 = { character_event = { id = equus.1004 }}
+			10 = { character_event = { id = equus.1005 }}
+			20 = { character_event = { id = equus.1006 }}
+			10 = { character_event = { id = equus.1007 }}
+			1000 = { 
+				modifier = { 
+					factor = 0
+					FROM = { NOT = { trait = lunatic }}
+				}
+				character_event = { id = equus.1008 }
+			}
+			10 = { character_event = { id = equus.1009 }}
+		}
+	}
+}
+
+#Young soldier
+character_event = {
+    id = equus.1001
+    desc = EVTDESC_equus.1001
+    picture = "GFX_evt_melee"
+
+    is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			age = 16
+			culture = ROOT
+			religion = ROOT
+			random_traits = yes
+			female = no
+			trait = tough_soldier
+			trait = brave
+			trait = zealous
+		}
+		new_character = {
+			remove_trait = depressed
+			remove_trait = lunatic
+			remove_trait = possessed
+			remove_trait = dull
+			remove_trait = cynical
+			remove_trait = craven
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1001
+		new_character = {
+			opinion = {
+				modifier = opinion_glad
+				who = ROOT
+				years = 5
+			}
+			give_minor_title = title_knight_squire
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1001
+		hidden_tooltip = {
+			new_character = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+	}
+}
+
+#Orphan 
+character_event = {
+    id = equus.1002
+    desc = EVTDESC_equus.1002
+    picture = "GFX_evt_child_talking"
+
+    is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			age = 16
+			culture = capital_scope #Works!
+			religion = capital_scope 
+			random_traits = yes
+			female = no
+			trait = humble
+		}
+		new_character = {
+			remove_trait = depressed
+			remove_trait = lunatic
+			remove_trait = possessed
+			remove_trait = proud
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1001
+		new_character = {
+			opinion = {
+				modifier = opinion_glad
+				who = ROOT
+				years = 5
+			}
+			give_minor_title = title_knight_squire
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1001
+		hidden_tooltip = {
+			new_character = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+	}
+}
+
+#Minor noble 
+character_event = {
+    id = equus.1003
+    desc = EVTDESC_equus.1003
+    picture = "GFX_evt_dancing"
+
+    is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			age = 16
+			culture = ROOT 
+			religion = ROOT 
+			random_traits = yes
+			female = no
+			trait = fair
+			trait = falconer
+			trait = trusting
+		}
+		new_character = {
+			remove_trait = depressed
+			remove_trait = lunatic
+			remove_trait = possessed
+			remove_trait = ambitious
+			remove_trait = zealous
+			remove_trait = wroth
+			remove_trait = shrewd
+			remove_trait = robust
+			remove_trait = quick
+			remove_trait = genius
+			remove_trait = strong
+			remove_trait = paranoid
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1001
+		new_character = {
+			opinion = {
+				modifier = opinion_glad
+				who = ROOT
+				years = 5
+			}
+			give_minor_title = title_knight_squire
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1001
+		hidden_tooltip = {
+			new_character = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+	}
+}
+
+#Religious man 
+character_event = {
+    id = equus.1004
+    desc = EVTDESC_equus.1004
+    picture = "GFX_evt_monastery_monks"
+
+    is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			age = 20
+			culture = capital_scope 
+			religion = capital_scope 
+			random_traits = yes
+			female = no
+			trait = martial_cleric
+			trait = falconer
+			trait = trusting
+			trait = chaste
+			trait = just
+			trait = erudite
+			trait = monk
+			attributes = {
+				learning = 5
+			}
+		}
+		new_character = {
+			remove_trait = depressed
+			remove_trait = lunatic
+			remove_trait = possessed
+			remove_trait = wroth
+			remove_trait = lustful
+			remove_trait = arbitrary
+			remove_trait = paranoid
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1001
+		new_character = {
+			opinion = {
+				modifier = opinion_glad
+				who = ROOT
+				years = 5
+			}
+			give_minor_title = title_knight_squire
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1001
+		hidden_tooltip = {
+			new_character = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+	}
+}
+
+#Idealist noble 
+character_event = {
+    id = equus.1005
+    desc = EVTDESC_equus.1005
+    picture = "GFX_evt_rider_adventure"
+
+    is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			age = 16
+			culture = ROOT 
+			religion = ROOT 
+			random_traits = yes
+			female = no
+			trait = charismatic_negotiator
+			trait = fair
+			trait = poet
+			trait = kind
+			trait = gregarious
+			trait = brave
+			trait = trusting
+			trait = chaste
+			trait = just
+			trait = erudite
+			attributes = {
+				diplomacy = 5
+			}
+		}
+		new_character = {
+			remove_trait = depressed
+			remove_trait = lunatic
+			remove_trait = possessed
+			remove_trait = wroth
+			remove_trait = deceitful
+			remove_trait = cruel
+			remove_trait = envious
+			remove_trait = craven
+			remove_trait = paranoid
+			remove_trait = shy
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1001
+		new_character = {
+			opinion = {
+				modifier = opinion_glad
+				who = ROOT
+				years = 5
+			}
+			give_minor_title = title_knight_squire
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1001
+		hidden_tooltip = {
+			new_character = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+	}
+}
+
+#Ambitious soldier
+character_event = {
+    id = equus.1006
+    desc = EVTDESC_equus.1006
+    picture = "GFX_evt_melee"
+
+    is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			age = 20
+			culture = ROOT 
+			religion = ROOT 
+			random_traits = yes
+			female = no
+			trait = skilled_tactician
+			trait = brave
+			trait = ambitious
+			trait = zealous
+			trait = strong
+			attributes = {
+				martial = 5
+			}
+		}
+		new_character = {
+			remove_trait = depressed
+			remove_trait = lunatic
+			remove_trait = possessed
+			remove_trait = slothful
+			remove_trait = feeble
+			remove_trait = cynical
+			remove_trait = content
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1001
+		new_character = {
+			opinion = {
+				modifier = opinion_glad
+				who = ROOT
+				years = 5
+			}
+			give_minor_title = title_knight_squire
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1001
+		hidden_tooltip = {
+			new_character = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+	}
+}
+
+#Bloodthirsty fighter
+character_event = {
+    id = equus.1007
+    desc = EVTDESC_equus.1007
+    picture = "GFX_evt_melee"
+
+    is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			age = 20
+			culture = capital_scope 
+			religion = capital_scope 
+			random_traits = yes
+			female = no
+			trait = strong
+			trait = scarred
+			trait = drunkard
+			trait = wroth
+			trait = envious
+			trait = greedy
+			trait = brave
+			trait = cruel
+			trait = stubborn
+			trait = deceitful
+			trait = tough_soldier
+			attributes = {
+				martial = 5
+			}
+		}
+		new_character = {
+			remove_trait = depressed
+			remove_trait = lunatic
+			remove_trait = possessed
+			remove_trait = slothful
+			remove_trait = trusting
+			remove_trait = gregarious
+			remove_trait = shy
+			remove_trait = honest
+			remove_trait = fair
+			remove_trait = chaste
+			remove_trait = charitable
+			remove_trait = craven
+			remove_trait = kind
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1001
+		new_character = {
+			opinion = {
+				modifier = opinion_glad
+				who = ROOT
+				years = 5
+			}
+			give_minor_title = title_knight_squire
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1001
+		hidden_tooltip = {
+			new_character = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+	}
+}
+
+ #Sancho
+ character_event = {
+    id = equus.1008
+    desc = EVTDESC_equus.1008
+    picture = "GFX_evt_noble_haughty_talking_to_peasants"
+ 
+    is_triggered_only = yes
+ 
+ 	immediate = {
+ 		create_character = {
+ 			age = 20
+ 			culture = capital_scope 
+ 			religion = capital_scope 
+ 			female = no
+ 			trait = misguided_warrior
+ 			trait = gluttonous
+ 			trait = humble
+ 			trait = patient
+ 			trait = honest
+ 			trait = zealous
+ 			trait = trusting
+ 			attributes = {
+ 				diplomacy = 5
+ 				martial = 0
+ 				stewardship = 5
+ 				intrigue = 0
+ 				learning = 0
+ 			}
+ 		}
+ 		new_character = {
+ 			remove_trait = temperate
+ 			remove_trait = proud
+ 			remove_trait = paranoid
+ 			remove_trait = cynical
+ 			remove_trait = wroth
+ 			remove_trait = deceitful	
+ 			give_nickname = "Panza"		
+ 		}
+ 	}
+ 	
+ 	option = {
+ 		name = EVTOPTA_equus.1001
+ 		new_character = {
+ 			opinion = {
+ 				modifier = opinion_glad
+ 				who = ROOT
+ 				years = 5
+ 			}
+			give_minor_title = title_knight_squire
+ 		}
+ 	}
+}
+
+
+#Corruptible promising apprentice
+character_event = {
+    id = equus.1009
+    desc = EVTDESC_equus.1009
+    picture = "GFX_evt_spymaster"
+
+    is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			age = 16
+			culture = ROOT 
+			religion = ROOT 
+			female = no
+			random_traits = yes
+			trait = brilliant_strategist
+			trait = deceitful
+			trait = proud
+			trait = ambitious
+			trait = envious
+			trait = stubborn
+			trait = brave
+			attributes = {
+				martial = 10
+			}
+		}
+		new_character = {
+			remove_trait = temperate
+			remove_trait = charitable
+			remove_trait = patient
+			remove_trait = trusting
+			remove_trait = content
+			remove_trait = craven
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1001
+		new_character = {
+			opinion = {
+				modifier = opinion_glad
+				who = ROOT
+				years = 5
+			}
+			give_minor_title = title_knight_squire
+		}
+	}
+	option = {
+		trigger = {
+			NOT = { trait = lunatic }
+		}
+		name = EVTOPTB_equus.1001
+		hidden_tooltip = {
+			new_character = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+	}
+}
+
+#Knighting event
+character_event = {
+    id = equus.1020
+    desc = EVTDESC_equus.1020
+    picture = "GFX_evt_secluded_in_prayer"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1020
+		hidden_tooltip = {
+			random_courtier = {
+				limit = {
+					has_minor_title = title_knight_squire
+				}
+				remove_title = title_knight_squire
+				if = {
+					limit = {
+						FROM = { society_member_of = military_knights }
+					}
+					join_society = military_knights
+				}
+				if = {
+					limit = {
+						FROM = { society_member_of = military_knights1 }
+					}
+					join_society = military_knights1
+				}
+				if = {
+					limit = {
+						FROM = { society_member_of = military_knights2 }
+					}
+					join_society = military_knights2
+				}
+				if = {
+					limit = {
+						FROM = { society_member_of = diplomatic_knights }
+					}
+					join_society = diplomatic_knights
+				}
+				if = {
+					limit = {
+						FROM = { society_member_of = diplomatic_knights1 }
+					}
+					join_society = diplomatic_knights1
+				}
+				if = {
+					limit = {
+						FROM = { society_member_of = diplomatic_knights2 }
+					}
+					join_society = diplomatic_knights2
+				}
+				set_character_flag = old_squire
+			}
+		}
+	}
+}
+
+#Old squire finds treasure(hidden)
+character_event = {
+    id = equus.1021
+    hide_window = yes
+    trigger = {
+		FROM = { is_alive = yes }
+		has_character_flag = old_squire
+		NOT = { has_character_flag = old_squire_gift }
+	}
+	
+	mean_time_to_happen = {
+		years = 5
+	}
+	
+	immediate = {
+		set_character_flag = old_squire_gift
+		FROM = { character_event = { id = equus.1022 }}
+	}
+}
+
+#Old squire gives treasure
+character_event = {
+    id = equus.1022
+    desc = EVTDESC_equus.1022
+    picture = "GFX_evt_secluded_in_prayer"
+	is_triggered_only = yes 
+    trigger = {
+		has_character_flag = old_squire
+		NOT = { has_character_flag = old_squire_gift }
+	}
+	
+	mean_time_to_happen = {
+		years = 5
+	}
+	
+	immediate = {
+		random_list = {
+			40 = { 
+				modifier = { 
+					factor = 2
+					FROM = { 
+						NOT = { martial = 10 }
+					}
+				}
+				modifier = { 
+					factor = 2
+					FROM = { 
+						NOT = { diplomacy = 10 }
+					}
+				}
+				modifier = { 
+					factor = 2
+					FROM = {
+						opinion = {
+							who = ROOT
+							value = -100
+						}
+					}
+				}
+				add_artifact = famous_ancient_weapon
+				new_artifact = {
+					set_original_owner = FROM
+				}
+			}
+			20 = { 
+				modifier = { 
+					factor = 2
+					FROM = { 
+						martial = 10 
+						NOT = { martial = 15 }
+					}	
+				}
+				modifier = { 
+					factor = 2
+					FROM = { 
+						diplomacy = 10 
+						NOT = { diplomacy = 15 }
+					}	
+				}
+				modifier = { 
+					factor = 2
+					FROM = {
+						opinion = {
+							who = ROOT
+							value = 0
+						}
+					}
+				}
+				add_artifact = engraved_sword
+				new_artifact = {
+					set_original_owner = FROM
+				}
+			}
+			10 = { 
+				modifier = { 
+					factor = 2
+					FROM = { 
+						martial = 15
+						NOT = { martial = 20 }
+					}	
+				}
+				modifier = { 
+					factor = 2
+					FROM = { 
+						diplomacy = 15 
+						NOT = { diplomacy = 20 }
+					}	
+				}
+				modifier = { 
+					factor = 2
+					FROM = {
+						opinion = {
+							who = ROOT
+							value = 20
+						}
+					}
+				}
+				add_artifact = golden_sword
+				new_artifact = {
+					set_original_owner = FROM
+				}
+			}
+			5 = { 
+				modifier = { 
+					factor = 2
+					FROM = { 
+						martial = 20
+					}
+				}
+				modifier = { 
+					factor = 2
+					FROM = { 
+						diplomacy = 20
+					}
+				}
+				modifier = { 
+					factor = 2
+					FROM = {
+						opinion = {
+							who = ROOT
+							value = 50
+						}
+					}
+				}
+				add_artifact = sword_of_heroes
+				new_artifact = {
+					set_original_owner = FROM
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1022
+	}
+}
+
+
+##Squire training events
+
+#Event tombola
+character_event = {
+    id = equus.1030
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_minor_title = title_knight_squire
+	}
+	
+	immediate = {
+		random_list = {
+			100 = {
+				modifier = { 
+					factor = 1000
+					trait = incapable
+				}
+			} #Nothing happens
+			10 = {
+				liege = { 
+					character_event = { id = equus.1031 } #Help with duel
+				}
+				modifier = { 
+					factor = 1.25
+					NOT = { martial = 10 }
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { martial = 5 }
+				}
+				modifier = { 
+					factor = 1.25
+					trait = drunkard
+				}
+				modifier = { 
+					factor = 1.25
+					trait = weak
+				}
+				modifier = { 
+					factor = 1.25
+					trait = stutter
+				}
+				modifier = { 
+					factor = 1.25
+					trait = feeble
+				}
+				modifier = { 
+					factor = 0.66
+					trait = strong
+				}
+				modifier = { 
+					factor = 0.66
+					trait = robust
+				}
+				modifier = { 
+					factor = 0.66
+					trait = duelist
+				}
+				modifier = { 
+					factor = 0.66
+					trait = temperate
+				}
+				modifier = { 
+					factor = 0.66
+					trait = patient
+				}
+				modifier = { 
+					factor = 0.66
+					trait = humble
+				}
+				modifier = { 
+					factor = 0.66
+					trait = content
+				}
+				modifier = { 
+					factor = 0.66
+					trait = shy
+				}
+				modifier = { 
+					factor = 1.25
+					trait = wroth
+				}
+				modifier = { 
+					factor = 1.25
+					trait = envious
+				}
+				modifier = { 
+					factor = 1.25
+					trait = proud
+				}
+				modifier = { 
+					factor = 1.25
+					trait = brave
+				}
+				modifier = { 
+					factor = 1.25
+					trait = craven
+				}
+			}
+			10 = {
+				liege = { 
+					character_event = { id = equus.1032 } #Bastard
+				}
+				modifier = { 
+					factor = 1.25
+					trait = lustful
+				}
+				modifier = { 
+					factor = 0.66
+					trait = chaste
+				}
+				modifier = { 
+					factor = 1.25
+					trait = fair
+				}
+				modifier = { 
+					factor = 1.25
+					trait = strong
+				}
+				modifier = { 
+					factor = 0.66
+					trait = ugly
+				}
+				modifier = { 
+					factor = 0.66
+					trait = weak
+				}
+				modifier = { 
+					factor = 0.66
+					trait = temperate
+				}
+				modifier = { 
+					factor = 0.66
+					trait = wroth
+				}
+				modifier = { 
+					factor = 1.25
+					trait = brave
+				}
+				modifier = { 
+					factor = 0.66
+					trait = craven
+				}
+				modifier = { 
+					factor = 1.25
+					trait = gregarious
+				}
+				modifier = { 
+					factor = 0.66
+					trait = shy
+				}
+				modifier = { 
+					factor = 0
+					can_marry = no
+				}
+				modifier = { 
+					factor = 0
+					is_female = yes
+				}
+			}
+			10 = {
+				liege = { 
+					character_event = { id = equus.1033 } #Help with girl
+				}
+				modifier = { 
+					factor = 1.25
+					trait = shy
+				}
+				modifier = { 
+					factor = 1.25
+					is_married = no
+				}
+				modifier = { 
+					factor = 0.66
+					trait = fair
+				}
+				modifier = { 
+					factor = 0.66
+					trait = strong
+				}
+				modifier = { 
+					factor = 1.25
+					trait = ugly
+				}
+				modifier = { 
+					factor = 1.25
+					trait = weak
+				}
+				modifier = { 
+					factor = 0.66
+					trait = poet
+				}
+				modifier = { 
+					factor = 0.66
+					trait = chaste
+				}
+				modifier = { 
+					factor = 0.66
+					trait = lustful
+				}
+				modifier = { 
+					factor = 1.25
+					trait = humble
+				}
+				modifier = { 
+					factor = 1.25
+					trait = slothful
+				}
+				modifier = { 
+					factor = 0.66
+					trait = gregarious
+				}
+				modifier = { 
+					factor = 1.25
+					trait = trusting
+				}
+				modifier = { 
+					factor = 0.66
+					trait = cruel
+				}
+				modifier = { 
+					factor = 0.66
+					trait = wroth
+				}
+				modifier = { 
+					factor = 0.66
+					trait = proud
+				}
+				modifier = { 
+					factor = 0
+					can_marry = no
+				}
+			}
+			10 = {
+				liege = { 
+					character_event = { id = equus.1034 } #Distance from temptation
+				}
+				modifier = { 
+					factor = 0.66
+					trait = temperate
+				}
+				modifier = { 
+					factor = 0.66
+					trait = patient
+				}
+				modifier = { 
+					factor = 0.66
+					trait = zealous
+				}
+				modifier = { 
+					factor = 0.66
+					trait = content
+				}
+				modifier = { 
+					factor = 1.25
+					trait = arbitrary
+				}
+				modifier = { 
+					factor = 1.25
+					trait = greedy
+				}
+			}
+			10 = {
+				liege = { 
+					character_event = { id = equus.1035 } #Offended local lord
+				}
+				modifier = { 
+					factor = 1.25
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.25
+					trait = patient
+				}
+				modifier = { 
+					factor = 1.25
+					trait = humble
+				}
+				modifier = { 
+					factor = 1.25
+					trait = content
+				}
+				modifier = { 
+					factor = 1.25
+					trait = gregarious
+				}
+				modifier = { 
+					factor = 1.25
+					trait = trusting
+				}
+				modifier = { 
+					factor = 1.25
+					trait = kind
+				}
+				modifier = { 
+					factor = 0.66
+					trait = stubborn
+				}
+				modifier = { 
+					factor = 0.66
+					trait = paranoid
+				}
+				modifier = { 
+					factor = 0.66
+					trait = cruel
+				}
+				modifier = { 
+					factor = 0.66
+					trait = ambitious
+				}
+				modifier = { 
+					factor = 0.66
+					trait = proud
+				}
+				modifier = { 
+					factor = 0.66
+					trait = envious
+				}
+				modifier = { 
+					factor = 0.66
+					trait = greedy
+				}
+				modifier = { 
+					factor = 0.66
+					trait = gluttonous
+				}
+			}
+			1 = {
+				liege = { 
+					character_event = { id = equus.1036 } #Squire wants to retire
+				}
+				modifier = { 
+					factor = 2
+					trait = depressed
+				}
+				modifier = { 
+					factor = 1.5
+					trait = stressed
+				}
+				modifier = { 
+					factor = 1.25
+					trait = humble
+				}
+				modifier = { 
+					factor = 1.25
+					trait = slothful
+				}
+				modifier = { 
+					factor = 1.25
+					trait = content
+				}
+				modifier = { 
+					factor = 0.66
+					trait = stubborn
+				}
+				modifier = { 
+					factor = 0.66
+					trait = ambitious
+				}
+				modifier = { 
+					factor = 0.66
+					trait = proud
+				}
+			}
+			10 = {
+				liege = { 
+					character_event = { id = equus.1039 } #Caught with the wrong crowd
+				}
+				modifier = { 
+					factor = 1.25
+					trait = fair
+				}
+				modifier = { 
+					factor = 1.25
+					trait = lustful
+				}
+				modifier = { 
+					factor = 1.25
+					trait = gluttonous
+				}
+				modifier = { 
+					factor = 1.25
+					trait = greedy
+				}
+				modifier = { 
+					factor = 1.25
+					trait = wroth
+				}
+				modifier = { 
+					factor = 1.25
+					trait = envious
+				}
+				modifier = { 
+					factor = 1.25
+					trait = slothful
+				}
+				modifier = { 
+					factor = 1.25
+					trait = arbitrary
+				}
+				modifier = { 
+					factor = 1.25
+					trait = cruel
+				}
+				modifier = { 
+					factor = 0.66
+					trait = temperate
+				}
+				modifier = { 
+					factor = 0.66
+					trait = chaste
+				}
+				modifier = { 
+					factor = 0.66
+					trait = content
+				}
+				modifier = { 
+					factor = 0.66
+					trait = zealous
+				}
+			}
+			10 = {
+				liege = { 
+					character_event = { id = equus.1040 } #Risk of heresy
+				}
+				modifier = { 
+					factor = 0.66
+					trait = zealous
+				}
+				modifier = { 
+					factor = 0.66
+					trait = humble
+				}
+				modifier = { 
+					factor = 0.66
+					trait = content
+				}
+				modifier = { 
+					factor = 0.66
+					trait = trusting
+				}
+				modifier = { 
+					factor = 1.25
+					trait = proud
+				}
+				modifier = { 
+					factor = 1.25
+					trait = diligent
+				}
+				modifier = { 
+					factor = 1.25
+					trait = erudite
+				}
+			}
+			10 = {
+				liege = { 
+					character_event = { id = equus.1041 } #Clumsy squire
+				}
+				modifier = { 
+					factor = 1.25
+					trait = humble
+				}
+				modifier = { 
+					factor = 1.25
+					trait = patient
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = proud
+				}
+				modifier = { 
+					factor = 0
+					AND = {
+						OR = {
+							liege = {
+								NOT = { martial = 10 }
+							}
+							martial = 10
+						}
+						OR = {
+							liege = {
+								NOT = { diplomacy = 10 }
+							}
+							diplomacy = 10
+						}
+						OR = {
+							liege = {
+								NOT = { learning = 10 }
+							}
+							learning = 10
+						}
+					}
+				}
+			}
+			10 = {
+				liege = { 
+					character_event = { id = equus.1042 } #Improve squire
+				}
+				modifier = { 
+					factor = 1.25
+					trait = humble
+				}
+				modifier = { 
+					factor = 1.25
+					trait = patient
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = proud
+				}
+				modifier = { 
+					factor = 0
+					AND = {
+						OR = {
+							liege = {
+								NOT = { martial = 15 }
+							}
+							martial = 15
+						}
+						OR = {
+							liege = {
+								NOT = { diplomacy = 15 }
+							}
+							diplomacy = 15
+						}
+						OR = {
+							liege = {
+								NOT = { learning = 15 }
+							}
+							learning = 15
+						}
+					}
+				}
+			}
+			2 = {
+				liege = { 
+					character_event = { id = equus.1043 } #Befriend squire
+				}
+				modifier = { 
+					factor = 1.25
+					trait = charitable
+				}
+				modifier = { 
+					factor = 1.25
+					trait = kind
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = envious
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = greedy
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = cruel
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = deceitful
+				}
+				modifier = { 
+					factor = 1.25 
+					trait = gregarious
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = shy
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = stubborn
+				}
+				modifier = { 
+					factor = 1.25 
+					trait = honest
+				}
+				modifier = { 
+					factor = 1.25 
+					trait = trusting
+				}
+				modifier = {
+					factor = 1.25
+					opinion = {
+						who = FROM
+						value = 50
+					}
+				}
+				modifier = {
+					factor = 1.25
+					opinion = {
+						who = FROM
+						value = 75
+					}
+				}
+				modifier = {
+					factor = 0.66
+					NOT = {
+						opinion = {
+							who = FROM
+							value = 0
+						}
+					}
+				}
+				modifier = {
+					factor = 0.66
+					NOT = {
+						opinion = {
+							who = FROM
+							value = -25
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					NOT = {
+						opinion = {
+							who = FROM
+							value = -50
+						}
+					}
+				}
+			}
+			1 = {
+				liege = { 
+					character_event = { id = equus.1044 } #Squire enemy
+				}
+				modifier = {
+					factor = 0
+					opinion = {
+						who = FROM
+						value = 50
+					}
+				}
+				modifier = {
+					factor = 0.66
+					opinion = {
+						who = FROM
+						value = 25
+					}
+				}
+				modifier = {
+					factor = 0.66
+					opinion = {
+						who = FROM
+						value = 0
+					}
+				}
+				modifier = {
+					factor = 1.25
+					NOT = {
+						opinion = {
+							who = FROM
+							value = -25
+						}
+					}
+				}
+				modifier = {
+					factor = 1.25
+					NOT = {
+						opinion = {
+							who = FROM
+							value = -50
+						}
+					}
+				}
+				modifier = {
+					factor = 1.25
+					NOT = {
+						opinion = {
+							who = FROM
+							value = -75
+						}
+					}
+				}
+				modifier = { 
+					factor = 1.25
+					trait = envious
+				}
+				modifier = { 
+					factor = 1.25
+					trait = wroth
+				}
+				modifier = { 
+					factor = 1.25
+					trait = proud
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = temperate
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = humble
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = kind
+				}
+				modifier = { 
+					factor = 1.25
+					trait = ambitious
+				}
+				modifier = { 
+					factor = 1.25
+					trait = cynical
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = trusting
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = just
+				}
+				modifier = { 
+					factor = 0.66 
+					trait = content
+				}
+				modifier = { 
+					factor = 1.25
+					trait = deceitful
+				}
+			}
+			10 = {
+				liege = { 
+					character_event = { id = equus.1045 } #Killed villagers
+				}
+				modifier = { 
+					factor = 0.66
+					trait = zealous
+				}
+				modifier = { 
+					factor = 0.66
+					trait = kind
+				}
+				modifier = { 
+					factor = 0.66
+					trait = temperate
+				}
+				modifier = { 
+					factor = 0.5
+					trait = just
+				}
+				modifier = { 
+					factor = 1.25
+					trait = wroth
+				}
+				modifier = { 
+					factor = 1.25
+					trait = greedy
+				}
+				modifier = { 
+					factor = 1.25
+					trait = arbitrary
+				}
+				modifier = { 
+					factor = 1.25
+					trait = cruel
+				}
+				modifier = { 
+					factor = 1.25
+					trait = paranoid
+				}
+			}
+		}
+	}
+}
+
+#Help with duel
+character_event = {
+    id = equus.1031
+    desc = EVTDESC_equus.1031
+    picture = "GFX_evt_melee"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1031 #Train 
+		FROM = {
+			change_martial = 1
+			random_list = {
+				40 = {}
+				35 = { add_trait = brave }
+				25 = { add_trait = robust }
+			}
+			opinion = {
+				who = ROOT
+				modifier = opinion_grateful
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1031 #Don't get into duels!
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_unhappy
+				years = 5
+			}
+			random_list = {
+				45 = {
+					add_trait = patient
+				}
+				30 = {	
+					add_trait = shy 
+				}
+				25 = {	
+					add_trait = craven 
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_equus.1031 #I'm sure you can handle it
+		prestige = 50
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_disappointed
+				years = 5
+			}
+			random_list = {
+				40 = {}
+				35 = {
+					add_trait = wounded
+				}
+				25 = {	
+					change_martial = 2
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1031 #Cue training montage
+		trigger = {
+			martial = 20 
+		}
+		tooltip_info = martial
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_very_grateful
+				years = 5
+			}
+			change_martial = 2
+			random_list = {
+				45 = {
+					add_trait = brave
+				}
+				35 = {	
+					add_trait = robust
+				}
+				20 = {	
+					add_trait = duelist
+				}
+			}
+		}
+	}
+}
+
+#Bastard
+character_event = {
+    id = equus.1032
+    desc = EVTDESC_equus.1032
+    picture = "GFX_evt_pregnancy"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1032 #Keep it 
+		add_trait = just
+		FROM = {
+			create_character = {
+				age = 0
+				trait = bastard
+			}
+			new_character = {
+				set_father = FROM
+			}
+			random_list = {
+				50 = { add_trait = shy }
+				50 = { add_trait = chaste }
+			}
+			opinion = {
+				who = ROOT
+				modifier = opinion_unhappy
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1032 #Have it killed
+		add_trait = cruel
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_relieved
+				years = 5
+			}
+			random_list = {
+				60 = {
+					add_trait = cruel
+				}
+				40 = {	
+					add_trait = arbitrary 
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_equus.1032 #It's none of my business
+		prestige = 50
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_disappointed
+				years = 5
+			}
+			hidden_tooltip = {
+				random_list = {
+					50 = {
+						create_character = {
+							age = 0
+							trait = bastard
+						}
+						new_character = {
+							set_father = ROOT
+						}
+						modifier = { 
+							factor = 1.25
+							trait = kind
+						}
+						modifier = { 
+							factor = 1.25
+							trait = diligent
+						}
+						modifier = { 
+							factor = 1.25
+							trait = charitable
+						}
+						modifier = { 
+							factor = 1.25
+							trait = just
+						}
+					}
+					50 = {
+						modifier = { 
+							factor = 1.25
+							trait = proud
+						}
+						modifier = { 
+							factor = 1.25
+							trait = cruel
+						}
+						modifier = { 
+							factor = 1.25
+							trait = cynical
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1032 #Make the girl a lady at court
+		trigger = {
+			diplomacy = 15
+		}
+		tooltip_info = diplomacy
+		random_list = {
+			50 = {
+				add_trait = just
+			}
+			30 = {
+				add_trait = charitable
+			}
+			20 = {
+				add_trait = kind 
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_grateful
+				years = 5
+			}
+			
+		}
+		create_character = {
+			age = 16
+			trait = fair
+			random_traits = yes
+			female = yes
+		}
+		new_character = {
+			remove_trait = chaste
+			add_lover = FROM
+			save_event_target_as = mother
+		}
+		create_character = {
+			age = 0
+			trait = bastard
+		}
+		new_character = {
+			set_father = FROM
+			set_mother = event_target:mother
+		}
+		clear_event_target = mother
+	}
+}
+
+#Help with girl
+character_event = {
+    id = equus.1033
+    desc = EVTDESC_equus.1033
+    picture = "GFX_evt_lovers"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1033 #Let me teach a thing or two 
+		add_trait = just
+		create_character = {
+			age = 16
+			trait = fair
+			random_traits = yes
+			female = yes
+		}
+		new_character = {
+			add_lover = FROM
+		}
+		FROM = {
+			random_list = {
+				55 = { add_trait = gregarious }
+				45 = { add_trait = lustful }
+			}
+			opinion = {
+				who = ROOT
+				modifier = opinion_happy
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1033 #Take her for yourself
+		random_list = {
+			45 = {
+				add_trait = deceitful
+			}
+			35 = {
+				add_trait = greedy
+			}
+			20 = {
+				add_trait = lustful
+			}
+		}
+		if = {
+			limit = { FROM = { is_female = no }}
+			create_character = {
+				age = 16
+				trait = fair
+				random_traits = yes
+				female = yes
+			}
+			new_character = {
+				add_lover = ROOT
+			}
+			if = {
+				limit = { ROOT = { is_female = yes }}
+				add_trait = homosexual
+			}
+		}
+		if = {
+			limit = { FROM = { is_female = yes }}
+			create_character = {
+				age = 16
+				trait = fair
+				random_traits = yes
+				female = no
+			}
+			new_character = {
+				add_lover = ROOT
+			}
+			if = {
+				limit = { ROOT = { is_female = no }}
+				add_trait = homosexual
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_dishonorable_scum
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_equus.1033 #Wait until marriage boy
+		prestige = 50
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_disappointed
+				years = 5
+			}
+			random_list = {
+				50 = {
+					add_trait = chaste
+				}
+				30 = {
+					add_trait = shy
+				}
+				20 = {
+					add_trait = zealous
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1033 #I'll make a poet out of you
+		trigger = {
+			diplomacy = 20
+		}
+		tooltip_info = diplomacy
+		FROM = {
+			random_list = {
+				50 = {
+					add_trait = poet
+					change_diplomacy = 2
+				}
+				30 = {
+					add_trait = gregarious
+				}
+				20 = {
+					add_trait = lustful 
+				}
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_very_grateful
+				years = 5
+			}
+			
+		}
+		create_character = {
+			age = 16
+			trait = fair
+			random_traits = yes
+			female = yes
+		}
+		new_character = {
+			remove_trait = chaste
+			add_lover = FROM
+		}
+	}
+}
+
+#Distance from temptation
+character_event = {
+    id = equus.1034
+    desc = EVTDESC_equus.1034
+    picture = GFX_evt_shadowy_cabal
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1034 #I will show you the way
+		piety = 100
+		FROM = {
+			random_list = {
+				45 = { add_trait = kind }
+				30 = { add_trait = temperate }
+				25 = { add_trait = chaste }
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_unhappy
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1034 #Let's go together
+		piety = -50
+		random_list = {
+			45 = {
+				add_trait = lustful
+			}
+			35 = {
+				add_trait = greedy
+			}
+			20 = {
+				add_trait = gluttonous
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_happy
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_equus.1034 #He will find his own way
+		prestige = 50
+		FROM = {
+			random_list = {
+				40 = {
+					add_trait = diligent
+				}
+				40 = {
+					add_trait = slothful
+				}
+				20 = {
+					add_trait = arbitrary
+				}
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_happy
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1034 #As saint ... said ...
+		trigger = {
+			learning = 15
+		}
+		tooltip_info = learning
+		FROM = {
+			random_list = {
+				50 = {
+					add_trait = zealous
+				}
+				30 = {
+					add_trait = erudite
+				}
+				20 = {
+					add_trait = diligent 
+				}
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_unhappy
+				years = 5
+			}
+		}
+	}
+}
+
+#Offended local lord
+character_event = {
+    id = equus.1035
+    desc = EVTDESC_equus.1035
+    picture = "GFX_evt_scandal"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1035 #I'll talk with him 
+		FROM = {
+			random_list = {
+				45 = { add_trait = trusting }
+				30 = { add_trait = slothful }
+				25 = { add_trait = gregarious }
+			}
+			opinion = {
+				who = ROOT
+				modifier = opinion_grateful
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1035 #I'll teach you to insult your betters
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_unhappy
+				years = 5
+			}
+			random_list = {
+				45 = {
+					add_trait = humble
+				}
+				40 = {	
+					add_trait = wounded 
+				}
+				25 = {	
+					add_trait = shy 
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_equus.1035 #It's your responsibility
+		prestige = 50
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_disappointed
+				years = 5
+			}
+			random_list = {
+				40 = {
+					add_trait = deceitful
+				}
+				30 = {	
+					add_trait = craven
+				}
+				30 = {	
+					add_trait = wounded
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1035 #This is how you talk to a noble
+		trigger = {
+			diplomacy = 15 
+		}
+		tooltip_info = diplomacy
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_very_grateful
+				years = 5
+			}
+			random_list = {
+				45 = {
+					add_trait = honest
+				}
+				35 = {	
+					add_trait = gregarious
+				}
+				20 = {	
+					add_trait = humble
+				}
+			}
+		}
+	}
+}
+
+#Squire wants to retire 
+character_event = {
+    id = equus.1036
+    desc = EVTDESC_equus.1036
+    picture = "GFX_evt_bad_news"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1036 #Please stay 
+		custom_tooltip = { text = EVTTOOLTIPA_equus.1036 }
+		hidden_tooltip = {
+			random_list = {
+				50 = { 
+					character_event = { id = equus.1037 } #Stay
+					modifier = { 
+						factor = 1.25
+						trait = trusting
+					}
+					modifier = { 
+						factor = 1.25
+						trait = diligent
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = 50
+							}
+						}
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = 75
+							}
+						}
+					}
+				}
+				50 = { 
+					character_event = { id = equus.1038 } #Go
+					modifier = { 
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = { 
+						factor = 1.25
+						trait = paranoid
+					}
+					modifier = { 
+						factor = 1.25
+						trait = stubborn
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = -50
+							}
+						}
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = -75
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1036 #Stay or else
+		custom_tooltip = { text = EVTTOOLTIPB_equus.1036 }
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_angry
+				years = 10
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				75 = { 
+					ROOT = { character_event = { id = equus.1037 }} #Stay
+					modifier = { 
+						factor = 1.25
+						trait = trusting
+					}
+					modifier = { 
+						factor = 1.25
+						trait = diligent
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = 75
+							}
+						}
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+							who = ROOT
+							value = 90
+							}
+						}
+					}
+				}
+				25 = { 
+					ROOT = { character_event = { id = equus.1038 }} #Go
+					modifier = { 
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = { 
+						factor = 1.25
+						trait = paranoid
+					}
+					modifier = { 
+						factor = 1.25
+						trait = stubborn
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = -25
+							}
+						}
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = -50
+							}
+						}
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = -75
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_equus.1036 #If that makes you happy
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_glad
+				years = 10
+			}
+		}
+		ROOT = { character_event = { id = equus.1038 }} #Go
+	}
+	option = {
+		name = EVTOPTD_equus.1036 #Remember the good times
+		custom_tooltip = { text = EVTTOOLTIPD_equus.1036 }
+		trigger = {
+			diplomacy = 20 
+		}
+		tooltip_info = diplomacy
+		hidden_tooltip = {
+			random_list = {
+				75 = { 
+					ROOT = { character_event = { id = equus.1037 }} #Stay
+					modifier = { 
+						factor = 1.25
+						trait = trusting
+					}
+					modifier = { 
+						factor = 1.25
+						trait = diligent
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = 25
+							}
+						}
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = 50
+							}
+						}
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = 75
+							}
+						}
+					}
+				}
+				25 = { 
+					ROOT = { character_event = { id = equus.1038 }} #Go
+					modifier = { 
+						factor = 1.25
+						trait = cynical
+					}
+					modifier = { 
+						factor = 1.25
+						trait = paranoid
+					}
+					modifier = { 
+						factor = 1.25
+						trait = stubborn
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = -75
+							}
+						}
+					}
+					modifier = { 
+						factor = 1.25
+						FROM = {
+							opinion = {
+								who = ROOT
+								value = -90
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#Stay 
+character_event = {
+    id = equus.1037
+    desc = EVTDESC_equus.1037
+    picture = "GFX_evt_son_asking_father"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1037
+	}
+}
+
+#Go
+character_event = {
+    id = equus.1038
+    desc = EVTDESC_equus.1038
+    picture = "GFX_evt_bad_news"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1038
+		FROMFROM = { remove_title = title_knight_squire }
+	}
+}
+
+#Wrong Crowd
+character_event = {
+    id = equus.1039
+    desc = EVTDESC_equus.1039
+    picture = "GFX_evt_scandal"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1039 #Promise you won't see them again
+		FROM = {
+			random_list = {
+				50 = { add_trait = temperate }
+				40 = { add_trait = deceitful }
+				10 = { add_trait = humble }
+			}
+			opinion = {
+				who = ROOT
+				modifier = opinion_unhappy
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1039 #Let me meet these friends
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_happy
+				years = 5
+			}
+		}
+		random_list = {
+			60 = {
+				add_trait = lustful
+			}
+			30 = {	
+				add_trait = gluttonous 
+			}
+			10 = {	
+				add_trait = slothful 
+			}
+		}
+	}	
+	option = {
+		name = EVTOPTC_equus.1039 #Let him have his fun
+		prestige = 50
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_happy
+				years = 5
+			}
+			random_list = {
+				50 = {
+					add_trait = content
+				}
+				30 = {	
+					add_trait = gregarious
+				}
+				20 = {	
+					add_trait = honest
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1039 #Don't disappoint god
+		trigger = {
+			learning = 15 
+		}
+		tooltip_info = learning
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_unhappy
+				years = 5
+			}
+			random_list = {
+				50 = {
+					add_trait = zealous
+				}
+				40 = {	
+					add_trait = temperate
+				}
+				10 = {	
+					add_trait = deceitful
+				}
+			}
+		}
+	}
+}
+
+#Heresy risk
+character_event = {
+    id = equus.1040
+    desc = EVTDESC_equus.1040
+    picture = "GFX_evt_heretic"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1040 #Come to the light
+		FROM = {
+			random_list = {
+				60 = {  }
+				30 = { become_heretic = yes }
+				10 = { add_trait = zealous }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1040 #My god, you're right
+		FROM = {
+			become_heretic = yes
+		}
+		ROOT = { religion = FROM }
+	}	
+	option = {
+		name = EVTOPTC_equus.1040 #It's his choice
+		piety = -100
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_happy
+				years = 5
+			}
+			become_heretic = yes
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1040 #Lengthy bible study ensues
+		trigger = {
+			learning = 20 
+		}
+		tooltip_info = learning
+		FROM = {
+			random_list = {
+				70 = {
+					add_trait = zealous
+				}
+				20 = {	
+					add_trait = temperate
+				}
+				10 = {	
+					become_heretic = yes
+				}
+			}
+		}
+	}
+}
+
+#Clumsy squire
+character_event = {
+    id = equus.1041
+    desc = EVTDESC_equus.1041
+    picture = "GFX_evt_guardian"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1041 #Diplomacy
+		trigger = {
+			diplomacy = 10 
+		}
+		FROM = {
+			random_list = {
+				50 = { change_diplomacy = 2 }
+				30 = { 
+					change_diplomacy = 2
+					add_trait = honest	
+				}
+				20 = { 
+					change_diplomacy = 2
+					add_trait = gregarious	
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1041 #Martial
+		trigger = {
+			martial = 10 
+		}
+		FROM = {
+			random_list = {
+				50 = { change_martial = 2 }
+				30 = { 
+					change_martial = 2
+					add_trait = wroth	
+				}
+				20 = { 
+					change_martial = 2
+					add_trait = brave	
+				}
+			}
+		}
+	}	
+	option = {
+		name = EVTOPTC_equus.1041 #Learning
+		trigger = {
+			learning = 10 
+		}
+		FROM = {
+			random_list = {
+				50 = { change_learning = 2 }
+				30 = { 
+					change_learning = 2
+					add_trait = chaste	
+				}
+				20 = { 
+					change_learning = 2
+					add_trait = erudite	
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1041 #He's doing fine 
+	}
+}
+
+#Squire improvement
+character_event = {
+    id = equus.1042
+    desc = EVTDESC_equus.1042
+    picture = "GFX_evt_guardian"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1042 #Diplomacy
+		trigger = {
+			diplomacy = 15 
+		}
+		FROM = {
+			random_list = {
+				50 = { change_diplomacy = 2 }
+				30 = { 
+					change_diplomacy = 2
+					add_trait = honest	
+				}
+				20 = { 
+					change_diplomacy = 2
+					add_trait = gregarious	
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1042 #Martial
+		trigger = {
+			martial = 15 
+		}
+		FROM = {
+			random_list = {
+				50 = { change_martial = 2 }
+				30 = { 
+					change_martial = 2
+					add_trait = wroth	
+				}
+				20 = { 
+					change_martial = 2
+					add_trait = brave	
+				}
+			}
+		}
+	}	
+	option = {
+		name = EVTOPTC_equus.1042 #Learning
+		trigger = {
+			learning = 15 
+		}
+		FROM = {
+			random_list = {
+				50 = { change_learning = 2 }
+				30 = { 
+					change_learning = 2
+					add_trait = chaste	
+				}
+				20 = { 
+					change_learning = 2
+					add_trait = erudite	
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1042 #He's doing fine 
+	}
+}
+
+#Squire friendship
+character_event = {
+    id = equus.1043
+    desc = EVTDESC_equus.1043
+    picture = "GFX_evt_son_asking_father"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1043 #Friendship
+		add_friend = FROM
+	}
+	option = {
+		name = EVTOPTB_equus.1043 #Romance
+		trigger = {
+			OR = {
+				AND = {
+					trait = homosexual
+					same_sex = FROM
+				}
+				NOT = { 
+					same_sex = FROM 
+					trait = homosexual
+				}
+			}
+		}
+		add_lover = FROM
+	}	
+	option = {
+		name = EVTOPTC_equus.1043 #Nothing
+	}
+}
+
+#Squire enemy
+character_event = {
+    id = equus.1044
+    desc = EVTDESC_equus.1044
+    picture = "GFX_evt_poke_king_in_chest"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1044 #So be it
+		add_rival = FROM
+		FROM = { remove_title = title_knight_squire }
+	}
+	option = {
+		name = EVTOPTB_equus.1044 #Fight me
+		trigger = {
+			NOT = {
+				is_incapable = yes
+			}
+		}
+		character_event = { id = WoL.11000 }
+		add_rival = FROM
+		FROM = { remove_title = title_knight_squire }
+	}	
+}
+
+#Killed villagers
+character_event = {
+    id = equus.1045
+    desc = EVTDESC_equus.1045
+    picture = "GFX_evt_burning_house"
+
+    is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus.1045 #Recompense the villagers
+		wealth = -50
+		FROM = {
+			random_list = {
+				40 = {}
+				40 = { add_trait = arbitrary }
+				20 = { add_trait = greedy }
+			}
+			opinion = {
+				who = ROOT
+				modifier = opinion_satisfied
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1045 #Hand him to the survivers
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_mad_as_hell
+				years = 5
+			}
+			custom_tooltip = { text = EVTTOOLTIPB_equus.1045 }
+			hidden_tooltip = {
+				random_list = {
+					45 = {
+						add_trait = wounded
+					}
+					30 = {	
+						if = {
+							limit = { has_dlc = "Reapers" }
+							add_trait = severely_injured
+							resolve_severely_injured_effect = yes
+							random_list = {
+								50 = {
+									add_trait = one_eyed
+								}
+								29 = {
+									add_trait = eunuch
+								}
+								16 = {
+									add_trait = one_legged
+								}
+								14 = {
+									add_trait = one_handed
+								}
+								13 = {
+									add_trait = blinded
+								}
+								12 = {
+									add_trait = disfigured
+								}
+								6 = {
+									add_trait = mangled
+								}
+							}
+						}
+						if = {
+							limit = { NOT = { has_dlc = "Reapers" }}
+							add_trait = maimed
+						}
+					}
+					25 = {	
+						FROM = {
+							death = {
+								death_reason = death_rabble
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_equus.1045 #Boys will be boys
+		prestige = 50
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_complicity
+				years = 5
+			}
+			random_list = {
+				40 = { 
+					add_trait = cruel 
+				}
+				30 = {
+					add_trait = arbitrary
+				}
+				30 = {	
+					add_trait = wroth
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_equus.1045 #Let's go hunting together!
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_accomplice
+				years = 5
+			}
+			change_martial = 1
+			random_list = {
+				50 = {
+					add_trait = cruel
+				}
+				30 = {	
+					add_trait = cynical
+				}
+				20 = {	
+					add_trait = arbitrary
+				}
+			}
+		}
+	}
+}

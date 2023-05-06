@@ -1,0 +1,1978 @@
+
+#########################################################################################################################################
+##### Hisotrical Artifacts ##                                                        ####                                            ####
+#########################################################################################################################################
+
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 769
+#############################
+###
+
+cedar_of_god_sapling = {
+    max_amount = 5
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+
+			OR = {
+				primary_title = { de_jure_liege = k_jerusalem }
+				primary_title = { de_jure_liege = k_syria }				
+				primary_title = { title = k_jerusalem }
+				primary_title = { title = k_syria }		
+			}
+			OR = {			
+				year = 769	
+				year = 867	
+				year = 1066						
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}	
+		}
+	}
+	
+    artifacts = {
+        cedar_of_god_sapling = {
+            value = 1
+        }
+    }
+}
+
+scotland_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = k_scotland
+			}
+			OR = {			
+				year = 769	
+				year = 867	
+				year = 1066						
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}	
+		}
+	}
+	
+    artifacts = {
+        scotland_standard = {
+            value = 1
+        }
+    }
+}
+
+moorish_standard = {
+    max_amount = 30
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				culture_group = arabic
+				religion_group = muslim
+				is_landed = yes
+			}
+			OR = {			
+				year = 769	
+				year = 867	
+				year = 1066						
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}		
+		}
+	}	
+	
+    artifacts = {
+        moorish_standard = {
+            value = 1
+        }
+    }
+}
+
+
+
+dragon_standard = {
+    max_amount = 5
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = k_england
+				culture = saxon
+			}
+			OR = {
+				year = 476 #Timeline Extenders			
+				year = 769	
+				year = 867	
+				year = 1066					
+			}
+			
+			NOT = {			
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}		
+		}		
+		additive_modifier = {
+			value = 70
+			AND = {
+				culture = saxon
+			}
+			OR = {
+				year = 476 #Timeline Extenders			
+				year = 769	
+				year = 867	
+				year = 1066					
+			}
+			
+			NOT = {			
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}		
+		}
+	}	
+	
+    artifacts = {
+        dragon_standard = {
+            value = 1
+        }
+    }
+}
+
+mierce_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = d_hereford
+				culture = saxon
+			}
+			OR = {
+				year = 476 #Timeline Extenders			
+				year = 769	
+				year = 867	
+				year = 1066					
+			}
+			
+			NOT = {			
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}		
+		}		
+	}	
+	
+    artifacts = {
+        mierce_standard = {
+            value = 1
+        }
+    }
+}
+
+connacht_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_connacht
+				culture = irish
+			}
+			OR = {			
+				year = 769	
+				year = 867	
+				year = 1066					
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}		
+		}		
+	}	
+	
+    artifacts = {
+        connacht_standard = {
+            value = 1
+        }
+    }
+}
+
+desmond_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_desmond
+				culture = irish
+			}
+			OR = {			
+				year = 769	
+				year = 867	
+				year = 1066					
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}		
+		}		
+	}	
+	
+    artifacts = {
+        desmond_standard = {
+            value = 1
+        }
+    }
+}
+
+
+gwynedd_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_gwynedd
+				culture = welsh
+			}
+			OR = {			
+				year = 769	
+				year = 867	
+				year = 1066					
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}		
+		}		
+	}	
+	
+    artifacts = {
+        gwynedd_standard = {
+            value = 1
+        }
+    }
+}
+
+roman_aquila = {
+    max_amount = 10
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0	
+		additive_modifier = {
+			value = 5
+			
+			OR = {
+				culture_group = latin
+				culture_group = west_germanic
+				culture_group = iberian
+				culture_group = byzantine
+				culture_group = arabic
+				culture_group = celtic			
+			}			
+			is_landed = yes	
+			
+			OR = {
+				year = 476 #Timeline Extenders			
+				year = 769	
+				year = 867					
+			}
+			
+			NOT = {			
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}				
+		}			
+		additive_modifier = {
+			value = 10
+			#
+			OR = {
+				de_facto_liege_title = k_byzantium
+				de_facto_liege_title = e_byzantium
+			}
+			OR = {
+				year = 498 #Expanded Timeline mods
+				year = 769			
+				year = 867				
+				year = 1066		
+				year = 1081							
+			}
+			NOT = {					
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}				
+		}		
+		additive_modifier = {
+			value = 100
+			#
+			OR = {
+				de_facto_liege_title = k_byzantium
+				de_facto_liege_title = e_byzantium
+			}
+			AND = {
+				has_minor_title = title_commander
+			}
+			OR = {
+				year = 498 #Expanded Timeline mods
+				year = 769			
+				year = 867				
+				year = 1066		
+				year = 1081							
+			}
+			NOT = {					
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}	
+		}			
+	}
+	
+    artifacts = {
+        roman_aquila = {
+            value = 1
+        }
+    }
+}
+
+
+roman_labarum = {
+    max_amount = 8
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0	
+		
+		additive_modifier = {
+			value = 10
+			#
+			OR = {
+				de_facto_liege_title = k_byzantium
+				de_facto_liege_title = e_byzantium
+			}
+			OR = {					
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}				
+		}		
+		additive_modifier = {
+			value = 100
+			#
+			OR = {
+				de_facto_liege_title = k_byzantium
+				de_facto_liege_title = e_byzantium
+			}
+			AND = {
+				has_minor_title = title_commander
+			}
+			OR = {					
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}	
+		}			
+	}
+	
+    artifacts = {
+        roman_labarum = {
+            value = 1
+        }
+    }
+}
+
+st_peters_chair = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0	
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = k_germany
+				religion_group = christian
+			}
+			OR = {
+				#year = 769			
+				year = 867	
+			}			
+			NOT = {
+				year = 875 #Exact
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1296
+				year = 1337
+			}	
+		}			
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = k_papal_state
+			}
+			OR = {
+				year = 875 #Exact
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1296
+				year = 1337
+			}	
+		}			
+	}
+	
+    artifacts = {
+        st_peters_chair = {
+            value = 1
+        }
+    }
+}
+
+throne_of_northumbria = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0	
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = d_northumberland
+			}
+			OR = {
+				year = 547 #Timeline Extenders Sing Praise Unto Him Who Accomodates Your Extension of Said Timeline. Can I Get A Halleluyah!?			
+				year = 769			
+				year = 867	
+			}			
+			NOT = {
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1296
+				year = 1337
+			}	
+		}			
+		
+	}
+	
+    artifacts = {
+        throne_of_northumbria = {
+            value = 1
+        }
+    }
+}
+
+throne_of_man = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0	
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_isle_of_man
+			}
+			OR = {
+				year = 430 #Timeline 			
+				year = 769			
+				year = 867	
+			}			
+			NOT = {
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1296
+				year = 1337
+			}	
+		}			
+		
+	}
+	
+    artifacts = {
+        throne_of_man = {
+            value = 1
+        }
+    }
+}
+
+altar_of_campodonum = { #Eadwine's dynasty=1047009
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0	
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = b_st_peters
+			}
+			OR = {
+				year = 627 #Baptism of King Edwin is taken as date		
+				year = 731 #Bede's History
+				year = 769			
+				year = 867	
+			}			
+			NOT = {
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1296
+				year = 1337
+			}	
+		}			
+		
+	}
+	
+    artifacts = {
+        altar_of_campodonum = {
+            value = 1
+        }
+    }
+}
+
+cross_of_aethlburh = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0	
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = b_canterbury
+			}
+			OR = {
+				year = 633 #Hatfield Chase is taken as date		
+				year = 769			
+				year = 867	
+				year = 1066
+				year = 1081	
+			}			
+			NOT = {			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1296
+				year = 1337
+			}	
+		}			
+		
+	}
+	
+    artifacts = {
+        cross_of_aethlburh = {
+            value = 1
+        }
+    }
+}
+
+#################  _STONE OF SCONE_
+
+stone_of_scone = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0	
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = k_scotland
+			}	
+			OR = {
+				year = 498 #Expanded Timeline mods
+				year = 769			
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+			}				
+			NOT = {
+				year = 1296
+				year = 1337
+			}	
+		}
+		
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = k_england
+			}				
+			OR = {
+				year = 1296
+				year = 1337
+			}	
+		}			
+	}
+	
+    artifacts = {
+        stone_of_scone = {
+            value = 1
+        }
+    }
+}
+
+# THE FIRST ROUND OF...
+#################  _CROZIERS_
+
+bishop_crozier2 = {
+    max_amount = 3
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = c_orbetello #Orbetello, Papal State
+				has_landed_title = b_stdenis #Paris, Middle Francia
+				has_landed_title = b_newstead #Leicester, Mercia
+			}				
+			OR = {
+				year = 769
+			}	
+			NOT = {
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337					
+			}	
+		}				
+	}
+	
+    artifacts = {
+        bishop_crozier2 = {
+            value = 1
+        }
+    }
+}
+
+
+# THE SECOND ROUND OF...
+#################  _CROZIERS_
+
+bishop_crozier1 = {
+    max_amount = 30
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			OR = {
+			
+				has_landed_title = b_st_kentigern #Strathclyde	
+				#
+				has_landed_title = b_st_andrews #FIFE, Scotland
+				has_landed_title = b_dunkeld #Circinn, Scotland	
+				#
+				has_landed_title = b_st_germans #cornwall				
+				#			
+				has_landed_title = b_canterbury #Kent, Wessex
+				has_landed_title = b_st_swithun #Wessex				
+				#				
+				has_landed_title = b_halton #Chester - Mercia				
+				has_landed_title = b_lichfield #warwick - Mercia	
+				#
+				has_landed_title = b_lindisfarne #Northumbria, Northumbria				
+				#
+				has_landed_title = b_llangollen #Powys, Gwynedd
+				#
+				has_landed_title = b_st_davids #dyfed, wales				
+				#
+				has_landed_title = b_ferns #Leinster, Ireland
+				#	
+				has_landed_title = b_tuam #Connacht, Ireland
+				#							
+				has_landed_title = b_st_brigit #Kildare, Ireland
+				#				
+				has_landed_title = b_treguier #Brittany				
+				#				
+				has_landed_title = b_avignon #Avignon, AQUITAINE
+				has_landed_title = b_lasauve #Bordeaux, AQUITAINE			
+				#				
+				has_landed_title = b_tuy #Santiago, Asturias	
+				#				
+				has_landed_title = b_haarlem #Holland, Lotharingia
+				#		
+				has_landed_title = c_hamburg #Hamburg, East Francia				
+			}				
+			OR = {
+				year = 476	#Timeline Extenders		
+				year = 769				
+				year = 867
+			}	
+			NOT = {					
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337					
+			}	
+		}			
+	}
+	
+    artifacts = {
+        bishop_crozier1 = {
+            value = 1
+        }
+        bishop_crozier3 = {
+            value = 1
+        }		
+    }
+}
+
+# MORE CRAPPY EVERY START DATE
+#################  _CROZIERS_
+
+bishop_crozier3 = {
+    max_amount = 60
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			AND = {
+				religion_group = christian
+				NOT = { religion = orthodox }
+				NOT = { religion = monothelite }
+				NOT = { religion = iconoclast }
+				NOT = { religion = paulician }
+				is_priest = yes		
+				is_landed = yes			
+			}
+			OR = {
+				year = 476 #Timeline Extenders
+				year = 769				
+			}
+		}			
+	}
+	
+    artifacts = {
+        bishop_crozier3 = {
+            value = 1
+        }
+    }
+}
+
+# ORTHODOX
+#################  _CROZIERS_
+
+bishop_crozier_orthodox = {
+    max_amount = 30
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			OR = {
+				religion = orthodox
+				religion = monothelite
+				religion = iconoclast
+				religion = paulician
+			}
+			is_priest = yes		
+			OR = {
+				year = 476 #Timeline Extenders
+				year = 769				
+			}
+		}			
+	}
+	
+    artifacts = {
+        bishop_crozier_orthodox = {
+            value = 1
+        }
+    }
+}
+
+# COPTIC
+#################  _CROZIERS_
+
+bishop_crozier_coptic = {
+    max_amount = 15
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			OR = {
+				religion = miaphysite
+				religion = monophysite
+			}
+			is_priest = yes		
+			OR = {
+				year = 476 #Timeline Extenders
+				year = 769				
+			}
+		}			
+	}
+	
+    artifacts = {
+        bishop_crozier_coptic = {
+            value = 1
+        }
+    }
+}
+
+
+################# _ROMAN ARTIFACTS_
+
+roman_helmet = {
+    max_amount = 30
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			OR = {
+				culture_group = latin
+				culture_group = west_germanic
+				culture_group = iberian
+				culture_group = byzantine
+				culture_group = arabic
+				culture_group = celtic			
+			}			
+			is_landed = yes	
+			
+			OR = {
+				year = 476 #Timeline Extenders			
+				year = 769	
+				year = 867					
+			}
+			
+			NOT = {			
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}				
+		}		
+	}
+	
+    artifacts = {
+        roman_helmet = {
+            value = 1
+        }
+    }
+}
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 867
+#############################
+###
+
+throne_of_charlemagne = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0	
+		additive_modifier = {
+			value = 100
+			AND = {
+				character = 6392
+			}
+			OR = {		
+				year = 790 #Exact	
+			}			
+			NOT = {
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1296
+				year = 1337
+			}	
+		}			
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = k_lotharingia
+			}
+			OR = {		
+				year = 867	
+			}			
+			NOT = {
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1296
+				year = 1337
+			}	
+		}			
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = e_hre
+			}
+			OR = {
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1296
+				year = 1337
+			}	
+		}			
+	}
+	
+    artifacts = {
+        throne_of_charlemagne = {
+            value = 1
+        }
+    }
+}
+
+
+# IN THE CHARMING LAND OF THE BULGARS, LO AND BEHOLD THE...
+#################  _DRINKING CUP OF NIKEPHOROS_
+
+nikephoros_cup = {
+    max_amount = 1
+    spawn_date = -1.1.1 #26.7.811
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = k_bulgaria
+			}
+			
+			OR = {
+				year = 811 #867	
+			}
+	
+			NOT = {
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337					
+			}	
+
+		}			
+	}
+	
+    artifacts = {
+        nikephoros_cup = {
+            value = 1
+        }
+    }
+}
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1066
+#############################
+###
+
+# HOOORAH OI OI OI...
+#################  _BATTLE STANDARDS_
+
+denmark_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			AND = {
+				has_landed_title = k_denmark
+				culture = danish
+			}
+			year = 1066
+		}			
+	}
+	
+    artifacts = {
+        denmark_standard = {
+            value = 1
+        }
+    }
+}
+
+breton_standard = {
+    max_amount = 3
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			AND = {
+				is_landed = yes
+				culture = breton
+			}
+			year = 1066
+		}			
+	}
+	
+    artifacts = {
+        breton_standard = {
+            value = 1
+        }
+    }
+}
+
+cornwall_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_cornwall
+			}
+			year = 1066
+		}
+	}
+	
+    artifacts = {
+        cornwall_standard = {
+            value = 1
+        }
+    }
+}
+
+georgian_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			AND = {
+				has_landed_title = k_georgia
+				culture = georgian
+			}
+			year = 1066
+		}			
+	}
+	
+    artifacts = {
+        georgian_standard = {
+            value = 1
+        }
+    }
+}
+
+
+ulster_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			AND = {
+				OR = {
+					has_landed_title = c_ulster
+					has_landed_title = d_ulster
+				}
+				culture = irish
+			}
+			year = 1066
+		}			
+	}
+	
+    artifacts = {
+        ulster_standard = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _HORN OF LEHEL_
+
+horn_of_lehel = {
+    max_amount = 1
+    spawn_date = -1.1.1 #26.7.811
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+
+			AND = {
+				is_landed = yes
+				is_priest = no
+				culture_group = magyar
+			}
+			OR = {
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337					
+			}	
+
+		}			
+	}
+	
+    artifacts = {
+        horn_of_lehel = {
+            value = 1
+        }
+    }
+}
+
+#################  _CELTIC CROZIERS_
+
+bishop_crozier_celtic = {
+    max_amount = 6
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			AND = {
+				religion_group = christian
+				culture_group = celtic
+				NOT = { any_artifact = { has_artifact_flag = scepter }	}
+				is_priest = yes		
+				is_landed = yes			
+			}	
+			year = 769				
+
+		}			
+	}
+	
+    artifacts = {
+        bishop_crozier_celtic = {
+            value = 1
+        }
+    }
+}
+
+
+
+####### _SAINT ANNO'S CROZIER_
+
+bishop_crozier_saint_anno = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			character = 20228		
+			OR = {
+				year = 1056
+				year = 1066
+			}	
+			NOT = {
+				year = 1075
+				#
+				#year = 1081			
+				#year = 1187			
+				#year = 1204		
+				#year = 1220	
+				#year = 1241	
+				#year = 1337					
+			}				
+		}	
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = b_koln
+			}
+			OR = {
+				year = 1075	
+			}									
+		}			
+	}
+	
+    artifacts = {
+        bishop_crozier_saint_anno = {
+            value = 1
+        }
+    }
+}
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1081
+#############################
+###
+
+######## _THE BAYEUX TAPESTRY_
+
+bayeux_tapestry = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = c_kent
+			}
+			
+			OR = {
+				year = 1077	
+				year = 1078	
+				year = 1079	
+				year = 1080
+				year = 1081
+				year = 1082	
+				year = 1083	
+				year = 1084	
+				year = 1085
+				year = 1086	
+				year = 1087	
+				year = 1088	
+				year = 1089	
+				year = 1090
+				year = 1091	
+				year = 1092
+				year = 1093
+				year = 1094
+				year = 1095
+			}
+			
+			NOT = {
+				year = 1204	
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}
+
+		}		
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_bayeux
+			}
+			
+			OR = {	
+				year = 1204	
+				year = 1220	
+				year = 1241	
+				year = 1337					
+			}		
+		}		
+	}
+	
+    artifacts = {
+        bayeux_tapestry = {
+            value = 1
+        }
+    }	
+}
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1187
+#############################
+###
+
+# HOOORAH OI OI OI...
+#################  _BATTLE STANDARDS_
+
+oriflamme_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			AND = {
+				has_landed_title = k_france			
+			}
+			year = 1120
+		}			
+	}
+	
+    artifacts = {
+        oriflamme_standard = {
+            value = 1
+        }
+    }
+}
+
+aegean_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			AND = {
+				has_landed_title = d_aegean_islands			
+			}
+			year = 1100
+		}			
+	}
+	
+    artifacts = {
+        aegean_standard = {
+            value = 1
+        }
+    }
+}
+
+motley_standard = {
+    max_amount = 30
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				is_landed = yes
+			}
+			OR = {
+				culture = danish
+				culture = welsh
+				culture = breton
+				culture_group = west_germanic
+				culture_group = central_germanic
+				culture_group = latin
+				culture_group = iberian
+			}
+			year = 1100
+		}
+	}
+	
+    artifacts = {
+        motley_standard = {
+            value = 1
+        }
+    }
+}
+
+mongol_standard = {
+    max_amount = 3
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				is_landed = yes
+			}
+			OR = {
+				culture = mongol
+			}
+			year = 1100
+		}
+	}
+	
+    artifacts = {
+        mongol_standard = {
+            value = 1
+        }
+    }
+}
+
+henry_ii_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = k_england
+			}
+			year = 1155
+		}
+	}
+	
+    artifacts = {
+        henry_ii_standard = {
+            value = 1
+        }
+    }
+}
+
+
+# NEW WAVE 1100s
+#################  _CROZIERS_
+
+bishop_crozier_twelfth = {
+    max_amount = 30
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			AND = {
+				religion_group = christian
+				NOT = { religion = orthodox }
+				NOT = { religion = monothelite }
+				NOT = { religion = iconoclast }
+				NOT = { religion = paulician }
+				NOT = { any_artifact = { has_artifact_flag = scepter }	}
+				is_priest = yes		
+				is_landed = yes			
+			}
+			year = 1100
+		}			
+	}
+	
+    artifacts = {
+        bishop_crozier_twelfth = {
+            value = 1
+        }
+    }
+}
+
+####### _STEALTHY IRISH UNIQUE CROZIERS_
+
+bishop_crozier_ormond = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = b_cashel 
+			}				
+			OR = {
+				year = 1100
+			}	
+		}			
+	}
+	
+    artifacts = {
+        bishop_crozier_ormond = {
+            value = 1
+        }
+    }
+}
+
+bishop_crozier_desmond = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = b_cloyne 
+			}				
+			OR = {
+				year = 1100
+			}	
+		}			
+	}
+	
+    artifacts = {
+        bishop_crozier_desmond = {
+            value = 1
+        }
+    }
+}
+
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1204
+#############################
+###
+
+athens_crusader_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = d_athens
+			}
+			OR = {					
+				year = 1204		
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}		
+		}		
+	}	
+	
+    artifacts = {
+        athens_crusader_standard = {
+            value = 1
+        }
+    }
+}
+
+# NEW WAVE 1200s
+#################  _CROZIERS_
+
+bishop_crozier_thirteenth = {
+    max_amount = 30
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			#
+			AND = {
+				religion_group = christian
+				NOT = { religion = orthodox }
+				NOT = { religion = monothelite }
+				NOT = { religion = iconoclast }
+				NOT = { religion = paulician }
+				NOT = { any_artifact = { has_artifact_flag = scepter }	}
+				is_priest = yes		
+				is_landed = yes			
+			}
+			year = 1200
+		}			
+	}
+	
+    artifacts = {
+        bishop_crozier_thirteenth = {
+            value = 1
+        }
+    }
+}
+
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1337
+#############################
+###
+
+
+megenzer_standard = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = b_hohenburg
+			}
+			OR = {					
+				year = 1337				
+			}		
+		}		
+	}	
+	
+    artifacts = {
+        megenzer_standard = {
+            value = 1
+        }
+    }
+}
+#1060749
+
+
+#################  _BLADE OF AN ASSASSIN_
+
+blade_of_an_assassin = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = k_england
+			}				
+			OR = {
+				year = 1273 #King Edward I, first year starting on throne
+				year = 1337
+			}	
+		}			
+	}
+	
+    artifacts = {
+        blade_of_an_assassin = {
+            value = 1
+        }
+    }
+}
+
+#################  _KING EDWARDS CHAIR (REQUIRES STONE OF SCONE)_
+
+king_edwards_chair = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0		
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = k_england
+			}				
+			OR = {
+				year = 1296
+				year = 1337
+			}	
+		}			
+	}
+	
+    artifacts = {
+        king_edwards_chair = {
+            value = 1
+        }
+    }
+}

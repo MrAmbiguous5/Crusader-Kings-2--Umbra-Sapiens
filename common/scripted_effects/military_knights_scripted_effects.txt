@@ -1,0 +1,43 @@
+join_prev_military_knights_society = { #join the society that own the button you pressed to join...
+	if = { 
+		limit = { PREV = { society_member_of = military_knights } }
+		join_society = military_knights
+	}
+	if = { 
+		limit = { PREV = { society_member_of = military_knights1 } }
+		join_society = military_knights1
+	}
+	if = { 
+		limit = { PREV = { society_member_of = military_knights2 } }
+		join_society = military_knights2
+	}
+}
+
+join_from_military_knights_society = { #join the society of someone
+	FROM = {
+		if = {
+			limit = {
+				society_member_of = military_knights
+			}
+			ROOT = {
+				join_society = military_knights
+			}
+		}
+		if = {
+			limit = {
+				society_member_of = military_knights1
+			}
+			ROOT = {
+				join_society = military_knights1
+			}
+		}
+		if = {
+			limit = {
+				society_member_of = military_knights2
+			}
+			ROOT = {
+				join_society = military_knights2
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+#;;;;;;;;;;;;;;x
+#§
+##############
+## FACTIONS ##
+##############
+faction_lmmpvf_one_title;[From.lmmpvf_GetFactionTitle];;;;;;;;;;;;;x
+faction_lmmpvf_one_short;[From.lmmpvf_GetFactionTitle];;;;;;;;;;;;;x
+faction_lmmpvf_one_desc;[From.lmmpvf_GetFactionDesc];;;;;;;;;;;;;x
+faction_lmmpvf_two_title;[From.lmmpvf_GetFactionTitle];;;;;;;;;;;;;x
+faction_lmmpvf_two_short;[From.lmmpvf_GetFactionTitle];;;;;;;;;;;;;x
+faction_lmmpvf_two_desc;[From.lmmpvf_GetFactionDesc];;;;;;;;;;;;;x
+################
+## CUSTOM LOC ##
+################
+lmmpvf_FactionTitle_string;Faction of [From.GetTitledFirstName];;;;;;;;;;;;;;x
+lmmpvf_FactionDesc_string;§Y[From.GetTitledName]§! is a powerful vassal in §Y[Root.GetName]§!. This faction is a representation of [From.GetHerHis] influence in the realm! [From.GetSheHeCap] will set goals and recruit rulers to help [From.GetHerHim] achieve these goals.\n\nFocus: [From.lmmpvf_GetFactionFocus]\nGoal: [From.lmmpvf_GetFactionGoal];;;;;;;;;;;;;x

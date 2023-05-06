@@ -1,0 +1,351 @@
+# NEW TITULAR EMPIRES
+
+d_clarence = { #Duke of Clarence - Junior son of the monarch
+		color={ 65 149 199 }
+		color2={ 255 255 255 }
+		capital = 32 # Middlesex
+		culture = saxon
+		
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+			culture = english
+			culture = norman
+		}
+	}
+
+}
+	
+d_surrey = { #Earldom of Surrey - Possessor of Surrey
+		color={ 85 149 59 }
+		color2={ 255 255 255 }
+		capital = 24 # Surrey
+		culture = saxon
+		
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+			culture = english
+			culture = norman
+		}
+	}
+}
+	
+d_buckingham = { #Earl of Buckingham - Powerful Buckingham vassal
+		color={ 135 129 89 }
+		color2={ 255 255 255 }
+		capital = 22 # Buckinghamshire
+		culture = saxon
+		
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+			culture = english
+			culture = norman
+		}
+	}
+	}
+d_earldom_march = { #Earl of March - Powerful landholder in the Marches
+		color={ 201 0 22 }
+		color2={ 255 255 255 }
+		capital = 52 # Northumberland
+		culture = saxon
+		
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+			culture = english
+			culture = norman
+		}
+	}
+	}
+d_earldom_arundel = { #Earl of Arundel - Premier Earl, Duke of Norfolk or heir apparent to Duke of Norfolk
+		color={ 201 0 22 }
+		color2={ 255 255 255 }
+		capital = 52 # Northumberland
+		culture = saxon
+		
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+			culture = english
+			culture = norman
+		}
+	}
+	}
+#d_earldom_warwick = { #Earl of Warwick - Possessor of Warwick
+#		color={ 201 0 22 }
+#		color2={ 255 255 255 }
+#		capital = 67 # Warwick
+#		
+#		culture = english
+#      culture = norman
+#	}
+d_aumale = { #Duke of Aumale - Powerful Norman under English crown
+		color={ 175 89 29 }
+		color2={ 255 255 255 }
+		capital = 67
+		culture = saxon
+
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+			culture = english
+			culture = norman
+		}
+	}
+	}
+d_wales = { #Prince of Wales - First son/heir of the Monarch
+		color={ 145 99 39 }
+		color2={ 255 255 255 }
+		capital = 64 # Gwynedd
+		culture = saxon
+		dignity = 100
+		title = "Prince"
+		
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+			culture = english
+			culture = norman
+		}
+	}
+}
+
+d_uses = { #Duke of Uses
+		color={ 65 149 199 }
+		color2={ 255 255 255 }
+		capital = 223 # Viviers
+		culture = frankish
+		
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+	}
+	
+d_montmorency = { 
+		color={ 85 149 59 }
+		color2={ 255 255 255 }
+		capital = 220 # Melguiel
+		culture = frankish
+	
+	allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+	
+	title = "Marquis"
+	title_female = "Marquise"
+	
+	}
+	
+d_chevreuse = { 
+		color={ 135 129 89 }
+		color2={ 255 255 255 }
+		capital = 213
+		culture = frankish
+		
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+	}
+	
+d_longueville = { 
+		color={ 201 0 22 }
+		color2={ 255 255 255 }
+		capital = 225
+		culture = frankish
+
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+	}
+	
+d_ventadour = { 
+		color={ 201 0 22 }
+		color2={ 255 255 255 }
+		capital = 229
+		culture = frankish
+
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+	}
+	
+d_guise = { 
+		color={ 175 89 29 }
+		color2={ 255 255 255 }
+		capital = 136
+		culture = frankish
+		
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+	}
+	
+d_montargis = { 
+		color={ 145 99 39 }
+		color2={ 255 255 255 }
+		capital = 149
+		culture = frankish
+
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+}
+
+d_valentinois = { 
+		color={ 135 99 39 }
+		color2={ 255 255 255 }
+		capital = 219
+		culture = frankish
+
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+}
+
+
+d_touraine = { 
+		color={ 175 0 39 }
+		color2={ 255 255 255 }
+		capital = 140
+		culture = frankish
+
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+}
+
+d_angou = { 
+		color={ 115 0 39 }
+		color2={ 255 255 255 }
+		capital = 148
+		culture = frankish
+
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+}
+
+d_vendome = { 
+		color={ 185 15 89 }
+		color2={ 255 255 255 }
+		capital = 109
+		culture = frankish
+
+		allow = {
+		OR = {
+			culture = frankish
+			culture = occitan
+			culture = catalan
+			culture = norse
+			culture = german
+			culture = saxon
+		}
+	}
+}

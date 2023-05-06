@@ -1,0 +1,1569 @@
+namespace = darkages
+#########################################################################
+#
+#	FRAMED! Event
+#
+#########################################################################
+
+character_event = {	
+	id = darkages.72139
+	title = EVTNAME1972139
+	desc = {
+		text = EVTDESC1972139A
+		trigger = {
+			calc_true_if = {
+				amount = 3
+				trait = envious
+				trait = wroth
+				trait = slothful
+				trait = proud
+				trait = gluttonous
+				trait = greedy
+				trait = lustful
+			}
+			
+			NOR = {
+				trait = humble
+				trait = patient
+				trait = kind
+				trait = charitable
+				trait = chaste
+				trait = temperate
+				trait = diligent
+			}
+
+		}
+	}
+	
+	desc = {
+		text = EVTDESC1972139B
+		trigger = {
+			calc_true_if = {
+				amount = 3
+				trait = humble
+				trait = patient
+				trait = kind
+				trait = charitable
+				trait = chaste
+				trait = temperate
+				trait = diligent
+			}
+			
+			NOR = {
+				trait = envious
+				trait = wroth
+				trait = slothful
+				trait = proud
+				trait = gluttonous
+				trait = greedy
+				trait = lustful
+			}
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC1972139
+		trigger = {
+		
+			NOR = {
+				AND = {
+					calc_true_if = {
+						amount = 3
+						trait = humble
+						trait = patient
+						trait = kind
+						trait = charitable
+						trait = chaste
+						trait = temperate
+						trait = diligent
+					}
+					
+					NOR = {
+						trait = envious
+						trait = wroth
+						trait = slothful
+						trait = proud
+						trait = gluttonous
+						trait = greedy
+						trait = lustful
+					}
+				}
+
+				AND = {
+					calc_true_if = {
+						amount = 3
+						trait = envious
+						trait = wroth
+						trait = slothful
+						trait = proud
+						trait = gluttonous
+						trait = greedy
+						trait = lustful
+					}
+					
+					NOR = {
+						trait = humble
+						trait = patient
+						trait = kind
+						trait = charitable
+						trait = chaste
+						trait = temperate
+						trait = diligent
+					}				
+				}
+			}
+		}
+	}	
+	
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	hide_from = yes	
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+		random_list = {
+			6 = {	# YES
+				modifier = {
+					factor = 1.5
+					FROMFROM = { trait = deceitful }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { trait = schemer }
+				}				
+				modifier = {
+					factor = 1.5
+					FROMFROM = { trait = shrewd }
+				}				
+				modifier = {
+					factor = 1.5
+					FROMFROM = { trait = genius }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { trait = quick }
+				}				
+				modifier = {
+					factor = 1.25
+					FROMFROM = { trait = arbitrary }
+				}				
+				modifier = {
+					factor = 1.5
+					FROMFROM = { trait = socializer }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { trait = gregarious }
+				}
+				modifier = {
+					factor = 2
+					FROMFROM = { trait = silver_tongue }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { diplomacy = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					FROMFROM = { diplomacy = 15 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { diplomacy = 18 }
+				}
+				modifier = {
+					factor = 1.75
+					FROMFROM = { diplomacy = 21 }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 1.35
+					FROMFROM = { intrigue = 15 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { intrigue = 18 }
+				}
+				modifier = {
+					factor = 1.75
+					FROMFROM = { intrigue = 21 }
+				}
+				modifier = {
+					factor = 1.5
+					trait = slothful
+				}
+				modifier = {
+					factor = 1.5
+					trait = proud
+				}				
+				modifier = {
+					factor = 1.5
+					trait = envious
+				}
+				modifier = {
+					factor = 1.5
+					trait = gluttonous
+				}
+				modifier = {
+					factor = 1.5
+					trait = greedy
+				}
+				modifier = {
+					factor = 1.5
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.5
+					trait = lustful
+				}
+				modifier = {
+					factor = 1.5
+					trait = dull
+				}
+				modifier = {
+					factor = 1.33
+					trait = trusting
+				}				
+				modifier = {
+					factor = 1.5
+					FROMFROM = { has_character_flag = scene_1 }
+				}				
+				modifier = {
+					factor = 1.5
+					FROMFROM = { has_character_flag = scene_2 }
+				}				
+				modifier = {
+					factor = 1.5
+					FROMFROM = { has_character_flag = scene_3 }
+				}								
+				modifier = {
+					factor = 1.5
+					FROMFROM = { has_character_flag = scene_4 }
+				}				
+				set_character_flag = darkages_yes
+				
+			} 
+			8 = {	#No
+				modifier = {
+					factor = 1.35
+					trait = shrewd
+				}
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}				
+				modifier = {
+					factor = 1.35
+					FROMFROM = { trait = dull }
+				}				
+				modifier = {
+					factor = 1.35
+					trait = genius
+				}			
+				modifier = {
+					factor = 1.2
+					trait = quick
+				}			
+				modifier = {
+					factor = 1.25
+					trait = chaste
+				}
+				modifier = {
+					factor = 1.25
+					trait = humble
+				}
+				modifier = {
+					factor = 1.25
+					trait = temperate
+				}
+				modifier = {
+					factor = 1.25
+					trait = charitable
+				}
+				modifier = {
+					factor = 1.25
+					trait = kind
+				}
+				modifier = {
+					factor = 1.25
+					trait = diligent
+				}
+				modifier = {
+					factor = 1.25
+					trait = patient
+				}								
+				modifier = {
+					factor = 1.25
+					FROMFROM = { NOT = { diplomacy = 8 } }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { NOT = { diplomacy = 6 } }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { NOT = { diplomacy = 4 } }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { NOT = { diplomacy = 2 } }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { NOT = { intrigue = 8 } }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { NOT = { intrigue = 6 } }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { NOT = { intrigue = 4 } }
+				}
+				modifier = {
+					factor = 1.25
+					FROMFROM = { NOT = { intrigue = 2 } }
+				}				
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.35
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 18
+				}
+				modifier = {
+					factor = 1.75
+					intrigue = 21
+				}
+				
+				set_character_flag = darkages_no				
+			
+			} 
+			2 = { #Enemy
+				modifier = {
+					factor = 2
+					FROMFROM = { has_character_flag = da_aggressive }
+				}	
+				modifier = {
+					factor = 2
+					FROMFROM = { trait = deceitful }
+				}
+				modifier = {
+					factor = 2
+					trait = paranoid
+				}
+				modifier = {
+					factor = 2
+					trait = wroth
+				}				
+				modifier = {
+					factor = 2
+					trait = cruel
+				}	
+				modifier = {
+					factor = 2
+					trait = envious
+				}				
+			
+				set_character_flag = enemy
+
+			
+			} # ENEMY
+		}	
+	
+	}
+
+	option = {
+		name = EVTOPTA1972139	#YES
+		trigger = {
+			has_character_flag = darkages_yes
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP67 }
+
+		clr_character_flag = darkages_yes		
+		
+		hidden_tooltip = {
+			FROMFROM = { 
+				character_event = { id = darkages.72140 } 
+				clr_character_flag = scene_1
+				clr_character_flag = scene_2
+				clr_character_flag = scene_3
+				clr_character_flag = scene_4
+				clr_character_flag = da_happened_1
+				clr_character_flag = da_happened_2
+				clr_character_flag = da_happened_3			
+				clr_character_flag = da_happened_4				
+				clr_character_flag = da_framing_character
+				clr_character_flag = da_aggressive
+			}
+		}
+
+	}	
+	option = {
+		name = EVTOPTB1972139	#DAMAGE
+		trigger = {
+			has_character_flag = darkages_no
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP68 }		
+
+		clr_character_flag = darkages_no
+
+		hidden_tooltip = {
+			FROMFROM = { 
+				character_event = { id = darkages.72141 } 
+				clr_character_flag = scene_1
+				clr_character_flag = scene_2
+				clr_character_flag = scene_3
+				clr_character_flag = scene_4
+				clr_character_flag = da_happened_1
+				clr_character_flag = da_happened_2
+				clr_character_flag = da_happened_3			
+				clr_character_flag = da_happened_4				
+				clr_character_flag = da_framing_character
+				clr_character_flag = da_aggressive
+			}
+		}
+		
+	}
+	option = {
+		name = EVTOPTC1972139	#NEW RIVAL
+		trigger = {
+			has_character_flag = enemy
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP69 }		
+
+		clr_character_flag = enemy
+		
+		FROMFROM = { 
+			character_event = { id = darkages.72142 } 
+			clr_character_flag = scene_1
+			clr_character_flag = scene_2
+			clr_character_flag = scene_3
+			clr_character_flag = scene_4
+			clr_character_flag = da_happened_1
+			clr_character_flag = da_happened_2
+			clr_character_flag = da_happened_3			
+			clr_character_flag = da_happened_4			
+			clr_character_flag = da_framing_character
+			clr_character_flag = da_aggressive
+		}
+		
+	}		
+	
+}
+
+character_event = {		#INTRIGUER IS SUCCESSFUL - POSSIBLE NEW TRAIT
+	id = darkages.72140
+	title = EVTNAME1972140
+	desc = EVTDESC1972140
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTA1972140	# YES
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP70 }		
+		FROM = { 
+			add_character_modifier = {
+				name = da_framed
+				duration = 3650
+			}
+			
+			liege = {
+				opinion = {
+					modifier = opinion_framed
+					years = 10
+					who = PREV
+				}				
+				
+			}
+			
+		}
+
+		hidden_tooltip = {
+
+			if = { 
+				limit = {
+					NOT = { lifestyle_traits = 1 }
+				}	
+				random = {
+					chance = 33
+					character_event = { id = darkages.72143 }
+				}
+				
+			}
+		
+		}		
+		
+	}	
+	
+}
+
+character_event = {		#FAILURE
+	id = darkages.72141
+	title = EVTNAME1972141
+	desc = EVTDESC1972141
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTA1972141	# FINGER
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP71 }		
+		prestige = -20
+		
+		FROM = { 
+			opinion = {
+				who = ROOT
+				modifier = opinion_feeling_manipulated
+				years = 10
+			}			
+		}
+
+	}	
+	
+}
+
+character_event = {		#FAILURE & A NEW RIVAL
+	id = darkages.72142
+	title = EVTNAME1972142
+	desc = EVTDESC1972142
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTA1972142	# A NEW ENEMY
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP72 }		
+		
+		prestige = -30
+		
+		FROM = { 
+			opinion = {
+				who = FROM
+				modifier = opinion_feeling_manipulated
+				years = 10
+			}
+			add_rival = ROOT
+		}
+
+	}	
+	
+}
+
+character_event = {		#ADD NEW TRAIT - SILVER TONGUE
+	id = darkages.72143
+	title = EVTNAME1972143
+	desc = EVTDESC1972143
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { lifestyle_traits = 1 }
+	}
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTA1972143	# ADD TRAIT
+		ai_chance = {
+			factor = 50
+		}
+		change_intrigue = 1
+		add_trait = silver_tongue
+		prestige = 50
+		
+		if = {
+			limit = {
+				has_nickname = no
+			}
+			
+			random = {
+				chance = 50
+				give_nickname = nick_the_viper
+			}
+			
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTB1972143	# NO THANKS
+		ai_chance = {
+			factor = 50
+		}
+		
+	}	
+	
+}
+
+character_event = {		#ATTEMPT TO GAIN SUPPORT FOR FRAME - DIPLOMATIC
+	id = darkages.72144
+	title = EVTNAME1972144
+	desc = EVTDESC1972144
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_diplomacy
+
+	
+	trigger = {
+		has_character_flag = da_framing_character
+		NOT = { has_character_flag = da_happened_1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 9
+
+		modifier = {
+			factor = 0.75
+			has_character_flag = da_aggressive
+		}
+		
+		modifier = {
+			factor = 0.85
+			stewardship = 12
+		}
+		
+		modifier = {
+			factor = 0.85
+			stewardship = 15
+		}
+
+		modifier = {
+			factor = 0.85
+			stewardship = 18
+		}		
+
+		modifier = {
+			factor = 0.85
+			stewardship = 21
+		}
+
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 8 }
+		}
+
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 6 }
+		}		
+		
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 4 }
+		}		
+		
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 2 }
+		}
+		
+	}
+	
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					diplomacy = 12
+				}
+				modifier = {
+					factor = 1.35
+					diplomacy = 15
+				}				
+				modifier = {
+					factor = 1.5
+					diplomacy = 18
+				}				
+				modifier = {
+					factor = 1.75
+					diplomacy = 21
+				}
+				modifier = {
+					factor = 1.5
+					trait = gregarious
+				}
+				modifier = {
+					factor = 1.5
+					trait = socializer
+				}
+				modifier = {
+					factor = 2
+					trait = silver_tongue
+				}				
+				modifier = {
+					factor = 1.5
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.5
+					trait = envious
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}
+				modifier = {
+					factor = 2
+					trait = genius
+				}
+				modifier = {
+					factor = 1.5
+					trait = quick
+				}				
+				modifier = {
+					factor = 1.5
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.5
+					trait = grey_eminence
+				}
+				modifier = {
+					factor = 1.5
+					trait = elusive_shadow
+				}
+				modifier = {
+					factor = 1.25
+					OR = {
+						trait = naive_appeaser
+						trait = underhanded_rogue
+						trait = charismatic_negotiator
+						trait = grey_eminence
+					}
+				}
+				
+				set_character_flag = darkages_yes
+			}
+			2 = {
+				modifier = {
+					factor = 1.25
+					NOT = { diplomacy = 8 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { diplomacy = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { diplomacy = 4 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { diplomacy = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					trait = shy
+				}
+				modifier = {
+					factor = 1.25
+					trait = kind
+				}
+				modifier = {
+					factor = 1.25
+					trait = just
+				}
+				modifier = {
+					factor = 1.25
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.25
+					trait = dull
+				}
+				modifier = {
+					factor = 1.5
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.25
+					trait = slow
+				}
+				set_character_flag = darkages_no			
+			}
+		}
+	
+	}
+
+	option = {
+		name = EVTOPTA1972144
+		trigger = {
+			has_character_flag = darkages_yes
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP73 }
+		clr_character_flag = darkages_yes
+		set_character_flag = scene_1
+		set_character_flag = da_happened_1
+	}	
+
+	option = {
+		name = EVTOPTB1972144
+		trigger = {
+			has_character_flag = darkages_no
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP73 }		
+		clr_character_flag = darkages_no
+		set_character_flag = da_happened_1
+		
+	}
+	
+}
+
+character_event = {		#ATTEMPT TO GAIN SUPPORT FOR FRAME - MILITARY
+	id = darkages.72145
+	title = EVTNAME1972145
+	desc = EVTDESC1972145
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_war
+
+	
+	trigger = {
+		has_character_flag = da_framing_character
+		NOT = { has_character_flag = da_happened_2 }
+	}
+	
+	mean_time_to_happen = {
+		months = 9
+		
+		modifier = {
+			factor = 0.75
+			has_character_flag = da_aggressive
+		}		
+		
+		modifier = {
+			factor = 0.85
+			stewardship = 12
+		}
+		
+		modifier = {
+			factor = 0.85
+			stewardship = 15
+		}
+
+		modifier = {
+			factor = 0.85
+			stewardship = 18
+		}		
+
+		modifier = {
+			factor = 0.85
+			stewardship = 21
+		}
+
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 8 }
+		}
+
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 6 }
+		}		
+		
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 4 }
+		}		
+		
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 2 }
+		}		
+		
+	}
+	
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					martial = 12
+				}
+				modifier = {
+					factor = 1.35
+					martial = 15
+				}				
+				modifier = {
+					factor = 1.5
+					martial = 18
+				}				
+				modifier = {
+					factor = 1.75
+					martial = 21
+				}
+				modifier = {
+					factor = 1.5
+					trait = gregarious
+				}
+				modifier = {
+					factor = 1.5
+					trait = strategist
+				}
+				modifier = {
+					factor = 2
+					trait = silver_tongue
+				}				
+				modifier = {
+					factor = 1.5
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.5
+					trait = envious
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}
+				modifier = {
+					factor = 2
+					trait = genius
+				}
+				modifier = {
+					factor = 1.5
+					trait = quick
+				}				
+				modifier = {
+					factor = 1.5
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.5
+					trait = brilliant_strategist
+				}
+				modifier = {
+					factor = 1.5
+					trait = elusive_shadow
+				}
+				modifier = {
+					factor = 1.25
+					OR = {
+						trait = misguided_warrior
+						trait = tough_soldier
+						trait = skilled_tactician
+						trait = brilliant_strategist
+					}
+				}
+				
+				set_character_flag = darkages_yes
+			}
+			2 = {
+				modifier = {
+					factor = 1.25
+					NOT = { martial = 8 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { martial = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { martial = 4 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { martial = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					trait = shy
+				}
+				modifier = {
+					factor = 1.25
+					trait = kind
+				}
+				modifier = {
+					factor = 1.25
+					trait = just
+				}
+				modifier = {
+					factor = 1.25
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.25
+					trait = dull
+				}
+				modifier = {
+					factor = 1.5
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.25
+					trait = slow
+				}
+				set_character_flag = darkages_no			
+			}
+		}
+	
+	}
+
+	option = {
+		name = EVTOPTA1972145
+		trigger = {
+			has_character_flag = darkages_yes
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP74 }
+		clr_character_flag = darkages_yes
+		set_character_flag = scene_2
+		set_character_flag = da_happened_2
+	}	
+
+	option = {
+		name = EVTOPTB1972145
+		trigger = {
+			has_character_flag = darkages_no
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP74 }		
+		clr_character_flag = darkages_no
+		set_character_flag = da_happened_2		
+
+	}
+	
+}
+
+character_event = {		#ATTEMPT TO GAIN SUPPORT FOR FRAME - INTRIGUE
+	id = darkages.72146
+	title = EVTNAME1972146
+	desc = EVTDESC1972146
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_intrigue
+
+	
+	trigger = {
+		has_character_flag = da_framing_character
+		NOT = { has_character_flag = da_happened_3 }
+	}
+	
+	mean_time_to_happen = {
+		months = 9
+		
+		modifier = {
+			factor = 0.75
+			has_character_flag = da_aggressive
+		}		
+		
+		modifier = {
+			factor = 0.85
+			stewardship = 12
+		}
+		
+		modifier = {
+			factor = 0.85
+			stewardship = 15
+		}
+
+		modifier = {
+			factor = 0.85
+			stewardship = 18
+		}		
+
+		modifier = {
+			factor = 0.85
+			stewardship = 21
+		}
+
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 8 }
+		}
+
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 6 }
+		}		
+		
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 4 }
+		}		
+		
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 2 }
+		}		
+		
+	}
+	
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.35
+					intrigue = 15
+				}				
+				modifier = {
+					factor = 1.5
+					intrigue = 18
+				}				
+				modifier = {
+					factor = 1.75
+					intrigue = 21
+				}
+				modifier = {
+					factor = 1.5
+					trait = gregarious
+				}
+				modifier = {
+					factor = 2
+					trait = silver_tongue
+				}				
+				modifier = {
+					factor = 1.5
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.5
+					trait = envious
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}
+				modifier = {
+					factor = 2
+					trait = genius
+				}
+				modifier = {
+					factor = 1.5
+					trait = quick
+				}				
+				modifier = {
+					factor = 2.25
+					trait = schemer
+				}
+				modifier = {
+					factor = 2.25
+					trait = elusive_shadow
+				}
+				modifier = {
+					factor = 1.25
+					OR = {
+						trait = amateurish_plotter
+						trait = flamboyant_schemer
+						trait = intricate_webweaver
+						trait = elusive_shadow
+					}
+				}
+				
+				set_character_flag = darkages_yes
+			}
+			2 = {
+				modifier = {
+					factor = 1.25
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { intrigue = 4 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { intrigue = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					trait = shy
+				}
+				modifier = {
+					factor = 1.25
+					trait = kind
+				}
+				modifier = {
+					factor = 1.25
+					trait = just
+				}
+				modifier = {
+					factor = 1.25
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.25
+					trait = dull
+				}
+				modifier = {
+					factor = 1.5
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.25
+					trait = slow
+				}
+				set_character_flag = darkages_no			
+			}
+		}
+	
+	}
+
+	option = {
+		name = EVTOPTA1972146
+		trigger = {
+			has_character_flag = darkages_yes
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP75 }
+		clr_character_flag = darkages_yes
+		set_character_flag = scene_3
+		set_character_flag = da_happened_3
+	}	
+
+	option = {
+		name = EVTOPTB1972146
+		trigger = {
+			has_character_flag = darkages_no
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP75 }		
+		clr_character_flag = darkages_no
+		set_character_flag = da_happened_3
+
+	}
+	
+}
+
+character_event = {		#ATTEMPT TO GAIN SUPPORT FOR FRAME - RELIGION
+	id = darkages.72147
+	title = EVTNAME1972147
+	desc = EVTDESC1972147
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_religion
+
+	
+	trigger = {
+		has_character_flag = da_framing_character
+		NOT = { has_character_flag = da_happened_4 }
+	}
+	
+	mean_time_to_happen = {
+		months = 9
+
+		modifier = {
+			factor = 0.75
+			has_character_flag = da_aggressive
+		}			
+		
+		modifier = {
+			factor = 0.85
+			stewardship = 12
+		}
+		
+		modifier = {
+			factor = 0.85
+			stewardship = 15
+		}
+
+		modifier = {
+			factor = 0.85
+			stewardship = 18
+		}		
+
+		modifier = {
+			factor = 0.85
+			stewardship = 21
+		}
+
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 8 }
+		}
+
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 6 }
+		}		
+		
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 4 }
+		}		
+		
+		modifier = {
+			factor = 1.15
+			NOT = { stewardship = 2 }
+		}		
+		
+	}
+	
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					learning = 12
+				}
+				modifier = {
+					factor = 1.35
+					learning = 15
+				}				
+				modifier = {
+					factor = 1.5
+					learning = 18
+				}				
+				modifier = {
+					factor = 1.75
+					learning = 21
+				}
+				modifier = {
+					factor = 1.5
+					trait = gregarious
+				}
+				modifier = {
+					factor = 1.5
+					trait = theologian
+				}
+				modifier = {
+					factor = 2
+					trait = silver_tongue
+				}				
+				modifier = {
+					factor = 1.5
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.5
+					trait = envious
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}
+				modifier = {
+					factor = 2
+					trait = genius
+				}
+				modifier = {
+					factor = 1.5
+					trait = quick
+				}				
+				modifier = {
+					factor = 1.5
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.5
+					trait = mastermind_theologian
+				}
+				modifier = {
+					factor = 1.5
+					trait = elusive_shadow
+				}
+				modifier = {
+					factor = 1.25
+					OR = {
+						trait = detached_priest
+						trait = martial_cleric
+						trait = scholarly_theologian
+						trait = mastermind_theologian
+					}
+				}
+				
+				set_character_flag = darkages_yes
+			}
+			2 = {
+				modifier = {
+					factor = 1.25
+					NOT = { learning = 8 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { learning = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { learning = 4 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { learning = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					trait = shy
+				}
+				modifier = {
+					factor = 1.25
+					trait = kind
+				}
+				modifier = {
+					factor = 1.25
+					trait = just
+				}
+				modifier = {
+					factor = 1.25
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.25
+					trait = dull
+				}
+				modifier = {
+					factor = 1.5
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.25
+					trait = slow
+				}
+				set_character_flag = darkages_no			
+			}
+		}
+	
+	}
+
+	option = {
+		name = EVTOPTA1972147
+		trigger = {
+			has_character_flag = darkages_yes
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP76 }
+		clr_character_flag = darkages_yes
+		set_character_flag = scene_4
+		set_character_flag = da_happened_4
+	}	
+
+	option = {
+		name = EVTOPTB1972147
+		trigger = {
+			has_character_flag = darkages_no
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP76 }		
+		clr_character_flag = darkages_no
+		set_character_flag = da_happened_4
+
+	}
+	
+}
+
+character_event = {		#INTRIGUER DECIDES ON HIS/HER STRATEGY
+	id = darkages.72148
+	title = EVTNAME1972148
+	desc = EVTDESC1972148
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTA1972148	# AGGRESSIVE PURSUIT
+		ai_chance = {
+			factor = 50
+		}
+
+		set_character_flag = da_aggressive
+		
+	}	
+	
+	option = {
+		name = EVTOPTB1972148	# DISCREET PURSUIT
+		ai_chance = {
+			factor = 50
+		}
+		
+	}	
+	
+}
+
+
+character_event = {		#CLEANUP EVENT FOR THE CASE WHEN THE TARGET DIES WHILE THE ATTEMPT IS BEING MADE
+	id = darkages.72343
+	title = EVTNAME1972343
+	desc = EVTDESC1972343
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+			clr_character_flag = scene_1
+			clr_character_flag = scene_2
+			clr_character_flag = scene_3
+			clr_character_flag = scene_4
+			clr_character_flag = da_happened_1
+			clr_character_flag = da_happened_2
+			clr_character_flag = da_happened_3			
+			clr_character_flag = da_happened_4
+			clr_character_flag = da_framing_character
+			clr_character_flag = da_aggressive
+	}
+
+	
+}

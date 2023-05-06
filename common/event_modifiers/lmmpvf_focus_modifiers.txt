@@ -1,0 +1,14 @@
+lmmpvf_focus_glory_modifier = {
+	icon = 7
+	monthly_character_prestige = 1
+}
+
+lmmpvf_focus_prosperity_modifier = {
+	icon = 4
+	global_tax_modifier = 0.1
+}
+
+lmmpvf_focus_faith_modifier = {
+	icon = 8
+	monthly_character_piety = 1
+}

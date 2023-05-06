@@ -1,0 +1,153 @@
+
+
+on_create_title = {
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_new_holder = {
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_new_holder_inheritance = {
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_new_holder_usurpation = {
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_character_convert_religion = {
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_character_convert_culture = {
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_vassal_accepts_religious_conversion = {
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_character_convert_secret_religion = {
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_heresy_takeover = {
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_character_convert_culture = {
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_war_started = {	# just in case
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_yearly_pulse = {	# just in case
+	events = {
+		AmzCul.801
+		AmzCul.802
+		AmzCul.803
+		AmzCul.804
+	}
+}
+
+on_birth = {
+	events = {
+		AmzCul.6905	# removes negative genetics from positive parents
+		AmzCul.319	# chance to apply congenital traits based on conventional traits
+	}
+}
+
+on_childhood_pulse = {
+	events = {
+		AmzCul.6914	# fixes pagan branch to mother's side, ai only
+	}
+}
+
+on_employer_change = { # removes negative genetics from amazonians
+	events = {
+		AmzCul.6906
+	}
+}
+
+on_battle_won = { # Fame boost
+	events = {
+		AmzCulSoc.112
+	}
+}
+
+on_major_battle_won = { # Fame boost
+	events = {
+		AmzCulSoc.113
+	}
+}
+
+on_battle_won_leader = { # Fame boost
+	events = {
+		AmzCulSoc.112
+	}
+}
+
+on_major_battle_won_leader = { # Fame boost
+	events = {
+		AmzCulSoc.113
+	}
+}
+

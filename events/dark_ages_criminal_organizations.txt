@@ -1,0 +1,5933 @@
+character_event = {		#Startup event
+	id = darkages.72608
+	title = EVTNAME1972608
+	desc = EVTDESC1972608
+	picture = GFX_evt_da_gloomy_village
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	trigger = {
+	
+		is_landed = yes
+		
+		NOR = {
+			has_character_modifier = da_mastermind
+			has_character_modifier = da_dud_mastermind
+			has_character_modifier = da_co_timer
+			has_character_modifier = da_criminal_org_tmp
+		}
+		
+		any_courtier_or_vassal = { 
+		
+			is_incapable = no
+			prisoner = no
+			is_adult = yes		
+		
+			OR = {
+				has_vice_trigger = yes
+				has_evil_trait_trigger = yes
+			}
+		}
+
+	}
+	
+	mean_time_to_happen = {
+	
+		months = 2400
+		
+		modifier = {
+			factor = 0.5
+			ai = no
+		}		
+		
+		modifier = {
+			factor = 1.25
+			stewardship = 12
+		}
+		
+		modifier = {
+			factor = 1.35
+			stewardship = 15
+		}		
+		
+		modifier = {
+			factor = 1.5
+			stewardship = 18
+		}		
+		
+		modifier = {
+			factor = 1.75
+			stewardship = 21
+		}		
+		
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 8 }
+		}	
+
+		
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 6 }
+		}		
+		
+		
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 4 }
+		}
+
+		
+		modifier = {
+			factor = 0.8
+			NOT = { stewardship = 2 }
+		}	
+
+		modifier = {
+			factor = 1.25
+			martial = 12
+		}
+		
+		modifier = {
+			factor = 1.35
+			martial = 15
+		}		
+		
+		modifier = {
+			factor = 1.5
+			martial = 18
+		}		
+		
+		modifier = {
+			factor = 1.75
+			martial = 21
+		}		
+		
+		modifier = {
+			factor = 0.8
+			NOT = { martial = 8 }
+		}	
+
+		
+		modifier = {
+			factor = 0.8
+			NOT = { martial = 6 }
+		}		
+		
+		
+		modifier = {
+			factor = 0.8
+			NOT = { martial = 4 }
+		}
+
+		
+		modifier = {
+			factor = 0.8
+			NOT = { martial = 2 }
+		}
+		
+		modifier = {
+			factor = 2
+			trait = administrator
+		}		
+		
+	
+	}
+	
+	immediate = {
+
+		add_character_modifier = {
+			name = da_criminal_org_tmp
+			duration = 7300
+			hidden = yes
+		}
+
+		hidden_tooltip = {
+	
+			add_character_modifier = {
+				name = da_co_timer
+				duration = 1825
+				hidden = yes
+				inherit = yes
+			}
+		
+			random_list = {
+				5 = {
+				
+					add_character_modifier = {
+						name = da_mastermind
+						duration = -1
+						hidden = yes
+					}
+					
+				}			
+				3 = {
+					add_character_modifier = {
+						name = da_dud_mastermind
+						duration = -1
+						hidden = yes
+					}
+				}
+			}
+			
+			if = {
+				limit = { has_character_modifier = da_mastermind }
+
+				random_courtier_or_vassal = { 
+					limit = {
+						is_incapable = no
+						prisoner = no
+						is_adult = yes							
+								
+						OR = {
+							has_vice_trigger = yes
+							has_evil_trait_trigger = yes
+						}
+							
+					}
+					save_event_target_as = darkages_criminal_mastermind
+					
+					add_character_modifier = {
+						name = da_criminal_master
+						duration = -1	
+						hidden = yes						
+					}
+				}
+
+				
+			}			
+			
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972608
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP326 }
+		
+		treasury = -25
+		
+		set_character_flag = darkages_hunter
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTB1972608
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP327 }
+
+		treasury = -40
+		set_character_flag = darkages_council_support_mastermind
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}		
+
+	}	
+
+	option = {
+		name = EVTOPTC1972608
+		trigger = {
+			job_marshal = { always = yes }
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP328 }
+
+		set_character_flag = darkages_marshal_support_mastermind
+		
+		treasury = -25		
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}		
+		
+	}	
+
+	option = {
+		name = EVTOPTD1972608
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP329 }
+
+		set_character_flag = darkages_spymaster_support_mastermind
+	
+		treasury = -25	
+		
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}		
+		
+	
+	}
+
+	after = {
+
+	
+	}	
+
+	
+}
+
+
+character_event = { 		#Success!
+	id = darkages.72609
+	title = EVTNAME1972609
+	desc = EVTDESC1972609
+	picture = GFX_evt_da_court_celebration
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+		clr_character_flag = darkages_council_support_mastermind
+		clr_character_flag = darkages_spymaster_support_mastermind						
+		clr_character_flag = darkages_marshal_support_mastermind
+		
+		random_list = {
+			1 = {
+				set_character_flag = darkages_1
+			}
+			1 = {
+				set_character_flag = darkages_2		
+			}
+			1 = {
+				set_character_flag = darkages_3		
+			}
+			1 = {
+				set_character_flag = darkages_4			
+			}			
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972609
+		trigger = {
+			has_character_flag = darkages_1
+		}
+		
+		opinion = { 
+			who = event_target:darkages_criminal_mastermind
+			modifier = opinion_traitor
+		}
+		
+		scaled_wealth = { value = 1 min = 30 max = 200 }
+		
+		if = {
+			limit = { has_character_flag = darkages_hunter }
+			
+			clr_character_flag = darkages_hunter
+			
+			prestige = 100
+			
+			any_courtier_or_vassal = {
+				opinion = {	
+        			who = ROOT
+        			modifier = da_opinion_discovered_mastermind
+        			years = 5
+        		}
+			}
+			
+		}
+		else = {
+			prestige = 25
+		}
+		
+		clr_character_flag = darkages_1
+
+	}
+	
+	option = {
+		name = EVTOPTA1972609
+		trigger = {
+			has_character_flag = darkages_2
+		}
+
+		opinion = { 
+			who = event_target:darkages_criminal_mastermind
+			modifier = opinion_traitor
+		}
+
+		
+		scaled_wealth = { value = 1 min = 50 max = 225 }
+		
+		if = {
+			limit = { has_character_flag = darkages_hunter }
+			
+			clr_character_flag = darkages_hunter
+			
+			prestige = 100
+			
+			any_courtier_or_vassal = {
+				opinion = {	
+        			who = ROOT
+        			modifier = da_opinion_discovered_mastermind
+        			years = 5
+        		}
+			}
+			
+		}
+		else = {
+			prestige = 25
+		}
+		
+		clr_character_flag = darkages_2
+
+	}
+
+	option = {
+		name = EVTOPTA1972609
+		trigger = {
+			has_character_flag = darkages_3
+		}
+
+		opinion = { 
+			who = event_target:darkages_criminal_mastermind
+			modifier = opinion_traitor
+		}
+
+		
+		scaled_wealth = { value = 1 min = 60 max = 250 }
+		
+		if = {
+			limit = { has_character_flag = darkages_hunter }
+			
+			clr_character_flag = darkages_hunter
+			
+			prestige = 100
+			
+			any_courtier_or_vassal = {
+				opinion = {	
+        			who = ROOT
+        			modifier = da_opinion_discovered_mastermind
+        			years = 5
+        		}
+			}
+			
+		}
+		else = {
+			prestige = 25
+		}
+		
+		clr_character_flag = darkages_3
+
+	}	
+	
+	option = {
+		name = EVTOPTA1972609
+		trigger = {
+			has_character_flag = darkages_4
+		}
+
+		opinion = { 
+			who = event_target:darkages_criminal_mastermind
+			modifier = opinion_traitor
+		}
+
+		
+		scaled_wealth = { value = 1 min = 90 max = 350 }
+		
+		if = {
+			limit = { has_character_flag = darkages_hunter }
+			
+			clr_character_flag = darkages_hunter
+			
+			prestige = 100
+			
+			any_courtier_or_vassal = {
+				opinion = {	
+        			who = ROOT
+        			modifier = da_opinion_discovered_mastermind
+        			years = 5
+        		}
+			}
+			
+		}
+		else = {
+			prestige = 25
+		}
+		
+		clr_character_flag = darkages_4
+
+	}	
+	
+	after = {
+		clr_character_flag = darkages_council_support_mastermind
+		clr_character_flag = darkages_spymaster_support_mastermind						
+		clr_character_flag = darkages_marshal_support_mastermind
+		clr_character_flag = darkages_hunter
+		
+		hidden_tooltip = {
+			remove_character_modifier = da_mastermind
+			remove_character_modifier = da_dud_mastermind
+		}
+	}
+	
+}
+
+
+
+character_event = { 		#SOMETHING SUSPECT 1
+	id = darkages.72610
+	title = EVTNAME1972610
+	desc = EVTDESC1972610_MASTERMIND
+	picture = GFX_evt_da_hooded_char
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				NOT = { character = event_target:darkages_criminal_mastermind }
+				is_adult = yes
+				prisoner = no
+				is_incapable = no
+			}
+			
+			save_event_target_as = da_poor_fellow
+			
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972610
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP330 }
+		
+		treasury = -10
+		
+		event_target:da_poor_fellow = {
+			death = {
+				death_reason = death_missing
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			create_character = {
+				age = 20
+				culture = ROOT
+				religion = ROOT
+			}		
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972610
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP331 }
+		
+		treasury = -50
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_heavy_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		event_target:da_poor_fellow = {
+			death = {
+				death_reason = death_missing
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			create_character = {
+				age = 20
+				culture = ROOT
+				religion = ROOT
+			}		
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}	
+	
+	option = {
+		name = EVTOPTC1972610
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP332 }
+		
+		treasury = -100
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_extreme_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		event_target:da_poor_fellow = {
+			death = {
+				death_reason = death_missing
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			create_character = {
+				age = 20
+				culture = ROOT
+				religion = ROOT
+			}		
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}	
+	
+	option = {
+		name = EVTOPTD1972610
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP333 }
+		
+		treasury = -200
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_paranoid_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		event_target:da_poor_fellow = {
+			death = {
+				death_reason = death_missing
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			create_character = {
+				age = 20
+				culture = ROOT
+				religion = ROOT
+			}
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+		
+	}	
+	
+}
+
+
+character_event = { 		#SOMETHING SUSPECT 2
+	id = darkages.72611
+	title = EVTNAME1972611
+	desc = EVTDESC1972611
+	picture = GFX_evt_da_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972611
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP334 }
+		
+		prestige = -75
+		
+		treasury = -10
+		
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972611
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP335 }
+
+		prestige = -75
+		
+		treasury = -50
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_heavy_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}	
+	
+	option = {
+		name = EVTOPTC1972611
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP336 }
+
+		prestige = -75
+		
+		treasury = -100
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_extreme_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}	
+	
+	option = {
+		name = EVTOPTD1972611
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP337 }
+
+		prestige = -75
+		
+		treasury = -200
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_paranoid_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+		
+	}	
+	
+}
+
+
+character_event = { 		#SOMETHING SUSPECT 3
+	id = darkages.72612
+	title = EVTNAME1972612
+	desc = EVTDESC1972612
+	picture = GFX_evt_da_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972612
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP334 }
+		
+		piety = -75
+
+		rightful_religious_head_scope = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_very_disappointed
+				years = 5 
+			
+			}
+		}
+		
+		treasury = -10
+		
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972612
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP335 }
+
+		piety = -75
+
+		rightful_religious_head_scope = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_very_disappointed
+				years = 5 
+			
+			}
+		}
+		
+		treasury = -50
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_heavy_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}			
+			
+	}	
+	
+	option = {
+		name = EVTOPTC1972612
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP336 }
+
+		piety = -75
+		
+		rightful_religious_head_scope = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_very_disappointed
+				years = 5 
+			
+			}
+		}
+		
+		treasury = -100
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_extreme_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}	
+	
+	option = {
+		name = EVTOPTD1972612
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP337 }
+
+		piety = -75
+		
+		rightful_religious_head_scope = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_very_disappointed
+				years = 5 
+			
+			}
+		}
+		
+		treasury = -200
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_paranoid_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+		
+	}	
+	
+}
+
+
+character_event = { 		#SOMETHING SUSPECT 4
+	id = darkages.72613
+	title = EVTNAME1972613
+	desc = EVTDESC1972613
+	picture = GFX_evt_da_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972613
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP334 }
+		
+		treasury = -10
+
+		any_courtier_or_vassal = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_disappointed
+				years = 5
+			}
+		}
+		
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972613
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP335 }
+
+		treasury = -50
+
+		any_courtier_or_vassal = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_disappointed
+				years = 5
+			}
+		}
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_heavy_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}	
+	
+	option = {
+		name = EVTOPTC1972613
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP336 }
+
+		treasury = -100
+		
+		any_courtier_or_vassal = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_disappointed
+				years = 5
+			}
+		}		
+		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_extreme_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+	}	
+	
+	option = {
+		name = EVTOPTD1972613
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP337 }
+
+		treasury = -200
+		
+		any_courtier_or_vassal = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_disappointed
+				years = 5
+			}
+		}
+		
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_paranoid_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+		
+	}	
+	
+}
+
+
+character_event = { 		#SOMETHING SUSPECT 5
+	id = darkages.72614
+	title = EVTNAME1972614
+	desc = EVTDESC1972614
+	picture = GFX_evt_da_riddle
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972614
+		
+		scaled_wealth = { value = 0.75 min = -50 max = -300 }
+		
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = da_paranoid_investments
+					has_character_modifier = da_extreme_investments
+					has_character_modifier = da_heavy_investments					
+				}
+			}
+			add_character_modifier = {
+				name = da_paranoid_investments
+				duration = 730
+				hidden = yes
+				inherit = yes
+			}
+		}
+
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+		
+
+	}
+	
+	option = {
+		name = EVTOPTB1972614
+		
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			
+			add_trait = cruel
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				3 = {
+					character_event = { id = darkages.72615 days = 15 random = 15 }
+				}
+				1 = {
+					character_event = { id = darkages.72616 days = 15 random = 15 }
+				}
+			}
+			
+		}
+		
+
+	}	
+	
+	option = {
+		name = EVTOPTC1972614
+		
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			
+			add_trait = cruel
+		}
+
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+			}
+			
+			add_trait = wroth
+		}
+		
+
+		hidden_tooltip = {
+			random_list = {
+				3 = {
+					character_event = { id = darkages.72617 days = 60 random = 60 }
+				}
+				1 = {
+					character_event = { id = darkages.72618 days = 60 random = 60 }
+				}
+			}
+		}		
+
+	}	
+	
+	option = {
+		name = EVTOPTD1972614
+
+		
+		if = {
+			limit = {
+				has_character_modifier = da_dud_mastermind
+			}
+			hidden_tooltip = {
+				clr_character_flag = darkages_council_support_mastermind
+				clr_character_flag = darkages_spymaster_support_mastermind						
+				clr_character_flag = darkages_marshal_support_mastermind
+				clr_character_flag = darkages_hunter
+				
+				remove_character_modifier = da_mastermind
+				remove_character_modifier = da_dud_mastermind	
+			}
+		
+		}
+		else = {
+			hidden_tooltip = {
+			
+				random_list = {
+					1 = {
+						modifier = {
+							factor = 0
+							has_character_modifier = da_dud_mastermind
+						}
+						modifier = {
+							factor = 0
+							has_character_flag = darkages_marshal_support_mastermind
+							job_marshal = { has_character_modifier =  da_mastermind }
+						}					
+						modifier = {
+							factor = 0
+							has_character_flag = darkages_spymaster_support_mastermind
+							job_spymaster = { has_character_modifier =  da_mastermind }
+						}						
+						modifier = {
+							factor = 0.5
+							has_character_modifier = da_information_leak
+						}						
+						modifier = {
+							factor = 1.75
+							has_character_modifier = da_heavy_investments
+						}
+						modifier = {
+							factor = 2.25
+							has_character_modifier = da_extreme_investments
+						}				
+						modifier = {
+							factor = 2.75
+							has_character_modifier = da_paranoid_investments
+						}					
+						modifier = {
+							factor = 2.5
+							has_character_flag = darkages_council_support_mastermind
+						}
+						modifier = {
+							factor = 1.25
+							has_character_flag = darkages_marshal_support_mastermind
+							job_marshal = { martial = 12 }
+						}	
+						modifier = {
+							factor = 1.35
+							has_character_flag = darkages_marshal_support_mastermind
+							job_marshal = { martial = 15 }
+						}				
+						modifier = {
+							factor = 1.5
+							has_character_flag = darkages_marshal_support_mastermind
+							job_marshal = { martial = 18 }
+						}				
+						modifier = {
+							factor = 1.75
+							has_character_flag = darkages_marshal_support_mastermind
+							job_marshal = { martial = 21 }
+						}
+						modifier = {
+							factor = 2
+							has_character_flag = darkages_marshal_support_mastermind
+							job_marshal = { trait = shrewd }
+						}
+						modifier = {
+							factor = 1.5
+							has_character_flag = darkages_marshal_support_mastermind
+							job_marshal = { trait = dull }
+						}					
+						modifier = {
+							factor = 1.25
+							has_character_flag = darkages_spymaster_support_mastermind
+							job_spymaster = { intrigue = 12 }
+						}	
+						modifier = {
+							factor = 1.35
+							has_character_flag = darkages_spymaster_support_mastermind
+							job_spymaster = { intrigue = 15 }
+						}				
+						modifier = {
+							factor = 1.5
+							has_character_flag = darkages_spymaster_support_mastermind
+							job_spymaster = { intrigue = 18 }
+						}				
+						modifier = {
+							factor = 1.75
+							has_character_flag = darkages_spymaster_support_mastermind
+							job_spymaster = { intrigue = 21 }
+						}
+						modifier = {
+							factor = 2
+							has_character_flag = darkages_spymaster_support_mastermind
+							job_spymaster = { trait = shrewd }
+						}
+						modifier = {
+							factor = 0.5
+							has_character_flag = darkages_spymaster_support_mastermind
+							job_spymaster = { trait = dull }
+						}					
+						modifier = {
+							factor = 1.25
+							NOR = {
+								has_character_flag = darkages_spymaster_support_mastermind						
+								has_character_flag = darkages_marshal_support_mastermind								
+							}
+							OR = {
+								intrigue = 12
+								martial = 12
+							}
+						}
+						modifier = {
+							factor = 1.35
+							NOR = {
+								has_character_flag = darkages_spymaster_support_mastermind						
+								has_character_flag = darkages_marshal_support_mastermind								
+							}						
+							OR = {
+								intrigue = 15
+								martial = 15
+							}
+						}
+						modifier = {
+							factor = 1.5
+							NOR = {
+								has_character_flag = darkages_spymaster_support_mastermind						
+								has_character_flag = darkages_marshal_support_mastermind								
+							}						
+							OR = {
+								intrigue = 18
+								martial = 18
+							}
+						}
+						modifier = {
+							factor = 1.75
+							NOR = {
+								has_character_flag = darkages_spymaster_support_mastermind						
+								has_character_flag = darkages_marshal_support_mastermind								
+							}						
+							OR = {
+								intrigue = 21
+								martial = 21
+							}
+						}
+						modifier = {
+							factor = 2
+							NOR = {
+								has_character_flag = darkages_spymaster_support_mastermind						
+								has_character_flag = darkages_marshal_support_mastermind								
+							}						
+							trait = shrewd
+						}
+						modifier = {
+							factor = 0.5
+							NOR = {
+								has_character_flag = darkages_spymaster_support_mastermind						
+								has_character_flag = darkages_marshal_support_mastermind								
+							}						
+							trait = dull
+						}					
+						character_event = { id = darkages.72609 days = 60 random = 305 }
+					}
+					1 = {
+						character_event = { id = darkages.72610 days = 60 random = 305 }
+					}
+					1 = {
+						character_event = { id = darkages.72611 days = 60 random = 305 }
+					}				
+					1 = {
+						character_event = { id = darkages.72612 days = 60 random = 305 }
+					}				
+					1 = {
+						character_event = { id = darkages.72613 days = 60 random = 305 }
+					}
+					1 = {
+						character_event = { id = darkages.72614 days = 60 random = 305 }
+					}				
+				
+				}
+			}
+			
+		
+		}
+		
+	}	
+	
+}
+
+character_event = { 		#NAY
+	id = darkages.72615
+	title = EVTNAME1972615
+	desc = EVTDESC1972615
+	picture = GFX_evt_da_bloody_tools
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972615
+		
+		piety = -75
+		
+		if = {
+			limit = { NOT = { trait = dull } }
+			add_trait = dull
+		}
+		
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+		
+		
+	}
+	
+}
+
+character_event = { 		#Yeah
+	id = darkages.72616
+	title = EVTNAME1972616
+	desc = EVTDESC1972616
+	picture = GFX_evt_da_bloody_tools
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+		clr_character_flag = darkages_council_support_mastermind
+		clr_character_flag = darkages_spymaster_support_mastermind						
+		clr_character_flag = darkages_marshal_support_mastermind
+		clr_character_flag = darkages_hunter
+		
+		remove_character_modifier = da_mastermind
+		remove_character_modifier = da_dud_mastermind
+	}
+	
+	option = {
+		name = EVTOPTA1972616
+		
+		prestige = 75
+		
+		if = {
+			limit = { NOT = { trait = shrewd } }
+			add_trait = shrewd
+		}
+		
+
+	}
+	
+}
+
+
+character_event = { 		#Nay
+	id = darkages.72617
+	title = EVTNAME1972617
+	desc = EVTDESC1972617
+	picture = GFX_evt_da_beheading
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972617
+		
+		piety = -150
+
+		if = {
+			limit = { NOT = { trait = dull } }
+			add_trait = dull
+		}		
+		
+		hidden_tooltip = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 1.75
+						has_character_modifier = da_heavy_investments
+					}
+					modifier = {
+						factor = 2.25
+						has_character_modifier = da_extreme_investments
+					}				
+					modifier = {
+						factor = 2.75
+						has_character_modifier = da_paranoid_investments
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}
+		}
+		
+		
+	}
+	
+}
+
+character_event = { 		#Yeah
+	id = darkages.72618
+	title = EVTNAME1972618
+	desc = EVTDESC1972618
+	picture = GFX_evt_da_beheading
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+		clr_character_flag = darkages_council_support_mastermind
+		clr_character_flag = darkages_spymaster_support_mastermind						
+		clr_character_flag = darkages_marshal_support_mastermind
+		clr_character_flag = darkages_hunter
+		
+		remove_character_modifier = da_mastermind
+		remove_character_modifier = da_dud_mastermind
+	}
+	
+	option = {
+		name = EVTOPTA1972616
+		
+		prestige = 75
+		
+		if = {
+			limit = { NOT = { trait = shrewd } }
+			add_trait = shrewd
+		}		
+		
+
+	}
+	
+}
+
+character_event = { 		#Suddenly Ends
+	id = darkages.72619
+	title = EVTNAME1972619
+	desc = EVTDESC1972619
+	picture = GFX_evt_da_camaraderie
+	border = GFX_event_normal_frame_war
+
+	trigger = {
+		OR = {
+			has_character_modifier = da_mastermind
+			has_character_modifier = da_dud_mastermind
+		}
+
+		NOT = { has_character_modifier = da_co_timer }
+
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	immediate = {
+		clr_character_flag = darkages_council_support_mastermind
+		clr_character_flag = darkages_spymaster_support_mastermind						
+		clr_character_flag = darkages_marshal_support_mastermind
+		clr_character_flag = darkages_hunter
+		clr_character_flag = da_liege_survives
+		
+		remove_character_modifier = da_mastermind
+		remove_character_modifier = da_dud_mastermind
+		
+		random_courtier_or_vassal = {
+			limit = { has_character_modifier = da_criminal_master }
+			remove_character_modifier = da_criminal_master
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972619
+
+	}
+	
+}
+
+character_event = { 		#Money disappearing
+	id = darkages.72621
+	title = EVTNAME1972621
+	desc = EVTDESC1972621
+	picture = GFX_evt_da_camaraderie
+	border = GFX_event_normal_frame_war
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			has_character_modifier = da_mastermind
+			has_character_modifier = da_dud_mastermind
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+	
+	immediate = {
+	
+		random_list = {
+			1 = {
+				treasury = -5
+			}
+			1 = {
+				treasury = -10
+			}			
+			1 = {
+				treasury = -15
+			}			
+			1 = {
+				treasury = -20
+			}			
+		}
+	
+		random = {
+			chance = 33
+			character_event = { id = darkages.72622 }
+		}
+	
+	}
+	
+}
+
+character_event = { 		#player warned
+	id = darkages.72622
+	title = EVTNAME1972622
+	desc = EVTDESC1972622
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = EVTOPTA19723622
+
+	}
+	
+	
+}
+
+character_event = { 		#Information leaks as council works together
+	id = darkages.72623
+	title = EVTNAME1972623
+	desc = EVTDESC1972623
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_economy
+
+	trigger = {
+		has_character_modifier = da_criminal_org_tmp
+	}
+
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 1.25
+			realm_intrigue = 35
+		}
+		
+		modifier = {
+			factor = 1.35
+			realm_intrigue = 40
+		}
+		
+		modifier = {
+			factor = 1.5
+			realm_intrigue = 45
+		}		
+
+		modifier = {
+			factor = 0.8
+			NOT = { realm_intrigue = 30 }
+		}
+		
+		modifier = {
+			factor = 0.8
+			NOT = { realm_intrigue = 25 }
+		}
+		
+		modifier = {
+			factor = 0.8
+			NOT = { realm_intrigue = 20 }
+		}		
+		
+	}
+
+	immediate = {
+		add_character_modifier = {
+			name = da_information_leak
+			duration = 1095
+		}
+	}
+
+	option = {
+		name = EVTOPTA1972623
+
+		prestige = -5
+
+	}
+	
+	
+}
+
+character_event = { 		#called from on action to pass on the flags
+	id = darkages.72635
+	title = EVTNAME1972623
+	desc = EVTDESC1972623
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_modifier = da_mastermind
+			has_character_modifier = da_dud_mastermind
+		}
+	}
+
+	immediate = {
+	
+		if = {
+			limit = { has_character_flag = da_hunter }
+			current_heir = { set_character_flag = da_hunter }
+		}
+		
+		if = {
+			limit = { has_character_flag = darkages_council_support_mastermind }
+			current_heir = { set_character_flag = darkages_council_support_mastermind }
+		}	
+
+		if = {
+			limit = { has_character_flag = darkages_marshal_support_mastermind }
+			current_heir = { set_character_flag = darkages_marshal_support_mastermind }
+		}
+
+		if = {
+			limit = { has_character_flag = darkages_spymaster_support_mastermind }
+			current_heir = { set_character_flag = darkages_spymaster_support_mastermind }
+		}
+
+		if = {
+			limit = { has_character_modifier = da_mastermind }
+			current_heir = { 
+				add_character_modifier = {
+					name = da_mastermind
+					duration = -1
+					hidden = yes
+				}
+			}	
+		}	
+
+		if = {
+			limit = { has_character_modifier = da_dud_mastermind }
+			current_heir = { 
+				add_character_modifier = {
+					name = da_dud_mastermind
+					duration = -1
+					hidden = yes
+				}
+			}	
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_information_leak }
+			current_heir = { 
+				add_character_modifier = {
+					name = da_information_leak
+					duration = 550
+					hidden = yes
+				}
+			}	
+		}		
+
+		current_heir = {
+		
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						has_character_modifier = da_dud_mastermind
+					}
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { has_character_modifier =  da_mastermind }
+					}					
+					modifier = {
+						factor = 0.5
+						has_character_modifier = da_information_leak
+					}					
+					modifier = {
+						factor = 2.5
+						has_character_flag = darkages_council_support_mastermind
+					}
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { martial = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = shrewd }
+					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_marshal_support_mastermind
+						job_marshal = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 12 }
+					}	
+					modifier = {
+						factor = 1.35
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 15 }
+					}				
+					modifier = {
+						factor = 1.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 18 }
+					}				
+					modifier = {
+						factor = 1.75
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { intrigue = 21 }
+					}
+					modifier = {
+						factor = 2
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = shrewd }
+					}
+					modifier = {
+						factor = 0.5
+						has_character_flag = darkages_spymaster_support_mastermind
+						job_spymaster = { trait = dull }
+					}					
+					modifier = {
+						factor = 1.25
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}
+						OR = {
+							intrigue = 12
+							martial = 12
+						}
+					}
+					modifier = {
+						factor = 1.35
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 15
+							martial = 15
+						}
+					}
+					modifier = {
+						factor = 1.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 18
+							martial = 18
+						}
+					}
+					modifier = {
+						factor = 1.75
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						OR = {
+							intrigue = 21
+							martial = 21
+						}
+					}
+					modifier = {
+						factor = 2
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = shrewd
+					}
+					modifier = {
+						factor = 0.5
+						NOR = {
+							has_character_flag = darkages_spymaster_support_mastermind						
+							has_character_flag = darkages_marshal_support_mastermind								
+						}						
+						trait = dull
+					}					
+					character_event = { id = darkages.72609 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72610 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72611 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72612 days = 60 random = 305 }
+				}				
+				1 = {
+					character_event = { id = darkages.72613 days = 60 random = 305 }
+				}
+				1 = {
+					character_event = { id = darkages.72614 days = 60 random = 305 }
+				}				
+			
+			}		
+		
+		}
+		
+	}
+
+
+	
+	
+}
+
+

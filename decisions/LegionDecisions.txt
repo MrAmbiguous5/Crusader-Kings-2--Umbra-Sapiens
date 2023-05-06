@@ -1,0 +1,810 @@
+decisions = {
+    rebuild_legio_system = {
+        is_high_prio = yes
+		only_playable = yes
+		potential = {
+			prisoner = no
+			age = 16
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			culture = roman
+			NOT = { has_global_flag = legion_restored }
+		}
+		allow = {
+			martial = 20
+			learning = 15
+		}
+		effect = {
+			hidden_tooltip = {
+					character_event = { id = LEGIO.1 }
+				}
+			}
+	}
+
+    organize_legio_i_italica = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_i_italica } 
+			NOT = { 
+				d_legio_i_italica = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_latium
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_i_italica status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_i_italica = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.2 }
+			}
+			d_legio_i_italica = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+	
+    organize_legio_vi_ferrata = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_vi_ferrata } 
+			NOT = { 
+				d_legio_vi_ferrata = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_lombardia
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_vi_ferrata status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_vi_ferrata = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.3 }
+			}
+			d_legio_vi_ferrata = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+
+	 organize_legio_v_alaudae = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_v_alaudae } 
+			NOT = { 
+				d_legio_v_alaudae = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_provence
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_vi_ferrata status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_v_alaudae = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.4 }
+			}
+			d_legio_v_alaudae = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+	
+	 organize_legio_xiii_gemina = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_xiii_gemina } 
+			NOT = { 
+				d_legio_xiii_gemina = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_alexandria
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_xiii_gemina status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_xiii_gemina = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.5 }
+			}
+			d_legio_xiii_gemina = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+	
+	 organize_legio_iii_cyrenaica = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_iii_cyrenaica } 
+			NOT = { 
+				d_legio_iii_cyrenaica = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_cyrenaica
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_iii_cyrenaica status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_iii_cyrenaica = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.6 }
+			}
+			d_legio_iii_cyrenaica = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+	
+	 organize_legio_xxii_deiotariana = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_xxii_deiotariana } 
+			NOT = { 
+				d_legio_xxii_deiotariana = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_anatolia
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_xxii_deiotariana status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_xxii_deiotariana = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.7 }
+			}
+			d_legio_xxii_deiotariana = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+	
+	organize_legio_ix_hispana = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_ix_hispana } 
+			NOT = { 
+				d_legio_ix_hispana = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_aragon
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_ix_hispana status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_ix_hispana = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.8 }
+			}
+			d_legio_ix_hispana = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+	
+	organize_legio_xv_apollinaris = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_xv_apollinaris } 
+			NOT = { 
+				d_legio_xv_apollinaris = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_dalmatia
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_xv_apollinaris status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_xv_apollinaris = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.9 }
+			}
+			d_legio_xv_apollinaris = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+	
+	organize_legio_iv_macedonica = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_iv_macedonica } 
+			NOT = { 
+				d_legio_iv_macedonica = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_thessalonika	
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_iv_macedonica status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_iv_macedonica = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.10 }
+			}
+			d_legio_iv_macedonica = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+	
+	organize_legio_xx_valeria_victrix = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_xx_valeria_victrix } 
+			NOT = { 
+				d_legio_xx_valeria_victrix = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_somerset
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_xx_valeria_victrix status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_xx_valeria_victrix = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.11 }
+			}
+			d_legio_xx_valeria_victrix = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+	
+	organize_legio_x_fretensis = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			has_global_flag	= legion_restored
+			prisoner = no
+			OR = { 
+			    has_landed_title = k_roman_republic 
+				has_landed_title = e_roman_empire
+				has_landed_title = e_western_roman_empire
+				has_landed_title = e_byzantium
+				has_landed_title = k_regnum_romanum
+			}
+			#NOT = { is_title_active = d_legio_x_fretensis } 
+			NOT = { 
+				d_legio_x_fretensis = {
+					holder_scope = {
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+		    completely_controls = d_sicily
+			wealth = 200
+			prestige = 200
+		}
+		
+		effect = {
+			wealth = -200
+			prestige = -200
+			hidden_tooltip = {
+				activate_title = { title = d_legio_x_fretensis status = yes }
+				create_character = {
+					dynasty = random
+					religion = ROOT
+					culture = roman
+					female = no
+					age = 33
+				}
+				new_character = {
+					wealth = 500
+					d_legio_x_fretensis = {
+						grant_title = PREV
+					}
+					set_government_type = feudal_government
+					save_event_target_as = legatus
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = roman
+						female = no
+						age = 30
+					}
+				}
+				character_event = { id = LEGIO.12 }
+			}
+			d_legio_x_fretensis = {
+				set_defacto_liege = ROOT
+			}
+			event_target:legatus = {
+				set_defacto_liege = ROOT
+			}
+		
+		ai_will_do = {
+			factor = 1
+		    }
+	    }
+    }
+	
+}	

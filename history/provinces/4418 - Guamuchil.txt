@@ -1,0 +1,12 @@
+# County Title
+title = c_guamuchil
+
+# Settlements
+max_settlements = 3
+b_guamuchil = castle
+
+# Misc
+culture = corachol
+religion = corachol_pagan
+
+# History

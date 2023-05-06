@@ -1,0 +1,51 @@
+#PRIVILIGES OPINION MODIFIERS
+
+gave_me_priviligues = {
+	opinion = 25
+}
+
+
+refused_priviligues_1 = {
+	opinion = -25
+	disable_non_aggression_pacts = yes
+	decay = yes
+}
+
+refused_priviliges_2 = {
+	opinion = -15
+	disable_non_aggression_pacts = yes
+	decay = yes
+}
+
+opinion_tried_to_revoke_my_privilige = {
+	opinion = -20
+	disable_non_aggression_pacts = yes 
+	inherit = yes
+	decay = yes
+	
+}
+
+opinion_revoked_my_privilige = {
+	opinion = -40
+	disable_non_aggression_pacts = yes 
+	inherit = yes
+	decay = yes
+	
+}
+
+opinion_liege_revoked_privilige = {
+	opinion = -15
+	
+}
+
+opinion_liege_revoked_privilige_2 = {
+	opinion = -35
+	inherit = yes
+	decay = yes
+	
+}
+
+opinion_liege_is_a_tyrant = {
+	opinion = -50
+	inherit = yes
+}

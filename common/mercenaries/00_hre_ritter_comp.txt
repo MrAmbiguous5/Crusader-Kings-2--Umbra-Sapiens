@@ -1,0 +1,6 @@
+hre_ritterboiz_composition = {
+	levy_size = 2
+	knights = 250
+    heavy_infantry = 90
+	pikemen = 75
+}

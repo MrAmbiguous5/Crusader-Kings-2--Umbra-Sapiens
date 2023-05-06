@@ -1,0 +1,1094 @@
+
+character_event = {	# check course of action
+	id = AmzCulSoc.500
+	desc = EVTDESC_AmzCulSoc_500
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_character_frame_intrigue
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # give ultimatim
+		name = EVTOPTA_AmzCulSoc_500
+		ai_chance = { factor = 10 }
+		add_trait = travelling
+		hidden_tooltip = {
+			any_society_member = {
+				limit = { 
+					is_society_grandmaster = yes 		# a leader
+					same_society_as = ROOT				# from my lodge specifically
+				}	
+				save_event_target_as = grandmistress_target
+				letter_event = { id = AmzCulSoc.501 days = 10 }		
+			}
+			event_target:grandmistress_target = {
+				add_trait = travelling
+				set_character_flag = grandmistress_challenged
+			}
+		}
+		set_character_flag = grandmistress_challenged
+	}
+	option = { # time not right
+		name = EVTOPTB_AmzCulSoc_500
+		ai_chance = { factor = 0 }
+	}
+}
+
+letter_event = {	# grandmistress receives ultimatum
+	id = AmzCulSoc.501
+	desc = EVTDESC_AmzCulSoc_501
+	border = GFX_event_letter_frame_intrigue
+	portrait = FROM
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # accept challenge
+		name = EVTOPTA_AmzCulSoc_501
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 20
+				OR = {
+					trait = proud
+					trait = ambitious
+					trait = is_amazonian_immortal
+					trait = immortal
+					trait = brave
+					trait = duelist
+					trait = stubborn
+				}
+			}		
+		}
+		FROM = { 							
+			narrative_event = { id = AmzCulSoc.502 } # challenge accepted
+		}
+		set_character_flag = grandmistress_challenged
+		any_player = {
+			limit = {
+				same_society_as = ROOT
+			}
+			sound_effect = pagan_warhorn
+		}
+	}
+	option = { # abdicate
+		name = EVTOPTB_AmzCulSoc_501
+		ai_chance = { factor = 10 }
+		trigger = { 
+			OR = { 
+				trait = craven
+				trait = depressed
+				trait = humble
+				has_injury_trigger = yes
+				is_maimed_trigger = yes
+				has_symptom_trigger = yes
+				has_disease_trigger = yes
+				age = 60
+				FROM = { ai = yes }		# always an abdication possibility vs AI challenger
+			} 
+		}
+		FROM = { 							
+			narrative_event = { id = AmzCulSoc.503 } # I resign
+		}
+		any_player = {
+			limit = {
+				same_society_as = ROOT
+			}
+			sound_effect = pagan_warhorn
+		}
+	}
+}
+
+narrative_event = {	# challenge is on
+	title = EVTTITLAmzCulSoc_500
+	id = AmzCulSoc.502
+	desc = EVTDESC_AmzCulSoc_502
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_narrative_frame_war
+	portrait = event_target:grandmistress_target
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # we fight
+		name = EVTOPTA_AmzCulSoc_502
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.504 }
+	}
+}
+
+narrative_event = {	# challenge is off, mistress resigns
+	title = EVTTITLAmzCulSoc_500
+	id = AmzCulSoc.503
+	desc = EVTDESC_AmzCulSoc_503
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_narrative_frame_diplomacy
+	portrait = event_target:grandmistress_target
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # wise decision
+		name = EVTOPTA_AmzCulSoc_503
+		ai_chance = { factor = 10 }
+		event_target:grandmistress_target = {
+			set_society_grandmaster = no
+			hidden_tooltip = { remove_trait = travelling } 
+		}
+		set_society_grandmaster = yes	
+		prestige = 500
+		change_society_currency = 500
+		hidden_tooltip = { remove_trait = travelling } 
+		any_player = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+			}
+			character_event = { id = AmzCulSoc.511 days = 10 }
+		}
+	}
+}
+
+narrative_event = {	# first round
+	title = EVTTITLAmzCulSoc_500
+	id = AmzCulSoc.504
+	desc = EVTDESC_AmzCulSoc_504
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_narrative_frame_war
+	portrait = event_target:grandmistress_target
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # we fight
+		name = EVTOPTA_AmzCulSoc_504
+		ai_chance = { factor = 10 }
+		if = {											# BEGINNING OF GENIUS COMBAT CALCULATION
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value = 50 } } 
+			}
+			random_list = {
+				95 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				5 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value = 25 } }
+			}
+			random_list = {
+				70 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				30 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value = 0 } } 
+			}
+			random_list = {
+				50 = { 
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				50 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value < 0 } } 
+			}
+			random_list = {
+				40 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				60 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}												# END OF GENIUS COMBAT CALCULATION
+		add_blood_splatter_effect = yes
+		event_target:grandmistress_target = {
+			add_blood_splatter_effect = yes
+		}
+		narrative_event = { id = AmzCulSoc.506 }
+	}
+}
+
+narrative_event = {	# challenger forfeits, expelled
+	title = EVTTITLAmzCulSoc_500
+	id = AmzCulSoc.505
+	desc = EVTDESC_AmzCulSoc_505
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_narrative_frame_war
+	portrait = event_target:grandmistress_target
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # expelled
+		name = EVTOPTA_AmzCulSoc_505
+		ai_chance = { factor = 10 }
+		custom_tooltip = { 
+		text = expelled_from_amazonian_lodge_tooltip
+			leave_society = yes
+			set_character_flag = warrior_lodge_amazonian_exile
+		}
+		remove_trait = amazonian_leader
+		prestige = -500
+		event_target:grandmistress_target = {
+			add_rival = ROOT
+			character_event = { id = AmzCulSoc.516 days = 3 }
+		}
+		hidden_tooltip = { remove_trait = travelling }
+		any_player = {
+			limit = {
+				same_society_as = event_target:grandmistress_target
+				NOT = { character = ROOT }
+			}
+			character_event = { id = AmzCulSoc.514 days = 10 }
+		}
+	}
+}
+
+narrative_event = {	# second round
+	title = EVTTITLAmzCulSoc_500
+	id = AmzCulSoc.506
+	desc = EVTDESC_AmzCulSoc_506
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_narrative_frame_war
+	portrait = event_target:grandmistress_target
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # we fight again
+		name = EVTOPTA_AmzCulSoc_506
+		ai_chance = { factor = 10 }
+		if = {											# BEGINNING OF GENIUS COMBAT CALCULATION
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value = 50 } } 
+			}
+			random_list = {
+				95 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				5 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value = 25 } }
+			}
+			random_list = {
+				70 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				30 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value = 0 } } 
+			}
+			random_list = {
+				50 = { 
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				50 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value < 0 } } 
+			}
+			random_list = {
+				40 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				60 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}												# END OF GENIUS COMBAT CALCULATION
+		add_blood_splatter_effect = yes
+		event_target:grandmistress_target = {
+			add_blood_splatter_effect = yes
+		}
+		narrative_event = { id = AmzCulSoc.507 }
+	}
+}
+
+narrative_event = {	# third round
+	title = EVTTITLAmzCulSoc_500
+	id = AmzCulSoc.507
+	desc = EVTDESC_AmzCulSoc_507
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_narrative_frame_war
+	portrait = event_target:grandmistress_target
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # we fight again
+		name = EVTOPTA_AmzCulSoc_507
+		ai_chance = { factor = 10 }
+		if = {											# BEGINNING OF GENIUS COMBAT CALCULATION
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value = 50 } } 
+			}
+			random_list = {
+				95 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				5 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value = 25 } }
+			}
+			random_list = {
+				70 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				30 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value = 0 } } 
+			}
+			random_list = {
+				50 = { 
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				50 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value < 0 } } 
+			}
+			random_list = {
+				40 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:grandmistress_target = {
+						random = {
+							chance = 60
+							if = { 
+								limit = { trait = severely_injured } 
+								add_trait = maimed
+							}
+							if = { 
+								limit = { trait = wounded } 
+								add_trait = severely_injured
+							}
+							if = { 
+								limit = { NOT = { trait = wounded } }
+								add_trait = wounded
+							}
+						}	
+					}
+				}
+				60 = {
+					if = { 
+						limit = { trait = severely_injured } 
+						add_trait = maimed
+					}
+					if = { 
+						limit = { trait = wounded } 
+						add_trait = severely_injured
+					}
+					if = { 
+						limit = { NOT = { trait = wounded } }
+						add_trait = wounded
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}												# END OF GENIUS COMBAT CALCULATION
+		add_blood_splatter_effect = yes
+		event_target:grandmistress_target = {
+			add_blood_splatter_effect = yes
+		}
+		character_event = { id = AmzCulSoc.508 }
+	}
+	option = { # forfeit
+		name = EVTOPTB_AmzCulSoc_504
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 2
+				trait = severely_injured
+			}
+			modifier = {
+				factor = 0
+				trait = stubborn
+			}
+		}
+		narrative_event = { id = AmzCulSoc.505 }
+	}
+}
+
+character_event = {	# all rounds complete, calculate a winner
+	title = EVTTITLAmzCulSoc_500
+	id = AmzCulSoc.508
+	desc = EVTDESC_AmzCulSoc_508
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_character_frame_war
+	portrait = event_target:grandmistress_target
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # challenge successful, stronger
+		name = EVTOPTA_AmzCulSoc_508
+		ai_chance = { factor = 10 }
+		trigger = {
+			ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value > 0 } } 
+		}
+		hidden_tooltip = {
+			event_target:grandmistress_target = {
+				if = { 
+					limit = { NOT = { trait = wounded } }
+					add_trait = wounded
+				}
+			}
+		}
+		narrative_event = { id = AmzCulSoc.509 }
+	}
+	option = { # challenge failed, weaker
+		name = EVTOPTB_AmzCulSoc_508
+		ai_chance = { factor = 10 }
+		trigger = {
+			NOT = { ROOT = { combat_rating_diff = { who = event_target:grandmistress_target value > 0 } } }
+		}
+		hidden_tooltip = {
+			if = { 
+				limit = { NOT = { trait = wounded } }
+				add_trait = wounded
+			}
+		}
+		narrative_event = { id = AmzCulSoc.510 }		
+	}
+}
+
+narrative_event = {	# victory, decide fate of loser
+	title = EVTTITLAmzCulSoc_500
+	id = AmzCulSoc.509
+	desc = EVTDESC_AmzCulSoc_509
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_narrative_frame_war
+	portrait = event_target:grandmistress_target
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # demote
+		name = EVTOPTA_AmzCulSoc_509
+		ai_chance = { factor = 10 }
+		custom_tooltip = { 
+		text = demote_grandmistress_tooltip
+			set_society_grandmaster = yes
+			event_target:grandmistress_target = {
+				add_rival = ROOT
+				hidden_tooltip = { remove_trait = travelling }
+			}
+		}
+		prestige = 500
+		change_society_currency = 1000
+		character_event = { id = AmzCulSoc.516 days = 5 }
+		any_player = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+			}
+			character_event = { id = AmzCulSoc.511 days = 10 }
+		}
+	}
+	option = { # expel
+		name = EVTOPTB_AmzCulSoc_509
+		ai_chance = { factor = 10 }
+		custom_tooltip = { 
+		text = expel_grandmistress_tooltip
+			set_society_grandmaster = yes
+			event_target:grandmistress_target = {
+				leave_society = yes
+				add_rival = ROOT
+				remove_trait = amazonian_leader
+				hidden_tooltip = { remove_trait = travelling }
+				set_character_flag = warrior_lodge_amazonian_exile
+			}
+		}
+		character_event = { id = AmzCulSoc.516 days = 5 }
+		change_society_currency = 500		
+		any_player = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+			}
+			character_event = { id = AmzCulSoc.512 days = 10 }
+		}		
+	}
+	option = { # kill
+		name = EVTOPTC_AmzCulSoc_509
+		ai_chance = { factor = 1 }
+		custom_tooltip = { 
+		text = execute_grandmistress_tooltip
+			set_society_grandmaster = yes
+			event_target:grandmistress_target = {
+				death = {
+					death_reason = death_duel
+					killer = ROOT
+				}
+			}
+		}
+		character_event = { id = AmzCulSoc.516 days = 5 }
+		change_society_currency = 500
+		sound_effect = neutral_beheading_01
+		any_player = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+			}
+			character_event = { id = AmzCulSoc.513 days = 10 }
+		}
+	}
+}
+
+narrative_event = {	# failure, exiled or executed
+	title = EVTTITLAmzCulSoc_500
+	id = AmzCulSoc.510
+	desc = EVTDESC_AmzCulSoc_510
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_narrative_frame_war
+	portrait = event_target:grandmistress_target
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # expelled, live out her days in disgrace
+		name = EVTOPTA_AmzCulSoc_510 
+		ai_chance = { factor = 10 }
+		trigger = { NOT = { trait = severely_injured } }
+		narrative_event = { id = AmzCulSoc.505 }
+	}
+	option = { # killed, put out of her misery
+		name = EVTOPTB_AmzCulSoc_510
+		ai_chance = { factor = 10 }
+		trigger = { trait = severely_injured } 
+		event_target:grandmistress_target = {
+			character_event = { id = AmzCulSoc.516 days = 3 }
+		}
+		sound_effect = neutral_beheading_01
+		death = {
+			death_reason = death_duel
+			killer = event_target:grandmistress_target
+		}
+		any_player = {
+			limit = {
+				same_society_as = event_target:grandmistress_target
+				NOT = { character = ROOT }
+			}
+			character_event = { id = AmzCulSoc.515 days = 10 }
+		}
+	}
+}
+
+character_event = {	# notif event, grandmistress usurped
+	id = AmzCulSoc.511
+	desc = EVTDESC_AmzCulSoc_511
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_character_frame_intrigue
+	portrait = FROMFROM
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # The strongest rise
+		name = EVTOPTA_AmzCulSoc_511
+		ai_chance = { factor = 10 }
+	}
+}
+
+character_event = {	# notif event, grandmistress exiled
+	id = AmzCulSoc.512
+	desc = EVTDESC_AmzCulSoc_512
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_character_frame_intrigue
+	portrait = FROMFROM
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # The strongest rise
+		name = EVTOPTA_AmzCulSoc_511
+		ai_chance = { factor = 10 }
+	}
+}
+
+character_event = {	# notif event, grandmistress slain
+	id = AmzCulSoc.513
+	desc = EVTDESC_AmzCulSoc_513
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_character_frame_intrigue
+	portrait = FROMFROM
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # The strongest rise
+		name = EVTOPTA_AmzCulSoc_511
+		ai_chance = { factor = 10 }
+	}
+}
+
+character_event = {	# notif event, challenger exiled
+	id = AmzCulSoc.514
+	desc = EVTDESC_AmzCulSoc_514
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_character_frame_intrigue
+	portrait = FROMFROM
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # The strongest survive
+		name = EVTOPTA_AmzCulSoc_511
+		ai_chance = { factor = 10 }
+	}
+}
+
+character_event = {	# notif event, challenger executed
+	id = AmzCulSoc.515
+	desc = EVTDESC_AmzCulSoc_515
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_character_frame_intrigue
+	portrait = FROMFROM
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { # The strongest survive
+		name = EVTOPTA_AmzCulSoc_511
+		ai_chance = { factor = 10 }
+	}
+}
+
+character_event = {	# victor is healed by huntress
+	id = AmzCulSoc.516
+	desc = EVTDESC_AmzCulSoc_516
+	picture = GFX_evt_mountaintop_castle_hf
+	border = GFX_event_character_frame_intrigue
+	hide_from = yes
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	option = { 		# apparently wounded and maimed are mutually exclusive? since when?		
+		name = EVTOPTA_AmzCulSoc_516
+		ai_chance = { factor = 10 }
+		if = {
+			limit = {
+				trait = maimed
+			}
+			if = { 
+				limit = {
+					NOT = { trait = scarred_high }
+				}
+				add_trait = scarred_high
+			}
+			remove_trait = wounded
+			remove_trait = severely_injured
+			remove_trait = maimed
+		}
+		if = {
+			limit = {
+				AND = {
+					trait = severely_injured
+					NOT = { trait = maimed }
+				}
+			}
+			if = { 
+				limit = {
+					NOT = { trait = scarred_high }
+				}
+				add_trait = scarred_mid
+			}
+			remove_trait = wounded
+			remove_trait = severely_injured
+		}
+		if = {
+			limit = {
+				AND = {
+					trait = wounded
+					NOT = { trait = severely_injured }
+				}
+			}
+			if = { 
+				limit = {
+					NOR = { 
+						trait = scarred_high 
+						trait = scarred_mid
+					}
+				}
+				add_trait = scarred
+			}
+			remove_trait = wounded
+		}
+		hidden_tooltip = { remove_trait = travelling }
+	}
+}
+

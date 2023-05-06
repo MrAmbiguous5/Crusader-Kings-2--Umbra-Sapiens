@@ -1,0 +1,1004 @@
+namespace = Trib
+
+## RELEASE VASSAL AS PROTECTORATE EVENT CHAIN
+#Bounce event, to place Liege in FROM scope
+character_event = {
+	id = Trib.01
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { letter_event = { id = Trib.02 } }
+	}
+}
+
+# FROM: Liege, ROOT: Vassal
+# Offer release.
+letter_event = {
+	id = Trib.02
+	desc = "EVTDESC_Trib_02"
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+
+	option = { # Accept to become protectorate
+		name = EVTOPT_Trib_4041A
+		FROM = { letter_event = { id = Trib.03 days = 3 tooltip = EVTTOOLTIP001 } }
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2
+				tier = KING
+			}
+			modifier = {
+				factor = 2
+				tier = DUKE
+				num_of_duke_titles = 2
+			}
+			modifier = {
+				factor = 4
+				num_of_king_titles = 2
+			}
+		}
+	}
+	
+	option = { # Reject
+		name = EVTOPTB_Trib_02
+		FROM = { letter_event = { id = Trib.04 days = 3 tooltip = EVTTOOLTIP002 } }
+		ai_chance = {
+			factor = 1
+            modifier = { #craven would reject
+				factor = 5
+				trait = craven
+			}
+			modifier = {
+				factor = 5
+				among_most_powerful_vassals = 2; #A powerful vassal would reject since they have a chance to gain the throne instead
+			}
+			modifier = {
+				factor = 20
+				relative_power = { who = ROOT power = 5 }
+			}
+		}
+	}
+}
+
+# FROM: Vassal, ROOT: Liege
+# Accepted becoming protectorate
+letter_event = {
+	id = Trib.03
+	desc = "EVTDESC_Trib_03"
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			set_defacto_liege = THIS
+			opinion = { modifier = opinion_granted_independence who = FROM years = 20 }
+		}
+		make_tributary = {
+			who = FROM
+			tributary_type = autonomous
+		}
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = tributary_timer
+				duration = 730 #CHANGE
+				hidden = yes
+			}
+		}
+	}
+	
+	option = { #Excellent
+		name = EVTOPT_Trib_4002A
+		prestige = 20
+	}
+}
+
+# Liege informed that new holder will accept their decision
+letter_event = {
+	id = Trib.3205
+	desc = EVTDESC_Trib_3205
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_liege_of = FROM
+	}
+
+	immediate = {
+		FROM = {
+			set_defacto_liege = THIS
+			opinion = { modifier = opinion_granted_independence who = FROM years = 20 }
+		}
+		make_tributary = {
+			who = FROM
+			tributary_type = autonomous
+		}
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = tributary_timer
+				duration = 730 #CHANGE
+				hidden = yes
+			}
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+
+# FROM: Vassal, ROOT: Liege
+# Rejected becoming protectorate
+
+# Liege offered a favor in return for letting new holder keep title
+letter_event = {
+	id = Trib.04
+	desc = EVTDESC_Trib_3206
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_liege_of = FROM
+	}
+	
+	option = {
+		name = EVTOPTA_Trib_3206 #Accept
+		ai_chance = {
+			factor = 50
+		}
+		hidden_tooltip = {
+			FROM = { letter_event = { id = Trib.3207 days = 3 } }
+		}
+	}
+	option = {
+		name = EVTOPTB_Trib_3206 #Refuse
+		ai_chance = {
+			factor = 50
+			}
+		log = "---> [Root.GetBestName] has refused the offer of a favor"
+		FROM = {
+			opinion = { who = ROOT modifier = refused_favor years = 5 }
+			letter_event = { id = Trib.3208 tooltip = IS_NOTIFIED days = 3 }
+		}
+	}
+}
+
+# New holder's offer of a favor is accepted
+letter_event = {
+	id = Trib.3207
+	desc = EVTDESC_Trib_3207
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		vassal_of = FROM
+	}
+
+	effect = {
+		set_defacto_liege = FROM
+	}
+	
+	option = {
+		name = EXCELLENT
+		reverse_add_favor = FROM
+	}
+}
+
+# New holder's offer of a favor is turned down
+letter_event = {
+	id = Trib.3208
+	desc = EVTDESC_Trib_3208
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		vassal_of = FROM
+	}
+	
+	option = {
+		name = EVTOPTA_Trib_3204 #Accept the decision
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				holds_favor_on = FROM
+			}
+			modifier = {
+				factor = 2.0
+				trait = content
+			}
+			modifier = {
+				factor = 1.5
+				trait = humble
+			}
+			modifier = {
+				factor = 0.75
+				trait = proud
+			}
+			modifier = {
+				factor = 0.75
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+		}
+		log = "---> [Root.GetBestName] has decided to accept [From.GetTitledFirstNameNoRegnal]'s decision"
+		FROM = {
+			letter_event = { id = Trib.3205 tooltip = IS_NOTIFIED days = 3 }
+		}
+	}
+	option = {
+		name = EVTOPTE_Trib_3204 #Rebel
+		trigger = {
+			prisoner = no
+			NOT = { trait = incapable }
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				holds_favor_on = FROM
+			}
+			modifier = {
+				factor = 0
+				NOT = { trait = lunatic }
+				NOT = { relative_power_to_liege = 0.50 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { relative_power_to_liege = 0.75 }
+			}
+			modifier = {
+				factor = 3
+				among_most_powerful_vassals = 2
+			}
+			modifier = {
+				factor = 1.5
+				relative_power_to_liege = 1.0
+			}
+			modifier = {
+				factor = 2.0
+				relative_power_to_liege = 1.5
+			}
+			modifier = {
+				factor = 2.5
+				relative_power_to_liege = 2.0
+			}
+			modifier = {
+				factor = 0.75
+				trait = patient
+			}
+			modifier = {
+				factor = 0.75
+				trait = just
+			}
+			modifier = {
+				factor = 2.0
+				trait = craven
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					trait = content
+					trait = humble
+				}
+			}
+			modifier = {
+				factor = 0
+				NOR = {
+					trait = brave
+					trait = wroth
+					trait = ambitious
+					trait = lunatic
+					trait = possessed
+				}
+			}
+		}
+		log = "---> [Root.GetBestName] has decided to rebel rather than submit to [From.GetTitledFirstNameNoRegnal]"
+		set_character_flag = resisting_expellation
+		tooltip = {
+			war = {
+				target = FROM
+				casus_belli = resist_expellation_cb
+			}
+		}
+		hidden_tooltip = {
+			FROM = { letter_event = { id = Trib.3214 days = 3 tooltip = EVTTOOLTIP003 } }
+		}
+	}
+}
+
+# New holder rebels rather than have their title expelled from realm
+letter_event = {
+	id = Trib.3214
+	desc = EVTDESC_Trib_3214
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_liege_of = FROM
+	}
+	
+	option = {
+		name = CURSES
+		reverse_war = {
+			target = FROM
+			casus_belli = resist_expellation_cb
+		}
+	}
+}
+
+
+
+## ASK AUTONOMOUS EVENT CHAIN
+
+#Bounce event, to place Seeker in FROM scope
+character_event = {
+	id = Trib.999
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { letter_event = { id = Trib.998 } }
+	}
+}
+
+# FROM: Seeker, ROOT: Protector
+# Seek protection event
+letter_event = {
+	id = Trib.998
+	desc = "EVTDESC_Trib_998"
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+
+	option = { # Accept tribute
+		name = EVTOPT_Trib_4041A
+		FROM = { letter_event = { id = Trib.4042 days = 3 } }
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.2
+				FROM = { de_jure_liege = ROOT }
+			}
+		}
+	}
+	
+	option = { # You're not worth it!
+		name = EVTOPT_Trib_4003B
+		FROM = { letter_event = { id = Trib.4043 days = 3 } }
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 5
+				relative_power = { who = FROM power = 10 } # i.e. someone who can't defend themselves
+			}
+		}
+	}
+	
+}
+
+# FROM: Protecor, ROOT: Seeker
+# Accepted tributary
+letter_event = {
+	id = Trib.4042
+	desc = "EVTDESC_Trib_4042"
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			make_tributary = {
+				who = ROOT
+				tributary_type = autonomous
+			}
+		}
+	}
+	
+	option = { #Excellent
+		name = EVTOPT_Trib_4002A
+		clr_character_flag = asking_autonomous
+	}
+}
+
+# FROM: Protecor, ROOT: Seeker
+# Declined tributary
+letter_event = {
+	id = Trib.4043
+	desc = "EVTDESC_Trib_4043"
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+
+	option = { #CURSEEEES!
+		name = EVTOPT_Trib_4005A
+		clr_character_flag = asking_autonomous
+	}
+}
+
+
+## REVASSALIZE THE AUTONOMOUS STATE
+
+#Bounce event, to place Attacker in FROM scope
+character_event = {
+	id = Trib.4020
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { letter_event = { id = Trib.4021 } }
+	}
+}
+
+# FROM: Attacker, ROOT: Defender
+# Demand vassalization
+letter_event = {
+	id = Trib.4021
+	desc = "EVTDESC_Trib_4021"
+	border = GFX_event_letter_frame_war
+	
+	is_triggered_only = yes
+
+	option = { # Accept being vassalized
+		name = EVTOPT_Trib_4000A
+		FROM = { letter_event = { id = Trib.4022 days = 3 tooltip = EVTTOOLTIP004 } }
+		if = {
+			limit = {
+				host = {
+					character = FROM
+				}
+				prisoner = yes
+			}
+			prisoner = no
+		}
+		ai_chance = {
+			factor = 20
+			modifier = { #lunatic do as lunatic see
+				factor = 0
+				OR = {
+					trait = lunatic
+					trait = rabies
+				}
+			}
+			modifier = { #fuck your authority
+				factor = 0
+				trait = brave
+			}
+			modifier = { #obvious
+				factor = 0
+				OR = {
+					has_nickname = nick_the_hammer
+					has_nickname = nick_the_conqueror
+					has_nickname = nick_the_victorious
+					has_nickname = nick_the_brave
+					has_nickname = nick_the_fearless
+					has_nickname = nick_the_glorious
+					has_nickname = nick_the_ruthless
+					has_nickname = nick_the_destroyer
+					has_nickname = nick_the_strong
+					has_nickname = nick_the_magnanimous
+					has_nickname = nick_the_ironside
+					has_nickname = nick_the_lion
+					has_nickname = nick_the_lionheart
+					has_nickname = nick_the_great
+					trait = proud
+					trait = ambitious
+				}
+			}
+			modifier = { #have less than half strength of attacker
+				factor = 2
+				NOT = { relative_power_including_allies_defender = { who = FROM power = 0.5 } }
+			}
+			modifier = { #have less than third strength of attacker
+				factor = 3
+				NOT = { relative_power_including_allies_defender = { who = FROM power = 0.33 } }
+			}
+			modifier = { #have less than tenth strength of attacker
+				factor = 5
+				NOT = { relative_power_including_allies_defender = { who = FROM power = 0.1 } }
+			}
+			modifier = { #craven
+				factor = 5
+				trait = craven
+			}
+			modifier = { #already defending
+				factor = 10
+				is_primary_war_defender = yes
+			}
+			modifier = { #I'm a king
+				factor = 0.1
+				tier = KING
+			}
+			modifier = {
+				factor = 0.5
+				is_nomadic = yes
+			}
+			modifier = {
+				factor = 0.5
+				is_tribal = yes
+			}
+			modifier = { #poor republics
+				factor = 2
+				NOT = { wealth = 50 }
+				is_republic = yes
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { primary_title = { check_variable = { which = "tributary_years" value = 50 } } }
+			}
+		}
+	}
+	
+	option = { # Refuse, go to war. FIRE 4023
+		name = EVTOPT_Trib_4000B
+		trigger = {
+			NOT = { prisoner = yes }
+		}
+		FROM = { letter_event = { id = Trib.4023 days = 3 tooltip = EVTTOOLTIP005} }
+		ai_chance = {
+			factor = 70
+			modifier = { #craven
+				factor = 0
+				trait = craven
+			}
+			modifier = { #attacker is craven
+				factor = 2
+				FROM = { trait = craven }
+			}
+			modifier = { # similar power
+				factor = 2
+				relative_power_including_allies_defender = { who = FROM power = 0.75 }
+			}
+			modifier = {
+				factor = 4
+				NOT = { religion_group = FROM }
+			}
+		}
+	}
+
+	option = { # Can't we make a deal? FIRE 4024
+		name = EVTOPT_Trib_4000C
+		trigger = {
+			wealth = 125
+			NAND = {
+				prisoner = no
+				host = {
+					character = FROM
+				}
+			}
+		}
+		FROM = { letter_event = { id = Trib.4024 days = 3 tooltip = EVTTOOLTIP006 } }
+		ai_chance = {
+			factor = 10
+			modifier = { #we can pay
+				factor = 10
+				is_republic = yes
+			}
+			modifier = { #you look too big
+				factor = 4
+				wealth = 200
+				NOT = { relative_power_including_allies_defender = { who = FROM power = 0.5 }}
+			}
+			#not ready yet for this
+			modifier = {
+				factor = 2
+				NOT = { primary_title = { check_variable = { which = "tributary_years" value = 15 } } }
+			}
+		}
+	}
+}
+
+# FROM: Defender, ROOT: Attacker
+# Accepted vassalization
+letter_event = {
+	id = Trib.4022
+	desc = "EVTDESC_Trib_4022"
+	border = GFX_event_letter_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_tributary = FROM
+		FROM = {
+			save_event_target_as = target_loser
+			prestige = 20
+			imperial_decadence_plus_1_effect = yes
+			pf_glory_minus2_effect = yes
+			set_defacto_liege = PREV
+		}
+		
+		prestige = -35
+		add_character_modifier = { name = victory_timer duration = 1 hidden = yes }
+		pf_glory_plus2_effect = yes
+		
+		
+		if  = {
+			limit = {
+				ROOT = {
+					uses_decadence = yes
+				}
+			}
+			ROOT = {
+				decadence = -10
+			}
+		}
+	}
+	
+	option = { #Excellent
+		name = EVTOPT_Trib_4002A
+		clr_character_flag = trying_to_vassalize_tributary
+	}
+}
+
+
+letter_event = {
+	id = Trib.4023
+	desc = "EVTDESC_Trib_4003"
+	border = GFX_event_letter_frame_war
+	
+	is_triggered_only = yes
+	
+	option = { #Declare war!
+		name = EVTOPT_Trib_4003A
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.2
+				trait = craven
+			}
+		}
+		remove_tributary = FROM
+		war = {
+			target = FROM
+			casus_belli = force_vassalization
+		}
+		clr_character_flag = trying_to_vassalize_tributary
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = tributary_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+	}
+	
+	option = { #I was bluffing.
+		name = EVTOPT_Trib_4003B
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+			modifier = { #already defending
+				factor = 2
+				is_primary_war_defender = yes
+			}
+		}
+		prestige = -100
+		if = {
+			limit = { NOT = { trait = craven } }
+			random = {
+				chance = 5
+				add_trait = craven
+			}
+		}
+		clr_character_flag = trying_to_vassalize_tributary
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = tributary_timer
+				duration = 730
+				hidden = yes
+			}
+		}
+		FROM = { letter_event = {id = Trib.4025 days = 3 } }
+	}
+}
+
+
+letter_event = {
+	id = Trib.4024
+	desc = "EVTDESC_Trib_4004"
+	border = GFX_event_letter_frame_war
+	
+	is_triggered_only = yes
+	
+	option = { #Agreed
+		name = EVTOPT_Trib_4004A
+		ai_chance = {
+			factor = 75
+			modifier = { #lunatic goes to war
+				factor = 0
+				OR = {
+					trait = lunatic
+					trait = rabies
+				}
+			}
+			modifier = { #brave goes to war
+				factor = 0
+				trait = brave
+			}
+			modifier = { #pride goeth before fall
+				factor = 0
+				OR = {
+					has_nickname = nick_the_hammer
+					has_nickname = nick_the_conqueror
+					has_nickname = nick_the_victorious
+					has_nickname = nick_the_brave
+					has_nickname = nick_the_fearless
+					has_nickname = nick_the_glorious
+					has_nickname = nick_the_ruthless
+					has_nickname = nick_the_destroyer
+					has_nickname = nick_the_strong
+					has_nickname = nick_the_magnanimous
+					has_nickname = nick_the_ironside
+					has_nickname = nick_the_lion
+					has_nickname = nick_the_lionheart
+					has_nickname = nick_the_great
+					trait = proud
+					trait = ambitious
+				}
+			}
+			modifier = { #craven
+				factor = 2
+				trait = craven
+			}
+			modifier = { #already defending
+				factor = 2
+				is_primary_war_defender = yes
+			}
+		}
+		FROM = { transfer_scaled_wealth = { to = ROOT value = 0.75 min = 25 } }
+		FROM = { letter_event = {id = Trib.4026 days = 3 } }
+		prestige = 100
+		FROM = {
+			opinion = {
+				modifier = opinion_paid_tribute
+				who = ROOT
+				years = 5
+			}
+		}
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = tributary_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+		clr_character_flag = trying_to_vassalize_tributary
+	}
+	
+	option = { #Nice try.
+		name = EVTOPT_Trib_4004B
+		ai_chance = { # have more than twice the strength
+			factor = 25
+			modifier = {
+				factor = 2
+				FROM = { relative_power_including_allies_defender = { who = ROOT power = 0.5 } }
+			}
+			modifier = { # have three times the strength
+				factor = 2
+				FROM = { relative_power_including_allies_defender = { who = ROOT power = 0.33 } }
+			}
+			modifier = { # get it while it's hots
+				factor = 2
+				FROM = { is_primary_war_defender = yes }
+			}
+		}
+		remove_tributary = FROM
+		war = {
+			target = FROM
+			casus_belli = force_vassalization
+		}
+		clr_character_flag = trying_to_vassalize_tributary
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = tributary_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = Trib.4025
+	desc = "EVTDESC_Trib_4005"
+	border = GFX_event_letter_frame_war
+	
+	is_triggered_only = yes
+
+	option = { #Excellent
+		name = EVTOPT_Trib_4005A
+	}
+}
+
+# FROM: Attacker, ROOT: Defender
+# Attacker decides to accept the deal
+letter_event = {
+	id = Trib.4026
+	desc = "EVTDESC_Trib_4006"
+	border = GFX_event_letter_frame_war
+	
+	is_triggered_only = yes
+
+	option = { #Excellent
+		name = EVTOPT_Trib_4006A
+	}
+}
+
+character_event = {
+	id = Trib.4030
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_independent = yes
+	only_playable = yes
+	has_dlc = "Horse Lords"
+	war = no
+	prisoner = no
+	ai = yes
+	
+	trigger = {
+		higher_real_tier_than = DUKE
+		realm_size = 30
+		NOT = { has_character_modifier = tributary_timer }
+		mercenary = no
+		is_tributary = no
+		NOT = { has_character_flag = trying_to_vassalize_tributary }
+		has_regent = no
+		NOT = {
+			any_war = {
+				using_cb = force_vassalization
+			}
+		}
+		any_tributary = {
+			OR = {
+				is_tributary = { type = autonomous }
+			}
+			primary_title = {
+				lower_tier_than = ROOT
+				check_variable = { which = "tributary_years" value = 10 } #AI won't try this before 10 years have passed
+			}
+			ROOT = {
+				conditional_tooltip = {
+					trigger = {
+						tier = DUKE
+					}
+					prestige = 350
+				}
+				conditional_tooltip = {
+					trigger = {
+						tier = KING
+						PREV = { tier = COUNT }
+					}
+					prestige = 350
+				}
+				conditional_tooltip = {
+					trigger = {
+						tier = KING
+						PREV = { tier = DUKE }
+					}
+					prestige = 350
+				}
+				conditional_tooltip = {
+					trigger = {
+						tier = EMPEROR
+						PREV = { tier = COUNT }
+					}
+					prestige = 350
+				}
+				conditional_tooltip = {
+					trigger = {
+						tier = EMPEROR
+						PREV = { tier = DUKE }
+					}
+					prestige = 350
+				}
+				conditional_tooltip = {
+					trigger = {
+						tier = EMPEROR
+						PREV = { tier = KING }
+					}
+					prestige = 350
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_list =  {
+			90 = {
+				#Nothing
+			}
+			10 = {
+				modifier = {
+					factor = 4
+					ROOT = { trait = greedy }
+				}
+				modifier = {
+					factor = 0.1
+					trait = content
+				}
+				modifier = {
+					factor = 0
+					ROOT = {
+						is_tribal = yes
+						NOR = {
+							trait = ambitious
+							martial = 15
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					ROOT = {
+						is_tribal = yes
+						OR = {
+							trait = content
+							NOT = { martial = 8 }
+						}
+					}
+				}
+				random_tributary = {
+					limit = {
+						OR = {
+							is_tributary = { type = autonomous }
+						}
+						primary_title = {
+							lower_tier_than = ROOT
+							check_variable = { which = "tributary_years" value = 10 } #AI won't try this before 10 years have passed
+						}
+					}
+					log = "Vassalization event chain started, attacker is [Root.GetBestName], defender is [This.GetBestName]"
+					ROOT = {
+						if = {
+							limit = { tier = DUKE }
+							prestige = -35
+						}
+						else_if = {
+							limit = { tier = EMPEROR }
+							if = {
+								limit = { PREV = { tier = COUNT } }
+								prestige = -35
+							}
+							else_if = {
+								limit = { PREV = { tier = DUKE } }
+								prestige = -35
+							}
+						}
+						else_if = {
+							limit = { tier = EMPEROR }
+							if = {
+								limit = { PREV = { tier = COUNT } }
+								prestige = -35
+							}
+							else_if = {
+								limit = { PREV = { tier = DUKE } }
+								prestige = -35
+							}
+							else_if = {
+								limit = { PREV = { tier = KING } }
+								prestige = -35
+							}
+						}
+					}
+					letter_event = { id = Trib.4021 days = 3}
+				}
+				set_character_flag = trying_to_vassalize_tributary
+			}
+		}
+			
+	}
+}

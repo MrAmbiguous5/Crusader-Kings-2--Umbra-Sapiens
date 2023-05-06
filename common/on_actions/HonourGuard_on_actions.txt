@@ -1,0 +1,6 @@
+
+on_major_battle_won_leader = {
+	events = {
+		HonourGuard.301		# maybe gain retinue
+	}
+}

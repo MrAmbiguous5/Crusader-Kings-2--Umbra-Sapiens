@@ -1,0 +1,28 @@
+d_Order_of_Dobrzyn = {
+    color={ 40 60 40 }
+	color2={ 255 255 255 }
+ 
+    graphical_culture = holygfx
+ 
+    capital = 531 # Sandomierz
+ 
+    title = "HOCHMEISTER"
+	foa = "HOCHMEISTER_FOA"
+
+    # Always exists
+    landless = yes
+ 
+    holy_order = yes
+    mercenary_type = livonian_order_composition
+ 
+    culture = german
+ 
+    # Parent Religion
+    religion = catholic
+ 
+    # Cannot be held as a secondary title
+    primary = yes
+ 
+    # Extra income due to banking, etc
+    monthly_income = 10 # (Must be an integer between 1 and 512)
+}

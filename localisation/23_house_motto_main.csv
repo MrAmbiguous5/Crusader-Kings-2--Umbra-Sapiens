@@ -1,0 +1,21 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+create_house_motto;Create House Motto;;;;;;;;;x
+create_house_motto_desc;Create a Motto that will be remembered alone with your House;;;;;;;;;x
+#remove_dynasty_motto;Remove House Motto;;;;;;;;;x
+#latin_motto_list
+default_motto_list;Semper Verum|Fidelitate Coniuncti|Nullius in verba|Natus ad magna gerenda|Suaviter in Modo, Fortiter in Re|Cede Nullius|Fortius quo fidelius|Consilio et Animis|Vis Unita Fortior|Consectatio Excellentiae|Audere est Facere|Nihil Sine Deo|Concordia, Integritas, Industria|Pietate, Arte et Scientia Corrigere|Super Ardua|Hereditas Domini filii|Fidelus Paradus|Semper Fidelis;;;;;;;;;x
+hellenic_motto_list;Ex luna, scientia|Per Ardua Ad Astra;;;;;;;;;x
+muslim_motto_list;Allah Akbar, Wa Lellah Al Hamd|Alkhalqa, Al'aymanu, Alqua;;;;;;;;;x
+persian_motto_list;Good Thoughts, Good Words, Good Deeds;;;;;;;;;x
+eastern_motto_list;Truth alone triumphs|Peace comes from within|Nothing is permanent|A disciplined mind brings happiness;;;;;;;;;x
+SETUP_HOUSE_MOTTO_CUSTOM;;;;;;;;;;x
+SETUP_HOUSE_MOTTO_CUSTOM_LOG;Write down your house motto;;;;;;;;;x
+NOT_MOTTO_CREAETED_NOR_RECENTELY_REMOVED_TOOLTIP;NOT have house motto created, nor recently removed a house motto;;;;;;;;x
+will_be_your_house_motto_tooltip;will be your house motto.;;;;;;;;;x
+one_will_be_chosen;You hand over the decision right.;;;;;;;;;x
+EVTDESC_MOT_100;A good motto give prominence to the essence of a house, so I must choose with caution. Among so many proposals I feeling these two might have the chance to suit my house, but I'm not sure which one is destined...;;;;;;;;;x
+EVTOPTA_MOT_100_A;Go ask my wife [Root.Spouse.GetFirstName] for helping;;;;;;;;;x
+EVTOPTA_MOT_100_B;Go Consulting with my regent, the person I can count on;;;;;;;;;x
+EVTOPTB_MOT_100;This one could be great...;;;;;;;;;x
+EVTOPTC_MOT_100;While that one sounds better...;;;;;;;;;x
+EVTOPTD_MOT_100;Hmpf! All craps, I'm gonna write a masterpiece motto.;;;;;;;;;x

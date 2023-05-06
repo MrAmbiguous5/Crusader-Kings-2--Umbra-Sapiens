@@ -1,0 +1,2486 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+ 
+ #<tag> = {
+ #	desc = description used in the tooltip of the building
+ #	trigger = used for tech requirement of the building, set to 0 if no requirement so it can be build automatically on new games
+ #	gold_cost = cost to build the building
+ #	build_time = time to build, in days
+ #	
+ #	ai_creation_factor = weight that the AI uses to determine what building to build
+ #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #}
+ 
+ # Castle
+castle = {
+	# All cultural buildings follow the same pattern:
+	# tech required is 0, 1, 2, 4 for the levels of the buildings
+	# cost is 200 + 100 per level
+	# 60 maintenance of troops + 20 per level
+	# + 0.15 bonus in either offensive, defensive or morale sometimes split over different units or stats same on all levels
+	
+	# Culture building names MUST start with ca_culture
+	## Amazon Cultural Buildings
+	
+# themiskyran_amz
+	ca_culture_themiskyran_amz_1 = {
+		desc = ca_culture_themiskyran_amz_1_desc
+		potential = {
+			OR = {
+				culture = themiskyran_amz
+				has_building = ca_culture_themiskyran_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = themiskyran_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				OR = {
+					culture = themiskyran_amz
+				}
+			}
+		}
+		prerequisites = { ca_wall_2 }
+		gold_cost = 200
+		build_time = 730
+		pikemen = 15
+		pikemen_defensive = 0.15
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_themiskyran_amz_2 = {
+		desc = ca_culture_themiskyran_amz_1_desc
+		potential = {
+			OR = {
+				culture = themiskyran_amz
+				has_building = ca_culture_themiskyran_amz_1
+				has_building = ca_culture_themiskyran_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = themiskyran_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				OR = {
+					culture = themiskyran_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_themiskyran_amz_1
+		gold_cost = 300
+		build_time = 1095
+		pikemen = 20
+		pikemen_defensive = 0.20
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_themiskyran_amz_3 = {
+		desc = ca_culture_themiskyran_amz_1_desc
+		potential = {
+			OR = {
+				culture = themiskyran_amz
+				has_building = ca_culture_themiskyran_amz_1
+				has_building = ca_culture_themiskyran_amz_2
+				has_building = ca_culture_themiskyran_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = themiskyran_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			ROOT = {
+				OR = {
+					culture = themiskyran_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_themiskyran_amz_2
+		gold_cost = 400
+		build_time = 2190
+		pikemen = 25
+		pikemen_defensive = 0.25
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_themiskyran_amz_4 = {
+		desc = ca_culture_themiskyran_amz_1_desc
+		potential = {
+			OR = {
+				culture = themiskyran_amz
+				has_building = ca_culture_themiskyran_amz_1
+				has_building = ca_culture_themiskyran_amz_2
+				has_building = ca_culture_themiskyran_amz_3
+				has_building = ca_culture_themiskyran_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = themiskyran_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			ROOT = {
+				OR = {
+					culture = themiskyran_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_themiskyran_amz_3
+		gold_cost = 500
+		build_time = 2190
+		pikemen = 30
+		pikemen_defensive = 0.30
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.02
+	}
+
+# valkyrie_amz
+	ca_culture_valkyrie_amz_1 = {
+		desc = ca_culture_valkyrie_amz_1_desc
+		potential = {
+			OR = {
+				culture = valkyrie_amz
+				has_building = ca_culture_valkyrie_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = valkyrie_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				OR = {
+					culture = valkyrie_amz
+				}
+			}
+		}
+		prerequisites = { ca_wall_2 }
+		gold_cost = 200
+		build_time = 730
+		knights = 15
+		knights_offensive = 0.15
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_valkyrie_amz_2 = {
+		desc = ca_culture_valkyrie_amz_1_desc
+		potential = {
+			OR = {
+				culture = valkyrie_amz
+				has_building = ca_culture_valkyrie_amz_1
+				has_building = ca_culture_valkyrie_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = valkyrie_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				OR = {
+					culture = valkyrie_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_valkyrie_amz_1
+		gold_cost = 300
+		build_time = 1095
+		knights = 20
+		knights_offensive = 0.20
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_valkyrie_amz_3 = {
+		desc = ca_culture_valkyrie_amz_1_desc
+		potential = {
+			OR = {
+				culture = valkyrie_amz
+				has_building = ca_culture_valkyrie_amz_1
+				has_building = ca_culture_valkyrie_amz_2
+				has_building = ca_culture_valkyrie_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = valkyrie_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			ROOT = {
+				OR = {
+					culture = valkyrie_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_valkyrie_amz_2
+		gold_cost = 400
+		build_time = 2190
+		knights = 25
+		knights_offensive = 0.25
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_valkyrie_amz_4 = {
+		desc = ca_culture_valkyrie_amz_1_desc
+		potential = {
+			OR = {
+				culture = valkyrie_amz
+				has_building = ca_culture_valkyrie_amz_1
+				has_building = ca_culture_valkyrie_amz_2
+				has_building = ca_culture_valkyrie_amz_3
+				has_building = ca_culture_valkyrie_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = valkyrie_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			ROOT = {
+				OR = {
+					culture = valkyrie_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_valkyrie_amz_3
+		gold_cost = 500
+		build_time = 2190
+		knights = 30
+		knights_offensive = 0.30
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.02
+	}
+	
+# scythian_amz
+	ca_culture_scythian_amz_1 = {
+		desc = ca_culture_scythian_amz_1_desc
+		potential = {
+			OR = {
+				culture = scythian_amz
+				has_building = ca_culture_scythian_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = scythian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				OR = {
+					culture = scythian_amz
+				}
+			}
+		}
+		prerequisites = { ca_wall_2 }
+		gold_cost = 200
+		build_time = 730
+		horse_archers = 15
+		horse_archers_offensive = 0.15
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_scythian_amz_2 = {
+		desc = ca_culture_scythian_amz_1_desc
+		potential = {
+			OR = {
+				culture = scythian_amz
+				has_building = ca_culture_scythian_amz_1
+				has_building = ca_culture_scythian_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = scythian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				OR = {
+					culture = scythian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_scythian_amz_1
+		gold_cost = 300
+		build_time = 1095
+		horse_archers = 20
+		horse_archers_offensive = 0.20
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_scythian_amz_3 = {
+		desc = ca_culture_scythian_amz_1_desc
+		potential = {
+			OR = {
+				culture = scythian_amz
+				has_building = ca_culture_scythian_amz_1
+				has_building = ca_culture_scythian_amz_2
+				has_building = ca_culture_scythian_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = scythian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			ROOT = {
+				OR = {
+					culture = scythian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_scythian_amz_2
+		gold_cost = 400
+		build_time = 2190
+		horse_archers = 25
+		horse_archers_offensive = 0.25
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_scythian_amz_4 = {
+		desc = ca_culture_scythian_amz_1_desc
+		potential = {
+			OR = {
+				culture = scythian_amz
+				has_building = ca_culture_scythian_amz_1
+				has_building = ca_culture_scythian_amz_2
+				has_building = ca_culture_scythian_amz_3
+				has_building = ca_culture_scythian_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = scythian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			ROOT = {
+				OR = {
+					culture = scythian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_scythian_amz_3
+		gold_cost = 500
+		build_time = 2190
+		horse_archers = 30
+		horse_archers_offensive = 0.30
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.02
+	}
+	
+# parthian_amz
+	ca_culture_parthian_amz_1 = {
+		desc = ca_culture_parthian_amz_1_desc
+		potential = {
+			OR = {
+				culture = parthian_amz
+				has_building = ca_culture_parthian_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = parthian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				OR = {
+					culture = parthian_amz
+				}
+			}
+		}
+		prerequisites = { ca_wall_2 }
+		gold_cost = 200
+		build_time = 730
+		knights = 15
+		knights_offensive = 0.15
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_parthian_amz_2 = {
+		desc = ca_culture_parthian_amz_1_desc
+		potential = {
+			OR = {
+				culture = parthian_amz
+				has_building = ca_culture_parthian_amz_1
+				has_building = ca_culture_parthian_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = parthian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				OR = {
+					culture = parthian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_parthian_amz_1
+		gold_cost = 300
+		build_time = 1095
+		knights = 20
+		knights_offensive = 0.20
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_parthian_amz_3 = {
+		desc = ca_culture_parthian_amz_1_desc
+		potential = {
+			OR = {
+				culture = parthian_amz
+				has_building = ca_culture_parthian_amz_1
+				has_building = ca_culture_parthian_amz_2
+				has_building = ca_culture_parthian_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = parthian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			ROOT = {
+				OR = {
+					culture = parthian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_parthian_amz_2
+		gold_cost = 400
+		build_time = 2190
+		knights = 25
+		knights_offensive = 0.25
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_parthian_amz_4 = {
+		desc = ca_culture_parthian_amz_1_desc
+		potential = {
+			OR = {
+				culture = parthian_amz
+				has_building = ca_culture_parthian_amz_1
+				has_building = ca_culture_parthian_amz_2
+				has_building = ca_culture_parthian_amz_3
+				has_building = ca_culture_parthian_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = parthian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			ROOT = {
+				OR = {
+					culture = parthian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_parthian_amz_3
+		gold_cost = 500
+		build_time = 2190
+		knights = 30
+		knights_offensive = 0.30
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.02
+	}
+	
+# kushite_amz
+	ca_culture_kushite_amz_1 = {
+		desc = ca_culture_kushite_amz_1_desc
+		potential = {
+			OR = {
+				culture = kushite_amz
+				has_building = ca_culture_kushite_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = kushite_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				OR = {
+					culture = kushite_amz
+				}
+			}
+		}
+		prerequisites = { ca_wall_2 }
+		gold_cost = 200
+		build_time = 730
+		archers_offensive = 0.15
+		archers = 60
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_kushite_amz_2 = {
+		desc = ca_culture_kushite_amz_1_desc
+		potential = {
+			OR = {
+				culture = kushite_amz
+				has_building = ca_culture_kushite_amz_1
+				has_building = ca_culture_kushite_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = kushite_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				OR = {
+					culture = kushite_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_kushite_amz_1
+		gold_cost = 300
+		build_time = 1095
+		archers_offensive = 0.20
+		archers = 80
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_kushite_amz_3 = {
+		desc = ca_culture_kushite_amz_1_desc
+		potential = {
+			OR = {
+				culture = kushite_amz
+				has_building = ca_culture_kushite_amz_1
+				has_building = ca_culture_kushite_amz_2
+				has_building = ca_culture_kushite_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = kushite_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			ROOT = {
+				OR = {
+					culture = kushite_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_kushite_amz_2
+		gold_cost = 400
+		build_time = 2190
+		archers_offensive = 0.25
+		archers = 100
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_kushite_amz_4 = {
+		desc = ca_culture_kushite_amz_1_desc
+		potential = {
+			OR = {
+				culture = kushite_amz
+				has_building = ca_culture_kushite_amz_1
+				has_building = ca_culture_kushite_amz_2
+				has_building = ca_culture_kushite_amz_3
+				has_building = ca_culture_kushite_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = kushite_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			ROOT = {
+				OR = {
+					culture = kushite_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_kushite_amz_3
+		gold_cost = 500
+		build_time = 2190
+		archers_offensive = 0.30
+		archers = 120
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.02
+	}
+	
+# carthaginian_amz
+	ca_culture_carthaginian_amz_1 = {
+		desc = ca_culture_carthaginian_amz_1_desc
+		potential = {
+			OR = {
+				culture = carthaginian_amz
+				has_building = ca_culture_carthaginian_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = carthaginian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				OR = {
+					culture = carthaginian_amz
+				}
+			}
+		}
+		prerequisites = { ca_wall_2 }
+		gold_cost = 200
+		build_time = 730
+		war_elephants_offensive = 0.15
+		pikemen = 15
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_carthaginian_amz_2 = {
+		desc = ca_culture_carthaginian_amz_1_desc
+		potential = {
+			OR = {
+				culture = carthaginian_amz
+				has_building = ca_culture_carthaginian_amz_1
+				has_building = ca_culture_carthaginian_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = carthaginian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				OR = {
+					culture = carthaginian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_carthaginian_amz_1
+		gold_cost = 300
+		build_time = 1095
+		war_elephants_offensive = 0.20
+		pikemen = 20
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_carthaginian_amz_3 = {
+		desc = ca_culture_carthaginian_amz_1_desc
+		potential = {
+			OR = {
+				culture = carthaginian_amz
+				has_building = ca_culture_carthaginian_amz_1
+				has_building = ca_culture_carthaginian_amze_2
+				has_building = ca_culture_carthaginian_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = carthaginian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			ROOT = {
+				OR = {
+					culture = carthaginian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_carthaginian_amz_2
+		gold_cost = 400
+		build_time = 2190
+		war_elephants_offensive = 0.25
+		pikemen = 25
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_carthaginian_amz_4 = {
+		desc = ca_culture_carthaginian_amz_1_desc
+		potential = {
+			OR = {
+				culture = carthaginian_amz
+				has_building = ca_culture_carthaginian_amz_1
+				has_building = ca_culture_carthaginian_amz_2
+				has_building = ca_culture_carthaginian_amz_3
+				has_building = ca_culture_carthaginian_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = carthaginian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			ROOT = {
+				OR = {
+					culture = carthaginian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_carthaginian_amz_3
+		gold_cost = 500
+		build_time = 2190
+		war_elephants_offensive = 0.30
+		pikemen = 30
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.02
+	}
+	
+# etruscan_amz
+	ca_culture_etruscan_amz_1 = {
+		desc = ca_culture_etruscan_amz_1_desc
+		potential = {
+			OR = {
+				culture = etruscan_amz
+				has_building = ca_culture_etruscan_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = etruscan_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				OR = {
+					culture = etruscan_amz
+				}
+			}
+		}
+		prerequisites = { ca_wall_2 }
+		gold_cost = 200
+		build_time = 730
+		pikemen = 15
+		pikemen_offensive = 0.15
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_etruscan_amz_2 = {
+		desc = ca_culture_etruscan_amz_1_desc
+		potential = {
+			OR = {
+				culture = etruscan_amz
+				has_building = ca_culture_etruscan_amz_1
+				has_building = ca_culture_etruscan_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = etruscan_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				OR = {
+					culture = etruscan_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_etruscan_amz_1
+		gold_cost = 300
+		build_time = 1095
+		pikemen = 20
+		pikemen_offensive = 0.20
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_etruscan_amz_3 = {
+		desc = ca_culture_etruscan_amz_1_desc
+		potential = {
+			OR = {
+				culture = etruscan_amz
+				has_building = ca_culture_etruscan_amz_1
+				has_building = ca_culture_etruscan_amz_2
+				has_building = ca_culture_etruscan_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = etruscan_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			ROOT = {
+				OR = {
+					culture = etruscan_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_etruscan_amz_2
+		gold_cost = 400
+		build_time = 2190
+		pikemen = 25
+		pikemen_offensive = 0.25
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_etruscan_amz_4 = {
+		desc = ca_culture_etruscan_amz_1_desc
+		potential = {
+			OR = {
+				culture = etruscan_amz
+				has_building = ca_culture_etruscan_amz_1
+				has_building = ca_culture_etruscan_amz_2
+				has_building = ca_culture_etruscan_amz_3
+				has_building = ca_culture_etruscan_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = etruscan_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			ROOT = {
+				OR = {
+					culture = etruscan_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_etruscan_amz_3
+		gold_cost = 500
+		build_time = 2190
+		pikemen = 30
+		pikemen_offensive = 0.30
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.02
+	}	
+	
+# pritani_amz
+	ca_culture_pritani_amz_1 = {
+		desc = ca_culture_pritani_amz_1_desc
+		potential = {
+			OR = {
+				culture = pritani_amz
+				has_building = ca_culture_pritani_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = pritani_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				OR = {
+					culture = pritani_amz
+				}
+			}
+		}
+		prerequisites = { ca_wall_2 }
+		gold_cost = 200
+		build_time = 730
+		heavy_infantry = 50
+		heavy_infantry_offensive = 0.15
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_pritani_amz_2 = {
+		desc = ca_culture_pritani_amz_1_desc
+		potential = {
+			OR = {
+				culture = pritani_amz
+				has_building = ca_culture_pritani_amz_1
+				has_building = ca_culture_pritani_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = pritani_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				OR = {
+					culture = pritani_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_pritani_amz_1
+		gold_cost = 300
+		build_time = 1095
+		heavy_infantry = 60
+		heavy_infantry_offensive = 0.20
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_pritani_amz_3 = {
+		desc = ca_culture_pritani_amz_1_desc
+		potential = {
+			OR = {
+				culture = pritani_amz
+				has_building = ca_culture_pritani_amz_1
+				has_building = ca_culture_pritani_amz_2
+				has_building = ca_culture_pritani_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = pritani_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			ROOT = {
+				OR = {
+					culture = pritani_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_pritani_amz_2
+		gold_cost = 400
+		build_time = 2190
+		heavy_infantry = 70
+		heavy_infantry_offensive = 0.25
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_pritani_amz_4 = {
+		desc = ca_culture_pritani_amz_1_desc
+		potential = {
+			OR = {
+				culture = pritani_amz
+				has_building = ca_culture_pritani_amz_1
+				has_building = ca_culture_pritani_amz_2
+				has_building = ca_culture_pritani_amz_3
+				has_building = ca_culture_pritani_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = pritani_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			ROOT = {
+				OR = {
+					culture = pritani_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_pritani_amz_3
+		gold_cost = 500
+		build_time = 2190
+		heavy_infantry = 80
+		heavy_infantry_offensive = 0.30
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.02
+	}
+	
+# illyrian_amz
+	ca_culture_illyrian_amz_1 = {
+		desc = ca_culture_illyrian_amz_1_desc
+		potential = {
+			OR = {
+				culture = illyrian_amz
+				has_building = ca_culture_illyrian_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = illyrian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				OR = {
+					culture = illyrian_amz
+				}
+			}
+		}
+		prerequisites = { ca_wall_2 }
+		gold_cost = 200
+		build_time = 730
+		heavy_infantry = 50
+		heavy_infantry_offensive = 0.15
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_illyrian_amz_2 = {
+		desc = ca_culture_illyrian_amz_1_desc
+		potential = {
+			OR = {
+				culture = illyrian_amz
+				has_building = ca_culture_illyrian_amz_1
+				has_building = ca_culture_illyrian_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = illyrian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				OR = {
+					culture = illyrian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_illyrian_amz_1
+		gold_cost = 300
+		build_time = 1095
+		heavy_infantry = 60
+		heavy_infantry_offensive = 0.20
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_illyrian_amz_3 = {
+		desc = ca_culture_illyrian_amz_1_desc
+		potential = {
+			OR = {
+				culture = illyrian_amz
+				has_building = ca_culture_illyrian_amz_1
+				has_building = ca_culture_illyrian_amz_2
+				has_building = ca_culture_illyrian_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = illyrian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			ROOT = {
+				OR = {
+					culture = illyrian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_illyrian_amz_2
+		gold_cost = 400
+		build_time = 2190
+		heavy_infantry = 70
+		heavy_infantry_offensive = 0.25
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.01
+	}
+	ca_culture_illyrian_amz_4 = {
+		desc = ca_culture_illyrian_amz_1_desc
+		potential = {
+			OR = {
+				culture = illyrian_amz
+				has_building = ca_culture_illyrian_amz_1
+				has_building = ca_culture_illyrian_amz_2
+				has_building = ca_culture_illyrian_amz_3
+				has_building = ca_culture_illyrian_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = illyrian_amz
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			ROOT = {
+				OR = {
+					culture = illyrian_amz
+				}
+			}
+		}
+		upgrades_from = ca_culture_illyrian_amz_3
+		gold_cost = 500
+		build_time = 2190
+		heavy_infantry = 80
+		heavy_infantry_offensive = 0.30
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 0.8
+		land_morale = 0.02
+	}
+	
+}
+
+###################################################
+
+tribal = {
+
+# themiskyran_amz
+	tb_culture_themiskyran_amz_1 = {
+		desc = ca_culture_themiskyran_amz_1_desc
+		potential = {
+			OR = { 
+				culture = themiskyran_amz
+				has_building = tb_culture_themiskyran_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = themiskyran_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = themiskyran_amz
+			}
+		}
+		
+		prestige_cost = 100
+		build_time = 365
+		light_cavalry = 15
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_themiskyran_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.1
+	}
+	tb_culture_themiskyran_amz_2 = {
+		desc = ca_culture_themiskyran_amz_1_desc
+		potential = {
+			OR = { 
+				culture = themiskyran_amz
+				has_building = tb_culture_themiskyran_amz_1
+				has_building = tb_culture_themiskyran_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = themiskyran_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = themiskyran_amz
+			}
+		}
+		upgrades_from = tb_culture_themiskyran_amz_1
+		prestige_cost = 200
+		build_time = 547
+		light_cavalry = 20
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_themiskyran_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.2
+	}
+	tb_culture_themiskyran_amz_3 = {
+		desc = ca_culture_themiskyran_amz_1_desc
+		potential = {
+			OR = { 
+				culture = themiskyran_amz
+				has_building = tb_culture_themiskyran_amz_1
+				has_building = tb_culture_themiskyran_amz_2
+				has_building = tb_culture_themiskyran_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = themiskyran_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = themiskyran_amz
+			}
+		}
+		upgrades_from = tb_culture_themiskyran_amz_2
+		prestige_cost = 300
+		build_time = 730
+		light_cavalry = 25
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_themiskyran_amz_2
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.3
+	}
+	tb_culture_themiskyran_amz_4 = {
+		desc = ca_culture_themiskyran_amz_1_desc
+		potential = {
+			OR = { 
+				culture = themiskyran_amz
+				has_building = tb_culture_themiskyran_amz_1
+				has_building = tb_culture_themiskyran_amz_2
+				has_building = tb_culture_themiskyran_amz_3
+				has_building = tb_culture_themiskyran_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = themiskyran_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = themiskyran_amz
+			}
+		}
+		upgrades_from = tb_culture_themiskyran_amz_3
+		prestige_cost = 400
+		build_time = 1095
+		light_cavalry = 30
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_themiskyran_amz_3
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.4
+	}
+
+# valkyrie_amz
+	tb_culture_valkyrie_amz_1 = {
+		desc = ca_culture_valkyrie_amz_1_desc
+		potential = {
+			OR = { 
+				culture = valkyrie_amz
+				has_building = tb_culture_valkyrie_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = valkyrie_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = valkyrie_amz
+			}
+		}
+		
+		prestige_cost = 100
+		build_time = 365
+		light_cavalry = 15
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_valkyrie_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.1
+	}
+	tb_culture_valkyrie_amz_2 = {
+		desc = ca_culture_valkyrie_amz_1_desc
+		potential = {
+			OR = { 
+				culture = valkyrie_amz
+				has_building = tb_culture_valkyrie_amz_1
+				has_building = tb_culture_valkyrie_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = valkyrie_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = valkyrie_amz
+			}
+		}
+		upgrades_from = tb_culture_valkyrie_amz_1
+		prestige_cost = 200
+		build_time = 547
+		light_cavalry = 20
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_valkyrie_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.2
+	}
+	tb_culture_valkyrie_amz_3 = {
+		desc = ca_culture_valkyrie_amz_1_desc
+		potential = {
+			OR = { 
+				culture = valkyrie_amz
+				has_building = tb_culture_valkyrie_amz_1
+				has_building = tb_culture_valkyrie_amz_2
+				has_building = tb_culture_valkyrie_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = valkyrie_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = valkyrie_amz
+			}
+		}
+		upgrades_from = tb_culture_valkyrie_amz_2
+		prestige_cost = 300
+		build_time = 730
+		light_cavalry = 25
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_valkyrie_amz_2
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.3
+	}
+	tb_culture_valkyrie_amz_4 = {
+		desc = ca_culture_valkyrie_amz_1_desc
+		potential = {
+			OR = { 
+				culture = valkyrie_amz
+				has_building = tb_culture_valkyrie_amz_1
+				has_building = tb_culture_valkyrie_amz_2
+				has_building = tb_culture_valkyrie_amz_3
+				has_building = tb_culture_valkyrie_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = valkyrie_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = valkyrie_amz
+			}
+		}
+		upgrades_from = tb_culture_valkyrie_amz_3
+		prestige_cost = 400
+		build_time = 1095
+		light_cavalry = 30
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_valkyrie_amz_3
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.4
+	}
+
+# scythian_amz
+	tb_culture_scythian_amz_1 = {
+		desc = ca_culture_scythian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = scythian_amz
+				has_building = tb_culture_scythian_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = scythian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = scythian_amz
+			}
+		}
+		
+		prestige_cost = 100
+		build_time = 365
+		light_cavalry = 15
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_scythian_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.1
+	}
+	tb_culture_scythian_amz_2 = {
+		desc = ca_culture_scythian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = scythian_amz
+				has_building = tb_culture_scythian_amz_1
+				has_building = tb_culture_scythian_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = scythian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = scythian_amz
+			}
+		}
+		upgrades_from = tb_culture_scythian_amz_1
+		prestige_cost = 200
+		build_time = 547
+		light_cavalry = 20
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_scythian_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.2
+	}
+	tb_culture_scythian_amz_3 = {
+		desc = ca_culture_scythian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = scythian_amz
+				has_building = tb_culture_scythian_amz_1
+				has_building = tb_culture_scythian_amz_2
+				has_building = tb_culture_scythian_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = scythian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = scythian_amz
+			}
+		}
+		upgrades_from = tb_culture_scythian_amz_2
+		prestige_cost = 300
+		build_time = 730
+		light_cavalry = 25
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_scythian_amz_2
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.3
+	}
+	tb_culture_scythian_amz_4 = {
+		desc = ca_culture_scythian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = scythian_amz
+				has_building = tb_culture_scythian_amz_1
+				has_building = tb_culture_scythian_amz_2
+				has_building = tb_culture_scythian_amz_3
+				has_building = tb_culture_scythian_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = scythian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = scythian_amz
+			}
+		}
+		upgrades_from = tb_culture_scythian_amz_3
+		prestige_cost = 400
+		build_time = 1095
+		light_cavalry = 30
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_scythian_amz_3
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.4
+	}
+
+# parthian_amz
+	tb_culture_parthian_amz_1 = {
+		desc = ca_culture_parthian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = parthian_amz
+				has_building = tb_culture_parthian_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = parthian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = parthian_amz
+			}
+		}
+		
+		prestige_cost = 100
+		build_time = 365
+		light_cavalry = 15
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_parthian_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.1
+	}
+	tb_culture_parthian_amz_2 = {
+		desc = ca_culture_parthian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = parthian_amz
+				has_building = tb_culture_parthian_amz_1
+				has_building = tb_culture_parthian_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = parthian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = parthian_amz
+			}
+		}
+		upgrades_from = tb_culture_parthian_amz_1
+		prestige_cost = 200
+		build_time = 547
+		light_cavalry = 20
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_parthian_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.2
+	}
+	tb_culture_parthian_amz_3 = {
+		desc = ca_culture_parthian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = parthian_amz
+				has_building = tb_culture_parthian_amz_1
+				has_building = tb_culture_parthian_amz_2
+				has_building = tb_culture_parthian_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = parthian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = parthian_amz
+			}
+		}
+		upgrades_from = tb_culture_parthian_amz_2
+		prestige_cost = 300
+		build_time = 730
+		light_cavalry = 25
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_parthian_amz_2
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.3
+	}
+	tb_culture_parthian_amz_4 = {
+		desc = ca_culture_parthian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = parthian_amz
+				has_building = tb_culture_parthian_amz_1
+				has_building = tb_culture_parthian_amz_2
+				has_building = tb_culture_parthian_amz_3
+				has_building = tb_culture_parthian_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = parthian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = parthian_amz
+			}
+		}
+		upgrades_from = tb_culture_parthian_amz_3
+		prestige_cost = 400
+		build_time = 1095
+		light_cavalry = 30
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_parthian_amz_3
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.4
+	}
+
+# kushite_amz
+	tb_culture_kushite_amz_1 = {
+		desc = ca_culture_kushite_amz_1_desc
+		potential = {
+			OR = { 
+				culture = kushite_amz
+				has_building = tb_culture_kushite_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = kushite_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = kushite_amz
+			}
+		}
+		
+		prestige_cost = 100
+		build_time = 365
+		light_cavalry = 15
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_kushite_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.1
+	}
+	tb_culture_kushite_amz_2 = {
+		desc = ca_culture_kushite_amz_1_desc
+		potential = {
+			OR = { 
+				culture = kushite_amz
+				has_building = tb_culture_kushite_amz_1
+				has_building = tb_culture_kushite_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = kushite_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = kushite_amz
+			}
+		}
+		upgrades_from = tb_culture_kushite_amz_1
+		prestige_cost = 200
+		build_time = 547
+		light_cavalry = 20
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_kushite_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.2
+	}
+	tb_culture_kushite_amz_3 = {
+		desc = ca_culture_kushite_amz_1_desc
+		potential = {
+			OR = { 
+				culture = kushite_amz
+				has_building = tb_culture_kushite_amz_1
+				has_building = tb_culture_kushite_amz_2
+				has_building = tb_culture_kushite_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = kushite_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = kushite_amz
+			}
+		}
+		upgrades_from = tb_culture_kushite_amz_2
+		prestige_cost = 300
+		build_time = 730
+		light_cavalry = 25
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_kushite_amz_2
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.3
+	}
+	tb_culture_kushite_amz_4 = {
+		desc = ca_culture_kushite_amz_1_desc
+		potential = {
+			OR = { 
+				culture = kushite_amz
+				has_building = tb_culture_kushite_amz_1
+				has_building = tb_culture_kushite_amz_2
+				has_building = tb_culture_kushite_amz_3
+				has_building = tb_culture_kushite_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = kushite_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = kushite_amz
+			}
+		}
+		upgrades_from = tb_culture_kushite_amz_3
+		prestige_cost = 400
+		build_time = 1095
+		light_cavalry = 30
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_kushite_amz_3
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.4
+	}
+
+# carthaginian_amz
+	tb_culture_carthaginian_amz_1 = {
+		desc = ca_culture_carthaginian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = carthaginian_amz
+				has_building = tb_culture_carthaginian_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = carthaginian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = carthaginian_amz
+			}
+		}
+		
+		prestige_cost = 100
+		build_time = 365
+		light_cavalry = 15
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_carthaginian_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.1
+	}
+	tb_culture_carthaginian_amz_2 = {
+		desc = ca_culture_carthaginian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = carthaginian_amz
+				has_building = tb_culture_carthaginian_amz_1
+				has_building = tb_culture_carthaginian_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = carthaginian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = carthaginian_amz
+			}
+		}
+		upgrades_from = tb_culture_carthaginian_amz_1
+		prestige_cost = 200
+		build_time = 547
+		light_cavalry = 20
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_carthaginian_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.2
+	}
+	tb_culture_carthaginian_amz_3 = {
+		desc = ca_culture_carthaginian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = carthaginian_amz
+				has_building = tb_culture_carthaginian_amz_1
+				has_building = tb_culture_carthaginian_amz_2
+				has_building = tb_culture_carthaginian_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = carthaginian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = carthaginian_amz
+			}
+		}
+		upgrades_from = tb_culture_carthaginian_amz_2
+		prestige_cost = 300
+		build_time = 730
+		light_cavalry = 25
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_carthaginian_amz_2
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.3
+	}
+	tb_culture_carthaginian_amz_4 = {
+		desc = ca_culture_carthaginian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = carthaginian_amz
+				has_building = tb_culture_carthaginian_amz_1
+				has_building = tb_culture_carthaginian_amz_2
+				has_building = tb_culture_carthaginian_amz_3
+				has_building = tb_culture_carthaginian_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = carthaginian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = carthaginian_amz
+			}
+		}
+		upgrades_from = tb_culture_carthaginian_amz_3
+		prestige_cost = 400
+		build_time = 1095
+		light_cavalry = 30
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_carthaginian_amz_3
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.4
+	}
+
+# etruscan_amz
+	tb_culture_etruscan_amz_1 = {
+		desc = ca_culture_etruscan_amz_1_desc
+		potential = {
+			OR = { 
+				culture = etruscan_amz
+				has_building = tb_culture_etruscan_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = etruscan_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = etruscan_amz
+			}
+		}
+		
+		prestige_cost = 100
+		build_time = 365
+		light_cavalry = 15
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_etruscan_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.1
+	}
+	tb_culture_etruscan_amz_2 = {
+		desc = ca_culture_etruscan_amz_1_desc
+		potential = {
+			OR = { 
+				culture = etruscan_amz
+				has_building = tb_culture_etruscan_amz_1
+				has_building = tb_culture_etruscan_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = etruscan_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = etruscan_amz
+			}
+		}
+		upgrades_from = tb_culture_etruscan_amz_1
+		prestige_cost = 200
+		build_time = 547
+		light_cavalry = 20
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_etruscan_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.2
+	}
+	tb_culture_etruscan_amz_3 = {
+		desc = ca_culture_etruscan_amz_1_desc
+		potential = {
+			OR = { 
+				culture = etruscan_amz
+				has_building = tb_culture_etruscan_amz_1
+				has_building = tb_culture_etruscan_amz_2
+				has_building = tb_culture_etruscan_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = etruscan_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = etruscan_amz
+			}
+		}
+		upgrades_from = tb_culture_etruscan_amz_2
+		prestige_cost = 300
+		build_time = 730
+		light_cavalry = 25
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_etruscan_amz_2
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.3
+	}
+	tb_culture_etruscan_amz_4 = {
+		desc = ca_culture_etruscan_amz_1_desc
+		potential = {
+			OR = { 
+				culture = etruscan_amz
+				has_building = tb_culture_etruscan_amz_1
+				has_building = tb_culture_etruscan_amz_2
+				has_building = tb_culture_etruscan_amz_3
+				has_building = tb_culture_etruscan_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = etruscan_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = etruscan_amz
+			}
+		}
+		upgrades_from = tb_culture_etruscan_amz_3
+		prestige_cost = 400
+		build_time = 1095
+		light_cavalry = 30
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_etruscan_amz_3
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.4
+	}
+
+# pritani_amz
+	tb_culture_pritani_amz_1 = {
+		desc = ca_culture_pritani_amz_1_desc
+		potential = {
+			OR = { 
+				culture = pritani_amz
+				has_building = tb_culture_pritani_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = pritani_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = pritani_amz
+			}
+		}
+		
+		prestige_cost = 100
+		build_time = 365
+		light_cavalry = 15
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_pritani_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.1
+	}
+	tb_culture_pritani_amz_2 = {
+		desc = ca_culture_pritani_amz_1_desc
+		potential = {
+			OR = { 
+				culture = pritani_amz
+				has_building = tb_culture_pritani_amz_1
+				has_building = tb_culture_pritani_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = pritani_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = pritani_amz
+			}
+		}
+		upgrades_from = tb_culture_pritani_amz_1
+		prestige_cost = 200
+		build_time = 547
+		light_cavalry = 20
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_pritani_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.2
+	}
+	tb_culture_pritani_amz_3 = {
+		desc = ca_culture_pritani_amz_1_desc
+		potential = {
+			OR = { 
+				culture = pritani_amz
+				has_building = tb_culture_pritani_amz_1
+				has_building = tb_culture_pritani_amz_2
+				has_building = tb_culture_pritani_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = pritani_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = pritani_amz
+			}
+		}
+		upgrades_from = tb_culture_pritani_amz_2
+		prestige_cost = 300
+		build_time = 730
+		light_cavalry = 25
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_pritani_amz_2
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.3
+	}
+	tb_culture_pritani_amz_4 = {
+		desc = ca_culture_pritani_amz_1_desc
+		potential = {
+			OR = { 
+				culture = pritani_amz
+				has_building = tb_culture_pritani_amz_1
+				has_building = tb_culture_pritani_amz_2
+				has_building = tb_culture_pritani_amz_3
+				has_building = tb_culture_pritani_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = pritani_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = pritani_amz
+			}
+		}
+		upgrades_from = tb_culture_pritani_amz_3
+		prestige_cost = 400
+		build_time = 1095
+		light_cavalry = 30
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_pritani_amz_3
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.4
+	}
+
+# illyrian_amz
+	tb_culture_illyrian_amz_1 = {
+		desc = ca_culture_illyrian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = illyrian_amz
+				has_building = tb_culture_illyrian_amz_1
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = illyrian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = illyrian_amz
+			}
+		}
+		
+		prestige_cost = 100
+		build_time = 365
+		light_cavalry = 15
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_illyrian_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.1
+	}
+	tb_culture_illyrian_amz_2 = {
+		desc = ca_culture_illyrian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = illyrian_amz
+				has_building = tb_culture_illyrian_amz_1
+				has_building = tb_culture_illyrian_amz_2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = illyrian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0 
+			ROOT = {
+				culture = illyrian_amz
+			}
+		}
+		upgrades_from = tb_culture_illyrian_amz_1
+		prestige_cost = 200
+		build_time = 547
+		light_cavalry = 20
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_illyrian_amz_1
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.2
+	}
+	tb_culture_illyrian_amz_3 = {
+		desc = ca_culture_illyrian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = illyrian_amz
+				has_building = tb_culture_illyrian_amz_1
+				has_building = tb_culture_illyrian_amz_2
+				has_building = tb_culture_illyrian_amz_3
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = illyrian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = illyrian_amz
+			}
+		}
+		upgrades_from = tb_culture_illyrian_amz_2
+		prestige_cost = 300
+		build_time = 730
+		light_cavalry = 25
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_illyrian_amz_2
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.3
+	}
+	tb_culture_illyrian_amz_4 = {
+		desc = ca_culture_illyrian_amz_1_desc
+		potential = {
+			OR = { 
+				culture = illyrian_amz
+				has_building = tb_culture_illyrian_amz_1
+				has_building = tb_culture_illyrian_amz_2
+				has_building = tb_culture_illyrian_amz_3
+				has_building = tb_culture_illyrian_amz_4
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = illyrian_amz
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			ROOT = {
+				culture = illyrian_amz
+			}
+		}
+		upgrades_from = tb_culture_illyrian_amz_3
+		prestige_cost = 400
+		build_time = 1095
+		light_cavalry = 30
+		light_cavalry_defensive = 0.15
+		ai_creation_factor = 101
+		
+		convert_to_castle = ca_culture_illyrian_amz_3
+		
+		extra_tech_building_start = 0.8
+		monthly_character_prestige = 0.4
+	}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

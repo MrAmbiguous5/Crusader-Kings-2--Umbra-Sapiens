@@ -1,0 +1,4969 @@
+# This file contains (hopefully) all artifacts tagged with "book", as they were becoming quite a few. Consider this THE LIBRARY. It's a thing now.
+#########################################################################################################################################
+##### Hisotrical Books ##                                                            ####                                            ####
+#########################################################################################################################################
+
+slots = {
+	girdle_book = 1
+}
+
+
+##
+#############################
+##### MEDICAL TEXTS
+#############################
+###
+
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+
+#### TREATMENT OF DANGEROUS DISEASES #### ------------------------------------------
+
+dangerous_diseases = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 20		
+		}	
+		OR = {
+			trait = scholar	
+			culture_group = muslim		
+		}			
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_treatment_of_dangerous_diseases"
+	
+	slot = library	
+}
+
+#### PANDECTS #### ------------------------------------------
+
+pandects1 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects2 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects3 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects2"
+	
+	slot = library	
+}
+pandects4 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects5 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects2"
+	
+	slot = library	
+}
+pandects6 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects2"
+	
+	slot = library	
+}
+pandects7 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects3"
+	
+	slot = library	
+}
+pandects8 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects3"
+	
+	slot = library	
+}
+pandects9 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects10 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects11 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects2"
+	
+	slot = library	
+}
+pandects12 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects2"
+	
+	slot = library	
+}
+pandects13 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects3"
+	
+	slot = library	
+}
+pandects14 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects3"
+	
+	slot = library	
+}
+pandects15 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects3"
+	
+	slot = library	
+}
+pandects16 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects17 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects18 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects3"
+	
+	slot = library	
+}
+pandects19 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects3"
+	
+	slot = library	
+}
+pandects20 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects3"
+	
+	slot = library	
+}
+pandects21 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects2"
+	
+	slot = library	
+}
+pandects22 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects2"
+	
+	slot = library	
+}
+pandects23 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects2"
+	
+	slot = library	
+}
+pandects24 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects25 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects26 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects27 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects3"
+	
+	slot = library	
+}
+pandects28 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects4"
+	
+	slot = library	
+}
+pandects29 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects"
+	
+	slot = library	
+}
+pandects30 = {
+	
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = physician	
+			learning = 15		
+		}				
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_pandects2"
+	
+	slot = library	
+}
+
+##
+#############################
+##### POLITICAL DOCUMENTS
+#############################
+###
+
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+
+#### BOOK OF PASTORAL RULE #### ------------------------------------------
+
+
+book_pastoral_office = { 
+	stewardship = 2
+	church_opinion = 1
+	monthly_character_piety = 0.10	
+	
+	active = { 
+		AND = {
+			religion = catholic
+			is_priest = yes						
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+		
+	stacking = no			
+	quality = 3
+	flags = { book }
+	picture = "GFX_pastoral_office"
+	
+	slot = library	
+}
+
+book_pastoral_office_freds_copy = { 
+	stewardship = 3
+	church_opinion = 3
+	monthly_character_piety = 0.10	
+	
+	active = { 
+		OR = {
+			OR = {
+				culture = saxon		
+				culture = english					
+			}
+			OR = {
+				trait = scholar				
+			}			
+		}
+		OR = {
+			AND = {
+				religion = catholic
+				is_priest = yes						
+			}
+			AND = {
+				dynasty = 100072 #CERDICING
+				#has_landed_title = d_somerset
+			}
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}	
+		
+	stacking = no			
+	quality = 4
+	flags = { book }
+	picture = "GFX_pastoral_office_fred"
+	
+	slot = library	
+}
+
+#### LETTER TO AETHELBERHT (FROM GREGORIO EL PAPA) #### ------------------------------------------
+
+letter_to_aethelbert = { #Æthelberht I
+	catholic_opinion = 1
+	monthly_character_piety = 0.10	
+	
+	active = { 
+		OR = {
+			AND ={
+				culture = saxon
+				religion = catholic
+			}
+			AND ={
+				has_landed_title = c_kent	
+				religion = catholic
+			}		
+			AND ={
+				dynasty = 1047001
+				religion = catholic
+			}	
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+		
+	stacking = no			
+	quality = 3
+	flags = { book }
+	picture = "GFX_anglo_saxon_looseleaf"
+	
+	slot = library	
+}
+
+#### BOOK OF THE CONSULATE OF THE SEA #### ------------------------------------------
+
+book_consulate = {
+	global_tax_modifier = 0.25
+	#tradevalue = 0.25
+	town_opinion = 5
+	
+	active = { 
+
+		AND = {
+			is_landed = yes	
+		}	
+		OR = {
+			culture = catalan
+			culture = occitan
+			culture = italian			
+			culture = frankish
+			culture = greek
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+		
+	stacking = no			
+	quality = 3
+	flags = { book }
+	picture = "GFX_book_consulate_sea"
+	
+	slot = library	
+}
+
+#### MAGNA CARTA #### ------------------------------------------
+
+magna_carta_libertatum = {
+	global_tax_modifier = 0.1
+	liege_opinion = -4
+	castle_opinion = 6
+	defensive_plot_power_modifier = 0.1
+	
+	active = { 
+
+		AND = {
+			is_landed = yes	
+			OR = {
+				#de_facto_liege_title = k_england
+				#de_facto_liege_title = e_britannia
+				liege = { has_landed_title = k_england }
+			}
+		}	
+		NOT = {
+			trait = blinded
+		}
+	}	
+		
+	stacking = no			
+	quality = 3
+	flags = { book }
+	picture = "GFX_magna_carta_libertatum"
+	
+	slot = library	
+}
+
+
+#### PAPAL BULLS #### ------------------------------------------
+
+papal_bull_1059 = {  #IN THE NAME OF THE LORD
+	rel_head_opinion = 10
+	catholic_opinion = 2
+	monthly_character_piety = 0.05	
+	
+	active = { 
+
+		AND = {
+			religion = catholic
+		}	
+		NOT = {
+			trait = blinded
+		}
+	}	
+		
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_papal_bull"
+	
+	slot = library	
+}
+
+papal_bull_1120 = {  #THUS TO THE JEWS
+	jewish_opinion = 5
+	catholic_opinion = 2
+	monthly_character_piety = 0.05	
+	
+	active = { 
+
+		AND = {
+			religion = catholic
+		}	
+		NOT = {
+			trait = blinded
+		}
+	}	
+		
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_papal_bull"
+	
+	slot = library	
+}
+
+papal_bull_1144 = {  #SOLDIERS OF THE TEMPLE
+	monthly_character_wealth = 1
+	catholic_opinion = 2
+	monthly_character_piety = 0.05
+	defensive_plot_power_modifier = 0.1
+	
+	active = { 
+
+		AND = {
+			trait = crusader
+			religion = catholic
+		}	
+		NOT = {
+			trait = blinded
+		}
+	}	
+		
+		
+	stacking = no			
+	quality = 3
+	flags = { book }
+	picture = "GFX_papal_bull"
+	
+	slot = library	
+}
+
+
+
+
+
+papal_bull_1155 = {  #LAUDABLY
+	demesne_size = 1
+	catholic_opinion = 2
+	monthly_character_piety = 0.05		
+	english_opinion = 4
+	irish_opinion = -8
+	
+	active = { 
+
+		AND = {
+			religion = catholic
+			culture = english
+		}	
+		NOT = {
+			trait = blinded
+		}
+	}	
+		
+	stacking = no			
+	quality = 3
+	flags = { book }
+	picture = "GFX_papal_bull"
+	
+	slot = library	
+}
+
+papal_bull_1235 = {  #SINCE THE ELEVENTH HOUR
+	monthly_character_piety = 0.15	
+	church_opinion = 2
+	catholic_opinion = 2
+	#infidel_opinion = -3
+	
+	active = { 
+
+		AND = {
+			religion = catholic
+		}	
+		NOT = {
+			trait = blinded
+		}
+	}	
+		
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_papal_bull"
+	
+	slot = library	
+}
+
+papal_bull_1252 = {  #FOR THE ELIMINATION
+	arrest_chance_modifier = 0.05
+	catholic_opinion = 2
+	cathar_opinion = -10
+	
+	active = { 
+
+		AND = {
+			religion = catholic
+		}	
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_papal_bull"
+	
+	slot = library	
+}
+
+##
+#############################
+##### ENGINEERING BOOKS
+#############################
+###
+
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+
+#### Castle Plans of Tower of London #### ------------------------------------------
+
+plans_tower = {
+	siege_defence = 0.15
+	build_cost_modifier = -0.05
+	monthly_character_prestige = 0.1
+	
+	saxon_opinion = -2
+	norman_opinion = 2
+	english_opinion = 2
+	
+	active = { 
+		OR = {		
+			has_landed_title = c_middlesex	
+			primary_title = {			
+				title = b_westminster
+			}				
+			primary_title = {			
+				title = b_tottenham
+			}
+			primary_title = {			
+				title = b_fulham
+			}
+			primary_title = {			
+				title = b_london
+			}				
+			primary_title = {			
+				title = b_st_pauls
+			}
+			dynasty=752
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 4
+	flags = { book }
+	picture = "GFX_blueprints_castle2"
+	
+	slot = library	
+}
+
+
+#### Castle Plans of Chepstowe #### ------------------------------------------
+
+plans_chepstow = {
+	siege_defence = 0.35
+	global_revolt_risk = -0.25
+	male_dynasty_opinion = 5
+	
+	active = { 
+		OR = {		
+			primary_title = {
+				title = c_gwent
+			}	
+			primary_title = {
+				title = b_caerwent
+			}			
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_blueprints_castle"
+	
+	slot = library	
+}
+
+
+#### SIEGE ENGINE BLUEPRINTS #### ------------------------------------------
+
+blueprints_siege_engine = {
+	
+	martial = 3
+	siege_speed = 0.075
+	
+	active = { 
+
+		OR = {
+			AND= {
+				martial = 12	
+				learning = 12		
+			}
+			trait = siege_leader
+			trait = brilliant_strategist
+			trait = genius
+		}	
+		AND = { in_command = yes }
+		NOT = {
+			trait = blinded
+		}
+	}	
+
+	stacking = no			
+	quality = 3
+	flags = { book }
+	picture = "GFX_blueprints_siege_engine"
+	
+	slot = library	
+}
+
+#### ROMAN SCROLL #### ------------------------------------------
+
+on_the_things_of_wars = {
+	
+	martial = 2
+	siege_speed = 0.025
+	
+	active = { 
+
+		OR = {
+			AND= {
+				martial = 10	
+				learning = 10		
+			}
+			trait = siege_leader
+			trait = brilliant_strategist
+			trait = genius
+		}	
+		AND = { in_command = yes }		
+		NOT = {
+			trait = blinded
+		}
+	}	
+
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_roman_scroll"
+	
+	slot = library	
+}
+
+##
+#############################
+##### PHILOSOPHY, RHETORIC & LOGIC BOOKS
+#############################
+###
+
+#### PHAEDRUS #### ------------------------------------------
+
+phaedrus = {
+	diplomacy = 2
+	learning = 2	
+	sex_appeal_opinion = 2
+	
+	active = { 
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_roman_scroll"
+	
+	slot = library	
+}
+
+#### GORGIAS #### ------------------------------------------
+
+gorgias = {
+	diplomacy = 2
+	learning = 2	
+	town_opinion = 2
+	
+	active = { 
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_roman_scroll"
+	
+	slot = library	
+}
+
+#### CRATYLUS #### ------------------------------------------
+
+cratylus = {
+	learning = 2	
+	
+	active = { 
+		OR = {
+			culture = greek
+			trait = scholar
+		}
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_roman_scroll"
+	
+	slot = library	
+}
+
+#### STATESMAN #### ------------------------------------------
+
+statesman = {
+	diplomacy = 2
+	stewardship = 2
+	town_opinion = 5
+	
+	active = { 
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 4
+	flags = { book }
+	picture = "GFX_roman_scroll"
+	
+	slot = library	
+}
+
+#### APOLOGY #### ------------------------------------------
+
+apology = {
+	learning = 2
+	religion_flex = -0.15
+	
+	active = { 
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_roman_scroll"
+	
+	slot = library	
+}
+
+#### SYMPOSIUM #### ------------------------------------------
+
+symposium = {
+	diplomacy = 2
+	sex_appeal_opinion = 2
+	hellenic_pagan_opinion = 2
+	
+	active = { 
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_roman_scroll"
+	
+	slot = library	
+}
+
+#### CRITIAS #### ------------------------------------------
+
+critias = {
+	learning = 3
+	hellenic_pagan_opinion = 2
+	
+	active = { 
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_roman_scroll"
+	
+	slot = library	
+}
+
+#### REPUBLIC #### ------------------------------------------
+
+republic1 = {
+	stewardship = 3
+	town_opinion = 5
+	castle_opinion = -5
+	
+	active = { 
+		OR = {
+			is_landed = no		
+			is_lowborn = yes
+			was_conceived_a_bastard = yes
+			is_republic = yes
+		}
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_fantastic_book1"
+	
+	slot = library	
+}
+
+republic2 = {
+	stewardship = 3
+	town_opinion = 5
+	castle_opinion = -5
+	
+	active = { 
+		OR = {
+			is_landed = no		
+			is_lowborn = yes
+			was_conceived_a_bastard = yes
+			is_republic = yes
+		}	
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_fantastic_book1"
+	
+	slot = library	
+}
+
+republic3 = {
+	stewardship = 3
+	town_opinion = 5
+	castle_opinion = -5
+	
+	active = { 
+		OR = {
+			is_landed = no		
+			is_lowborn = yes
+			was_conceived_a_bastard = yes
+			is_republic = yes
+		}	
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_fantastic_book2"
+	
+	slot = library	
+}
+
+republic4 = {
+	stewardship = 3
+	town_opinion = 5
+	castle_opinion = -5
+	
+	active = { 
+		OR = {
+			is_landed = no		
+			is_lowborn = yes
+			was_conceived_a_bastard = yes
+			is_republic = yes
+		}	
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_fantastic_book1"
+	
+	slot = library	
+}
+
+republic5 = {
+	stewardship = 3
+	town_opinion = 5
+	castle_opinion = -5
+	
+	active = { 
+		OR = {
+			is_landed = no		
+			is_lowborn = yes
+			was_conceived_a_bastard = yes
+			is_republic = yes
+		}	
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_fantastic_book2"
+	
+	slot = library	
+}
+
+republic6 = {
+	stewardship = 3
+	town_opinion = 5
+	castle_opinion = -5
+	
+	active = { 
+		OR = {
+			is_landed = no		
+			is_lowborn = yes
+			was_conceived_a_bastard = yes
+			is_republic = yes
+		}	
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_fantastic_book1"
+	
+	slot = library	
+}
+
+republic7 = {
+	stewardship = 3
+	town_opinion = 5
+	castle_opinion = -5
+	
+	active = { 
+		OR = {
+			is_landed = no		
+			is_lowborn = yes
+			was_conceived_a_bastard = yes
+			is_republic = yes
+		}	
+		NOT = {		
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_fantastic_book2"
+	
+	slot = library	
+}
+
+republic8 = {
+	stewardship = 3
+	town_opinion = 5
+	castle_opinion = -5
+	
+	active = { 
+		OR = {
+			is_landed = no		
+			is_lowborn = yes
+			was_conceived_a_bastard = yes
+			is_republic = yes
+		}	
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_fantastic_book2"
+	
+	slot = library	
+}
+
+republic9 = {
+	stewardship = 3
+	town_opinion = 5
+	castle_opinion = -5
+	
+	active = { 
+		OR = {
+			is_landed = no		
+			is_lowborn = yes
+			was_conceived_a_bastard = yes
+			is_republic = yes
+		}	
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_fantastic_book1"
+	
+	slot = library	
+}
+
+republic10 = {
+	stewardship = 3
+	town_opinion = 5
+	castle_opinion = -5
+	
+	active = { 
+		OR = {
+			is_landed = no		
+			is_lowborn = yes
+			was_conceived_a_bastard = yes
+			is_republic = yes
+		}	
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_fantastic_book2"
+	
+	slot = library	
+}
+
+#### Lysis #### ------------------------------------------
+
+lysis = {
+	diplomacy = 2
+	
+	active = { 
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_roman_scroll"
+	
+	slot = library	
+}
+
+#### OCKHAMS'S SUM OF LOGIC #### ------------------------------------------
+
+sum_of_logic = {
+	
+	learning = 6
+	intrigue = 2
+	
+	
+	active = { 
+
+		OR = {
+			trait = scholar
+			trait = erudite		
+			learning = 10		
+		}	
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+		}
+	}
+	stacking = no			
+	quality = 3
+	flags = { book }
+	picture = "GFX_ockham_sum_of_logic"
+	
+	slot = library	
+}
+
+#### THE CONSOLATION OF PHILOSOPHY #### ------------------------------------------
+
+consolation_of_philosphy = {
+	intrigue = 4
+	health = 1.5
+	monthly_character_piety = 0.5
+	
+	active = { 
+		OR = {
+			prisoner = yes
+		}
+		NOT = {
+			trait = blinded
+		}		
+	}
+	stacking = no		
+	quality = 4
+	flags = { book }
+	picture = "GFX_consolation_of_philosphy"
+	
+	slot = library	
+}
+
+consolation_of_philosphy2 = {
+	intrigue = 2
+	health = 1
+	monthly_character_piety = 0.25
+	
+	active = { 
+		OR = {
+			prisoner = yes
+		}
+		NOT = {
+			trait = blinded
+			has_artifact = consolation_of_philosphy
+		}		
+	}
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_consolation_of_philosphy2"
+	
+	slot = library	
+}
+
+consolation_of_philosphy_girdle = {
+	intrigue = 2
+	health = 1
+	monthly_character_piety = 0.25
+	
+	general_opinion = 2
+	
+	active = { 
+		NOT = {
+			trait = blinded
+		}		
+	}
+
+	stacking = no
+	slot = girdle_book	
+	quality = 3
+	flags = { book }
+	picture = "GFX_girdlebook"
+}
+
+##
+#############################
+##### RELIGIOUS BOOKS
+#############################
+###
+
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+
+#### LETTER TO THE LORDS BISHOP OF IRELAND #### ------------------------------------------
+
+letter_to_irish_bishops = {
+	monthly_character_piety = 0.05
+	
+	active = { 
+		religion = catholic
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	allowed_gift = {
+		religion_group = christian
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_anglo_saxon_looseleaf"
+	
+	slot = library	
+}
+
+
+#### THE CITY OF GOD #### ------------------------------------------
+
+city_of_god = {
+	monthly_character_piety = 0.5
+	catholic_opinion = 2
+	hellenic_pagan_opinion = -5
+	
+	active = { 
+		religion_group = christian
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	allowed_gift = {
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_book_title_spqr"
+	
+	slot = library	
+}
+
+#### GOSPEL OF HEINRICH #### ------------------------------------------
+
+gospel_of_henry_the_lion = {
+	monthly_character_piety = 0.5
+	church_opinion = 5
+	learning = 2
+	
+	active = { 
+		religion_group = christian
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	allowed_gift = {
+		religion_group = christian
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { unique book religious christian }
+	picture = "GFX_gospel_of_henry_the_lion"
+	
+	slot = library	
+}
+
+#### BENEDICTIONAL OF ST AETHELWOLD #### ------------------------------------------
+
+benedictional_aethelwold = {
+	learning = 5
+	monthly_character_piety = 1
+	church_opinion = 6
+	
+	active = { 
+		OR = {
+			is_priest = yes		
+			trait = scholar	
+			trait = theologian 
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 
+			#primary_title = {
+			#	title = b_st_swithun
+			#}			
+		}
+		OR = {
+			religion = catholic				
+		}
+		#OR = {
+		#	piety = 200				
+		#}		
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+	
+	stacking = no		
+	quality = 5
+	flags = { book }
+	picture = "GFX_benedictional_aethelwold"
+	
+	slot = library	
+}
+
+
+#### CHRONICA PROPHETICA #### ------------------------------------------
+
+chronica_prophetica = {
+
+	monthly_character_prestige = 1
+	muslim_opinion = -10
+	rel_head_opinion = 20
+	
+	active = { 
+		OR = {			
+			trait = scholar							
+			dynasty=8601
+			culture = visigothic		
+		}
+		OR = {
+			is_priest = yes	
+			dynasty=8601
+			title = k_asturias
+			title = k_leon
+			title = k_spanish_galicia
+			title = k_castille			
+			title = d_asturias		
+			title = c_asturias_de_oviedo				
+		}		
+		NOT = {
+			trait = blinded
+			religion_group = muslim
+		}
+	}
+	
+	allowed_gift = {
+		OR = {
+			NOT = { religion_group = muslim }
+		}
+	}
+	
+	stacking = no		
+	quality = 4
+	flags = { book }
+	picture = "GFX_chronica_prophetica"
+	
+	slot = library	
+}
+
+
+
+##
+#############################
+##### CHURCH ANNALS
+#############################
+###
+
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+
+#### HISTORY OF DEEDS DONE BEYOND THE SEA #### ------------------------------------------
+
+deeds_done = {  
+	martial = 2
+	learning = 1
+	
+	active = { 
+		religion_group = christian
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_tyrus #in c_tyrus
+			}		
+			primary_title = {
+				title = c_tyrus
+			}					
+			#is_priest = yes
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+		religion_group = christian
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_deeds_done"
+	
+	slot = library	
+}
+
+deeds_done_book = {  
+	martial = 2
+	learning = 1
+	church_opinion = 2
+	
+	active = { 
+		religion_group = christian
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_tyrus #in c_tyrus
+			}		
+			primary_title = {
+				title = c_tyrus
+			}					
+			#is_priest = yes
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+		religion_group = christian
+	}
+	
+	stacking = no		
+	quality = 4
+	flags = { book }
+	picture = "GFX_deed_done_beyond"
+	
+	slot = library	
+}
+
+####ADD GENERAL CIRULATION COMPILATION
+
+
+#### CHRONICLE OF MAN #### ------------------------------------------
+
+man_chronicle = {  
+	learning = 1
+	stewardship = 1
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_peel #in c_isle_of_man
+			}		
+			primary_title = {
+				title = c_isle_of_man
+			}			
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_annals_man"
+	
+	slot = library	
+}
+
+
+
+#### CHRONICLE OF MELROSE #### ------------------------------------------
+
+melrose_chronicle = {  
+	learning = 1
+	stewardship = 1
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_tyninghame #in c_dunbar
+			}		
+			primary_title = {
+				title = c_dunbar
+			}			
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_annals_of_winchcombe"
+	
+	slot = library	
+}
+
+
+#### IONA CHRONICLE #### ------------------------------------------
+
+iona_chronicle = {  
+	learning = 2
+	stewardship = 2
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_iona #in c_innse_gall
+			}		
+			primary_title = {
+				title = c_innse_gall
+			}
+			primary_title = {
+				title = b_connor #in c_ulster
+			}		
+			primary_title = {
+				title = c_ulster
+			}			
+			primary_title = {
+				title = b_armagh #in c_oriel
+			}		
+			primary_title = {
+				title = c_oriel
+			}					
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_annals_of_ulster"
+	
+	slot = library	
+}
+
+
+#### OSRAIGE CHRONICLE #### ------------------------------------------
+
+osraige_chronicle = {  
+	learning = 1
+	martial = 1
+	monthly_character_prestige = 0.05
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_clonmacnoise #in c_ossory
+			}		
+			primary_title = {
+				title = c_ossory
+			}	
+			#primary_title = {
+			#	title = b_cashel #in c_ormond
+			#}		
+			#primary_title = {
+			#	title = c_ormond
+			#}			
+			dynasty = 1040001
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_anglo_chronicle"
+	
+	slot = library	
+}
+
+
+#### INISFALLEN ANNALS #### ------------------------------------------
+
+annals_of_inisfallen = {  
+	learning = 1
+	stewardship = 1
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_cloyne #in c_desmond
+			}		
+			primary_title = {
+				title = c_desmond
+			}				
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_coventry_chronicle"
+	
+	slot = library	
+}
+
+#### CLONMACNOISE ANNALS / TIGERNACH #### ------------------------------------------
+
+annals_of_clonmacnoise = {  
+	learning = 1
+	stewardship = 1
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_clonmacnoise #in c_ossory
+			}		
+			primary_title = {
+				title = c_ossory
+			}				
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_annals_of_ulster"
+	
+	slot = library	
+}
+
+#### ARMAGH ANNALS #### ------------------------------------------
+
+annals_of_armagh = {   #PROTO-ANNALS OF ULSTER/BRANCH OF THE CHRONICLE OF IRELAND
+	learning = 1
+	stewardship = 1
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_armagh #in c_oriel
+			}		
+			primary_title = {
+				title = c_oriel
+			}				
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_annals_of_ulster"
+	
+	slot = library	
+}
+
+#### ANGLO-SAXON CHRONICLE #### ------------------------------------------
+
+anglo_chronicle = {
+	learning = 3
+	church_opinion = 5
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_st_swithun #Wessex and Canterbury
+			}	
+			primary_title = {
+				title = b_abingdon #Oxford
+			}		
+			primary_title = {
+				title = b_crowland #Northampton
+			}					
+			primary_title = {
+				title = c_worcester #Worcester
+			}						
+			culture_group = west_germanic
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_anglo_chronicle"
+	
+	slot = library	
+}
+
+#### WINCHCOMBE ANNALS #### ------------------------------------------
+
+winchcombe_annals = {
+	learning = 2
+	stewardship = 2
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_winchcombe
+			}	
+			primary_title = {
+				title = c_gloucester
+			}					
+		}
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_winchcombe_annals"
+	
+	slot = library	
+}
+
+annals_of_winchcombe = {
+	learning = 1
+	stewardship = 1
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_winchcombe
+			}	
+			primary_title = {
+				title = c_gloucester
+			}					
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_annals_of_winchcombe"
+	
+	slot = library	
+}
+
+#### TEWKESBURY ANNALS #### ------------------------------------------
+
+tewkesbury_annals = {
+	stewardship = 2
+	intrigue = 1	
+	monthly_character_prestige = 0.1
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_winchcombe
+			}	
+			primary_title = {
+				title = c_gloucester
+			}		
+			dynasty=364
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_tewkesbury_annals"
+	
+	slot = library	
+}
+
+#### MARGAM ANNALS #### ------------------------------------------
+
+margan_annals = {
+	learning = 2
+	stewardship = 1
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_llandaff
+			}	
+			primary_title = {
+				title = c_glamorgan
+			}
+			dynasty=364
+			dynasty=355			
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_margan_annals"
+	
+	slot = library	
+}
+
+#### COVENTRY CHRONICLE #### ------------------------------------------
+
+coventry_chronicle = {
+	learning = 2
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_coventry
+			}	
+			primary_title = {
+				title = c_warwick
+			}
+			dynasty=5061
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_coventry_chronicle"
+	
+	slot = library	
+}
+
+#### ANNALES CAMBRIAE #### ------------------------------------------
+
+annales_cambriae = {
+	learning = 4
+	diplomacy = 2	
+	welsh_opinion = 2	
+	monthly_character_prestige = 0.5
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_st_davids
+			}	
+			primary_title = {
+				title = c_dyfed
+			}
+			primary_title = {
+				title = d_deheubarth
+			}	
+			primary_title = {
+				title = k_wales
+			}						
+			culture = welsh
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 4
+	flags = { book }
+	picture = "GFX_annales_cambriae"
+	
+	slot = library	
+}
+
+annales_cambriae2 = {
+	learning = 2
+	diplomacy = 1	
+	welsh_opinion = 2
+	monthly_character_prestige = 0.1
+	
+	active = { 
+		OR = {
+			trait = dull	
+			trait = scholar			
+			primary_title = {
+				title = b_st_davids
+			}	
+			primary_title = {
+				title = c_dyfed
+			}
+			primary_title = {
+				title = d_deheubarth
+			}	
+			primary_title = {
+				title = k_wales
+			}						
+			culture = welsh
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_annales_cambriae2"
+	
+	slot = library	
+}
+
+#### CHRONICLE OF THE PRINCES #### ------------------------------------------
+
+chronicle_of_the_princes = {
+	learning = 2
+	diplomacy = 1
+	
+	active = { 
+		OR = {
+			trait = dull
+			trait = scholar			
+			primary_title = {
+				title = b_st_davids
+			}	
+			primary_title = {
+				title = c_dyfed
+			}
+			primary_title = {
+				title = d_deheubarth
+			}	
+			primary_title = {
+				title = k_wales
+			}						
+			culture_group = celtic
+		}
+		NOT = {
+			trait = blinded
+		}
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_anglo_saxon_looseleaf"
+	
+	slot = library	
+}
+
+##
+#############################
+##### HISTORIES
+#############################
+###
+
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+
+
+
+#### ANTIQUITIES OF THE JEWS #### ------------------------------------------
+
+antiquities_of_the_jews_a_1 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 		
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_2 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 	
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}	
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_3 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 		
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews2
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_4 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 		
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews3"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_5 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 		
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews4"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_6 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 		
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_7 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews4"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_8 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 	
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews5"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_9 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 		
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews2"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_10 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews6"
+	
+	slot = library	
+}
+
+
+antiquities_of_the_jews_a_11 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews3"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_12 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 	
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_13 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 	
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_14 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 	
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews6"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_15 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 	
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews6"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_16 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 	
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_17 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = {
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews4"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_18 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 	
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews5"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_19 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 	
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews"
+	
+	slot = library	
+}
+antiquities_of_the_jews_a_20 = {
+	learning = 2
+	jewish_opinion = 3
+	city_tax_modifier = 0.05
+
+	active = { 	
+		OR = {
+			AND = {
+				trait = scholar	
+				trait = sympathy_judaism	
+			}
+			AND = {
+				learning = 20		
+				trait = sympathy_judaism	
+			}			
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}
+	}	
+	
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_antiquities_of_the_jews3"
+	
+	slot = library	
+}
+
+
+#### LIBER PONTIFICALIS #### ------------------------------------------
+
+book_of_pontiffs = {
+	catholic_opinion = 2
+	church_opinion = 2
+	rel_head_opinion = 2
+	monthly_character_piety = 0.2
+	
+	active = { 
+
+		religion = catholic			
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion = catholic	
+		}
+	}
+	stacking = no			
+	quality = 3
+	flags = { book }
+	picture = "GFX_book_of_pontiffs"
+	
+	slot = library	
+}
+
+
+#### BOOK TO THE KNIGHTS OF THE TEMPLE IN PRAISE OF THE NEW KNIGHTHOOD #### ------------------------------------------
+
+in_praise_of_the_new_knighthood = {
+	martial = 2
+	monthly_character_piety = 0.15
+	
+	active = { 
+
+		religion_group = christian			
+		trait = crusader
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_in_praise_of_the_new_knighthood"
+	
+	slot = library	
+}
+
+
+
+
+
+
+
+
+
+#### TALE OF DANISHMEND #### ------------------------------------------
+
+tale_of_danishmend = {
+	learning = 1
+	martial = 2
+	
+	active = { 
+		OR = {
+			culture_group = altaic 
+			dynasty = 101730
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			culture_group = altaic
+			religion_group = muslim
+		}
+	}
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_islamic_work_orange2"
+	
+	slot = library	
+}
+
+
+
+#### THE GARDEN OF PAGES #### ------------------------------------------
+
+the_garden_of_pages = {
+	
+	martial = 2
+	intrigue = 2
+	short_reign_length = -2
+	
+	active = { 
+
+		OR = {
+			trait = scholar	
+			primary_title = {
+				title = d_fes
+			}
+			primary_title = {
+				title = d_tangiers
+			}			
+			primary_title = {
+				title = d_marrakech
+			}				
+			primary_title = {
+				title = d_tlemcen
+			}					
+			primary_title = {
+				title = k_africa
+			}	
+			primary_title = {
+				title = k_mauretania
+			}		
+			primary_title = {
+				title = e_arabia
+			}				
+			culture = maghreb_arabic		
+			culture = andalusian_arabic				
+		}	
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = muslim
+		}
+	}
+		
+	stacking = no			
+	quality = 3
+	flags = { book }
+	picture = "GFX_garden_of_pages"
+	
+	slot = library	
+}
+
+
+
+
+#### YSTRAD CLUD - STRATHCLYDE #### ------------------------------------------
+
+ystrad_clud = {
+	
+	culture_flex = -0.75
+	dynasty_opinion = 4
+	liege_opinion = 4
+	tribal_opinion = 4
+	
+	martial = 3
+	stewardship = 3
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			primary_title = {
+				title = d_galloway
+			}			
+			dynasty = 816 #Alt Clut
+		}
+		OR = {
+			culture = welsh		
+			dynasty = 816 #Alt Clut
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			culture = welsh
+		}
+	}
+	stacking = no			
+	quality = 5
+	flags = { book }
+	picture = "GFX_ystrad_clud"
+	
+	slot = library	
+}
+
+
+#### ECCLESIASTICAL HISTORY #### ------------------------------------------
+
+ecclesiatical_history1 = {
+	learning = 2
+	church_opinion = 5
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			trait = theologian 
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 
+			primary_title = {
+				title = b_st_peters
+			}			
+		}
+		OR = {
+			is_priest = yes
+			culture = saxon
+			culture = english
+			culture_group = celtic				
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_ecclesiastical_history1"
+	
+	slot = library	
+}
+
+ecclesiatical_history2 = {
+	learning = 2
+	church_opinion = 5
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			trait = theologian 
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 
+			primary_title = {
+				title = b_st_peters
+			}			
+		}
+		OR = {
+			is_priest = yes
+			culture = saxon
+			culture = english
+			culture_group = celtic				
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_ecclesiastical_history2"
+	
+	slot = library	
+}
+
+ecclesiatical_history3 = {
+	learning = 2
+	church_opinion = 5
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			trait = theologian 
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 
+			primary_title = {
+				title = b_st_peters
+			}			
+		}
+		OR = {
+			is_priest = yes
+			culture = saxon
+			culture = english
+			culture_group = celtic				
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_ecclesiastical_history3"
+	
+	slot = library	
+}
+
+ecclesiatical_history4 = {
+	learning = 2
+	church_opinion = 5
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			trait = theologian 
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 
+			primary_title = {
+				title = b_st_peters
+			}			
+		}
+		OR = {
+			is_priest = yes
+			culture = saxon
+			culture = english
+			culture_group = celtic				
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_ecclesiastical_history4"
+	
+	slot = library	
+}
+
+ecclesiatical_history5 = {
+	learning = 2
+	church_opinion = 5
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			trait = theologian 
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 
+			primary_title = {
+				title = b_st_peters
+			}			
+		}
+		OR = {
+			is_priest = yes
+			culture = saxon
+			culture = english
+			culture_group = celtic				
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+	stacking = no			
+	quality = 2
+	flags = { book }
+	picture = "GFX_ecclesiastical_history5"
+	
+	slot = library	
+}
+
+#### ECCLESIASTICAL HISTORY GIRDLE #### ------------------------------------------
+
+ecclesiatical_history_girdle1 = {
+	learning = 1
+	church_opinion = 5
+	
+	general_opinion = 2
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			trait = theologian 
+			trait = monk	
+			trait = nun			
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 	
+		}
+		OR = {
+			is_priest = yes
+			culture = saxon
+			culture = english
+			culture_group = celtic				
+		}
+		AND = {
+			religion_group = christian
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+		
+	stacking = no
+	slot = girdle_book		
+	quality = 1
+	flags = { book }
+	picture = "GFX_ecclesiastical_history_girdle"
+}
+
+ecclesiatical_history_girdle2 = {
+	learning = 1
+	church_opinion = 5
+	
+	general_opinion = 2
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			trait = theologian 
+			trait = monk	
+			trait = nun			
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 	
+		}
+		OR = {
+			is_priest = yes
+			culture = saxon
+			culture = english
+			culture_group = celtic				
+		}
+		AND = {
+			religion_group = christian
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+
+	stacking = no
+	slot = girdle_book	
+	quality = 1
+	flags = { book }
+	picture = "GFX_ecclesiastical_history_girdle"
+}
+
+ecclesiatical_history_girdle3 = {
+	learning = 1
+	church_opinion = 5
+	
+	general_opinion = 2
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			trait = theologian 
+			trait = monk	
+			trait = nun			
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 	
+		}
+		OR = {
+			is_priest = yes
+			culture = saxon
+			culture = english
+			culture_group = celtic				
+		}
+		AND = {
+			religion_group = christian
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+
+	stacking = no
+	slot = girdle_book	
+	quality = 1
+	flags = { book }
+	picture = "GFX_ecclesiastical_history_girdle"
+}
+
+ecclesiatical_history_girdle4 = {
+	learning = 1
+	church_opinion = 5
+	
+	general_opinion = 2
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			trait = theologian 
+			trait = monk	
+			trait = nun			
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 	
+		}
+		OR = {
+			is_priest = yes
+			culture = saxon
+			culture = english
+			culture_group = celtic				
+		}
+		AND = {
+			religion_group = christian
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+
+	stacking = no
+	slot = girdle_book	
+	quality = 1
+	flags = { book }
+	picture = "GFX_ecclesiastical_history_girdle"
+}
+
+ecclesiatical_history_girdle5 = {
+	learning = 1
+	church_opinion = 5
+	
+	general_opinion = 2
+	
+	active = { 
+		OR = {
+			trait = scholar	
+			trait = theologian 
+			trait = monk	
+			trait = nun			
+			society_member_of = monastic_order_benedictine 
+			society_member_of = monastic_order_dominican 	
+		}
+		OR = {
+			is_priest = yes
+			culture = saxon
+			culture = english
+			culture_group = celtic				
+		}
+		AND = {
+			religion_group = christian
+		}
+		NOT = {
+			trait = blinded
+		}
+	}	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+		}
+	}
+
+	stacking = no
+	slot = girdle_book	
+	quality = 1
+	flags = { book }
+	picture = "GFX_ecclesiastical_history_girdle"
+}
+
+
+#### DEEDS OF THE DANES, BOOK I-IX (NORSE MYTH) #### ------------------------------------------
+
+deeds_of_the_danes1 = {
+	learning = 2
+	norse_pagan_opinion = 5
+	
+	active = { 	
+		OR = {		
+			trait = scholar	
+			trait = theologian 	
+			culture = danish
+			religion = norse_pagan				
+		}
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric
+			religion = norse_pagan				
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes5"
+	
+	slot = library	
+}
+
+deeds_of_the_danes2 = {
+	learning = 1
+	martial = 1	
+	norse_pagan_opinion = 5
+	
+	active = { 	
+		OR = {		
+			trait = scholar	
+			trait = theologian 	
+			culture = danish
+			religion = norse_pagan				
+		}
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric
+			religion = norse_pagan				
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes5"
+	
+	slot = library	
+}
+
+deeds_of_the_danes3 = {
+	learning = 1
+	diplomacy = 1	
+	norse_pagan_opinion = 5
+	
+	active = { 	
+		OR = {		
+			trait = scholar	
+			trait = theologian 	
+			culture = danish
+			religion = norse_pagan				
+		}
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric
+			religion = norse_pagan				
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes"
+	
+	slot = library	
+}
+
+deeds_of_the_danes4 = {
+	learning = 1
+	stewardship = 1	
+	norse_pagan_opinion = 5
+	
+	active = { 	
+		OR = {		
+			trait = scholar	
+			trait = theologian 	
+			culture = danish
+			religion = norse_pagan				
+		}
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric
+			religion = norse_pagan				
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes"
+	
+	slot = library	
+}
+
+deeds_of_the_danes5 = {
+	learning = 1
+	intrigue = 1	
+	norse_pagan_opinion = 5
+	
+	active = { 	
+		OR = {		
+			trait = scholar	
+			trait = theologian 	
+			culture = danish
+			religion = norse_pagan				
+		}
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric
+			religion = norse_pagan				
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes5"
+	
+	slot = library	
+}
+
+deeds_of_the_danes6 = {
+	learning = 1
+	martial = 1	
+	norse_pagan_opinion = 5
+	
+	active = { 	
+		OR = {		
+			trait = scholar	
+			trait = theologian 	
+			culture = danish
+			religion = norse_pagan				
+		}
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric
+			religion = norse_pagan				
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes"
+	
+	slot = library	
+}
+
+deeds_of_the_danes7 = {
+	learning = 2	
+	norse_pagan_opinion = 5
+	
+	active = { 	
+		OR = {		
+			trait = scholar	
+			trait = theologian 	
+			culture = danish
+			religion = norse_pagan				
+		}
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric
+			religion = norse_pagan				
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes"
+	
+	slot = library	
+}
+
+deeds_of_the_danes8 = {
+	learning = 1
+	martial = 1	
+	norse_pagan_opinion = 5
+	
+	active = { 	
+		OR = {		
+			trait = scholar	
+			trait = theologian 	
+			culture = danish
+			religion = norse_pagan				
+		}
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric
+			religion = norse_pagan				
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes5"
+	
+	slot = library	
+}
+
+deeds_of_the_danes9 = {
+	learning = 1
+	intrigue = 1	
+	norse_pagan_opinion = 5
+	
+	active = { 	
+		OR = {		
+			trait = scholar	
+			trait = theologian 	
+			culture = danish
+			religion = norse_pagan				
+		}
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric
+			religion = norse_pagan				
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes5"
+	
+	slot = library	
+}
+
+#### DEEDS OF THE DANES, BOOK X - XVI (HISTORY) #### ------------------------------------------
+
+deeds_of_the_danes10 = {
+	learning = 3
+	christian_opinion = 3
+	
+	active = { 	
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric					
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes"
+	
+	slot = library	
+}
+deeds_of_the_danes11 = {
+	learning = 1
+	diplomacy = 3
+	christian_opinion = 3
+	
+	active = { 	
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric					
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes"
+}
+deeds_of_the_danes12 = {
+	learning = 1
+	intrigue = 2
+	christian_opinion = 3
+	
+	active = { 	
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric					
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes5"
+	
+	slot = library	
+}
+deeds_of_the_danes13 = {
+	learning = 1
+	stewardship = 2
+	
+	active = { 	
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			culture_group = baltic
+			culture_group = finno_ugric
+			dynasty=482
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes5"
+	
+	slot = library	
+}
+deeds_of_the_danes14 = {  ###BIGGEST VOLUME, covers Baltic Crusades
+	learning = 2
+	martial = 4
+	baltic_pagan_opinion = -10
+	slavic_pagan_opinion = -20
+	christian_opinion = 10
+	
+	active = { 	
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			dynasty=482
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes14"
+	
+	slot = library	
+}
+deeds_of_the_danes15 = { ###covers Baltic Crusades
+	learning = 1
+	martial = 2
+	baltic_pagan_opinion = -10
+	slavic_pagan_opinion = -20	
+	christian_opinion = 10	
+	
+	active = { 	
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic
+			dynasty=482
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes"
+	
+	slot = library	
+}
+deeds_of_the_danes16 = { ###covers Baltic Crusades
+	learning = 1
+	martial = 2
+	baltic_pagan_opinion = -10
+	slavic_pagan_opinion = -20	
+	christian_opinion = 10
+	
+	active = { 	
+		OR = {		
+			culture_group = west_germanic
+			culture_group = north_germanic
+			culture_group = central_germanic	
+			dynasty=482
+		}
+
+		NOT = {
+			trait = blinded
+		}
+	}
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_deeds_of_the_danes5"
+	
+	slot = library	
+}
+
+
+##
+#############################
+##### LICENCES TO CRENELLATE
+#############################
+###
+
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+
+#### ROCHESTER LICENCE TO CRENELLATE #### ------------------------------------------
+
+crenellate_rochester = {
+	stewardship = 1
+	liege_opinion = 5
+	build_time_castle_modifier = -0.1
+	defensive_plot_power_modifier = 0.1
+	
+	active = { 
+		OR = {	
+			has_landed_title = b_rochester
+			has_landed_title = c_kent	
+		}		
+		independent = no
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book licence }
+	picture = "GFX_licence_to_crenellate"
+	
+	slot = library	
+}
+
+#### COLCESSTER LICENCE TO CRENELLATE #### ------------------------------------------
+
+crenellate_colchester = {
+	stewardship = 2
+	liege_opinion = 5
+	build_time_castle_modifier = -0.1
+	defensive_plot_power_modifier = 0.25
+	
+	active = { 
+		OR = {
+			has_landed_title = b_colchester
+			has_landed_title = c_essex
+		}
+		independent = no
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book licence }
+	picture = "GFX_licence_to_crenellate"
+	
+	slot = library	
+}
+
+#### GAINSBOROUGH LICENCE TO CRENELLATE #### ------------------------------------------
+
+crenellate_gainsborough = {
+	stewardship = 1
+	liege_opinion = 5
+	build_time_castle_modifier = -0.1
+	defensive_plot_power_modifier = 0.1
+	
+	active = { 
+		OR = {
+			has_landed_title = b_gainsborough
+			has_landed_title = c_lincoln
+		}
+		independent = no
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book licence }
+	picture = "GFX_licence_to_crenellate"
+	
+	slot = library	
+}
+
+#### DEVON LICENCE TO CRENELLATE #### ------------------------------------------
+
+crenellate_devon = {
+	stewardship = 1
+	liege_opinion = 5
+	build_time_castle_modifier = -0.1
+	defensive_plot_power_modifier = 0.1
+	
+	active = { 
+		OR = {
+			has_landed_title = b_lydford
+			has_landed_title = c_devon
+		}
+		independent = no
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book licence }
+	picture = "GFX_licence_to_crenellate"
+	
+	slot = library	
+}
+
+#### COVENTRY LICENCE TO CRENELLATE #### ------------------------------------------
+
+crenellate_coventry = {
+	liege_opinion = 10
+	build_cost_temple_modifier = -0.5
+	defensive_plot_power_modifier = 0.25
+	
+	active = { 
+		OR = {
+			has_landed_title = b_coventry
+			#has_landed_title = c_warwick
+		}
+		independent = no
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book licence }
+	picture = "GFX_licence_to_crenellate"
+	
+	slot = library	
+}
+
+#### COVENTRY LICENCE TO NORWICH #### ------------------------------------------
+
+crenellate_norwich = {
+	build_cost_temple_modifier = -0.1
+	defensive_plot_power_modifier = 0.1
+	
+	active = { 
+		OR = {
+			has_landed_title = b_norwich
+			#has_landed_title = c_warwick
+		}
+		independent = no
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book licence }
+	picture = "GFX_licence_to_crenellate"
+	
+	slot = library	
+}
+
+
+##
+#############################
+##### ARMORIAL ROLLS
+#############################
+###
+
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+
+
+#### ARMORIAL ROLL OF HENRY III #### ------------------------------------------
+
+armorial_of_king_henry = {
+	diplomacy = 4
+	monthly_character_prestige = 0.5	
+	castle_opinion = 5
+	
+	active = { 
+		OR = {
+			has_landed_title = k_england			
+			has_landed_title = e_britannia
+			dynasty=106
+		}
+		OR = {
+			culture = english
+			culture = norman	
+		}		
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book armorial }
+	picture = "GFX_armorial_roll"
+	
+	slot = library	
+}
+
+#### ARMORIAL ROLL OF WALES #### ------------------------------------------
+
+armorial_of_wales = {
+	diplomacy = 3
+	monthly_character_prestige = 0.25	
+	castle_opinion = 5
+	
+	active = { 
+		OR = {
+			has_landed_title = k_wales			
+			has_landed_title = e_britannia
+			dynasty=101920 #Abbawabbit
+			dynasty=101919 #Dinnaforwa
+			dynasty=547 # Morgan
+			
+		}
+		OR = {
+			culture = welsh
+			culture = breton	
+		}		
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book armorial }
+	picture = "GFX_armorial_roll"
+	
+	slot = library	
+}
+
+#### ARMORIAL ROLL OF SAVOY #### ------------------------------------------
+
+armorial_of_savoy = {
+	diplomacy = 4
+	monthly_character_prestige = 0.5	
+	castle_opinion = 5
+	
+	active = { 
+		OR = {
+			has_landed_title = d_savoie			
+			dynasty=240			
+		}
+		OR = {
+			culture_group = latin
+			culture = german
+			culture = lombard
+		}		
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book armorial }
+	picture = "GFX_armorial_roll"
+	
+	slot = library	
+}
+
+#### ARMORIAL GIRDLE BOOK #### ------------------------------------------
+
+armorial_girdle = {
+	diplomacy = 2
+	monthly_character_prestige = 0.25
+	castle_opinion = 2
+	
+	general_opinion = 2
+	
+	active = { 
+		is_landed = yes
+		NOT = {
+			trait = blinded
+		}		
+	}
+
+	stacking = no
+	slot = girdle_book	
+	quality = 3
+	flags = { book armorial }
+	picture = "GFX_girdle_book_armorial"
+	
+	slot = library	
+}
+
+##
+#############################
+##### GRIMOIRES
+#############################
+###
+
+#cannibal_trait
+#any_dynasty_member = { society_member_of = the_satanists }
+#any_close_relative
+#trait = bad_priest_christian
+#trait = bad_priest_muslim
+#trait = bad_priest_norse
+#trait = bad_priest_tengri
+#trait = bad_priest_zoroastrian
+
+	
+#### LIBER MONSTROROM #### ------------------------------------------
+
+book_of_monsters = { 
+	intrigue = 1
+	martial = 1
+	monthly_character_prestige = 0.25
+	
+	active = { 
+		OR = {
+			trait = scholar
+			trait = theologian
+			trait = mystic
+			trait = hunter 
+			
+			trait = possessed
+			trait = lunatic			
+			trait = paranoid				
+			
+			society_member_of = hermetics 
+			
+			religion = norse_pagan			
+			
+			#any_close_relative = { 
+			#	opinion = { who = ROOT value = 50 }
+			#	OR = {
+			#		trait = hunter 
+			#		trait = mystic
+			#		trait = scholar
+			#		trait = theologian
+			#		society_member_of = hermetics 
+			#	}
+			#	NOT = { trait = blinded }
+			#}			
+		}
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	allowed_gift = {
+		OR = {
+			religion_group = christian
+			religion = norse_pagan
+		}
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_book_of_monsters"
+	
+	slot = library	
+}
+
+
+
+#### TESTAMENT OF SOLOMON #### ------------------------------------------
+
+testament_solomon = {
+	learning = 6
+	church_opinion = -10
+	monthly_character_piety = -0.25
+	
+	active = { 
+		OR = {
+			trait = scholar
+			trait = theologian
+			trait = paranoid
+			trait = mystic
+			trait = possessed
+			trait = lunatic
+			trait = bad_priest_christian
+			trait = bad_priest_muslim			
+			society_member_of = hermetics 
+		}	
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			religion_group = jewish_group
+		}		
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	allowed_gift = {	
+	}
+	
+	stacking = no		
+	quality = 4
+	flags = { book grimoire occult }
+	picture = "GFX_testament_solomon"
+	
+	slot = library	
+}
+
+
+
+#society_is_devil_worshiper = no 
+
+##
+#############################
+##### POETRY AND CHILDRENS
+#############################
+###
+
+#### THE BOOK OF KINGS #### ------------------------------------------
+
+book_of_kings = {
+	stewardship = 3
+	demesne_size = 1
+	castle_opinion = 5
+	
+	active = { 
+		OR ={
+			trait = scholar			
+			culture_group = iranian	
+			culture = turkish
+			culture = georgian
+			religion_group = zoroastrian_group
+		}
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_islamic_work_mughal"
+	
+	slot = library	
+}
+
+#### RING OF THE DOVE #### ------------------------------------------
+
+ring_of_the_dove = {
+	diplomacy = 2
+	sex_appeal_opinion = 5
+	fertility = -0.1
+	
+	active = { 
+		OR ={
+			trait = scholar			
+			culture = andalusian_arabic	
+			religion_group = muslim
+		}
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_islamic_work_red"
+	
+	slot = library	
+}
+
+#### AESOP #### ------------------------------------------
+
+aesops_fables = {
+	child_opinion = 10
+	#spouse_opinion = 5
+	
+	active = { 
+		is_adult = yes
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_aesopfables"
+	
+	slot = library	
+}
+
+#### LAIS OF MARIE DE FRANCE #### ------------------------------------------
+
+lais_marie_de_france = {
+	diplomacy = 3
+	
+	active = { 
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_lais"
+	
+	slot = library	
+}
+
+
+#### SONG OF WILLIAM #### ------------------------------------------
+
+song_of_william = {
+	martial = 2
+	health = 0.5
+	
+	active = { 
+		OR = {
+			trait = wounded
+			dynasty=100217
+		}
+	
+		NOT = {
+			religion_group = muslim
+		}
+		NOT = {
+			trait = blinded
+		}		
+	}
+	
+	allowed_gift = {
+		NOT = {
+			religion_group = muslim
+		}	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_song_of_william"
+	
+	slot = library	
+}
+
+song_of_william2 = {
+	martial = 1
+	health = 0.25
+	
+	active = { 
+		OR = {
+			trait = wounded
+			dynasty=100217
+		}
+	
+		NOT = {
+			religion_group = muslim
+		}
+		NOT = {
+			trait = blinded
+			has_artifact = song_of_william
+		}			
+	}
+	
+	allowed_gift = {
+		NOT = {
+			religion_group = muslim
+		}	
+	}
+	
+	stacking = no		
+	quality = 1
+	flags = { book }
+	picture = "GFX_song_of_william2"
+	
+	slot = library	
+}
+
+
+
+##
+#############################
+##### EPICS
+#############################
+###
+
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+#########################################################################################################################################################################################
+
+#### THE TAIN #### ------------------------------------------
+
+
+cattle_raid_of_cooley = {
+	demesne_size = 1
+	tribal_opinion = 2
+	monthly_character_prestige = 0.05
+	
+	active = { 
+		OR = {
+			culture_group = celtic
+		}
+		NOT = {
+			trait = blinded
+		}			
+	}
+	
+	allowed_gift = {
+		culture_group = celtic	
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_cattle_raid_of_cooley"
+	
+	slot = library	
+}
+
+#### THE KNIGHT IN THE PANTHER SKIN #### ------------------------------------------
+
+
+knight_in_the_panther_skin = {
+	diplomacy = 1
+	stewardship = 1
+	learning = 1	
+	monthly_character_prestige = 0.05
+	
+	active = { 
+		OR = {
+			trait = scholar			
+			culture = armenian
+			culture = georgian
+			culture = assyrian
+			dynasty = 507			
+		}	
+		OR = {
+			culture_group = byzantine
+			dynasty = 507			
+		}
+
+		NOT = {
+			trait = blinded
+			has_artifact = knight_in_the_panther_skin2
+			has_artifact = knight_in_the_panther_skin3
+		}			
+	}
+	
+	allowed_gift = {
+		culture_group = byzantine	
+	}
+	
+	stacking = no		
+	quality = 2
+	flags = { book }
+	picture = "GFX_knight_in_panther_skin"
+	
+	slot = library	
+}
+
+knight_in_the_panther_skin2 = {
+	diplomacy = 2
+	stewardship = 1
+	learning = 1	
+	monthly_character_prestige = 0.15
+	
+	active = { 
+		OR = {
+			trait = scholar			
+			culture = armenian
+			culture = georgian
+			culture = assyrian
+			dynasty = 507
+		}	
+		OR = {
+			culture_group = byzantine
+			dynasty = 507			
+		}
+
+		NOT = {
+			trait = blinded
+			has_artifact = knight_in_the_panther_skin3			
+		}			
+	}
+	
+	allowed_gift = {
+		culture_group = byzantine	
+	}
+	
+	stacking = no		
+	quality = 3
+	flags = { book }
+	picture = "GFX_knight_in_panther_skin2"
+	
+	slot = library	
+}
+
+knight_in_the_panther_skin3 = {
+	diplomacy = 2
+	stewardship = 2
+	learning = 2	
+	monthly_character_prestige = 0.25
+	
+	active = { 
+		OR = {
+			trait = scholar			
+			culture = armenian
+			culture = georgian
+			culture = assyrian
+			dynasty = 507
+		}	
+		OR = {
+			culture_group = byzantine
+			dynasty = 507			
+		}
+
+		NOT = {
+			trait = blinded
+		}			
+	}
+	
+	allowed_gift = {
+		culture_group = byzantine	
+	}
+	
+	stacking = no		
+	quality = 5
+	flags = { book }
+	picture = "GFX_knight_in_panther_skin3"
+	
+	slot = library	
+}
+
+
+
+
+
+
+
+
+
+
+
+

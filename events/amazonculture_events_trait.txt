@@ -1,0 +1,1079 @@
+#first test, stand ground
+narrative_event = {
+	title = EVTTITLAmzCul.301
+	id = AmzCul.301
+	desc = EVTDESCAmzCul.301
+	picture = GFX_evt_mysterious_forest
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAAmzCul.301
+		ai_chance = { factor = 500 }
+		narrative_event = { id = AmzCul.302 }
+		tooltip_info = gregarious
+		trigger = {
+			trait = gregarious
+		}
+	}
+	option = {
+		name = EVTOPTBAmzCul.301
+		ai_chance = { factor = 90 }
+		narrative_event = { id = AmzCul.302 } 
+	}
+	option = {
+		name = EVTOPTCAmzCul.301
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCul.3011 } 
+	}
+}
+
+#fail first test
+character_event = {
+	title = EVTTITLAmzCul.3011
+	id = AmzCul.3011
+	desc = EVTDESCAmzCul.3011
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.3011
+		custom_tooltip = { text = fail_amazon_hunt_tt }
+		ai_chance = { factor = 10 }
+		random = {
+			chance = 42
+			add_trait = shy 
+		}
+	}
+}
+
+#second test, carry beast
+narrative_event = {
+	title = EVTTITLAmzCul.302
+	id = AmzCul.302
+	desc = EVTDESCAmzCul.302
+	picture = GFX_evt_hunt
+	border = GFX_event_narrative_frame_intrigue
+
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.302
+		ai_chance = { factor = 500 }
+		narrative_event = { id = AmzCul.303 }
+		tooltip_info = humble	
+		trigger = {
+			trait = humble
+		}
+	}
+	option = {
+		name = EVTOPTBAmzCul.302
+		ai_chance = { factor = 90 }
+		narrative_event = { id = AmzCul.303 } 
+	}
+	option = {
+		name = EVTOPTCAmzCul.302
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCul.3022 } 
+	}
+}
+
+#fail second test
+character_event = {
+	title = EVTTITLAmzCul.3011
+	id = AmzCul.3022
+	desc = EVTDESCAmzCul.3022
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.3022
+		custom_tooltip = { text = fail_amazon_hunt_tt }
+		ai_chance = { factor = 10 }
+		random = {
+			chance = 42
+			add_trait = proud 
+		}
+	}
+}
+
+#third test, blindfold
+narrative_event = {
+	title = EVTTITLAmzCul.302
+	id = AmzCul.303
+	desc = EVTDESCAmzCul.303
+	picture = GFX_evt_hunt
+	border = GFX_event_narrative_frame_intrigue
+
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.303
+		ai_chance = { factor = 500 }
+		narrative_event = { id = AmzCul.304 }
+		tooltip_info = brave
+		trigger = {
+			trait = brave
+		}
+	}
+	option = {
+		name = EVTOPTBAmzCul.303
+		ai_chance = { factor = 90 }
+		narrative_event = { id = AmzCul.304 } 
+	}
+	option = {
+		name = EVTOPTCAmzCul.303
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCul.3033 } 
+	}
+}
+
+#fail third test
+character_event = {
+	title = EVTTITLAmzCul.3011
+	id = AmzCul.3033
+	desc = EVTDESCAmzCul.3033
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.3033
+		custom_tooltip = { text = fail_amazon_hunt_tt }
+		ai_chance = { factor = 10 }
+		random = {
+			chance = 42
+			add_trait = craven 
+		}
+	}
+}
+
+#fourth test, drink
+narrative_event = {
+	title = EVTTITLAmzCul.302
+	id = AmzCul.304
+	desc = EVTDESCAmzCul.304
+	picture = GFX_evt_whispers
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.304
+		ai_chance = { factor = 500 }
+		narrative_event = { id = AmzCul.305 }
+		tooltip_info = trusting	
+		trigger = {
+			trait = trusting
+		}
+	}
+	option = {
+		name = EVTOPTBAmzCul.304
+		ai_chance = { factor = 90 }
+		narrative_event = { id = AmzCul.305 } 
+	}
+	option = {
+		name = EVTOPTCAmzCul.304
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCul.3044 } 
+	}
+}
+
+#fail fourth test
+character_event = {
+	title = EVTTITLAmzCul.3011
+	id = AmzCul.3044
+	desc = EVTDESCAmzCul.3044
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.3044
+		custom_tooltip = { text = fail_amazon_hunt_tt }
+		ai_chance = { factor = 10 }
+		random = {
+			chance = 42
+			add_trait = paranoid 
+		}
+	}
+}
+
+#fifth test, enter forest
+narrative_event = {
+	title = EVTTITLAmzCul.302
+	id = AmzCul.305
+	desc = EVTDESCAmzCul.305
+	picture = GFX_evt_whispers
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAAmzCul.305
+		ai_chance = { factor = 500 }
+		narrative_event = { id = AmzCul.306 }
+		tooltip_info = ambitious	
+		trigger = {
+			trait = ambitious
+		}
+	}		
+	option = {
+		name = EVTOPTBAmzCul.305
+		ai_chance = { factor = 90 }
+		narrative_event = { id = AmzCul.306 } 
+	}
+	option = {
+		name = EVTOPTCAmzCul.305
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCul.3055 } 
+	}
+}
+
+#fail fifth test
+character_event = {
+	title = EVTTITLAmzCul.3011
+	id = AmzCul.3055
+	desc = EVTDESCAmzCul.3055
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.3055
+		custom_tooltip = { text = fail_amazon_hunt_tt }
+		ai_chance = { factor = 10 }
+		random = {
+			chance = 42
+			add_trait = content 
+		}
+	}
+}
+
+#sixth test, silence or bark
+narrative_event = {
+	title = EVTTITLAmzCul.302
+	id = AmzCul.306
+	desc = EVTDESCAmzCul.306
+	picture = GFX_evt_hunt
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.306
+		ai_chance = { factor = 30 }
+		narrative_event = { id = AmzCul.307 } 
+		set_character_flag = silent_amazonian_flag
+	}
+	option = {
+		name = EVTOPTBAmzCul.306
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCul.307 } 
+		set_character_flag = growling_amazonian_flag
+	}
+}
+
+#seventh test, fight or flight, human only
+narrative_event = {
+	title = EVTTITLAmzCul.302
+	id = AmzCul.307
+	desc = EVTDESCAmzCul.307
+	picture = GFX_evt_wolf
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.307
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCul.308 } 
+	}
+	option = {
+		name = EVTOPTBAmzCul.307
+		ai_chance = { factor = 0 }
+		character_event = { id = AmzCul.3077 } 
+	}
+}
+
+#fail seventh test, human only
+narrative_event = {
+	title = EVTTITLAmzCul.3011
+	id = AmzCul.3077
+	desc = EVTDESCAmzCul.3077
+	picture = GFX_evt_wolf
+	border = GFX_event_narrative_frame_intrigue
+	portrait = FROM
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.3077
+		custom_tooltip = { text = fail_amazon_hunt_tt }
+		ai_chance = { factor = 10 }
+		random = {
+			chance = 42
+			add_trait = severely_injured 
+		}
+		add_blood_splatter_effect = yes
+		random = {
+			chance = 42
+			add_trait = stutter 
+		}
+		clr_character_flag = silent_amazonian_flag
+		clr_character_flag = growling_amazonian_flag
+	}
+}
+
+#eighth test, final showdown, shoot or stab
+narrative_event = {
+	title = EVTTITLAmzCul.302
+	id = AmzCul.308
+	desc = EVTDESCAmzCul.308
+	picture = GFX_evt_wolf
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.308
+		ai_chance = { factor = 20 }
+		narrative_event = { id = AmzCul.309 days = 1 } 
+		set_character_flag = ranged_amazonian_flag
+	}
+	option = {
+		name = EVTOPTBAmzCul.308
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCul.309 days = 1 } 
+		set_character_flag = melee_amazonian_flag
+	}
+}
+
+#ninth test, conclusion
+narrative_event = {
+	title = EVTTITLAmzCul.309
+	id = AmzCul.309
+	desc = EVTDESCAmzCul.309
+	picture = GFX_evt_garden
+	border = GFX_event_narrative_frame_intrigue
+	portrait = FROM
+	
+	is_triggered_only = yes
+			
+	option = {
+		name = EVTOPTAAmzCul.309
+		custom_tooltip = { text = pass_amazon_hunt_tt }
+		add_trait = is_amazonian
+		hidden_tooltip = { 
+			add_artifact = VIET_wolf_pelt		# if you have the mod, adds a wolf pelt for immersion
+			if = {
+				limit = { 
+					mother = { 
+						OR = { 
+							trait = is_amazonian
+							trait = is_amazonian_immortal
+						}	
+					}
+				}
+				mother = {
+					character_event = { id = AmzCul.3095 }
+				}
+			}
+			if = {
+				limit = {
+					guardian = { 
+						NOT = { is_mother = ROOT } 	# doesn't double up 
+						OR = { 
+							trait = is_amazonian
+							trait = is_amazonian_immortal
+						}
+					}
+				}
+				guardian = {
+					character_event = { id = AmzCul.3096 }
+				}						
+			}
+			random_list = {
+				75 = { } # nothin		
+				20 = { remove_random_negative_congenital_effect = yes }		
+				5 = { remove_all_negative_congenital_traits_effect = yes }	
+			}
+			random_list = {
+				1 = { add_trait = strong }		
+				1 = { add_trait = fair }		
+				98 = { } # nothin	
+			}
+			random_list = {		# flagged for legendary 
+				999 = { }	
+				1 = { set_character_flag = legendary_amazonian_lottery_flag }
+			}
+		}
+		if = {
+			limit = { trait = shy }
+			remove_trait = shy 
+		}
+		if = {
+			limit = { trait = proud }
+			remove_trait = proud 
+		}
+		if = {
+			limit = { trait = craven }
+			remove_trait = craven 
+		}
+		if = {
+			limit = { trait = paranoid }
+			remove_trait = paranoid 
+		}
+		if = {
+			limit = { trait = content }
+			remove_trait = content 
+		}
+		if = {
+			limit = {
+				AND = {
+					has_character_flag = silent_amazonian_flag
+					has_character_flag = melee_amazonian_flag
+				}
+			}
+			add_character_modifier = {
+				name = amazonian_melee_modifier   
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_character_flag = silent_amazonian_flag
+					has_character_flag = ranged_amazonian_flag
+				}
+			}
+			add_character_modifier = {
+				name = amazonian_pursue_modifier   
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_character_flag = growling_amazonian_flag
+					has_character_flag = melee_amazonian_flag
+				}
+			}
+			add_character_modifier = {
+				name = amazonian_centre_modifier   
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_character_flag = growling_amazonian_flag
+					has_character_flag = ranged_amazonian_flag
+				}
+			}
+			add_character_modifier = {
+				name = amazonian_skirmish_modifier   
+				duration = -1
+			}
+		}
+		clr_character_flag = amazonian_trial_flag
+		clr_character_flag = silent_amazonian_flag
+		clr_character_flag = growling_amazonian_flag
+		clr_character_flag = melee_amazonian_flag
+		clr_character_flag = ranged_amazonian_flag
+		if = {
+			limit = {
+				NOR = {
+					trait = scarred
+					trait = scarred_mid
+					trait = scarred_high
+				}
+			}
+			random = {
+				chance = 15
+				add_trait = scarred 
+			}
+		}
+	}
+}
+
+character_event = {		# mother notified
+	id = AmzCul.3095
+	desc = EVTDESCAmzCul.3095
+	picture = GFX_evt_daughter_asking_mother
+	border = GFX_event_normal_frame_intrigue
+	portrait = FROMFROM
+	
+	is_triggered_only = yes
+			
+	option = {	# Hunt only begins
+		name = EVTOPTAAmzCul.3095
+		ai_chance = { factor = 10 }
+		prestige = 100
+	}
+}
+
+character_event = {		# guardian notified
+	id = AmzCul.3096
+	desc = EVTDESCAmzCul.3096
+	picture = GFX_evt_daughter_asking_mother
+	border = GFX_event_normal_frame_intrigue
+	portrait = FROMFROM
+	
+	is_triggered_only = yes
+			
+	option = {	# Hunt only begins
+		name = EVTOPTAAmzCul.3095
+		ai_chance = { factor = 10 }
+		prestige = 50
+	}
+}
+
+
+narrative_event = {		# legendary amazonian
+	title = EVTTITLAmzCul.310
+	id = AmzCul.310
+	desc = EVTDESCAmzCul.310
+	picture = GFX_evt_comet
+	border = GFX_event_narrative_frame_intrigue
+	
+	mean_time_to_happen = {
+		years = 500
+		modifier = {			# slightly more likely for players
+			factor = 0.9
+			ai = no				
+		}
+		modifier = {			# more likely for genetically gifted
+			factor = 0.8		
+			trait = strong
+		}
+		modifier = {			# more likely for genetically gifted
+			factor = 0.8		
+			trait = fair
+		}
+		modifier = {			# more likely for genetically gifted
+			factor = 0.8		
+			trait = genius
+		}
+		modifier = {			# slightly more likely for genetically gifted
+			factor = 0.9		
+			trait = quick
+		}
+		modifier = {			# significantly more likely for daughters of
+			factor = 0.3		
+			mother_even_if_dead = {
+				trait = is_amazonian_immortal
+			}
+		}
+		modifier = {			# more likely for grandaughters of
+			factor = 0.4		
+			mother_even_if_dead = {
+				mother_even_if_dead = {
+					trait = is_amazonian_immortal
+				}
+			}
+		}
+		modifier = {			# more likely for titled
+			factor = 0.8
+			is_landed = yes	
+		}
+		modifier = {			# less likely for untitled
+			factor = 1.5
+			is_landed = no	
+		}
+		modifier = {			# top education
+			factor = 0.8
+			OR = {				
+				trait = grey_eminence
+				trait = brilliant_strategist
+				trait = midas_touched
+				trait = elusive_shadow
+				trait = mastermind_theologian
+			}
+		}
+		modifier = {			# significantly more likely for children of destiny, demigoddess in the making	
+			factor = 0.5
+			has_character_flag = is_child_of_destiny	
+		}
+		modifier = {			# more likely for go-getters	
+			factor = 0.7
+			trait = ambitious		
+		}
+		modifier = {			# more likely once immortals appear
+			factor = 0.7
+			has_global_flag = amz_culture_immortals_flag		
+		}
+		modifier = {			# more likely if cheat to make frequent
+			factor = 0.01
+			has_global_flag = amz_culture_immortals_everywhere_flag		
+		}
+		modifier = {			# won the lottery
+			factor = 0.0001
+			has_character_flag = legendary_amazonian_lottery_flag		
+		}
+	}
+	
+	trigger = {
+		NOR = {					# no negative traits
+			trait = is_amazonian_immortal
+			has_injury_trigger = yes
+			is_maimed_trigger  = yes
+			has_disability_trigger = yes
+			has_mental_disorder_trigger = yes
+			has_disease_trigger = yes
+			has_symptom_trigger = yes
+			has_negative_congenital_trigger = yes
+			trait = is_fat
+			trait = is_malnourished
+			trait = feeble
+			trait = dull
+			trait = blinded
+			trait = content
+		}
+		AND = {		# still young
+			age >= 16
+			age <= 24
+		}
+		trait = is_amazonian
+		martial = 20
+		has_game_rule = {
+			name = supernatural_events
+			value = unrestricted
+		}
+	}
+	
+	option = {
+		name = EVTOPTAAmzCul.310
+		ai_chance = { factor = 10 }
+		add_trait = is_amazonian_immortal
+		if = {
+			limit = { has_dlc = "Legacy of Rome" }
+			custom_tooltip = { text = legendary_amz_retinue_tt }
+		}
+		hidden_tooltip = { 
+			remove_trait = is_amazonian
+			set_global_flag = amz_culture_immortals_flag
+		}
+		give_nickname = nick_the_legendary_amazonian
+		prestige = 500
+	}
+}
+
+character_event = {		# all amazonians heal from wounds quicker, original event under health_events
+	id = AmzCul.311
+	desc = EVTDESCAmzCul.311
+	hide_window = yes 
+	
+	trigger = {			# same trigger applies to normal 
+		base_health = 4
+		trait = wounded
+		NOT = { trait = infection }
+		OR = {
+			trait = is_amazonian
+			trait = is_amazonian_immortal
+		}
+	}
+	
+	mean_time_to_happen = {		# sped up, 24 down to 6
+		months = 6
+		modifier = {
+			factor = 1.5
+			base_health < 4
+		}
+		modifier = {
+			factor = 2
+			base_health < 3
+		}
+	}
+			
+	option = {	# heal scarred event
+		name = EVTOPTAAmzCul.311
+		ai_chance = { factor = 10 }
+		character_event = { id = 6081 } 
+	}
+}
+
+character_event = {		# amazonians heal from illness quicker, original event under health_events
+	id = AmzCul.312
+	desc = EVTDESCAmzCul.312
+	hide_window = yes 
+	
+	trigger = {			# same trigger applies to normal 
+		base_health = 3
+		trait = ill
+		trait = is_amazonian
+	}
+	
+	mean_time_to_happen = {		# sped up, 24 down to 6
+		months = 6
+		modifier = {
+			factor = 1.5
+			base_health < 4
+		}
+		modifier = {
+			factor = 2
+			base_health < 3
+		}
+	}
+			
+	option = {	# remove illness event
+		name = EVTOPTAAmzCul.312
+		ai_chance = { factor = 10 }
+		character_event = { id = 6061 } 
+	}
+}
+
+character_event = {		# amazonian immortals recover from most things quickly
+	id = AmzCul.313
+	desc = EVTDESCAmzCul.313
+	picture = GFX_evt_mysterious_forest
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {	
+		OR = {
+			has_disease_trigger = yes
+			has_symptom_trigger = yes 
+			trait = lunatic
+			trait = possessed
+			trait = wounded
+			trait = maimed
+			trait = severely_injured
+		}
+		trait = is_amazonian_immortal
+	}
+	
+	mean_time_to_happen = {		
+		years = 3
+		modifier = {
+			factor = 0.8
+			age > 25
+		}
+		modifier = {
+			factor = 0.9
+			age > 30
+		}
+		modifier = {
+			factor = 1
+			age > 35
+		}
+		modifier = {
+			factor = 1.5
+			age > 40
+		}
+		modifier = {
+			factor = 2
+			age > 45
+		}
+		modifier = {
+			factor = 2.5
+			age > 50
+		}
+		modifier = {
+			factor = 3
+			age > 55
+		}
+		modifier = {
+			factor = 1.5
+			trait = maimed 
+		}
+	}
+			
+	option = {	# remove illness event, feeling better than ever 
+		name = EVTOPTAAmzCul.313
+		ai_chance = { factor = 10 }
+		remove_disease_trait_effect = yes 		# removes disease if has disease 
+		remove_symptoms_effect = yes			# removes symptoms if has symptoms
+		if = {
+			limit = { trait = depressed }
+			remove_trait = depressed
+		}
+		if = {
+			limit = { trait = lunatic }
+			remove_trait = lunatic
+		}
+		if = {
+			limit = { trait = possessed }
+			remove_trait = possessed
+		}
+		if = {
+			limit = { trait = severely_injured }
+			remove_trait = severely_injured
+		}
+		if = {
+			limit = { trait = maimed }
+			remove_trait = maimed
+		}
+	}
+}
+
+character_event = {		# amazonians less shy, medium prio
+	id = AmzCul.314
+	desc = EVTDESCAmzCul.314
+	picture = GFX_evt_garden
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {			
+		trait = shy
+		OR = {
+			trait = is_amazonian
+			trait = is_amazonian_immortal
+		}
+	}
+	
+	mean_time_to_happen = { years = 20 }
+			
+	option = {	# remove trait event
+		name = EVTOPTAAmzCul.314
+		ai_chance = { factor = 10 }
+		remove_trait = shy
+	}
+}
+
+character_event = {		# amazonians less proud, low prio
+	id = AmzCul.315
+	desc = EVTDESCAmzCul.315
+	picture = GFX_evt_garden
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {			
+		trait = proud
+		OR = {
+			trait = is_amazonian
+			trait = is_amazonian_immortal
+		}
+	}
+	
+	mean_time_to_happen = { years = 30 }
+			
+	option = {	# remove trait event
+		name = EVTOPTAAmzCul.314
+		ai_chance = { factor = 10 }
+		remove_trait = proud
+	}
+}
+
+character_event = {		# amazonians less craven, high prio
+	id = AmzCul.316
+	desc = EVTDESCAmzCul.316
+	picture = GFX_evt_garden
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {			
+		trait = craven
+		OR = {
+			trait = is_amazonian
+			trait = is_amazonian_immortal
+		}
+	}
+	
+	mean_time_to_happen = { years = 10 }
+			
+	option = {	# remove trait event
+		name = EVTOPTAAmzCul.314
+		ai_chance = { factor = 10 }
+		remove_trait = craven
+	}
+}
+
+character_event = {		# amazonians less paranoid, low prio
+	id = AmzCul.317
+	desc = EVTDESCAmzCul.317
+	picture = GFX_evt_garden
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {			
+		trait = paranoid
+		OR = {
+			trait = is_amazonian
+			trait = is_amazonian_immortal
+		}
+	}
+	
+	mean_time_to_happen = { years = 30 }
+			
+	option = {	# remove trait event
+		name = EVTOPTAAmzCul.314
+		ai_chance = { factor = 10 }
+		remove_trait = paranoid
+	}
+}
+
+character_event = {		# amazonians less content, medium prio
+	id = AmzCul.318
+	desc = EVTDESCAmzCul.318
+	picture = GFX_evt_garden
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {			
+		trait = content
+		OR = {
+			trait = is_amazonian
+			trait = is_amazonian_immortal
+		}
+	}
+	
+	mean_time_to_happen = { years = 20 }
+			
+	option = {	# remove trait event
+		name = EVTOPTAAmzCul.314
+		ai_chance = { factor = 10 }
+		remove_trait = content
+	}
+}
+
+character_event = {		# on_birth action, chance applies genetic traits based on parent's conventional traits 
+	id = AmzCul.319
+	hide_window = yes 
+	
+	is_triggered_only = yes 
+			
+	option = {	# addski the traitski 
+		name = EVTOPTAAmzCul.319
+		if = {				# attractive
+			limit = {
+				mother_even_if_dead = {
+					is_attractive_trigger = yes
+					NOT = { trait = fair }
+				}
+			}
+			random = {
+				chance = 5
+				add_trait = fair 
+			}
+		}
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					is_attractive_trigger = yes
+					NOT = { trait = fair }
+				}
+			}
+			random = {
+				chance = 5
+				add_trait = fair 
+			}
+		}
+		if = {				# strong
+			limit = {
+				mother_even_if_dead = {
+					trait = robust
+					is_weak_trigger = no
+				}
+			}
+			random = {
+				chance = 10
+				add_trait = strong 
+			}
+		}
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					trait = robust
+					is_weak_trigger = no
+				}
+			}
+			random = {
+				chance = 10
+				add_trait = strong  
+			}
+		}
+		if = {				# quick
+			limit = {
+				NOT = { trait = genius }
+				mother_even_if_dead = {
+					trait = shrewd
+					is_dumb_trigger = no
+				}
+			}
+			random = {
+				chance = 10
+				add_trait = quick 
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = genius }
+				true_father_even_if_dead = {
+					trait = shrewd
+					is_dumb_trigger = no
+				}
+			}
+			random = {
+				chance = 10
+				add_trait = quick  
+			}
+		}
+		if = {				# genius 
+			limit = {
+				mother_even_if_dead = {
+					trait = shrewd
+					is_dumb_trigger = no
+				}
+			}
+			random = {
+				chance = 10
+				add_trait = genius 
+			}
+		}
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					trait = shrewd
+					is_dumb_trigger = no
+				}
+			}
+			random = {
+				chance = 10
+				add_trait = genius  
+			}
+		}
+	}
+}
+
+character_event = {		# apply hidden modifiers for amazons 
+	id = AmzCul.3199
+	hide_window = yes 
+	
+	trigger = {
+		OR = {
+			AND = {
+				trait = is_amazonian
+				NOT = { has_character_modifier = is_amazonian_hidden_modifier }
+			}
+			AND = {
+				trait = is_amazonian_immortal
+				NOT = { has_character_modifier = is_amazonian_immortal_hidden_modifier }
+			}
+		}
+	}
+			
+	option = {	# addski the hidden modski 
+		name = EVTOPTAAmzCul.3199
+		if = {				# normal 
+			limit = { trait = is_amazonian }
+			add_character_modifier = {
+				name = is_amazonian_hidden_modifier
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {				# immortal  
+			limit = { trait = is_amazonian_immortal }
+			add_character_modifier = {
+				name = is_amazonian_immortal_hidden_modifier
+				duration = -1
+				hidden = yes
+			}
+			remove_character_modifier = is_amazonian_hidden_modifier
+		}
+	}
+}
+

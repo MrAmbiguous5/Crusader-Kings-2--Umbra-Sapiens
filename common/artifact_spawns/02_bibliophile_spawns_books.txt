@@ -1,0 +1,4968 @@
+
+
+#########################################################################################################################################
+##### Hisotrical Books ##                                                            ####                                            ####
+#########################################################################################################################################
+
+#num_culture_realm_provs = {
+# value = 8
+# culture = swedish
+#}
+
+#primary_title = { has_raised_standing_troops = yes }
+
+#has_minor_title
+
+#has_polygamy = yes 
+
+#has_nickname = boolean OR reference
+
+#is_female = yes
+
+#has_minor_title = title_court_jester title_regent title_queen_mother title_commander title_court_dwarf title_master_of_the_horse title_court_physician title_hermetics_apprentice
+
+#any_dynasty_member = { has_living_children = yes }
+
+#has_epidemic = yes #Character or Province
+
+#top_liege = {}
+
+#demesne_size_compared_to_limit < 1 
+
+#has_job_title = job_treasurer
+
+#is_lowborn = no
+
+#in_command = yes #leading troops
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 769
+#############################
+###
+
+
+#################  _IONA CHRONICLE
+
+iona_chronicle = {
+    max_amount = 2
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			OR = {
+				primary_title = {
+					title = b_iona
+				}
+				primary_title = {
+					title = b_connor
+				}				
+			}
+			
+			OR = {
+				#year = 550 #Timeline Extenders
+				year = 769	
+			}
+			NOT = {
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+		}	
+
+		additive_modifier = {
+			value = 100
+			
+			OR = {
+				primary_title = {
+					title = b_iona
+				}
+				primary_title = {
+					title = b_armagh
+				}				
+			}
+			
+			OR = {
+				#year = 550 #Timeline Extenders
+				#year = 769	
+				year = 867
+			}
+			NOT = {
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        iona_chronicle = {
+            value = 1
+        }
+    }
+}	
+
+
+#################  _LETTER TO IRISH_
+
+letter_to_irish_bishops = {
+    max_amount = 2
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+				
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			AND = {
+				religion = catholic
+				is_priest = yes
+				culture = irish
+				primary_title = { tier = BARON } #lower_tier_than = COUNT
+			}
+			OR = {	
+				year = 610 #Timeline Extenders					
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}			
+	}
+	
+    artifacts = {
+        letter_to_irish_bishops = {
+            value = 1
+        }
+    }
+}
+
+#################  _PASTORAL CARE_
+
+book_pastoral_office = {
+    max_amount = 8
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+				
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			AND = {
+				religion = catholic
+				is_priest = yes		
+			}
+			OR = {	
+				year = 590 #Timeline Extenders					
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}		
+
+		additive_modifier = {
+			value = 100
+			AND = {
+				religion = catholic
+				is_priest = yes		
+				primary_title = { higher_tier_than = BARON }
+			}
+			OR = {	
+				year = 590 #Timeline Extenders					
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}				
+	}
+	
+    artifacts = {
+        book_pastoral_office = {
+            value = 1
+        }
+    }
+}
+
+book_pastoral_office_freds_copy = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = d_somerset
+			}
+			OR = {	
+				#year = 867	
+				year = 880
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}	
+
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_winchester
+				d_somerset = { has_holder = no }
+			}
+			OR = {	
+				#year = 867	
+				year = 880
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}			
+	}
+	
+    artifacts = {
+        book_pastoral_office_freds_copy = {
+            value = 1
+        }
+    }
+}
+
+#################  _LETTER FROM POPE GREGORY TO ÆTHELBERHT_
+
+letter_to_aethelbert = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = c_kent
+			}
+			OR = {	
+				year = 600 #Timeline Extenders					
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        letter_to_aethelbert = {
+            value = 1
+        }		
+    }
+}
+
+
+#################  _CITY OF GOD_
+
+city_of_god = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR = {
+				culture = roman
+				culture = italian
+				culture = occitan
+				culture = frankish
+				culture = lombard
+				#SPAIN
+				culture = basque
+				culture = castillan
+				culture = catalan
+				culture = portuguese
+				culture = visigothic
+				#EAST		
+				culture = greek
+				#BRITAIN
+				culture = welsh
+				culture = breton
+			}
+			AND = {
+				is_landed = yes
+			}
+			OR = {	
+				year = 426 #Timeline Extenders					
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        city_of_god = {
+            value = 1
+        }		
+    }
+}
+
+#################  _AESOPS FABLES_
+
+aesops_fables = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR = {
+				religion_group = christian	
+				is_landed = yes
+			}
+			OR = {	
+				year = 476 #Timeline Extenders					
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        aesops_fables = {
+            value = 1
+        }		
+    }
+}
+
+#################  _ANTIQUITIES OF THE JEWS_
+
+antiquities_of_the_jews_a_1 = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+	
+			OR = {
+				religion_group = christian		
+				religion_group = jewish_group						
+			}
+			OR = {
+				religion_group = jewish_group
+				is_landed = yes
+			}
+			OR = {	
+				year = 476 #Timeline Extenders					
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        antiquities_of_the_jews_a_1 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_2 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_3 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_4 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_5 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_6 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_7 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_8 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_9 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_10 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_11 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_12 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_13 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_14 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_15 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_16 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_17 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_18 = {
+            value = 1
+        }		
+        antiquities_of_the_jews_a_19 = {
+            value = 1
+        }
+        antiquities_of_the_jews_a_20 = {
+            value = 1
+        }		
+    }
+}
+
+#################  _LIBER PONTIFICALIS_
+
+book_of_pontiffs = {
+    max_amount = 30
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_st_peters	#YORK NORTHUMBRIA
+			OR = {		
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}	
+
+		additive_modifier = {
+			value = 100
+	
+			OR = {
+				is_priest = yes
+				primary_title = { holy_order = yes }								
+			}
+			AND = {
+				religion = catholic
+				NOT = { has_landed_title = k_papal_state }
+			}
+			OR = {		
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        book_of_pontiffs = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _WORKS OF PLATO_
+
+phaedrus = {
+    max_amount = 100
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR = {
+				culture = greek
+				religion = orthodox
+			}			
+			OR = {
+				year = 476 #Timeline Extenders			
+				year = 769	
+				year = 867				
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337				
+			}
+		}				
+	}
+	
+    artifacts = {
+        phaedrus = {
+            value = 1
+        }
+        gorgias = {
+            value = 1
+        }		
+        cratylus = {
+            value = 1
+        }			
+        statesman = {
+            value = 1
+        }
+        apology = {
+            value = 1
+        }		
+        symposium = {
+            value = 1
+        }
+        critias = {
+            value = 1
+        }	
+        republic1 = {
+            value = 1
+        }	
+        republic2 = {
+            value = 1
+        }
+        republic3 = {
+            value = 1
+        }
+        republic4 = {
+            value = 1
+        }
+        republic5 = {
+            value = 1
+        }
+        republic6 = {
+            value = 1
+        }
+        republic7 = {
+            value = 1
+        }
+        republic8 = {
+            value = 1
+        }
+        republic9 = {
+            value = 1
+        }
+        republic10 = {
+            value = 1
+        }	
+        lysis = {
+            value = 1
+        }		
+    }
+}
+
+#################  _ON THINGS OF WAR_
+
+on_the_things_of_wars = {
+    max_amount = 5
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR={
+				AND = {
+					martial = 12				
+					learning = 12
+				}
+				AND = {
+					trait = brilliant_strategist			
+					learning = 10
+				}	
+				AND = {
+					trait = siege_leader	
+					martial = 8					
+					learning = 8
+				}	
+				AND = {
+					trait = genius
+				}					
+			}
+			AND = {
+				culture = greek
+			}			
+			OR = {
+				year = 476 #Timeline Extenders			
+				year = 769	
+				year = 867				
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337				
+			}
+		}				
+	}
+	
+    artifacts = {
+        on_the_things_of_wars = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _PANDECTS_
+
+pandects1 = {
+    max_amount = 200
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+
+
+		additive_modifier = {
+			value = 30
+
+			AND={
+				trait = physician	
+				culture_group = byzantine
+			}			
+			OR = {		
+				year = 769	
+				year = 867				
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}			
+		additive_modifier = {
+			value = 10
+
+			AND={
+				is_landed = yes	
+				religion_group = muslim
+				learning = 15
+			}			
+			OR = {		
+				year = 769	
+				year = 867				
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}		
+		additive_modifier = {
+			value = 60
+
+			AND={
+				trait = physician	
+				religion_group = muslim
+			}			
+			OR = {		
+				year = 769	
+				year = 867				
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}			
+	}
+	
+    artifacts = {
+        pandects1 = {
+            value = 1
+        }
+        pandects2 = {
+            value = 1
+        }
+        pandects3 = {
+            value = 1
+        }
+        pandects4 = {
+            value = 1
+        }
+        pandects5 = {
+            value = 1
+        }
+        pandects6 = {
+            value = 1
+        }
+        pandects7 = {
+            value = 1
+        }
+        pandects8 = {
+            value = 1
+        }
+        pandects9 = {
+            value = 1
+        }
+        pandects10 = {
+            value = 1
+        }
+        pandects11 = {
+            value = 1
+        }
+        pandects12 = {
+            value = 1
+        }
+        pandects13 = {
+            value = 1
+        }
+        pandects14 = {
+            value = 1
+        }
+    }
+}
+
+pandects15 = {
+    max_amount = 150
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+
+
+		additive_modifier = {
+			value = 30
+
+			AND={
+				trait = physician	
+				culture_group = byzantine
+			}			
+			OR = {		
+				year = 769	
+				year = 867				
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}			
+		additive_modifier = {
+			value = 10
+
+			AND={
+				is_landed = yes	
+				religion_group = muslim
+				learning = 15
+			}			
+			OR = {		
+				year = 769	
+				year = 867				
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}		
+		additive_modifier = {
+			value = 60
+
+			AND={
+				trait = physician	
+				religion_group = muslim
+			}			
+			OR = {		
+				year = 769	
+				year = 867				
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}			
+	}
+	
+    artifacts = {
+        pandects15 = {
+            value = 1
+        }
+        pandects16 = {
+            value = 1
+        }
+        pandects17 = {
+            value = 1
+        }
+        pandects18 = {
+            value = 1
+        }	
+        pandects19 = {
+            value = 1
+        }	
+        pandects20 = {
+            value = 1
+        }	
+        pandects21 = {
+            value = 1
+        }	
+        pandects22 = {
+            value = 1
+        }	
+        pandects23 = {
+            value = 1
+        }	
+        pandects24 = {
+            value = 1
+        }	
+        pandects25 = {
+            value = 1
+        }	
+        pandects26 = {
+            value = 1
+        }	
+        pandects27 = {
+            value = 1
+        }
+        pandects28 = {
+            value = 1
+        }
+        pandects29 = {
+            value = 1
+        }
+        pandects30 = {
+            value = 1
+        }		
+    }
+}
+
+#################  _CONSOLATION OF PHILOSOPHY_
+
+consolation_of_philosphy = {
+    max_amount = 40
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			AND = {
+				religion_group = christian
+				NOT = { religion = orthodox }
+				NOT = { religion = monothelite }
+				NOT = { religion = iconoclast }
+				NOT = { religion = paulician }
+				
+				NOT = { has_landed_title = k_papal_state }				
+			}
+			OR = {	
+				year = 524 #Timeline Extenders			
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}				
+	}
+	
+    artifacts = {
+        consolation_of_philosphy = {
+            value = 1
+        }
+        consolation_of_philosphy2 = {
+            value = 2
+        }		
+    }
+}
+
+
+
+#################  _YSTRAD CLUD - STRATHCLYDE_
+
+ystrad_clud = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR = {
+				AND = {
+					has_landed_title = d_galloway
+					dynasty = 816 #Alt Clut
+					culture = welsh	
+				}
+			}
+			OR = {	
+				year = 476 #Timeline Extenders			
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}				
+	}
+	
+    artifacts = {
+        ystrad_clud = {
+            value = 1
+        }
+    }
+}
+
+#################  _CHRONICLE OF THE PRINCES_
+
+chronicle_of_the_princes = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_st_davids	#DYFED
+			OR = {	
+				year = 680 #Timeline Extenders			
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        chronicle_of_the_princes = {
+            value = 1
+        }
+    }
+}
+
+#################  _ECCLESIASTICAL HISTORY_
+
+ecclesiatical_history1 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_st_peters	#YORK NORTHUMBRIA
+			OR = {		
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        ecclesiatical_history1 = {
+            value = 1
+        }
+    }
+}
+
+ecclesiatical_history2 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_st_peters	#YORK NORTHUMBRIA
+			OR = {		
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        ecclesiatical_history2 = {
+            value = 1
+        }
+    }
+}
+ecclesiatical_history3 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_st_peters	#YORK NORTHUMBRIA
+			OR = {		
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        ecclesiatical_history3 = {
+            value = 1
+        }
+    }
+}
+ecclesiatical_history4 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_st_peters	#YORK NORTHUMBRIA
+			OR = {		
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        ecclesiatical_history4 = {
+            value = 1
+        }
+    }
+}
+ecclesiatical_history5 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_st_peters	#YORK NORTHUMBRIA
+			OR = {		
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        ecclesiatical_history5 = {
+            value = 1
+        }
+    }
+}
+
+#################  _TESTAMENT OF SOLOMON_
+
+testament_solomon = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+
+		additive_modifier = {
+			value = 10
+			
+			OR = {
+				religion_group = christian
+				religion_group = jewish_group
+			}	
+			OR = {	
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081	
+				year = 1187	
+				year = 1204		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+
+		}	
+		
+		additive_modifier = {
+			value = 100
+			
+			is_priest = no
+			OR = {
+				society_member_of = hermetics 
+				society_member_of = the_satanists 
+				trait = mystic			
+			}	
+			OR = {
+				religion_group = christian
+				religion_group = jewish_group
+			}		
+			OR = {	
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081	
+				year = 1187	
+				year = 1204		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        testament_solomon = {
+            value = 5
+        }
+    }
+}
+
+#################  _LIBER MONSTRORUM_
+
+book_of_monsters = {
+    max_amount = 5
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+
+		additive_modifier = {
+			value = 10
+			
+			OR = {
+				culture = saxon
+				culture = welsh
+				culture = english
+				culture = irish
+				culture = scottish
+			}		
+			OR = {	
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081	
+				year = 1187	
+				year = 1204		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+
+		}		
+		additive_modifier = {
+			value = 100
+			
+			OR = {
+				culture = saxon
+				culture = welsh
+				culture = english
+				culture = irish
+				culture = scottish
+			}	
+			
+			OR = {
+				trait = scholar
+				trait = theologian
+				trait = mystic
+				trait = hunter 	
+				
+				society_member_of = hermetics 
+				society_member_of = the_satanists 	
+
+				trait = possessed
+				trait = lunatic			
+				trait = paranoid					
+			}		
+			OR = {	
+				year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081	
+				year = 1187	
+				year = 1204		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        book_of_monsters = {
+            value = 5
+        }
+    }
+}
+
+
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 867
+#############################
+###
+
+#################  _OSSORY CHRONICLE
+
+osraige_chronicle = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_clonmacnoise
+			}
+			
+			OR = {
+				#year = 769	
+				year = 867	
+				year = 1066	
+				year = 1081				
+			}
+			NOT = {
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337					
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        osraige_chronicle = {
+            value = 1
+        }
+    }
+}	
+
+
+#################  _CHRONICA PROPHETICA_
+	
+chronica_prophetica = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = k_asturias		
+			OR = {		
+				year = 867			
+			}
+			NOT = {
+				year = 1066	
+				year = 1081				
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337				
+			}
+		}
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_cangasdeonis		
+			OR = {		
+				year = 1066	
+				year = 1081			
+			}
+			NOT = {
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337				
+			}
+		}		
+
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_oviedo		
+			OR = {				
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}
+		
+	}
+	
+    artifacts = {
+        chronica_prophetica = {
+            value = 1
+        }
+    }
+}
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1066
+#############################
+###
+
+#################  _CHRONICLE OF MAN
+
+man_chronicle = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_peel
+			}
+			
+			OR = {
+				year = 1047 #Exact Year (Redundant but no harm in putting it here)	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        man_chronicle = {
+            value = 1
+        }
+    }
+}	
+
+
+#################  _ANNALS OF CLONMACNOISE / TIGERNACH
+
+annals_of_clonmacnoise = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_clonmacnoise
+			}
+			
+			OR = {
+				#year = 550 #Timeline Extenders
+				#year = 769	
+				#year = 867	
+				year = 911 #Exact Year (Redundant but no harm in putting it here)	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        annals_of_clonmacnoise = {
+            value = 1
+        }
+    }
+}	
+
+#################  _ANNALS OF ARMAGH
+
+annals_of_armagh = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_armagh
+			}
+			
+			OR = {
+				#year = 550 #Timeline Extenders
+				#year = 769	
+				#year = 867	
+				year = 911 #Exact Year (Redundant but no harm in putting it here)	
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        annals_of_armagh = {
+            value = 1
+        }
+    }
+}	
+
+
+
+#################  _THE BOOK OF KINGS_
+
+book_of_kings = {
+    max_amount = 10
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			OR = {
+				culture_group = iranian	
+				culture = turkish
+				culture = georgian
+				religion_group = zoroastrian_group
+			}
+			OR = {
+				primary_title = { higher_tier_than = BARON } 
+			}			
+			OR = {	
+				year = 1010	
+			
+				year = 1066	
+				year = 1081				
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        book_of_kings = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _RING OF THE DOVE_
+
+ring_of_the_dove = {
+    max_amount = 8
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+		
+			OR = {
+				culture = andalusian_arabic
+			}
+			OR = {
+				primary_title = { higher_tier_than = BARON } 
+			}			
+			OR = {	
+				year = 1066	
+				year = 1081				
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        ring_of_the_dove = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _1059 PAPAL BULL_
+
+papal_bull_1059 = {
+    max_amount = 25
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+		
+			OR = {
+				primary_title = { higher_tier_than = BARON } 
+				is_priest = yes
+			}
+			AND={	
+				religion = catholic
+				NOT = { has_landed_title = k_papal_state }				
+			}			
+			OR = {		
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        papal_bull_1059 = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _THE CATTLE RAID OF COOLEY_
+
+cattle_raid_of_cooley = {
+    max_amount = 4
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+		
+			AND={	
+				culture = irish
+			}			
+			OR = {		
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        cattle_raid_of_cooley = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _SIEGE ENGINE BLUEPRINTS_
+
+blueprints_siege_engine = {
+    max_amount = 100
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR={
+				AND = {
+					martial = 20				
+					learning = 20
+				}
+				AND = {
+					trait = brilliant_strategist			
+					learning = 15
+				}	
+				AND = {
+					trait = siege_leader	
+					martial = 12					
+					learning = 12
+				}	
+				AND = {
+					trait = genius
+				}					
+			}
+			NOT = {
+				culture_group = north_germanic
+				culture_group = west_african
+				culture_group = tibetan_group
+				culture_group = finno_ugric				
+			}			
+			OR = {		
+				year = 1066	
+				year = 1081			
+				year = 1187			
+			}
+			NOT = {
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337				
+			}
+		}		
+		
+		additive_modifier = {
+			value = 250
+			OR={
+				AND = {
+					martial = 13				
+					learning = 13
+				}
+				AND = {
+					trait = brilliant_strategist			
+					learning = 8
+				}	
+				AND = {
+					trait = siege_leader	
+					martial = 8					
+					learning = 8
+				}	
+				AND = {
+					trait = genius
+				}					
+			}
+			NOT = {
+				culture_group = west_african
+				culture_group = tibetan_group
+				culture_group = finno_ugric				
+			}			
+			OR = {		
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+		}				
+	}
+	
+    artifacts = {
+        blueprints_siege_engine = {
+            value = 1
+        }
+    }
+}
+
+#################  _TREATMENT OF DANGEROUS DISEASES APPEARING SUPERFICIALLY ON THE BODY_
+
+dangerous_diseases = {
+    max_amount = 5
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+		
+			AND={
+				is_landed = yes	
+				religion_group = muslim
+				learning = 20
+			}			
+			OR = {		
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        dangerous_diseases = {
+            value = 1
+        }
+    }
+}
+
+#################  _ANGLO SAXON CHRONICLE_
+
+anglo_chronicle = {
+    max_amount = 4
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR = {
+				has_landed_title = b_st_swithun	
+				has_landed_title = b_abingdon
+				has_landed_title = b_crowland
+				has_landed_title = b_worcester			
+			}
+			OR = {		
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        anglo_chronicle = {
+            value = 1
+        }
+    }
+}
+
+#################  _BENEDICTIONAL OF ST. AETHELWOLD_
+## FROM THE COUNTY OF WESSEX, I SUMMON YOU!
+
+benedictional_aethelwold = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_st_swithun		
+			OR = {		
+				year = 1066	
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        benedictional_aethelwold = {
+            value = 1
+        }
+    }
+}
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1081
+#############################
+###
+
+#################  _CASTLE PLANS - TOWER OF LONDON_
+
+plans_tower = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = c_middlesex
+			OR = {	
+				year = 1081	
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337					
+
+			}
+		}				
+	}
+	
+    artifacts = {
+        plans_tower = {
+            value = 1
+        }
+    }
+}
+
+#################  _CASTLE PLANS - CHEPSTOW_
+
+plans_chepstow = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = c_gwent
+			OR = {	
+				year = 1081	
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337					
+
+			}
+		}				
+	}
+	
+    artifacts = {
+        plans_chepstow = {
+            value = 1
+        }
+    }
+}
+
+#################  _WINCHCOMBE ANNALS (WORK IN PROGRESS VERSION)_
+
+annals_of_winchcombe = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_winchcombe
+			}
+			
+			OR = {
+				year = 1081			
+				year = 1187				
+				year = 1204
+				year = 1220
+			}
+			
+			NOT = {
+				year = 1241	
+				year = 1337			
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        annals_of_winchcombe = {
+            value = 1
+        }
+    }
+}	
+
+
+#################  _ANNALS OF WALES_
+
+annales_cambriae = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_st_davids
+			}
+			
+			OR = {
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        annales_cambriae = {
+            value = 1
+        }
+    }
+}
+
+annales_cambriae2 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = d_deheubarth
+			}
+			
+			OR = {
+				year = 1081			
+			}
+			
+			NOT = {
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        annales_cambriae2 = {
+            value = 1
+        }
+    }
+}
+
+#################  _ARMORIAL OF SAVOY_
+
+armorial_of_savoy = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = d_savoie		
+			OR = {		
+				year = 1081			
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        armorial_of_savoy = {
+            value = 1
+        }
+    }
+}
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1187
+#############################
+###
+
+#################  _HISTORY OF DEEDS DONE BEYOND THE SEA
+
+deeds_done = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_tyrus
+			}
+			
+			OR = {
+				year = 1170 #Exact Year		
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+		
+			}
+			NOT = {
+				year = 1337	
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_done = {
+            value = 1
+        }
+    }
+}	
+
+##ADD GENERAL CIRCULATION COPY
+
+
+
+#################  _CHRONICLE OF MELROSE
+
+melrose_chronicle = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_tyninghame
+			}
+			
+			OR = {
+				year = 1140 #Exact Year		
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        melrose_chronicle = {
+            value = 1
+        }
+    }
+}	
+
+
+#################  _ANNALS OF INISFALLEN
+
+annals_of_inisfallen = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_cloyne
+			}
+			
+			OR = {
+				#year = 550 #Timeline Extenders
+				#year = 769	
+				#year = 867	
+				#year = 1066	
+				#year = 1081
+				year = 1092 #Exact Year		
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        annals_of_inisfallen = {
+            value = 1
+        }
+    }
+}	
+
+
+
+#################  _LAIS OF MARIE DE FRANCE_
+
+lais_marie_de_france = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+		
+			OR = {
+				culture_group = west_germanic
+				culture_group = latin
+			}
+			OR = {
+				primary_title = { higher_tier_than = BARON } 
+			}			
+			OR = {				
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        lais_marie_de_france = {
+            value = 1
+        }
+    }
+}
+
+
+
+#################  _BOOK TO THE KNIGHTS OF THE TEMPLE IN PRAISE OF THE NEW KNIGHTHOOD_
+
+in_praise_of_the_new_knighthood = {
+    max_amount = 15
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+		
+			OR = {
+				trait = crusader
+			}
+			AND={	
+				religion = catholic
+				NOT = { has_landed_title = k_papal_state }				
+			}			
+			OR = {				
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        in_praise_of_the_new_knighthood = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _KNIGHT IN THE PANTHER SKIN_
+
+knight_in_the_panther_skin = {
+    max_amount = 15
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 20		
+			OR = {
+				primary_title = { higher_tier_than = BARON } 
+			}
+			AND={
+				culture_group = byzantine
+			}		
+			NOT = {
+				character = 466517
+			}			
+			OR = {
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}		
+		additive_modifier = {
+			value = 100
+			OR = {
+				culture = georgian
+				culture = armenian
+			}
+			AND={
+				culture = georgian
+				is_landed = yes
+			}
+			NOT = {
+				character = 466517
+			}
+			OR = {
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}
+	}
+	
+    artifacts = {
+        knight_in_the_panther_skin = {
+            value = 1
+        }
+        knight_in_the_panther_skin2 = {
+            value = 1
+        }		
+    }
+}
+
+knight_in_the_panther_skin3 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+
+		additive_modifier = {
+			value = 100
+			OR={
+				character = 466517
+				AND = {
+					has_landed_title = k_georgia
+					dynasty = 507	
+				}
+			}
+			OR = {
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}
+	}
+	
+    artifacts = {
+        knight_in_the_panther_skin3 = {
+            value = 1
+        }		
+    }
+}
+
+#################  _1120 PAPAL BULL_
+
+papal_bull_1120 = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+		
+			OR = {
+				primary_title = { higher_tier_than = BARON } 
+				is_priest = yes
+			}
+			AND={	
+				religion = catholic
+				NOT = { has_landed_title = k_papal_state }				
+			}			
+			OR = {				
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        papal_bull_1120 = {
+            value = 1
+        }
+    }
+}
+
+#################  _1144 PAPAL BULL_
+
+papal_bull_1144 = {
+    max_amount = 15
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+		
+			OR = {
+				primary_title = { higher_tier_than = BARON } 
+				is_priest = yes
+				trait = crusader
+			}
+			AND={	
+				religion = catholic
+				NOT = { has_landed_title = k_papal_state }				
+			}			
+			OR = {				
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        papal_bull_1144 = {
+            value = 1
+        }
+    }
+}
+
+#################  _1155 PAPAL BULL_ #IRISH=ENGLISH
+
+papal_bull_1155 = {
+    max_amount = 8
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+		
+			OR = {
+				culture = breton
+				culture = english
+				culture = welsh
+			}
+			AND={	
+				religion = catholic
+				primary_title = { higher_tier_than = BARON } 
+				NOT = { has_landed_title = k_papal_state }				
+			}			
+			OR = {				
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        papal_bull_1155 = {
+            value = 1
+        }
+    }
+}
+
+#################  _LICENCE TO CRENELLATE - ROCHESTER_
+
+crenellate_rochester = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_rochester
+			independent = no
+			OR = {		
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337					
+
+			}
+		}				
+	}
+	
+    artifacts = {
+        crenellate_rochester = {
+            value = 1
+        }
+    }
+}
+
+#################  _LICENCE TO CRENELLATE - COLCESTER_
+
+crenellate_colchester = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = c_essex
+			independent = no
+			OR = {		
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337					
+
+			}
+		}				
+	}
+	
+    artifacts = {
+        crenellate_colchester = {
+            value = 1
+        }
+    }
+}
+
+#################  _LICENCE TO CRENELLATE - GAINSBOROUGH_
+
+crenellate_gainsborough = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = c_lincoln
+			independent = no
+			OR = {		
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337					
+
+			}
+		}				
+	}
+	
+    artifacts = {
+        crenellate_gainsborough = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _ARMORIAL OF WALES_
+
+armorial_of_wales = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = d_gwynedd
+			OR = {		
+				year = 1187			
+				year = 1204			
+				year = 1220				
+				year = 1241	
+
+			}
+			NOT = {
+				year = 1337			
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        armorial_of_wales = {
+            value = 1
+        }
+    }
+}
+
+# FROM A QUAINT CORNER OF BRUNSWICK COMES...
+#################  _THE GOSPEL OF HENRY THE LION_
+
+gospel_of_henry_the_lion = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = c_braunschweig
+			}
+			
+			OR = {
+				year = 1187	
+			}
+	
+			NOT = {
+				year = 1204	
+				year = 1220	
+				year = 1241	
+				year = 1337				
+			}	
+
+		}		
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_paderborn
+			}
+			
+			OR = {
+				year = 1204
+				year = 1220
+				year = 1241
+				year = 1337				
+			}		
+		}		
+	}
+	
+    artifacts = {
+        gospel_of_henry_the_lion = {
+            value = 1
+        }
+    }
+}
+
+#################  _THE SONG OF WILLIAM_
+
+song_of_william = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_montpellier
+			}
+			
+			OR = {
+				year = 1187	
+			}
+		}	
+
+		additive_modifier = {
+			value = 30
+			primary_title = {
+				title = c_carcassonne
+			}
+			
+			OR = {
+				year = 1187	
+			}
+		}			
+
+		additive_modifier = {
+			value = 30
+			primary_title = {
+				title = d_savoie
+			}
+			
+			OR = {
+				year = 1187	
+			}
+		}		
+	}
+	
+    artifacts = {
+        song_of_william = {
+            value = 1
+        }
+    }
+}
+
+
+song_of_william2 = {
+    max_amount = 12
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 40
+			
+			religion_group = christian
+			is_landed = yes	
+			
+			OR = {
+				year = 1187	
+			}
+		}		
+
+		additive_modifier = {
+			value = 80
+			
+			religion_group = christian
+			culture_group = latin
+			
+			
+			OR = {
+				year = 1187	
+			}
+		}		
+	}
+	
+    artifacts = {
+        song_of_william2 = {
+            value = 1
+        }
+    }
+}
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1204
+#############################
+###
+
+#################  _TALE OF DANISHMEND_
+
+tale_of_danishmend = {
+    max_amount = 5
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+
+			is_landed = yes				
+			OR = {
+				culture = turkish	
+			}
+			OR = {
+				year = 1204				
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        tale_of_danishmend = {
+            value = 1
+        }
+    }
+}
+
+#################  _ECCLESIATICAL HISTORY GIRDLE BOOK_
+
+ecclesiatical_history_girdle1 = {
+    max_amount = 80
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR = {
+				trait = scholar	
+				trait = theologian 
+				trait = monk	
+				trait = nun		
+				trait = pilgrim
+				trait = zealous
+				is_priest = yes
+				society_member_of = monastic_order_benedictine 
+				society_member_of = monastic_order_dominican 	
+			}
+			OR = {
+				is_priest = yes
+				culture = saxon
+				culture = english
+				culture_group = celtic				
+			}			
+			AND = {
+				religion_group = christian
+				NOT = { has_landed_title = k_papal_state }				
+			}
+			OR = {				
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}				
+	}
+	
+    artifacts = {
+        ecclesiatical_history_girdle1 = {
+            value = 1
+        }
+        ecclesiatical_history_girdle2 = {
+            value = 1
+        }
+        ecclesiatical_history_girdle3 = {
+            value = 1
+        }
+        ecclesiatical_history_girdle4 = {
+            value = 1
+        }
+        ecclesiatical_history_girdle5 = {
+            value = 1
+        }		
+    }
+}
+
+#################  _CONSOLATION OF PHILOSOPHY GIRDLE BOOK_
+
+consolation_of_philosphy_girdle = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR = {
+				is_priest = yes
+				trait = shy
+				trait = scholar
+				trait = monk
+				trait = nun
+				trait = zealous
+				trait = pilgrim
+			}
+			AND = {
+				religion_group = christian
+				NOT = { has_landed_title = k_papal_state }				
+				NOT = { religion = orthodox }
+				NOT = { religion = monothelite }
+				NOT = { religion = iconoclast }
+				NOT = { religion = paulician }
+			}
+			OR = {				
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}				
+	}
+	
+    artifacts = {
+        consolation_of_philosphy_girdle = {
+            value = 1
+        }
+    }
+}
+
+#################  _ARMORIAL GIRDLE BOOK_
+
+armorial_girdle = {
+    max_amount = 10
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			AND = {
+				religion_group = christian
+				OR = {
+					has_job_title = job_chancellor
+					has_job_title = job_marshal
+					has_job_title = job_spymaster
+				}
+				NOT = { 
+					culture_group = byzantine 
+				}
+			}
+			OR = {				
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337	
+			}
+		}				
+	}
+	
+    artifacts = {
+        armorial_girdle = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _LICENCE TO CRENELLATE - DEVON_
+
+crenellate_devon = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = c_devon
+			independent = no
+			OR = {				
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337					
+
+			}
+		}				
+	}
+	
+    artifacts = {
+        crenellate_devon = {
+            value = 1
+        }
+    }
+}
+
+#################  _LICENCE TO CRENELLATE - BISHOPRIC OF COVENTRY_
+
+crenellate_coventry = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_coventry
+			independent = no
+			OR = {				
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337					
+
+			}
+		}				
+	}
+	
+    artifacts = {
+        crenellate_coventry = {
+            value = 1
+        }
+    }
+}
+
+#################  _DEEDS OF THE DANES_
+
+deeds_of_the_danes1 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			character = 151022 #Niels, the undying old man of House Hvide (I mean age 90 really?)
+			
+			OR = {
+				year = 1204	
+				year = 1220	
+				year = 1241	
+			}
+			NOT = {							
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes1 = {
+            value = 1
+        }
+    }
+}
+deeds_of_the_danes2 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			character = 151022 #Niels, the undying old man of House Hvide (I mean age 90 really?)
+			
+			OR = {
+				year = 1204	
+				year = 1220	
+				year = 1241					
+			}
+			NOT = {			
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes2 = {
+            value = 1
+        }
+    }
+}
+deeds_of_the_danes3 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+	
+			primary_title = {
+				title = d_skane
+			}
+			
+			OR = {
+				year = 1204	
+				year = 1220				
+			}
+			NOT = {				
+				year = 1241	
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes3 = {
+            value = 1
+        }
+    }
+}
+deeds_of_the_danes4 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			character = 151022 #Niels, the undying old man of House Hvide (I mean age 90 really?)			
+			
+			OR = {
+				year = 1204	
+				year = 1220	
+				year = 1241				
+			}
+			NOT = {					
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes4 = {
+            value = 1
+        }
+    }
+}
+deeds_of_the_danes4 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			character = 201525 #Ingeborg, nephew of Absalon
+			
+			OR = {
+				year = 1204	
+				year = 1220
+				year = 1241	
+			}
+			NOT = {								
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes4 = {
+            value = 1
+        }
+    }
+}
+deeds_of_the_danes6 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = d_skane
+			}
+			
+			OR = {
+				year = 1204	
+				year = 1220					
+			}
+			NOT = {			
+				year = 1241	
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes6 = {
+            value = 1
+        }
+    }
+}
+deeds_of_the_danes7 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			character = 201525 #Ingeborg, nephew of Absalon
+			
+			OR = {
+				year = 1204	
+				year = 1220	
+				year = 1241
+			}
+			NOT = {				
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes7 = {
+            value = 1
+        }
+    }
+}
+deeds_of_the_danes8 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			character = 201525 #Ingeborg, nephew of Absalon
+			
+			OR = {
+				year = 1204	
+				year = 1220	
+				year = 1241	
+			}
+			NOT = {				
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes8 = {
+            value = 1
+        }
+    }
+}
+
+deeds_of_the_danes9 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = d_skane
+			}
+			
+			OR = {
+				year = 1204	
+				year = 1220				
+			}
+			NOT = {				
+				year = 1241	
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes9 = {
+            value = 1
+        }
+    }
+}
+
+deeds_of_the_danes10 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			character = 151018	#Peder of House Hvide, 19yo Theologian 		
+			OR = {
+				year = 1204	
+				year = 1220						
+			}
+			NOT = {		
+				year = 1241	
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes10 = {
+            value = 1
+        }
+    }
+}
+deeds_of_the_danes11 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			character = 151004	#Caecilie of House Hvide, 28, Married Out
+			
+			OR = {
+				year = 1204		
+				year = 1220					
+			}
+			NOT = {			
+				year = 1241	
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes11 = {
+            value = 1
+        }
+    }
+}
+deeds_of_the_danes13 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			character = 201525 #Ingeborg, nephew of Absalon
+			
+			OR = {
+				year = 1204		
+				year = 1220	
+				year = 1241		
+			}
+			NOT = {			
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes13 = {
+            value = 1
+        }
+    }
+}
+
+deeds_of_the_danes14 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = d_skane
+			}
+			
+			OR = {
+				year = 1204
+				year = 1220					
+			}
+			NOT = {			
+				year = 1241	
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes14 = {
+            value = 1
+        }
+    }
+}
+
+deeds_of_the_danes15 = {
+    max_amount = 2
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+
+			character = 201525 #Ingeborg, nephew of Absalon
+
+			OR = {
+				year = 1204	
+				year = 1220	
+				year = 1241		
+			}
+			NOT = {				
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes15 = {
+            value = 1
+        }
+    }
+}
+
+deeds_of_the_danes16 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			character = 201525 #Ingeborg, nephew of Absalon
+	
+			OR = {
+				year = 1204		
+				year = 1220		
+				year = 1241	
+			}
+			NOT = {		
+				year = 1337			
+			}
+		}		
+		
+	}			
+    artifacts = {
+        deeds_of_the_danes16 = {
+            value = 1
+        }
+    }
+}
+
+deeds_of_the_danes16 = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			character = 201545 #Peder, 35, random relative
+	
+			OR = {
+				year = 1204		
+				
+			}
+			NOT = {		
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+		}		
+		
+	}			
+    artifacts = {
+        deeds_of_the_danes16 = {
+            value = 1
+        }
+    }
+}
+	
+
+##General spawing
+
+deeds_of_the_danes1 = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+
+			is_landed = yes				
+			OR = {
+				culture_group = west_germanic
+				culture_group = north_germanic
+				culture_group = central_germanic
+				culture_group = baltic			
+			}
+			OR = {
+				year = 1220				
+				year = 1241	
+				year = 1337			
+			}
+		}		
+		
+	}
+	
+    artifacts = {
+        deeds_of_the_danes1 = {
+            value = 1
+        }
+        deeds_of_the_danes2 = {
+            value = 1
+        }
+        deeds_of_the_danes3 = {
+            value = 1
+        }
+        deeds_of_the_danes4 = {
+            value = 1
+        }
+        deeds_of_the_danes5 = {
+            value = 1
+        }
+        deeds_of_the_danes6 = {
+            value = 1
+        }
+        deeds_of_the_danes7 = {
+            value = 1
+        }
+        deeds_of_the_danes8 = {
+            value = 1
+        }
+        deeds_of_the_danes9 = {
+            value = 1
+        }		
+		
+        deeds_of_the_danes10 = {
+            value = 1
+        }
+        deeds_of_the_danes11 = {
+            value = 1
+        }		
+        deeds_of_the_danes12 = {
+            value = 1
+        }
+        deeds_of_the_danes13 = {
+            value = 1
+        }
+        deeds_of_the_danes14 = {
+            value = 1
+        }
+        deeds_of_the_danes15 = {
+            value = 1
+        }
+        deeds_of_the_danes16 = {
+            value = 1
+        }		
+    }
+}
+#################  _MARGAM ANNALS_
+
+margan_annals = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_llandaff
+			}
+			
+			OR = {
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        margan_annals = {
+            value = 1
+        }
+    }
+}
+
+#################  _COVENTRY CHRONICLE_
+
+coventry_chronicle = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_coventry
+			}
+			
+			OR = {
+				year = 1204			
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        coventry_chronicle = {
+            value = 1
+        }
+    }
+}
+
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1220
+#############################
+###
+
+#################  _TEWKESBURY ANNALS_
+
+tewkesbury_annals = {
+    max_amount = 3
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_winchcombe
+			}
+			
+			OR = {
+				year = 1220			
+				year = 1241
+				year = 1337
+			}
+		}	
+
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = c_bedford
+			}
+			
+			OR = {
+				year = 1241
+			}
+			NOT = {
+				year = 1337			
+			}			
+		}			
+	}
+	
+    artifacts = {
+        tewkesbury_annals = {
+            value = 1
+        }
+    }
+}	
+
+#################  _ARMORIAL OF KING HENRY III_
+
+armorial_of_king_henry = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = k_england
+			OR = {		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        armorial_of_king_henry = {
+            value = 1
+        }
+    }
+}
+
+#################  _MAGNA CARTA_
+
+magna_carta_libertatum = {
+    max_amount = 25 #21 fixed copies so far
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		#
+		#
+		#
+		######ARCHBISHOP OF CANTERBURY, STEPHEN LANGTON
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = b_canterbury 
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+		}			
+		######ARCHBISHOP OF DUBLIN, HENRY DE LOUNDRES
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = b_christ_church #Replaces Mellifont in 1028 
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+		}				
+		######BISHOP OF LONDON, WILLIAM
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = b_st_pauls
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+		}				
+		######BISHOP OF WINCHESTER, WILLIAM
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = c_winchester #County is in Church hands after 1070 ====> b_st_swithun 
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220				
+				year = 1241
+				year = 1327 #Back in Church hands				
+				year = 1337
+			}
+			NOT = { #HUGH DESPENCER
+				year = 1322
+				year = 1323
+				year = 1324
+				year = 1325
+				year = 1326
+			}
+		}							
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = b_st_swithun 
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {	#HUGH DESPENCER	
+				year = 1322
+				year = 1323
+				year = 1324
+				year = 1325
+				year = 1326
+
+			}
+			NOT = { 
+				year = 1327 #Back in Church hands				
+				year = 1337
+			}
+		}			
+		######BISHOP OF BATH AND GLASTONBURY, JOCELIN
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = b_wells 
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+		}			
+		######BISHOP OF LINCOLN - HUGH
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = b_lincoln 
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+		}			
+		######BISHOP OF WORCESTER - WALTER DE GREY
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = b_worcester  
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+		}		
+		######BISHOP OF COVENTRY - WILLIAM DE CORNHILL
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = b_coventry #replaces Lichfield in Warwick in 1075  
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+		}		
+		######BISHOP OF ROCHESTER - BENEDICT #ALSO IN KENT WITH CANTERBURY
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = b_rochester
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220
+				year = 1241
+				year = 1337
+			}
+		}	
+		#
+		#
+		#		
+		######EARL OF PEMBROOKE (SEE DYFEDD) - WILLIAM MARSHAL ~ ONE OF THE COUNSELLORS
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = d_deheubarth
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220
+				year = 1241
+			}
+			NOT = {
+				year = 1272 #Into the Hands of Edward I, Given the above condition ^^ this block may be redundant, but redundancy is the mother of not-fucking-up-royal.
+				year = 1337
+			}
+		}	
+		######EARL OF SALISBURY - WILLIAM LONGESPEE ~ ONE OF THE COUNSELLORS
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_wiltshire #I'm not going to work out what other titles he might have. No sirrah.
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220				
+				year = 1241	
+			}
+			NOT = {
+				year = 1337			
+			}
+		}
+		##A SURVIVING COPY ENDS UP AT SALISBURY CATHEDRAL SO... ###THOUGH IT SHOULD BE NOTED THAT THE NEXT FELLOW DOWN WAS REPONSIBLE FOR THAT ESTABLISHMENT APPARENTLY FOR SOME REASON.
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = b_salisbury  #Replaces Ramsbury in 1075
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1337
+			}
+		}	
+		######EARL OF SURREY - WILLIAM DE WARENNE ~ ONE OF THE COUNSELLORS
+		additive_modifier = {
+			value = 100
+			AND = {
+				primary_title = {
+					title = c_surrey
+				}
+				NOT = { has_landed_title = k_england }			 
+			}
+			OR = {		
+				year = 1220
+				year = 1241
+				year = 1337
+			}
+		}	
+		######EARL OF ARUNDEL (SUSSEX) - WILLIAM D'AUBIGNY ~ ONE OF THE COUNSELLORS
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = b_arundel #More or less c_sussex
+				NOT = { has_landed_title = k_england }			 
+			}
+			OR = {		
+				year = 1220
+				year = 1241
+				year = 1337
+			}
+		}			
+		######"CONSTABLE OF SCOTLAND" - ALAN OF GALLOWAY ~ ONE OF THE COUNSELLORS
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = d_galloway
+				character = 203572
+			}
+			OR = {		
+				year = 1220
+			}
+			NOT = {  #HE'S DEAD, DAVE.
+				year = 1241
+				year = 1337			
+			}
+		}				
+		######EARL OF KENT - HUBERT DE BURGH ~ ONE OF THE COUNSELLORS
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_kent
+				NOT = { has_landed_title = k_england }					
+			}
+			OR = {		
+				year = 1220
+			}
+			NOT = {  #HE'S DEAD, DAVE.
+				year = 1241
+				year = 1337			
+			}
+		}			
+		#
+		#
+		#		
+		######EARL OF WINCHESTER - SAER DE QUINCY (THE COUNTY IS THEOCRATIC HENCE THE BARONY IS USED - ♬♫♪ AB-STRACT-ION ♪♫♬)
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = b_winchester 
+				NOT = { has_landed_title = k_england }					
+			}
+			OR = {		
+				year = 1220
+				year = 1241 #HIS SON ROGER				
+			}
+			NOT = { 
+				year = 1337			
+			}
+		}			
+		######EARL OF HEREFORD - HENRY DE BOHUN
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_hereford 
+				NOT = { has_landed_title = k_england }					
+			}
+			OR = {		
+				year = 1220
+				year = 1241			
+				year = 1337			
+			}
+		}				
+		######EARL OF ESSEX (AND GLOUCESTER) - GEOFFREY DE MANDEVILLE
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_essex 
+				NOT = { has_landed_title = k_england }					
+			}
+			OR = {		
+				year = 1220
+				year = 1241			
+				year = 1337			
+			}
+		}			
+		######EARL OF NORFOLK (AND SUFFOLK) - ROGER BIGOD
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_norfolk 
+				NOT = { has_landed_title = k_england }					
+			}
+			OR = {		
+				year = 1220
+				year = 1241			
+				year = 1337			
+			}
+		}					
+		######EARL OF OXFORD - ROBERT DE VERE
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = c_oxford 
+				NOT = { has_landed_title = k_england }					
+			}
+			OR = {		
+				year = 1220
+				year = 1241			
+				year = 1337			
+			}
+		}			
+		######MAYOR OF LONDON - WILLIAM HARDELL
+		additive_modifier = {
+			value = 100
+			AND = {
+				has_landed_title = b_london 
+				NOT = { has_landed_title = k_england }					
+			}
+			OR = {		
+				year = 1220
+				year = 1241			
+				year = 1337			
+			}
+		}			
+		#####EXTRA
+		additive_modifier = {
+			value = 10
+			AND = {
+				is_landed = yes	
+				OR = {
+					culture = english
+					de_facto_liege_title = k_england
+				}
+				NOT = { has_landed_title = k_england }			
+			}
+			OR = {		
+				year = 1220				
+				year = 1241	
+				year = 1337
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        magna_carta_libertatum = {
+            value = 1
+        }
+    }
+}
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1241
+#############################
+###
+
+#################  _1235 PAPAL BULL_
+
+papal_bull_1235 = {
+    max_amount = 10
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+		
+			OR = {
+				primary_title = { higher_tier_than = BARON } 
+			}
+			AND={	
+				religion = catholic
+				NOT = { has_landed_title = k_papal_state }				
+			}			
+			OR = {							
+				year = 1241	
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        papal_bull_1235 = {
+            value = 1
+        }
+    }
+}
+
+#################  _WINCHCOMBE ANNALS (COMPILED VERSION)_
+
+winchcombe_annals = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = b_winchcombe
+			}
+			
+			OR = {
+				year = 1241	
+				year = 1337
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        winchcombe_annals = {
+            value = 1
+        }
+    }
+}
+
+##
+#############################
+##### YEAR OF OUR LORD AND SAVIOUR, POMPEY THE GREAT =====> 1337
+#############################
+###
+
+#################  _BOOK OF THE CONSULATE OF THE SEA_
+
+book_consulate = {
+    max_amount = 6
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			AND={	
+				primary_title = { higher_tier_than = BARON } 
+				OR = {
+					culture = catalan
+					culture = occitan
+					culture = italian			
+				}					
+			}					
+			OR = {							
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        book_consulate = {
+            value = 1
+        }
+    }
+}
+
+#################  _1235 PAPAL BULL_
+
+papal_bull_1252 = {
+    max_amount = 8
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			AND={	
+				religion = catholic
+				primary_title = { higher_tier_than = BARON } 
+				culture_group = latin
+				NOT = { has_landed_title = k_papal_state }				
+			}			
+			OR = {							
+				year = 1337	
+			}
+
+		}		
+		
+	}
+	
+    artifacts = {
+        papal_bull_1252 = {
+            value = 1
+        }
+    }
+}
+
+
+#################  _THE GARDEN OF PAGES_
+
+the_garden_of_pages = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		#
+		additive_modifier = {
+			value = 100
+			#
+			AND={
+				religion_group = muslim
+			}
+			OR = {				
+				year = 1326 #1337					
+			}
+		}				
+	}
+	
+    artifacts = {
+        the_garden_of_pages = {
+            value = 1
+        }
+    }
+}
+
+#################  _SUM OF LOGIC_
+
+sum_of_logic = {
+    max_amount = 20
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			OR = {
+				culture_group = celtic
+				culture_group = west_germanic			
+			}
+			OR = {				
+				year = 1323 #1337					
+			}
+		}				
+	}
+	
+    artifacts = {
+        sum_of_logic = {
+            value = 1
+        }
+    }
+}
+
+
+
+
+
+
+
+
+#################  _LICENCE TO CRENELLATE - BISHOPRIC OF NORWICH_
+
+crenellate_norwich = {
+    max_amount = 1
+    spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+
+    weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 100
+			
+			has_landed_title = b_norwich
+			independent = no
+			OR = {				
+				year = 1337					
+
+			}
+		}				
+	}
+	
+    artifacts = {
+        crenellate_norwich = {
+            value = 1
+        }
+    }
+}
+
+
+
+

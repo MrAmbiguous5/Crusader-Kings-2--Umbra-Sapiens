@@ -1,0 +1,11 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+gift_artifact;Gift Artifact;;;;;;;;;;;;;x
+gift_artifact_desc;Gift [Root.GetTitledFirstName] one of your artifacts.;;;;;;;;;;;;;x
+EVTTOOLTIPgift_artifact;Select which artifact to gift to [Root.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_gift_artifact_1;Which artifact do you wish to gift to [artifact_recipient.GetTitledFirstName]?;;;;;;;;;;;;;x
+EVTOPTA_gift_artifact_1;Maybe one of my other ones;;;;;;;;;;;;;x
+EVTOPTB_gift_artifact_1;This one shall be of use to [artifact_recipient.GetHerHim];;;;;;;;;;;;;x
+EVTOPTC_gift_artifact_1;I think this one would be best for [artifact_recipient.GetHerHim];;;;;;;;;;;;;x
+EVTOPTD_gift_artifact_1;They are deserving of this artifact;;;;;;;;;;;;;x
+EVTDESC_gift_artifact_3;[Root.GetTitledFirstName],\nI have decided to give to you one of my artifacts in the hopes that you will find more use for it than I ever did, it should be delivered alongside this letter and I hope you enjoy this gift.\n\nYour [From.GetRootRelation] [From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTOPTA_gift_artifact_3;Thank you!;;;;;;;;;;;;;x

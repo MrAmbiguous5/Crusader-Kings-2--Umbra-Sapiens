@@ -1,0 +1,5 @@
+book_seclusion = {
+	random = no
+	diplomacy = -5
+	incapacitating = yes
+}

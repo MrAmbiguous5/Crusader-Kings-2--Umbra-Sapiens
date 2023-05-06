@@ -1,0 +1,13 @@
+# County Title
+title = c_guayaquil
+
+# Settlements
+max_settlements = 3
+b_guayaquil = castle
+b_guayaquil-ii = temple
+
+# Misc
+culture = caran
+religion = caran_pagan
+
+# History

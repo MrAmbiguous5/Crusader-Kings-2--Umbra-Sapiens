@@ -1,0 +1,290 @@
+namespace = equus
+
+#Heir selection
+character_event = {
+    id = equus.600
+    is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		OR = {
+			is_in_society = military_knights
+			is_in_society = military_knights1
+			is_in_society = military_knights2
+			is_in_society = diplomatic_knights
+			is_in_society = diplomatic_knights1
+			is_in_society = diplomatic_knights2
+		}
+		is_society_grandmaster = yes
+		ai = yes
+	}
+	
+	immediate = {
+		any_society_member = {
+			limit = {
+				has_character_modifier = society_heir
+			}
+			remove_character_modifier = society_heir
+		}
+		any_child = {
+			limit = {
+				is_heir = yes
+				NOT = { same_society_as = ROOT }
+				martial = 5
+				age = 16
+				OR = {
+					AND =  {
+						is_female = yes
+						martial = 15
+					}
+					is_female= no
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { society_member_of = military_knights }
+				}
+				join_society = military_knights
+			}
+			if = {
+				limit = {
+					ROOT = { society_member_of = military_knights1 }
+				}
+				join_society = military_knights1
+			}
+			if = {
+				limit = {
+					ROOT = { society_member_of = military_knights2 }
+				}
+				join_society = military_knights2
+			}
+			if = {
+				limit = {
+					ROOT = { society_member_of = diplomatic_knights }
+				}
+				join_society = diplomatic_knights
+			}
+			if = {
+				limit = {
+					ROOT = { society_member_of = diplomatic_knights1 }
+				}
+				join_society = diplomatic_knights1
+			}
+			if = {
+				limit = {
+					ROOT = { society_member_of = diplomatic_knights2 }
+				}
+				join_society = diplomatic_knights2
+			}
+			add_character_modifier = { name = society_heir duration = 36000 }
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_society_member = {
+						has_character_modifier = society_heir
+					}
+				}
+			}
+			any_child = {
+				limit = {
+					is_heir = yes
+					same_society_as = ROOT
+					age = 16
+					OR = {
+						AND =  {
+							is_female = yes
+							martial = 15
+						}
+						is_female= no
+					}
+				}
+				add_character_modifier = { name = society_heir duration = 36000 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_society_member = {
+						has_character_modifier = society_heir
+					}
+				}
+			}
+			any_child = {
+				limit = {
+					is_heir = no
+					NOT = { same_society_as = ROOT }
+					martial = 5
+					age = 16
+					OR = {
+						AND =  {
+							is_female = yes
+							martial = 15
+						}
+						is_female= no
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = military_knights }
+					}
+					join_society = military_knights
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = military_knights1 }
+					}
+					join_society = military_knights1
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = military_knights2 }
+					}
+					join_society = military_knights2
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = diplomatic_knights }
+					}
+					join_society = diplomatic_knights
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = diplomatic_knights1 }
+					}
+					join_society = diplomatic_knights1
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = diplomatic_knights2 }
+					}
+					join_society = diplomatic_knights2
+				}
+				add_character_modifier = { name = society_heir duration = 36000 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_society_member = {
+						has_character_modifier = society_heir
+					}
+				}
+			}
+			any_child = {
+				limit = {
+					is_heir = no
+					same_society_as = ROOT
+					age = 16
+					OR = {
+						AND =  {
+							is_female = yes
+							martial = 15
+						}
+						is_female= no
+					}
+				}
+				add_character_modifier = { name = society_heir duration = 36000 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_society_member = {
+						has_character_modifier = society_heir
+					}
+				}
+			}
+			any_sibling = {
+				limit = {
+					NOT = { same_society_as = ROOT }
+					martial = 5
+					age = 16
+					OR = {
+					AND =  {
+						is_female = yes
+						martial = 15
+					}
+					is_female= no
+				}
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = military_knights }
+					}
+					join_society = military_knights
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = military_knights1 }
+					}
+					join_society = military_knights1
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = military_knights2 }
+					}
+					join_society = military_knights2
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = diplomatic_knights }
+					}
+					join_society = diplomatic_knights
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = diplomatic_knights1 }
+					}
+					join_society = diplomatic_knights1
+				}
+				if = {
+					limit = {
+						ROOT = { society_member_of = diplomatic_knights2 }
+					}
+					join_society = diplomatic_knights2
+				}
+				add_character_modifier = { name = society_heir duration = 36000 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_society_member = {
+						has_character_modifier = society_heir
+					}
+				}
+			}
+			any_sibling = {
+				limit = {
+					same_society_as = ROOT
+					age = 16
+					OR = {
+						AND =  {
+							is_female = yes
+							martial = 15
+						}
+						is_female= no
+					}
+				}
+				add_character_modifier = { name = society_heir duration = 36000 }
+			}
+		}
+	}
+}
+
+
+#Modifier removal
+character_event = {
+    id = equus.601
+	hide_window = yes
+	trigger = {
+		has_character_modifier = society_heir
+		is_society_grandmaster = yes
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	immediate = {
+		remove_character_modifier = society_heir
+	}
+}

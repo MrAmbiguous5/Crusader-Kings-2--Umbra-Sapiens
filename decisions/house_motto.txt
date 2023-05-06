@@ -1,0 +1,90 @@
+#dynasty_decisions = {
+decisions = {
+	
+	create_house_motto = {
+		only_independent = yes
+		is_high_prio = yes
+		#ai_check_interval = 60
+		ai = no
+		
+		potential = {
+			is_playable = yes
+			dynasty_head = {
+				character = ROOT
+			}
+			NOR = {
+				was_conceived_a_bastard = yes # Bastard, even if a legalized one can not take this decision
+				trait = bastard
+				has_dynasty_flag = house_motto_created
+			}
+			dynastic_prestige = 100
+			NOR = {
+				check_variable = { which = global_defined_motto_used value >= 98 }
+				check_variable = { which = global_custom_motto_used value >= 98 }
+			}
+		}
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			has_regent = no
+			is_inaccessible_trigger = no
+			trigger_if = {
+				limit = {
+					OR = {
+						trait = kinslayer
+						trait = familial_kinslayer
+						trait = dynastic_kinslayer
+						trait = tribal_kinslayer
+					}
+				}
+				prestige = 5000
+			}
+			trigger_if = {
+				limit = {
+					NOR = {
+						trait = kinslayer
+						trait = familial_kinslayer
+						trait = dynastic_kinslayer
+						trait = tribal_kinslayer
+					}
+				}
+				prestige = 1000
+			}
+			dynastic_prestige >= 500
+			custom_tooltip = {
+				text = NOT_MOTTO_CREAETED_NOR_RECENTELY_REMOVED_TOOLTIP
+				hidden_tooltip = {
+					NOR = {
+						has_dynasty_flag = house_motto_created
+						had_dynasty_flag = {
+							flag = house_motto_recently_removed
+							years <= 100
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						trait = kinslayer
+						trait = familial_kinslayer
+						trait = dynastic_kinslayer
+						trait = tribal_kinslayer
+					}
+				}
+				prestige = -5000
+			}
+			else = {
+				prestige = -1000
+			}
+			character_event = { id = MOT.100 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

@@ -1,0 +1,402 @@
+namespace = CVR
+#Roman Republic start reorganization into Empire
+narrative_event = {
+	id = CVR.1
+	title = CVRET.1
+	desc = {
+	    text = CVRETXT.1
+		}
+	picture = GFX_evt_senat_srach
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = { #Restorer
+		name = CVREO.1
+		hidden_tooltip = { #Set up great rebellion.
+			save_event_target_as = wannabie_caesar
+			random_vassal = { 
+				limit = { 
+					is_landed = yes
+					prisoner = no
+					higher_tier_than = COUNT 
+					OR = { 
+						is_republic = yes
+						is_merchant_republic = yes
+					} 
+					OR = { 
+						trait = greedy
+			            trait = just
+			            trait = envious
+			            trait = ambitious
+			            trait = stubborn
+					} 
+				} 
+				preferred_limit = { 
+					is_powerful_vassal = yes
+					ai = no 
+					is_merchant_republic = yes
+					is_republic = yes
+				}
+				preferred_limit = { 
+					is_powerful_vassal = yes
+					ai = no 
+				} 
+				preferred_limit = { 
+					ai = no 
+					is_merchant_republic = yes
+					is_republic = yes
+				}
+				preferred_limit = { 
+					is_powerful_vassal = yes
+					is_merchant_republic = yes
+					is_republic = yes
+				}
+				preferred_limit = { 
+					is_powerful_vassal = yes
+				}
+				preferred_limit = {  
+					is_merchant_republic = yes
+					is_republic = yes
+				}
+				narrative_event = { id = CVR.2 days = 12 }
+			} 
+		}
+	}
+}
+
+#Random vassal become leader of senate loyalists
+narrative_event = {
+	id = CVR.2
+	title = CVRET.2
+	desc = {
+	    text = CVRETXT.2
+		}
+	picture = GFX_evt_senat_srach
+	border = GFX_event_narrative_frame_intrigue
+	hide_new = yes
+	
+	is_triggered_only = yes
+
+	trigger = { 
+		liege = { character = event_target:wannabie_caesar } 
+		OR = { 
+			trait = greedy
+			trait = just
+			trait = envious
+			trait = ambitious
+			trait = stubborn
+		} 
+	}
+
+	fail_trigger_effect = {
+		event_target:wannabie_caesar = {
+			random_vassal = {
+				limit = { 
+					is_landed = yes
+					higher_tier_than = COUNT 
+					OR = { 
+						is_merchant_republic = yes
+						is_republic = yes
+					}
+				}
+				character_event  = { id = CVR.2 } 
+			}
+		}
+	}
+
+	
+	option = {
+		name = CVREO.2
+		set_character_flag = leader_of_senate_loyalists
+		custom_tooltip = { 
+			text = CVRETXT
+		}
+		hidden_tooltip = { 
+			start_faction = { 
+				faction = faction_senate_loyalists
+				can_join_existing = yes
+			}
+		}
+		hidden_tooltip = { 
+			event_target:wannabie_caesar = {
+				any_vassal = {
+					limit = { 
+						higher_tier_than = BARON
+						is_theocracy = no
+						prisoner = no
+						OR = { 
+							is_merchant_republic = yes
+							is_republic = yes
+						} 
+						NOT = { character = ROOT }
+					}
+				letter_event = { id = CVR.3 }	#Call to Arms 
+				}
+			}
+		}
+		hidden_tooltip = { narrative_event = { id = CVR.4 days = 4 } }	#War actually starts.
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {		#Player refuses to start a war
+		name = CVREO.3
+		trigger = { ai = no }
+	}
+}
+
+#Other Vassals join the cause
+letter_event = {
+	id = CVR.3
+	desc = CVRETXT.3
+	border = GFX_event_letter_frame_religion
+	hide_new = yes
+
+	trigger = { 
+		vassal_of = event_target:wannabie_caesar
+		OR = { 
+			is_merchant_republic = yes
+			is_republic = yes
+		} 
+	}
+	
+	is_triggered_only = yes
+	
+	option = {	#Join Independence war
+		name = CVREO.4
+		join_faction = { 
+			faction = faction_senate_loyalists
+			faction_leader = FROM
+			can_join_existing = yes
+		}
+		ai_chance = { 
+			factor = 95 
+			modifier = { 
+				factor = 2.5
+				is_merchant_republic = yes
+			}
+			modifier = { 
+				factor = 2.5
+				is_republic = yes
+			}
+			modifier = { 
+				factor = 0.5
+				trait = stubborn
+			}
+			modifier = { 
+				factor = 0.5
+				trait = greedy
+			}
+			modifier = { 
+				factor = 1.5
+				trait = just
+			}
+
+		}
+	}
+	option = { #Refuse.
+		name = CVREO.5
+		ai_chance = { factor = 3 }
+	}
+}
+
+#Star of civil war
+narrative_event = {
+	id = CVR.4
+	title = CVRET.4
+	desc = {
+	    text = CVRETXT.4
+		}
+	picture = GFX_evt_roman_civil_war
+	border = GFX_event_narrative_frame_war
+	hide_new = yes
+	
+	is_triggered_only = yes
+
+	trigger = { 
+		liege = { character = event_target:wannabie_caesar } 
+		OR = { 
+			is_merchant_republic = yes
+			is_republic = yes
+		} 
+	}
+	
+	option = {
+		name = CVREO.6
+		hidden_tooltip = {
+			event_target:wannabie_caesar = {
+				narrative_event = { id = CVR.5 } #Notification to Emperor
+				any_vassal = {
+					limit = { 
+						is_playable = yes
+						ai = no
+					}
+				narrative_event = { id = CVR.5 } #Notification to other vassals.
+				}
+			}
+			top_liege = {
+				ROOT = {
+					set_defacto_liege = PREV
+				}
+			}	
+		}
+		hidden_tooltip = {
+			event_target:wannabie_caesar = {
+				any_vassal = { 
+					limit = { in_faction = faction_senate_loyalists } 
+					event_target:wannabie_caesar = {
+						opinion = {
+							who = PREV
+							modifier = opinion_charge_traitor
+							months = 240
+						}
+					}
+				}
+			}
+		}
+		liege = {
+			reverse_war = {
+				target = ROOT
+				casus_belli = republic_civil_war
+				faction = faction_senate_loyalists
+			}
+		}
+		prestige = 500
+		piety = 200
+		ai_chance = { factor = 100 }
+	}	
+}
+
+#Notify players of the revolt
+narrative_event = {
+	id = CVR.5
+	title = CVRET.5
+	desc = {
+	    text = CVRETXT.5
+		}
+	picture = GFX_evt_roman_civil_war
+	border = GFX_event_narrative_frame_war
+	hide_new = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CVREO.7
+		trigger = { character = event_target:wannabie_caesar } 
+	}
+	option = {
+		name = CVREO.8
+		trigger = { NOT = { character = event_target:wannabie_caesar } } 
+	}
+}
+
+#Rebels lost, convert to feudalism
+narrative_event = {
+	id = CVR.6
+	title = CVRET.6
+	desc = {
+	    text = CVRETXT.6
+		}
+	picture = GFX_evt_roman_triumph
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	    hidden_tooltip = {
+		    capital_scope = {
+				random_province_holding = {
+							limit = {
+								holding_type = castle
+								holder_scope = {
+									OR = {
+										character = ROOT
+										is_liege_or_above = ROOT
+									}
+								}
+							}
+							if = {
+								limit = {
+									NOT = { holder = ROOT }
+								}
+								usurp_title = ROOT
+							}
+						}
+					}
+	    }
+    }
+	option = {
+		name = CVREO.9
+		trigger = { is_ruler = yes }
+		hidden_tooltip = {
+		    any_demesne_title = {
+				limit = {
+					holding_type = castle
+					location = {
+						is_capital = yes
+					}
+				}
+				province_capital = yes
+				ROOT = { capital = PREV }
+			}
+		    family_palace = { 
+					limit = { holding_type = family_palace } 
+					destroy_settlement = THIS
+				}
+		    ROOT = { 
+		    set_government_type = feudal_government
+		    }
+            primary_title = {
+                e_roman_empire = {
+                    set_name = name_imperium_romanum
+				}
+            }			
+			narrative_event = { id = CVR.7 days = 1 }
+	    }
+	}
+}
+
+narrative_event = {
+	id = CVR.7
+    hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = { 
+	    ROOT = {
+            primary_title = {
+                e_roman_empire = {  	   
+	                add_law_w_cooldown = { law = ze_administration_laws_2 }
+			        add_law = succ_byzantine_elective
+			        set_government_type = roman_imperial_government
+			    }
+			}
+		}  
+	
+	}
+}	
+	
+narrative_event = {
+	id = CVR.8
+	title = CVRET.8
+	    desc = {
+	    text = CVRETXT.8
+		}
+	picture = GFX_evt_streets_of_roma
+	border = GFX_event_narrative_frame_intrigue
+	is_triggered_only = yes	
+	
+	option = {
+	    name = CVREO.10
+		wealth = -2000
+		prestige = -1000
+	    hidden_tooltip { narrative_event = { id = CVR.1 days = 10 } }
+		custom_tooltip = { text = tooltip_CVR.8 }
+	    
+	    }
+	option = {
+	    name = CVREO.11
+	    clr_character_flag = overthrow_republic
+	
+	    }
+	
+}

@@ -1,0 +1,19 @@
+women = {
+	name = "RULE_WOMEN_CHIV"
+	group = "RULE_GROUP_CHIV"
+	option = {
+		name = marshals
+		text = "RULE_WOMEN_CHIV_MARSHALS"
+		desc = "RULE_WOMEN_CHIV_MARSHALS_DESC"
+	}
+	option = {
+		name = all
+		text = "RULE_WOMEN_CHIV_ALL"
+		desc = "RULE_WOMEN_CHIV_ALL_DESC"
+	}
+	option = {
+		name = not
+		text = "RULE_WOMEN_CHIV_NOT"
+		desc = "RULE_WOMEN_CHIV_NOT_DESC"
+	}
+}

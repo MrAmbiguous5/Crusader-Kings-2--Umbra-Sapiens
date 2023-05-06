@@ -1,0 +1,49 @@
+# primer
+EVTTITLBookCalm.101;The Little Book of Calm;;;;;;;;;;;;x
+EVTDESCBookCalm.100;What's this on the floor?\n\n'The Little Book of Calm'?;;;;;;;;;;;;x
+EVTOPTABookCalm.100;Just what I needed!;;;;;;;;;;;;x
+EVTOPTBBookCalm.100;Pah! Who leaves this nonsense lying around!;;;;;;;;;;;;x
+
+# artifact
+little_book_calm;The Little Book of Calm;;;;;;;;;;;;x
+little_book_calm_desc;Full of advice to follow and thoughts to inspire. Open it at any page and you will find a path to inner peace.;;;;;;;;;;;;x
+
+# normal
+EVTDESCBookCalm.101.1;Carry a piece of the quiet\n\nConcentrate on the silence.\nWhen it comes, dwell on what it sounds like.\nThen strive to carry that quiet with you wherever you go.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.2;Waste some time\n\nHard-working people never waste time on frivolous, fun-filled activities.\nYet, for hard-working people, any time spent this way is far from wasted.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.3;Select your company well\n\nAs harsh as it may sound, mixing with highly stressed people will make you feel stressed.\nOn the other hand, mixing with calm people - even for the briefest period - will leave you feeling calm.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.4;Be captivated by your breath\n\nWhen you dwell on the sound of your breathing, when you can really hear it coming and going, peace will not be far behind.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.5;Pause between changes\n\nThere's always a temptation to lump all your life changes into one big masochistic event.\nDo your stress levels a favour and take on changes one at a time.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.6;Invest in a fruit bowl\n\nThe more beautiful your fruit bowl, the better stocked it is, the less likely you are to stress - enhancing snack foods.\nEat more fruit, and you'll feel more relaxed - it's as sweet as that.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.7;Disregard small issues\n\nThe most important skill in staying calm is not to lose sleep over small issues. The second most important skill is to be able to view all isuues as small issues.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.8;Start ten minutes early\n\nStart every journey ten minutes early.\nNot only will you avoid the stress of haste, but if all goes well you'll have ten minutes to relax before your next engagement.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.9;Worry when the time comes\n\nMost worries are future-based. They revolve around things that, in most cases, will never happen.\nConcentrate on the present and the future will take care of itself.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.11;Admit you feel calm\n\nIf you want to trick your subconscious into helping you feel calm, simply repeat: 'Every moment I feel calmer and calmer.';;;;;;;;;;;;x
+EVTDESCBookCalm.101.12;Wear sensible shoes\n\nAny reflexologist will tell you that true relaxation begins at the feet. It seems obvious, but wearing comfortable shoes is nearly as relaxing as wearing no shoes at all.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.13;Seek the best of everything\n\nMake a practice of looking for the best in people and situations. You'll find that simple approach induces optimism and positivity - both of which lead to calm.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.14;Brush or be brushed\n\nTake the time to brush someone's hair. Better still, brush your own - or have someone else do it. Slowly, methodically, extensively. (It massages several calming acupressure points, and the repitition works wonders.);;;;;;;;;;;;x
+EVTDESCBookCalm.101.15;Pretend you're human\n\nLeave it to others to be perfect, to be wonderful. Be content with what you are - you'll be much more relaxed as a result.;;;;;;;;;;;;x
+EVTDESCBookCalm.101.16;Sip a peppermint\n\nIf you substitute a herbal tea such as peppermint for more stimulating drinks such as coffee and tea, your ability to be calm will be enchanced many times.;;;;;;;;;;;;x
+EVTOPTABookCalm.101;Phew!;;;;;;;;;;;;x
+
+# travelling
+EVTDESCBookCalm.201;Let go once in a while\n\nYou are a loose lilly floating down an amber river.;;;;;;;;;;;;x
+EVTDESCBookCalm.202;\n\nIf you want to feel calm, eat more raw fruit and vegetables, yoghurt, milk, and seeds.;;;;;;;;;;;;x
+
+# paranoid
+EVTDESCBookCalm.203;Visualise the ocean\n\n\n\nThe *calm* ocean.;;;;;;;;;;;;x
+EVTDESCBookCalm.204;\n\nAdd a drop of lavender to your bath, and soon, you will soak yourself calm.;;;;;;;;;;;;x
+
+# wounded
+EVTDESCBookCalm.205;There's a good chance you'll survive\n\nWhenever you're in a tight spot, try to imagine yourself marooned on a beautiful desert island.;;;;;;;;;;;;x
+EVTDESCBookCalm.206;Get some rest\n\nWhen you rest, you are a king surveying your estate.\nLook at the woodland, the peacocks on the lawn.\nBe the king of your own calm kingdom.;;;;;;;;;;;;x
+
+# pregnancy
+EVTDESCBookCalm.207;\n\nWhen you're feeling under pressure, try doing something different. Roll up your sleeves or eat an orange.;;;;;;;;;;;;x
+EVTDESCBookCalm.208;\n\nHave you ever noticed a calm person with a loud voice? Try to speak softly once in a while.;;;;;;;;;;;;x
+
+# lunatic
+EVTDESCBookCalm.209;Be on the lookout for things that make you laugh\n\nIf you find nothing worth laughing at, pretend you see it, then laugh.;;;;;;;;;;;;x
+EVTDESCBookCalm.210;\n\nAdd a dab of lavender to milk, leave town with an orange, and pretend you're laughing at it.;;;;;;;;;;;;x
+
+;;;;;;;;;;;;x

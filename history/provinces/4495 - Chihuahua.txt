@@ -1,0 +1,12 @@
+# County Title
+title = c_chihuahua
+
+# Settlements
+max_settlements = 3
+b_chihuahua = tribal
+
+# Misc
+culture = opata 
+religion = southwest_pagan
+
+# History

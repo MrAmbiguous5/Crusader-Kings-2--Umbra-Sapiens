@@ -1,0 +1,277 @@
+bid_for_priviliges = {
+	name = CB_NAME_PRIVILIGES
+	war_name = WAR_NAME_PRIVILIGES
+	sprite = 12
+	truce_days = 1825
+	
+	is_permanent = yes
+	attacker_can_call_allies = no
+	defender_can_call_allies = no
+	sort_priority = 1500
+	is_independence = yes
+	
+
+	can_use_gui = {
+		check_if_crusader_trigger = yes
+	}
+
+	can_use = {
+		ROOT = {
+			
+			higher_tier_than = BARON
+			OR = {
+				ai = yes
+				is_feudal = yes
+				is_tribal = yes
+				higher_tier_than = COUNT
+			}
+			mercenary = no
+			
+			OR = {
+				is_nomadic = no
+				NOT = {
+					clan_opinion = { who = FROM value = 0 }
+				}
+			}
+		}
+		FROM = {
+			de_facto_liege = ROOT
+		}
+		#goes here
+	}
+
+	is_valid = {
+			ROOT = { war_with = FROM }
+			ROOT = { higher_tier_than = FROM }
+	}
+
+	on_add = {
+		ROOT = {
+			primary_title = {
+				holder_scope = { save_event_target_as = gobacktothis }
+			}
+		}
+	}
+
+	on_success = {
+	
+		ROOT = { prestige = 250 }
+		FROM = { 
+			remove_character_modifier = granted_priviligues 
+			prestige = -250
+		}
+		
+		hidden_tooltip = {
+			if = {
+				limit = {
+					ROOT = { independent = no }
+				}
+				ROOT = {
+					liege = {
+						any_defender = { set_defacto_liege = PREV }
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						ROOT = { independent = yes } 
+					}
+					any_defender = { set_defacto_liege = ROOT }
+				}
+			}
+			
+			any_defender = {
+				ROOT = {
+					remove_opinion = {
+						who = PREV
+						modifier = opinion_traitor
+					}
+				}
+			}
+			any_defender = {
+				limit = { 
+					NOT = { character = FROM }
+				}
+				ROOT = {
+					opinion = {
+						who = PREV
+						modifier = opinion_traitor
+						years = 3
+					}
+				}
+			}
+		}
+	}
+
+	on_fail = {
+	
+		ROOT = { prestige = -150 }
+		FROM = { prestige = 150 }
+		any_defender = {
+			limit = { 
+				NOT = { character = FROM }
+			}
+			prestige = 75
+		}
+		
+		hidden_tooltip = {
+			if = {
+				limit = {
+					ROOT = { independent = no }
+				}
+				ROOT = {
+					liege = {
+						any_defender = { set_defacto_liege = PREV }
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						ROOT = { independent = yes } 
+					}
+					any_defender = { set_defacto_liege = ROOT }
+				}
+			}
+		}
+		hidden_tooltip = {
+			any_defender = {
+				ROOT = {
+					remove_opinion = {
+						who = PREV
+						modifier = opinion_traitor
+					}
+				}
+			}
+		}
+	}
+	
+	on_invalidation = { 
+	
+		if = {
+			limit = {
+				ROOT = { independent = no }
+			}
+			ROOT = {
+				liege = {
+					any_defender = { set_defacto_liege = PREV }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					ROOT = { independent = yes } 
+				}
+				any_defender = { set_defacto_liege = ROOT }
+			}
+		}
+		any_defender = {
+			ROOT = {
+				remove_opinion = {
+					who = PREV
+					modifier = opinion_traitor
+				}
+			}
+		}
+	}
+	
+	on_reverse_demand = {
+	
+		ROOT = { prestige = -250 }
+		
+		FROM = {
+			prestige = 300
+		}
+		any_defender = {
+			limit = { 
+				NOT = { character = FROM }
+			}
+			prestige = 150
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					ROOT = { independent = no }
+				}	
+				ROOT = {
+					liege = {
+						any_defender = { set_defacto_liege = PREV }
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						ROOT = { independent = yes } 
+					}
+					any_defender = { set_defacto_liege = ROOT }
+				}
+			}
+		}
+		
+		
+		hidden_tooltip = {
+			any_defender = {
+				ROOT = {
+					remove_opinion = {
+						who = PREV
+						modifier = opinion_traitor
+					}
+				}
+			}
+			FROM = { priviliges_modifier_timer_effect = yes }
+		}
+	}
+
+	
+
+	on_attacker_leader_death = {
+		hidden_tooltip = {
+			any_defender = {
+				letter_event = {
+					id = 251
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { independent = no }
+				}	
+				ROOT = {
+					liege = {
+						any_defender = { set_defacto_liege = PREV }
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						ROOT = { independent = yes } 
+					}
+					any_defender = { set_defacto_liege = ROOT }
+				}
+			}
+		
+		}
+
+		end_war = invalid
+	}
+	
+	
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 150
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}

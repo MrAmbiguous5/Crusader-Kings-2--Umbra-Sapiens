@@ -1,0 +1,99 @@
+	
+#	create_regnum_romanum = {
+#		only_independent = yes
+#		is_high_prio = yes
+#		ai_check_interval = 120
+#
+#		potential = {
+#			is_republic = no
+#			is_playable = yes
+#			has_dlc = "Legacy of Rome"
+#			OR = { 
+#				religion_group = christian 
+#				religion = hellenic_pagan 
+#				religion = hellenic_pagan_reformed
+#			}
+#			OR = {
+#			    culture = italian
+#               culture = greek
+#               culture = roman
+#               culture = dalmatian
+#               culture = sardinian				
+#			}
+#			is_adult = yes
+#			prisoner = no
+#			NOT = { trait = incapable }
+#			NOR = {
+#				has_alternate_start_parameter = { key = religion_names value = random }
+#			}
+#			any_demesne_title = {
+#				OR = {
+#					tier = KING
+#					tier = DUKE
+#				}
+#			}
+#			k_regnum_romanum = {
+#				has_holder = no
+#			}
+#		}
+#		allow = {
+#			wealth = 1000
+#			completely_controls = d_latium
+#			completely_controls = d_ferrara
+#			completely_controls = d_ancona
+#			completely_controls = d_spoleto
+#			completely_controls = d_toscana
+#			completely_controls = d_pisa
+#			completely_controls = d_capua
+#			completely_controls = d_benevento
+#			completely_controls = d_salerno
+#			completely_controls = d_calabria
+#			completely_controls = d_apulia
+#			completely_controls = d_abruzzo
+#			
+#		}
+#		effect = {
+#			wealth = -1000
+#			custom_tooltip = {
+#				grant_title_no_opinion = k_regnum_romanum
+#			}
+#			hidden_tooltip = {
+#
+#				primary_title = {
+#					k_regnum_romanum = {
+#						copy_title_laws = PREV
+#						copy_title_history = PREV
+#					}
+#				}
+#
+#				any_demesne_title = {
+#					limit = {
+#						tier = KING
+#						NOT = { title = k_regnum_romanum }
+#					}
+#					destroy_landed_title = THIS
+#				}
+#				ROOT = {
+#					narrative_event = { id = RR.1 }
+#				}
+#				any_playable_ruler = {
+#					narrative_event = { id = RR.1 }
+#				}
+#			}
+#			d_latium = { de_jure_liege = k_regnum_romanum }
+#			d_ferrara = { de_jure_liege = k_regnum_romanum }
+#			d_ancona = { de_jure_liege = k_regnum_romanum }
+#			d_spoleto = { de_jure_liege = k_regnum_romanum }
+#			d_toscana = { de_jure_liege = k_regnum_romanum }
+#			d_pisa = { de_jure_liege = k_regnum_romanum }
+#			d_capua = { de_jure_liege = k_regnum_romanum }
+#			d_benevento = { de_jure_liege = k_regnum_romanum }
+#			d_salerno = { de_jure_liege = k_regnum_romanum }
+#			d_calabria = { de_jure_liege = k_regnum_romanum }
+#			d_apulia = { de_jure_liege = k_regnum_romanum }
+#			d_abruzzo = { de_jure_liege = k_regnum_romanum }
+#	    }
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}

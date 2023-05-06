@@ -1,0 +1,326 @@
+
+namespace = BookCalm	
+
+
+# find the book event
+	character_event = {
+		title = EVTTITLBookCalm.101
+		id = BookCalm.100
+		desc = EVTDESCBookCalm.100
+		picture = GFX_evt_fishing
+		border = GFX_event_normal_frame_intrigue
+		
+		trigger = {
+			ai = no
+			OR = { 
+				trait = stressed
+				trait = depressed
+			}
+			NOR = { 
+				has_artifact = little_book_calm 
+				has_character_flag = little_book_calm_ignored_flag
+			}
+		}
+		
+		option = {	# Just what I needed!
+			name = EVTOPTABookCalm.100 
+			add_artifact = little_book_calm
+			if = {		# normal
+				limit = {
+					NOR = {
+						trait = travelling
+						trait = paranoid
+						trait = wounded
+						trait = severely_injured
+						trait = pregnant
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+						trait = pregnancy_finishing
+						trait = lunatic
+						trait = possessed
+					}
+				}
+				character_event = { id = BookCalm.101 }
+			}
+			if = {		# travelling
+				limit = {
+					trait = travelling
+				}
+				character_event = { id = BookCalm.201 }
+			}
+			if = {		# paranoid
+				limit = {
+					trait = paranoid
+				}
+				character_event = { id = BookCalm.203 }
+			}
+			if = {		# wounded
+				limit = {
+					OR = {
+						trait = wounded
+						trait = severely_injured
+					}
+				}
+				character_event = { id = BookCalm.205 }
+			}
+			if = {		# pregnancy
+				limit = {
+					OR = {
+						trait = pregnant
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+						trait = pregnancy_finishing
+					}
+				}
+				character_event = { id = BookCalm.207 }
+			}
+			if = {		# lunatic
+				limit = {
+					NOR = {
+						trait = lunatic
+						trait = possessed
+					}
+				}
+				character_event = { id = BookCalm.209 }
+			}		
+		}
+				
+		option = {	# Pah! Who leaves this stuff lying around!
+			name = EVTOPTBBookCalm.100 
+			set_character_flag = little_book_calm_ignored_flag
+		}
+	}
+
+# remove stressed and depressed normal
+	character_event = {
+		title = EVTTITLBookCalm.101
+		id = BookCalm.101
+		picture = GFX_evt_fishing
+		border = GFX_event_normal_frame_intrigue
+				
+		desc = EVTDESCBookCalm.101.1
+		desc = EVTDESCBookCalm.101.2 
+		desc = EVTDESCBookCalm.101.3 
+		desc = EVTDESCBookCalm.101.4 
+		desc = EVTDESCBookCalm.101.5 
+		desc = EVTDESCBookCalm.101.6 
+		desc = EVTDESCBookCalm.101.7 
+		desc = EVTDESCBookCalm.101.8 
+		desc = EVTDESCBookCalm.101.9
+		desc = EVTDESCBookCalm.101.11 
+		desc = EVTDESCBookCalm.101.12 
+		desc = EVTDESCBookCalm.101.13 
+		desc = EVTDESCBookCalm.101.14 
+		desc = EVTDESCBookCalm.101.15
+		desc = EVTDESCBookCalm.101.16 
+
+		mean_time_to_happen = {	days = 2 }
+		trigger = {
+			has_artifact = little_book_calm
+			OR = { 
+				trait = stressed
+				trait = depressed
+			}
+			NOR = {
+				trait = travelling
+				trait = paranoid
+				trait = wounded
+				trait = pregnant
+				trait = hard_pregnancy
+				trait = troubled_pregnancy
+				trait = pregnancy_finishing
+				trait = lunatic
+				trait = possessed
+			}
+		}
+		
+		option = {		# phew
+			name = EVTOPTABookCalm.101 
+			if = {
+				limit = { trait = stressed }
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = depressed }
+				remove_trait = depressed
+			}
+		}		
+	}
+
+# remove stressed and depressed travelling
+	character_event = {
+		title = EVTTITLBookCalm.101
+		id = BookCalm.201
+		picture = GFX_evt_pilgrims_epic_journey
+		border = GFX_event_normal_frame_intrigue
+		
+		desc = EVTDESCBookCalm.201 
+		desc = EVTDESCBookCalm.202 
+		
+		mean_time_to_happen = {	days = 2 }
+		trigger = {
+			has_artifact = little_book_calm
+			OR = { 
+				trait = stressed
+				trait = depressed
+			}
+			trait = travelling
+		}
+		
+		option = {		# phew
+			name = EVTOPTABookCalm.101 
+			if = {
+				limit = { trait = stressed }
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = depressed }
+				remove_trait = depressed
+			}
+		}		
+	}
+
+# remove stressed and depressed paranoid
+	character_event = {
+		title = EVTTITLBookCalm.101
+		id = BookCalm.203
+		picture = GFX_evt_kraken
+		border = GFX_event_normal_frame_intrigue
+		
+		desc = EVTDESCBookCalm.203 
+		desc = EVTDESCBookCalm.204 
+		
+		mean_time_to_happen = {	days = 2 }
+		trigger = {
+			has_artifact = little_book_calm
+			OR = { 
+				trait = stressed
+				trait = depressed
+			}
+			trait = paranoid
+		}
+		
+		option = {		# phew
+			name = EVTOPTABookCalm.101 
+			if = {
+				limit = { trait = stressed }
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = depressed }
+				remove_trait = depressed
+			}
+		}		
+	}
+
+# remove stressed and depressed wounded
+	character_event = {
+		title = EVTTITLBookCalm.101
+		id = BookCalm.205
+		picture = GFX_evt_illness
+		border = GFX_event_normal_frame_intrigue
+		
+		desc = EVTDESCBookCalm.205 
+		desc = EVTDESCBookCalm.206 
+		
+		mean_time_to_happen = {	days = 2 }
+		trigger = {
+			has_artifact = little_book_calm
+			OR = { 
+				trait = stressed
+				trait = depressed
+			}
+			OR = {
+				trait = wounded
+				trait = severely_injured
+			}
+		}
+		
+		option = {		# phew
+			name = EVTOPTABookCalm.101 
+			if = {
+				limit = { trait = stressed }
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = depressed }
+				remove_trait = depressed
+			}
+		}		
+	}
+
+# remove stressed and depressed pregnancy
+	character_event = {
+		title = EVTTITLBookCalm.101
+		id = BookCalm.207
+		picture = GFX_evt_pregnancy
+		border = GFX_event_normal_frame_intrigue
+		
+		desc = EVTDESCBookCalm.207 
+		desc = EVTDESCBookCalm.208 	
+		
+		mean_time_to_happen = {	days = 2 }
+		trigger = {
+			has_artifact = little_book_calm
+			OR = { 
+				trait = stressed
+				trait = depressed
+			}
+			OR = {
+				trait = pregnant
+				trait = hard_pregnancy
+				trait = troubled_pregnancy
+				trait = pregnancy_finishing
+			}
+		}
+		
+		option = {		# phew
+			name = EVTOPTABookCalm.101 
+			if = {
+				limit = { trait = stressed }
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = depressed }
+				remove_trait = depressed
+			}
+		}		
+	}
+
+# remove stressed and depressed lunatic
+	character_event = {
+		title = EVTTITLBookCalm.101
+		id = BookCalm.209
+		picture = GFX_evt_lunatic
+		border = GFX_event_normal_frame_intrigue
+		
+		desc = EVTDESCBookCalm.209 
+		desc = EVTDESCBookCalm.210 	
+		
+		mean_time_to_happen = {	days = 2 }
+		trigger = {
+			has_artifact = little_book_calm
+			OR = { 
+				trait = stressed
+				trait = depressed
+			}
+			OR = { 
+				trait = lunatic
+				trait = possessed
+			}
+		}
+		
+		option = {		# phew
+			name = EVTOPTABookCalm.101 
+			if = {
+				limit = { trait = stressed }
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = depressed }
+				remove_trait = depressed
+			}
+		}
+	}
+
+

@@ -1,0 +1,2815 @@
+name_space = AmzCulSoc
+
+
+####################################POWERS#########################
+
+
+narrative_event = {		# become a shieldmaiden
+	title = EVTTITLAmzCulSoc_140
+    id = AmzCulSoc.140
+    desc = EVTDESC_AmzCulSoc_140
+	picture = GFX_evt_woman_praying_hf
+    border = GFX_event_narrative_frame_intrigue
+	portrait = event_target:matriarch_grandmaster_target
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+	immediate = { 
+		set_character_flag = taking_shieldmaiden_amz_decision 
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				is_society_grandmaster = yes
+			}
+			save_event_target_as = matriarch_grandmaster_target
+		}
+	}
+
+    option = { 
+        name = EVTOPTA_AmzCulSoc_140
+		ai_chance = { factor = 10 }
+		tooltip_info = deceitful
+		trigger = {
+			trait = deceitful
+		}
+		custom_tooltip = { text = arise_shieldmaiden_tt }
+		hidden_tooltip = {
+			change_society_currency = -200
+			prestige = 50
+		}
+		add_trait = shieldmaiden
+    }
+	option = { # 
+        name = EVTOPTB_AmzCulSoc_140
+		ai_chance = { factor = 10 }
+		tooltip_info = strong
+		trigger = {
+			trait = strong
+		}
+		custom_tooltip = { text = arise_shieldmaiden_tt }
+		hidden_tooltip = {
+			change_society_currency = -200
+			prestige = 50
+		}
+		add_trait = shieldmaiden
+    }
+	option = { # 
+        name = EVTOPTC_AmzCulSoc_140
+		ai_chance = { factor = 10 }
+		tooltip_info = zealous
+		trigger = {
+			trait = zealous
+		}
+		custom_tooltip = { text = arise_shieldmaiden_tt }
+		hidden_tooltip = {
+			change_society_currency = -200
+			prestige = 50
+		}
+		add_trait = shieldmaiden
+    }
+	option = { # 
+        name = EVTOPTD_AmzCulSoc_140
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = arise_shieldmaiden_tt }
+		hidden_tooltip = {
+			change_society_currency = -200
+			prestige = 50
+		}
+		add_trait = shieldmaiden
+    }
+	
+	after = { clr_character_flag = taking_shieldmaiden_amz_decision }
+}
+
+
+
+character_event = {		# unit leadership
+    id = AmzCulSoc.141
+    desc = EVTDESC_AmzCulSoc_141
+	picture = GFX_evt_large_army
+    border = GFX_event_character_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+	immediate = { set_character_flag = taking_specialisation_amz_decision }
+
+    option = { 
+        name = EVTOPTA_AmzCulSoc_141
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 500
+				OR = {
+					culture = themiskyran_amz
+					culture = scythian_amz
+					culture = parthian_amz
+				}
+			}	
+		}
+		hidden_tooltip = {
+			change_society_currency = -300
+			prestige = 50
+		}
+		add_trait = cavalry_leader
+    }
+	option = { 
+        name = EVTOPTB_AmzCulSoc_141
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 500
+				OR = {
+					culture = valkyrie_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+			}	
+		}
+		hidden_tooltip = {
+			change_society_currency = -300
+			prestige = 50
+		}
+		add_trait = heavy_infantry_leader
+    }
+	option = { 
+        name = EVTOPTC_AmzCulSoc_141
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 500
+				OR = { 
+					culture = kushite_amz
+				}
+			}	
+		}
+		hidden_tooltip = {
+			change_society_currency = -300
+			prestige = 50
+		}
+		add_trait = light_foot_leader
+    }
+	option = { 
+        name = EVTOPTD_AmzCulSoc_141
+		trigger = { 
+			OR = { 
+				culture_group = indo_aryan_group
+				culture_group = dravidian_group
+				culture_group = elephant_group 
+				culture = carthaginian_amz
+			} 
+		}
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 500
+				OR = { 
+					culture = carthaginian_amz
+				}
+			}	
+		}
+		hidden_tooltip = {
+			change_society_currency = -300
+			prestige = 50
+		}
+		add_trait = war_elephant_leader
+    }
+	
+	after = { clr_character_flag = taking_specialisation_amz_decision }
+}
+
+
+character_event = {	# summon shieldmaiden
+	id = AmzCulSoc.143
+	desc = EVTDESC_AmzCulSoc_143
+	picture = GFX_evt_daughter_asking_mother
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	is_in_society = yes
+	
+	immediate = {
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = RANDOM
+			female = yes
+			min_age = 17
+			max_age = 24
+			religion = ROOT
+			culture = ROOT
+			trait = shieldmaiden
+			attributes = {
+				martial = 9
+			}
+		}
+		new_character = {
+			prestige = 69
+			wealth = 6
+			piety = 9
+			remove_all_negative_congenital_traits_effect = yes
+			remove_education_effect = yes 
+			remove_trait = shy
+			remove_trait = craven
+			remove_trait = dull
+			random_list = {
+				25 = { 
+					add_trait = brave
+				}
+				25 = { 
+					add_trait = ambitious
+				}
+				25 = { 
+					add_trait = diligent
+				}
+				25 = { 
+					add_trait = just
+				}
+			}
+			random_list = {
+				20 = { 
+					add_trait = brilliant_strategist
+				}
+				30 = { 
+					add_trait = skilled_tactician
+				}
+				50 = { 
+					add_trait = tough_soldier
+				}
+			}
+			if = {
+				limit = { martial = 24 }
+				join_society = warrior_lodge_amazonian
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_AmzCulSoc_143
+		ai_chance = { factor = 10 }
+	}
+}
+
+character_event = {	# leadership trait
+	id = AmzCulSoc.144
+	desc = EVTDESC_AmzCulSoc_144
+	picture = GFX_evt_comet
+	border = GFX_event_character_frame_war
+	
+	is_triggered_only = yes
+	is_in_society = yes
+	
+	immediate = { set_character_flag = taking_leadership_amz_decision }
+
+	option = { # only heroine trait 
+		name = EVTOPTA_AmzCulSoc_144
+		trigger = {
+			NOR = {
+				religion = norse_pagan_reformed
+				religion = tengri_pagan_reformed
+				religion = baltic_pagan_reformed
+				religion = finnish_pagan_reformed
+				religion = slavic_pagan_reformed
+				religion = west_african_pagan_reformed
+				religion = zun_pagan_reformed
+				religion = bon_reformed
+				religion = hellenic_pagan_reformed
+			}
+		}
+		ai_chance = { factor = 10 }
+		add_trait = amazonian_leader
+		add_blood_splatter_effect = yes
+	}
+	option = { # only heroine trait even though reformed
+		name = EVTOPTB_AmzCulSoc_144
+		ai_chance = { factor = 10 }
+		trigger = {
+			OR = {
+				religion = norse_pagan_reformed
+				religion = tengri_pagan_reformed
+				religion = baltic_pagan_reformed
+				religion = finnish_pagan_reformed
+				religion = slavic_pagan_reformed
+				religion = west_african_pagan_reformed
+				religion = zun_pagan_reformed
+				religion = bon_reformed
+				religion = hellenic_pagan_reformed
+			}
+		}
+		add_blood_splatter_effect = yes
+		add_trait = amazonian_leader
+	}
+	option = { # both traits
+		name = EVTOPTC_AmzCulSoc_144
+		ai_chance = { factor = 30 }
+		trigger = {
+			NOR = {
+				trait = norse_leader
+				trait = tengri_leader
+				trait = baltic_leader
+				trait = finnish_leader
+				trait = slavic_leader
+				trait = west_african_leader
+				trait = zun_leader
+				trait = bon_leader
+				trait = hellenic_leader
+			}
+			OR = {
+				religion = norse_pagan_reformed
+				religion = tengri_pagan_reformed
+				religion = baltic_pagan_reformed
+				religion = finnish_pagan_reformed
+				religion = slavic_pagan_reformed
+				religion = west_african_pagan_reformed
+				religion = zun_pagan_reformed
+				religion = bon_reformed
+				religion = hellenic_pagan_reformed
+			}
+		}
+		scaled_prestige = -2.5
+		add_trait = amazonian_leader
+		add_blood_splatter_effect = yes
+		if = {
+			limit = { religion = norse_pagan_reformed }
+			add_trait = norse_leader
+		}
+		if = {
+			limit = { religion = tengri_pagan_reformed }
+			add_trait = tengri_leader
+		}
+		if = {
+			limit = { religion = baltic_pagan_reformed }
+			add_trait = baltic_leader
+		}
+		if = {
+			limit = { religion = finnish_pagan_reformed }
+			add_trait = finnish_leader
+		}
+		if = {
+			limit = { religion = slavic_pagan_reformed }
+			add_trait = slavic_leader
+		}
+		if = {
+			limit = { religion = west_african_pagan_reformed }
+			add_trait = west_african_leader
+		}
+		if = {
+			limit = { religion = zun_pagan_reformed }
+			add_trait = zun_leader
+		}
+		if = {
+			limit = { religion = bon_reformed }
+			add_trait = bon_leader
+		}
+		if = {
+			limit = { religion = hellenic_pagan_reformed }
+			add_trait = hellenic_leader
+		}
+	}
+	
+	after = { clr_character_flag = taking_leadership_amz_decision }
+}
+
+
+## AmzCulSoc.301 is the education event in a different file because it was very long
+
+
+character_event = {	# buy gear
+	id = AmzCulSoc.142
+	desc = EVTDESC_AmzCulSoc_142
+	picture = GFX_evt_weaponsmith
+	border = GFX_event_character_frame_war
+	
+	is_triggered_only = yes
+	#is_in_society = yes
+
+	option = { 
+		name = EVTOPTA_AmzCulSoc_142
+		trigger = { NOT = { has_artifact = heroines_sword } }
+		add_artifact = heroines_sword
+	#	change_society_currency = -500
+		wealth = -500
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 0
+				any_artifact = {
+					quality == 4
+					has_artifact_flag = combat_weapon
+				}
+			}
+		}
+	}
+	
+	option = { 
+		name = EVTOPTB_AmzCulSoc_142
+		trigger = { NOT = { has_artifact = heroines_armour } }
+		add_artifact = heroines_armour
+	#	change_society_currency = -500
+		wealth = -500
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 0
+				any_artifact = {
+					quality == 4
+					has_artifact_flag = armor
+				}
+			}
+		}
+	}
+	
+	option = { 
+		name = EVTOPTC_AmzCulSoc_142
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 0.5		# slows it down a bit
+				AND = {
+					any_artifact = {
+						quality == 4
+						has_artifact_flag = combat_weapon
+					}
+					any_artifact = {
+						quality == 4
+						has_artifact_flag = armor
+					}
+				}
+			}
+		}
+	}
+}
+
+#character_event = {	# replace gear, I think it's been long enough that this is no longer needed
+#	id = AmzCulSoc.1425
+#	desc = EVTDESC_AmzCulSoc_1425	
+#	picture = GFX_evt_weaponsmith
+#	border = GFX_event_character_frame_war
+#	
+#	is_in_society = yes
+#	
+#	trigger = {
+#		society_member_of = warrior_lodge_amazonian
+#		prisoner = no
+#		war = no
+#		NOT = { trait = travelling }
+#		OR = {
+#			AND = {
+#				has_artifact = random_world_sword
+#				NOT = { has_artifact = heroines_sword }
+#			}
+#			AND = {
+#				has_artifact = random_world_armor
+#				NOT = { has_artifact = heroines_armour }
+#			}
+#		}
+#	}
+#
+#	option = { 		# replaces everything
+#		name = EVTOPTA_AmzCulSoc_1425
+#		ai_chance = { factor = 10 }
+#		if = {
+#			limit = { 
+#				has_artifact = random_world_sword 
+#				NOT = { has_artifact = heroines_sword }
+#			}
+#			unsafe_destroy_artifact = random_world_sword
+#			add_artifact = heroines_sword
+#		}
+#		if = {
+#			limit = { 
+#				has_artifact = random_world_armor 
+#				NOT = { has_artifact = heroines_armour }
+#			}
+#			unsafe_destroy_artifact = random_world_armor
+#			add_artifact = heroines_armour
+#		}
+#	}
+#}
+
+character_event = {	# spawn horde lodge units
+	id = AmzCulSoc.145
+	hide_window = yes
+	
+	is_triggered_only = yes
+	is_in_society = yes
+
+	immediate = {
+		random_list = { 
+			33 = { sound_effect = stand_together_01 } 
+			33 = { sound_effect = stand_together_02 } 
+			33 = { sound_effect = stand_together_03 } 
+		}
+		if = {
+			limit = { 
+				tier = COUNT 
+				NOT = { trait = is_amazonian_immortal }
+				NAND = {
+					is_society_grandmaster = yes
+					num_of_society_members > 50
+				}
+			}
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 150 150 }
+							horse_archers = { 75 75 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 150 150 }
+							horse_archers = { 75 75 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 150 150 }
+							horse_archers = { 75 75 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				tier = DUKE  
+				NOT = { trait = is_amazonian_immortal }
+				NAND = {
+					is_society_grandmaster = yes
+					num_of_society_members > 50
+				}
+			}
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 300 300 }
+							horse_archers = { 150 150 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 300 300 }
+							horse_archers = { 150 150 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 300 300 }
+							horse_archers = { 150 150 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				tier = KING  
+				NOT = { trait = is_amazonian_immortal }
+				NAND = {
+					is_society_grandmaster = yes
+					num_of_society_members > 50
+				}
+			}
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 400 400 }
+							horse_archers = { 200 200 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 400 400 }
+							horse_archers = { 200 200 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 400 400 }
+							horse_archers = { 200 200 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					tier = EMPEROR  
+					trait = is_amazonian_immortal			# Legendaries get max troops
+					AND = {									# Grandmistresses with large lodges get max troops 
+						is_society_grandmaster = yes
+						num_of_society_members >= 50
+					}
+				}
+			}
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 600 600 }
+							horse_archers = { 300 300 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 600 600 }
+							horse_archers = { 300 300 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+					spawn_unit = {
+						owner = THIS
+						province = PREV
+						home = PREV
+						troops = {
+							light_cavalry = { 600 600 }
+							horse_archers = { 300 300 }
+						}
+						reinforces = yes
+						attrition = 0.5
+						cannot_inherit = yes
+						disband_on_peace = yes
+						merge = yes
+						maintenance_multiplier = 0.0
+					}
+				}
+			}
+		}
+	}
+}
+
+character_event = {	# clears char flag so can hire horde again
+	id = AmzCulSoc.1455
+	hide_window = yes
+	
+	is_in_society = yes
+	
+	trigger = {
+		has_character_flag = summoned_amazonian_horde_flag
+		war = no
+	}
+
+	option = { 
+		name = EVTOPTA_AmzCulSoc_1455
+		ai_chance = { factor = 10 }
+		clr_character_flag = summoned_amazonian_horde_flag
+	}
+}
+
+###############################LEGENDARY QUEST#########################
+
+
+narrative_event = {		# begin Legendary Quest
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.601
+    desc = EVTDESC_AmzCulSoc_601
+	picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_narrative_frame_intrigue
+	portrait = FROM
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+	immediate = { set_character_flag = heroine_quest_decision_flag }
+	
+    option = { # begin quest
+        name = EVTOPTA_AmzCulSoc_601
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = heroine_quest_yes_tt }
+		hidden_tooltip = {
+			change_society_currency = -2000
+		}
+		set_character_flag = heroine_quest_flag
+		clr_character_flag = heroine_quest_decision_flag
+		narrative_event = { id = AmzCulSoc.602 days = 7 }
+    }
+	
+	option = { # refuse quest
+        name = EVTOPTB_AmzCulSoc_601
+		ai_chance = { factor = 0 }
+		custom_tooltip = { text = heroine_quest_no_tt }
+		clr_character_flag = heroine_quest_decision_flag
+    }
+	
+	after = { clr_character_flag = heroine_quest_decision_flag }
+}
+
+narrative_event = {		# Tavern searching
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.602
+    desc = EVTDESC_AmzCulSoc_602
+	picture = GFX_evt_brothel
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_602
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.6001 }
+    }
+}
+
+
+narrative_event = {		# Quest options 
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.6001
+    desc = EVTDESC_AmzCulSoc_6001
+	picture = GFX_evt_brothel
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_6001
+		trigger = { 
+			NOT = { has_character_flag = heroine_quest_cult_flag } 
+			NOT = { any_owned_bloodline = { has_bloodline_flag = battle_survivor_bloodline } } 
+		}
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = heroine_quest_select_tt }
+		narrative_event = { id = AmzCulSoc.603 }	# cult bounty
+		set_character_flag = heroine_quest_cult_flag
+		prestige = -2000
+    }
+	option = { 
+        name = EVTOPTB_AmzCulSoc_6001
+		trigger = { 
+			NOT = { has_character_flag = heroine_quest_pirate_flag } 
+			NOT = { any_owned_bloodline = { has_bloodline_flag = duelist_bloodline } }
+		}
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = heroine_quest_select_tt }
+		narrative_event = { id = AmzCulSoc.618 }	# apparitions biscay
+		set_character_flag = heroine_quest_pirate_flag
+		prestige = -2000
+    }
+	option = { 
+        name = EVTOPTC_AmzCulSoc_6001
+		trigger = { 
+			NOT = { has_character_flag = heroine_quest_slipper_flag } 
+			NOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_fearsome } }
+		}
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = heroine_quest_select_tt }
+		narrative_event = { id = AmzCulSoc.636 }	# glass slipper
+		set_character_flag = heroine_quest_slipper_flag
+		prestige = -2000
+    }
+	option = { 
+        name = EVTOPTD_AmzCulSoc_6001
+		trigger = { 
+			NOT = { has_character_flag = heroine_quest_assassin_flag } 
+			NOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_murder_stalk } }
+		}
+		ai_chance = { factor = 1 }
+		custom_tooltip = { text = heroine_quest_select_tt }
+		narrative_event = { id = AmzCulSoc.655 }	# mystery letter
+		set_character_flag = heroine_quest_assassin_flag
+		prestige = -2000
+    }
+}
+
+
+character_event = {		# quest options redux
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.6002
+    desc = EVTDESC_AmzCulSoc_6002
+	picture = GFX_evt_brothel
+    border = GFX_event_character_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+	immediate = { set_character_flag = heroine_quest_decision_flag }
+	
+    option = { 	# cult bounty
+        name = EVTOPTA_AmzCulSoc_6002
+		trigger = { 
+			NOT = { has_character_flag = heroine_quest_cult_flag } 
+			NOT = { any_owned_bloodline = { has_bloodline_flag = battle_survivor_bloodline } } 
+		}
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = heroine_quest_select_tt }
+		narrative_event = { id = AmzCulSoc.603 }
+		set_character_flag = heroine_quest_cult_flag
+		set_character_flag = heroine_quest_flag
+		clr_character_flag = heroine_quest_decision_flag
+		prestige = -2000
+		hidden_tooltip = {
+			change_society_currency = -2000
+		}
+    }
+	option = { 	# apparitions biscay
+        name = EVTOPTB_AmzCulSoc_6002
+		trigger = { 
+			NOT = { has_character_flag = heroine_quest_pirate_flag } 
+			NOT = { any_owned_bloodline = { has_bloodline_flag = duelist_bloodline } }
+		}
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = heroine_quest_select_tt }
+		narrative_event = { id = AmzCulSoc.618 }
+		set_character_flag = heroine_quest_pirate_flag
+		set_character_flag = heroine_quest_flag
+		clr_character_flag = heroine_quest_decision_flag
+		prestige = -2000
+		hidden_tooltip = {
+			change_society_currency = -2000
+		}
+    }
+	option = { 	# glass slipper
+        name = EVTOPTC_AmzCulSoc_6002
+		trigger = { 
+			NOT = { has_character_flag = heroine_quest_slipper_flag } 
+			NOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_fearsome } }
+		}
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = heroine_quest_select_tt }
+		narrative_event = { id = AmzCulSoc.636 }
+		set_character_flag = heroine_quest_slipper_flag
+		set_character_flag = heroine_quest_flag
+		clr_character_flag = heroine_quest_decision_flag
+		prestige = -2000
+		hidden_tooltip = {
+			change_society_currency = -2000
+		}
+    }
+	option = { 	# mystery letter
+        name = EVTOPTD_AmzCulSoc_6002
+		trigger = { 
+			NOT = { has_character_flag = heroine_quest_assassin_flag } 
+			NOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_murder_stalk } }
+		}
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = heroine_quest_select_tt }
+		narrative_event = { id = AmzCulSoc.655 }
+		set_character_flag = heroine_quest_assassin_flag
+		set_character_flag = heroine_quest_flag
+		clr_character_flag = heroine_quest_decision_flag
+		prestige = -2000
+		hidden_tooltip = {
+			change_society_currency = -2000
+		}
+    }
+	
+	after = { clr_character_flag = heroine_quest_decision_flag }
+}
+
+
+narrative_event = {		# cult quest begin
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.603
+    desc = EVTDESC_AmzCulSoc_603
+	picture = GFX_evt_brothel
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_603
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.604 }
+    }
+}
+
+narrative_event = {		# cult quest description
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.604
+    desc = EVTDESC_AmzCulSoc_604
+	picture = GFX_evt_brothel
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_604
+		ai_chance = { factor = 1 }
+		narrative_event = { id = AmzCulSoc.605 days = 14 }
+    }
+	option = { # skip
+        name = EVTOPTB_AmzCulSoc_skip
+		custom_tooltip = { text = skip_heroine_adventure_tt }
+		trigger = {
+			any_owned_bloodline = { has_bloodline_flag = heroine_bloodline  }
+		}
+		ai_chance = { factor = 10 }
+		add_trait = travelling
+		narrative_event = { id = AmzCulSoc.617 days = 45 }
+    }
+}
+
+narrative_event = {		# offer of support
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.605
+    desc = EVTDESC_AmzCulSoc_605
+	picture = GFX_evt_library
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_605
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.606 days = 14 }
+		add_trait = travelling
+    }
+}
+
+narrative_event = {		# set off
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.606
+    desc = EVTDESC_AmzCulSoc_606
+	picture = GFX_evt_riders_night_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_606
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.607 days = 3 }
+    }
+}
+
+narrative_event = {		# carriage
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.607
+    desc = EVTDESC_AmzCulSoc_607
+	picture = GFX_evt_riders_night_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_607
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.608 }
+    }
+}
+
+narrative_event = {		# follow path
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.608
+    desc = EVTDESC_AmzCulSoc_608
+	picture = GFX_evt_moonlit_mountains_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_608
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.609 }
+    }
+}
+
+narrative_event = {		# intruders!
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.609
+    desc = EVTDESC_AmzCulSoc_609
+	picture = GFX_evt_heads_on_pikes_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_609
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.610 }
+		sound_effect = duel_win
+    }
+}
+
+narrative_event = {		# courtyard fight
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.610
+    desc = EVTDESC_AmzCulSoc_610
+	picture = GFX_evt_cornered_duel_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_610
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.611 }
+		add_blood_splatter_effect = yes
+		sound_effect = arrow_in_the_back_female
+    }
+}
+
+narrative_event = {		# steward's death
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.611
+    desc = EVTDESC_AmzCulSoc_611
+	picture = GFX_evt_bloody_knife_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_611
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.612 }
+    }
+}
+
+narrative_event = {		# hooded man
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.612
+    desc = EVTDESC_AmzCulSoc_612
+	picture = GFX_evt_sacrifice
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_612
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.613 }
+    }
+}
+
+narrative_event = {		# boss fight
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.613
+    desc = EVTDESC_AmzCulSoc_613
+	picture = GFX_evt_dueling_knights_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_613
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.614 }
+    }
+}
+
+narrative_event = {		# shield-sister's death
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.614
+    desc = EVTDESC_AmzCulSoc_614
+	picture = GFX_evt_hooded_figure_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_614
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.615 }
+		add_blood_splatter_effect = yes
+		sound_effect = duel_lose		
+    }
+}
+
+narrative_event = {		# I am no man
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.615
+    desc = EVTDESC_AmzCulSoc_615
+	picture = GFX_evt_hooded_figure_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_615
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.616 }
+		add_blood_splatter_effect = yes
+		sound_effect = neutral_beheading_01
+    }
+}
+
+narrative_event = {		# beheading
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.616
+    desc = EVTDESC_AmzCulSoc_616
+	picture = GFX_evt_dueling_knights_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_616
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.617 days = 14 }
+    }
+}
+
+narrative_event = {		# return home
+	title = EVTTITLAmzCulSoc_617
+    id = AmzCulSoc.617
+    desc = EVTDESC_AmzCulSoc_617
+	picture = GFX_evt_victory_arch_byzantine
+    border = GFX_event_narrative_frame_intrigue
+	portrait = FROM
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = ROOT
+			female = yes
+			age = 14
+			religion = ROOT
+			culture = ROOT
+			set_graphical_culture = ROOT
+			genetic_mother = ROOT
+			attributes = {
+				martial = 12
+			}
+		}
+		new_character = {
+			prestige = 42
+			add_friend = ROOT
+			remove_education_effect = yes 
+			remove_trait = shy
+			remove_trait = proud
+			remove_trait = craven
+			remove_trait = paranoid
+			remove_trait = slothful
+			remove_trait = dull
+			remove_all_negative_congenital_traits_effect = yes
+			random = {
+				chance = 50
+				add_trait = fair
+			}
+			random = {
+				chance = 33
+				add_trait = strong
+			}
+			random_list = {
+				50 = { 
+					# nothin
+				}
+				40 = { 
+					add_trait = quick
+				}
+				20 = { 
+					add_trait = genius
+				}
+			}
+			random_list = {
+				30 = { 
+					add_trait = shrewd
+				}
+				30 = { 
+					add_trait = groomed
+				}
+				30 = { 
+					add_trait = duelist
+				}
+			}
+			random_list = {
+				50 = { 
+					add_trait = brave
+				}
+				30 = { 
+					add_trait = ambitious
+				}
+				20 = { 
+					add_trait = diligent
+				}
+				20 = { 
+					add_trait = just
+				}
+			}
+			join_society = warrior_lodge_amazonian
+			set_character_flag = cult_maiden_not_adopted
+		}
+	}
+
+    option = { 
+        name = EVTOPTA_AmzCulSoc_617
+		ai_chance = { factor = 10 }
+	#	add_artifact = unnatural_history
+		create_bloodline = {
+			type = amazonian_heroine_legacy					#Heroine's Legacy bloodline
+		}
+		
+		sound_effect = bloodline_added
+		
+		hidden_tooltip = {
+			set_character_flag = has_not_adopted_cult_maiden
+			remove_trait = travelling
+			#found_a_legendary_bloodline_effect = yes		#used to make a standard random lodge bloodline
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_zero_to_hero
+			}
+			add_character_modifier = { #For life
+				name = renowned_hero
+				duration = -1
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { 
+						has_nickname = no
+					}
+					random_list = {
+						80 = {
+							give_nickname = nick_warrior_princess
+						}
+						20 = {
+							give_nickname = nick_the_she_devil
+						}			
+					}
+				}
+			}
+			any_player = {
+				limit = {
+					same_society_as = ROOT
+					NOT = { character = ROOT }
+				}
+				character_event = { id = AmzCulSoc.700 }
+			}
+		}
+	}
+}
+
+character_event = {		# event for heroine to ping cult_maiden
+    id = AmzCulSoc.6174	
+	hide_window = yes
+	
+    trigger = {	
+		war = no 
+		NOT = { is_inaccessible_trigger = yes }
+		has_character_flag = has_not_adopted_cult_maiden
+		any_dynasty_member = {
+			same_society_as = ROOT 
+			any_liege = { character = ROOT } 
+			ai = yes
+			NOT = { is_inaccessible_trigger = yes }
+			has_character_flag = cult_maiden_not_adopted	
+			is_alive = yes
+		}
+	}
+	
+	mean_time_to_happen = {	
+		months = 12
+	}
+
+    option = { 	# maiden sends an event to adopt
+		random_dynasty_member = {
+			limit = { 
+				same_society_as = ROOT 
+				any_liege = { character = ROOT } 
+				ai = yes
+				NOT = { is_inaccessible_trigger = yes }
+				has_character_flag = cult_maiden_not_adopted	
+				is_alive = yes
+			}
+			save_event_target_as = cult_maiden_target
+		}
+		event_target:cult_maiden_target = {
+			ROOT = { character_event = { id = AmzCulSoc.6175 } }
+		}
+	}
+}
+
+character_event = {		# wonder whether to adopt the cult_maiden_target
+    id = AmzCulSoc.6175
+    desc = EVTDESC_AmzCulSoc_6175
+	picture = GFX_evt_daughter_asking_mother
+    border = GFX_event_character_frame_intrigue
+	portrait = event_target:cult_maiden_target
+	
+    is_triggered_only = yes
+
+    option = { 	# adopt and legitimise
+        name = EVTOPTA_AmzCulSoc_6175
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 2
+				num_of_children < 1
+			}
+		}
+		prestige = -300
+		event_target:cult_maiden_target = {
+			set_mother = ROOT
+			add_trait = legit_bastard
+			prestige = 100
+			clr_character_flag = cult_maiden_not_adopted
+		}
+		clr_character_flag = has_not_adopted_cult_maiden
+	}
+	option = { 	# adopt but don't legitimise
+        name = EVTOPTB_AmzCulSoc_6175
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 2
+				num_of_children >= 1
+			}
+		}
+		prestige = -150
+		event_target:cult_maiden_target = {
+			set_mother = ROOT
+			add_trait = bastard
+			prestige = 50
+			clr_character_flag = cult_maiden_not_adopted
+		}
+		clr_character_flag = has_not_adopted_cult_maiden
+	}
+	option = { 	# don't adopt
+        name = EVTOPTC_AmzCulSoc_6175
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}
+		}
+		event_target:cult_maiden_target = {
+			clr_character_flag = cult_maiden_not_adopted
+		}
+		clr_character_flag = has_not_adopted_cult_maiden
+	}
+}
+
+narrative_event = {		# pirate quest begin
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.618
+    desc = EVTDESC_AmzCulSoc_618
+	picture = GFX_evt_brothel
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_618
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.619 }
+    }
+}
+
+narrative_event = {		# pirate quest description
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.619
+    desc = EVTDESC_AmzCulSoc_619
+	picture = GFX_evt_brothel
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_619
+		ai_chance = { factor = 1 }
+		narrative_event = { id = AmzCulSoc.620 days = 14 }
+    }
+	option = { # skip
+        name = EVTOPTB_AmzCulSoc_skip
+		custom_tooltip = { text = skip_heroine_adventure_tt }
+		trigger = {
+			any_owned_bloodline = { has_bloodline_flag = heroine_bloodline  }
+		}
+		ai_chance = { factor = 10 }
+		add_trait = travelling
+		narrative_event = { id = AmzCulSoc.635 days = 45 }
+    }
+}
+
+narrative_event = {		# researching biscay
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.620
+    desc = EVTDESC_AmzCulSoc_620
+	picture = GFX_evt_library
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_620
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.621 days = 14 }
+		add_trait = travelling
+    }
+}
+
+narrative_event = {		# crew calm
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.621
+    desc = EVTDESC_AmzCulSoc_621
+	picture = GFX_evt_busy_trading_dock_republic
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_621
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.622 }
+    }
+}
+
+narrative_event = {		# crew scared
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.622
+    desc = EVTDESC_AmzCulSoc_622
+	picture = GFX_evt_merchant_ship_at_sea_republic
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_622
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.623 days = 1 }
+		add_blood_splatter_effect = yes
+    }
+}
+
+narrative_event = {		# wake up
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.623
+    desc = EVTDESC_AmzCulSoc_623
+	picture = GFX_evt_kraken
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_623
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.624 }
+    }
+}
+
+narrative_event = {		# le jaques!
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.624
+    desc = EVTDESC_AmzCulSoc_624
+	picture = GFX_evt_kraken
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_624
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.625 }	
+    }
+}
+
+narrative_event = {		# his skills
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.625
+    desc = EVTDESC_AmzCulSoc_625
+	picture = GFX_evt_kraken
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_625
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.626 }		
+    }
+}
+
+narrative_event = {		# noose
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.626
+    desc = EVTDESC_AmzCulSoc_626
+	picture = GFX_evt_kraken
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_626
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.627 }
+		sound_effect = drowning_male_01
+    }
+}
+
+narrative_event = {		# undead magic
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.627
+    desc = EVTDESC_AmzCulSoc_627
+	picture = GFX_evt_kraken
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_627
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.628 }		
+    }
+}
+
+narrative_event = {		# marriage bet
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.628
+    desc = EVTDESC_AmzCulSoc_628
+	picture = GFX_evt_kraken
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_628
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.629 }
+		sound_effect = duel_win
+    }
+}
+
+character_event = {		# fall - breath
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.629
+    desc = EVTDESC_AmzCulSoc_629
+	picture = GFX_evt_dueling_knights_hf
+    border = GFX_event_character_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_629
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.630 }	
+		sound_effect = duel_win
+    }
+}
+
+character_event = {		# hands - nose
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.630
+    desc = EVTDESC_AmzCulSoc_630
+	picture = GFX_evt_dueling_knights_hf
+    border = GFX_event_character_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_630
+		ai_chance = { factor = 0 }
+		character_event = { id = AmzCulSoc.631 }
+    }
+	option = { 
+        name = EVTOPTB_AmzCulSoc_630
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.632 }
+		sound_effect = duel_win
+    }
+	option = { 
+        name = EVTOPTC_AmzCulSoc_630
+		ai_chance = { factor = 0 }
+		character_event = { id = AmzCulSoc.631 }
+    }
+}
+
+character_event = {		# fail reparte
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.631
+    desc = EVTDESC_AmzCulSoc_631
+	picture = GFX_evt_dueling_knights_hf
+    border = GFX_event_character_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_631
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.629 }
+		sound_effect = duel_lose
+    }
+}
+
+character_event = {		# run - fast
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.632
+    desc = EVTDESC_AmzCulSoc_632
+	picture = GFX_evt_dueling_knights_hf
+    border = GFX_event_character_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_632 
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.633 }
+		sound_effect = duel_win		
+    }
+	option = { 
+        name = EVTOPTB_AmzCulSoc_632
+		ai_chance = { factor = 0 }
+		character_event = { id = AmzCulSoc.631 }
+    }
+	option = { 
+        name = EVTOPTC_AmzCulSoc_632
+		ai_chance = { factor = 0 }
+		character_event = { id = AmzCulSoc.631 }	
+    }
+}
+
+character_event = {		# clever - learned
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.633
+    desc = EVTDESC_AmzCulSoc_633
+	picture = GFX_evt_dueling_knights_hf
+    border = GFX_event_character_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_633
+		ai_chance = { factor = 0 }
+		character_event = { id = AmzCulSoc.631 }	
+    }
+	option = { 
+        name = EVTOPTB_AmzCulSoc_633
+		ai_chance = { factor = 0 }
+		character_event = { id = AmzCulSoc.631 }
+    }
+	option = { 
+        name = EVTOPTC_AmzCulSoc_633
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.634 }
+		sound_effect = male_violent_death_05	
+    }
+}
+
+narrative_event = {		# kill le jaques, or do you?
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.634
+    desc = EVTDESC_AmzCulSoc_634
+	picture = GFX_evt_dueling_knights_hf
+    border = GFX_event_character_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_634
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.635 days = 14 }		
+    }
+}
+
+narrative_event = {		# return home
+	title = EVTTITLAmzCulSoc_635
+    id = AmzCulSoc.635
+    desc = EVTDESC_AmzCulSoc_635
+	picture = GFX_evt_victory_arch_byzantine
+    border = GFX_event_character_frame_intrigue
+	portrait = FROM
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_635
+		ai_chance = { factor = 10 }
+	#	add_artifact = lessons_taught_to_me_by_rival_3
+		create_bloodline = {
+			type = amazonian_heroine_champion					#Heroine Champion bloodline
+		}
+		
+		sound_effect = bloodline_added
+		
+		hidden_tooltip = {
+			remove_trait = travelling
+			#found_a_legendary_bloodline_effect = yes		#used to make a standard random lodge bloodline
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_zero_to_hero
+			}
+			add_character_modifier = { #For life
+				name = renowned_hero
+				duration = -1
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { 
+						has_nickname = no
+					}
+					random_list = {
+						80 = {
+							give_nickname = nick_warrior_princess
+						}
+						20 = {
+							give_nickname = nick_the_she_devil
+						}			
+					}
+				}
+			}
+			any_player = {
+				limit = {
+					same_society_as = ROOT
+					NOT = { character = ROOT }
+				}
+				character_event = { id = AmzCulSoc.700 }
+			}
+		}
+    }
+}
+
+narrative_event = {		# slipper quest begin
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.636
+    desc = EVTDESC_AmzCulSoc_636
+	picture = GFX_evt_brothel
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_636
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.637 }
+    }
+}
+
+narrative_event = {		# slipper more info
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.637
+    desc = EVTDESC_AmzCulSoc_637
+	picture = GFX_evt_brothel
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_637
+		ai_chance = { factor = 1 }
+		narrative_event = { id = AmzCulSoc.638 days = 14 }
+    }
+	option = { # skip
+        name = EVTOPTB_AmzCulSoc_skip
+		custom_tooltip = { text = skip_heroine_adventure_tt }
+		trigger = {
+			any_owned_bloodline = { has_bloodline_flag = heroine_bloodline  }
+		}
+		ai_chance = { factor = 10 }
+		add_trait = travelling
+		narrative_event = { id = AmzCulSoc.654 days = 45 }
+    }
+}
+
+narrative_event = {		# researching duchy
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.638
+    desc = EVTDESC_AmzCulSoc_638
+	picture = GFX_evt_library
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_638
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.639 days = 14}
+		add_trait = travelling
+    }
+}
+
+narrative_event = {		# arrive duchy, verdant
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.639
+    desc = EVTDESC_AmzCulSoc_639
+	picture = GFX_evt_stone_church
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_639
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.640 }
+    }
+}
+
+narrative_event = {		# meet duke
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.640
+    desc = EVTDESC_AmzCulSoc_640
+	picture = GFX_evt_powerful_ruler
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_640
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.641 }
+    }
+}
+
+narrative_event = {		# talk duke
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.641
+    desc = EVTDESC_AmzCulSoc_641
+	picture = GFX_evt_powerful_ruler
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_641
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.642 }
+    }
+}
+
+narrative_event = {		# duke sends you off
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.642
+    desc = EVTDESC_AmzCulSoc_642
+	picture = GFX_evt_powerful_ruler
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_642
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.643 days = 5 }
+    }
+}
+
+narrative_event = {		# check town
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.643
+    desc = EVTDESC_AmzCulSoc_643
+	picture = GFX_evt_market
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_643
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.644 days = 5 }
+    }
+}
+
+narrative_event = {		# check glassblower
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.644
+    desc = EVTDESC_AmzCulSoc_644
+	picture = GFX_evt_weaponsmith
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_644
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.645 }
+    }
+}
+
+narrative_event = {		# meet cinderella
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.645
+    desc = EVTDESC_AmzCulSoc_645
+	picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_645
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.646 days = 3 }
+    }
+}
+
+narrative_event = {		# cinderella talks
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.646
+    desc = EVTDESC_AmzCulSoc_646
+	picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_646
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.647 }
+    }
+}
+
+narrative_event = {		# cinderella's past
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.647
+    desc = EVTDESC_AmzCulSoc_647
+	picture = GFX_evt_burning_house
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_647
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.648 }
+    }
+}
+
+narrative_event = {		# cinderella's night
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.648
+    desc = EVTDESC_AmzCulSoc_648
+	picture = GFX_evt_lovers
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_648
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.649 days = 5 }
+    }
+}
+
+narrative_event = {		# return duke
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.649
+    desc = EVTDESC_AmzCulSoc_649
+	picture = GFX_evt_powerful_ruler
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_649
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.650 }
+    }
+}
+
+narrative_event = {		# threaten duke
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.650
+    desc = EVTDESC_AmzCulSoc_650
+	picture = GFX_evt_group_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_650
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.651 }
+		sound_effect = duel_win	
+		add_blood_splatter_effect = yes
+    }
+}
+
+narrative_event = {		# kill duke's men
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.651
+    desc = EVTDESC_AmzCulSoc_651
+	picture = GFX_evt_cornered_duel_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+	immediate = {
+		add_blood_splatter_effect = yes
+	}
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_651
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.652 }
+    }
+}
+
+narrative_event = {		# defeat duke
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.652
+    desc = EVTDESC_AmzCulSoc_652
+	picture = GFX_evt_cornered_duel_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_652
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.653 }
+    }
+}
+
+narrative_event = {		# burn it all
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.653
+    desc = EVTDESC_AmzCulSoc_653
+	picture = GFX_evt_firey_silhouette_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_653
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.654 days = 14 }
+		hidden_tooltip = {
+			random_list = {
+				10 = { sound_effect = burning_male_01 }
+				10 = { sound_effect = burning_male_02 }
+				10 = { sound_effect = burning_male_03 }
+				10 = { sound_effect = burning_male_04 }
+			}
+		}
+    }
+}
+
+narrative_event = {		# return home
+	title = EVTTITLAmzCulSoc_654
+    id = AmzCulSoc.654
+    desc = EVTDESC_AmzCulSoc_654
+	picture = GFX_evt_victory_arch_byzantine
+    border = GFX_event_character_frame_intrigue
+	portrait = FROM
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_654
+		ai_chance = { factor = 10 }
+	#	add_artifact = military_strategy_guide
+		create_bloodline = {
+			type = amazonian_heroine_dread					#Dread Heroine bloodline
+		}
+		
+		sound_effect = bloodline_added
+		
+		hidden_tooltip = {
+			remove_trait = travelling
+			#found_a_legendary_bloodline_effect = yes		#used to make a standard random lodge bloodline
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_zero_to_hero
+			}
+			add_character_modifier = { #For life
+				name = renowned_hero
+				duration = -1
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { 
+						has_nickname = no
+					}
+					random_list = {
+						20 = {
+							give_nickname = nick_warrior_princess
+						}
+						80 = {
+							give_nickname = nick_the_she_devil
+						}			
+					}
+				}
+			}
+			any_player = {
+				limit = {
+					same_society_as = ROOT
+					NOT = { character = ROOT }
+				}
+				character_event = { id = AmzCulSoc.700 }
+			}
+		}
+    }
+}
+
+narrative_event = {		# talk about letter
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.655
+    desc = EVTDESC_AmzCulSoc_655
+	picture = GFX_evt_brothel
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_655
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.656 }
+    }
+}
+
+narrative_event = {		# run away from tavern
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.656
+    desc = EVTDESC_AmzCulSoc_656
+	picture = GFX_evt_brothel
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_656
+		ai_chance = { factor = 1 }
+		narrative_event = { id = AmzCulSoc.657 days = 14 }
+		add_trait = in_hiding
+    }
+	option = { # skip
+        name = EVTOPTB_AmzCulSoc_skip
+		custom_tooltip = { text = skip_heroine_adventure_tt }
+		trigger = {
+			any_owned_bloodline = { has_bloodline_flag = heroine_bloodline  }
+		}
+		ai_chance = { factor = 10 }
+		add_trait = travelling
+		narrative_event = { id = AmzCulSoc.679 days = 45 }
+    }
+}
+
+narrative_event = {		# learn about assassins
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.657
+    desc = EVTDESC_AmzCulSoc_657
+	picture = GFX_evt_eavesdropping
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_657
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.658 days = 14 }
+		remove_trait = in_hiding
+		add_trait = travelling
+    }
+}
+
+narrative_event = {		# look around bazaar
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.658
+    desc = EVTDESC_AmzCulSoc_658
+	picture = GFX_evt_market_byzantine
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_658
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.659 }
+    }
+}
+
+narrative_event = {		# spot asasi
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.659
+    desc = EVTDESC_AmzCulSoc_659
+	picture = GFX_evt_market_byzantine
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_659
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.660 }
+    }
+}
+
+narrative_event = {		# get stabbed
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.660
+    desc = EVTDESC_AmzCulSoc_660
+	picture = GFX_evt_skulls_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_660
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.661 }
+		add_blood_splatter_effect = yes
+		sound_effect = duel_lose
+		add_trait = wounded
+    }
+}
+
+narrative_event = {		# getting stabbed more
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.661
+    desc = EVTDESC_AmzCulSoc_661
+	picture = GFX_evt_skulls_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_661
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.662 }
+		add_blood_splatter_effect = yes
+		sound_effect = duel_lose
+    }
+}
+
+narrative_event = {		# go dark
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.662
+    desc = EVTDESC_AmzCulSoc_662
+	picture = GFX_evt_skulls_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_662
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.663 }
+		add_blood_splatter_effect = yes
+		add_trait = severely_injured
+    }
+}
+
+narrative_event = {		# crawling away
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.663
+    desc = EVTDESC_AmzCulSoc_663
+	picture = GFX_evt_skulls_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_663
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.664 }
+		add_blood_splatter_effect = yes
+    }
+}
+
+narrative_event = {		# die in the shadows
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.664
+    desc = EVTDESC_AmzCulSoc_664
+	picture = GFX_evt_skulls_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_664
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.665 }
+		add_blood_splatter_effect = yes
+		sound_effect = male_violent_death_05
+    }
+}
+
+narrative_event = {		# saved by the woman
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.665
+    desc = EVTDESC_AmzCulSoc_665
+	picture = GFX_evt_skulls_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_665
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.666 }
+		add_blood_splatter_effect = yes
+    }
+}
+
+narrative_event = {		# Masdar introduces
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.666
+    desc = EVTDESC_AmzCulSoc_666
+	picture = GFX_evt_skulls_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_666
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.667 }
+		add_blood_splatter_effect = yes
+    }
+}
+
+narrative_event = {		# Masdar heals
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.667
+    desc = EVTDESC_AmzCulSoc_667
+	picture = GFX_evt_recovery
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_667
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.668 }
+		clear_blood_splatter_effect = yes	# I don't know what the command should be
+		if = {
+			limit = { trait = wounded }
+			remove_trait = wounded
+		}
+		if = {
+			limit = { trait = severely_injured }
+			remove_trait = severely_injured
+		}
+    }
+}
+
+narrative_event = {		# Masdar childhood
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.668
+    desc = EVTDESC_AmzCulSoc_668
+	picture = GFX_evt_wise_woman
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_668
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.669 }
+    }
+}
+
+narrative_event = {		# Masdar philosophy
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.669
+    desc = EVTDESC_AmzCulSoc_669
+	picture = GFX_evt_slit_throat_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_669
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.670 }
+    }
+}
+
+narrative_event = {		# Masdar quest
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.670
+    desc = EVTDESC_AmzCulSoc_670
+	picture = GFX_evt_assassination
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_670
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.671 days = 3 }
+    }
+}
+
+character_event = {		# training montage 1
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.671
+    desc = EVTDESC_AmzCulSoc_671
+	picture = GFX_evt_tiger
+    border = GFX_event_character_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_671
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.672 days = 7 }
+    }
+}
+
+character_event = {		# training montage 2
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.672
+    desc = EVTDESC_AmzCulSoc_672
+	picture = GFX_evt_tiger
+    border = GFX_event_character_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_672
+		ai_chance = { factor = 10 }
+		character_event = { id = AmzCulSoc.673 days = 7 }
+		add_trait = robust
+		hidden_tooltip = {
+			remove_trait = wounded
+			remove_trait = severely_injured
+		}
+    }
+}
+
+character_event = {		# training montage 3
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.673
+    desc = EVTDESC_AmzCulSoc_673
+	picture = GFX_evt_tiger
+    border = GFX_event_character_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_673
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.674 days = 7 }
+		random = {
+			chance = 25
+			add_trait = strong
+		}
+    }
+}
+
+narrative_event = {		# stalking commander			
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.674
+    desc = EVTDESC_AmzCulSoc_674
+	picture = GFX_evt_sultan
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_674
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.675 }
+    }
+}
+
+narrative_event = {		# approach grandmaster		
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.675
+    desc = EVTDESC_AmzCulSoc_675
+	picture = GFX_evt_sleeping_town_hf
+    border = GFX_event_narrative_frame_intrigue
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_675
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.676 }
+    }
+}
+
+narrative_event = {		# start fight		
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.676
+    desc = EVTDESC_AmzCulSoc_676
+	picture = GFX_evt_sleeping_town_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_676
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.677 }
+    }
+}
+
+narrative_event = {		# silent fight	
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.677
+    desc = EVTDESC_AmzCulSoc_677
+	picture = GFX_evt_sleeping_town_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_677
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.678 }
+    }
+}
+
+narrative_event = {		# theatricality and deception		
+	title = EVTTITLAmzCulSoc_601
+    id = AmzCulSoc.678
+    desc = EVTDESC_AmzCulSoc_678
+	picture = GFX_evt_sleeping_town_hf
+    border = GFX_event_narrative_frame_war
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_678
+		ai_chance = { factor = 10 }
+		narrative_event = { id = AmzCulSoc.679 days = 14 }
+    }
+}
+
+narrative_event = {		# return home
+	title = EVTTITLAmzCulSoc_679
+    id = AmzCulSoc.679
+    desc = EVTDESC_AmzCulSoc_679
+	picture = GFX_evt_victory_arch_byzantine
+    border = GFX_event_character_frame_intrigue
+	portrait = FROM
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+	immediate = {
+		clr_global_flag = assassins_destroyed 	# triggers the destruction notif if already destroyed, for flavour. otherwise nothing	
+		if = {
+			limit = { d_hashshashin = {	has_holder = yes } }
+			d_hashshashin = { 
+				holder_scope = {
+					add_rival = ROOT 
+					create_random_intriguer = {	 # setting up rival assassins
+						random_traits = yes
+						dynasty = NONE
+						female = no
+						age = 56
+						religion = shiite
+						culture = persian
+					}
+					new_character = {
+						save_event_target_as = assassin_rival_a
+					}
+					create_random_intriguer = {
+						random_traits = yes
+						dynasty = NONE
+						female = no
+						age = 34
+						religion = shiite
+						culture = levantine_arabic
+					}
+					new_character = {
+						save_event_target_as = assassin_rival_b
+					}
+					create_random_intriguer = {
+						random_traits = yes
+						dynasty = NONE
+						female = no
+						age = 23
+						religion = shiite
+						culture = egyptian_arabic
+					}
+					new_character = {
+						save_event_target_as = assassin_rival_c
+					}
+				}
+			}
+		}
+	}
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_679
+		ai_chance = { factor = 10 }
+	#	add_artifact = the_book_of_shadows
+		create_bloodline = {
+			type = amazonian_heroine_hooded					#Hooded Heroine bloodline
+		}
+		
+		sound_effect = bloodline_added
+		
+		event_target:assassin_rival_a = {
+			add_rival = ROOT
+		}					
+		event_target:assassin_rival_b = {
+			add_rival = ROOT
+		}
+		event_target:assassin_rival_c = {
+			add_rival = ROOT
+		}
+		
+		hidden_tooltip = {
+			remove_trait = travelling
+			#found_a_legendary_bloodline_effect = yes		#used to make a standard random lodge bloodline
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_zero_to_hero
+			}
+			add_character_modifier = { #For life
+				name = renowned_hero
+				duration = -1
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { 
+						has_nickname = no
+					}
+					random_list = {
+						20 = {
+							give_nickname = nick_warrior_princess
+						}
+						80 = {
+							give_nickname = nick_the_she_devil
+						}			
+					}
+				}
+			}				
+		}
+	}
+}
+
+character_event = {		# player notified of member's quest
+    id = AmzCulSoc.700
+    desc = EVTDESC_AmzCulSoc_700
+	picture = GFX_evt_victory_arch_byzantine
+    border = GFX_event_character_frame_intrigue
+	portrait = FROMFROM
+	
+    is_triggered_only = yes
+	is_in_society = yes
+	
+    option = { 
+        name = EVTOPTA_AmzCulSoc_700
+		ai_chance = { factor = 10 }
+    }
+}

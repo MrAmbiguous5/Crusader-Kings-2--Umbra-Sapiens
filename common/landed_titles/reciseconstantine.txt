@@ -1,0 +1,32 @@
+d_knights_of_constantine = {
+	color={ 57 53 122 }
+	color2={ 57 53 122 }
+	
+	graphical_culture = holygfx
+
+	
+	capital = 496 # Constantinople
+	
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+	title_female = "CAPTAIN_FEMALE"
+
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	mercenary_type = knights_templar_composition
+	
+	# Parent Religion 
+	religion = orthodox
+
+	replace_captain_on_death = yes
+	
+	strength_growth_per_century = 0.04
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to banking, etc
+	monthly_income = 15 # (Must be an integer between 1 and 512)
+}

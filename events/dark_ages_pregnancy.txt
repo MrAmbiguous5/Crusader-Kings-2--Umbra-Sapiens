@@ -1,0 +1,440 @@
+namespace = darkages
+
+character_event = { #MISCARRIAGE
+	id = darkages.72221
+	title = EVTNAME1972221
+	desc = EVTDESC1972221
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_intrigue
+
+
+	trigger = {
+		is_pregnant = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 75
+		
+		modifier = {
+			factor = 0.8
+			NOT = { health = 5 }
+		}
+		
+		modifier = {
+			factor = 0.8
+			NOT = { health = 4.5 }
+		}
+		
+		modifier = {
+			factor = 0.7
+			NOT = { health = 4 }
+		}
+
+		modifier = {
+			factor = 0.6
+			NOT = { health = 3.5 }
+		}
+		
+		modifier = {
+			factor = 0.5
+			NOT = { health = 3 }
+		}		
+		
+		modifier = {
+			factor = 1.2
+			health = 6
+		}		
+
+		modifier = {
+			factor = 1.3
+			health = 6.5
+		}
+		
+		modifier = {
+			factor = 1.4
+			health = 7
+		}
+		
+		modifier = {
+			factor = 1.5
+			health = 7.5
+		}
+		
+		modifier = {
+			factor = 0.8
+			trait = stressed
+		}
+		
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		
+		modifier = {
+			factor = 0.5
+			OR = {
+				trait = troubled_pregnancy
+				trait = hard_pregnancy
+			}
+		}
+		
+		modifier = {
+			factor = 1.2
+			has_character_modifier = mother_minor_rest
+		}
+
+		modifier = {
+			factor = 1.2
+			has_character_modifier = mother_comforted
+		}
+		
+		modifier = {
+			factor = 1.2
+			has_character_modifier = mother_good_omen
+		}	
+
+		modifier = {
+			factor = 0.8
+			has_character_modifier = mother_bad_omen
+		}
+		
+	}	
+	
+	immediate = {
+		remove_trait = pregnancy_finishing
+		remove_trait = hard_pregnancy
+		remove_trait = troubled_pregnancy
+		remove_trait = pregnant
+		remove_trait = in_hiding
+		remove_trait = travelling		
+		remove_character_modifier = mother_praying_health
+		remove_character_modifier = mother_resting_health
+		remove_character_modifier = mother_partying_health
+		remove_character_modifier = mother_minor_rest
+		remove_character_modifier = mother_good_omen
+		remove_character_modifier = mother_bad_omen
+		remove_character_modifier = mother_vow_chastity
+		remove_character_modifier = mother_vow_humility
+		remove_character_modifier = mother_vow_charity
+		remove_character_modifier = mother_vow_temperance
+		remove_character_modifier = mother_exposed_to_elements
+		remove_character_modifier = mother_comforted
+		remove_character_modifier = mother_pregnancy_glow
+		remove_character_modifier = mother_dark_rest
+		remove_character_modifier = mother_chatting
+		remove_character_modifier = mother_popular
+		remove_character_modifier = mother_fertility_festival_1
+		remove_character_modifier = mother_fertility_festival_2
+		remove_character_modifier = mother_festival_blessing
+		clr_character_flag = mother_asked_retirement 
+		clr_character_flag = flag_mother_dark_rest
+		clr_character_flag = mother_gossip_listening #Safety check, they should already have been removed
+		clr_character_flag = mother_gossip_talking
+		clr_character_flag = mother_gossip_trusting
+		clr_character_flag = mother_gossip_plotting
+		clr_character_flag = mother_gossip_envious
+		clr_character_flag = mother_gossip_shy
+		clr_character_flag = mother_gossip_learning
+		clr_character_flag = mother_gossip_content
+		clr_character_flag = mother_gossip_gluttonous		
+	}
+
+	option = {
+		name = EVTOPTA1972221
+		
+		cancel_pregnancy = yes	
+		add_symptom_effect = yes		
+		
+		random_list = {
+			20 = {
+				modifier = {
+					factor = 0.8
+					NOT = { health = 5 }
+				}
+				
+				modifier = {
+					factor = 0.9
+					NOT = { health = 4.5 }
+				}
+				
+				modifier = {
+					factor = 0.8
+					NOT = { health = 4 }
+				}
+
+				modifier = {
+					factor = 0.9
+					NOT = { health = 3.5 }
+				}
+				
+				modifier = {
+					factor = 0.8
+					NOT = { health = 3 }
+				}		
+				
+				modifier = {
+					factor = 1.2
+					health = 5.5
+				}		
+
+				modifier = {
+					factor = 1.3
+					health = 6
+				}
+				
+				modifier = {
+					factor = 1.4
+					health = 6.5
+				}
+				
+				modifier = {
+					factor = 1.5
+					health = 7
+				}			
+				modifier = {
+					factor = 2
+					is_strong_trigger = yes
+				}
+				modifier = {
+					factor = 0.75
+					is_weak_trigger = yes
+				}
+				
+				spouse = {
+					character_event = { id = darkages.72222 }
+				}
+				father = {
+					character_event = { id = darkages.72223 }				
+				}
+				mother = {
+					character_event = { id = darkages.72223 }				
+				}				
+				
+			}
+			4 = {
+				health = -0.5
+				spouse = {
+					character_event = { id = darkages.72222 }
+				}
+				father = {
+					character_event = { id = darkages.72223 }				
+				}
+				mother = {
+					character_event = { id = darkages.72223 }				
+				}				
+			}
+			6 = {
+				random_list = {
+					8 = {
+						fertility = -0.5
+					}
+					4 = {
+						fertility = -1
+					}
+					1 = {
+						add_trait = infertile
+						fertility = -4
+					}
+				}
+				spouse = {
+					character_event = { id = darkages.72222 }
+				}
+				father = {
+					character_event = { id = darkages.72223 }				
+				}
+				mother = {
+					character_event = { id = darkages.72223 }				
+				}				
+			}
+			4 = {
+				add_trait = pneumonic
+				spouse = {
+					character_event = { id = darkages.72222 }
+				}
+				father = {
+					character_event = { id = darkages.72223 }				
+				}
+				mother = {
+					character_event = { id = darkages.72223 }				
+				}				
+			}
+			3 = {
+				add_trait = ill
+				spouse = {
+					character_event = { id = darkages.72222 }
+				}
+				father = {
+					character_event = { id = darkages.72223 }				
+				}
+				mother = {
+					character_event = { id = darkages.72223 }				
+				}				
+			}			
+			1 = {
+				add_trait = infirm
+				spouse = {
+					character_event = { id = darkages.72222 }
+				}
+				father = {
+					character_event = { id = darkages.72223 }				
+				}
+				mother = {
+					character_event = { id = darkages.72223 }				
+				}				
+			}			
+			1 = {
+				spouse = {
+					character_event = { id = darkages.72224 }
+				}
+				father = {
+					character_event = { id = darkages.72225 }				
+				}
+				mother = {
+					character_event = { id = darkages.72225 }				
+				}				
+				death = {
+					death_reason = death_childbirth
+				}				
+			}			
+		}
+
+	}
+
+}
+
+character_event = {			
+	id = darkages.72222
+	title = EVTNAME1972222
+	desc = EVTDESC1972222
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972222"
+	}
+	
+}
+
+character_event = {			
+	id = darkages.72223
+	title = EVTNAME1972223
+	desc = EVTDESC1972223
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972223"
+	}
+	
+}
+
+character_event = {			
+	id = darkages.72224
+	title = EVTNAME1972224
+	desc = EVTDESC1972224
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972224"
+	}
+	
+}
+
+character_event = {			
+	id = darkages.72225
+	title = EVTNAME1972225
+	desc = EVTDESC1972225
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972225"
+	}
+	
+}
+
+#############
+######
+#	FIX ONCE AND FOR ALL THE FREAKING PREGNANCIES RELATED TO STILLBIRTHS 
+######
+#############
+
+character_event = {			#Called from on_actions
+	id = darkages.72512
+	title = EVTNAME1972512
+	desc = EVTDESC1972512
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_intrigue
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {		
+		remove_trait = pregnancy_finishing
+		remove_trait = hard_pregnancy
+		remove_trait = troubled_pregnancy
+		remove_trait = in_hiding
+		remove_trait = travelling		
+		remove_character_modifier = mother_praying_health
+		remove_character_modifier = mother_resting_health
+		remove_character_modifier = mother_partying_health
+		remove_character_modifier = mother_minor_rest
+		remove_character_modifier = mother_good_omen
+		remove_character_modifier = mother_bad_omen
+		remove_character_modifier = mother_vow_chastity
+		remove_character_modifier = mother_vow_humility
+		remove_character_modifier = mother_vow_charity
+		remove_character_modifier = mother_vow_temperance
+		remove_character_modifier = mother_exposed_to_elements
+		remove_character_modifier = mother_comforted
+		remove_character_modifier = mother_pregnancy_glow
+		remove_character_modifier = mother_dark_rest
+		remove_character_modifier = mother_chatting
+		remove_character_modifier = mother_popular
+		remove_character_modifier = mother_fertility_festival_1
+		remove_character_modifier = mother_fertility_festival_2
+		remove_character_modifier = mother_festival_blessing
+		clr_character_flag = mother_asked_retirement 
+		clr_character_flag = flag_mother_dark_rest
+		clr_character_flag = mother_gossip_listening
+		clr_character_flag = mother_gossip_talking
+		clr_character_flag = mother_gossip_trusting
+		clr_character_flag = mother_gossip_plotting
+		clr_character_flag = mother_gossip_envious
+		clr_character_flag = mother_gossip_shy
+		clr_character_flag = mother_gossip_learning
+		clr_character_flag = mother_gossip_content
+		clr_character_flag = mother_gossip_gluttonous	
+	
+	}
+	
+}

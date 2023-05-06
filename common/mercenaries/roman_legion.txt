@@ -1,0 +1,6 @@
+roman_legion = {
+	levy_size = 6
+	light_cavalry = 50
+	heavy_infantry = 700
+	archers = 100
+}

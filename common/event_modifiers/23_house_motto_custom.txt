@@ -1,0 +1,396 @@
+house_motto_custom_01 = {
+	icon = 8
+	house_motto_custom_01_modifier = 1
+}
+house_motto_custom_02 = {
+	icon = 8
+	house_motto_custom_02_modifier = 1
+}
+house_motto_custom_03 = {
+	icon = 8
+	house_motto_custom_03_modifier = 1
+}
+house_motto_custom_04 = {
+	icon = 8
+	house_motto_custom_04_modifier = 1
+}
+house_motto_custom_05 = {
+	icon = 8
+	house_motto_custom_05_modifier = 1
+}
+house_motto_custom_06 = {
+	icon = 8
+	house_motto_custom_06_modifier = 1
+}
+house_motto_custom_07 = {
+	icon = 8
+	house_motto_custom_07_modifier = 1
+}
+house_motto_custom_08 = {
+	icon = 8
+	house_motto_custom_08_modifier = 1
+}
+house_motto_custom_09 = {
+	icon = 8
+	house_motto_custom_09_modifier = 1
+}
+house_motto_custom_10 = {
+	icon = 8
+	house_motto_custom_10_modifier = 1
+}
+house_motto_custom_11 = {
+	icon = 8
+	house_motto_custom_11_modifier = 1
+}
+house_motto_custom_12 = {
+	icon = 8
+	house_motto_custom_12_modifier = 1
+}
+house_motto_custom_13 = {
+	icon = 8
+	house_motto_custom_13_modifier = 1
+}
+house_motto_custom_14 = {
+	icon = 8
+	house_motto_custom_14_modifier = 1
+}
+house_motto_custom_15 = {
+	icon = 8
+	house_motto_custom_15_modifier = 1
+}
+house_motto_custom_16 = {
+	icon = 8
+	house_motto_custom_16_modifier = 1
+}
+house_motto_custom_17 = {
+	icon = 8
+	house_motto_custom_17_modifier = 1
+}
+house_motto_custom_18 = {
+	icon = 8
+	house_motto_custom_18_modifier = 1
+}
+house_motto_custom_19 = {
+	icon = 8
+	house_motto_custom_19_modifier = 1
+}
+house_motto_custom_20 = {
+	icon = 8
+	house_motto_custom_20_modifier = 1
+}
+house_motto_custom_21 = {
+	icon = 8
+	house_motto_custom_21_modifier = 1
+}
+house_motto_custom_22 = {
+	icon = 8
+	house_motto_custom_22_modifier = 1
+}
+house_motto_custom_23 = {
+	icon = 8
+	house_motto_custom_23_modifier = 1
+}
+house_motto_custom_24 = {
+	icon = 8
+	house_motto_custom_24_modifier = 1
+}
+house_motto_custom_25 = {
+	icon = 8
+	house_motto_custom_25_modifier = 1
+}
+house_motto_custom_26 = {
+	icon = 8
+	house_motto_custom_26_modifier = 1
+}
+house_motto_custom_27 = {
+	icon = 8
+	house_motto_custom_27_modifier = 1
+}
+house_motto_custom_28 = {
+	icon = 8
+	house_motto_custom_28_modifier = 1
+}
+house_motto_custom_29 = {
+	icon = 8
+	house_motto_custom_29_modifier = 1
+}
+house_motto_custom_30 = {
+	icon = 8
+	house_motto_custom_30_modifier = 1
+}
+house_motto_custom_31 = {
+	icon = 8
+	house_motto_custom_31_modifier = 1
+}
+house_motto_custom_32 = {
+	icon = 8
+	house_motto_custom_32_modifier = 1
+}
+house_motto_custom_33 = {
+	icon = 8
+	house_motto_custom_33_modifier = 1
+}
+house_motto_custom_34 = {
+	icon = 8
+	house_motto_custom_34_modifier = 1
+}
+house_motto_custom_35 = {
+	icon = 8
+	house_motto_custom_35_modifier = 1
+}
+house_motto_custom_36 = {
+	icon = 8
+	house_motto_custom_36_modifier = 1
+}
+house_motto_custom_37 = {
+	icon = 8
+	house_motto_custom_37_modifier = 1
+}
+house_motto_custom_38 = {
+	icon = 8
+	house_motto_custom_38_modifier = 1
+}
+house_motto_custom_39 = {
+	icon = 8
+	house_motto_custom_39_modifier = 1
+}
+house_motto_custom_40 = {
+	icon = 8
+	house_motto_custom_40_modifier = 1
+}
+house_motto_custom_41 = {
+	icon = 8
+	house_motto_custom_41_modifier = 1
+}
+house_motto_custom_42 = {
+	icon = 8
+	house_motto_custom_42_modifier = 1
+}
+house_motto_custom_43 = {
+	icon = 8
+	house_motto_custom_43_modifier = 1
+}
+house_motto_custom_44 = {
+	icon = 8
+	house_motto_custom_44_modifier = 1
+}
+house_motto_custom_45 = {
+	icon = 8
+	house_motto_custom_45_modifier = 1
+}
+house_motto_custom_46 = {
+	icon = 8
+	house_motto_custom_46_modifier = 1
+}
+house_motto_custom_47 = {
+	icon = 8
+	house_motto_custom_47_modifier = 1
+}
+house_motto_custom_48 = {
+	icon = 8
+	house_motto_custom_48_modifier = 1
+}
+house_motto_custom_49 = {
+	icon = 8
+	house_motto_custom_49_modifier = 1
+}
+house_motto_custom_50 = {
+	icon = 8
+	house_motto_custom_50_modifier = 1
+}
+house_motto_custom_51 = {
+	icon = 8
+	house_motto_custom_51_modifier = 1
+}
+house_motto_custom_52 = {
+	icon = 8
+	house_motto_custom_52_modifier = 1
+}
+house_motto_custom_53 = {
+	icon = 8
+	house_motto_custom_53_modifier = 1
+}
+house_motto_custom_54 = {
+	icon = 8
+	house_motto_custom_54_modifier = 1
+}
+house_motto_custom_55 = {
+	icon = 8
+	house_motto_custom_55_modifier = 1
+}
+house_motto_custom_56 = {
+	icon = 8
+	house_motto_custom_56_modifier = 1
+}
+house_motto_custom_57 = {
+	icon = 8
+	house_motto_custom_57_modifier = 1
+}
+house_motto_custom_58 = {
+	icon = 8
+	house_motto_custom_58_modifier = 1
+}
+house_motto_custom_59 = {
+	icon = 8
+	house_motto_custom_59_modifier = 1
+}
+house_motto_custom_60 = {
+	icon = 8
+	house_motto_custom_60_modifier = 1
+}
+house_motto_custom_61 = {
+	icon = 8
+	house_motto_custom_61_modifier = 1
+}
+house_motto_custom_62 = {
+	icon = 8
+	house_motto_custom_62_modifier = 1
+}
+house_motto_custom_63 = {
+	icon = 8
+	house_motto_custom_63_modifier = 1
+}
+house_motto_custom_64 = {
+	icon = 8
+	house_motto_custom_64_modifier = 1
+}
+house_motto_custom_65 = {
+	icon = 8
+	house_motto_custom_65_modifier = 1
+}
+house_motto_custom_66 = {
+	icon = 8
+	house_motto_custom_66_modifier = 1
+}
+house_motto_custom_67 = {
+	icon = 8
+	house_motto_custom_67_modifier = 1
+}
+house_motto_custom_68 = {
+	icon = 8
+	house_motto_custom_68_modifier = 1
+}
+house_motto_custom_69 = {
+	icon = 8
+	house_motto_custom_69_modifier = 1
+}
+house_motto_custom_70 = {
+	icon = 8
+	house_motto_custom_70_modifier = 1
+}
+house_motto_custom_71 = {
+	icon = 8
+	house_motto_custom_71_modifier = 1
+}
+house_motto_custom_72 = {
+	icon = 8
+	house_motto_custom_72_modifier = 1
+}
+house_motto_custom_73 = {
+	icon = 8
+	house_motto_custom_73_modifier = 1
+}
+house_motto_custom_74 = {
+	icon = 8
+	house_motto_custom_74_modifier = 1
+}
+house_motto_custom_75 = {
+	icon = 8
+	house_motto_custom_75_modifier = 1
+}
+house_motto_custom_76 = {
+	icon = 8
+	house_motto_custom_76_modifier = 1
+}
+house_motto_custom_77 = {
+	icon = 8
+	house_motto_custom_77_modifier = 1
+}
+house_motto_custom_78 = {
+	icon = 8
+	house_motto_custom_78_modifier = 1
+}
+house_motto_custom_79 = {
+	icon = 8
+	house_motto_custom_79_modifier = 1
+}
+house_motto_custom_80 = {
+	icon = 8
+	house_motto_custom_80_modifier = 1
+}
+house_motto_custom_81 = {
+	icon = 8
+	house_motto_custom_81_modifier = 1
+}
+house_motto_custom_82 = {
+	icon = 8
+	house_motto_custom_82_modifier = 1
+}
+house_motto_custom_83 = {
+	icon = 8
+	house_motto_custom_83_modifier = 1
+}
+house_motto_custom_84 = {
+	icon = 8
+	house_motto_custom_84_modifier = 1
+}
+house_motto_custom_85 = {
+	icon = 8
+	house_motto_custom_85_modifier = 1
+}
+house_motto_custom_86 = {
+	icon = 8
+	house_motto_custom_86_modifier = 1
+}
+house_motto_custom_87 = {
+	icon = 8
+	house_motto_custom_87_modifier = 1
+}
+house_motto_custom_88 = {
+	icon = 8
+	house_motto_custom_88_modifier = 1
+}
+house_motto_custom_89 = {
+	icon = 8
+	house_motto_custom_89_modifier = 1
+}
+house_motto_custom_90 = {
+	icon = 8
+	house_motto_custom_90_modifier = 1
+}
+house_motto_custom_91 = {
+	icon = 8
+	house_motto_custom_91_modifier = 1
+}
+house_motto_custom_92 = {
+	icon = 8
+	house_motto_custom_92_modifier = 1
+}
+house_motto_custom_93 = {
+	icon = 8
+	house_motto_custom_93_modifier = 1
+}
+house_motto_custom_94 = {
+	icon = 8
+	house_motto_custom_94_modifier = 1
+}
+house_motto_custom_95 = {
+	icon = 8
+	house_motto_custom_95_modifier = 1
+}
+house_motto_custom_96 = {
+	icon = 8
+	house_motto_custom_96_modifier = 1
+}
+house_motto_custom_97 = {
+	icon = 8
+	house_motto_custom_97_modifier = 1
+}
+house_motto_custom_98 = {
+	icon = 8
+	house_motto_custom_98_modifier = 1
+}
+house_motto_custom_99 = {
+	icon = 8
+	house_motto_custom_99_modifier = 1
+}

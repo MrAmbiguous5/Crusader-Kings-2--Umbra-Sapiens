@@ -1,0 +1,178 @@
+targetted_decisions = {
+	bring_child_to_court = {
+		filter = dynasty
+		ai_target_filter = none
+
+		from_potential = {
+			is_adult = yes
+			ai = no
+			is_landed = yes
+		}
+		potential = {
+			is_adult = no
+			is_landed = no
+			FROM = { NOT = { is_liege_of = ROOT }	}
+			OR = {
+				FROM = { is_parent_of = ROOT } 
+				AND = {
+					dynasty = FROM
+					ROOT = { 
+						mother = { 
+							OR = {	
+								liege = {
+									NOT = { is_liege_of = ROOT} 
+								}
+								is_alive = no
+							}
+						}
+					}
+					ROOT = { 
+						father = { 
+							OR = {	
+								liege = {
+									NOT = { is_liege_of = ROOT} 
+								}
+								is_alive = no
+							}
+						}
+					}
+				}
+			}
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			ROOT = { move_character = FROM }
+		}
+		revoke_allowed = {
+			always = no 
+		}
+		ai_will_do = {
+			always = no
+		}
+	}
+	summon_child = {
+		filter = self
+		ai_target_filter = none
+		third_party_filter = dynasty
+		ai_third_party_filter = none
+		show_third_party_potential = yes
+		
+		potential = {
+			is_adult = yes
+			ai = no
+			is_landed = yes
+		}
+		third_party_potential = {
+			FROM = { NOT = { is_liege_of = FROMFROM }	}
+			FROMFROM = {
+				is_adult = no
+				is_landed = no
+			}
+			OR = {
+				is_child_of = FROM
+				AND = {
+					dynasty = FROM
+					FROMFROM = {
+						OR = {
+							mother = { is_alive = no } 
+							NOT = { same_liege = mother } 
+						}
+					}
+					FROMFROM = {
+						OR = {
+							father = { is_alive = no }
+							NOT = { same_liege = father }
+						}
+					}
+					FROMFROM = {
+						NOT = {
+							is_child_of = liege
+						}
+					}
+				}
+			}
+		}
+		third_party_allow = {
+			FROM = { NOT = { is_liege_of = FROMFROM }	}
+			FROMFROM = {
+				is_adult = no
+				is_landed = no
+			}
+			OR = {
+				is_child_of = FROM
+				AND = {
+					dynasty = FROM
+					FROMFROM = {
+						OR = {
+							mother = { is_alive = no } 
+							NOT = { same_liege = mother } 
+						}
+					}
+					FROMFROM = {
+						OR = {
+							father = { is_alive = no }
+							NOT = { same_liege = father }
+						}
+					}
+					FROMFROM = {
+						NOT = {
+							is_child_of = liege
+						}
+					}
+				}
+			}
+		}
+		third_party_score = {
+			factor = 1
+		
+			additive_modifier = {
+			value = 1
+			
+			FROMFROM = { trait = fair }
+			}
+			
+			additive_modifier = {
+			value = 1
+			
+			FROMFROM = { trait = quick }
+			}
+			
+			additive_modifier = {
+			value = 1
+			
+			FROMFROM = { trait = strong }
+			}
+			
+			additive_modifier = {
+			value = 2
+			
+			FROMFROM = { trait = genius }
+			}
+			
+			modifier = {
+			factor = 5
+			FROM = { is_parent_of = FROMFROM }
+			}
+			
+			modifier = {
+			factor = 3
+			FROM = { is_grandparent_of = FROMFROM }
+			}
+			
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			FROMFROM = { move_character = FROM }
+		}
+		revoke_allowed = {
+			always = no 
+		}
+		ai_will_do = {
+			always = no
+		}
+	}
+}

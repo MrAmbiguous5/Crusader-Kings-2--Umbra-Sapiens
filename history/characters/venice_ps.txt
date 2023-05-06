@@ -1,0 +1,12 @@
+184070={
+	name="Pietro" # Centranico ou Barbolano
+	dynasty=25980565
+	religion=catholic
+	culture=italian
+	980.1.1={
+		birth=980.1.1
+	}
+	1035.1.1={
+		death=1035.1.1
+	}
+}

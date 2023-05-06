@@ -1,0 +1,646 @@
+	society_decisions = { #only available to members of a society
+#
+#		hide_in_decisions_list = yes # This is shown in the Society View
+#		
+#		potential = {
+#			hidden_tooltip = {
+#				society_rank <= 3 #is not max rank
+#				days_in_society > 365 #days requirement
+#				is_in_society = yes #obviously
+#				OR = { #Players can always rank up (if they have the power), AI won't if there is no room
+#					ai = no
+#					AND = {
+#						ai = yes
+#						society_can_rank_up = yes
+#					}
+#				}
+#			}
+#		}
+#
+#		allow = {
+#			#Rank requirements. IMPORTANT!!! If you change the requirements, the customizable loc keys "GetSocietyRankUpTooltip" 1, 2, 3, and 4 must be updated, as it displays these requirements.
+#			custom_tooltip = { # Sufficient currency
+#				text = request_to_rank_up_within_warrior_lodge_amazonian_tt
+#				OR = {
+#					AND = {
+#						society_rank = 1
+#						society_currency >= 750
+#					}
+#					AND = {
+#						society_rank = 2
+#						society_currency >= 1000
+#					}
+#					AND = {
+#						society_rank = 3
+#						society_currency >= 2000
+#					}
+#				}
+#			}
+#
+#			custom_tooltip = {
+#				text = must_not_have_sent_request_already_tooltip 
+#				NOT = { has_character_flag = has_sent_request_to_rank_up }
+#			}
+#
+#			custom_tooltip = {
+#				text = must_be_allowed_to_rank_up_tooltip 
+#				days_at_current_society_rank >= 1095 #IMPORTANT! Update tooltip.
+#			}
+#
+#			custom_tooltip = {
+#				text = must_have_grandmaster_tooltip #You must have a grand master
+#				any_society_member = {
+#					is_society_grandmaster = yes
+#					same_society_as = ROOT
+#				}
+#			}
+#		}
+#
+#		effect = {
+#			#Rank up cost
+#			if = {
+#				limit = { society_rank = 1 }
+#				change_society_currency = -750
+#			}
+#			if = {
+#				limit = { society_rank = 2 }
+#				change_society_currency = -1000
+#			}
+#			if = {
+#				limit = { society_rank = 3 }
+#				change_society_currency = -2000
+#			}
+#
+#			#Perform rank up
+#			hidden_tooltip = {
+#				save_event_target_as = rank_up_target #mark the character as the one ranking up
+#				set_character_flag = has_sent_request_to_rank_up
+#				character_event = { id = AmzCulSoc.120 days = 20 random = 10 } # sends hidden delayed event to self, which then sends request to Leader of the society
+#				
+#			}
+#		}
+#
+#		revoke_allowed = {
+#			always = no
+#		}
+#		
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	
+	
+# Take shieldmaiden's oath rank 1+
+	amazonian_shieldmaiden_oath = {
+		is_high_prio = yes 
+		ai_check_interval = 3
+
+		potential = { 
+			society_member_of = warrior_lodge_amazonian 
+			NOT = { trait = shieldmaiden }
+			prisoner = no
+			NOT = { has_character_flag = taking_shieldmaiden_amz_decision }
+		}
+
+		allow = { 
+			society_currency >= 300 
+			OR = {
+				trait = brave
+				trait = ambitious
+				trait = diligent 
+				trait = just
+				trait = gregarious
+			}
+			NOR = {
+				trait = incapable
+				trait = inbred
+				trait = imbecile
+			}
+			NOT = { is_inaccessible_trigger = yes }
+		}
+
+		effect = { 
+			if = {
+				limit = { is_society_grandmaster = yes }
+				add_trait = shieldmaiden 
+			}
+			if = {
+				limit = { is_society_grandmaster = no }
+				narrative_event = { id = AmzCulSoc.140 }
+			}	
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+		
+# unit specialisation trait rank 2+
+	amazonian_unit_specialisation = {
+		is_high_prio = yes 
+		ai_check_interval = 3
+		
+		potential = { 
+			society_member_of = warrior_lodge_amazonian 
+			society_rank >= 2
+			NOR = {
+				trait = cavalry_leader
+				trait = heavy_infantry_leader
+				trait = light_foot_leader
+				trait = war_elephant_leader
+			}
+			prisoner = no
+			NOT = { has_character_flag = taking_specialisation_amz_decision }
+		}
+
+		allow = { 
+			society_currency >= 500 
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+
+		effect = { 
+			narrative_event = { id = AmzCulSoc.141 }	
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+# summon shieldmaiden rank 2+
+	summon_lodge_shieldmaiden = {
+		is_high_prio = yes 
+		ai_check_interval = 72
+		
+		potential = { 
+			society_member_of = warrior_lodge_amazonian 
+			is_playable = yes
+			OR = {
+				AND = {
+					society_rank >= 2
+					trait = shieldmaiden
+				}
+				society_rank >= 3
+			}
+			prisoner = no
+		}
+		
+		allow = { 
+			society_currency >= 300
+			war = yes
+		}
+		
+		effect = { 
+			narrative_event = { id = AmzCulSoc.143 }
+			change_society_currency = -300
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+# take amazonian trait through lodge rank 3+
+	take_lodge_trait = {
+		is_high_prio = yes 
+		ai_check_interval = 2
+		
+		potential = { 
+			society_member_of = warrior_lodge_amazonian 
+			society_rank = 3
+			prisoner = no
+			NOR = { 
+				trait = is_amazonian 
+				trait = is_amazonian_immortal
+				trait = blind
+			}
+			OR = {
+				NOT = { has_character_flag = amazonian_trial_flag }
+				had_character_flag = { flag = amazonian_trial_flag days = 3 }
+			}
+			NOR = {
+				culture = themiskyran_amz
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+		}
+
+		allow = { 
+			is_incapable = no
+			society_currency >= 700
+			custom_tooltip = { 
+			text = spring_trial_tooltip 
+				OR = {		# spring time, march-june ( 0 is jan )
+					month == 2
+					month == 3
+					month == 4 			
+				}
+			}
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+
+		effect = {
+			hidden_tooltip = {
+				narrative_event = { id = AmzCul.301 }
+				change_society_currency = -50
+			}
+			set_character_flag = amazonian_trial_flag
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+# study martial education rank 3+
+	study_martial_education = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = { 
+			society_member_of = warrior_lodge_amazonian 
+			society_rank = 3
+			prisoner = no
+			NOT = { 
+				trait = brilliant_strategist 
+			}
+		}
+
+		allow = { 
+			is_incapable = no
+			war = no
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+			society_currency >= 100
+			custom_tooltip = { 
+			text = study_once_yearly_tooltip 
+				OR = {
+					NOT = { has_character_flag = amazonian_education_flag }
+					had_character_flag = { flag = amazonian_education_flag months = 6 }	# increase to a year?
+				}
+			}
+		}
+
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCulSoc.301 }
+				change_society_currency = -50
+			}
+			set_character_flag = amazonian_education_flag
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+# summon amazonian horde rank 3+
+	summon_amazonian_horde = {
+		is_high_prio = yes 
+		ai_check_interval = 6
+		
+		potential = { 
+			society_member_of = warrior_lodge_amazonian 
+			society_rank = 3
+			prisoner = no
+			is_playable = yes
+			war = yes
+			NOT = { has_character_flag = summoned_amazonian_horde_flag }
+			NOT = { 
+				any_current_enemy = { society_member_of = warrior_lodge_amazonian }
+			}
+		}
+
+		allow = { 
+			society_currency >= 500
+		}
+
+		effect = {
+			change_society_currency = -500
+			custom_tooltip = { 
+			text = spawn_amazonian_horde_tt
+				character_event = { id = AmzCulSoc.145 }
+				set_character_flag = summoned_amazonian_horde_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+# take leadership trait rank 4
+	take_amazonian_leadership_trait = {
+		is_high_prio = yes
+		ai_check_interval = 1
+		
+		potential = {
+			society_member_of = warrior_lodge_amazonian
+			society_rank = 4
+			NOT = { trait = amazonian_leader }
+			prisoner = no
+			NOT = { has_character_flag = taking_leadership_amz_decision }
+		}
+		
+		allow = {
+			society_currency >= 500
+			OR = {
+				trait = grey_eminence
+				trait = brilliant_strategist
+				trait = midas_touched
+				trait = elusive_shadow
+				trait = mastermind_theologian
+			}
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCulSoc.144 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+		
+# buy amazonian gear rank 4
+	commission_heroine_gear = {
+		is_high_prio = yes
+		ai_check_interval = 6
+		
+		potential = { 
+		#	society_member_of = warrior_lodge_amazonian 
+		#	society_rank = 4
+			prisoner = no
+			NAND = {
+				has_artifact = heroines_sword
+				has_artifact = heroines_armour
+			}
+			trait = amazonian_leader 	# has the Heroine trait 
+		}
+	
+		allow = {
+		#	society_currency >= 500
+			wealth = 500
+			NOT = { is_inaccessible_trigger = yes }
+		}
+			
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCulSoc.142 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+# go on legendary quest rank 4 
+	begin_legendary_quest = {
+		is_high_prio = yes
+		ai_check_interval = 1
+		
+		potential = { 
+			society_member_of = warrior_lodge_amazonian 
+			society_rank = 4
+			prisoner = no
+			NOT = { has_character_flag = heroine_quest_decision_flag }
+			AND = {
+				any_artifact = {
+					quality = 4
+					has_artifact_flag = combat_weapon
+				}
+				any_artifact = {
+					quality = 4
+					has_artifact_flag = armor
+				}
+			}
+			OR = {
+				trait = shieldmaiden
+				trait = amazonian_leader
+			}
+			OR = { 
+				trait = is_amazonian
+				trait = is_amazonian_immortal
+			}
+			OR = {
+				had_character_flag = { flag = heroine_quest_flag years = 10 }
+				NOT = { has_character_flag = heroine_quest_flag }
+			}
+			OR = {
+				AND = {							# Heroines limited to ONE quest
+					is_society_grandmaster = no
+					NOR = {	
+						has_character_flag = heroine_quest_cult_flag
+						has_character_flag = heroine_quest_pirate_flag
+						has_character_flag = heroine_quest_slipper_flag
+						has_character_flag = heroine_quest_assassin_flag
+					}
+				}
+				AND = {							# Grandmistress quest UNLIMITED
+					is_society_grandmaster = yes
+					NAND = {							
+						has_character_flag = heroine_quest_cult_flag
+						has_character_flag = heroine_quest_pirate_flag
+						has_character_flag = heroine_quest_slipper_flag
+						has_character_flag = heroine_quest_assassin_flag
+					}
+				}
+			}
+			NAND = {							# not available if some variant of all bloodlines achieved
+				any_owned_bloodline = { has_bloodline_flag = battle_survivor_bloodline }
+				any_owned_bloodline = { has_bloodline_flag = duelist_bloodline }
+				any_owned_bloodline = { has_bloodline_flag = bloodline_fearsome }
+				any_owned_bloodline = { has_bloodline_flag = bloodline_murder_stalk }
+			}
+		}
+	
+		allow = {
+			war = no
+			is_pregnant = no
+			NOR = {
+				trait = wounded
+				trait = maimed
+				trait = severely_injured
+			}
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+			society_currency >= 2000
+			prestige = 2000
+		}
+			
+		effect = {
+			if = {									# already completed at least one quest
+				limit = {
+					OR = {
+						has_character_flag = heroine_quest_cult_flag
+						has_character_flag = heroine_quest_pirate_flag
+						has_character_flag = heroine_quest_slipper_flag
+						has_character_flag = heroine_quest_assassin_flag
+					}
+				}
+				hidden_tooltip = {
+					character_event = { id = AmzCulSoc.6002 }
+				}
+			}
+
+			else = {
+				hidden_tooltip = {
+					narrative_event = { id = AmzCulSoc.601 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+# challenge grandmistress for leadership
+	challenge_grandmistress = {
+		is_high_prio = yes
+		ai_check_interval = 24								
+		
+		potential = { 
+			society_member_of = warrior_lodge_amazonian 
+			society_rank = 4
+			is_society_grandmaster = no
+			days_at_current_society_rank >= 1095			# 3 years
+			combat_rating >= 80
+			trait = amazonian_leader
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal
+			}
+			prisoner = no
+			society = {				# can't believe this scope actually works
+				leader = { ai = yes }
+			}
+		}
+	
+		allow = {
+			society_currency >= 1000
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+			NAND = {
+				war = yes
+				in_command = yes
+			}
+			custom_tooltip = { 
+			text = warrior_lodge_amazonian_grandmistress_available_tooltip
+				society = {
+					leader = { 
+						ai = yes 
+						NOT = { is_inaccessible_trigger = yes }
+						prisoner = no
+						NAND = {
+							war = yes
+							in_command = yes
+						}
+					}
+				}
+			}
+			custom_tooltip = { 
+			text = grandmistress_challenged_tooltip
+				OR = {			# grandmistress can't be challenged multiple times in quick succession
+					NOT = {
+						society = {
+							leader = { 
+								has_character_flag = grandmistress_challenged
+							}
+						}
+					}
+					society = {
+						leader = { 
+							had_character_flag = { flag = grandmistress_challenged years = 3 }
+						}
+					}
+				}
+			}
+		}
+			
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCulSoc.500 }
+				any_society_member = {			
+					limit = { 
+						same_society_as = ROOT 
+						has_character_flag = grandmistress_challenged
+					}
+					clr_character_flag = grandmistress_challenged
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.2
+				trait = duelist
+			}
+			modifier = {
+				factor = 1.2
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.2
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.2
+				trait = envious
+			}
+			modifier = {
+				factor = 1.2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			
+			modifier = {
+				factor = 0.2 
+			}
+			modifier = {		# ai won't challenge family
+				factor = 0
+				society = {				
+					leader = { 
+						OR = {
+							dynasty = ROOT
+							is_close_relative = ROOT
+						}
+					}
+				}
+			}
+
+			modifier = {
+				factor = 0
+				OR = {
+					trait = slothful
+					trait = patient
+					trait = kind
+					trait = humble
+					trait = content
+					trait = craven
+					has_injury_trigger = yes
+					is_maimed_trigger = yes
+					has_symptom_trigger = yes
+					has_disease_trigger = yes
+				}
+			}
+		}
+	}	
+	
+	
+	
+	
+	
+	
+	
+}		# closed decision bracket. don't remove

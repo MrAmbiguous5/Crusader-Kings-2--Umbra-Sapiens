@@ -1,0 +1,234 @@
+targetted_decisions = {
+
+	buy_artifact = {
+		filter = all
+		ai_target_filter = self
+		third_party_filter = artifacts
+		third_party = ROOT
+		only_playable = yes
+		ai = no
+
+		from_potential = {
+			is_landed = yes
+			higher_tier_than = COUNT
+		}
+
+		third_party_potential = {
+			FROMFROM = {
+				is_artifact_active = yes
+			}
+		}
+
+		potential = {
+			is_alive = yes
+			num_of_artifacts = 1
+		}
+
+		third_party_allow = {
+			FROMFROM = {
+				is_artifact_active = yes
+				OR = {
+					AND = {
+						quality == 1
+						FROMFROM = { wealth = 100 }
+					}
+					AND = {
+						quality == 2
+						FROMFROM = { wealth = 500 }
+					}
+					AND = {
+						quality == 3
+						FROMFROM = { wealth = 1000 }
+					}
+					AND = {
+						quality == 4
+						FROMFROM = { wealth = 2000 }
+					}
+					AND = {
+						quality = 5
+						FROMFROM = { wealth = 4000 }
+					}
+				}
+				FROMFROM = {
+					NOT = {
+						any_artifact = {
+							artifact = PREV
+						}
+					}
+				}
+			}
+		}
+
+		allow = {
+		}
+
+		effect = {
+			FROMFROM = {
+				transfer_artifact = {
+					from = ROOT
+					to = FROMFROM
+				}
+				FROMFROM = {
+					IF = {
+						limit = {
+							PREV = {
+								quality == 1
+							}
+						}
+						wealth = -100
+						ROOT = {
+							wealth = 100
+						}
+					}
+					IF = {
+						limit = {
+							PREV = {
+								quality == 2
+							}
+						}
+						wealth = -500
+						ROOT = {
+							wealth = 500
+						}
+					}
+					IF = {
+						limit = {
+							PREV = {
+								quality == 3
+							}
+						}
+						wealth = -1000
+						ROOT = {
+							wealth = 1000
+						}
+					}
+					IF = {
+						limit = {
+							PREV = {
+								quality == 4
+							}
+						}
+						wealth = -2000
+						ROOT = {
+							wealth = 2000
+						}
+					}
+					IF = {
+						limit = {
+							PREV = {
+								quality = 5
+							}
+						}
+						wealth = -4000
+						ROOT = {
+							wealth = 4000
+						}
+					}
+				}
+				hidden_tooltip = {
+					clr_artifact_flag = title_heirloom_@ROOT
+					any_artifact_owner = {
+						limit = {
+							dynasty = ROOT
+							NOT = { dynasty = 0 }
+							PREV = { has_artifact_flag = heirloom_@PREV }
+						}
+						PREV = { clr_artifact_flag = heirloom_@PREV }
+					}
+				}
+			}
+			ROOT = {
+				any_demesne_title = {
+					limit = {
+						higher_tier_than = DUKE
+						FROMFROM = { has_artifact_flag = heirloom_@PREV }
+					}	
+					FROMFROM = { clr_artifact_flag = heirloom_@PREV }
+				}
+			}
+		}
+	
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_acceptance = {
+			factor = 10
+			modifier = {
+				factor = 10
+				prisoner = yes
+				host = { character = FROM }
+			}
+			modifier = {
+				factor = 2
+				wealth < -100
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { has_character_flag = loan_amount_found }
+			}
+			modifier = {
+				factor = 3
+				any_liege = {
+					character = FROM
+				}
+			}
+			modifier = {
+				factor = 3
+				any_dynasty_member = {
+					character = FROM
+				}
+			}
+			modifier = {
+				factor = 0.9
+				FROMFROM = {
+					quality = 1
+				}
+			}
+			modifier = {
+				factor = 0.7
+				FROMFROM = {
+					quality = 2
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROMFROM = {
+					quality = 3
+				}
+			}
+			modifier = {
+				factor = 0.3
+				FROMFROM = {
+					quality = 4
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROMFROM = {
+					quality = 5
+				}
+			}
+			modifier = {
+				factor = 0.5
+				wealth = 100
+			}
+			modifier = {
+				factor = 1.2
+				trait = charitable
+			}
+			modifier = {
+				factor = 0.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 0.5
+				trait = ambitious
+			}
+		}
+
+		ai_will_do = {
+			factor = 0 
+		}
+	}
+}

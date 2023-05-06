@@ -1,0 +1,5 @@
+on_yearly_pulse = {
+	events = {
+        Trib.4030 # Vassalize tributary for AI
+    }
+}

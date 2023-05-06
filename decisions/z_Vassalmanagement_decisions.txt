@@ -1,0 +1,349 @@
+decisions = {
+
+	toggle_vassalmanagement = {
+		only_playable = yes
+		potential = {
+			ai = no
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_character_flag = toggle_vassalmanagement }
+				}
+				set_character_flag = toggle_vassalmanagement
+				break = yes
+			}
+			clr_character_flag = toggle_vassalmanagement
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	vassalize_count = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			any_demesne_province = {
+				NOT = { has_province_flag = keep_it }
+			}
+			any_demesne_province = {
+				has_province_flag = keep_it
+			}
+			NOR = {
+				#any_demesne_title = {
+				#	holding_type = castle
+				#	tier = baron
+				#	is_capital = no
+				#}
+				any_demesne_title = {
+					holding_type = city
+					tier = baron
+					is_capital = no
+				}
+				any_demesne_title = {
+					holding_type = temple
+					tier = baron
+					is_capital = no
+				}
+				any_demesne_title = {
+					holding_type = tribal
+					tier = baron
+					is_capital = no
+				}
+			}
+		}
+		effect = {
+			character_event = { id = vassalize_count.250001 }	
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	vassalize_baron = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			any_demesne_title = {
+				holding_type = castle
+				tier = baron
+				NOT = { tier = count }
+				is_capital = no
+			}
+		}
+		effect = {
+			character_event = { id = vassalize_baron.250001 }	
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+		
+	vassalize_outside_baron = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			any_demesne_province = {
+				has_province_flag = keep_it
+			}
+			any_realm_province = {
+				NOT = { has_province_flag = keep_it }
+				any_province_holding = {
+					owner = { character = ROOT }
+					holding_type = castle
+					tier = baron
+					NOT = { tier = count }
+					is_capital = no
+				}
+			}
+		}
+		effect = {
+			character_event = { id = vassalize_outside_baron.250001 }	
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	vassalize_tribe = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			any_demesne_title = {
+				holding_type = tribal
+				tier = baron
+				NOT = { tier = count }
+				is_capital = no
+			}
+		}
+		effect = {
+			character_event = { id = vassalize_tribe.250001 }	
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	vassalize_priest = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			any_demesne_title = {
+				holding_type = temple
+				tier = baron
+				NOT = { tier = count }
+				is_capital = no
+			}
+		}
+		effect = {
+			character_event = { id = vassalize_priest.250001 }	
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	vassalize_mayor = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			any_demesne_title = {
+				holding_type = city
+				tier = baron
+				NOT = { tier = count }
+				is_capital = no
+			}
+		}
+		effect = {
+			character_event = { id = vassalize_mayor.250001 }	
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	flag_province = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			capital_scope = {
+				NOT = { has_province_flag = keep_it }
+			}
+		}
+		effect = {
+			province_event = { id = flag_province_p_event.250001 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	unflag_province = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			capital_scope = {
+				has_province_flag = keep_it
+			}
+		}
+		effect = {
+			province_event = { id = unflag_province_p_event.250001 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	flag_province_marshal = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			OR = {
+				any_vassal = {
+					has_job_title = job_marshal
+					location = {
+						NOT = { has_province_flag = keep_it }
+					}
+				}
+				any_courtier = {
+					has_job_title = job_marshal
+					location = {
+						NOT = { has_province_flag = keep_it }
+					}
+				}
+			}
+		}
+		effect = {
+			province_event = { id = flag_province_marshal.250001 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	unflag_province_marshal = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			OR = {
+				any_vassal = {
+					has_job_title = job_marshal
+					location = {
+						has_province_flag = keep_it
+					}
+				}
+				any_courtier = {
+					has_job_title = job_marshal
+					location = {
+						has_province_flag = keep_it
+					}
+				}
+			}
+		}
+		effect = {
+			province_event = { id = unflag_province_marshal.250001 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	banish_all = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+		}
+		effect = {
+			character_event = { id = banish_all.250001 }	
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	revoke_all = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+		}
+		effect = {
+			character_event = { id = revoke_all.250001 }	
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	revoke_all_others = {
+		only_playable = yes
+		potential = {
+			ai = no
+			has_character_flag = toggle_vassalmanagement
+			any_vassal = {
+				OR = {
+					NOT = { religion = ROOT }
+					NOT = { culture = ROOT }
+				}
+			}
+		}
+		effect = {
+			character_event = { id = revoke_all_others.250001 }	
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+}

@@ -1,0 +1,139 @@
+decisions = { 
+	military_knights_creation = {
+		is_high_prio = yes
+		potential = { #who can see it
+			OR = {
+				tier = king
+				tier = emperor
+			}
+			martial = 15
+			OR = {
+				religion = catholic
+				religion = chalcedonian
+			}
+			is_feudal = yes
+			OR = {
+				NOT = { has_global_flag = military_knights_exist }
+				NOT = { has_global_flag = military_knights1_exist }
+				NOT = { has_global_flag = military_knights2_exist }
+			}
+			independent = yes
+			age = 16
+			is_society_grandmaster = no
+			NOT = { has_character_flag = founded_knightly_order }
+		}
+
+		allow = { #requirement to press it
+			prestige = 5000
+			piety = 500
+			war = no
+			is_in_society = no
+		}
+
+		effect = { 
+			set_character_flag = founded_knightly_order
+			hidden_tooltip = {
+				random_list = {
+					10 = {
+						narrative_event = { id = equus.500 } #Saint George
+						modifier = {
+							factor = 0
+							has_global_flag = military_knights_exist
+						}
+					}
+					10 = {
+						narrative_event = { id = equus.502 } #Dragon
+						modifier = {
+							factor = 0
+							has_global_flag = military_knights1_exist
+						}
+					}
+					10 = {
+						narrative_event = { id = equus.504 } #Star
+						modifier = {
+							factor = 0
+							has_global_flag = military_knights2_exist
+						}
+					}
+				}
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	diplomatic_knights_creation = {
+		is_high_prio = yes
+		potential = { #who can see it
+			OR = {
+				tier = king
+				tier = emperor
+			}
+			diplomacy = 15
+			OR = {
+				religion = catholic
+				religion = chalcedonian
+			}
+			is_feudal = yes
+			OR = {
+				NOT = { has_global_flag = diplomatic_knights_exist }
+				NOT = { has_global_flag = diplomatic_knights1_exist }
+				NOT = { has_global_flag = diplomatic_knights2_exist }
+			}
+			independent = yes
+			age = 16
+			is_society_grandmaster = no
+			NOT = { has_character_flag = founded_knightly_order }
+		}
+
+		allow = { #requirement to press it
+			prestige = 5000
+			piety = 500
+			war = no
+			is_in_society = no
+		}
+
+		effect = { 
+			set_character_flag = founded_knightly_order
+			hidden_tooltip = {
+				random_list = {
+					10 = {
+						narrative_event = { id = equus.506 } #Garter
+						modifier = {
+							factor = 0
+							has_global_flag = diplomatic_knights_exist
+						}
+					}
+					10 = {
+						narrative_event = { id = equus.508 } #Golden Fleece
+						modifier = {
+							factor = 0
+							has_global_flag = diplomatic_knights1_exist
+						}
+					}
+					10 = {
+						narrative_event = { id = equus.510 } #Star
+						modifier = {
+							factor = 0
+							has_global_flag = diplomatic_knights2_exist
+						}
+					}
+				}
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+

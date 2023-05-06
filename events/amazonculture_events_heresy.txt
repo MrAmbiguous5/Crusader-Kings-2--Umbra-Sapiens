@@ -1,0 +1,1235 @@
+
+namespace = AmzCul	
+
+# convert to feminist heresy
+	character_event = { 
+		id = AmzCul.903
+		desc = EVTDESCAmzCul.903
+		picture = GFX_evt_matriarchy_throne_room
+		border = GFX_event_character_frame_religion
+						
+		option = {
+			name = EVTOPTAAmzCul.903
+			ai_chance = { factor = 90 }
+			if = {
+				limit = {
+					OR = {
+						religion = catholic
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
+					}
+				}
+				religion = cathar
+				hidden_tooltip = {
+					any_tributary = {
+						limit = { 
+							ai = yes 
+							is_hard_to_convert = no
+							NOT = { has_character_flag = ai_flag_refuse_conversion }
+							OR = {
+								religion = catholic
+								religion = fraticelli
+								religion = waldensian
+								religion = lollard
+							}
+							opinion = {
+								who = ROOT
+								value = 30
+							}
+							is_tributary = {
+								type = protectorate		# from this mod
+							}
+						}
+						character_event = { id = AmzCul.9031 }		# will filter down the ranks
+					}
+				}
+			}
+			if = {
+				limit = {					
+					religion = nestorian
+				}
+				religion = messalian
+				hidden_tooltip = {
+					any_tributary = {
+						limit = { 
+							ai = yes 
+							is_hard_to_convert = no
+							NOT = { has_character_flag = ai_flag_refuse_conversion }
+							OR = {
+								religion = nestorian
+							}
+							opinion = {
+								who = ROOT
+								value = 30
+							}
+							is_tributary = {
+								type = protectorate		# from this mod
+							}
+						}
+						character_event = { id = AmzCul.9031 }		# will filter down the ranks
+					}
+				}
+			}
+			if = {
+				limit = {	
+					OR = {
+						religion = orthodox
+						religion = monothelite
+						religion = iconoclast
+						religion = paulician
+					}
+				}
+				religion = bogomilist 
+				hidden_tooltip = {
+					any_tributary = {
+						limit = { 
+							ai = yes 
+							is_hard_to_convert = no
+							NOT = { has_character_flag = ai_flag_refuse_conversion }
+							OR = {
+								religion = orthodox
+								religion = monothelite
+								religion = iconoclast
+								religion = paulician
+							}
+							opinion = {
+								who = ROOT
+								value = 30
+							}
+							is_tributary = {
+								type = protectorate		# from this mod
+							}
+						}
+						character_event = { id = AmzCul.9031 }		# will filter down the ranks
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = zoroastrian
+						religion = manichean
+						religion = khurmazta
+					}
+				}
+				religion = mazdaki 
+				hidden_tooltip = {
+					any_tributary = {
+						limit = { 
+							ai = yes 
+							is_hard_to_convert = no
+							NOT = { has_character_flag = ai_flag_refuse_conversion }
+							religion_group = ROOT
+							NOT = { religion = ROOT }
+							opinion = {
+								who = ROOT
+								value = 30
+							}
+							is_tributary = {
+								type = protectorate		# from this mod
+							}
+						}
+						character_event = { id = AmzCul.9031 }		# will filter down the ranks
+					}
+				}
+			}
+			add_trait = zealous
+			prestige = -1000
+			clr_character_flag = amazonian_heresy_flag
+			hidden_tooltip = {
+				any_player = {
+					limit = {
+						religion_group = ROOT
+					}
+					narrative_event = { id = AmzCul.904 days = 5 }
+				}
+				any_courtier_or_vassal = {
+					limit = {
+						ai = yes
+						is_hard_to_convert = no
+						NOT = { has_character_flag = ai_flag_refuse_conversion }
+						religion_group = ROOT
+						NOT = { religion = ROOT }
+						opinion = {
+							who = ROOT
+							value = 30
+						}
+					}
+					character_event = { id = AmzCul.9031 }		# will filter down the ranks
+				}
+			}
+		}
+		option = {
+			name = EVTOPTBAmzCul.903
+			ai_chance = { factor = 10 }
+			if = {
+				limit = {
+					OR = {
+						religion = catholic
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
+					}
+				}
+				set_secret_religion = cathar
+			}
+			if = {
+				limit = {					
+					religion = nestorian
+				}
+				set_secret_religion = messalian
+			}
+			if = {
+				limit = {	
+					OR = {
+						religion = orthodox
+						religion = monothelite
+						religion = iconoclast
+						religion = paulician
+					}
+				}
+				set_secret_religion = bogomilist 
+			}
+			if = {
+				limit = {	
+					OR = {
+						religion = zoroastrian
+						religion = manichean
+						religion = khurmazta
+					}
+				}
+				set_secret_religion = mazdaki 
+			}
+			clr_character_flag = amazonian_heresy_flag
+		}
+		option = {
+			name = EVTOPTCAmzCul.903
+			ai_chance = { factor = 1 }
+			clr_character_flag = amazonian_heresy_flag
+		}
+		is_triggered_only = yes
+	}
+	
+# tributaries & vassals & courtiers convert to overlord's heresy
+	character_event = { 
+		id = AmzCul.9031
+				
+		is_triggered_only = yes
+			
+		option = {
+			name = EVTOPTAAmzCul.9031
+			ai_chance = { factor = 10 }
+			if = {
+				limit = {
+					opinion = {
+						who = FROM
+						value = 30
+					}
+				}
+				religion = FROM
+				any_vassal = {
+					limit = {
+						ai = yes
+						is_hard_to_convert = no
+						NOT = { has_character_flag = ai_flag_refuse_conversion }
+						religion_group = ROOT
+						NOT = { religion = ROOT }
+						opinion = {
+							who = ROOT
+							value = 30
+						}
+					}
+					character_event = { id = AmzCul.9031 days = 5 }		# will filter down the ranks
+				}
+				any_courtier = {
+					limit = { 
+						ai = yes
+						is_hard_to_convert = no
+						NOT = { has_character_flag = ai_flag_refuse_conversion }
+						religion_group = ROOT
+						NOT = { religion = ROOT }
+						is_landed = no
+						prisoner = no 
+						opinion = {
+							who = ROOT
+							value = 30
+						}
+					}
+					religion = ROOT
+				}
+				any_tributary = {
+					limit = { 
+						ai = yes 
+						is_hard_to_convert = no
+						NOT = { has_character_flag = ai_flag_refuse_conversion }
+						religion_group = ROOT
+						NOT = { religion = ROOT }
+						opinion = {
+							who = ROOT
+							value = 30
+						}
+						is_tributary = {
+							type = protectorate
+						}
+					}
+					character_event = { id = AmzCul.9031 days = 6 }		# will filter down the ranks
+				}
+			}			
+		}
+	}
+
+# imperial feminist heresy notification
+	narrative_event = { 
+		title = EVTTITLAmzCul.904
+		id = AmzCul.904
+		desc = EVTDESCAmzCul.904
+		picture = GFX_evt_homage_hf
+		border = GFX_event_narrative_frame_religion
+		portrait = FROMFROM
+						
+		option = {	# ally
+			name = EVTOPTAAmzCul.904
+			ai_chance = { factor = 10 }
+			trigger = {
+				OR = {
+					religion = cathar
+					religion = messalian
+					religion = bogomilist
+					religion = mazdaki					
+				}
+			}
+		}
+		option = {	# damn heretics
+			name = EVTOPTBAmzCul.904
+			ai_chance = { factor = 10 }
+			tooltip_info = zealous
+			trigger = {
+				trait = zealous
+				NOT = {
+					religion = cathar
+					religion = messalian
+					religion = bogomilist
+					religion = mazdaki	
+				}
+			}
+		}
+		option = {	# ok
+			name = EVTOPTCAmzCul.904
+			ai_chance = { factor = 10 }
+			trigger = {
+				NOR = { 
+					trait = zealous
+					religion = cathar
+					religion = messalian
+					religion = bogomilist
+					religion = mazdaki	
+				}
+			}
+		}
+		is_triggered_only = yes
+	}
+
+#############################		HERESY REFORMATION		#############################
+
+# reform feminist heresy
+	character_event = { 
+		id = AmzCul.905
+		title = EVTTITLAmzCul.905
+		desc = EVTDESCAmzCul.905
+		picture = GFX_evt_book_carolingian_script
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCul.905
+			trigger = { 
+				realm_character_percent = {		# 10% of characters
+					target = 0.10
+					religion = ROOT
+				}
+				OR = {
+					AND = {
+						NOR = {
+							has_global_flag = cathar_abs_cognatic_flag
+							has_global_flag = cathar_enat_cognatic_flag
+							has_global_flag = cathar_enatic_flag
+						}
+						religion = cathar
+					}
+					AND = {
+						NOR = {
+							has_global_flag = messalian_abs_cognatic_flag
+							has_global_flag = messalian_enat_cognatic_flag
+							has_global_flag = messalian_enatic_flag
+						}
+						religion = messalian
+					}
+					AND = {	
+						NOR = {
+							has_global_flag = bogomilist_abs_cognatic_flag
+							has_global_flag = bogomilist_enat_cognatic_flag
+							has_global_flag = bogomilist_enatic_flag
+						}
+						religion = bogomilist
+					}	
+					AND = {
+						NOR = {
+							has_global_flag = mazdaki_abs_cognatic_flag
+							has_global_flag = mazdaki_enat_cognatic_flag
+							has_global_flag = mazdaki_enatic_flag
+						}
+						religion = mazdaki
+					}
+				}
+				OR = {
+					has_game_rule = { 
+						name = succession_law_amz
+						value = default_succession_amz
+					}
+					OR = {
+						culture = themiskyran_amz  
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+				}
+			}
+			ai_chance = { factor = 100 }
+			hidden_tooltip = {
+				character_event = { id = AmzCul.906 }	# succession
+			}
+		}
+		option = {	
+			name = EVTOPTBAmzCul.905
+			trigger = {
+				realm_character_percent = {		# 25% of characters
+					target = 0.25
+					religion = ROOT
+				}
+				OR = {
+					AND = {
+						NOT = { has_global_flag = cathar_special_feature }
+						religion = cathar
+					}
+					AND = {
+						NOT = { has_global_flag = messalian_special_feature }
+						religion = messalian
+					}
+					AND = {
+						NOT = { has_global_flag = bogomilist_special_feature }
+						religion = bogomilist
+					}
+					AND = {
+						NOT = { has_global_flag = mazdaki_special_feature }
+						religion = mazdaki
+					}
+				}
+			}
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				character_event = { id = AmzCul.907 }	# special feature
+			}
+		}
+		option = {	
+			name = EVTOPTCAmzCul.905
+			trigger = { 
+				realm_character_percent = {		# 50% of characters
+					target = 0.50
+					religion = ROOT
+				}
+				OR = {
+					AND = {
+						NOT = { has_global_flag = cathar_concubines_flag }
+						religion = cathar
+					}
+					AND = {
+						NOT = { has_global_flag = messalian_concubines_flag }
+						religion = messalian
+					}
+					AND = {
+						NOT = { has_global_flag = bogomilist_concubines_flag }
+						religion = bogomilist
+					}
+					AND = {
+						NOT = { has_global_flag = mazdaki_concubines_flag }
+						religion = mazdaki
+					}
+				}
+			}
+			ai_chance = { factor = 2 }	# last priority
+			hidden_tooltip = {
+				character_event = { id = AmzCul.908 }	# concubines gender
+			}
+		}
+		option = {	# fugedaboutit
+			name = EVTOPTDAmzCul.905
+			ai_chance = { factor = 1 }
+		}
+		
+	}
+
+# decide heresy succession law
+	character_event = { 
+		id = AmzCul.906
+		desc = EVTDESCAmzCul.906
+		picture = GFX_evt_book_carolingian_script
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCul.906	# absolute cognatic
+			custom_tooltip = { text = heresy_absolute_cognatic_tt }
+			ai_chance = { factor = 10 }
+			trigger = {
+				NOR = { 
+					culture = themiskyran_amz  
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { religion = cathar }
+					set_global_flag = cathar_abs_cognatic_flag
+				}
+				if = {
+					limit = { religion = messalian }
+					set_global_flag = messalian_abs_cognatic_flag
+				}
+				if = {
+					limit = { religion = bogomilist }
+					set_global_flag = bogomilist_abs_cognatic_flag
+				}
+				if = {
+					limit = { religion = mazdaki }
+					set_global_flag = mazdaki_abs_cognatic_flag
+				}
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+			}
+			sound_effect = pagan_reformation
+			primary_title = {
+				add_law = { 
+					law = true_cognatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+			}
+			piety = -1000
+		}
+		option = {	
+			name = EVTOPTBAmzCul.906	# enatic-cognatic
+			custom_tooltip = { text = heresy_enatic_cognatic_tt }
+			ai_chance = { factor = 30 }
+			hidden_tooltip = {
+				if = {
+					limit = { religion = cathar }
+					set_global_flag = cathar_enat_cognatic_flag
+				}
+				if = {
+					limit = { religion = messalian }
+					set_global_flag = messalian_enat_cognatic_flag
+				}
+				if = {
+					limit = { religion = bogomilist }
+					set_global_flag = bogomilist_enat_cognatic_flag
+				}
+				if = {
+					limit = { religion = mazdaki }
+					set_global_flag = mazdaki_enat_cognatic_flag
+				}
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+			}
+			sound_effect = pagan_reformation
+			primary_title = {
+				add_law = { 
+					law = enatic_cognatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+			}
+
+			piety = -1500
+		}
+		option = {	
+			name = EVTOPTCAmzCul.906	# full enatic
+			custom_tooltip = { text = heresy_full_enatic_tt }
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				if = {
+					limit = { religion = cathar }
+					set_global_flag = cathar_enatic_flag
+				}
+				if = {
+					limit = { religion = messalian }
+					set_global_flag = messalian_enatic_flag
+				}
+				if = {
+					limit = { religion = bogomilist }
+					set_global_flag = bogomilist_enatic_flag
+				}
+				if = {
+					limit = { religion = mazdaki }
+					set_global_flag = mazdaki_enatic_flag
+				}
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+			}
+			sound_effect = pagan_reformation
+			primary_title = {
+				add_law = { 
+					law = enatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+			}
+			set_male_temple_holders = no
+			piety = -3000
+		}
+		option = {	
+			name = EVTOPTDAmzCul.906	# no change
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				character_event = { id = AmzCul.905 }
+			}
+		}
+	}
+
+# decide heresy special feature
+	character_event = { 
+		id = AmzCul.907
+		desc = EVTDESCAmzCul.907
+		picture = GFX_evt_book_carolingian_script
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCul.907	# peace
+			custom_tooltip = { text = heresy_peacefull_tt }
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				if = {
+					limit = { religion = cathar } 
+					set_priests_can_marry = yes
+					set_peace_piety_gain = 1 
+					set_ai_aggression = 0.75
+					set_pacifist = yes
+					set_global_flag = cathar_special_feature
+				}
+				if = {
+					limit = { religion = messalian }
+					set_priests_can_marry = yes
+					set_peace_piety_gain = 1
+					set_ai_aggression = 0.75
+					set_pacifist = yes
+					set_global_flag = messalian_special_feature
+				}
+				if = {
+					limit = { religion = bogomilist }
+					set_priests_can_marry = yes
+					set_peace_piety_gain = 1
+					set_ai_aggression = 0.75
+					set_pacifist = yes
+					set_global_flag = bogomilist_special_feature
+				}
+				if = {
+					limit = { religion = mazdaki }
+					set_priests_can_marry = yes
+					set_peace_piety_gain = 1
+					set_ai_aggression = 0.75
+					set_pacifist = yes
+					set_global_flag = mazdaki_special_feature
+				}
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+			}
+			sound_effect = pagan_reformation
+			piety = -1000
+		}
+		option = {	
+			name = EVTOPTBAmzCul.907	# jizya tax
+			custom_tooltip = { text = heresy_jizya_tt }
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				if = {
+					limit = { religion = cathar }
+					set_jizya_tax = yes
+					set_piety_loss_for_attacking_same_religion = yes
+					set_global_flag = cathar_special_feature
+				}
+				if = {
+					limit = { religion = messalian }
+					set_jizya_tax = yes
+					set_piety_loss_for_attacking_same_religion = yes
+					set_global_flag = messalian_special_feature
+				}
+				if = {
+					limit = { religion = bogomilist }
+					set_jizya_tax = yes
+					set_piety_loss_for_attacking_same_religion = yes
+					set_global_flag = bogomilist_special_feature
+				}
+				if = {
+					limit = { religion = mazdaki }
+					set_jizya_tax = yes
+					set_piety_loss_for_attacking_same_religion = yes
+					set_global_flag = mazdaki_special_feature
+				}
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+			}
+			sound_effect = pagan_reformation
+			piety = -1500
+		}
+		option = {	
+			name = EVTOPTCAmzCul.907	# raider
+			ai_chance = { factor = 10 }
+			custom_tooltip = { text = heresy_raider_tt }
+			hidden_tooltip = {
+				if = {
+					limit = { religion = cathar }
+					set_allow_looting = yes
+					set_peace_prestige_loss = yes
+					set_ai_aggression = 1.5
+					set_global_flag = cathar_special_feature
+				}
+				if = {
+					limit = { religion = messalian }
+					set_allow_looting = yes
+					set_peace_prestige_loss = yes
+					set_ai_aggression = 1.5
+					set_global_flag = messalian_special_feature
+				}
+				if = {
+					limit = { religion = bogomilist }
+					set_allow_looting = yes
+					set_peace_prestige_loss = yes
+					set_ai_aggression = 1.5
+					set_global_flag = bogomilist_special_feature
+				}
+				if = {
+					limit = { religion = mazdaki }
+					set_allow_looting = yes
+					set_peace_prestige_loss = yes
+					set_ai_aggression = 1.5
+					set_global_flag = mazdaki_special_feature
+				}
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+			}
+			sound_effect = pagan_reformation
+			piety = -3000
+		}
+		option = {	
+			name = EVTOPTDAmzCul.907	# no change
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				character_event = { id = AmzCul.905 }
+			}
+		}
+	}
+
+# decide heresy concubine gender law
+	character_event = { 
+		id = AmzCul.908
+		desc = EVTDESCAmzCul.908
+		picture = GFX_evt_book_carolingian_script
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCul.908	# only men get concubines
+			ai_chance = { factor = 1 }
+			hidden_tooltip = {
+				set_men_can_take_consorts = yes
+				set_women_can_take_consorts = no
+				set_max_consorts = 3
+			}
+			if = {
+				limit = { religion = cathar }
+				set_global_flag = cathar_concubines_flag	
+			}
+			if = {
+				limit = { religion = messalian }
+				set_global_flag = messalian_concubines_flag	
+			}
+			if = {
+				limit = { religion = bogomilist }
+				set_global_flag = bogomilist_concubines_flag	
+			}
+			if = {
+				limit = { religion = mazdaki }
+				set_global_flag = mazdaki_concubines_flag	
+			}
+			piety = -1000
+			sound_effect = pagan_reformation
+		}
+		option = {	
+			name = EVTOPTBAmzCul.908	# only women get concubines
+			ai_chance = { factor = 30 }
+			hidden_tooltip = {
+				set_women_can_take_consorts = yes
+				set_men_can_take_consorts = no
+				set_max_consorts = 3
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+			}
+			if = {
+				limit = { religion = cathar }
+				set_global_flag = cathar_concubines_flag	
+			}
+			if = {
+				limit = { religion = messalian }
+				set_global_flag = messalian_concubines_flag	
+			}
+			if = {
+				limit = { religion = bogomilist }
+				set_global_flag = bogomilist_concubines_flag	
+			}
+			if = {
+				limit = { religion = mazdaki }
+				set_global_flag = mazdaki_concubines_flag	
+			}
+			sound_effect = pagan_reformation
+			piety = -2000
+		}
+		option = {	
+			name = EVTOPTCAmzCul.908	# everyone gets concubines
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				set_men_can_take_consorts = yes
+				set_women_can_take_consorts = yes
+				set_max_consorts = 3
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+			}
+			if = {
+				limit = { religion = cathar }
+				set_global_flag = cathar_concubines_flag	
+			}
+			if = {
+				limit = { religion = messalian }
+				set_global_flag = messalian_concubines_flag	
+			}
+			if = {
+				limit = { religion = bogomilist }
+				set_global_flag = bogomilist_concubines_flag	
+			}
+			if = {
+				limit = { religion = mazdaki }
+				set_global_flag = mazdaki_concubines_flag	
+			}
+			sound_effect = pagan_reformation
+			piety = -2500
+		}
+		option = {	
+			name = EVTOPTDAmzCul.908	# no change
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				character_event = { id = AmzCul.905 }
+			}
+		}
+	}
+	
+# decide heresy concubine gender law only men
+#	character_event = { 
+#		id = AmzCul.9081
+#		desc = EVTDESCAmzCul.9081
+#		picture = GFX_evt_book_carolingian_script
+#		border = GFX_event_character_frame_religion
+#		
+#		is_triggered_only = yes
+#						
+#		option = {	
+#			name = EVTOPTAAmzCul.9081	# good things in pairs
+#			custom_tooltip = { text = heresy_concubine_2_tt }
+#			ai_chance = { factor = 10 }
+#			hidden_tooltip = {
+#				set_men_can_take_consorts = yes
+#				set_women_can_take_consorts = no
+#				set_max_consorts = 2
+#				add_character_modifier = { 
+#					name = feminist_reformer_modifier   
+#					years = 20
+#					stacking = yes
+#				}
+#			}
+#			if = {
+#				limit = { religion = cathar }
+#				set_global_flag = cathar_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = messalian }
+#				set_global_flag = messalian_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = bogomilist }
+#				set_global_flag = bogomilist_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = mazdaki }
+#				set_global_flag = mazdaki_concubines_flag	
+#			}
+#			sound_effect = pagan_reformation
+#			piety = -1500
+#		}
+#		option = {	
+#			name = EVTOPTBAmzCul.9081	# more merrier
+#			custom_tooltip = { text = heresy_concubine_3_tt }
+#			ai_chance = { factor = 10 }
+#			hidden_tooltip = {
+#				set_men_can_take_consorts = yes
+#				set_women_can_take_consorts = no
+#				set_max_consorts = 3
+#				add_character_modifier = { 
+#					name = feminist_reformer_modifier   
+#					years = 20
+#					stacking = yes
+#				}
+#			}
+#			if = {
+#				limit = { religion = cathar }
+#				set_global_flag = cathar_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = messalian }
+#				set_global_flag = messalian_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = bogomilist }
+#				set_global_flag = bogomilist_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = mazdaki }
+#				set_global_flag = mazdaki_concubines_flag	
+#			}
+#			piety = -2250
+#			sound_effect = pagan_reformation
+#		}
+#		option = {	
+#			name = EVTOPTCAmzCul.9081	# no change
+#			ai_chance = { factor = 10 }
+#			hidden_tooltip = {
+#				character_event = { id = AmzCul.908 }
+#			}
+#		}
+#	}
+
+# decide heresy concubine gender law only women
+#	character_event = { 
+#		id = AmzCul.9082
+#		desc = EVTDESCAmzCul.9082
+#		picture = GFX_evt_book_carolingian_script
+#		border = GFX_event_character_frame_religion
+#		
+#		is_triggered_only = yes
+#						
+#		option = {	
+#			name = EVTOPTAAmzCul.9082	# good things in pairs
+#			custom_tooltip = { text = heresy_concubine_2_tt }
+#			ai_chance = { factor = 10 }
+#			hidden_tooltip = {
+#				set_women_can_take_consorts = yes
+#				set_men_can_take_consorts = no
+#				set_max_consorts = 2
+#				add_character_modifier = { 
+#					name = feminist_reformer_modifier   
+#					years = 20
+#					stacking = yes
+#				}
+#			}
+#			if = {
+#				limit = { religion = cathar }
+#				set_global_flag = cathar_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = messalian }
+#				set_global_flag = messalian_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = bogomilist }
+#				set_global_flag = bogomilist_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = mazdaki }
+#				set_global_flag = mazdaki_concubines_flag	
+#			}
+#			sound_effect = pagan_reformation
+#			piety = -1750
+#		}
+#		option = {	
+#			name = EVTOPTBAmzCul.9082	# more merrier
+#			custom_tooltip = { text = heresy_concubine_3_tt }
+#			ai_chance = { factor = 10 }
+#			hidden_tooltip = {
+#				set_women_can_take_consorts = yes
+#				set_men_can_take_consorts = no
+#				set_max_consorts = 3
+#				add_character_modifier = { 
+#					name = feminist_reformer_modifier   
+#					years = 20
+#					stacking = yes
+#				}
+#			}
+#			if = {
+#				limit = { religion = cathar }
+#				set_global_flag = cathar_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = messalian }
+#				set_global_flag = messalian_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = bogomilist }
+#				set_global_flag = bogomilist_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = mazdaki }
+#				set_global_flag = mazdaki_concubines_flag	
+#			}
+#			sound_effect = pagan_reformation
+#			piety = -2500
+#		}
+#		option = {	
+#			name = EVTOPTCAmzCul.9082	# no change
+#			ai_chance = { factor = 10 }
+#			hidden_tooltip = {
+#				character_event = { id = AmzCul.908 }
+#			}
+#		}
+#	}
+	
+# decide heresy concubine gender law everyone
+#	character_event = { 
+#		id = AmzCul.9083
+#		desc = EVTDESCAmzCul.9083
+#		picture = GFX_evt_book_carolingian_script
+#		border = GFX_event_character_frame_religion
+#		
+#		is_triggered_only = yes
+#						
+#		option = {	
+#			name = EVTOPTAAmzCul.9083	# good things in pairs
+#			custom_tooltip = { text = heresy_concubine_2_tt }
+#			ai_chance = { factor = 10 }
+#			hidden_tooltip = {
+#				set_men_can_take_consorts = yes
+#				set_women_can_take_consorts = yes
+#				set_max_consorts = 2
+#				add_character_modifier = { 
+#					name = feminist_reformer_modifier   
+#					years = 20
+#					stacking = yes
+#				}
+#			}
+#			if = {
+#				limit = { religion = cathar }
+#				set_global_flag = cathar_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = messalian }
+#				set_global_flag = messalian_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = bogomilist }
+#				set_global_flag = bogomilist_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = mazdaki }
+#				set_global_flag = mazdaki_concubines_flag	
+#			}
+#			sound_effect = pagan_reformation
+#			piety = -2250
+#		}
+#		option = {	
+#			name = EVTOPTBAmzCul.9083	# more merrier
+#			custom_tooltip = { text = heresy_concubine_3_tt }
+#			ai_chance = { factor = 10 }
+#			hidden_tooltip = {
+#				set_men_can_take_consorts = yes
+#				set_women_can_take_consorts = yes
+#				set_max_consorts = 3
+#				add_character_modifier = { 
+#					name = feminist_reformer_modifier   
+#					years = 20
+#					stacking = yes
+#				}
+#			}
+#			if = {
+#				limit = { religion = cathar }
+#				set_global_flag = cathar_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = messalian }
+#				set_global_flag = messalian_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = bogomilist }
+#				set_global_flag = bogomilist_concubines_flag	
+#			}
+#			if = {
+#				limit = { religion = mazdaki }
+#				set_global_flag = mazdaki_concubines_flag	
+#			}
+#			sound_effect = pagan_reformation
+#			piety = -3000
+#		}
+#		option = {	
+#			name = EVTOPTCAmzCul.9083	# no change
+#			ai_chance = { factor = 10 }
+#			hidden_tooltip = {
+#				character_event = { id = AmzCul.908 }
+#			}
+#		}
+#	}
+
+# holy orders attract women. women love holy orders
+	character_event = { 
+		id = AmzCul.909
+		desc = EVTDESCAmzCul.909
+		picture = GFX_evt_book_carolingian_script
+		border = GFX_event_character_frame_religion
+		
+		notification = yes
+		
+		trigger = {
+			AND = { 
+				government = order_government
+				religion_allows_female_temple_holders = yes
+			}
+			is_heretic = no
+			has_full_court = no
+			war = yes
+			OR = {
+				NOT = { has_character_flag = female_holy_order_recruit_flag }
+				had_character_flag = { flag = female_holy_order_recruit_flag years = 3 }
+			}
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.909	# spawn a female fighter
+			ai_chance = { factor = 10 }
+			set_character_flag = female_holy_order_recruit_flag
+			create_random_soldier = {	
+				random_traits = yes
+				dynasty = RANDOM
+				female = yes
+				min_age = 17
+				max_age = 27
+				religion = ROOT
+				culture = ROOT
+				attributes = {
+					martial = 8
+				}
+			}
+			new_character = {
+				prestige = 42	# meaning of everything
+				wealth = 42
+				piety = 42
+				remove_trait = brilliant_strategist
+				remove_trait = misguided_warrior
+				remove_trait = tough_soldier
+				remove_trait = skilled_tactician
+				remove_trait = shy
+				remove_trait = proud
+				remove_trait = craven
+				remove_trait = paranoid
+				remove_trait = dull
+				remove_trait = clubfooted
+				remove_trait = dwarf
+				remove_trait = harelip
+				remove_trait = hunchback
+				remove_trait = imbecile
+				remove_trait = inbred
+				remove_trait = lisp
+				remove_trait = slow
+				remove_trait = stutter
+				remove_trait = weak
+				remove_trait = is_fat
+				remove_trait = is_malnourished
+				random_list = {
+					15 = { 
+						add_trait = brilliant_strategist
+					}
+					25 = { 
+						add_trait = skilled_tactician
+					}
+					25 = { 
+						add_trait = tough_soldier
+					}
+					35 = { 
+						add_trait = misguided_warrior
+					}
+				}
+				random_list = {
+					15 = { 
+						add_trait = adventurer
+					}
+					25 = { 
+						add_trait = zealous
+					}
+					60 = { 
+						# nothin
+					}
+				}
+				random_list = {
+					20 = { 
+						add_artifact = lance_tier_1_new
+					}
+					20 = { 
+						add_artifact = axe_tier_1_new
+					}
+					20 = { 
+						add_artifact = bow_tier_1_new
+					}
+					40 = { 
+						# no artifact
+					}
+				}
+			}
+		}		
+	}
+
+
+

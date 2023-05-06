@@ -1,0 +1,241 @@
+d_legio_i_italica = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}
+
+d_legio_vi_ferrata = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}
+
+d_legio_v_alaudae = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}
+
+d_legio_xiii_gemina = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}
+
+d_legio_iii_cyrenaica = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}
+
+d_legio_xxii_deiotariana = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}
+
+d_legio_ix_hispana = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}
+
+d_legio_xv_apollinaris = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}
+
+d_legio_iv_macedonica = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}
+
+d_legio_xx_valeria_victrix = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}
+
+d_legio_x_fretensis = {
+	color={ 255 0 0 }
+	color2={ 255 215 0 }
+	
+	culture = roman
+	
+	mercenary = yes
+
+	title = "LEGATUS"
+	foa = "LEGATUS_FOA"
+
+	landless = yes
+	
+	primary = yes
+	
+	mercenary_type = roman_legion
+
+	allow = {
+		always = no
+	}
+}

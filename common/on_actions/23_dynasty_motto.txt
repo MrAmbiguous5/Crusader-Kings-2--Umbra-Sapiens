@@ -1,0 +1,6 @@
+#character
+on_startup = {
+	events = {
+		MOT.150
+	}
+}

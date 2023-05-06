@@ -1,0 +1,72 @@
+# adopt child
+	character_event = {
+		id = AmzCul.805
+		desc = EVTDESCAmzCul.805
+		picture = GFX_evt_guardian
+		border = GFX_event_normal_frame_diplomacy
+		
+		is_triggered_only = yes
+	
+		option = {
+			name = EVTOPTAAmzCul.805
+			ai_chance = { factor = 10 }
+			
+			create_character = {
+				random_traits = no
+				dynasty = ROOT
+				female = yes
+				age = 6
+				health = 6
+				religion = ROOT
+				culture = ROOT
+				genetic_mother = ROOT
+				trait = legit_bastard
+			}
+			new_character = {
+				prestige = 42
+				add_friend = ROOT
+				save_event_target_as = adopted_daughter
+				#set_mother = ROOT 	#commented out. Makes the girl a full relative and gives all mother's bloodlines. Not realistic but that's the code.
+				set_immune_to_pruning = yes
+				random = {
+					chance = 10
+					add_trait = fair
+				}
+				random = {
+					chance = 20
+					add_trait = strong
+				}
+				random = {
+					chance = 10
+					add_trait = lefthanded
+				}
+				random = {
+					chance = 90
+					add_trait = ambitious
+				}
+				random_list = {
+					30 = { 
+						add_trait = genius
+					}
+					60 = { 
+						add_trait = quick
+					}
+				}
+			}
+			character_event = { id = AmzCul.806 }
+			recalc_succession = yes
+		}
+	}
+	
+	character_event = {		# notification event
+		id = AmzCul.806
+		desc = EVTDESCAmzCul.806
+		picture = GFX_evt_guardian
+		border = GFX_event_normal_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		notification = yes
+	}
+		
+		

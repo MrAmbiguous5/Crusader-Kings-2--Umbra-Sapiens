@@ -1,0 +1,96 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_rebuild_legio_system"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_i_italica"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_vi_ferrata"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_v_alaudae"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_xiii_gemina"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_iii_cyrenaica"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_xxii_deiotariana"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_ix_hispana"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_xv_apollinaris"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_iv_macedonica"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_xx_valeria_victrix"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_organize_legio_x_fretensis"
+		texturefile = "gfx\\interface\\decisions\\helmet.dds"
+	}
+
+    spriteType = {
+		name = "GFX_restore_roman_empire_not_byz"
+		texturefile = "gfx\\interface\\decision_icon_restore_roman_empire.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_restore_roman_empire_rep"
+		texturefile = "gfx\\interface\\decision_icon_restore_roman_empire.dds"
+	}
+
+    spriteType = {
+		name = "GFX_create_roman_republic"
+		texturefile = "gfx\\interface\\decision_icon_restore_roman_empire.dds"
+	}		
+	
+	spriteType = {
+		name = "GFX_make_rome_capital_of_republic"
+		texturefile = "gfx\\interface\\decision_icon_restore_roman_empire.dds"
+	}	
+	
+	spriteType = {
+		name = "GFX_restore_western_roman_empire"
+		texturefile = "gfx\\interface\\decisions\\wre.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_overthrow_the_republic"
+		texturefile = "gfx\\interface\\decisions\\senator.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_reunite_roman_empire"
+		texturefile = "gfx\\interface\\decisions\\wre.dds"
+	}
+}	

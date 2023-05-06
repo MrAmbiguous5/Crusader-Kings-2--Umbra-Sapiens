@@ -1,0 +1,153 @@
+character_event = { 		#HOW ABOUT DELETING THE FUCKING FLAGS I CAN'T DETECT NOT CLEARED???
+	id = darkages.72468
+	title = EVTNAME1972468
+	desc = EVTDESC1972468
+	picture = GFX_evt_da_gold_chest
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+	
+
+	trigger = {
+		OR = {
+			has_character_flag = darkages_a
+			has_character_flag = darkages_b
+			has_character_flag = darkages_c
+			has_character_flag = darkages_d		
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		clr_character_flag = darkages_a
+		clr_character_flag = darkages_b
+		clr_character_flag = darkages_c
+		clr_character_flag = darkages_d	
+	}
+	
+
+	
+}
+
+
+
+character_event = { 		#SOLVING HIP CLUSTERFUCK WITH INFERTILE - THE HAM-FISTED WAY
+	id = darkages.72630
+	title = EVTNAME1972570
+	desc = EVTDESC1972570
+	picture = GFX_evt_da_gold_chest
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+	
+
+	trigger = {
+		has_global_flag = EMF
+		trait = infertile
+		NOT = { has_character_flag = HIP_clusterfuck_infertile }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		random_list = {
+			19 = {
+				remove_trait = infertile
+				
+				random_list = {
+					1 = {
+						random_list = {
+							6 = {
+								health = -0.02
+							}
+							3 = {
+								health = -0.05
+							}
+							1 = {
+								health = -0.1
+							}
+						}
+					}
+					1 = {
+						random_list = {
+							6 = {
+								fertility = -0.02
+							}
+							3 = {
+								fertility = -0.05
+							}
+							1 = {
+								fertility = -0.1
+							}
+						}					
+					}
+				}
+				
+			}
+			1 = {
+				set_character_flag = HIP_clusterfuck_infertile
+			}
+		}
+	}
+
+}
+
+
+############################################################################################
+#
+#	REMOVE PIRATE LORD ON STARTUP
+#
+############################################################################################
+
+character_event = { 		#REMOVE PIRATE LORD (is checked each time the game starts as it lacks the global flag)
+	id = darkages.72624
+	title = EVTNAME1972624
+	desc = EVTDESC1972624
+	picture = GFX_evt_da_darkages
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { num_of_titles = 1 }
+		trait = pirate_lord
+	}
+
+	immediate = {
+		remove_trait = pirate_lord
+	}
+	
+}
+
+############################################################################################
+#
+#	INITIALIZE GAME
+#
+############################################################################################
+
+
+character_event = { 		#Add global flag at start of the game
+	id = darkages.72634
+	title = EVTNAME1972624
+	desc = EVTDESC1972624
+	picture = GFX_evt_da_darkages
+	border = GFX_event_normal_frame_economy
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = darkages_start }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		set_global_flag = darkages_start
+	}
+	
+}

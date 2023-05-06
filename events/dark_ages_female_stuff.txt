@@ -1,0 +1,257 @@
+###########################################
+#	Removal of most of military education for females
+###########################################
+namespace = darkages
+
+character_event = {
+	id = darkages.72002
+	desc = EVTDESC1972002
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_war
+
+	trigger = {
+	
+		NOT = { has_character_flag = female_education }	
+		is_female = yes	
+
+		OR = {
+			AND = {
+				liege = {
+					independent = no
+					primary_title = {
+						NOR = {
+							has_law = status_of_women_3
+							has_law = status_of_women_4
+						}
+					}
+				}
+			}
+			AND = {
+				liege = {
+					independent = yes
+					primary_title = {
+						NOR = {
+							has_law = status_of_women_3
+							has_law = status_of_women_4
+						}
+					}
+				}				
+			}
+			AND = {
+				independent = yes
+				primary_title = {
+					NOR = {
+						has_law = status_of_women_3
+						has_law = status_of_women_4
+					}
+				}
+			}
+	
+		}			
+			
+		NOT = {
+			has_game_rule = {
+				name = gender
+				value = all
+			}
+		}
+		
+		
+		OR = {
+			trait = brilliant_strategist
+			trait = skilled_tactician
+			trait = tough_soldier
+			trait = misguided_warrior
+		}
+
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+	
+		set_character_flag = female_education
+		if = {
+			limit = {
+				NOT = { martial = 8 }
+			}
+			random = {
+				chance = 1
+				set_character_flag = amazon
+			}
+		}		
+		if = {
+			limit = {
+				martial = 8
+			}
+			random = {
+				chance = 5
+				set_character_flag = amazon
+			}
+		}
+		if = {
+			limit = {
+				martial = 10
+			}
+			random = {
+				chance = 10
+				set_character_flag = amazon
+			}
+		}		
+		if = {
+			limit = {
+				martial = 15
+			}
+			random = {
+				chance = 20
+				set_character_flag = amazon
+			}
+		}
+		
+		if = { 
+			limit = { NOT = { has_character_flag = amazon  } }
+			
+			remove_trait = siege_leader
+			remove_trait = aggressive_leader
+			remove_trait = flanker
+			remove_trait = experimenter
+			remove_trait = defensive_leader
+			remove_trait = organizer
+			remove_trait = trickster
+			remove_trait = inspiring_leader
+			remove_trait = cavalry_leader
+			remove_trait = heavy_infantry_leader
+			remove_trait = light_foot_leader
+			remove_trait = flat_terrain_leader
+			remove_trait = rough_terrain_leader
+			remove_trait = mountain_terrain_leader
+			remove_trait = desert_terrain_leader
+			remove_trait = holy_warrior
+			remove_trait = unyielding_leader
+			remove_trait = narrow_flank_leader
+			remove_trait = war_elephant_leader
+			remove_trait = jungle_terrain_leader
+			remove_trait = winter_soldier
+			remove_trait = master_of_flame
+			remove_trait = logistics_expert
+			remove_trait = levy_coordinator
+			remove_trait = sapper
+		}
+	}
+
+	option = {
+		name = EVTOPTA1972002
+		trigger = {
+			OR = {
+				has_character_flag = amazon
+				ai = no
+			}
+		}
+		
+		clr_character_flag = amazon
+	}
+
+	option = {
+		name = EVTOPTB1972002
+		trigger = {
+			OR = {
+				NOT = { has_character_flag = amazon }
+				ai = no
+			}
+		}
+		
+		if = { limit = { trait = misguided_warrior }
+			remove_trait = misguided_warrior
+		
+			random_list = {
+				2 = {
+					add_trait = indulgent_wastrel
+				}
+
+				2 = {
+					add_trait = naive_appeaser
+				}
+				
+				2 = {
+					add_trait = amateurish_plotter
+				}
+				
+				2 = {
+					add_trait = detached_priest
+				}
+
+			}
+		
+		}
+		if = { limit = { trait = tough_soldier }
+			remove_trait = tough_soldier
+			
+			random_list = {
+				2 = {
+					add_trait = thrifty_clerk
+				}
+
+				2 = {
+					add_trait = underhanded_rogue
+				}
+				
+				2 = {
+					add_trait = flamboyant_schemer
+				}
+				
+				2 = {
+					add_trait = martial_cleric
+				}
+			}
+
+		}		
+
+		if = { limit = { trait = skilled_tactician }
+			remove_trait = skilled_tactician
+			
+			random_list = {
+				2 = {
+					add_trait = fortune_builder
+				}
+
+				2 = {
+					add_trait = charismatic_negotiator
+				}
+				
+				2 = {
+					add_trait = intricate_webweaver
+				}
+				
+				2 = {
+					add_trait = scholarly_theologian
+				}
+
+			}
+		}
+
+		if = { limit = { trait = brilliant_strategist }
+			remove_trait = brilliant_strategist
+			
+			random_list = {
+				2 = {
+					add_trait = midas_touched
+				}
+
+				2 = {
+					add_trait = grey_eminence
+				}
+				
+				2 = {
+					add_trait = elusive_shadow
+				}
+				
+				2 = {
+					add_trait = mastermind_theologian
+				}
+
+			}
+		}
+	}
+}

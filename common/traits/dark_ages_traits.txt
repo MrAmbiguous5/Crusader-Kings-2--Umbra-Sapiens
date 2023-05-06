@@ -1,0 +1,134 @@
+tutor = {
+	lifestyle = yes
+	
+	general_opinion = 5
+	monthly_character_prestige = +0.10
+	stewardship = 1
+	learning = 2
+	
+	customizer = yes
+	random = yes
+}
+
+resting = {
+
+	opposites = { stressed }
+
+	intrigue = -5
+	stewardship = -5
+	martial = -5
+	diplomacy = -5
+	learning = -5
+	monthly_character_prestige = -0.5
+	
+	general_opinion = -10
+	incapacitating = yes
+
+	random = no
+	customizer = no
+	
+}
+
+insane = {
+	is_health = yes	
+	incapacitating = yes
+
+}
+
+assassin = {
+	lifestyle = yes
+	
+	same_opinion = -20
+	general_opinion = -10
+	
+	intrigue = 2
+	martial = 1
+	combat_rating = 20
+	assassinate_chance_modifier	= 0.20
+	monthly_character_prestige = 0.3
+	monthly_character_piety = -0.15
+	
+	random = yes
+	customizer = yes	
+	
+}
+
+silver_tongue = {	
+	lifestyle = yes
+	
+	intrigue = 1
+	diplomacy = 2
+	
+	random = yes
+	customizer = yes
+}
+
+cheerful = {
+	personality = yes
+	opposites =  {
+		dour
+	}	
+	
+	diplomacy = +1
+	same_opinion = +5
+	opposite_opinion = -5
+	sex_appeal_opinion = +5
+	
+	random = yes
+	customizer = yes
+}
+
+dour = {
+	personality = yes
+	opposites =  {
+		cheerful
+	}
+	
+	diplomacy = -1
+	stewardship = +1
+	intrigue = +1
+	sex_appeal_opinion = -5
+	opposite_opinion = -5	
+	vassal_opinion = +5
+	liege_opinion = +5
+	
+	random = yes
+	customizer = yes
+}
+
+wary = {
+	personality = yes
+	opposites =  {
+		trusting
+		paranoid
+	}
+	
+	intrigue = 2
+	diplomacy = -2
+	
+	defensive_plot_power_modifier = 0.1
+	plot_discovery_chance = 0.1
+	
+	ai_honor = -10
+	
+	random = yes
+	customizer = yes
+	
+	male_insult = INSULT_WARY
+	female_insult = INSULT_WARY
+	male_compliment = COMPL_GUARDED
+	female_compliment = COMPL_GUARDED	
+	child_insult_adj = INSULT_DISTRUSTFUL
+}
+
+pirate_lord = {	
+	lifestyle = yes
+	
+	intrigue = 1
+	martial = 1
+	stewardship = 1
+	monthly_character_prestige = 1
+	general_opinion = -10
+
+	customizer = yes
+}

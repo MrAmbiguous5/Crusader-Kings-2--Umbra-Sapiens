@@ -1,0 +1,12 @@
+# County Title
+title = c_cameron
+
+# Settlements
+max_settlements = 3
+b_cameron = tribal
+
+# Misc
+culture = chon
+religion = pampas_pagan
+
+# History

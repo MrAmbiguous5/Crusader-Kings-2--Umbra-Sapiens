@@ -1,0 +1,185 @@
+# Definitions of the dynamically defined modifiers by other elements such as special troops
+
+#Compile Chronicle (if scholar)
+#Copy Chronicle (for Another)
+#Melt down artifact (for ducats while losing prestige)
+#Read Book
+
+
+
+##############################################################
+### <><><><><><><><><><><><><><><><><><><><><><><><><><><><><>     ||
+##############################################################     ||
+######RELIGIONS ############################################## ====  ====
+##############################################################     ||
+### <><><><><><><><><><><><><><><><><><><><><><><><><><><><><>     ||
+##############################################################     ||
+
+####################PAGAN
+
+tengri_pagan_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+slavic_pagan_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+norse_pagan_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+baltic_pagan_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+
+hellenic_pagan_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+
+####################CHRISTIAN
+
+catholic_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+cathar_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+####################JEWISH
+
+jewish_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+##############################################################
+### <><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+############################################################## 
+######CULTURES  ##############################################
+##############################################################
+### <><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+##############################################################
+
+frankish_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+
+danish_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+magyar_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+byzantine_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+irish_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+welsh_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+breton_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+scottish_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+saxon_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+english_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+norman_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}

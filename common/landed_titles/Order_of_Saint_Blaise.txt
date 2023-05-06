@@ -1,0 +1,28 @@
+d_Order_of_Saint_Blaise = {
+    color={ 180 165 70 }
+    
+ 
+    graphical_culture = holygfx
+ 
+    capital = 1013 # Lori
+ 
+    title = "GRANDMASTER"
+    foa = "GRANDMASTER_FOA"
+
+    # Always exists
+    landless = yes
+ 
+    holy_order = yes
+    mercenary_type = saint_anthony_composition
+ 
+    culture = armenian
+ 
+    # Parent Religion
+    religion = miaphysite
+ 
+    # Cannot be held as a secondary title
+    primary = yes
+ 
+    # Extra income due to banking, etc
+    monthly_income = 10 # (Must be an integer between 1 and 512)
+}

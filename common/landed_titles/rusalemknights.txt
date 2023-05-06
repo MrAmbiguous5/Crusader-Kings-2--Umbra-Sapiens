@@ -1,0 +1,35 @@
+d_knights_of_jerusalem = {
+	color={ 83 110 159 }
+	color2={ 83 110 159 }
+	
+	graphical_culture = holygfx
+
+	capital = 774 # T H E  H O L Y  L A N D
+	
+	# Parent Religion 
+	religion = catholic
+	
+	culture = frankish
+	
+	allow = {
+	has_landed_title = k_jerusalem
+	}
+	
+	mercenary = yes
+
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+	title_female = "CAPTAIN_FEMALE"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	replace_captain_on_death = yes
+	
+	strength_growth_per_century = 0.04
+	
+	mercenary_type = knights_of_jerusalem_composition
+}

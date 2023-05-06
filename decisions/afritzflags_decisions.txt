@@ -1,0 +1,4467 @@
+decisions = {
+
+    hide_fritz_flags = {
+	    is_playable = yes
+
+		potential = {
+        NOT = { has_character_flag = hide_fritz_flags }
+		}
+
+		allow = {
+			always = yes
+		}
+		effect = {
+		set_character_flag = hide_fritz_flags
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	reveal_fritz_flags = {
+	    is_playable = yes
+
+		potential = {
+            has_character_flag = hide_fritz_flags
+		}
+
+		allow = {
+			always = yes
+		}
+		effect = {
+		clr_character_flag = hide_fritz_flags
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	reset_primary_coa = {
+	    is_playable = yes
+
+		potential = {
+		NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		}
+		effect = {
+		primary_title = {
+		reset_coa = THIS
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	england_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_england_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	england_coa_two = {
+	
+	    is_playable = yes
+		ai_check_interval = 1
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_england_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { culture = saxon }
+			}
+		}
+	}
+	
+	england_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_england_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	england_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_england_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { 
+				culture = english
+				OR = {
+				dynasty = 106
+				dynasty = 752 
+				}
+				}
+			}
+		}
+	}
+	
+    england_coa_five = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_england_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	england_coa_six = {
+	    is_playable = yes
+		ai_check_interval = 1
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_england_flag_six
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { 
+				culture = norwegian
+				dynasty = 499 
+				}
+			}
+		}
+	}
+	
+	england_coa_seven = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_england_flag_seven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	england_coa_eight = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_england_flag_eight
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	england_coa_nine = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_england_flag_nine
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	england_coa_ten = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_england_flag_ten
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	scotland_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_scotland
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_scotland
+
+		}
+		effect = {
+		k_scotland = {
+		set_coa = d_england_flag_seven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	scotland_coa_one_true = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_scotland
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_scotland
+
+		}
+		effect = {
+		k_scotland = {
+		set_coa = d_scotland_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	britannia_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_britannia
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_britannia
+
+		}
+		effect = {
+		e_britannia = {
+		set_coa = d_england_flag_seven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	britannia_coa_two = {
+	
+	    is_playable = yes
+		ai_check_interval = 1
+
+		potential = {
+			has_landed_title = e_britannia
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_britannia
+
+		}
+		effect = {
+		e_britannia = {
+		set_coa = d_england_flag_eight
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { culture = saxon }
+			}
+		}
+	}
+	
+	france_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_france_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	france_coa_two = {
+	
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_france_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	france_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_france_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	france_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_france_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+    france_coa_five = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_france_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	france_coa_six = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_france_flag_six
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	france_coa_seven = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_england_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	france_coa_seven_true = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_france_flag_seven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	france_coa_eight = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_france_flag_eight
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	france_coa_nine = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_france_flag_nine
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	efrance_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_france
+
+		}
+		effect = {
+		e_france = {
+		set_coa = d_efrance_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	efrance_coa_two = {
+	
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_france
+
+		}
+		effect = {
+		e_france = {
+		set_coa = d_efrance_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	efrance_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_france
+
+		}
+		effect = {
+		e_france = {
+		set_coa = d_efrance_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_ten_france = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_france
+
+		}
+		effect = {
+		e_france = {
+		set_coa = d_hre_flag_ten
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+    hre_coa_five = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+    hre_coa_six = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_six
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_seven = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_seven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_eight = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_eight
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_nine = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_nine
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_ten = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_ten
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_eleven = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_eleven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hre_coa_twelve = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_hre
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_hre
+
+		}
+		effect = {
+		e_hre = {
+		set_coa = d_hre_flag_twelve
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	
+	hreg_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hreg_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hreg_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hreg_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+    hreg_coa_five = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+    hreg_coa_six = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_six
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hreg_coa_seven = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_seven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hreg_coa_eight = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_eight
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hreg_coa_nine = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_nine
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hreg_coa_ten = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_ten
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hreg_coa_eleven = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_eleven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hreg_coa_twelve = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_germany
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_germany
+
+		}
+		effect = {
+		e_germany = {
+		set_coa = d_hre_flag_twelve
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	roman_empire_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_roman_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_roman_empire
+
+		}
+		effect = {
+		e_roman_empire = {
+		set_coa = d_roman_empire_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	roman_empire_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_roman_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_roman_empire
+
+		}
+		effect = {
+		e_roman_empire = {
+		set_coa = d_roman_empire_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	roman_empire_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_roman_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_roman_empire
+
+		}
+		effect = {
+		e_roman_empire = {
+		set_coa = d_roman_empire_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	roman_empire_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_roman_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_roman_empire
+
+		}
+		effect = {
+		e_roman_empire = {
+		set_coa = d_roman_empire_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	roman_empire_coa_five = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_roman_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_roman_empire
+
+		}
+		effect = {
+		e_roman_empire = {
+		set_coa = d_roman_empire_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	roman_empire_coa_six = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_roman_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_roman_empire
+
+		}
+		effect = {
+		e_roman_empire = {
+		set_coa = d_roman_empire_flag_six
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	roman_empire_coa_seven = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_roman_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_roman_empire
+
+		}
+		effect = {
+		e_roman_empire = {
+		set_coa = d_roman_empire_flag_seven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	roman_empire_coa_eight = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_roman_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_roman_empire
+
+		}
+		effect = {
+		e_roman_empire = {
+		set_coa = d_roman_empire_flag_eight
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	roman_empire_coa_nine = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_roman_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_roman_empire
+
+		}
+		effect = {
+		e_roman_empire = {
+		set_coa = d_roman_empire_flag_nine
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	roman_empire_coa_ten = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_roman_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_roman_empire
+
+		}
+		effect = {
+		e_roman_empire = {
+		set_coa = d_roman_empire_flag_ten
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	
+	ere_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+    ere_coa_five = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_six = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_six
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_seven = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_seven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_eight = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_roman_empire_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_nine = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_nine
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_ten = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_ten
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_eleven = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_eleven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_twelve = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_twelve
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_thirteen = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_thirteen
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ere_coa_fourteen = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_byzantium
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_byzantium
+
+		}
+		effect = {
+		e_byzantium = {
+		set_coa = d_ere_flag_fourteen
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	italy_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_italy
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_italy
+
+		}
+		effect = {
+		k_italy = {
+		set_coa = d_italy_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	italy_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_italy
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_italy
+
+		}
+		effect = {
+		k_italy = {
+		set_coa = d_italy_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	italy_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_italy
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_italy
+
+		}
+		effect = {
+		k_italy = {
+		set_coa = d_italy_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	italy_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_italy
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_italy
+
+		}
+		effect = {
+		k_italy = {
+		set_coa = d_italy_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	italy_coa_five = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_italy
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_italy
+
+		}
+		effect = {
+		k_italy = {
+		set_coa = d_italy_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	italy_coa_six = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_italy
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_italy
+
+		}
+		effect = {
+		k_italy = {
+		set_coa = d_italy_flag_six
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	sicily_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_sicily
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_sicily
+
+		}
+		effect = {
+		k_sicily = {
+		set_coa = d_sicily_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	papacy_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_papal_state
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_papal_state
+
+		}
+		effect = {
+		k_papal_state = {
+		set_coa = d_papacy_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	papacy_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_papal_state
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_papal_state
+
+		}
+		effect = {
+		k_papal_state = {
+		set_coa = d_papacy_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	papacy_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_papal_state
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_papal_state
+
+		}
+		effect = {
+		k_papal_state = {
+		set_coa = d_papacy_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	papacy_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_papacy
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_papacy
+
+		}
+		effect = {
+		k_papacy = {
+		set_coa = d_papacy_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	papacy_coa_five = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_papal_state
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_papal_state
+
+		}
+		effect = {
+		k_papal_state = {
+		set_coa = d_papacy_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	
+	pre_coa_what = {
+	    is_playable = yes
+
+		potential = {
+			trait = lunatic
+		    trait = zealous
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		trait = lunatic
+		trait = zealous
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_time_is_a_flat_fucking_circle
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	pre_coa_cookin = {
+	    is_playable = yes
+
+		potential = {
+			trait = lunatic
+		    has_character_modifier = pet_cat
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		trait = lunatic
+		has_character_modifier = pet_cat
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_cookin
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	mongol_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_mongolia
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_mongolia
+
+		}
+		effect = {
+		k_mongolia = {
+		set_coa = d_mongol_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	mongol_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_mongol_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_mongol_empire
+
+		}
+		effect = {
+		e_mongol_empire = {
+		set_coa = d_mongol_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	mongol_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_mongol_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_mongol_empire
+
+		}
+		effect = {
+		e_mongol_empire = {
+		set_coa = d_mongol_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	mongol_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_mongol_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_mongol_empire
+
+		}
+		effect = {
+		e_mongol_empire = {
+		set_coa = d_mongol_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	mongol_coa_four_gh = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_golden_horde
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_golden_horde
+
+		}
+		effect = {
+		e_golden_horde = {
+		set_coa = d_mongol_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	mongol_coa_five = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_mongol_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_mongol_empire
+
+		}
+		effect = {
+		e_mongol_empire = {
+		set_coa = d_mongol_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	mongol_coa_six = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_mongol_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_mongol_empire
+
+		}
+		effect = {
+		e_mongol_empire = {
+		set_coa = d_mongol_flag_six
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	mongol_coa_six_yuan = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_china_west_governor
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_china_west_governor
+
+		}
+		effect = {
+		e_china_west_governor = {
+		set_coa = d_mongol_flag_six
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { culture = mongol }
+			}
+		}
+	}
+	
+	latin_empire_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_latin_empire
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_latin_empire
+
+		}
+		effect = {
+		e_latin_empire = {
+		set_coa = d_latin_empire_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	koj_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_jerusalem
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_jerusalem
+
+		}
+		effect = {
+		k_jerusalem = {
+		set_coa = d_jerusalem_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	koj_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_jerusalem
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_jerusalem
+
+		}
+		effect = {
+		k_jerusalem = {
+		set_coa = d_jerusalem_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	koj_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_jerusalem
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_jerusalem
+
+		}
+		effect = {
+		k_jerusalem = {
+		set_coa = d_jerusalem_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	koj_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_jerusalem
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_jerusalem
+
+		}
+		effect = {
+		k_jerusalem = {
+		set_coa = d_jerusalem_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	kosj_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = d_knights_hospitaler
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = d_knights_hospitaler
+
+		}
+		effect = {
+		d_knights_hospitaler = {
+		set_coa = d_hospitaller_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	kosj_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = d_knights_hospitaler
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = d_knights_hospitaler
+
+		}
+		effect = {
+		d_knights_hospitaler = {
+		set_coa = d_hospitaller_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	kosj_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = d_knights_hospitaler
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = d_knights_hospitaler
+
+		}
+		effect = {
+		d_knights_hospitaler = {
+		set_coa = d_hospitaller_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	venice_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_venice
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_venice
+
+		}
+		effect = {
+		k_venice = {
+		set_coa = d_venice_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hungary_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_hungary
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_hungary
+
+		}
+		effect = {
+		k_hungary = {
+		set_coa = d_hungary_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hungary_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_hungary
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_hungary
+
+		}
+		effect = {
+		k_hungary = {
+		set_coa = d_hungary_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hungary_coa_three = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_hungary
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_hungary
+
+		}
+		effect = {
+		k_hungary = {
+		set_coa = d_hungary_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	hungary_coa_four = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_hungary
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_hungary
+
+		}
+		effect = {
+		k_hungary = {
+		set_coa = d_hungary_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	bavaria_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_bavaria
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_bavaria
+
+		}
+		effect = {
+		k_bavaria = {
+		set_coa = d_bavaria_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	bavaria_coa_two = {
+	
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_bavaria
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_bavaria
+
+		}
+		effect = {
+		k_bavaria = {
+		set_coa = d_bavaria_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	poland_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_poland
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_poland
+
+		}
+		effect = {
+		k_poland = {
+		set_coa = d_poland_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	ireland_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_ireland
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_ireland
+
+		}
+		effect = {
+		k_ireland = {
+		set_coa = d_ireland_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	poland_coa_two = {
+	
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_poland
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_poland
+
+		}
+		effect = {
+		k_poland = {
+		set_coa = d_poland_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	poland_coa_three = {
+	
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_poland
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_poland
+
+		}
+		effect = {
+		k_poland = {
+		set_coa = d_poland_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	burgundy_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_burgundy
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_burgundy
+
+		}
+		effect = {
+		k_burgundy = {
+		set_coa = d_burgundy_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	burgundy_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_burgundy
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_burgundy
+
+		}
+		effect = {
+		k_burgundy = {
+		set_coa = d_burgundy_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	castille_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_castille
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_castille
+
+		}
+		effect = {
+		k_castille = {
+		set_coa = d_castille_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	castille_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_castille
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_castille
+
+		}
+		effect = {
+		k_castille = {
+		set_coa = d_burgundy_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	aragon_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_aragon
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_aragon
+
+		}
+		effect = {
+		k_aragon = {
+		set_coa = d_aragon_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	aragon_coa_two = {
+	    is_playable = yes #/SS/ is pure. PURE!!
+
+		potential = {
+			has_landed_title = k_aragon
+			OR = {
+			trait = lunatic
+		    trait = lustful
+			AND = {
+			is_female = no
+			NOT = { age = 15 }
+			}
+			}
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_aragon
+
+		}
+		effect = {
+		k_aragon = {
+		set_coa = d_aragon_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	aztec_colony_england_coa = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_england
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_england
+
+		}
+		effect = {
+		k_england = {
+		set_coa = d_aztec_colony_england
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { culture = nahuatl }
+			}
+		}
+	}
+	
+	aztec_colony_france_coa = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_france
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_france
+
+		}
+		effect = {
+		k_france = {
+		set_coa = d_aztec_colony_france
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { culture = nahuatl }
+			}
+		}
+	}
+	
+	aztec_colony_spain_coa = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_spain
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_spain
+
+		}
+		effect = {
+		e_spain = {
+		set_coa = d_aztec_colony_spain
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { culture = nahuatl }
+			}
+		}
+	}
+	
+	switzerland_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_switzerland
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_switzerland
+
+		}
+		effect = {
+		k_switzerland = {
+		set_coa = d_switzerland_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	switzerland_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_switzerland
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_switzerland
+
+		}
+		effect = {
+		k_switzerland = {
+		set_coa = d_switzerland_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	egypt_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_egypt
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_egypt
+
+		}
+		effect = {
+		k_egypt = {
+		set_coa = d_egypt_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	egypt_coa_two = {
+	
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_egypt
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_egypt
+
+		}
+		effect = {
+		k_egypt = {
+		set_coa = d_egypt_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	persia_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_persia
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_persia
+
+		}
+		effect = {
+		e_persia = {
+		set_coa = d_persia_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	antioch_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = k_antioch
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = k_antioch
+
+		}
+		effect = {
+		k_antioch = {
+		set_coa = d_antioch_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	arabia_coa_one = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = d_arabia_petrae
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = d_arabia_petrae
+
+		}
+		effect = {
+		d_arabia_petrae = {
+		set_coa = d_arabia_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	persia_coa_two = {
+	    is_playable = yes
+
+		potential = {
+			has_landed_title = e_persia
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		has_landed_title = e_persia
+
+		}
+		effect = {
+		e_persia = {
+		set_coa = d_persia_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	carolingian_coa_one = {
+	    is_playable = yes
+
+		potential = {
+		    dynasty = 25061
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_carolingian_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	carolingian_coa_two = {
+	    is_playable = yes
+
+		potential = {
+		    dynasty = 25061
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_carolingian_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	salian_coa_one = {
+	    is_playable = yes
+
+		potential = {
+		    dynasty = 651
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_hre_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	visigoth_coa_one = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = visigothic
+			culture = crimean_gothic
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_visigoth_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	visigoth_coa_two = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = visigothic
+			culture = crimean_gothic
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_visigoth_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	visigoth_coa_three = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = visigothic
+			culture = crimean_gothic
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_visigoth_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	visigoth_coa_four = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = visigothic
+			culture = crimean_gothic
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }
+			
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_visigoth_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	visigoth_coa_five = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = visigothic
+			culture = crimean_gothic
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }
+			
+			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_visigoth_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+
+	french_coa_one = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = old_frankish
+			culture = frankish
+			culture = occitan
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_french_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	french_coa_two = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = old_frankish
+			culture = frankish
+			culture = occitan
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_french_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	french_coa_three = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = old_frankish
+			culture = frankish
+			culture = occitan
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_french_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	french_coa_four = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = old_frankish
+			culture = frankish
+			culture = occitan
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_french_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	french_coa_five = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = old_frankish
+			culture = frankish
+			culture = occitan
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_french_flag_five
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	french_coa_six = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = old_frankish
+			culture = frankish
+			culture = occitan
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_french_flag_six
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	french_coa_seven = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = old_frankish
+			culture = frankish
+			culture = occitan
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_french_flag_seven
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	french_coa_eight = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = old_frankish
+			culture = frankish
+			culture = occitan
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_french_flag_eight
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	french_coa_nine = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = old_frankish
+			culture = frankish
+			culture = occitan
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_french_flag_nine
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	french_coa_ten = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = old_frankish
+			culture = frankish
+			culture = occitan
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_french_flag_ten
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	german_coa_one = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = german
+			culture = suebi
+			culture = frisian
+			culture = dutch
+			culture = old_saxon
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_german_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	german_coa_two = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = german
+			culture = suebi
+			culture = frisian
+			culture = dutch
+			culture = old_saxon
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_german_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	german_coa_three = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = german
+			culture = suebi
+			culture = frisian
+			culture = dutch
+			culture = old_saxon
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_german_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	german_coa_four = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = german
+			culture = suebi
+			culture = frisian
+			culture = dutch
+			culture = old_saxon
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_german_flag_four
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	italian_coa_one = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = italian
+			culture = lombard
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_italian_flag_one
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	italian_coa_two = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = italian
+			culture = lombard
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_italian_flag_two
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	italian_coa_three = {
+	    is_playable = yes
+
+		potential = {
+		    OR = {
+			culture = italian
+			culture = lombard
+			}
+			any_demesne_title = {
+		    higher_tier_than = DUKE
+		    }			
+			NOT = { has_character_flag = hide_fritz_flags }
+		}
+		allow = {
+		any_demesne_title = {
+		higher_tier_than = DUKE
+		}
+
+		}
+		effect = {
+		primary_title = {
+		set_coa = d_italian_flag_three
+		}
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+
+}
+

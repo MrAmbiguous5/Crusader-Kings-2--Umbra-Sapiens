@@ -1,0 +1,1797 @@
+create_defined_motto_effect = {
+	# init
+	# take current modifier blob, from high to low
+	if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 99 }
+		}
+		custom_tooltip = {
+			text = house_motto_99_modifier
+			add_dynasty_modifier = house_motto_99
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 98 }
+		}
+		custom_tooltip = {
+			text = house_motto_98_modifier
+			add_dynasty_modifier = house_motto_98
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 97 }
+		}
+		custom_tooltip = {
+			text = house_motto_97_modifier
+			add_dynasty_modifier = house_motto_97
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 96 }
+		}
+		custom_tooltip = {
+			text = house_motto_96_modifier
+			add_dynasty_modifier = house_motto_96
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 95 }
+		}
+		custom_tooltip = {
+			text = house_motto_95_modifier
+			add_dynasty_modifier = house_motto_95
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 94 }
+		}
+		custom_tooltip = {
+			text = house_motto_94_modifier
+			add_dynasty_modifier = house_motto_94
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 93 }
+		}
+		custom_tooltip = {
+			text = house_motto_93_modifier
+			add_dynasty_modifier = house_motto_93
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 92 }
+		}
+		custom_tooltip = {
+			text = house_motto_92_modifier
+			add_dynasty_modifier = house_motto_92
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 91 }
+		}
+		custom_tooltip = {
+			text = house_motto_91_modifier
+			add_dynasty_modifier = house_motto_91
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 90 }
+		}
+		custom_tooltip = {
+			text = house_motto_90_modifier
+			add_dynasty_modifier = house_motto_90
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 89 }
+		}
+		custom_tooltip = {
+			text = house_motto_89_modifier
+			add_dynasty_modifier = house_motto_89
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 88 }
+		}
+		custom_tooltip = {
+			text = house_motto_88_modifier
+			add_dynasty_modifier = house_motto_88
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 87 }
+		}
+		custom_tooltip = {
+			text = house_motto_87_modifier
+			add_dynasty_modifier = house_motto_87
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 86 }
+		}
+		custom_tooltip = {
+			text = house_motto_86_modifier
+			add_dynasty_modifier = house_motto_86
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 85 }
+		}
+		custom_tooltip = {
+			text = house_motto_85_modifier
+			add_dynasty_modifier = house_motto_85
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 84 }
+		}
+		custom_tooltip = {
+			text = house_motto_84_modifier
+			add_dynasty_modifier = house_motto_84
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 83 }
+		}
+		custom_tooltip = {
+			text = house_motto_83_modifier
+			add_dynasty_modifier = house_motto_83
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 82 }
+		}
+		custom_tooltip = {
+			text = house_motto_82_modifier
+			add_dynasty_modifier = house_motto_82
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 81 }
+		}
+		custom_tooltip = {
+			text = house_motto_81_modifier
+			add_dynasty_modifier = house_motto_81
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 80 }
+		}
+		custom_tooltip = {
+			text = house_motto_80_modifier
+			add_dynasty_modifier = house_motto_80
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 79 }
+		}
+		custom_tooltip = {
+			text = house_motto_79_modifier
+			add_dynasty_modifier = house_motto_79
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 78 }
+		}
+		custom_tooltip = {
+			text = house_motto_78_modifier
+			add_dynasty_modifier = house_motto_78
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 77 }
+		}
+		custom_tooltip = {
+			text = house_motto_77_modifier
+			add_dynasty_modifier = house_motto_77
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 76 }
+		}
+		custom_tooltip = {
+			text = house_motto_76_modifier
+			add_dynasty_modifier = house_motto_76
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 75 }
+		}
+		custom_tooltip = {
+			text = house_motto_75_modifier
+			add_dynasty_modifier = house_motto_75
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 74 }
+		}
+		custom_tooltip = {
+			text = house_motto_74_modifier
+			add_dynasty_modifier = house_motto_74
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 73 }
+		}
+		custom_tooltip = {
+			text = house_motto_73_modifier
+			add_dynasty_modifier = house_motto_73
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 72 }
+		}
+		custom_tooltip = {
+			text = house_motto_72_modifier
+			add_dynasty_modifier = house_motto_72
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 71 }
+		}
+		custom_tooltip = {
+			text = house_motto_71_modifier
+			add_dynasty_modifier = house_motto_71
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 70 }
+		}
+		custom_tooltip = {
+			text = house_motto_70_modifier
+			add_dynasty_modifier = house_motto_70
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 69 }
+		}
+		custom_tooltip = {
+			text = house_motto_69_modifier
+			add_dynasty_modifier = house_motto_69
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 68 }
+		}
+		custom_tooltip = {
+			text = house_motto_68_modifier
+			add_dynasty_modifier = house_motto_68
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 67 }
+		}
+		custom_tooltip = {
+			text = house_motto_67_modifier
+			add_dynasty_modifier = house_motto_67
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 66 }
+		}
+		custom_tooltip = {
+			text = house_motto_66_modifier
+			add_dynasty_modifier = house_motto_66
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 65 }
+		}
+		custom_tooltip = {
+			text = house_motto_65_modifier
+			add_dynasty_modifier = house_motto_65
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 64 }
+		}
+		custom_tooltip = {
+			text = house_motto_64_modifier
+			add_dynasty_modifier = house_motto_64
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 63 }
+		}
+		custom_tooltip = {
+			text = house_motto_63_modifier
+			add_dynasty_modifier = house_motto_63
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 62 }
+		}
+		custom_tooltip = {
+			text = house_motto_62_modifier
+			add_dynasty_modifier = house_motto_62
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 61 }
+		}
+		custom_tooltip = {
+			text = house_motto_61_modifier
+			add_dynasty_modifier = house_motto_61
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 60 }
+		}
+		custom_tooltip = {
+			text = house_motto_60_modifier
+			add_dynasty_modifier = house_motto_60
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 59 }
+		}
+		custom_tooltip = {
+			text = house_motto_59_modifier
+			add_dynasty_modifier = house_motto_59
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 58 }
+		}
+		custom_tooltip = {
+			text = house_motto_58_modifier
+			add_dynasty_modifier = house_motto_58
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 57 }
+		}
+		custom_tooltip = {
+			text = house_motto_57_modifier
+			add_dynasty_modifier = house_motto_57
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 56 }
+		}
+		custom_tooltip = {
+			text = house_motto_56_modifier
+			add_dynasty_modifier = house_motto_56
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 55 }
+		}
+		custom_tooltip = {
+			text = house_motto_55_modifier
+			add_dynasty_modifier = house_motto_55
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 54 }
+		}
+		custom_tooltip = {
+			text = house_motto_54_modifier
+			add_dynasty_modifier = house_motto_54
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 53 }
+		}
+		custom_tooltip = {
+			text = house_motto_53_modifier
+			add_dynasty_modifier = house_motto_53
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 52 }
+		}
+		custom_tooltip = {
+			text = house_motto_52_modifier
+			add_dynasty_modifier = house_motto_52
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 51 }
+		}
+		custom_tooltip = {
+			text = house_motto_51_modifier
+			add_dynasty_modifier = house_motto_51
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 50 }
+		}
+		custom_tooltip = {
+			text = house_motto_50_modifier
+			add_dynasty_modifier = house_motto_50
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 49 }
+		}
+		custom_tooltip = {
+			text = house_motto_49_modifier
+			add_dynasty_modifier = house_motto_49
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 48 }
+		}
+		custom_tooltip = {
+			text = house_motto_48_modifier
+			add_dynasty_modifier = house_motto_48
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 47 }
+		}
+		custom_tooltip = {
+			text = house_motto_47_modifier
+			add_dynasty_modifier = house_motto_47
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 46 }
+		}
+		custom_tooltip = {
+			text = house_motto_46_modifier
+			add_dynasty_modifier = house_motto_46
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 45 }
+		}
+		custom_tooltip = {
+			text = house_motto_45_modifier
+			add_dynasty_modifier = house_motto_45
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 44 }
+		}
+		custom_tooltip = {
+			text = house_motto_44_modifier
+			add_dynasty_modifier = house_motto_44
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 43 }
+		}
+		custom_tooltip = {
+			text = house_motto_43_modifier
+			add_dynasty_modifier = house_motto_43
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 42 }
+		}
+		custom_tooltip = {
+			text = house_motto_42_modifier
+			add_dynasty_modifier = house_motto_42
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 41 }
+		}
+		custom_tooltip = {
+			text = house_motto_41_modifier
+			add_dynasty_modifier = house_motto_41
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 40 }
+		}
+		custom_tooltip = {
+			text = house_motto_40_modifier
+			add_dynasty_modifier = house_motto_40
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 39 }
+		}
+		custom_tooltip = {
+			text = house_motto_39_modifier
+			add_dynasty_modifier = house_motto_39
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 38 }
+		}
+		custom_tooltip = {
+			text = house_motto_38_modifier
+			add_dynasty_modifier = house_motto_38
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 37 }
+		}
+		custom_tooltip = {
+			text = house_motto_37_modifier
+			add_dynasty_modifier = house_motto_37
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 36 }
+		}
+		custom_tooltip = {
+			text = house_motto_36_modifier
+			add_dynasty_modifier = house_motto_36
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 35 }
+		}
+		custom_tooltip = {
+			text = house_motto_35_modifier
+			add_dynasty_modifier = house_motto_35
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 34 }
+		}
+		custom_tooltip = {
+			text = house_motto_34_modifier
+			add_dynasty_modifier = house_motto_34
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 33 }
+		}
+		custom_tooltip = {
+			text = house_motto_33_modifier
+			add_dynasty_modifier = house_motto_33
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 32 }
+		}
+		custom_tooltip = {
+			text = house_motto_32_modifier
+			add_dynasty_modifier = house_motto_32
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 31 }
+		}
+		custom_tooltip = {
+			text = house_motto_31_modifier
+			add_dynasty_modifier = house_motto_31
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 30 }
+		}
+		custom_tooltip = {
+			text = house_motto_30_modifier
+			add_dynasty_modifier = house_motto_30
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 29 }
+		}
+		custom_tooltip = {
+			text = house_motto_29_modifier
+			add_dynasty_modifier = house_motto_29
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 28 }
+		}
+		custom_tooltip = {
+			text = house_motto_28_modifier
+			add_dynasty_modifier = house_motto_28
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 27 }
+		}
+		custom_tooltip = {
+			text = house_motto_27_modifier
+			add_dynasty_modifier = house_motto_27
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 26 }
+		}
+		custom_tooltip = {
+			text = house_motto_26_modifier
+			add_dynasty_modifier = house_motto_26
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 25 }
+		}
+		custom_tooltip = {
+			text = house_motto_25_modifier
+			add_dynasty_modifier = house_motto_25
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 24 }
+		}
+		custom_tooltip = {
+			text = house_motto_24_modifier
+			add_dynasty_modifier = house_motto_24
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 23 }
+		}
+		custom_tooltip = {
+			text = house_motto_23_modifier
+			add_dynasty_modifier = house_motto_23
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 22 }
+		}
+		custom_tooltip = {
+			text = house_motto_22_modifier
+			add_dynasty_modifier = house_motto_22
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 21 }
+		}
+		custom_tooltip = {
+			text = house_motto_21_modifier
+			add_dynasty_modifier = house_motto_21
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 20 }
+		}
+		custom_tooltip = {
+			text = house_motto_20_modifier
+			add_dynasty_modifier = house_motto_20
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 19 }
+		}
+		custom_tooltip = {
+			text = house_motto_19_modifier
+			add_dynasty_modifier = house_motto_19
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 18 }
+		}
+		custom_tooltip = {
+			text = house_motto_18_modifier
+			add_dynasty_modifier = house_motto_18
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 17 }
+		}
+		custom_tooltip = {
+			text = house_motto_17_modifier
+			add_dynasty_modifier = house_motto_17
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 16 }
+		}
+		custom_tooltip = {
+			text = house_motto_16_modifier
+			add_dynasty_modifier = house_motto_16
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 15 }
+		}
+		custom_tooltip = {
+			text = house_motto_15_modifier
+			add_dynasty_modifier = house_motto_15
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 14 }
+		}
+		custom_tooltip = {
+			text = house_motto_14_modifier
+			add_dynasty_modifier = house_motto_14
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 13 }
+		}
+		custom_tooltip = {
+			text = house_motto_13_modifier
+			add_dynasty_modifier = house_motto_13
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 12 }
+		}
+		custom_tooltip = {
+			text = house_motto_12_modifier
+			add_dynasty_modifier = house_motto_12
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 11 }
+		}
+		custom_tooltip = {
+			text = house_motto_11_modifier
+			add_dynasty_modifier = house_motto_11
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 10 }
+		}
+		custom_tooltip = {
+			text = house_motto_10_modifier
+			add_dynasty_modifier = house_motto_10
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 9 }
+		}
+		custom_tooltip = {
+			text = house_motto_09_modifier
+			add_dynasty_modifier = house_motto_09
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 8 }
+		}
+		custom_tooltip = {
+			text = house_motto_08_modifier
+			add_dynasty_modifier = house_motto_08
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 7 }
+		}
+		custom_tooltip = {
+			text = house_motto_07_modifier
+			add_dynasty_modifier = house_motto_07
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 6 }
+		}
+		custom_tooltip = {
+			text = house_motto_06_modifier
+			add_dynasty_modifier = house_motto_06
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 5 }
+		}
+		custom_tooltip = {
+			text = house_motto_05_modifier
+			add_dynasty_modifier = house_motto_05
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 4 }
+		}
+		custom_tooltip = {
+			text = house_motto_04_modifier
+			add_dynasty_modifier = house_motto_04
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 3 }
+		}
+		custom_tooltip = {
+			text = house_motto_03_modifier
+			add_dynasty_modifier = house_motto_03
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 2 }
+		}
+		custom_tooltip = {
+			text = house_motto_02_modifier
+			add_dynasty_modifier = house_motto_02
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 1 }
+		}
+		custom_tooltip = {
+			text = house_motto_01_modifier
+			add_dynasty_modifier = house_motto_01
+		}
+	}	
+	custom_tooltip = {
+		text = will_be_your_house_motto_tooltip
+	}
+}
+
+create_defined_motto_one_padded_effect = { # Show one ahead tooltip, as the variable is not changed at this moment(it changes after player pick an option)
+	# init
+	# take current modifier blob, from high to low
+	if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 99 }
+		}
+		custom_tooltip = {
+			text = house_motto_99_modifier
+			add_dynasty_modifier = house_motto_99
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 98 }
+		}
+		custom_tooltip = {
+			text = house_motto_99_modifier
+			add_dynasty_modifier = house_motto_98
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 97 }
+		}
+		custom_tooltip = {
+			text = house_motto_98_modifier
+			add_dynasty_modifier = house_motto_97
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 96 }
+		}
+		custom_tooltip = {
+			text = house_motto_97_modifier
+			add_dynasty_modifier = house_motto_96
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 95 }
+		}
+		custom_tooltip = {
+			text = house_motto_96_modifier
+			add_dynasty_modifier = house_motto_95
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 94 }
+		}
+		custom_tooltip = {
+			text = house_motto_95_modifier
+			add_dynasty_modifier = house_motto_94
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 93 }
+		}
+		custom_tooltip = {
+			text = house_motto_94_modifier
+			add_dynasty_modifier = house_motto_93
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 92 }
+		}
+		custom_tooltip = {
+			text = house_motto_93_modifier
+			add_dynasty_modifier = house_motto_92
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 91 }
+		}
+		custom_tooltip = {
+			text = house_motto_92_modifier
+			add_dynasty_modifier = house_motto_91
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 90 }
+		}
+		custom_tooltip = {
+			text = house_motto_91_modifier
+			add_dynasty_modifier = house_motto_90
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 89 }
+		}
+		custom_tooltip = {
+			text = house_motto_90_modifier
+			add_dynasty_modifier = house_motto_89
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 88 }
+		}
+		custom_tooltip = {
+			text = house_motto_89_modifier
+			add_dynasty_modifier = house_motto_88
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 87 }
+		}
+		custom_tooltip = {
+			text = house_motto_88_modifier
+			add_dynasty_modifier = house_motto_87
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 86 }
+		}
+		custom_tooltip = {
+			text = house_motto_87_modifier
+			add_dynasty_modifier = house_motto_86
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 85 }
+		}
+		custom_tooltip = {
+			text = house_motto_86_modifier
+			add_dynasty_modifier = house_motto_85
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 84 }
+		}
+		custom_tooltip = {
+			text = house_motto_85_modifier
+			add_dynasty_modifier = house_motto_84
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 83 }
+		}
+		custom_tooltip = {
+			text = house_motto_84_modifier
+			add_dynasty_modifier = house_motto_83
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 82 }
+		}
+		custom_tooltip = {
+			text = house_motto_83_modifier
+			add_dynasty_modifier = house_motto_82
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 81 }
+		}
+		custom_tooltip = {
+			text = house_motto_82_modifier
+			add_dynasty_modifier = house_motto_81
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 80 }
+		}
+		custom_tooltip = {
+			text = house_motto_81_modifier
+			add_dynasty_modifier = house_motto_80
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 79 }
+		}
+		custom_tooltip = {
+			text = house_motto_80_modifier
+			add_dynasty_modifier = house_motto_79
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 78 }
+		}
+		custom_tooltip = {
+			text = house_motto_79_modifier
+			add_dynasty_modifier = house_motto_78
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 77 }
+		}
+		custom_tooltip = {
+			text = house_motto_78_modifier
+			add_dynasty_modifier = house_motto_77
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 76 }
+		}
+		custom_tooltip = {
+			text = house_motto_77_modifier
+			add_dynasty_modifier = house_motto_76
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 75 }
+		}
+		custom_tooltip = {
+			text = house_motto_76_modifier
+			add_dynasty_modifier = house_motto_75
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 74 }
+		}
+		custom_tooltip = {
+			text = house_motto_75_modifier
+			add_dynasty_modifier = house_motto_74
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 73 }
+		}
+		custom_tooltip = {
+			text = house_motto_74_modifier
+			add_dynasty_modifier = house_motto_73
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 72 }
+		}
+		custom_tooltip = {
+			text = house_motto_73_modifier
+			add_dynasty_modifier = house_motto_72
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 71 }
+		}
+		custom_tooltip = {
+			text = house_motto_72_modifier
+			add_dynasty_modifier = house_motto_71
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 70 }
+		}
+		custom_tooltip = {
+			text = house_motto_71_modifier
+			add_dynasty_modifier = house_motto_70
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 69 }
+		}
+		custom_tooltip = {
+			text = house_motto_70_modifier
+			add_dynasty_modifier = house_motto_69
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 68 }
+		}
+		custom_tooltip = {
+			text = house_motto_69_modifier
+			add_dynasty_modifier = house_motto_68
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 67 }
+		}
+		custom_tooltip = {
+			text = house_motto_68_modifier
+			add_dynasty_modifier = house_motto_67
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 66 }
+		}
+		custom_tooltip = {
+			text = house_motto_67_modifier
+			add_dynasty_modifier = house_motto_66
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 65 }
+		}
+		custom_tooltip = {
+			text = house_motto_66_modifier
+			add_dynasty_modifier = house_motto_65
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 64 }
+		}
+		custom_tooltip = {
+			text = house_motto_65_modifier
+			add_dynasty_modifier = house_motto_64
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 63 }
+		}
+		custom_tooltip = {
+			text = house_motto_64_modifier
+			add_dynasty_modifier = house_motto_63
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 62 }
+		}
+		custom_tooltip = {
+			text = house_motto_63_modifier
+			add_dynasty_modifier = house_motto_62
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 61 }
+		}
+		custom_tooltip = {
+			text = house_motto_62_modifier
+			add_dynasty_modifier = house_motto_61
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 60 }
+		}
+		custom_tooltip = {
+			text = house_motto_61_modifier
+			add_dynasty_modifier = house_motto_60
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 59 }
+		}
+		custom_tooltip = {
+			text = house_motto_60_modifier
+			add_dynasty_modifier = house_motto_59
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 58 }
+		}
+		custom_tooltip = {
+			text = house_motto_59_modifier
+			add_dynasty_modifier = house_motto_58
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 57 }
+		}
+		custom_tooltip = {
+			text = house_motto_58_modifier
+			add_dynasty_modifier = house_motto_57
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 56 }
+		}
+		custom_tooltip = {
+			text = house_motto_57_modifier
+			add_dynasty_modifier = house_motto_56
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 55 }
+		}
+		custom_tooltip = {
+			text = house_motto_56_modifier
+			add_dynasty_modifier = house_motto_55
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 54 }
+		}
+		custom_tooltip = {
+			text = house_motto_55_modifier
+			add_dynasty_modifier = house_motto_54
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 53 }
+		}
+		custom_tooltip = {
+			text = house_motto_54_modifier
+			add_dynasty_modifier = house_motto_53
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 52 }
+		}
+		custom_tooltip = {
+			text = house_motto_53_modifier
+			add_dynasty_modifier = house_motto_52
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 51 }
+		}
+		custom_tooltip = {
+			text = house_motto_52_modifier
+			add_dynasty_modifier = house_motto_51
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 50 }
+		}
+		custom_tooltip = {
+			text = house_motto_51_modifier
+			add_dynasty_modifier = house_motto_50
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 49 }
+		}
+		custom_tooltip = {
+			text = house_motto_50_modifier
+			add_dynasty_modifier = house_motto_49
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 48 }
+		}
+		custom_tooltip = {
+			text = house_motto_49_modifier
+			add_dynasty_modifier = house_motto_48
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 47 }
+		}
+		custom_tooltip = {
+			text = house_motto_48_modifier
+			add_dynasty_modifier = house_motto_47
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 46 }
+		}
+		custom_tooltip = {
+			text = house_motto_47_modifier
+			add_dynasty_modifier = house_motto_46
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 45 }
+		}
+		custom_tooltip = {
+			text = house_motto_46_modifier
+			add_dynasty_modifier = house_motto_45
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 44 }
+		}
+		custom_tooltip = {
+			text = house_motto_45_modifier
+			add_dynasty_modifier = house_motto_44
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 43 }
+		}
+		custom_tooltip = {
+			text = house_motto_44_modifier
+			add_dynasty_modifier = house_motto_43
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 42 }
+		}
+		custom_tooltip = {
+			text = house_motto_43_modifier
+			add_dynasty_modifier = house_motto_42
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 41 }
+		}
+		custom_tooltip = {
+			text = house_motto_42_modifier
+			add_dynasty_modifier = house_motto_41
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 40 }
+		}
+		custom_tooltip = {
+			text = house_motto_41_modifier
+			add_dynasty_modifier = house_motto_40
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 39 }
+		}
+		custom_tooltip = {
+			text = house_motto_40_modifier
+			add_dynasty_modifier = house_motto_39
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 38 }
+		}
+		custom_tooltip = {
+			text = house_motto_39_modifier
+			add_dynasty_modifier = house_motto_38
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 37 }
+		}
+		custom_tooltip = {
+			text = house_motto_38_modifier
+			add_dynasty_modifier = house_motto_37
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 36 }
+		}
+		custom_tooltip = {
+			text = house_motto_37_modifier
+			add_dynasty_modifier = house_motto_36
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 35 }
+		}
+		custom_tooltip = {
+			text = house_motto_36_modifier
+			add_dynasty_modifier = house_motto_35
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 34 }
+		}
+		custom_tooltip = {
+			text = house_motto_35_modifier
+			add_dynasty_modifier = house_motto_34
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 33 }
+		}
+		custom_tooltip = {
+			text = house_motto_34_modifier
+			add_dynasty_modifier = house_motto_33
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 32 }
+		}
+		custom_tooltip = {
+			text = house_motto_33_modifier
+			add_dynasty_modifier = house_motto_32
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 31 }
+		}
+		custom_tooltip = {
+			text = house_motto_32_modifier
+			add_dynasty_modifier = house_motto_31
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 30 }
+		}
+		custom_tooltip = {
+			text = house_motto_31_modifier
+			add_dynasty_modifier = house_motto_30
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 29 }
+		}
+		custom_tooltip = {
+			text = house_motto_30_modifier
+			add_dynasty_modifier = house_motto_29
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 28 }
+		}
+		custom_tooltip = {
+			text = house_motto_29_modifier
+			add_dynasty_modifier = house_motto_28
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 27 }
+		}
+		custom_tooltip = {
+			text = house_motto_28_modifier
+			add_dynasty_modifier = house_motto_27
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 26 }
+		}
+		custom_tooltip = {
+			text = house_motto_27_modifier
+			add_dynasty_modifier = house_motto_26
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 25 }
+		}
+		custom_tooltip = {
+			text = house_motto_26_modifier
+			add_dynasty_modifier = house_motto_25
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 24 }
+		}
+		custom_tooltip = {
+			text = house_motto_25_modifier
+			add_dynasty_modifier = house_motto_24
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 23 }
+		}
+		custom_tooltip = {
+			text = house_motto_24_modifier
+			add_dynasty_modifier = house_motto_23
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 22 }
+		}
+		custom_tooltip = {
+			text = house_motto_23_modifier
+			add_dynasty_modifier = house_motto_22
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 21 }
+		}
+		custom_tooltip = {
+			text = house_motto_22_modifier
+			add_dynasty_modifier = house_motto_21
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 20 }
+		}
+		custom_tooltip = {
+			text = house_motto_21_modifier
+			add_dynasty_modifier = house_motto_20
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 19 }
+		}
+		custom_tooltip = {
+			text = house_motto_20_modifier
+			add_dynasty_modifier = house_motto_19
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 18 }
+		}
+		custom_tooltip = {
+			text = house_motto_19_modifier
+			add_dynasty_modifier = house_motto_18
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 17 }
+		}
+		custom_tooltip = {
+			text = house_motto_18_modifier
+			add_dynasty_modifier = house_motto_17
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 16 }
+		}
+		custom_tooltip = {
+			text = house_motto_17_modifier
+			add_dynasty_modifier = house_motto_16
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 15 }
+		}
+		custom_tooltip = {
+			text = house_motto_16_modifier
+			add_dynasty_modifier = house_motto_15
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 14 }
+		}
+		custom_tooltip = {
+			text = house_motto_15_modifier
+			add_dynasty_modifier = house_motto_14
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 13 }
+		}
+		custom_tooltip = {
+			text = house_motto_14_modifier
+			add_dynasty_modifier = house_motto_13
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 12 }
+		}
+		custom_tooltip = {
+			text = house_motto_13_modifier
+			add_dynasty_modifier = house_motto_12
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 11 }
+		}
+		custom_tooltip = {
+			text = house_motto_12_modifier
+			add_dynasty_modifier = house_motto_11
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 10 }
+		}
+		custom_tooltip = {
+			text = house_motto_11_modifier
+			add_dynasty_modifier = house_motto_10
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 9 }
+		}
+		custom_tooltip = {
+			text = house_motto_10_modifier
+			add_dynasty_modifier = house_motto_09
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 8 }
+		}
+		custom_tooltip = {
+			text = house_motto_09_modifier
+			add_dynasty_modifier = house_motto_08
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 7 }
+		}
+		custom_tooltip = {
+			text = house_motto_08_modifier
+			add_dynasty_modifier = house_motto_07
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 6 }
+		}
+		custom_tooltip = {
+			text = house_motto_07_modifier
+			add_dynasty_modifier = house_motto_06
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 5 }
+		}
+		custom_tooltip = {
+			text = house_motto_06_modifier
+			add_dynasty_modifier = house_motto_05
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 4 }
+		}
+		custom_tooltip = {
+			text = house_motto_05_modifier
+			add_dynasty_modifier = house_motto_04
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 3 }
+		}
+		custom_tooltip = {
+			text = house_motto_04_modifier
+			add_dynasty_modifier = house_motto_03
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 2 }
+		}
+		custom_tooltip = {
+			text = house_motto_03_modifier
+			add_dynasty_modifier = house_motto_02
+		}
+	}
+	else_if = { # Shall not be true
+		limit = {
+			check_variable = { which = global_defined_motto_used value = 1 }
+		}
+		custom_tooltip = {
+			text = house_motto_02_modifier
+			add_dynasty_modifier = house_motto_01
+		}
+	}
+	custom_tooltip = {
+		text = will_be_your_house_motto_tooltip
+	}
+}

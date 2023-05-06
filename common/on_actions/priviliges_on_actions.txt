@@ -1,0 +1,9 @@
+on_yearly_pulse	= {
+	events = {
+		sdarkages.001
+		sdarkages.002
+		darkages.72582
+		darkages.72583
+		darkages.72584		
+	}
+}

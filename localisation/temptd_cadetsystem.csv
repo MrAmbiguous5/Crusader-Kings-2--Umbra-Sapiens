@@ -1,0 +1,6 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVT_DESC_TEMPTDCADETSYSTEM_3;In history and heraldry, a cadet branch consists of the descendants of a monarch or noble's younger children. In the ruling dynasties and noble families of much of Europe and Asia, the family's major assets (realm, titles, fiefs, property and income) have historically been passed from a noble to his firstborn in what is known as primogeniture. Younger children inherited less wealth and authority to pass to future generations of descendants. You no longer have any close ties to your family and have created a new branch for the family tree.;;;;;;;;;;;;x
+EVT_NAME_TEMPTDCADETSYSTEM_3;A New Branch;;;;;;;;;;;;x
+EVTOPTA_TEMPTDCADETSYSTEM_3;For House [Root.GetOnlyDynastyName]!;;;;;;;;;;;;x
+form_cadetsystem_branch;Form a Cadet branch from House [Root.GetOnlyDynastyName];;;;;;;;;;;;x
+form_cadetsystem_branch_desc;Form a new noble house and sever ties with House [Root.GetOnlyDynastyName];;;;;;;;;;;;x

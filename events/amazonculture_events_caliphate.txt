@@ -1,0 +1,1309 @@
+
+namespace = AmzCal	# Amazonian Caliphate
+
+# reform caliphate
+	character_event = { 
+		id = AmzCal.900
+		title = EVTTITLAmzCal.900
+		desc = EVTDESCAmzCal.900
+		picture = GFX_evt_kaaba
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCal.900
+			trigger = { 
+				realm_character_percent = {		# 20% of characters
+					target = 0.20
+					religion = ROOT
+				}
+				OR = {
+					AND = {
+						NOR = {
+							has_global_flag = sunni_abs_cognatic_flag
+							has_global_flag = sunni_enat_cognatic_flag
+						}
+						religion = sunni 
+					}
+					AND = {
+						NOR = {
+							has_global_flag = shiite_abs_cognatic_flag
+							has_global_flag = shiite_enat_cognatic_flag
+						}
+						religion = shiite
+					}
+					AND = {	
+						NOR = {
+							has_global_flag = ibadi_abs_cognatic_flag
+							has_global_flag = ibadi_enat_cognatic_flag
+						}
+						religion = ibadi
+					}	
+					AND = {
+						NOR = {
+							has_global_flag = yazidi_abs_cognatic_flag
+							has_global_flag = yazidi_enat_cognatic_flag
+						}
+						religion = yazidi
+					}
+					AND = {
+						NOR = {
+							has_global_flag = kharijite_abs_cognatic_flag
+							has_global_flag = kharijite_enat_cognatic_flag
+						}
+						religion = kharijite
+					}
+					AND = {
+						NOR = {
+							has_global_flag = hurufi_abs_cognatic_flag
+							has_global_flag = hurufi_enat_cognatic_flag
+						}
+						religion = hurufi
+					}
+					
+					AND = {
+						NOR = {
+							has_global_flag = qarmatian_abs_cognatic_flag
+							has_global_flag = qarmatian_enat_cognatic_flag
+						}
+						religion = qarmatian 
+					}
+				}
+				OR = {
+					has_game_rule = { 
+						name = succession_law_amz
+						value = default_succession_amz
+					}
+					OR = {
+						culture = themiskyran_amz  
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+				}
+			}
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				character_event = { id = AmzCal.901 }	# succession
+			}
+		}
+		option = {	
+			name = EVTOPTEAmzCal.900
+			trigger = { 
+				ai = no
+				has_global_flag = fatimah_bloodline_flag
+				NOT = { has_global_flag = sayyida_flag }
+				has_game_rule = { 
+					name = succession_law_amz
+					value = default_succession_amz
+				}
+				OR = {								# shia are less willing
+					NOT = { religion = shiite }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				OR = {
+					AND = {
+						OR = {
+							has_global_flag = sunni_abs_cognatic_flag
+							has_global_flag = sunni_enat_cognatic_flag
+							NOT = {
+								has_game_rule = { 
+									name = succession_law_amz
+									value = default_succession_amz
+								}
+							}
+						}
+						religion = sunni 
+					}
+					AND = {
+						OR = {
+							has_global_flag = shiite_abs_cognatic_flag
+							has_global_flag = shiite_enat_cognatic_flag
+							NOT = {
+								has_game_rule = { 
+									name = succession_law_amz
+									value = default_succession_amz
+								}
+							}
+						}
+						religion = shiite
+					}
+					AND = {	
+						OR = {
+							has_global_flag = ibadi_abs_cognatic_flag
+							has_global_flag = ibadi_enat_cognatic_flag
+							NOT = {
+								has_game_rule = { 
+									name = succession_law_amz
+									value = default_succession_amz
+								}
+							}
+						}
+						religion = ibadi
+					}	
+					AND = {
+						OR = {
+							has_global_flag = yazidi_abs_cognatic_flag
+							has_global_flag = yazidi_enat_cognatic_flag
+							NOT = {
+								has_game_rule = { 
+									name = succession_law_amz
+									value = default_succession_amz
+								}
+							}
+						}
+						religion = yazidi
+					}
+					AND = {
+						OR = {
+							has_global_flag = kharijite_abs_cognatic_flag
+							has_global_flag = kharijite_enat_cognatic_flag
+							NOT = {
+								has_game_rule = { 
+									name = succession_law_amz
+									value = default_succession_amz
+								}
+							}
+						}
+						religion = kharijite
+					}
+					AND = {
+						OR = {
+							has_global_flag = hurufi_abs_cognatic_flag
+							has_global_flag = hurufi_enat_cognatic_flag
+							NOT = {
+								has_game_rule = { 
+									name = succession_law_amz
+									value = default_succession_amz
+								}
+							}
+						}
+						religion = hurufi
+					}
+					
+					AND = {
+						OR = {
+							has_global_flag = qarmatian_abs_cognatic_flag
+							has_global_flag = qarmatian_enat_cognatic_flag
+							NOT = {
+								has_game_rule = { 
+									name = succession_law_amz
+									value = default_succession_amz
+								}
+							}
+						}
+						religion = qarmatian 
+					}
+				}
+			}
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				character_event = { id = AmzCal.904 }	# sayyid trait global
+			}
+		}
+		option = {	
+			name = EVTOPTBAmzCal.900
+			trigger = {
+				realm_character_percent = {		# 40% of characters
+					target = 0.40
+					religion = ROOT
+				}
+				OR = {
+					AND = {														
+						religion = sunni
+						NOT = { has_global_flag = sunni_reformed_marriage_flag }
+					}
+					AND = {
+						religion = shiite
+						NOT = { has_global_flag = shiite_reformed_marriage_flag }
+					}
+					AND = {
+						religion = ibadi 
+						NOT = { has_global_flag = ibadi_reformed_marriage_flag }
+					}
+					AND = {
+						religion = yazidi 
+						NOT = { has_global_flag = yazidi_reformed_marriage_flag }
+					}
+					AND = {
+						religion = kharijite 
+						NOT = { has_global_flag = kharijite_reformed_marriage_flag }
+					}
+					AND = {
+						religion = hurufi 
+						NOT = { has_global_flag = hurufi_reformed_marriage_flag }
+					}
+					AND = {
+						religion = qarmatian 
+						NOT = { has_global_flag = qarmatian_reformed_marriage_flag }
+					}
+				}
+			}
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				character_event = { id = AmzCal.902 }	# marriage
+			}
+		}
+		option = {	
+			name = EVTOPTCAmzCal.900
+			trigger = { 
+				realm_character_percent = {		# 50% of characters
+					target = 0.50
+					religion = ROOT
+				}
+				OR = {
+					AND = {														
+						religion = sunni
+						OR = {
+							culture = themiskyran_amz
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+						has_global_flag = sunni_reformed_marriage_flag
+						NOT = { has_global_flag = sunni_concubines_flag }	
+					}
+					AND = {
+						religion = shiite
+						OR = {
+							culture = themiskyran_amz
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+						has_global_flag = shiite_reformed_marriage_flag
+						NOT = { has_global_flag = shiite_concubines_flag }
+					}
+					AND = {
+						religion = ibadi 
+						OR = {
+							culture = themiskyran_amz
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+						has_global_flag = ibadi_reformed_marriage_flag
+						NOT = { has_global_flag = ibadi_concubines_flag }
+					}
+					AND = {
+						religion = yazidi 
+						OR = {
+							culture = themiskyran_amz
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+						has_global_flag = yazidi_reformed_marriage_flag
+						NOT = { has_global_flag = yazidi_concubines_flag }
+					}
+					AND = {
+						religion = kharijite 
+						OR = {
+							culture = themiskyran_amz
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+						has_global_flag = kharijite_reformed_marriage_flag
+						NOT = { has_global_flag = kharijite_concubines_flag }
+					}
+					AND = {
+						religion = hurufi 
+						OR = {
+							culture = themiskyran_amz
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+						has_global_flag = hurufi_reformed_marriage_flag
+						NOT = { has_global_flag = hurufi_concubines_flag }
+					}
+					AND = {
+						religion = qarmatian 
+						OR = {
+							culture = themiskyran_amz
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+						has_global_flag = qarmatian_reformed_marriage_flag
+						NOT = { has_global_flag = qarmatian_concubines_flag }
+					}
+				}
+			}
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				character_event = { id = AmzCal.903 }	# concubines 
+			}
+		}
+		option = {	# fugedaboutit
+			name = EVTOPTDAmzCal.900
+			ai_chance = { factor = 0 }
+			clr_character_flag = reforming_caliphate_flag
+		}
+		
+	}
+
+# decide caliphate succession law
+	character_event = { 
+		id = AmzCal.901
+		desc = EVTDESCAmzCal.901
+		picture = GFX_evt_kaaba
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+	
+		option = {	
+			name = EVTOPTAAmzCal.901	# absolute cognatic
+			custom_tooltip = { text = heresy_absolute_cognatic_tt }
+			ai_chance = { factor = 10 }
+			trigger = {
+				NOR = { 
+					culture = themiskyran_amz  
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { religion = sunni }
+					set_global_flag = sunni_abs_cognatic_flag
+				}
+				if = {
+					limit = { religion = shiite }
+					set_global_flag = shiite_abs_cognatic_flag
+				}
+				if = {
+					limit = { religion = ibadi }
+					set_global_flag = ibadi_abs_cognatic_flag
+				}
+				if = {
+					limit = { religion = yazidi }
+					set_global_flag = yazidi_abs_cognatic_flag
+				}
+				if = {
+					limit = { religion = kharijite }
+					set_global_flag = kharijite_abs_cognatic_flag
+				}
+				if = {
+					limit = { religion = hurufi }
+					set_global_flag = hurufi_abs_cognatic_flag
+				}
+				if = {
+					limit = { religion = qarmatian }
+					set_global_flag = qarmatian_abs_cognatic_flag
+				}
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+				any_player = {
+					limit = {
+						religion = ROOT
+						NOT = { character = ROOT }
+					}
+					character_event = { id = AmzCal.9011 }
+				}
+				set_feminist = yes
+				set_allows_matrilineal_marriage = yes
+			}
+			sound_effect = pagan_reformation
+			primary_title = {
+				add_law = status_of_women_4
+				set_allow_feminism = yes
+				law_set_allow_matrilineal_marriage = yes 
+				add_law = { 
+					law = true_cognatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+			}
+			piety = -500
+			clr_character_flag = reforming_caliphate_flag
+		}
+		option = {	
+			name = EVTOPTBAmzCal.901	# enatic-cognatic, amz only
+			custom_tooltip = { text = heresy_enatic_cognatic_tt }
+			ai_chance = { factor = 10 }
+			trigger = { 
+				OR = {
+					culture = themiskyran_amz  
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { religion = sunni }
+					set_global_flag = sunni_enat_cognatic_flag
+				}
+				if = {
+					limit = { religion = shiite }
+					set_global_flag = shiite_enat_cognatic_flag
+				}
+				if = {
+					limit = { religion = ibadi }
+					set_global_flag = ibadi_enat_cognatic_flag
+				}
+				if = {
+					limit = { religion = yazidi }
+					set_global_flag = yazidi_enat_cognatic_flag
+				}
+				if = {
+					limit = { religion = kharijite }
+					set_global_flag = kharijite_enat_cognatic_flag
+				}
+				if = {
+					limit = { religion = hurufi }
+					set_global_flag = hurufi_enat_cognatic_flag
+				}
+				if = {
+					limit = { religion = qarmatian }
+					set_global_flag = qarmatian_enat_cognatic_flag
+				}
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+				any_player = {
+					limit = {
+						religion = ROOT
+						NOT = { character = ROOT }
+					}
+					character_event = { id = AmzCal.9011 }
+				}
+				set_feminist = yes
+				set_allows_matrilineal_marriage = yes
+			}
+			sound_effect = pagan_reformation
+			primary_title = {
+				add_law = { 
+					law = enatic_cognatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+				add_law = status_of_women_4
+			}
+			clr_character_flag = reforming_caliphate_flag
+			piety = -500
+		}
+		option = {	
+			name = EVTOPTDAmzCal.901	# no change
+			ai_chance = { factor = 0 }
+			hidden_tooltip = {
+				character_event = { id = AmzCal.900 }
+			}
+		}
+	}
+
+# reform polygyny
+	character_event = { 
+		id = AmzCal.902
+		desc = EVTDESCAmzCal.902
+		picture = GFX_evt_kaaba
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCal.902	
+			custom_tooltip = { text = polygyny_reform_tt }
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				if = {
+					limit = { religion = sunni } 
+					set_global_flag = sunni_reformed_marriage_flag
+					set_max_wives = 1
+				}
+				if = {
+					limit = { religion = shiite } 
+					set_global_flag = shiite_reformed_marriage_flag
+					set_max_wives = 1
+				}
+				if = {
+					limit = { religion = ibadi } 
+					set_global_flag = ibadi_reformed_marriage_flag
+					set_max_wives = 1
+				}
+				if = {
+					limit = { religion = yazidi } 
+					set_global_flag = yazidi_reformed_marriage_flag
+					set_max_wives = 1
+				}
+				if = {
+					limit = { religion = kharijite } 
+					set_global_flag = kharijite_reformed_marriage_flag
+					set_max_wives = 1
+				}
+				if = {
+					limit = { religion = hurufi } 
+					set_global_flag = hurufi_reformed_marriage_flag
+					set_max_wives = 1
+				}
+				if = {
+					limit = { religion = qarmatian } 
+					set_global_flag = qarmatian_reformed_marriage_flag
+					set_max_wives = 1
+				}
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+				any_player = {
+					limit = {
+						religion = ROOT
+						NOT = { character = ROOT }
+					}
+					character_event = { id = AmzCal.9021 }	# reform notif
+				}
+				any_playable_ruler = {
+					limit = { 
+						religion = ROOT 
+						is_married = yes
+					}
+					character_event = { id = AmzCal.9022 }	# divorce wife notif
+				}
+			}
+			sound_effect = pagan_reformation
+			piety = -500
+			clr_character_flag = reforming_caliphate_flag
+		}
+		option = {	
+			name = EVTOPTBAmzCal.902	# no change
+			ai_chance = { factor = 0 }
+			hidden_tooltip = {
+				character_event = { id = AmzCal.900 }
+			}
+		}
+	}
+
+# decide concubine law
+	character_event = { 
+		id = AmzCal.903
+		desc = EVTDESCAmzCal.903
+		picture = GFX_evt_kaaba
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCal.903	# women get concubines
+			custom_tooltip = { text = male_harems_tt }
+			ai_chance = { factor = 10 }
+			hidden_tooltip = {
+				set_women_can_take_consorts = yes
+				set_men_can_take_consorts = no
+				set_max_consorts = 3
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+				if = {
+					limit = { religion = sunni }
+					set_global_flag = sunni_concubines_flag	
+				}
+				if = {
+					limit = { religion = shiite }
+					set_global_flag = shiite_concubines_flag	
+				}
+				if = {
+					limit = { religion = ibadi }
+					set_global_flag = ibadi_concubines_flag	
+				}
+				if = {
+					limit = { religion = yazidi }
+					set_global_flag = yazidi_concubines_flag	
+				}
+				if = {
+					limit = { religion = kharijite }
+					set_global_flag = kharijite_concubines_flag	
+				}
+				if = {
+					limit = { religion = hurufi }
+					set_global_flag = hurufi_concubines_flag	
+				}
+				if = {
+					limit = { religion = qarmatian }
+					set_global_flag = qarmatian_concubines_flag	
+				}
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+				any_player = {
+					limit = {
+						religion = ROOT
+						NOT = { character = ROOT }
+					}
+					character_event = { id = AmzCal.9031 }
+				}
+			}
+			sound_effect = pagan_reformation
+			piety = -500
+			clr_character_flag = reforming_caliphate_flag
+		}
+		option = {	
+			name = EVTOPTBAmzCal.903	# no change
+			ai_chance = { factor = 0 }
+			hidden_tooltip = {
+				character_event = { id = AmzCal.900 }
+			}
+		}
+	}
+	
+# decide sayyida inheritence (player only, due to Fatimah's bloodline)
+	character_event = { 
+		id = AmzCal.904
+		desc = EVTDESCAmzCal.904
+		picture = GFX_evt_kaaba
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCal.904	# sayyid become inheritable from mothers
+			custom_tooltip = { text = sayyida_flag_tt }
+			ai_chance = { factor = 10 }
+			set_global_flag = sayyida_flag
+			sound_effect = pagan_reformation
+			piety = -500
+			clr_character_flag = reforming_caliphate_flag
+			hidden_tooltip = {
+				add_character_modifier = { 
+					name = feminist_reformer_modifier   
+					years = 20
+					stacking = yes
+				}
+			}
+		}
+		option = {	
+			name = EVTOPTBAmzCal.904	# no change
+			ai_chance = { factor = 0 }
+			hidden_tooltip = {
+				character_event = { id = AmzCal.900 }
+			}
+		}
+	}
+	
+################	NOTIFICATIONS FOR PLAYERS IN THE CALIPHATE	#####################
+
+# succession reformed
+	character_event = { 
+		id = AmzCal.9011
+		desc = EVTDESCAmzCal.9011
+		picture = GFX_evt_kaaba
+		border = GFX_event_character_frame_religion
+		portrait = FROMFROM
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCal.9011
+			ai_chance = { factor = 10 }	
+			sound_effect = pagan_reformation
+		}
+	}
+
+# polygyny reformed
+	character_event = { 
+		id = AmzCal.9021
+		desc = EVTDESCAmzCal.9021
+		picture = GFX_evt_kaaba
+		border = GFX_event_character_frame_religion
+		portrait = FROMFROM
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCal.9021	
+			ai_chance = { factor = 10 }	
+			sound_effect = pagan_reformation
+		}
+	}
+
+# concubines reformed
+	character_event = { 
+		id = AmzCal.9031
+		desc = EVTDESCAmzCal.9031
+		picture = GFX_evt_kaaba
+		border = GFX_event_character_frame_religion
+		portrait = FROMFROM
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCal.9031	
+			custom_tooltip = { text = male_harems_tt }
+			ai_chance = { factor = 10 }	
+			sound_effect = pagan_reformation
+		}
+	}
+	
+# force divorce secondary wives
+	character_event = { 
+		id = AmzCal.9022
+		hide_window = yes
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCal.9022	
+			ai_chance = { factor = 10 }	
+			any_spouse = {
+				limit = { is_main_spouse = no }
+				remove_spouse = spouse
+			}
+			any_courtier_or_vassal = {
+				limit = { 
+					religion = ROOT 
+					is_female = no
+					is_married = yes
+				}
+				any_spouse = {
+					limit = { is_main_spouse = no }
+					remove_spouse = spouse
+				}
+			}
+		}
+	}
+	
+################	CALIPH RESTORES THE ORIGINAL CALIPHATE	#####################
+
+# reform caliphate
+	character_event = { 
+		id = AmzCal.910
+		title = EVTTITLAmzCal.910
+		desc = EVTDESCAmzCal.910
+		picture = GFX_evt_kaaba
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCal.910
+			ai_chance = { factor = 10 }
+			if = { 
+				limit = { religion = sunni }
+				clr_global_flag = sunni_enat_cognatic_flag
+				clr_global_flag = sunni_reformed_marriage_flag
+				clr_global_flag = sunni_concubines_flag	
+				set_women_can_take_consorts = no
+				set_men_can_take_consorts = no
+				set_max_wives = 4
+				set_global_flag = sunni_abs_cognatic_flag
+			}
+			if = { 
+				limit = { religion = shiite }
+				clr_global_flag = shiite_enat_cognatic_flag
+				clr_global_flag = shiite_reformed_marriage_flag
+				clr_global_flag = shiite_concubines_flag	
+				set_women_can_take_consorts = no
+				set_men_can_take_consorts = no
+				set_max_wives = 4
+				set_global_flag = shiite_abs_cognatic_flag
+			}	
+			if = { 
+				limit = { religion = ibadi }
+				clr_global_flag = ibadi_enat_cognatic_flag
+				clr_global_flag = ibadi_reformed_marriage_flag
+				clr_global_flag = ibadi_concubines_flag	
+				set_women_can_take_consorts = no
+				set_men_can_take_consorts = no
+				set_max_wives = 4
+				set_global_flag = ibadi_abs_cognatic_flag
+			}
+			if = { 
+				limit = { religion = yazidi }
+				clr_global_flag = yazidi_enat_cognatic_flag
+				clr_global_flag = yazidi_reformed_marriage_flag
+				clr_global_flag = yazidi_concubines_flag	
+				set_women_can_take_consorts = no
+				set_men_can_take_consorts = no
+				set_max_wives = 4
+				set_global_flag = yazidi_abs_cognatic_flag
+			}
+			if = { 
+				limit = { religion = kharijite }
+				clr_global_flag = kharijite_enat_cognatic_flag
+				clr_global_flag = kharijite_reformed_marriage_flag
+				clr_global_flag = kharijite_concubines_flag	
+				set_women_can_take_consorts = no
+				set_men_can_take_consorts = no
+				set_max_wives = 4
+				set_global_flag = kharijite_abs_cognatic_flag
+			}
+			if = { 
+				limit = { religion = hurufi }
+				clr_global_flag = hurufi_enat_cognatic_flag
+				clr_global_flag = hurufi_reformed_marriage_flag
+				clr_global_flag = hurufi_concubines_flag	
+				set_women_can_take_consorts = no
+				set_men_can_take_consorts = no
+				set_max_wives = 4
+				set_global_flag = hurufi_abs_cognatic_flag
+			}		
+			if = { 
+				limit = { religion = qarmatian }
+				clr_global_flag = qarmatian_enat_cognatic_flag
+				clr_global_flag = qarmatian_reformed_marriage_flag
+				clr_global_flag = qarmatian_concubines_flag	
+				set_women_can_take_consorts = no
+				set_men_can_take_consorts = no
+				set_max_wives = 4
+				set_global_flag = qarmatian_abs_cognatic_flag
+			}	
+			any_demesne_title = {
+				add_law = { 
+					law = true_cognatic_succession		
+					cooldown = no
+					opinion_effect = no
+				}
+				add_law = status_of_women_4
+			}
+			recalc_succession = yes
+			any_playable_ruler = {
+				limit = { religion = ROOT }
+				character_event = { id = AmzCal.911 }	
+			}
+		}
+	}
+
+# caliphate reformed notif
+	character_event = { 
+		id = AmzCal.911
+		title = EVTTITLAmzCal.911
+		desc = EVTDESCAmzCal.911
+		picture = GFX_evt_kaaba
+		border = GFX_event_character_frame_religion
+		portrait = FROMFROM
+		
+		is_triggered_only = yes
+						
+		option = {	
+			name = EVTOPTAAmzCal.911		# common sense has been restored
+			ai_chance = { factor = 10 }
+			trigger = {
+				NOR = { 
+					culture = themiskyran_amz  
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+					is_female = yes
+				}
+			}
+			hidden_tooltip = {
+				any_demesne_title = {
+					add_law = { 
+						law = agnatic_succession
+						cooldown = no
+						opinion_effect = no
+					}
+					add_law = status_of_women_0
+				}
+				recalc_succession = yes
+				any_vassal = {
+					limit = { 
+						religion = ROOT 
+						is_playable = no
+					}
+					character_event = { id = AmzCal.911 }	# cycles
+				}
+			}
+		}
+		option = {	
+			name = EVTOPTBAmzCal.911		# A taste of liberation is better than nothing
+			ai_chance = { factor = 10 }
+			trigger = {
+				NOR = { 
+					culture = themiskyran_amz  
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+				is_female = yes
+			}
+			hidden_tooltip = {
+				any_demesne_title = {
+					add_law = { 
+						law = agnatic_succession
+						cooldown = no
+						opinion_effect = no
+					}
+					add_law = status_of_women_0
+				}
+				recalc_succession = yes
+				any_vassal = {
+					limit = { 
+						religion = ROOT 
+						is_playable = no
+					}
+					character_event = { id = AmzCal.911 }	# cycles
+				}
+			}
+		}
+		option = {	
+			name = EVTOPTCAmzCal.911		# Not likely
+			ai_chance = { factor = 10 }
+			trigger = {
+				OR = { 
+					culture = themiskyran_amz  
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+			}
+		}
+	}
+
+
+
+################	CALIPHA CREATES FATIMAH'S BLOODINE	#####################
+
+# offer to claim Fatimah's bloodline
+	narrative_event = { 
+		id = AmzCal.920
+		title = EVTTITLAmzCal.920
+		desc = EVTDESCAmzCal.920
+		picture = GFX_evt_kaaba
+		border = GFX_event_narrative_frame_religion
+		portrait = 33921	# Fatimah 
+		
+		mean_time_to_happen = { years = 3 }
+		
+		trigger = {
+			ai = no
+			is_female = yes
+			prestige = 3000
+			OR = {
+				realm_size = 120
+				any_demesne_title = {
+					count = 3
+					tier = KING
+				}
+			}	
+			is_adult = yes
+			war = no
+			controls_religion = yes # holds a caliphate
+			has_secret_religion = no
+			is_alternate_start = no
+			NOT = { is_inaccessible_trigger = yes } 
+			NOT = { has_character_flag = seeking_fatimah_bloodline_flag }
+			NOT = { has_character_flag = waiting_fatimah_bloodline_flag }
+			NOT = { has_character_flag = denied_fatimah_bloodline_flag }			
+			NOT = { has_global_flag = fatimah_bloodline_flag }
+			OR = {		
+				AND = {															
+					religion = sunni
+					OR = {
+						has_global_flag = sunni_abs_cognatic_flag
+						has_global_flag = sunni_enat_cognatic_flag
+						has_global_flag = sunni_reformed_marriage_flag
+					}
+				}
+				AND = {
+					religion = shiite
+					OR = {
+						has_global_flag = shiite_abs_cognatic_flag
+						has_global_flag = shiite_enat_cognatic_flag
+						has_global_flag = shiite_reformed_marriage_flag
+					}
+				}
+				AND = {
+					religion = ibadi 
+					OR = {
+						has_global_flag = ibadi_abs_cognatic_flag
+						has_global_flag = ibadi_enat_cognatic_flag
+						has_global_flag = ibadi_reformed_marriage_flag
+					}
+				}
+				AND = {
+					religion = yazidi
+					OR = {
+						has_global_flag = yazidi_abs_cognatic_flag
+						has_global_flag = yazidi_enat_cognatic_flag
+						has_global_flag = yazidi_reformed_marriage_flag
+					}
+				}
+				AND = {
+					religion = kharijite 
+					OR = {
+						has_global_flag = kharijite_abs_cognatic_flag
+						has_global_flag = kharijite_enat_cognatic_flag
+						has_global_flag = kharijite_reformed_marriage_flag
+					}
+				}
+				AND = {
+					religion = hurufi
+					OR = {
+						has_global_flag = hurufi_abs_cognatic_flag
+						has_global_flag = hurufi_enat_cognatic_flag
+						has_global_flag = hurufi_reformed_marriage_flag
+					}
+				}
+				AND = {
+					religion = qarmatian 
+					OR = {
+						has_global_flag = qarmatian_abs_cognatic_flag
+						has_global_flag = qarmatian_enat_cognatic_flag
+						has_global_flag = qarmatian_reformed_marriage_flag
+					}
+				}
+			}
+		}
+
+		option = {	
+			name = EVTOPTAAmzCal.920		# Al-Zahra shall be honoured through me
+			ai_chance = { factor = 10 }
+			custom_tooltip = { text = seeking_fatimah_bloodline_tt }
+			set_character_flag = seeking_fatimah_bloodline_flag		
+		}
+		option = {	
+			name = EVTOPTBAmzCal.920		# No. The very idea is sacrilegious!
+			ai_chance = { factor = 0 }
+			set_character_flag = denied_fatimah_bloodline_flag
+			if = {
+				limit = { NOT = { trait = content } }
+				add_trait = content
+			}
+			if = {
+				limit = { NOT = { trait = honest } }
+				add_trait = honest
+			}
+		}
+	}
+	
+# seeking the bloodline
+	character_event = { 
+		id = AmzCal.921
+		title = EVTTITLAmzCal.920
+		desc = EVTDESCAmzCal.921
+		picture = GFX_evt_bishop
+		border = GFX_event_character_frame_religion
+		portrait = 33921	# Fatimah 
+		
+		mean_time_to_happen = { days = 300 }
+		
+		trigger = {
+			has_character_flag = seeking_fatimah_bloodline_flag
+			war = no
+			NOT = { is_inaccessible_trigger = yes }
+		}
+
+		option = {	
+			name = EVTOPTAAmzCal.921		# Reluctantly, I must agree to his terms
+			ai_chance = { factor = 1 }
+			custom_tooltip = { text = bribed_fatimah_bloodline_tt }
+			clr_character_flag = seeking_fatimah_bloodline_flag	
+			set_character_flag = waiting_fatimah_bloodline_flag
+			scaled_wealth = {
+				value = -3.5
+				min = -2000
+				max = -5000
+			}
+		}
+		option = {	
+			name = EVTOPTBAmzCal.921		# alternative arrangement
+			ai_chance = { factor = 10 }
+			clr_character_flag = seeking_fatimah_bloodline_flag	
+			set_character_flag = waiting_fatimah_bloodline_flag
+			wealth = -1000
+			add_character_modifier = { 
+				name = extra_zakat_modifier
+				duration = -1
+			}
+		}
+		option = {	
+			name = EVTOPTCAmzCal.921		# He asks too much of me
+			ai_chance = { factor = 0 }
+			custom_tooltip = { text = not_bribed_fatimah_bloodline_tt }
+			clr_character_flag = seeking_fatimah_bloodline_flag	
+			set_character_flag = denied_fatimah_bloodline_flag
+		}
+	}	
+	
+# gain the bloodline
+	narrative_event = { 
+		id = AmzCal.922
+		title = EVTTITLAmzCal.920
+		desc = EVTDESCAmzCal.922
+		picture = GFX_evt_bloodlines
+		border = GFX_event_narrative_frame_religion
+		portrait = 33921	# Fatimah 
+		
+		mean_time_to_happen = { days = 300 }
+		
+		trigger = {
+			has_character_flag = waiting_fatimah_bloodline_flag
+			war = no
+			NOT = { is_inaccessible_trigger = yes }
+		}
+
+		option = {	
+			name = EVTOPTAAmzCal.922		# Let it be known.
+			ai_chance = { factor = 10 }
+			clr_character_flag = waiting_fatimah_bloodline_flag
+			set_global_flag = fatimah_bloodline_flag
+			prestige = 1000
+			if = {
+				limit = { 
+					NOR = { 
+						trait = sayyid
+						trait = mirza
+					}
+				}
+				add_trait = sayyid 
+			}
+			if = {
+				limit = { trait = mirza }
+				remove_trait = mirza 
+				add_trait = sayyid 
+			}
+			create_bloodline = {
+				type = daughters_of_fatimah					#Daughters of Islam
+			}
+			sound_effect = bloodline_added
+			if = { 
+				limit = { ai = yes }
+				any_player = {
+					limit = { religion_group = ROOT }
+					character_event = { id = AmzCal.924 }
+				}
+			}
+		}
+	}	
+
+
+# sayyid trait become matrilineally transferable	
+	character_event = { 
+		id = AmzCal.923
+		hide_window = yes
+		
+		trigger = {
+			OR = {
+				has_global_flag = sayyida_flag
+				NOT = {			# playing equality, female preference or female dominated succession 
+					has_game_rule = { 
+						name = succession_law_amz
+						value = default_succession_amz
+					}
+				}
+			}
+			OR = {
+				mother_even_if_dead = { trait = sayyid }
+				mother_even_if_dead = {
+					mother_even_if_dead = { trait = sayyid }
+				}
+				mother_even_if_dead = {
+					mother_even_if_dead = { 
+						mother_even_if_dead = { trait = sayyid } 
+					}
+				}
+			}
+		}
+
+		option = {	
+			name = EVTOPTAAmzCal.923		# become sayyid/sayyida
+			ai_chance = { factor = 10 }
+			add_trait = sayyid
+		}
+	}	
+	
+# notified of sayyid/sayyida change
+	character_event = { 
+		id = AmzCal.924
+		desc = EVTDESCAmzCal.924
+		picture = GFX_evt_bloodlines
+		border = GFX_event_narrative_frame_religion
+		portrait = FROM 
+		
+		is_triggered_only = yes 
+
+		option = {	
+			name = EVTOPTAAmzCal.924		# herself included
+			ai_chance = { factor = 10 }
+		}
+	}		
+	
+	
+	
+	
+	
+	
+	
+

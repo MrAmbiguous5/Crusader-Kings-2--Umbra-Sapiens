@@ -1,0 +1,25 @@
+d_Sacred_Band = {
+    color = { 224 125 8 }
+ 
+    capital = 475 # Thebes
+ 
+    title = ""MEGASTRATEGOS""
+    foa = "GRANDMASTER_FOA"
+
+    # Always exists
+    landless = yes
+ 
+    holy_order = yes
+    mercenary_type = sacred_band_composition
+ 
+    culture = greek
+ 
+    # Parent Religion
+    religion = hellenic_pagan_reformed
+ 
+    # Cannot be held as a secondary title
+    primary = yes
+ 
+    # Extra income due to banking, etc
+    monthly_income = 10 # (Must be an integer between 1 and 512)
+}

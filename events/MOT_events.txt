@@ -1,0 +1,1691 @@
+namespace = MOT
+
+# ROOT is the dynasty head
+character_event = {
+	id = MOT.100
+	#title = EVTDESC_MOT_100
+	desc = EVTDESC_MOT_100
+	picture = GFX_evt_gathering_of_minds
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_dynasty_flag = house_motto_recently_removed
+		set_dynasty_flag = house_motto_created
+		change_variable = { which = global_defined_motto_used value = 1 }
+	}
+	
+	option = {
+		name = EVTOPTA_MOT_100_A
+		trigger = {
+			any_spouse = { # implicit is_married = yes
+				is_main_spouse = yes
+				has_regent = no
+			}
+		}
+		custom_tooltip = {
+			text = one_will_be_chosen
+			random_list = {
+				10 = {
+					create_defined_motto_effect = yes
+				}
+				10 = {
+					change_variable = { which = global_defined_motto_used value = 1 }
+					create_defined_motto_one_padded_effect = yes
+				}
+			}
+		}
+		any_spouse = { # implicit is_married = yes
+			limit = {
+				is_main_spouse = yes
+				has_regent = no
+			}
+			opinion = {
+				modifier = opinion_grateful
+				who = ROOT
+				years = 5
+			}
+			if = {
+				limit = {
+					NOT = { dynasty = ROOT }
+				}
+				ROOT = {
+					any_dynasty_member = {
+						limit = {
+							NOT = {
+								character = ROOT
+							}
+						}
+						opinion = {
+							modifier = disrespects_dynasty
+							who = ROOT
+							years = 10
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTA_MOT_100_B
+		trigger = {
+			OR = {
+				any_spouse = {
+					is_main_spouse = yes
+					has_regent = yes
+				}
+				is_married = no
+			}
+			any_courtier_or_vassal = {
+				OR = {
+					has_minor_title = title_regent
+					has_minor_title = title_appointed_regent
+				}
+			}
+		}
+		custom_tooltip = {
+			text = one_will_be_chosen
+			random_list = {
+				10 = {
+					create_defined_motto_effect = yes
+				}
+				10 = {
+					change_variable = { which = global_defined_motto_used value = 1 }
+					create_defined_motto_one_padded_effect = yes
+				}
+			}
+		}
+		random_courtier_or_vassal = {
+			limit = {
+				OR = {
+					has_minor_title = title_regent
+					has_minor_title = title_appointed_regent
+				}
+			}
+			opinion = {
+				modifier = opinion_grateful
+				who = ROOT
+				years = 5
+			}
+			if = {
+				limit = {
+					NOT = { dynasty = ROOT }
+				}
+				ROOT = {
+					any_dynasty_member = {
+						limit = {
+							NOT = {
+								character = ROOT
+							}
+						}
+						opinion = {
+							modifier = disrespects_dynasty
+							who = ROOT
+							years = 10
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_MOT_100
+		create_defined_motto_effect = yes
+	}
+	option = {
+		name = EVTOPTC_MOT_100
+		hidden_tooltip = {
+			change_variable = { which = global_defined_motto_used value = 1 }
+		}
+		create_defined_motto_one_padded_effect = yes
+	}
+	option = {
+		name = EVTOPTD_MOT_100
+		trigger = {
+			ai = no
+			OR = {
+				trait = ambitious
+				trait = erudite
+				lifestyle_traits >= 1
+				# more to fill...
+			}
+		}
+		hidden_tooltip = {
+			change_variable = { which = global_defined_motto_used value = -1 }
+		}
+		character_event = { id = MOT.110 }
+	}
+}
+
+character_event = {
+	id = MOT.110
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
+				}
+			}
+			create_character = {
+				name = " "
+				dynasty = none
+				age = 0
+			}
+			new_character = {
+				prompt_name = {
+					player = ROOT
+					portrait = ROOT
+					#type = RENAME_ARTIFACT_MESSAGE
+					type = SETUP_HOUSE_MOTTO_CUSTOM
+					name_list = hellenic_motto_list
+				}
+				save_event_target_as = house_motto_placeholder_target
+				set_immune_to_pruning = yes
+				death = { death_reason = death_missing }
+			}
+		}
+		else_if = {
+			limit = {
+				religion_group = muslim
+			}
+			create_character = {
+				name = " "
+				dynasty = none
+				age = 0
+			}
+			new_character = {
+				prompt_name = {
+					player = ROOT
+					portrait = ROOT
+					#type = RENAME_ARTIFACT_MESSAGE
+					type = SETUP_HOUSE_MOTTO_CUSTOM
+					name_list = muslim_motto_list
+				}
+				save_event_target_as = house_motto_placeholder_target
+				set_immune_to_pruning = yes
+				death = { death_reason = death_missing }
+			}
+		}
+		else_if = {
+			limit = {
+				religion_group = indian_group
+			}
+			create_character = {
+				name = " "
+				dynasty = none
+				age = 0
+			}
+			new_character = {
+				prompt_name = {
+					player = ROOT
+					portrait = ROOT
+					#type = RENAME_ARTIFACT_MESSAGE
+					type = SETUP_HOUSE_MOTTO_CUSTOM
+					name_list = eastern_motto_list
+				}
+				save_event_target_as = house_motto_placeholder_target
+				set_immune_to_pruning = yes
+				death = { death_reason = death_missing }
+			}
+		}
+		else_if = {
+			limit = {
+				religion_group = zoroastrian_group
+			}
+			create_character = {
+				name = " "
+				dynasty = none
+				age = 0
+			}
+			new_character = {
+				prompt_name = {
+					player = ROOT
+					portrait = ROOT
+					#type = RENAME_ARTIFACT_MESSAGE
+					type = SETUP_HOUSE_MOTTO_CUSTOM
+					name_list = persian_motto_list
+				}
+				save_event_target_as = house_motto_placeholder_target
+				set_immune_to_pruning = yes
+				death = { death_reason = death_missing }
+			}
+		}
+		else = { # christian
+			create_character = {
+				name = " "
+				dynasty = none
+				age = 0
+			}
+			new_character = {
+				prompt_name = {
+					player = ROOT
+					portrait = ROOT
+					#type = RENAME_ARTIFACT_MESSAGE
+					type = SETUP_HOUSE_MOTTO_CUSTOM
+					name_list = default_motto_list
+				}
+				save_event_target_as = house_motto_placeholder_target
+				set_immune_to_pruning = yes
+				death = { death_reason = death_missing }
+			}
+		}
+		# init
+		change_variable = { which = global_custom_motto_used value = 1 }
+		# take current modifier blob, from high to low
+		if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 99 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_99_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_99_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_99
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 98 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_98_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_98_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_98
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 97 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_97_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_97_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_97
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 96 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_96_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_96_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_96
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 95 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_95_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_95_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_95
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 94 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_94_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_94_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_94
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 93 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_93_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_93_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_93
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 92 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_92_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_92_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_92
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 91 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_91_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_91_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_91
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 90 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_90_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_90_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_90
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 89 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_89_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_89_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_89
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 88 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_88_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_88_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_88
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 87 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_87_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_87_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_87
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 86 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_86_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_86_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_86
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 85 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_85_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_85_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_85
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 84 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_84_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_84_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_84
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 83 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_83_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_83_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_83
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 82 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_82_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_82_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_82
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 81 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_81_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_81_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_81
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 80 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_80_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_80_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_80
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 79 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_79_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_79_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_79
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 78 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_78_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_78_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_78
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 77 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_77_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_77_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_77
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 76 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_76_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_76_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_76
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 75 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_75_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_75_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_75
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 74 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_74_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_74_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_74
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 73 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_73_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_73_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_73
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 72 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_72_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_72_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_72
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 71 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_71_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_71_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_71
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 70 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_70_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_70_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_70
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 69 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_69_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_69_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_69
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 68 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_68_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_68_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_68
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 67 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_67_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_67_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_67
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 66 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_66_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_66_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_66
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 65 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_65_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_65_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_65
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 64 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_64_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_64_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_64
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 63 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_63_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_63_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_63
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 62 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_62_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_62_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_62
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 61 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_61_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_61_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_61
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 60 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_60_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_60_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_60
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 59 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_59_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_59_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_59
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 58 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_58_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_58_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_58
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 57 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_57_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_57_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_57
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 56 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_56_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_56_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_56
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 55 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_55_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_55_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_55
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 54 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_54_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_54_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_54
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 53 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_53_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_53_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_53
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 52 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_52_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_52_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_52
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 51 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_51_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_51_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_51
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 50 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_50_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_50_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_50
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 49 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_49_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_49_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_49
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 48 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_48_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_48_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_48
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 47 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_47_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_47_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_47
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 46 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_46_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_46_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_46
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 45 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_45_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_45_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_45
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 44 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_44_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_44_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_44
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 43 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_43_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_43_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_43
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 42 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_42_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_42_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_42
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 41 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_41_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_41_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_41
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 40 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_40_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_40_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_40
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 39 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_39_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_39_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_39
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 38 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_38_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_38_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_38
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 37 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_37_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_37_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_37
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 36 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_36_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_36_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_36
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 35 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_35_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_35_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_35
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 34 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_34_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_34_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_34
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 33 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_33_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_33_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_33
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 32 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_32_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_32_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_32
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 31 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_31_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_31_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_31
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 30 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_30_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_30_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_30
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 29 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_29_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_29_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_29
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 28 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_28_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_28_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_28
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 27 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_27_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_27_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_27
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 26 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_26_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_26_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_26
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 25 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_25_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_25_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_25
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 24 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_24_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_24_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_24
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 23 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_23_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_23_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_23
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 22 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_22_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_22_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_22
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 21 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_21_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_21_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_21
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 20 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_20_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_20_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_20
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 19 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_19_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_19_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_19
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 18 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_18_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_18_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_18
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 17 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_17_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_17_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_17
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 16 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_16_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_16_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_16
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 15 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_15_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_15_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_15
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 14 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_14_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_14_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_14
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 13 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_13_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_13_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_13
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 12 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_12_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_12_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_12
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 11 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_11_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_11_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_11
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 10 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_10_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_10_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_10
+			}	
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 9 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_09_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_09_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_09
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 8 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_08_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_08_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_08
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 7 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_07_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_07_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_07
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 6 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_06_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_06_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_06
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 5 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_05_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_05_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_05
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 4 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_04_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_04_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_04
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 3 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_03_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_03_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_03
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 2 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_02_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_02_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_02
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_custom_motto_used value = 1 }
+			}
+			custom_tooltip = {
+				text = house_motto_custom_01_modifier
+				event_target:house_motto_placeholder_target = {
+					save_global_event_target_as = house_motto_custom_01_modifier_placeholder
+				}
+				add_dynasty_modifier = house_motto_custom_01
+			}
+		}
+	}
+}
+
+# on_action; on_startup give some big dynasties motto
+character_event = {
+	id = MOT.150
+	hide_window = yes
+	offmap = only
+	
+	is_triggered_only = yes
+	
+	trigger = {
+        is_offmap_tag = offmap_china
+		is_save_game = no
+    }
+	
+	immediate = {
+		any_independent_ruler = {
+			limit = {
+				ai = yes
+				dynastic_prestige >= 500
+				NOT = {
+					has_dynasty_flag = house_motto_created
+				}
+			}
+			score_value = {
+				value = 1
+
+				additive_modifier = {
+					dynastic_prestige >= 1000
+					value = 1
+				}
+				additive_modifier = {
+					dynastic_prestige >= 1500
+					value = 1
+				}
+				additive_modifier = {
+					dynastic_prestige >= 2000
+					value = 1
+				}
+				additive_modifier = {
+					dynastic_prestige >= 2500
+					value = 1
+				}
+				additive_modifier = {
+					dynastic_prestige >= 3000
+					value = 1
+				}
+				additive_modifier = {
+					real_tier = EMPEROR
+					value = 10
+				}
+				additive_modifier = {
+					real_tier = KING
+					value = 10
+				}
+				additive_modifier = {
+					is_feudal = yes
+					value = 100
+				}
+			}
+			count = 8
+			set_dynasty_flag = house_motto_created
+			change_variable = { which = global_defined_motto_used value = 1 }
+			create_defined_motto_effect = yes
+			log = "[This.GetBestName] has assigned a dynasty motto"
+		}
+		random = {
+			chance = 60
+			any_independent_ruler = {
+				limit = {
+					ai = yes
+					dynastic_prestige >= 500
+					NOT = {
+						has_dynasty_flag = house_motto_created
+					}
+				}
+				score_value = {
+					value = 1
+
+					additive_modifier = {
+						dynastic_prestige >= 1000
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 1500
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 2000
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 2500
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 3000
+						value = 1
+					}
+					additive_modifier = {
+						real_tier = EMPEROR
+						value = 10
+					}
+					additive_modifier = {
+						real_tier = KING
+						value = 10
+					}
+					additive_modifier = {
+						is_feudal = yes
+						value = 100
+					}
+				}
+				count = 1
+				set_dynasty_flag = house_motto_created
+				change_variable = { which = global_defined_motto_used value = 1 }
+				create_defined_motto_effect = yes
+				log = "[This.GetBestName] has assigned a dynasty motto"
+			}
+		}
+		random = {
+			chance = 40
+			any_independent_ruler = {
+				limit = {
+					ai = yes
+					dynastic_prestige >= 500
+					NOT = {
+						has_dynasty_flag = house_motto_created
+					}
+				}
+				score_value = {
+					value = 1
+
+					additive_modifier = {
+						dynastic_prestige >= 1000
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 1500
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 2000
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 2500
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 3000
+						value = 1
+					}
+					additive_modifier = {
+						real_tier = EMPEROR
+						value = 10
+					}
+					additive_modifier = {
+						is_feudal = yes
+						value = 100
+					}
+				}
+				count = 2
+				set_dynasty_flag = house_motto_created
+				change_variable = { which = global_defined_motto_used value = 1 }
+				create_defined_motto_effect = yes
+				log = "[This.GetBestName] has assigned a dynasty motto"
+			}
+		}
+		random = {
+			chance = 20
+			any_independent_ruler = {
+				limit = {
+					ai = yes
+					dynastic_prestige >= 500
+					NOT = {
+						has_dynasty_flag = house_motto_created
+					}
+				}
+				score_value = {
+					value = 1
+
+					additive_modifier = {
+						dynastic_prestige >= 1000
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 1500
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 2000
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 2500
+						value = 1
+					}
+					additive_modifier = {
+						dynastic_prestige >= 3000
+						value = 1
+					}
+					additive_modifier = {
+						real_tier = EMPEROR
+						value = 10
+					}
+					additive_modifier = {
+						real_tier = KING
+						value = 10
+					}
+					additive_modifier = {
+						is_feudal = yes
+						value = 100
+					}
+				}
+				count = 4
+				set_dynasty_flag = house_motto_created
+				change_variable = { which = global_defined_motto_used value = 1 }
+				create_defined_motto_effect = yes
+				log = "[This.GetBestName] has assigned a dynasty motto"
+			}
+		}
+	}
+}

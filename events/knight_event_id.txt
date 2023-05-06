@@ -1,0 +1,65 @@
+###Society Events and Quests
+##Joining 100-103
+##AI Join 110,111
+##Rank up 120-122
+##Military Missions 130
+#Bandit 140-144
+#Beast 145-149
+#Pilgrims 150-159
+#Training 160-163
+##Diplomatic Missions 230
+#Rival 240-246
+#Jailbreak 247-252,9247,9248
+#Heirloom 253-258
+#Training 259-262
+
+
+###Society creation 500-511, 9500-9510
+
+###Society succession 600-601
+
+###Squire Events
+##Flags 998,999
+##Selection 1000-1009
+##Knighting 1020-1022
+##Training 1030-1045
+
+###Sin Events 1050-1055
+
+###Miscellaneous 1060,1061
+##Lunatic 1065,1066
+
+###Tournament
+##Startup and random ai 1199-1209
+##Attending events 1220-1236,1242-1244,1250,1251
+##Jousts 1260-1267,9260
+##Wins 1270-1275
+##Flag check 1299
+
+###Artifact quest 1500-1510,1520-1524
+
+###Pas d'armes 2258-2262,2268-2271
+
+###Great feast
+##Startup and random ai 3199-3203
+##Speech 3205-3208
+##Attending events 3213-3234,3250
+
+###Seduction
+##Startup 4100-4104
+##Maintenence tombola 4110-4115,4118
+##Opinion boosters 4200-4203,4210-4213,4220-4223
+##Attempts 4300-4308,4350-4354,4400-4404
+##Change relation 4410-4412
+
+###Write book 5119-5129,9122
+
+###Find own heirloom 6254-6258
+
+###(9122) #REMOVE THIS UPON THE NEXT UPDATE, JUST TO FIX CURRENT BUG (THINGS ARE FINE NOW)
+
+###(9247,9248)
+
+###(9260)
+
+###(9500-9510)

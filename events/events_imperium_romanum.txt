@@ -1,0 +1,444 @@
+namespace = IR
+#Restoration of Roman empire if WRE
+narrative_event = {
+	id = IR.1
+	title = IRET.1
+	desc = {
+		text = IRETXT.1
+		trigger = { 
+			is_alternate_start = no
+		}
+	}
+
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = IREO.1
+		trigger = {
+		    has_landed_title = e_roman_empire
+            is_republic	= no		
+		}
+		add_trait = augustus 
+		any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_roman_empire
+					}
+		give_nickname = nick_the_glorious
+		if = { #New Imperial Bloodline. (male)
+				limit = { 
+					has_dlc = "Holy Fury" 
+					is_female = no
+					is_alternate_start = no
+					is_republic = no
+					OR = { 
+						religion_group = christian
+						religion = hellenic_pagan
+						religion = hellenic_pagan_reformed
+					}
+	    			NOT = {
+	    				any_owned_bloodline = {
+    						has_bloodline_flag = roman_bloodline #Not if already member of a famous historical Roman Bloodline.
+    					}
+    				}
+				}
+				create_bloodline = {
+					type = roman_emperor_male
+				}
+				new_bloodline = {
+					set_description = "bloodline_desc_roman"
+				}	
+				sound_effect = bloodline_added			
+			}
+		if = { #New Imperial Bloodline. (female)
+			limit = { 
+				has_dlc = "Holy Fury" 
+				is_female = yes
+				is_alternate_start = no
+				is_republic = no
+				OR = { 
+					religion_group = christian
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
+				}
+    			NOT = {
+    				any_owned_bloodline = {
+						has_bloodline_flag = roman_bloodline #Not if already member of a famous historical Roman Bloodline.
+					}
+				}
+			}
+			create_bloodline = {
+				type = roman_emperor_female
+			}
+			new_bloodline = {
+				set_description = "bloodline_desc_roman"
+			}				
+			sound_effect = bloodline_added
+		}
+	}	
+}
+	
+#Rename Roman Empire to Roman Republic if its a merchant republic
+#character_event = {
+#    id = IR.2
+#    hide_window = yes
+#	is_triggered_only = yes
+#    trigger = {
+#        has_landed_title = e_roman_empire
+#		is_republic = yes
+#    }
+#	
+#
+#    immediate = {
+#        primary_title = {
+#                    e_roman_empire = {
+#                        set_name = name_res_publica_romana
+#						}
+#                    }
+#			}
+#}
+
+#Rename Roman Republic to Roman Empire if its not a republic
+#character_event = {
+#    id = IR.3
+#    hide_window = yes
+#    is_triggered_only = yes
+#    trigger = {
+#        has_landed_title = e_roman_empire
+#		is_republic = no
+#    }
+#	
+#
+#    immediate = {
+#        primary_title = {
+#                    e_roman_empire = {
+#                        set_name = name_imperium_romanum
+#						}
+#                    }
+#			}
+#}
+
+#Restoration of Roman empire if republic
+narrative_event = {
+	id = IR.4
+	title = IRET.4
+	desc = {
+		text = IRETXT.4
+		trigger = { 
+			is_alternate_start = no
+		}
+	}
+
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = IREO.4
+		trigger = {
+		    has_landed_title = e_roman_empire	
+		    }
+		primary_title = {
+            e_roman_empire = {
+                set_name = name_res_publica_romana
+				}
+            }
+		give_nickname = nick_the_glorious
+		any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_roman_empire
+					}
+		if = { #New Imperial Bloodline. (male)
+				limit = { 
+					has_dlc = "Holy Fury" 
+					is_female = no
+					is_alternate_start = no
+					is_republic = yes
+					OR = { 
+						religion_group = christian
+						religion = hellenic_pagan
+						religion = hellenic_pagan_reformed
+					}
+	    			NOT = {
+	    				any_owned_bloodline = {
+    						has_bloodline_flag = roman_bloodline #Not if already member of a famous historical Roman Bloodline.
+    					}
+    				}
+				}
+				create_bloodline = {
+					type = roman_emperor_male
+				}
+				new_bloodline = {
+					set_description = "bloodline_desc_roman_consul_roman_empire"
+				}	
+				sound_effect = bloodline_added			
+			}
+		if = { #New Imperial Bloodline. (female)
+			limit = { 
+				has_dlc = "Holy Fury" 
+				is_female = yes
+				is_alternate_start = no
+				is_republic = yes
+				OR = { 
+					religion_group = christian
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
+				}
+    			NOT = {
+    				any_owned_bloodline = {
+						has_bloodline_flag = roman_bloodline #Not if already member of a famous historical Roman Bloodline.
+					}
+				}
+			}
+			create_bloodline = {
+				type = roman_emperor_female
+			}
+			new_bloodline = {
+				set_description = "bloodline_desc_roman_consul_roman_empire"
+			}				
+			sound_effect = bloodline_added
+		    }
+			
+	}
+}
+
+#Change flag for Roman Empire if not christian
+character_event = {
+    id = IR.5
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_landed_title = e_roman_empire
+		OR = { 
+		    religion_group = pagan_group
+			religion_group = zoroastrian_group
+			religion_group = indian_group
+		}
+    }
+	
+
+    immediate = {
+        primary_title = {
+            e_roman_empire = {
+			    reset_coa = THIS
+                set_coa = e_roman_empire_pagan
+			}
+        }
+	}
+}
+
+#Change coat of arms for Western Roman Empire if not christian
+character_event = {
+    id = IR.6
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_landed_title = e_western_roman_empire
+		OR = { 
+		    religion_group = pagan_group
+			religion_group = zoroastrian_group
+			religion_group = indian_group
+		}
+    }
+	
+
+    immediate = {
+        primary_title = {
+            e_western_roman_empire = {
+			    reset_coa = THIS
+                set_coa = e_western_roman_empire_pagan
+			}
+        }
+	}
+}
+
+#Change coat of arms for Byzantium if not christian
+character_event = {
+    id = IR.7
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_landed_title = e_byzantium
+		OR = { 
+		    religion_group = pagan_group
+			religion_group = zoroastrian_group
+			religion_group = indian_group
+		}
+    }
+	
+
+    immediate = {
+        primary_title = {
+            e_byzantium = {
+			    reset_coa = THIS
+                set_coa = e_byzantium_pagan
+			}
+        }
+	}
+}
+
+#Change flag for Roman Empire if christian
+character_event = {
+    id = IR.8
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_landed_title = e_roman_empire
+		OR = { 
+		    religion_group = christian
+		}
+    }
+	
+
+    immediate = {
+        primary_title = {
+            e_roman_empire = {
+			    reset_coa = THIS
+                set_coa = e_roman_empire_christian
+			}
+        }
+	}
+}
+
+#Change coat of arms for Western Roman Empire if christian
+character_event = {
+    id = IR.9
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_landed_title = e_western_roman_empire
+		OR = { 
+		    religion_group = christian
+		}
+    }
+	
+
+    immediate = {
+        primary_title = {
+            e_western_roman_empire = {
+			    reset_coa = THIS
+                set_coa = e_western_roman_empire_christian
+			}
+        }
+	}
+}
+
+#Change coat of arms for Byzantium if christian
+character_event = {
+    id = IR.10
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_landed_title = e_byzantium
+		OR = { 
+		    religion_group = christian
+		}
+    }
+	
+
+    immediate = {
+        primary_title = {
+            e_byzantium = {
+			    reset_coa = THIS
+                set_coa = e_byzantium_christian
+			}
+        }
+	}
+}
+
+#Reunion of Roman Empires
+narrative_event = {
+	id = IR.11
+	title = IRET.11
+	desc = {
+		text = IRETXT.11
+		trigger = { 
+			is_alternate_start = no
+		}
+	}
+
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = IREO.11
+		trigger = {
+			has_landed_title = e_wre
+			has_landed_title = e_byzantium
+		}
+		add_trait = augustus 
+		give_nickname = nick_the_glorious
+		hidden_tooltip = {
+			e_byzantium = {
+				if = {
+					limit = { ROOT = { has_landed_title = PREV } }
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_roman_empire
+					}
+					destroy_landed_title = THIS
+					activate_title = { title = e_byzantium status = no }
+				}
+			}
+			e_western_roman_empire = {
+				if = {
+					limit = { ROOT = { has_landed_title = PREV } }
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_roman_empire
+					}
+					destroy_landed_title = THIS
+					activate_title = { title = e_western_roman_empire status = no }
+				}
+			}
+		}
+		if = { #New Imperial Bloodline. (male)
+				limit = { 
+					has_dlc = "Holy Fury" 
+					is_female = no
+					is_alternate_start = no
+					is_republic = no
+					OR = { 
+						religion_group = christian
+						religion = hellenic_pagan
+						religion = hellenic_pagan_reformed
+					}
+	    			NOT = {
+	    				any_owned_bloodline = {
+    						has_bloodline_flag = roman_bloodline #Not if already member of a famous historical Roman Bloodline.
+    					}
+    				}
+				}
+				create_bloodline = {
+					type = roman_emperor_reuniter_male
+				}
+				new_bloodline = {
+					set_description = "bloodline_desc_roman_reuniter"
+				}	
+				sound_effect = bloodline_added			
+			}
+		if = { #New Imperial Bloodline. (female)
+			limit = { 
+				has_dlc = "Holy Fury" 
+				is_female = yes
+				is_alternate_start = no
+				is_republic = no
+				OR = { 
+					religion_group = christian
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
+				}
+    			NOT = {
+    				any_owned_bloodline = {
+						has_bloodline_flag = roman_bloodline #Not if already member of a famous historical Roman Bloodline.
+					}
+				}
+			}
+			create_bloodline = {
+				type = roman_emperor_reuniter_female
+			}
+			new_bloodline = {
+				set_description = "bloodline_desc_roman_reuniter"
+			}				
+			sound_effect = bloodline_added
+		}
+	}	
+}

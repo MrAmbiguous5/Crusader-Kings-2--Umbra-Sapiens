@@ -1,0 +1,12 @@
+# County Title
+title = c_paraguay
+
+# Settlements
+max_settlements = 3
+b_paraguay = tribal
+
+# Misc
+culture = waikuruan
+religion = chaco_pagan
+
+# History

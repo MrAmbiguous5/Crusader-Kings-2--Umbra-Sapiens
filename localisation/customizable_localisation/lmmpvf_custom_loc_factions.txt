@@ -1,0 +1,202 @@
+defined_text = {
+	name = lmmpvf_GetFactionTitle
+	
+	text = {
+		localisation_key = lmmpvf_FactionTitle_string
+	}
+}
+
+defined_text = {
+	name = lmmpvf_GetFactionDesc
+	
+	text = {
+		localisation_key = lmmpvf_FactionDesc_string
+	}
+}
+
+defined_text = {
+	name = lmmpvf_GetFactionFocus
+	use_first_valid = yes
+	
+	text = {
+		trigger = {	has_character_flag = lmmpvf_focus_hidden }
+		localisation_key = lmmpvf_Hidden_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_focus_glory }
+		localisation_key = lmmpvf_FocusGlory_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_focus_prosperity }
+		localisation_key = lmmpvf_FocusProsperity_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_focus_faith }
+		localisation_key = lmmpvf_FocusFaith_string
+	}
+	
+	fallback_text = { localisation_key = lmmpvf_None_string }
+}
+
+# Faction goals
+defined_text = {
+	name = lmmpvf_GetFactionGoal
+	use_first_valid = yes
+		
+	text = {
+		trigger = { has_character_flag = lmmpvf_goal_hidden }
+		localisation_key = lmmpvf_Hidden_string
+	}
+	
+	# Glory Focus
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_goal_attack_neighboring_realm }
+		localisation_key = lmmpvf_GoalAttackANeighboringRealm_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_goal_oust_foreigners_from_realm }
+		localisation_key = lmmpvf_GoalOustForeignersFromRealm_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_goal_improve_public_image }
+		localisation_key = lmmpvf_GoalImprovePublicImage_string
+	}
+	
+	# Prosperity Focus
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_goal_establish_trade_route }
+		localisation_key = lmmpvf_GoalEstablishTradeRoute_string
+	}	
+	text = {
+		trigger = { has_character_flag = lmmpvf_goal_establish_settlement }
+		localisation_key = lmmpvf_GoalEstablishSettlement_string
+	}	
+	text = {
+		trigger = { has_character_flag = lmmpvf_goal_increase_prosperity }
+		localisation_key = lmmpvf_GoalIncreaseProsperity_string
+	}
+	
+	# Faith Focus
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_goal_attack_infidel_realm }
+		localisation_key = lmmpvf_GoalAttackInfidelRealm_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_goal_oust_infidels_from_realm }
+		localisation_key = lmmpvf_GoalOustInfidelsFromRealm_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_goal_convert_province_religion }
+		localisation_key = lmmpvf_GoalConvertProvinceReligion_string
+	}
+	
+	fallback_text = { localisation_key = lmmpvf_None_string }
+}
+
+defined_text = {
+	name = lmmpvf_GetPreviousFactionGoal
+	use_first_valid = yes
+		
+	# text = {
+		# trigger = { has_character_flag = lmmpvf_goal_hidden }
+		# localisation_key = lmmpvf_Hidden_string
+	# }
+	
+	# Glory Focus
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_previous_goal_attack_neighboring_realm }
+		localisation_key = lmmpvf_GoalAttackANeighboringRealm_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_previous_goal_oust_foreigners_from_realm }
+		localisation_key = lmmpvf_GoalOustForeignersFromRealm_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_previous_goal_improve_public_image }
+		localisation_key = lmmpvf_GoalImprovePublicImage_string
+	}
+	
+	# Prosperity Focus
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_previous_goal_establish_trade_route }
+		localisation_key = lmmpvf_GoalEstablishTradeRoute_string
+	}	
+	text = {
+		trigger = { has_character_flag = lmmpvf_previous_goal_establish_settlement }
+		localisation_key = lmmpvf_GoalEstablishSettlement_string
+	}	
+	text = {
+		trigger = { has_character_flag = lmmpvf_previous_goal_increase_prosperity }
+		localisation_key = lmmpvf_GoalIncreaseProsperity_string
+	}
+	
+	# Faith Focus
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_previous_goal_attack_infidel_realm }
+		localisation_key = lmmpvf_GoalAttackInfidelRealm_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_previous_goal_oust_infidels_from_realm }
+		localisation_key = lmmpvf_GoalOustInfidelsFromRealm_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_previous_goal_convert_province_religion }
+		localisation_key = lmmpvf_GoalConvertProvinceReligion_string
+	}
+	
+	fallback_text = { localisation_key = lmmpvf_None_string }
+}
+
+defined_text = {
+	name = lmmpvf_GetPledgedOrNot
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_pledged_notification_accepted }
+		localisation_key = lmmpvf_PledgedAccepted_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_pledged_notification_refused }
+		localisation_key = lmmpvf_PledgedRefused_string
+	}
+	
+	fallback_text = { localisation_key = lmmpvf_None_string }
+}
+
+defined_text = {
+	name = lmmpvf_GetJoinedWarOrNot
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_call_to_war_accepted }
+		localisation_key = lmmpvf_CallToWarAccepted_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_call_to_war_refused }
+		localisation_key = lmmpvf_CallToWarRefused_string
+	}
+	
+	text = {
+		trigger = { has_character_flag = lmmpvf_call_to_war_cannot }
+		localisation_key = lmmpvf_CallToWarCannotJoin_string
+	}
+	
+	fallback_text = { localisation_key = lmmpvf_None_string }
+}

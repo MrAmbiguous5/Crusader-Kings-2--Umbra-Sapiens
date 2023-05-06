@@ -1,0 +1,35 @@
+# County Title
+title = c_tenochtitlan
+
+# Settlements
+max_settlements = 6
+b_tenochtitlan = castle
+b_tenochtitlan-ii = city
+#b_tenochtitlan-iii = temple
+#b_tenochtitlan-iv = city
+#b_tenochtitlan-v = castle
+#b_tenochtitlan-vi = temple
+
+# Misc
+culture = nonohualcan
+religion = nonohualcan_pagan
+
+# History #Tepanec settle there
+1152.1.1 = {
+	build_wonder = wonder_aztec_pyramid
+	set_wonder_name = TENOCHTITLAN
+	set_wonder_description = TENOCHTITLANDESC
+	set_wonder_stage = 1
+	culture = tepaneca
+	religion = aztec
+	b_tenochtitlan-iii = temple
+}
+1200.1.1= {
+	b_tenochtitlan-iv = city
+}
+1215.1.1= {
+	b_tenochtitlan-v = castle
+}
+1230.1.1= {
+	b_tenochtitlan-vi = temple
+}

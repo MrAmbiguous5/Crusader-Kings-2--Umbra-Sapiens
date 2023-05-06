@@ -1,0 +1,8 @@
+#;;;;;;;;;;;;;;x
+#§
+###################
+## NOTIFICATIONS ##
+###################
+EVTDESC_NotificationLiegeFactionFocusAndGoal_lmmpvf_notification.1;The [From.lmmpvf_GetFactionFocus] focused faction of §Y[From.GetTitledFirstName]§! seeks to [From.lmmpvf_GetFactionGoal].;;;;;;;;;;;;;x
+EVTDESC_NotificationLiegeFactionGoalSuccess_lmmpvf_notification.2;GOAL SUCCESS! The [From.lmmpvf_GetFactionFocus] focused faction of §Y[From.GetTitledFirstName]§! has §Gaccomplished§! the goal: [From.lmmpvf_GetFactionGoal].;;;;;;;;;;;;;x
+EVTDESC_NotificationLiegeFactionGoalFailure_lmmpvf_notification.3;GOAL FAILURE! The [From.lmmpvf_GetFactionFocus] focused faction of §Y[From.GetTitledFirstName]§! has §Rfailed! the goal: [From.lmmpvf_GetFactionGoal].;;;;;;;;;;;;;x

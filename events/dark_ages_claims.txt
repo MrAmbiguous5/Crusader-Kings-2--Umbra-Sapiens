@@ -1,0 +1,1204 @@
+namespace = darkages
+
+character_event = { 		#Check if I can code a claim
+	id = darkages.72713
+	title = EVTNAME1972713
+	desc = EVTDESC1972713
+	picture = GFX_evt_da_garden
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+
+	}
+	
+	immediate = {
+		save_event_target_as = da_province_claimer
+		job_spymaster = {
+			save_event_target_as = darkages_spymaster_name
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972713
+
+		set_character_flag = darkages_claim_diplomacy
+		
+		job_spymaster = { 
+			location = {
+				add_province_modifier = {
+					name = da_province_marker
+					duration = -1
+				}
+			}
+		}
+		
+		hidden_tooltip = {
+			
+			random = {	#Unexpected help
+				chance = 20
+				character_event = { id = darkages.72714 days = 90 random = 639 }
+			}
+			
+			random = {	#Unexpected hindrance
+				chance = 25
+				character_event = { id = darkages.72715 days = 90 random = 639 }
+			}			
+			
+			random = {	#A new rival
+				chance = 20
+				character_event = { id = darkages.72716 days = 90 random = 639 }
+			}			
+			
+			random = {	#A love affair
+				chance = 25
+				character_event = { id = darkages.72717 days = 90 random = 639 }
+			}
+			
+			random = {	#Risking the neck
+				chance = 50
+				character_event = { id = darkages.72718 days = 90 random = 639 }
+			}			
+			
+			random = {	#A traitor in own court
+				chance = 33
+				character_event = { id = darkages.72719 days = 90 random = 639 }
+			}			
+			
+			random = {	#A master forgery
+				chance = 33
+				character_event = { id = darkages.72720 days = 90 random = 639 }
+			}			
+			
+			random = {	#Losing face internationally
+				chance = 40
+				character_event = { id = darkages.72721 days = 90 random = 639 }
+			}		
+
+			character_event = { id = darkages.72722 days = 90 random = 639 }	#Diplomatic meeting
+
+			character_event = { id = darkages.72731 days = 730 random = 150 } #test success
+			
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972713
+		
+		set_character_flag = darkages_claim_subterfuge
+		
+		job_spymaster = { 
+			location = {
+				add_province_modifier = {
+					name = da_province_marker
+					duration = -1
+				}
+			}
+		}
+		
+		hidden_tooltip = {
+			
+			random = {	#Unexpected help
+				chance = 20
+				character_event = { id = darkages.72714 days = 90 random = 639 }
+			}
+			
+			random = {	#Unexpected hindrance
+				chance = 25
+				character_event = { id = darkages.72715 days = 90 random = 639 }
+			}			
+			
+			random = {	#A new rival
+				chance = 20
+				character_event = { id = darkages.72716 days = 90 random = 639 }
+			}			
+			
+			random = {	#A love affair
+				chance = 25
+				character_event = { id = darkages.72717 days = 90 random = 639 }
+			}
+			
+			random = {	#Risking the neck
+				chance = 50
+				character_event = { id = darkages.72718 days = 90 random = 639 }
+			}			
+			
+			random = {	#A traitor in own court
+				chance = 33
+				character_event = { id = darkages.72719 days = 90 random = 639 }
+			}			
+			
+			random = {	#A master forgery
+				chance = 33
+				character_event = { id = darkages.72720 days = 90 random = 639 }
+			}			
+			
+			random = {	#Losing face internationally
+				chance = 40
+				character_event = { id = darkages.72721 days = 90 random = 639 }
+			}
+
+			character_event = { id = darkages.72723 days = 90 random = 639 }	#Subterfuge mission
+
+			character_event = { id = darkages.72731 days = 730 random = 150 } #test success
+			
+		}
+
+	}	
+	
+}
+
+
+character_event = { 		#UNEXPECTED HELP
+	id = darkages.72714
+	title = EVTNAME1972714
+	desc = EVTDESC1972714
+	picture = GFX_evt_da_camaraderie
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+	
+		any_voter = {
+			save_event_target_as = da_voter
+		}		
+
+	}
+	
+	option = {
+		name = EVTOPTA1972714
+
+		set_character_flag = darkages_unexpected_help
+		
+		treasury = -50
+		
+		event_target:da_voter = {
+			treasury = 50
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972714
+
+		set_character_flag = darkages_unexpected_help
+		
+		reverse_add_favor = event_target:da_voter
+
+	}	
+	
+	option = {
+		name = EVTOPTC1972714
+
+
+	}
+	
+	
+}
+
+
+character_event = { 		#UNEXPECTED HINDRANCE
+	id = darkages.72715
+	title = EVTNAME1972715
+	desc = EVTDESC1972715
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+	
+
+	}
+	
+	option = {
+		name = EVTOPTA1972715
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP383 }
+		
+		set_character_flag =  darkages_unexpected_hindrance
+	}
+	
+	option = {
+		name = EVTOPTB1972715
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP384 }
+		
+		piety = -75
+		
+		if = {
+			limit = {
+				NOT = { trait = kind }
+			}
+			
+			add_trait = cruel
+		}
+		else = {
+		
+				remove_trait = kind
+			
+		}
+
+
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.35
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 18
+				}
+				modifier = {
+					factor = 1.75
+					intrigue = 21
+				}				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP386 }
+				character_event = { id = darkages.72725 days = 15 random = 15 }
+				
+			}
+			1 = {
+				modifier = {
+					factor = 1.25
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { intrigue = 4}
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { intrigue = 2 }
+				}	
+				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP387 }				
+				character_event = { id = darkages.72726 days = 15 random = 15 }
+				
+			}
+		}
+
+	}	
+
+	
+	
+}
+
+
+
+character_event = { 		#A New Rival
+	id = darkages.72716
+	title = EVTNAME1972716
+	desc = EVTDESC1972716
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				is_incapable = no
+				prisoner = no
+				is_adult = yes				
+			}
+			save_event_target_as = da_aggrieved_individual
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972716
+
+		set_character_flag = darkages_new_rival
+		add_rival = event_target:da_aggrieved_individual
+
+	}
+	
+}
+
+
+character_event = { 		#A love affair
+	id = darkages.72717
+	title = EVTNAME1972717
+	desc = EVTDESC1972717
+	picture = GFX_evt_da_love
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { trait = celibate }
+	}
+
+	immediate = {
+	
+		if = {
+			limit = {
+				is_female = yes
+			}
+			random_courtier_or_vassal = {
+				limit = {
+					is_female = no
+					is_incapable = no
+					prisoner = no
+					is_adult = yes				
+				}
+				save_event_target_as = da_new_lover
+			}
+		}
+		else = {
+		
+			random_courtier_or_vassal = {
+				limit = {
+					is_female = yes
+					is_incapable = no
+					prisoner = no
+					is_adult = yes				
+				}
+				save_event_target_as = da_new_lover
+			}		
+		
+		
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972717
+
+		if = {
+			limit = {
+				trait = chaste
+			}
+			
+			remove_trait = chaste
+		}
+		else = {
+			add_trait = lustful
+		}
+
+		set_character_flag = da_new_lover
+		add_lover = event_target:da_new_lover
+
+	}
+
+	option = {
+		name = EVTOPTB1972717
+
+
+		piety = 50
+
+	}
+
+	
+}
+
+character_event = { 		#Risking the neck
+	id = darkages.72718
+	title = EVTNAME1972718
+	desc = EVTDESC1972718
+	picture = GFX_evt_da_wounded
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+	
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972718
+
+		random_list = {
+			1 = {	#dies
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = 0 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -10 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -20 }
+				}			
+
+				death = {
+					death_reason = death_battle
+				}
+				
+			}
+			
+			2 = {	#Wounded
+				add_trait = wounded
+			}
+			
+			1 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 20
+				}	
+				modifier = {
+					factor = 1.35
+					combat_rating = 35
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 1.75
+					combat_rating = 80
+				}				
+			}
+		}
+
+	}
+
+	option = {
+		name = EVTOPTB1972718
+		
+		prestige = -100
+		
+		random_list = {
+			1 = {	#dies
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = 0 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -10 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -20 }
+				}			
+
+				death = {
+					death_reason = death_battle
+				}
+				
+			}
+			
+			3 = {	#Wounded
+				add_trait = wounded
+			}
+			
+			1 = {
+				modifier = {
+					factor = 1.25
+					combat_rating = 20
+				}	
+				modifier = {
+					factor = 1.35
+					combat_rating = 35
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 1.75
+					combat_rating = 80
+				}				
+			}
+		}
+
+
+	}
+
+	
+}
+
+
+character_event = { 		#traitor in own court
+	id = darkages.72719
+	title = EVTNAME1972719
+	desc = EVTDESC1972719
+	picture = GFX_evt_da_hooded_char
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972719
+		
+		set_character_flag = darkages_court_trouble
+		
+	}
+	
+}
+
+character_event = { 		#Forgery
+	id = darkages.72720
+	title = EVTNAME1972720
+	desc = EVTDESC1972720
+	picture = GFX_evt_da_bloodlines
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972720
+		
+		set_character_flag = darkages_claim_forgery
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972720
+		
+		piety = 40
+		
+	}	
+	
+}
+
+character_event = { 	#Losing face abroad
+	id = darkages.72721
+	title = EVTNAME1972721
+	desc = EVTDESC1972721
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972721
+		
+		set_character_flag = darkages_claim_lose_face
+		prestige = -100
+	}
+	
+	option = {
+		name = EVTOPTB1972721
+		trigger = {
+			diplomacy = 12
+		}
+		
+		random_list = {
+		
+			6 = {
+				prestige = -100
+			}
+			
+			4 = {
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP385 }
+			}
+		
+		}
+		
+	}	
+	
+}
+
+character_event = { 	#International meeting (called from 72713)
+	id = darkages.72722
+	title = EVTNAME1972722
+	desc = EVTDESC1972722
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972722
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP390 }
+		treasury = -75
+
+
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					diplomacy = 12
+				}
+				modifier = {
+					factor = 1.35
+					diplomacy = 15
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 18
+				}				
+				modifier = {
+					factor = 1.75
+					diplomacy = 21
+				}				
+				modifier = {
+					factor = 1.35
+					realm_diplomacy = 35
+				}				
+				modifier = {
+					factor = 1.5
+					realm_diplomacy = 40
+				}				
+				modifier = {
+					factor = 1.75
+					realm_diplomacy = 45
+				}				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP388 }
+				character_event = { id = darkages.72727 }				
+			}
+			
+			
+			1 = {
+				modifier = {
+					factor = 1.25
+					NOT = { diplomacy = 8 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { diplomacy= 6 }
+				}				
+				modifier = {
+					factor = 1.5
+					NOT = { diplomacy = 4 }
+				}				
+				modifier = {
+					factor = 1.75
+					NOT = { diplomacy = 2 }
+				}				
+				modifier = {
+					factor = 1.35
+					NOT = { realm_diplomacy = 30 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { realm_diplomacy = 25 }
+				}				
+				modifier = {
+					factor = 1.75
+					NOT = { realm_diplomacy = 20 }
+				}	
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP389 }		
+				character_event = { id = darkages.72728 }
+			}
+		}
+		
+
+	}
+
+
+	
+}
+
+character_event = { 		#Subterfuge mission (called from 72713) 
+	id = darkages.72723
+	title = EVTNAME1972723
+	desc = EVTDESC1972723
+	picture = GFX_evt_da_assassin
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972723
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP394 }
+		
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.35
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 18
+				}				
+				modifier = {
+					factor = 1.75
+					intrigue = 21
+				}				
+				modifier = {
+					factor = 1.35
+					realm_intrigue = 35
+				}				
+				modifier = {
+					factor = 1.5
+					realm_intrigue = 40
+				}				
+				modifier = {
+					factor = 1.75
+					realm_intrigue = 45
+				}				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP392 }
+				character_event = { id = darkages.72729 }				
+			}
+			
+			
+			1 = {
+				modifier = {
+					factor = 1.25
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { intrigue = 6 }
+				}				
+				modifier = {
+					factor = 1.5
+					NOT = { intrigue = 4 }
+				}				
+				modifier = {
+					factor = 1.75
+					NOT = { intrigue = 2 }
+				}				
+				modifier = {
+					factor = 1.35
+					NOT = { realm_intrigue = 30 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { realm_intrigue = 25 }
+				}				
+				modifier = {
+					factor = 1.75
+					NOT = { realm_intrigue = 20 }
+				}	
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP393 }		
+				character_event = { id = darkages.72730 }
+			}
+		}
+
+	}
+	
+}
+
+
+character_event = { 		#Sucesssful assassination (called from 72715)
+	id = darkages.72725
+	title = EVTNAME1972725
+	desc = EVTDESC1972725
+	picture = GFX_evt_da_assassination
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972725
+
+
+	}
+	
+}
+
+
+character_event = { 		#Failed assassination (called from 72715)
+	id = darkages.72726
+	title = EVTNAME1972726
+	desc = EVTDESC1972726
+	picture = GFX_evt_da_bad_news
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972726
+		
+		set_character_flag = darkages_unexpected_hindrance
+		
+		prestige = -75
+
+	}
+	
+}
+
+
+character_event = { 		#Sucesssful diplomacy (called from 72722)
+	id = darkages.72727
+	title = EVTNAME1972727
+	desc = EVTDESC1972727
+	picture = GFX_evt_da_state_diplomacy
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972727
+		
+		set_character_flag = darkages_meeting
+
+	}
+	
+}
+
+character_event = { 		#Failed diplomacy (called from 72722)
+	id = darkages.72728
+	title = EVTNAME1972728
+	desc = EVTDESC1972728
+	picture = GFX_evt_da_state_diplomacy
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972728
+
+	}
+	
+}
+
+character_event = { 		#Sucessful subterfuge (called from 72723)
+	id = darkages.72729
+	title = EVTNAME1972729
+	desc = EVTDESC1972729
+	picture = GFX_evt_da_assassination
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972729
+
+		set_character_flag = dargages_succcess_intrigue
+	}
+	
+}
+
+character_event = { 		#failed subterfuge (called from 72723)
+	id = darkages.72730
+	title = EVTNAME1972730
+	desc = EVTDESC1972730
+	picture = GFX_evt_da_assassination
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972730
+
+		prestige = -100
+
+	}
+	
+}
+
+
+######################################################################
+
+
+character_event = { 		
+	id = darkages.72731
+	title = EVTNAME1972731
+	desc = {
+		trigger = {
+			has_character_flag = darkages_success
+		}
+		text = EVTDESC1972731_1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = darkages_failure
+		}
+		text = EVTDESC1972731_2
+	}	
+	picture = GFX_evt_da_gathering
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	
+	immediate = {
+	
+		random_list = {
+			1 = {	#Success
+				modifier = {
+					factor = 1.25
+					learning = 12
+				}
+				modifier = {
+					factor = 1.35
+					learning = 15
+				}				
+				modifier = {
+					factor = 1.5
+					learning = 18
+				}				
+				modifier = {
+					factor = 1.75
+					learning = 21
+				}				
+				modifier = {
+					factor = 3
+					has_education_diplomacy_trigger = yes
+					has_character_flag = darkages_meeting
+				}
+			
+				modifier = {
+					factor = 3
+					has_education_intrigue_trigger = yes
+					has_character_flag = dargages_succcess_intrigue
+				}	
+
+				modifier = {
+					factor = 1.5
+					has_character_flag = darkages_claim_forgery
+				}				
+				modifier = {
+					factor = 1.5
+					has_character_flag = da_new_lover
+				}
+		
+				set_character_flag = darkages_success
+			}
+			
+			1 = {	#Failure
+				modifier = {
+					factor = 1.25
+					NOT = { learning = 8 }
+				}	
+				modifier = {
+					factor = 1.35
+					NOT = { learning = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { learning = 4 }
+				}	
+				modifier = {
+					factor = 1.75
+					NOT = { learning = 2 }
+				}
+				modifier = {
+					factor = 1.35
+					has_character_flag = darkages_claim_lose_face
+				}	
+				modifier = {
+					factor = 1.25
+					has_character_flag = darkages_court_trouble
+				}	
+				modifier = {
+					factor = 1.75
+					has_character_flag = darkages_new_rival
+				}	
+				modifier = {
+					factor = 1.5
+					has_character_flag = darkages_unexpected_hindrance
+				}
+
+				set_character_flag = darkages_failure
+			}
+			
+		}
+	}
+
+	
+	
+	option = {
+		name = EVTOPTA1972731
+		trigger = {
+			has_character_flag = darkages_success
+		}
+
+		random_province = {
+			limit = {
+				has_province_modifier = da_province_marker
+			}
+			county = { add_claim = event_target:da_province_claimer }
+			remove_province_modifier = da_province_marker
+		}
+		
+
+
+	}
+	
+	option = {
+		name = EVTOPTB1972731
+		trigger = {
+			has_character_flag = darkages_failure
+		}	
+
+		hidden_tooltip = {
+			random_province = {
+				limit = {
+					has_province_modifier = da_province_marker
+				}
+				
+				remove_province_modifier = da_province_marker
+			}			
+		}
+		
+	}
+	
+	after = {
+		clr_character_flag = darkages_success
+		clr_character_flag = darkages_failure	
+		clr_character_flag = darkages_claim_diplomacy		
+		clr_character_flag = darkages_claim_subterfuge
+		clr_character_flag = darkages_unexpected_hindrance
+		clr_character_flag = darkages_new_rival
+		clr_character_flag = da_new_lover
+		clr_character_flag = darkages_court_trouble
+		clr_character_flag = darkages_claim_forgery
+		clr_character_flag = darkages_claim_lose_face
+		clr_character_flag = darkages_meeting
+		clr_character_flag = dargages_succcess_intrigue
+		clr_character_flag = darkages_province_claim_ruler
+	}
+	
+}
+
+
+character_event = { 		#Called from on_death
+	id = darkages.72732
+	title = EVTNAME1972732
+	desc = EVTDESC1972732
+	picture = GFX_evt_da_assassination
+	border = GFX_event_normal_frame_intrigue
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = darkages_province_claim_ruler
+	}
+
+	immediate = {
+		random_province = {
+			limit = {
+				has_province_modifier = da_province_marker
+			}
+				
+			remove_province_modifier = da_province_marker
+		}	
+	}
+	
+
+	
+}
+

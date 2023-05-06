@@ -1,0 +1,257 @@
+
+namespace = darkages
+###################################################################
+#
+#	CELEBRATE EASTER
+#
+###################################################################
+
+character_event = {
+	id = darkages.72149
+	title = EVTNAME1972149
+	desc = EVTDESC1972149
+	picture = GFX_evt_da_easter
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+
+	option = {
+		name = EVTOPTA1972149
+		trigger = {
+			NOT = { trait = cynical }
+		}
+		
+		piety = 25
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.66
+					diplomacy = 12
+				}
+				modifier = {
+					factor = 1.66
+					diplomacy = 15
+				}
+				modifier = {
+					factor = 1.66
+					diplomacy = 18
+				}
+				modifier = {
+					factor = 1.66
+					diplomacy = 21
+				}
+				prestige = 25
+			}
+			2 = {
+			}
+		}
+		
+		add_character_modifier = {
+			name = da_easter_celebrated
+			duration = 1095
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972149
+		trigger = {
+			trait = cynical
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP77 }
+		
+		piety = -25
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.66
+					diplomacy = 12
+				}
+				modifier = {
+					factor = 1.66
+					diplomacy = 15
+				}
+				modifier = {
+					factor = 1.66
+					diplomacy = 18
+				}
+				modifier = {
+					factor = 1.66
+					diplomacy = 21
+				}
+				prestige = 25
+			}
+			2 = {
+			}
+		}
+		
+		add_character_modifier = {
+			name = da_easter_celebrated
+			duration = 1095
+		}
+	}	
+
+}
+
+character_event = {			#VASSAL IS HAPPY WITH EASTER AND REMOVES HIM/HERSELF FROM ALL FACTIONS
+	id = darkages.72150
+	title = EVTNAME1972150
+	desc = EVTDESC1972150
+	picture = GFX_evt_council_agreement
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		has_character_modifier = da_easter_celebrated
+		
+		any_vassal = {
+			is_incapable = no
+			NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_coerced_into_leaving_faction } }
+			is_adult = yes
+			prisoner = no
+			primary_title = { higher_tier_than = BARON }
+			NOT = {
+				has_opinion_modifier = {
+					modifier = opinion_celebrated_easter
+					who = ROOT
+				}
+			}			
+		}
+		
+	}
+
+	mean_time_to_happen = {
+		months = 96
+		
+		modifier = {
+			factor = 0.85
+			diplomacy = 12
+		}
+		
+		modifier = {
+			factor = 0.85
+			diplomacy = 15
+		}
+
+		modifier = {
+			factor = 0.85
+			diplomacy = 18
+		}
+
+		modifier = {
+			factor = 0.85
+			diplomacy = 21
+		}		
+	}
+	
+	option = {
+		name = EVTOPTA1972150
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP78 }		
+		random_vassal = {
+			limit = {
+				is_incapable = no
+				NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_coerced_into_leaving_faction } }
+				is_adult = yes
+				prisoner = no
+				primary_title = { higher_tier_than = BARON }				
+			}
+			
+			opinion = {
+				modifier = opinion_coerced_into_leaving_faction
+				who = ROOT
+			}
+
+			opinion = {
+				modifier = opinion_celebrated_easter
+				who = ROOT
+				years = 10
+			}			
+			
+		}
+
+	}
+	
+
+}
+
+character_event = {			#BARON IS HAPPY WITH EASTER CELEBRATION
+	id = darkages.72151
+	title = EVTNAME1972151	
+	desc = EVTDESC1972151
+	picture = GFX_evt_council_agreement
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		has_character_modifier = da_easter_celebrated
+		
+		any_vassal = {
+			is_incapable = no
+			is_adult = yes
+			prisoner = no
+			tier = BARON
+			NOT = {
+				has_opinion_modifier = {
+					modifier = opinion_celebrated_easter
+					who = ROOT
+				}
+			}
+		}
+		
+	}
+
+	mean_time_to_happen = {
+		months = 96
+		
+		modifier = {
+			factor = 0.85
+			diplomacy = 12
+		}
+		
+		modifier = {
+			factor = 0.85
+			diplomacy = 15
+		}
+
+		modifier = {
+			factor = 0.85
+			diplomacy = 18
+		}
+
+		modifier = {
+			factor = 0.85
+			diplomacy = 21
+		}		
+	}
+	
+	option = {
+		name = EVTOPTA1972151
+
+		random_vassal = {
+			limit = {
+				is_incapable = no
+				is_adult = yes
+				prisoner = no
+				tier = BARON
+				NOT = {
+					has_opinion_modifier = {
+						modifier = opinion_celebrated_easter
+						who = ROOT
+					}
+				}				
+			}
+			
+			opinion = {
+				modifier = opinion_celebrated_easter
+				who = ROOT
+				years = 10
+			}			
+			
+		}
+
+	}
+	
+
+}

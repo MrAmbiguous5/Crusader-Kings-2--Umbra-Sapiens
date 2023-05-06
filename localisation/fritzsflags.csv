@@ -1,0 +1,506 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+hide_fritz_flags;Hide Flags;x
+hide_fritz_flags_desc; ;x
+
+reveal_fritz_flags;Show Flags;x
+reveal_fritz_flags_desc; ;x
+
+reset_primary_coa;Reset Primary Coat of Arms;x
+reset_primary_coa_desc; ;x
+
+england_coa_one;Alter English Coat of Arms;x
+england_coa_one_desc; ;x
+
+england_coa_two;Alter English Coat of Arms;x
+england_coa_two_desc; ;x
+
+england_coa_three;Alter English Coat of Arms;x
+england_coa_three_desc; ;x
+
+england_coa_four;Alter English Coat of Arms;x
+england_coa_four_desc; ;x
+
+england_coa_five;Alter English Coat of Arms;x
+england_coa_five_desc; ;x
+
+england_coa_six;Alter English Coat of Arms;x
+england_coa_six_desc; ;x
+
+england_coa_seven;Alter English Coat of Arms;x
+england_coa_seven_desc; ;x
+
+england_coa_eight;Alter English Coat of Arms;x
+england_coa_eight_desc; ;x
+
+england_coa_nine;Alter English Coat of Arms;x
+england_coa_nine_desc; ;x
+
+england_coa_ten;Alter English Coat of Arms;x
+england_coa_ten_desc; ;x
+
+britannia_coa_one;Alter Britannian Coat of Arms;x
+britannia_coa_one_desc; ;x
+
+britannia_coa_two;Alter Britannian Coat of Arms;x
+britannia_coa_two_desc; ;x
+
+scotland_coa_one;Alter Scottish Coat of Arms;x
+scotland_coa_one_desc; ;x
+
+scotland_coa_one_true;Alter Scottish Coat of Arms;x
+scotland_coa_one_true_desc; ;x
+
+france_coa_one;Alter French Coat of Arms;x
+france_coa_one_desc; ;x
+
+france_coa_two;Alter French Coat of Arms;x
+france_coa_two_desc; ;x
+
+france_coa_three;Alter French Coat of Arms;x
+france_coa_three_desc; ;x
+
+france_coa_four;Alter French Coat of Arms;x
+france_coa_four_desc; ;x
+
+france_coa_five;Alter French Coat of Arms;x
+france_coa_five_desc; ;x
+
+france_coa_six;Alter French Coat of Arms;x
+france_coa_six_desc; ;x
+
+france_coa_seven;Alter French Coat of Arms;x
+france_coa_seven_desc; ;x
+
+france_coa_seven_true;Alter French Coat of Arms;x
+france_coa_seven_true_desc; ;x
+
+france_coa_eight;Alter French Coat of Arms;x
+france_coa_eight_desc; ;x
+
+france_coa_nine;Alter French Coat of Arms;x
+france_coa_nine_desc; ;x
+
+efrance_coa_one;Alter French Imperial Coat of Arms;x
+efrance_coa_one_desc; ;x
+
+efrance_coa_two;Alter French Imperial Coat of Arms;x
+efrance_coa_two_desc; ;x
+
+efrance_coa_three;Alter French Imperial Coat of Arms;x
+efrance_coa_three_desc; ;x
+
+sicily_coa_one;Alter Sicilian Coat of Arms;x
+sicily_coa_one_desc; ;x
+
+italian_coa_one;Alter Italian Coat of Arms;x
+italian_coa_one_desc; ;x
+
+italian_coa_two;Alter Italian Coat of Arms;x
+italian_coa_two_desc; ;x
+
+italian_coa_three;Alter Italian Coat of Arms;x
+italian_coa_three_desc; ;x
+
+italian_coa_four;Alter Italian Coat of Arms;x
+italian_coa_four_desc; ;x
+
+italian_coa_five;Alter Italian Coat of Arms;x
+italian_coa_five_desc; ;x
+
+italian_coa_six;Alter Italian Coat of Arms;x
+italian_coa_six_desc; ;x
+
+hre_coa_ten_france;Alter French Imperial Coat of Arms;x
+hre_coa_ten_france_desc; ;x
+
+hre_coa_one;Alter HRE Coat of Arms;x
+hre_coa_one_desc; ;x
+
+hre_coa_two;Alter HRE Coat of Arms;x
+hre_coa_two_desc; ;x
+
+hre_coa_three;Alter HRE Coat of Arms;x
+hre_coa_three_desc; ;x
+
+hre_coa_four;Alter HRE Coat of Arms;x
+hre_coa_four_desc; ;x
+
+hre_coa_five;Alter HRE Coat of Arms;x
+hre_coa_five_desc; ;x
+
+hre_coa_six;Alter HRE Coat of Arms;x
+hre_coa_six_desc; ;x
+
+hre_coa_seven;Alter HRE Coat of Arms;x
+hre_coa_seven_desc; ;x
+
+hre_coa_eight;Alter HRE Coat of Arms;x
+hre_coa_eight_desc; ;x
+
+hre_coa_nine;Alter HRE Coat of Arms;x
+hre_coa_nine_desc; ;x
+
+hre_coa_ten;Alter HRE Coat of Arms;x
+hre_coa_ten_desc; ;x
+
+hre_coa_eleven;Alter HRE Coat of Arms;x
+hre_coa_eleven_desc; ;x
+
+hre_coa_twelve;Alter HRE Coat of Arms;x
+hre_coa_twelve_desc; ;x
+
+hreg_coa_one;Alter Germanic Coat of Arms;x
+hreg_coa_one_desc; ;x
+
+hreg_coa_two;Alter Germanic Coat of Arms;x
+hreg_coa_two_desc; ;x
+
+hreg_coa_three;Alter Germanic Coat of Arms;x
+hreg_coa_three_desc; ;x
+
+hreg_coa_four;Alter Germanic Coat of Arms;x
+hreg_coa_four_desc; ;x
+
+hreg_coa_five;Alter Germanic Coat of Arms;x
+hreg_coa_five_desc; ;x
+
+hreg_coa_six;Alter Germanic Coat of Arms;x
+hreg_coa_six_desc; ;x
+
+hreg_coa_seven;Alter Germanic Coat of Arms;x
+hreg_coa_seven_desc; ;x
+
+hreg_coa_eight;Alter Germanic Coat of Arms;x
+hreg_coa_eight_desc; ;x
+
+hreg_coa_nine;Alter Germanic Coat of Arms;x
+hreg_coa_nine_desc; ;x
+
+hreg_coa_ten;Alter Germanic Coat of Arms;x
+hreg_coa_ten_desc; ;x
+
+hreg_coa_eleven;Alter Germanic Coat of Arms;x
+hreg_coa_eleven_desc; ;x
+
+hreg_coa_twelve;Alter Germanic Coat of Arms;x
+hreg_coa_twelve_desc; ;x
+
+
+ere_coa_one;Alter ERE Coat of Arms;x
+ere_coa_one_desc; ;x
+
+ere_coa_two;Alter ERE Coat of Arms;x
+ere_coa_two_desc; ;x
+
+ere_coa_three;Alter ERE Coat of Arms;x
+ere_coa_three_desc; ;x
+
+ere_coa_four;Alter ERE Coat of Arms;x
+ere_coa_four_desc; ;x
+
+ere_coa_five;Alter ERE Coat of Arms;x
+ere_coa_five_desc; ;x
+
+ere_coa_six;Alter ERE Coat of Arms;x
+ere_coa_six_desc; ;x
+
+ere_coa_seven;Alter ERE Coat of Arms;x
+ere_coa_seven_desc; ;x
+
+ere_coa_eight;Alter ERE Coat of Arms;x
+ere_coa_eight_desc; ;x
+
+ere_coa_nine;Alter ERE Coat of Arms;x
+ere_coa_nine_desc; ;x
+
+ere_coa_ten;Alter ERE Coat of Arms;x
+ere_coa_ten_desc; ;x
+
+ere_coa_eleven;Alter ERE Coat of Arms;x
+ere_coa_eleven_desc; ;x
+
+ere_coa_twelve;Alter ERE Coat of Arms;x
+ere_coa_twelve_desc; ;x
+
+ere_coa_thirteen;Alter ERE Coat of Arms;x
+ere_coa_thirteen_desc; ;x
+
+ere_coa_fourteen;Alter ERE Coat of Arms;x
+ere_coa_fourteen_desc; ;x
+
+
+pre_coa_what;Alter Coat of Arms;x
+pre_coa_what_desc; ;x
+
+pre_coa_cookin;Alter Coat of Arms;x
+pre_coa_cookin_desc; ;x
+
+carolingian_coa_one;Alter Coat of Arms;x
+carolingian_coa_one_desc; ;x
+
+carolingian_coa_two;Alter Coat of Arms;x
+carolingian_coa_two_desc; ;x
+
+salian_coa_one;Alter Coat of Arms;x
+salian_coa_one_desc; ;x
+
+kosj_coa_one;Alter Hospitaller Coat of Arms;x
+kosj_coa_one_desc; ;x
+
+kosj_coa_two;Alter Hospitaller Coat of Arms;x
+kosj_coa_two_desc; ;x
+
+kosj_coa_three;Alter Hospitaller Coat of Arms;x
+kosj_coa_three_desc; ;x
+
+german_coa_one;Alter Coat of Arms;x
+german_coa_one_desc; ;x
+
+german_coa_two;Alter Coat of Arms;x
+german_coa_two_desc; ;x
+
+german_coa_three;Alter Coat of Arms;x
+german_coa_three_desc; ;x
+
+german_coa_four;Alter Coat of Arms;x
+german_coa_four_desc; ;x
+
+french_coa_one;Alter Coat of Arms;x
+french_coa_one_desc; ;x
+
+french_coa_two;Alter Coat of Arms;x
+french_coa_two_desc; ;x
+
+french_coa_three;Alter Coat of Arms;x
+french_coa_three_desc; ;x
+
+french_coa_four;Alter Coat of Arms;x
+french_coa_four_desc; ;x
+
+french_coa_five;Alter Coat of Arms;x
+french_coa_five_desc; ;x
+
+french_coa_six;Alter Coat of Arms;x
+french_coa_six_desc; ;x
+
+french_coa_seven;Alter Coat of Arms;x
+french_coa_seven_desc; ;x
+
+french_coa_eight;Alter Coat of Arms;x
+french_coa_eight_desc; ;x
+
+french_coa_nine;Alter Coat of Arms;x
+french_coa_nine_desc; ;x
+
+french_coa_ten;Alter Coat of Arms;x
+french_coa_ten_desc; ;x
+
+italian_coa_one;Alter Coat of Arms;x
+italian_coa_one_desc; ;x
+
+italian_coa_two;Alter Coat of Arms;x
+italian_coa_two_desc; ;x
+
+italian_coa_three;Alter Coat of Arms;x
+italian_coa_three_desc; ;x
+
+latin_empire_coa_one;Alter Latin Coat of Arms;x
+latin_empire_coa_one_desc; ;x
+
+koj_coa_one;Alter Jerusalem Coat of Arms;x
+koj_coa_one_desc; ;x
+
+koj_coa_two;Alter Jerusalem Coat of Arms;x
+koj_coa_two_desc; ;x
+
+koj_coa_three;Alter Jerusalem Coat of Arms;x
+koj_coa_three_desc; ;x
+
+koj_coa_four;Alter Jerusalem Coat of Arms;x
+koj_coa_four_desc; ;x
+
+italy_coa_one;Alter Italian Coat of Arms;x
+italy_coa_one_desc; ;x
+
+italy_coa_two;Alter Italian Coat of Arms;x
+italy_coa_two_desc; ;x
+
+italy_coa_three;Alter Italian Coat of Arms;x
+italy_coa_three_desc; ;x
+
+italy_coa_four;Alter Italian Coat of Arms;x
+italy_coa_four_desc; ;x
+
+italy_coa_five;Alter Italian Coat of Arms;x
+italy_coa_five_desc; ;x
+
+italy_coa_six;Alter Italian Coat of Arms;x
+italy_coa_six_desc; ;x
+
+venice_coa_one;Alter Venetian Coat of Arms;x
+venice_coa_one_desc; ;x
+
+hungary_coa_one;Alter Hungarian Coat of Arms;x
+hungary_coa_one_desc; ;x
+
+hungary_coa_two;Alter Hungarian Coat of Arms;x
+hungary_coa_two_desc; ;x
+
+hungary_coa_three;Alter Hungarian Coat of Arms;x
+hungary_coa_three_desc; ;x
+
+hungary_coa_four;Alter Hungarian Coat of Arms;x
+hungary_coa_four_desc; ;x
+
+bavaria_coa_one;Alter Bavarian Coat of Arms;x
+bavaria_coa_one_desc; ;x
+
+bavaria_coa_two;Alter Bavarian Coat of Arms;x
+bavaria_coa_two_desc; ;x
+
+ireland_coa_one;Alter Irish Coat of Arms;x
+ireland_coa_one_desc; ;x
+
+poland_coa_one;Alter Polish Coat of Arms;x
+poland_coa_one_desc; ;x
+
+poland_coa_two;Alter Polish Coat of Arms;x
+poland_coa_two_desc; ;x
+
+poland_coa_three;Alter Polish Coat of Arms;x
+poland_coa_three_desc; ;x
+
+egypt_coa_one;Alter Egyptian Coat of Arms;x
+egypt_coa_one_desc; ;x
+
+egypt_coa_two;Alter Egyptian Coat of Arms;x
+egypt_coa_two_desc; ;x
+
+persia_coa_one;Alter Persian Coat of Arms;x
+persia_coa_one_desc; ;x
+
+persia_coa_two;Alter Persian Coat of Arms;x
+persia_coa_two_desc; ;x
+
+castille_coa_one;Alter Castilian Coat of Arms;x
+castille_coa_one_desc; ;x
+
+castille_coa_two;Alter Castilian Coat of Arms;x
+castille_coa_two_desc; ;x
+
+aragon_coa_one;Alter Aragonian Coat of Arms;x
+aragon_coa_one_desc; ;x
+
+aragon_coa_two;Alter Aragonian Coat of Arms;x
+aragon_coa_two_desc; ;x
+
+mongol_coa_one;Alter Mongolian Coat of Arms;x
+mongol_coa_one_desc; ;x
+
+mongol_coa_two;Alter Mongol Coat of Arms;x
+mongol_coa_two_desc; ;x
+
+mongol_coa_three;Alter Mongol Coat of Arms;x
+mongol_coa_three_desc; ;x
+
+mongol_coa_four;Alter Mongol Coat of Arms;x
+mongol_coa_four_desc; ;x
+
+mongol_coa_four_gh;Alter Golden Horde Coat of Arms;x
+mongol_coa_four_gh_desc; ;x
+
+mongol_coa_five;Alter Mongol Coat of Arms;x
+mongol_coa_five_desc; ;x
+
+mongol_coa_six;Alter Mongol Coat of Arms;x
+mongol_coa_six_desc; ;x
+
+mongol_coa_six_yuan;Alter Western Protectorate Coat of Arms;x
+mongol_coa_six_yuan_desc; ;x
+
+visigoth_coa_one;Alter Coat of Arms;x
+visigoth_coa_one_desc; ;x
+
+visigoth_coa_two;Alter Coat of Arms;x
+visigoth_coa_two_desc; ;x
+
+visigoth_coa_three;Alter Coat of Arms;x
+visigoth_coa_three_desc; ;x
+
+visigoth_coa_four;Alter Coat of Arms;x
+visigoth_coa_four_desc; ;x
+
+visigoth_coa_five;Alter Coat of Arms;x
+visigoth_coa_five_desc; ;x
+
+burgundy_coa_one;Alter Burgundian Coat of Arms;x
+burgundy_coa_one_desc; ;x
+
+burgundy_coa_two;Alter Burgundian Coat of Arms;x
+burgundy_coa_two_desc; ;x
+
+papacy_coa_one;Alter Papal Coat of Arms;x
+papacy_coa_one_desc; ;x
+
+papacy_coa_two;Alter Papal Coat of Arms;x
+papacy_coa_two_desc; ;x
+
+papacy_coa_three;Alter Papal Coat of Arms;x
+papacy_coa_three_desc; ;x
+
+papacy_coa_four;Alter Papal States Coat of Arms;x
+papacy_coa_four_desc; ;x
+
+papacy_coa_five;Alter Papal Coat of Arms;x
+papacy_coa_five_desc; ;x
+
+switzerland_coa_one;Alter Swiss Coat of Arms;x
+switzerland_coa_one_desc; ;x
+
+switzerland_coa_two;Alter Swiss Coat of Arms;x
+switzerland_coa_two_desc; ;x
+
+roman_empire_coa_one;Alter Roman Coat of Arms;x
+roman_empire_coa_one_desc; ;x
+
+roman_empire_coa_two;Alter Roman Coat of Arms;x
+roman_empire_coa_two_desc; ;x
+
+roman_empire_coa_three;Alter Roman Coat of Arms;x
+roman_empire_coa_three_desc; ;x
+
+roman_empire_coa_four;Alter Roman Coat of Arms;x
+roman_empire_coa_four_desc; ;x
+
+roman_empire_coa_five;Alter Roman Coat of Arms;x
+roman_empire_coa_five_desc; ;x
+
+roman_empire_coa_six;Alter Roman Coat of Arms;x
+roman_empire_coa_six_desc; ;x
+
+roman_empire_coa_seven;Alter Roman Coat of Arms;x
+roman_empire_coa_seven_desc; ;x
+
+roman_empire_coa_eight;Alter Roman Coat of Arms;x
+roman_empire_coa_eight_desc; ;x
+
+roman_empire_coa_nine;Alter Roman Coat of Arms;x
+roman_empire_coa_nine_desc; ;x
+
+roman_empire_coa_ten;Alter Roman Coat of Arms;x
+roman_empire_coa_ten_desc; ;x
+
+arabia_coa_one;Alter Arabian Coat of Arms;x
+arabia_coa_one_desc; ;x
+
+antioch_coa_one;Alter Antiochian Coat of Arms;x
+antioch_coa_one_desc; ;x
+
+aztec_colony_england_coa;Alter English Coat of Arms;x
+aztec_colony_england_coa_desc; ;x
+
+aztec_colony_france_coa;Alter French Coat of Arms;x
+aztec_colony_france_coa_desc; ;x
+
+aztec_colony_spain_coa;Alter Spanish Coat of Arms;x
+aztec_colony_spain_coa_desc; ;x

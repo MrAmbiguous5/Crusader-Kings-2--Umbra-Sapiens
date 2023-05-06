@@ -1,0 +1,35 @@
+#;;;;;;;;;;;;;;x
+#§
+############
+## EVENTS ##
+############
+# lmmpvf_demand.1
+EVTDESC_DemandCouncilPosition_lmmpvf_demand.1;My liege,\n\nSurely you know the extent of my influence in [Root.PrimaryTitle.GetName]. How is it then, that you deprive me of my right to be on your council! I demand that I be granted a council position.\n\nSigned,\n[lmmpvf_demander.GetTitledName];;;;;;;;;;;;;x
+EVTOPT_GrantPosition_lmmpvf_demand.1;Grant a position immediately;;;;;;;;;;;;;x
+EVTOPT_PromiseToGrant_lmmpvf_demand.1;Promise to grant soon;;;;;;;;;;;;;x
+EVTOPT_DelayForSeveralYears_lmmpvf_demand.1;No, and don't bother me for another 5 years!;;;;;;;;;;;;;x
+EVTOPT_Refuse_lmmpvf_demand.1;Refuse;;;;;;;;;;;;;x
+# lmmpvf_demand.2
+EVTDESC_PositionGranted_lmmpvf_demand.2;To the [GetFromRootCompliment] [Root.GetFirstName],\n\nYour demand is most just. Of course you deserve a position on my council. Henceforth, you shall hold the prestigious duty of the realm's [Root.GetJobTitle].\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+# lmmpvf_demand.3
+EVTDESC_PositionPromised_lmmpvf_demand.3;To the [GetFromRootCompliment] [Root.GetFirstName],\n\nYour demand is most just. However, I need some more time to take care of a few affairs. Rest assured that I will grant you a council position as soon as possible!\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+# lmmpvf_demand.4
+EVTDESC_PositionRefused_lmmpvf_demand.4;To [Root.GetFirstName],\n\nIn light of the current circumstances it would not be in the best interests of [From.PrimaryTitle.GetName] to grant you a council position. Perhaps some other day I shall be inclined to reconsider your demand.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTDESC_PositionRefusedForSeveralYears_lmmpvf_demand.4;To [Root.GetFirstName],\n\nIn light of the current and foreseeable circumstances it would not be in the best interests of [From.PrimaryTitle.GetName] to grant you a council position. Please wait and see how the situation develops in the next 5 years.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+# lmmpvf_demand.6
+EVTDESC_NotYetGranted_lmmpvf_demand.6;It has been a long time since I demanded that my liege, [Liege.GetFirstName], should grant me a position on [Liege.GetHerHis] council. However, [Liege.GetSheHe] has so far not complied with my demand.;;;;;;;;;;;;;x
+EVTOPT_RemindLiege_lmmpvf_demand.6;Send [Liege.GetTitledFirstNameNoRegnal] a reminder;;;;;;;;;;;;;x
+EVTOPT_GiveUp_lmmpvf_demand.6;Give up;;;;;;;;;;;;;x
+# lmmpvf_demand.7
+EVTDESC_RemindNotHappy_lmmpvf_demand.7;My liege,\n\nIt has been a long time since you promised to grant me a position on the council. I now demand that you uphold your word and grant me a position immediately.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPT_GrantPosition_lmmpvf_demand.7;Grant a position;;;;;;;;;;;;;x
+EVTOPT_Refuse_lmmpvf_demand.7;Refuse;;;;;;;;;;;;;x
+EVTDESC_Happy_lmmpvf_demand.8;My liege,\n\nI, and the members of my faction, are pleased that you have granted me my rightful position on your council.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+# lmmpvf_demand.51
+EVTDESC_DemandReleaseFamily_lmmpvf_demand.51;My liege,\n\nIt grieves me deeply that you hold members of my family prisoner. Surely, you know of the nobility of my house and the extent of my influence in [Root.PrimaryTitle.GetName]. I demand that you release my family immediately.\n\nSigned,\n[lmmpvf_demander.GetTitledName];;;;;;;;;;;;;x
+EVTOPT_ReleasePrisoners_lmmpvf_demand.51;Release [From.GetTitledFirstNameNoRegnal]'s family from prison;;;;;;;;;;;;;x
+EVTOPT_Refuse_lmmpvf_demand.51;Refuse;;;;;;;;;;;;;x
+# lmmpvf_demand.52
+EVTDESC_LiegeAccepted_lmmpvf_demand.52;To the [GetFromRootCompliment] [Root.GetFirstName],\n\nYour demand is most just. I am sorry that your family had to go through this hardship. I will have ordered the release of all of your family members.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+# lmmpvf_demand.53
+EVTDESC_LiegeRefused_lmmpvf_demand.53;To the [GetFromRootCompliment] [Root.GetFirstName],\n\nAlthough it pains me that your loved ones are in prison, it must be kept so for the greater good of the [From.PrimaryTitle.GetFullName]. I hope you will understand.\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x

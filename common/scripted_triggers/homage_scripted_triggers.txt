@@ -1,0 +1,91 @@
+ruler_is_a_crowned_king = { 
+	higher_real_tier_than = DUKE
+	is_feudal = yes
+	is_vice_royalty = no
+	NOT = { government = order_government }
+	OR = {
+		trait = crowned_by_priest
+		trait = crowned_by_bishop
+		trait = crowned_by_pope
+		trait = crowned_by_myself
+	}
+}
+
+is_crazy_trigger = {
+	OR = {
+		trait = lunatic
+		trait = paranoid
+		trait = insane
+		trait = possessed
+		trait = drunkard
+	}
+}
+
+has_beautiful_trigger = {
+	OR = {
+		trait = fair
+		trait = groomed
+		trait = brave
+		trait = gregarious
+		trait = seducer
+		trait = seductress
+		trait = robust
+		trait = strong
+		trait = socializer
+		trait = tall
+		trait = giant
+	}
+}
+
+is_disgusting_trigger = {
+	has_beautiful_trigger = no
+	has_disgusting_trigger = yes
+}
+
+has_disgusting_trigger = {
+	OR = {
+		trait = ugly
+		trait = uncouth
+		trait = feeble
+		trait = dwarf
+		trait = clubfooted
+		trait = harelip
+		trait = hunchback
+		trait = lisp
+		trait = weak
+		trait = lunatic
+		trait = insane
+		trait = possessed
+		trait = has_aztec_disease
+		trait = syphilitic
+		trait = leper
+		trait = maimed
+		trait = drunkard
+		trait = gluttonous
+		trait = craven
+		trait = blinded
+		trait = horse
+		trait = one_eyed
+		trait = one_handed
+		trait = one_legged
+		trait = disfigured
+		trait = mangled
+		trait = severely_injured
+		trait = flu
+		trait = dysentery
+		trait = food_poisoning
+		trait = rabies
+		trait = infection
+		trait = rash
+		trait = vomiting
+		trait = diarrhea
+		trait = cough
+		trait = slothful
+		trait = depressed
+	}
+}
+
+is_beautiful_trigger = {
+	has_beautiful_trigger = yes
+	has_disgusting_trigger = no
+}

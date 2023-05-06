@@ -1,0 +1,63 @@
+namespace = lmmpvf_maintenance
+
+character_event = {
+	id = lmmpvf_maintenance.1
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		is_multiplayer_host_character = yes		
+	}
+	
+	option = {
+		set_variable = { which = global_lmmpvf_small_contribution_wealth value = 5 }
+		set_variable = { which = global_lmmpvf_medium_contribution_wealth value = 10 }
+		set_variable = { which = global_lmmpvf_large_contribution_wealth value = 20 }
+		
+		set_variable = { which = global_lmmpvf_small_contribution_wealth_negative value = -5 }
+		set_variable = { which = global_lmmpvf_medium_contribution_wealth_negative value = -10 }
+		set_variable = { which = global_lmmpvf_large_contribution_wealth_negative value = -20 } 
+		
+		# set_variable = { which = global_lmmpvf_small_contribution_prestige value = 10 }
+		# set_variable = { which = global_lmmpvf_medium_contribution_prestige value = 25 }
+		# set_variable = { which = global_lmmpvf_large_contribution_prestige value = 50 }
+		
+		# set_variable = { which = global_lmmpvf_small_contribution_prestige_negative value = -10 }
+		# set_variable = { which = global_lmmpvf_medium_contribution_prestige_negative value = -25 }
+		# set_variable = { which = global_lmmpvf_large_contribution_prestige_negative value = -50 } 
+		
+		# set_variable = { which = global_lmmpvf_small_contribution_piety value = 10 }
+		# set_variable = { which = global_lmmpvf_medium_contribution_piety value = 25 }
+		# set_variable = { which = global_lmmpvf_large_contribution_piety value = 50 }
+		
+		# set_variable = { which = global_lmmpvf_small_contribution_piety_negative value = -10 }
+		# set_variable = { which = global_lmmpvf_medium_contribution_piety_negative value = -25 }
+		# set_variable = { which = global_lmmpvf_large_contribution_piety_negative value = -50 } 
+	}
+}
+
+# Fired on death for AI rulers to transfer all faction fund to their wealth
+character_event = {
+	id = lmmpvf_maintenance.10
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	ai = yes
+	
+	trigger = {
+		lmmpvf_is_faction_leader_trigger = yes
+	}
+	
+	option = {
+		if = {
+			limit = { check_variable = { which = lmmpvf_faction_fund_wealth value = 1 } }
+			wealth = lmmpvf_faction_fund_wealth
+			set_variable = { which = lmmpvf_faction_fund_wealth value = 0 } # To clear on save reload		
+		}
+	}
+}

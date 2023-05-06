@@ -1,0 +1,56 @@
+namespace = vassalize_tribe
+character_event = {
+	id = vassalize_tribe.250001
+	desc = vassalize_tribe.250001.desc
+	picture = "GFX_evt_castle_construction"
+	is_triggered_only = yes
+	
+	immediate = {
+	while = {
+		limit = {
+			any_demesne_title = {
+				holding_type = tribal
+				tier = baron
+				NOT = { tier = count }
+				is_capital = no
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_title = {
+					holding_type = tribal
+					tier = baron
+					NOT = { tier = count }
+					is_capital = no
+				}
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = random
+				female = no
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				if = { limit = { trait = ambitious } remove_trait = ambitious }
+				liege = {
+					random_demesne_title = {
+						limit = {
+							holding_type = tribal
+							tier = baron
+							NOT = { tier = count }
+							is_capital = no
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	}
+	
+	option = {
+		name = vassalize_tribe.250001.opta
+	}
+}

@@ -1,0 +1,202 @@
+###############################################
+### GIFT ARTIFACT
+### By blackninja9939
+###############################################
+
+namespace = gift_artifact
+
+#Select artifact to gift
+character_event = {
+	id = gift_artifact.1
+	desc = EVTDESC_gift_artifact_1
+	picture = GFX_evt_treasure_chamber
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = "gift_artifact_counter" value = 0 }
+		while = {
+			limit = { NOT = { check_variable = { which = gift_artifact_counter value = 2.9 } } }
+			random_artifact = {
+				limit = { 
+					NOT = { has_artifact_flag = gift_artifact_NO_COUNT }
+					NOT = { has_artifact_flag = gift_artifact_counted }
+				}
+				ROOT = { 
+					change_variable = { which = "gift_artifact_counter" value = 1 }
+				}
+				set_artifact_flag = gift_artifact_counted
+				if = {
+					limit = { ROOT = { is_variable_equal = { which = "gift_artifact_counter" value = 1 } } }
+					set_artifact_flag = gift_artifact_1
+				}
+				if = {
+					limit = { ROOT = { is_variable_equal = { which = "gift_artifact_counter" value = 2 } } }
+					set_artifact_flag = gift_artifact_2
+				}
+				if = {
+					limit = { ROOT = { is_variable_equal = { which = "gift_artifact_counter" value = 3 } } }
+					set_artifact_flag = gift_artifact_3
+				}
+			}
+		}
+	}
+	
+	option = { #More
+		name = EVTOPTA_gift_artifact_1
+		trigger = { num_of_artifacts = 4 }
+		hidden_tooltip = {
+			any_artifact = {
+				limit = { has_artifact_flag = gift_artifact_counted }
+				clr_artifact_flag = gift_artifact_1
+				clr_artifact_flag = gift_artifact_2
+				clr_artifact_flag = gift_artifact_3
+				clr_artifact_flag = gift_artifact_counted
+				set_artifact_flag = gift_artifact_NO_COUNT
+			}
+			if = { #No more possible selections, reset flags and start again
+				limit = {
+					NOT = {
+						any_artifact = {
+							NOT = { has_artifact_flag = gift_artifact_NO_COUNT }
+						}
+					}
+				}
+				any_artifact = {
+					limit = {
+						has_artifact_flag = gift_artifact_NO_COUNT
+					}
+					clr_artifact_flag = gift_artifact_NO_COUNT
+				}
+			}
+		}
+		repeat_event = { id = gift_artifact.1 }
+	}
+	option = { #Artifact one
+		name = EVTOPTB_gift_artifact_1
+		trigger = { check_variable = { which = gift_artifact_counter value = 1 } }
+		random_artifact = {
+			limit = { has_artifact_flag = gift_artifact_1 }
+			transfer_artifact = {
+				from = ROOT
+				to = event_target:artifact_recipient
+			}
+			clr_artifact_flag = gift_artifact_1
+			clr_artifact_flag = gift_artifact_counted
+			set_artifact_flag = gifted_artifact
+		}
+		event_target:artifact_recipient = { 
+			opinion = {
+				who = ROOT
+				modifier = opinion_grateful
+				years = 5
+			}
+			letter_event = { id = gift_artifact.3 }
+		}
+		hidden_tooltip = { character_event = { id = gift_artifact.2 } }
+	}
+	option = { #Artifact two
+		name = EVTOPTC_gift_artifact_1
+		trigger = { check_variable = { which = gift_artifact_counter value = 2 } }
+		random_artifact = {
+			limit = { has_artifact_flag = gift_artifact_2 }
+			transfer_artifact = {
+				from = ROOT
+				to = event_target:artifact_recipient
+			}
+			clr_artifact_flag = gift_artifact_2
+			clr_artifact_flag = gift_artifact_counted
+			set_artifact_flag = gifted_artifact
+		}
+		event_target:artifact_recipient = { 
+			opinion = {
+				who = ROOT
+				modifier = opinion_grateful
+				years = 5
+			}
+			letter_event = { id = gift_artifact.3 }
+		}
+		hidden_tooltip = { character_event = { id = gift_artifact.2 } }
+	}
+	option = { #Artifact three
+		name = EVTOPTD_gift_artifact_1
+		trigger = { check_variable = { which = gift_artifact_counter value = 3 } }
+		random_artifact = {
+			limit = { has_artifact_flag = gift_artifact_3 }
+			transfer_artifact = {
+				from = ROOT
+				to = event_target:artifact_recipient
+			}
+			clr_artifact_flag = gift_artifact_3
+			clr_artifact_flag = gift_artifact_counted
+			set_artifact_flag = gifted_artifact
+		}
+		event_target:artifact_recipient = { 
+			opinion = {
+				who = ROOT
+				modifier = opinion_grateful
+				years = 5
+			}
+			letter_event = { id = gift_artifact.3 }
+		}
+		hidden_tooltip = { character_event = { id = gift_artifact.2 } }
+	}
+}
+#Clear flags and variables
+character_event = {
+	id = gift_artifact.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		any_artifact = {
+			limit = { has_artifact_flag = gift_artifact_counted }
+			clr_artifact_flag = gift_artifact_1
+			clr_artifact_flag = gift_artifact_2
+			clr_artifact_flag = gift_artifact_3
+			clr_artifact_flag = gift_artifact_counted
+			clr_artifact_flag = gift_artifact_NO_COUNT
+		}
+		set_variable = { which = "gift_artifact_counter" value = 0 }
+		clr_character_flag = gift_artifact_taken
+	}
+}
+#Notify you have been gifted an artifact
+letter_event = {
+	id = gift_artifact.3
+	desc = EVTDESC_gift_artifact_3
+	
+	is_triggered_only = yes
+	
+	option = { #Thank you
+		name = EVTOPTA_gift_artifact_3
+		tooltip = {
+			random_artifact = {
+				limit = {
+					has_artifact_flag = gifted_artifact
+				}
+				transfer_artifact = {
+					from = FROM
+					to = ROOT
+				}
+			}
+		}
+		tooltip = {
+			FROM = { 
+				reverse_opinion = {
+					who = ROOT
+					modifier = opinion_grateful
+					years = 5
+				}
+			}
+		}
+		hidden_tooltip = {
+			random_artifact = {
+				limit = {
+					has_artifact_flag = gifted_artifact
+				}
+				clr_artifact_flag = gifted_artifact
+			}
+		}
+	}
+}

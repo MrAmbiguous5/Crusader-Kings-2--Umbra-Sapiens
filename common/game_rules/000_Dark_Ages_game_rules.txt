@@ -1,0 +1,322 @@
+#
+# List of options showing in the Game Rules screen
+#
+# format is:
+# rule_token = {
+#	name = "TEXT_KEY_FOR_NAME"
+#	desc = "TEXT_KEY_FOR_LONG_DESC"
+#	group = "TEXT_KEY_FOR_GROUP"					# Used for filtering. A single rule can be in multiple groups 
+#	alt_start_default = option_name					# Default value in alt start. If not set, defaults 
+#	option = {										# please note that the first option is always the default option
+#		name = option_token
+#		text = "TEXT_KEY_FOR_OPTION_NAME"
+#		achievements = no							# by default achievements = yes, allows or disallows achievements
+#		alt_start_achievements = no					# by default alt_start_achievements = yes, allows or disallows achievements in alt start. Note that it defaults to yes even when achievements = no
+#	}
+# }
+
+stability_system = {
+	name = "RULE_DARK_AGES_STABILITY"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = normal
+	option = {
+		name = normal
+		text = "RULE_DARK_AGES_NORMAL"
+		desc = "RULE_DARK_AGES_STABILITY_NORMAL_DESC"
+	}
+	option = {
+		name = reduced
+		text = "RULE_DARK_AGES_REDUCED"
+		desc = "RULE_DARK_AGES_STABILITY_REDUCED_DESC"
+	}
+	option = {
+		name = off
+		text = "RULE_DARK_AGES_OFF"
+		desc = "RULE_DARK_AGES_STABILITY_OFF_DESC"
+	}
+}
+
+murder_prevalence = {
+	name = "RULE_DARK_AGES_MPREVALENCE"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = normal
+	option = {
+		name = normal
+		text = "RULE_DARK_AGES_NORMAL"
+		desc = "RULE_DARK_AGES_MPREVALENCE_NORMAL_DESC"
+	}	
+	option = {
+		name = 50
+		text = "RULE_DARK_AGES_50"
+		desc = "RULE_DARK_AGES_MPREVALENCE_50_DESC"
+	}			
+	option = {
+		name = 150
+		text = "RULE_DARK_AGES_150"
+		desc = "RULE_DARK_AGES_MPREVALENCE_150_DESC"
+	}	
+	option = {
+		name = off
+		text = "RULE_DARK_AGES_OFF"
+		desc = "RULE_DARK_AGES_MPREVALENCE_OFF_DESC"
+	}	
+	
+}
+
+murder_chance = {
+	name = "RULE_DARK_AGES_MCHANCE"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = normal
+	option = {
+		name = normal
+		text = "RULE_DARK_AGES_NORMAL"
+		desc = "RULE_DARK_AGES_MCHANCE_NORMAL_DESC"
+	}
+	option = {
+		name = increased
+		text = "RULE_DARK_AGES_INCREASED"
+		desc = "RULE_DARK_AGES_MCHANCE_INCREASED_DESC"
+	}
+	option = {
+		name = decreased
+		text = "RULE_DARK_AGES_DECREASED"
+		desc = "RULE_DARK_AGES_MCHANCE_DECREASED_DESC"
+	}	
+
+}
+
+
+murder_discovery = {
+	name = "RULE_DARK_AGES_MDISCOVERY"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = normal
+	option = {
+		name = normal
+		text = "RULE_DARK_AGES_NORMAL"
+		desc = "RULE_DARK_AGES_MDISCOVERY_NORMAL_DESC"
+	}
+	option = {
+		name = increased
+		text = "RULE_DARK_AGES_INCREASED"
+		desc = "RULE_DARK_AGES_MDISCOVERY_INCREASED_DESC"
+	}
+	option = {
+		name = decreased
+		text = "RULE_DARK_AGES_DECREASED"
+		desc = "RULE_DARK_AGES_MDISCOVERY_DECREASED_DESC"
+	}	
+
+}
+
+
+migration_duration = {
+	name = "RULE_DARK_AGES_MDURATION"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = normal
+	option = {
+		name = normal
+		text = "RULE_DARK_AGES_NORMAL"
+		desc = "RULE_DARK_AGES_MDURATION_NORMAL_DESC"
+	}
+	option = {
+		name = increased
+		text = "RULE_DARK_AGES_INCREASED"
+		desc = "RULE_DARK_AGES_MDURATION_INCREASED_DESC"
+	}
+	option = {
+		name = decreased
+		text = "RULE_DARK_AGES_DECREASED"
+		desc = "RULE_DARK_AGES_MDURATION_DECREASED_DESC"
+	}	
+	option = {
+		name = off
+		text = "RULE_DARK_AGES_OFF"
+		desc = "RULE_DARK_AGES_MDURATION_OFF_DESC"
+	}	
+
+}
+
+debates_difficulty = {
+	name = "RULE_DARK_AGES_DEBATES"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = normal
+	option = {
+		name = normal
+		text = "RULE_DARK_AGES_NORMAL"
+		desc = "RULE_DARK_AGES_DEBATES_NORMAL_DESC"
+	}
+	option = {
+		name = increased
+		text = "RULE_DARK_AGES_INCREASED"
+		desc = "RULE_DARK_AGES_DEBATES_INCREASED_DESC"
+	}
+	option = {
+		name = decreased
+		text = "RULE_DARK_AGES_DECREASED"
+		desc = "RULE_DARK_AGES_DEBATES_DECREASED_DESC"
+	}	
+
+}
+
+personal_traits = {
+	name = "RULE_DARK_AGES_PT"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = yes5
+	option = {
+		name = yes5
+		text = "RULE_DARK_AGES_YES5"
+		desc = "RULE_DARK_AGES_PT_YES5_DESC"
+	}
+	option = {
+		name = yes3
+		text = "RULE_DARK_AGES_YES3"
+		desc = "RULE_DARK_AGES_PT_YES3_DESC"
+	}	
+	option = {
+		name = yes7
+		text = "RULE_DARK_AGES_YES7"
+		desc = "RULE_DARK_AGES_PT_YES7_DESC"
+	}	
+	option = {
+		name = no
+		text = "RULE_DARK_AGES_NO"
+		desc = "RULE_DARK_AGES_PT_NO_DESC"
+	}
+
+}
+
+genetic_traits = {
+	name = "RULE_DARK_AGES_GT"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = delayed
+	option = {
+		name = delayed
+		text = "RULE_DARK_AGES_DELAYED"
+		desc = "RULE_DARK_AGES_GT_DELAYED_DESC"
+	}
+	option = {
+		name = immediate
+		text = "RULE_DARK_AGES_IMMEDIATE"
+		desc = "RULE_DARK_AGES_GT_IMMEDIATE_DESC"
+	}
+
+}
+
+infamy = {
+	name = "RULE_DARK_AGES_INFAMY"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = yes
+	option = {
+		name = yes
+		text = "RULE_DARK_AGES_YES"
+		desc = "RULE_DARK_AGES_INFAMY_YES_DESC"
+	}
+	option = {
+		name = no
+		text = "RULE_DARK_AGES_NO"
+		desc = "RULE_DARK_AGES_INFAMY_NO_DESC"
+	}
+
+}
+
+republic_titles = {
+	name = "RULE_DARK_AGES_REPUBLIC_TITLES"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = yes
+	option = {
+		name = yes
+		text = "RULE_DARK_AGES_YES"
+		desc = "RULE_DARK_AGES_REPUBLIC_TITLES_YES_DESC"
+	}
+	option = {
+		name = no
+		text = "RULE_DARK_AGES_NO"
+		desc = "RULE_DARK_AGES_REPUBLIC_TITLES_NO_DESC"
+	}
+
+}
+
+shipwrecks = {
+	name = "RULE_DARK_AGES_SHIPWRECKS"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = normal
+	option = {
+		name = normal
+		text = "RULE_DARK_AGES_NORMAL"
+		desc = "RULE_DARK_AGES_SHIPWRECKS_NORMAL_DESC"
+	}
+	option = {
+		name = increased
+		text = "RULE_DARK_AGES_INCREASED"
+		desc = "RULE_DARK_AGES_SHIPWRECKS_INCREASED_DESC"
+	}
+	option = {
+		name = decreased
+		text = "RULE_DARK_AGES_DECREASED"
+		desc = "RULE_DARK_AGES_SHIPWRECKS_DECREASED_DESC"
+	}	
+	
+	option = {
+		name = off
+		text = "RULE_DARK_AGES_OFF"
+		desc = "RULE_DARK_AGES_SHIPWRECKS_OFF_DESC"
+	}	
+
+}
+
+parents = {
+	name = "RULE_DARK_AGES_PARENTS"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = verbose
+	option = {
+		name = verbose
+		text = "RULE_DARK_AGES_VERBOSE"
+		desc = "RULE_DARK_AGES_PARENTS_VERBOSE_DESC"
+	}
+	option = {
+		name = on
+		text = "RULE_DARK_AGES_ON"
+		desc = "RULE_DARK_AGES_PARENTS_ON_DESC"
+	}
+	option = {
+		name = off
+		text = "RULE_DARK_AGES_OFF"
+		desc = "RULE_DARK_AGES_PARENTS_OFF_DESC"
+	}
+	
+
+}
+
+easter = {
+	name = "RULE_DARK_AGES_EASTER"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = on
+	option = {
+		name = on
+		text = "RULE_DARK_AGES_ON"
+		desc = "RULE_DARK_AGES_EASTER_ON_DESC"
+	}
+	option = {
+		name = off
+		text = "RULE_DARK_AGES_OFF"
+		desc = "RULE_DARK_AGES_EASTER_OFF_DESC"
+	}
+
+}
+
+low_stats_system = {
+	name = "RULE_DARK_AGES_LOWSTATS"
+	group = "RULE_GROUP_DARKAGES"
+	alt_start_default = normal
+	option = {
+		name = normal
+		text = "RULE_DARK_AGES_NORMAL"
+		desc = "RULE_DARK_AGES_LOWSTATS_NORMAL_DESC"
+	}
+	option = {
+		name = all
+		text = "RULE_DARK_AGES_ALL"
+		desc = "RULE_DARK_AGES_LOWSTATS_ALL_DESC"
+	}
+
+}

@@ -1,0 +1,152 @@
+
+is_amazonian = { # Amazonian
+	attribute = martial
+	education = no
+	random = no
+	potential = {
+		is_female = yes
+		age = 13
+	}	
+
+	command_modifier = {
+		siege = 0.1
+	}
+	
+	male_opinion = -10
+	same_opinion = 10
+
+	ai_honor = 50
+	
+	opposites = { is_amazonian_immortal }
+	
+	male_insult = INSULT_UPSTART
+	female_insult = INSULT_UPSTART
+	male_compliment = COMPL_CONQUEROR
+	female_compliment = COMPL_CONQUEROR
+	child_compliment_adj = COMPL_GOOD
+	child_insult_adj = INSULT_FARTMASTER
+}
+
+is_amazonian_immortal = { # Legendary Amazonian
+	attribute = martial
+	education = no
+	random = no
+	immortal = yes
+	potential = {
+		is_female = yes
+		age = 16
+	}
+	
+	combat_rating = 25
+	command_modifier = {
+		siege = 0.5
+	}
+	
+	male_opinion = -15
+	church_opinion = -15
+
+	ai_rationality = 100
+	ai_zeal = 100
+	ai_greed = -50
+	ai_honor = 100
+	ai_ambition = 50
+	
+	opposites = { is_amazonian }
+	
+	male_insult = INSULT_UPSTART
+	female_insult = INSULT_UPSTART
+	male_compliment = COMPL_CONQUEROR
+	female_compliment = COMPL_CONQUEROR
+	child_compliment_adj = COMPL_GOOD
+	child_insult_adj = INSULT_FARTMASTER
+}
+
+amazonian_leader = { # Heroine
+	leader = yes
+	education = no
+	random = no
+	
+	potential = {
+		is_female = yes
+	}
+	
+	combat_rating = 15
+	global_levy_size = 0.12
+	sex_appeal_opinion = 10
+	
+	ai_honor = 100
+	
+}	
+	
+giant_lord = {	# Giant Lord
+	attribute = martial
+	education = no
+	random = no
+	
+	potential = {
+		is_female = no
+		trait = giant
+	}
+		
+	martial = 10
+	health = 2
+	combat_rating = 20
+	command_modifier = {
+		siege = 0.2
+		morale_offence = 0.2
+		heavy_infantry = 0.2
+	}
+	
+	female_opinion = -25
+	
+	ai_greed = 50
+	ai_honor = -50
+	ai_ambition = 250
+	
+	opposites = { giant_king }
+	
+	male_insult_adj = INSULT_MONSTROUS
+	female_insult_adj = INSULT_EVIL
+	child_insult_adj = INSULT_UGLY
+	
+}	
+
+giant_king = {	# Giant King
+	immortal = yes
+	attribute = martial
+	education = no
+	random = no
+	
+	potential = {
+		is_female = no
+		trait = giant
+	}
+	
+	martial = 20
+	health = 5
+	combat_rating = 50
+	command_modifier = {
+		siege = 1.0
+		morale_offence = 0.5
+		heavy_infantry = 0.5
+	}
+	
+	female_opinion = -50
+	same_opinion = -50
+	
+	ai_greed = 100
+	ai_honor = -100
+	ai_ambition = 500
+	
+	opposites = { giant_lord }
+	
+	male_insult_adj = INSULT_MONSTROUS
+	female_insult_adj = INSULT_EVIL
+	child_insult_adj = INSULT_UGLY
+	
+}
+
+
+
+
+

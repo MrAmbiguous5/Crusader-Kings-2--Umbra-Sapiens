@@ -1,0 +1,33 @@
+#;;;;;;;;;;;;;;x
+#§
+#####################
+## EVENT MODIFIERS ##
+#####################
+lmmpvf_focus_glory_modifier;Faction Focus: Glory;;;;;;;;;;;;;x
+lmmpvf_focus_glory_modifier_desc;This character is a powerful vassal and is leading a faction focused on Glory.;;;;;;;;;;;;;x
+lmmpvf_focus_prosperity_modifier;Faction Focus: Prosperity;;;;;;;;;;;;;x
+lmmpvf_focus_prosperity_modifier_desc;This character is a powerful vassal and is leading a faction focused on Prosperity.;;;;;;;;;;;;;x
+lmmpvf_focus_faith_modifier;Faction Focus: Faith;;;;;;;;;;;;;x
+lmmpvf_focus_faith_modifier_desc;This character is a powerful vassal and is leading a faction focused on Faith.;;;;;;;;;;;;;x
+lmmpvf_improved_public_image_modifier;Improved Public Image;;;;;;;;;;;;;x
+lmmpvf_improved_public_image_modifier_desc;With the help of [Root.GetHerHis] faction, this character has improved his public image and commands increased respect among people.;;;;;;;;;;;;;x
+lmmpvf_improved_public_image_member_modifier;Improved Public Image;;;;;;;;;;;;;x
+lmmpvf_improved_public_image_member_modifier_desc;This character worked hard as part of a faction to improve [Root.GetHerHis] and the faction leader's public image.;;;;;;;;;;;;;x
+lmmpvf_prospering_modifier;Prospering;;;;;;;;;;;;;x
+lmmpvf_prospering_modifier_desc;This province is prospering thanks to the efforts of a faction.;;;;;;;;;;;;;x
+lmmpvf_faction_trade_route_modifier;Faction Trade Route;;;;;;;;;;;;;x
+lmmpvf_faction_trade_route_modifier_desc;This province is part of a trade route established by a powerful faction in the realm.;;;;;;;;;;;;;x
+
+###############
+## COOLDOWNS ##
+###############
+lmmpvf_demand_cooldown;Demand Cooldown;;;;;;;;;;;;;x
+lmmpvf_demand_cooldown_desc;This character recently demanded something from [Root.GetHerHis] liege and must wait some time before making another demand.;;;;;;;;;;;;;x
+lmmpvf_goal_attack_neighboring_realm_cooldown;Declared Faction Assisted War;;;;;;;;;;;;;x
+lmmpvf_goal_attack_neighboring_realm_cooldown_desc;This character attacked a neighboring realm with the help of [Root.GetHerHis] faction and must wait several years before being able to do so again.;;;;;;;;;;;;;x
+lmmpvf_goal_oust_foreigners_from_realm_cooldown;Declared War to Oust Foreigners;;;;;;;;;;;;;x
+lmmpvf_goal_oust_foreigners_from_realm_cooldown_desc;This character declared a war to oust foreigners from [Root.GetHerHis] liege's realm and must wait several years before being able to do so again.;;;;;;;;;;;;;x
+lmmpvf_goal_attack_infidel_realm_cooldown;Declared Faction Assisted Holy War;;;;;;;;;;;;;x
+lmmpvf_goal_attack_infidel_realm_cooldown_desc;This character declared a holy war with the support of [Root.GetHerHis] faction and must wait several years before being able to do so again.;;;;;;;;;;;;;x
+lmmpvf_goal_oust_infidels_from_realm_cooldown;Declared War to Oust Infidels;;;;;;;;;;;;;x
+lmmpvf_goal_oust_infidels_from_realm_cooldown_desc;This character declared a war to oust infidels from [Root.GetHerHis] liege's realm and must wait several years before being able to do so again.;;;;;;;;;;;;;x

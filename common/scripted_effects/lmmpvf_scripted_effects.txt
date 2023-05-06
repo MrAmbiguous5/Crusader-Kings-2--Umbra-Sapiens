@@ -1,0 +1,430 @@
+lmmpvf_focus_set_after_effect = {
+	if = {
+		limit = { has_character_modifier = lmmpvf_focus_glory_modifier }
+		remove_character_modifier = lmmpvf_focus_glory_modifier
+	}
+	else_if = {
+		limit = { has_character_modifier = lmmpvf_focus_prosperity_modifier }
+		remove_character_modifier = lmmpvf_focus_prosperity_modifier
+	}
+	else_if = {
+		limit = { has_character_modifier = lmmpvf_focus_faith_modifier }
+		remove_character_modifier = lmmpvf_focus_faith_modifier
+	}
+	
+	if = {
+		limit = { 
+			NOT = { has_character_flag = lmmpvf_focus_none } 
+		}
+		set_character_flag = lmmpvf_focus_set
+	}
+	
+	trigger_switch = {
+		on_trigger = has_character_flag
+		
+		lmmpvf_focus_glory = { add_character_modifier = { modifier = lmmpvf_focus_glory_modifier duration = -1 } }
+		lmmpvf_focus_prosperity = { add_character_modifier = { modifier = lmmpvf_focus_prosperity_modifier duration = -1 } }
+		lmmpvf_focus_faith = { add_character_modifier = { modifier = lmmpvf_focus_faith_modifier duration = -1 } }
+	}
+	
+	log = "LMMPVF - [Root.GetTitledName] set focus: [Root.lmmpvf_GetFactionFocus]"
+}
+
+lmmpvf_goal_set_after_effect = {
+	if = {
+		limit = {
+			NOT = { has_character_flag = lmmpvf_goal_none }
+		}
+		set_character_flag = lmmpvf_goal_set
+		#lmmpvf_set_hidden_goal_effect = yes	
+		liege = {
+			character_event = { id = lmmpvf_notification.1 } # Notify liege of faction's focus and goal.
+		}		
+	}
+	
+	if = {
+		limit = {
+			#lmmpvf_has_goal_war_trigger = yes
+			OR = {
+				has_character_flag = lmmpvf_goal_attack_neighboring_realm		
+				has_character_flag = lmmpvf_goal_attack_infidel_realm
+				has_character_flag = lmmpvf_goal_oust_foreigners_from_realm
+				has_character_flag = lmmpvf_goal_oust_infidels_from_realm
+			}
+		}
+		character_event = { id = lmmpvf_goal_helper.7 days = 30 } # Check for war declaration every 30 days
+	}
+	
+	log = "LMMPVF - [Root.GetTitledName] set goal: [Root.lmmpvf_GetFactionGoal]"
+}
+
+lmmpvf_call_meeting_next_year_effect = {
+	#if = {
+	#	limit = { NOT = { has_character_flag = lmmpvf_yearly_meeting_called } }
+		# set_character_flag = lmmpvf_yearly_meeting_called
+		repeat_event = { id = lmmpvf_faction.1 days = 365 } # Yearly faction meeting
+	#}
+}
+
+lmmpvf_ai_choose_war_target_attack_neighboring_realm_effect = {
+	random_independent_ruler = {
+		limit = {
+			NOT = { is_liege_or_above_of = ROOT }			
+			ROOT = {
+				top_liege = { shares_realm_border_with = PREVPREV }
+			}
+			lmmpvf_can_be_declared_war_on_by_ROOT_trigger = yes
+		}
+		save_event_target_as = lmmpvf_war_target		
+	}
+}
+
+lmmpvf_ai_choose_war_target_oust_foreigners_from_realm_effect = {
+	liege = {
+		random_vassal = {
+			limit = {
+				NOT = { culture_group = ROOT }
+				NOT = { mercenary = yes }
+				NOT = { 
+					AND = {
+						holy_order = yes 
+						religion_group = ROOT					
+					}
+				}
+				lmmpvf_can_be_declared_war_on_by_ROOT_trigger = yes
+			}
+			# Dukes will prefer to target dukes
+			preferred_limit = {
+				ROOT = { 
+					higher_real_tier_than = count
+				}
+				higher_real_tier_than = count
+			}
+			save_event_target_as = lmmpvf_war_target			
+		}	
+	}
+}
+
+lmmpvf_ai_choose_war_target_attack_infidel_realm_effect = {
+	random_independent_ruler = {
+		limit = {			
+			NOT = { is_liege_or_above_of = ROOT }
+			ROOT = {
+				top_liege = { shares_realm_border_with = PREVPREV }
+			}
+			lmmpvf_is_religious_enemy_of_ROOT_trigger = yes
+			lmmpvf_can_be_declared_war_on_by_ROOT_trigger = yes
+		}
+		save_event_target_as = lmmpvf_war_target
+	}
+}
+
+lmmpvf_ai_choose_war_target_oust_infidels_from_realm_effect = {
+	liege = {
+		random_vassal = {
+			limit = {
+				lmmpvf_is_religious_enemy_of_ROOT_trigger = yes
+				lmmpvf_can_be_declared_war_on_by_ROOT_trigger = yes
+				NOT = { mercenary = yes }
+				NOT = { 
+					AND = {
+						holy_order = yes 
+						religion_group = ROOT					
+					}
+				}
+			}			
+			# Dukes will prefer to target dukes
+			preferred_limit = {
+				ROOT = { 
+					higher_real_tier_than = count
+				}
+				higher_real_tier_than = count
+			}
+			
+			save_event_target_as = lmmpvf_war_target
+		}
+	}
+}
+
+lmmpvf_ai_choose_war_target_effect = {
+	trigger_switch = {
+		on_trigger = has_character_flag
+		
+		lmmpvf_goal_attack_neighboring_realm = {
+			lmmpvf_ai_choose_war_target_attack_neighboring_realm_effect = yes
+		}
+		
+		lmmpvf_goal_oust_foreigners_from_realm = {
+			lmmpvf_ai_choose_war_target_oust_foreigners_from_realm_effect = yes
+		}
+		
+		lmmpvf_goal_attack_infidel_realm = {
+			lmmpvf_ai_choose_war_target_attack_infidel_realm_effect = yes
+		}
+		
+		lmmpvf_goal_oust_infidels_from_realm = {
+			lmmpvf_ai_choose_war_target_oust_infidels_from_realm_effect = yes
+		}
+	}
+	
+	save_persistent_event_target = { name = lmmpvf_my_war_target scope = event_target:lmmpvf_war_target }
+}
+
+lmmpvf_calculate_war_target_levies_effect = {
+	export_to_variable = { which = lmmpvf_war_target_levies value = realm_levies who = event_target:lmmpvf_war_target }
+	# event_target:lmmpvf_war_target = {		
+		# any_allied_character = {
+			# limit = { war = no }
+			# character_event = { id = lmmpvf_goal_helper.6 }
+		# }
+	# }
+	
+	# Overestimate the war target levies a little bit
+	multiply_variable = { which = lmmpvf_war_target_levies value = 1.25 }
+}
+
+lmmpvf_calculate_faction_levies_effect = {
+	export_to_variable = { which = lmmpvf_faction_levies value = realm_levies }
+	liege = {
+		any_vassal = {
+			limit = {
+				lmmpvf_is_faction_member_of_ROOT_trigger = yes
+				has_character_flag = lmmpvf_pledged_war_support_to_@ROOT
+			}
+			character_event = { id = lmmpvf_goal_helper.5 } # Count their realm levies and add to faction levies
+		}
+	}
+}
+
+# Choose a dejure duchy title which borders any of your counties, or any county from a ruler in your top-realm, or is two sea-zones away
+lmmpvf_choose_realm_bordering_dejure_duchy_title_effect = {	
+	random_realm_province = {
+		limit = {			
+			duchy = {
+				any_direct_de_jure_vassal_title = {
+					OR = {
+						holder_scope = {
+							OR = {
+								character = ROOT
+								same_realm = ROOT
+							}					
+						}
+						location = {
+							any_neighbor_province = {
+								OR = {
+									AND = {
+										has_owner = yes
+										owner = {
+											OR = {
+												character = ROOT
+												same_realm = ROOT
+											}
+										}
+									}
+									AND = {
+										is_land = no								
+										any_neighbor_province = {
+											OR = {
+												AND = {
+													has_owner = yes
+													owner = {
+														OR = {
+															character = ROOT
+															same_realm = ROOT
+														}
+													}
+												}
+												AND = {
+													is_land = no
+													any_neighbor_province = {
+														owner = {
+															OR = {
+																character = ROOT
+																same_realm = ROOT
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}													
+			}
+		}
+		duchy = {
+			save_event_target_as = lmmpvf_war_target_title
+		}
+	}
+}
+
+# Called directly from CB declaration
+lmmpvf_call_faction_members_to_war_effect = {
+	liege = {
+		any_vassal = {
+			limit = { 
+				lmmpvf_is_faction_member_of_ROOT_trigger = yes
+				has_character_flag = lmmpvf_pledged_war_support_to_@ROOT											
+			}
+			# Call all rulers who pledged war support to war.
+			letter_event = { id = lmmpvf_goal_helper.3 } 
+		}
+	}
+	character_event = { id = lmmpvf_goal_helper.4 } #Get a report about who joined the war and who didn't.
+}
+
+lmmpvf_increase_prosperity_effect = {	
+	change_variable = { which = prosperity_value value = 50 }
+	province_event = { id = lmmpvf_goal.51 }		
+}
+
+lmmpvf_fire_appropriate_goal_choice_event_effect = {
+	trigger_switch = {
+		on_trigger = has_character_flag
+		
+		lmmpvf_focus_glory = { character_event = { id = lmmpvf_focus.11 } }
+		lmmpvf_focus_prosperity = { character_event = { id = lmmpvf_focus.21 } }
+		lmmpvf_focus_faith = { character_event = { id = lmmpvf_focus.31 } }
+	}
+}
+
+lmmpvf_ai_declare_war_effect = {
+	trigger_switch = {
+		on_trigger = has_character_flag
+		
+		lmmpvf_goal_attack_neighboring_realm = {
+			if = {
+				limit = { prestige = 1000 }
+				event_target:lmmpvf_war_target = {
+					lmmpvf_choose_realm_bordering_dejure_duchy_title_effect = yes
+				}
+				war = {
+					target = event_target:lmmpvf_war_target
+					casus_belli = lmmpvf_attack_neighboring_realm_cb
+					thirdparty_title = event_target:lmmpvf_war_target_title
+				}
+			}
+		}
+		
+		lmmpvf_goal_oust_foreigners_from_realm = {
+			if = {
+				limit = { prestige = 500 }
+				war = {
+					target = event_target:lmmpvf_war_target
+					casus_belli = lmmpvf_oust_foreigners_from_realm_cb
+				}
+			}
+		}
+		
+		lmmpvf_goal_attack_infidel_realm = {
+			if = {
+				limit = { piety = 500 }
+				event_target:lmmpvf_war_target = {
+					lmmpvf_choose_realm_bordering_dejure_duchy_title_effect = yes
+				}
+				war = {
+					target = event_target:lmmpvf_war_target
+					casus_belli = lmmpvf_attack_infidel_realm_cb
+					thirdparty_title = event_target:lmmpvf_war_target_title
+				}
+			}
+		}
+		
+		lmmpvf_goal_oust_infidels_from_realm = {
+			if = {
+				limit = { piety = 250 }
+				war = {
+					target = event_target:lmmpvf_war_target
+					casus_belli = lmmpvf_oust_infidels_from_realm_cb
+				}
+			}
+		}
+	}
+}
+
+lmmpvf_inform_members_about_goal_success_or_failure_effect = {
+	hidden_tooltip = {
+		generate_tooltip = no
+		liege = {
+			any_vassal = {
+				limit = { lmmpvf_is_faction_member_of_ROOT_trigger = yes }
+				letter_event = { id = lmmpvf_goal.1 } # Inform about success or failure
+			}
+		}
+	}
+}
+
+lmmpvf_save_previous_goal_effect = {
+	trigger_switch = {
+		on_trigger = has_character_flag
+		
+		lmmpvf_focus_glory = {
+			trigger_switch = {
+				on_trigger = has_character_flag
+				
+				lmmpvf_goal_attack_neighboring_realm = {
+					set_character_flag = lmmpvf_previous_goal_attack_neighboring_realm
+				}
+				
+				lmmpvf_goal_oust_foreigners_from_realm = {
+					set_character_flag = lmmpvf_previous_goal_oust_foreigners_from_realm
+				}
+				
+				lmmpvf_goal_improve_public_image = {
+					set_character_flag = lmmpvf_previous_goal_improve_public_image
+				}
+			}
+		}
+		
+		lmmpvf_focus_prosperity = {
+			trigger_switch = {
+				on_trigger = has_character_flag
+				
+				lmmpvf_goal_establish_trade_route = {
+					set_character_flag = lmmpvf_previous_goal_establish_trade_route
+				}
+				
+				lmmpvf_goal_establish_settlement = {
+					set_character_flag = lmmpvf_previous_goal_establish_settlement
+				}
+				
+				lmmpvf_goal_increase_prosperity = {
+					set_character_flag = lmmpvf_previous_goal_increase_prosperity
+				}
+			}
+		}
+		
+		lmmpvf_focus_faith = {
+			trigger_switch = {
+				on_trigger = has_character_flag
+				
+				lmmpvf_goal_attack_infidel_realm = {
+					set_character_flag = lmmpvf_previous_goal_attack_infidel_realm
+				}
+				
+				lmmpvf_goal_oust_infidels_from_realm = {
+					set_character_flag = lmmpvf_previous_goal_oust_infidels_from_realm
+				}
+				
+				lmmpvf_goal_convert_province_religion = {
+					set_character_flag = lmmpvf_previous_goal_convert_province_religion
+				}
+			}
+		}
+	}
+}
+
+lmmpvf_choose_new_focus_or_goal_effect = {
+	clear_flags_with_prefix = lmmpvf_goal_
+	if = {
+		limit = { has_character_flag = lmmpvf_focus_can_change }
+		clear_flags_with_prefix = lmmpvf_focus_
+		character_event = { id = lmmpvf_focus.1 }
+	}
+	else = {
+		lmmpvf_fire_appropriate_goal_choice_event_effect = yes
+	}
+}

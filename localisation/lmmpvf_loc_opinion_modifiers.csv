@@ -1,0 +1,15 @@
+#;;;;;;;;;;;;;;x
+#§
+#######################
+## OPINION MODIFIERS ##
+#######################
+lmmpvf_competent_faction_leader_opinion;Competent Leader;;;;;;;;;;;;;x
+lmmpvf_incompetent_faction_leader_opinion;Incompetent Leader;;;;;;;;;;;;;x
+lmmpvf_honored_war_pledge_opinion;Honored War Pledge;;;;;;;;;;;;;x
+lmmpvf_dishonored_war_pledge_opinion;Dishonored War Pledge;;;;;;;;;;;;;x
+lmmpvf_faction_pleased_leader_opinion;Faction Approves;;;;;;;;;;;;;x
+lmmpvf_faction_pleased_member_opinion;Faction Approves;;;;;;;;;;;;;x
+lmmpvf_faction_displeased_leader_opinion;Faction Disapproves;;;;;;;;;;;;;x
+lmmpvf_faction_displeased_member_opinion;Faction Disapproves;;;;;;;;;;;;;x
+lmmpvf_faction_leader_very_displeased_opinion;Faction Disapproves Strongly;;;;;;;;;;;;;x
+lmmpvf_faction_member_very_displeased_opinion;Faction Disapproves Strongly;;;;;;;;;;;;;x

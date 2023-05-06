@@ -1,0 +1,1923 @@
+
+############### events to steal other lodge events. fired on a 5 year pulse, non equal chance
+
+character_event = {		# arm wrestling
+    id = AmzCulSoc.151
+    title = EVTTITLEHF25200
+	desc = EVTDESCHF25200
+	picture = GFX_evt_camaraderie
+	border = GFX_event_normal_frame_diplomacy
+	hide_new = yes
+	
+	trigger = { 
+		society_member_of = warrior_lodge_amazonian
+		has_dlc = "Holy Fury"
+		is_adult = yes
+		in_command = no
+		prisoner = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = incapable }
+		NOT = { has_character_flag = do_not_disturb }
+		NOT = { has_character_modifier = arm_wrestling_challenge_cooldown }
+		any_society_member = { #Make sure there are enough contenders to pick.
+			same_society_as = ROOT
+			is_adult = yes
+			in_command = no
+			prisoner = no
+			NOT = { is_inaccessible_trigger = yes }
+			NOT = { trait = incapable }
+			NOT = { has_character_flag = do_not_disturb }
+			NOT = { has_character_modifier = arm_wrestling_challenge_cooldown }
+			NOT = { character = ROOT }
+			OR = { 
+				is_strong_trigger = yes
+				trait = duelist
+				trait = skilled_tactician
+				trait = brilliant_strategist
+				combat_rating = 60
+			}
+			any_society_member = { 
+				same_society_as = ROOT
+				is_adult = yes
+				in_command = no
+				prisoner = no
+				NOT = { is_inaccessible_trigger = yes }
+				NOT = { has_character_modifier = arm_wrestling_challenge_cooldown }
+				NOT = { trait = incapable }
+				NOT = { has_character_flag = do_not_disturb }
+				NOT = { character = ROOT }
+				NOT = { character = PREV } # Do not check for the same character.
+				NOR = { 
+					is_strong_trigger = yes
+					has_lifestyle_martial_trigger = yes
+					combat_rating = 60
+				}
+				count = 2
+			}
+		}
+	}
+	immediate = {
+		random_list = { 
+			33 = { sound_effect = pagan_cheering_01 } 
+			33 = { sound_effect = pagan_cheering_02 } 
+			33 = { sound_effect = pagan_cheering_03 } 
+			33 = { sound_effect = warrior_lodge_ambient_02 } 
+		}
+		hidden_tooltip = { #Pick potential contenders 
+			clr_character_flag = arm_wrestling_strong #Safety cleanup
+			clr_character_flag = arm_wrestling_medium
+			clr_character_flag = arm_wrestling_weak
+			save_event_target_as = arm_wrestling_fighter_1
+			random_society_member = { #First pick a very strong guy.
+				limit = {
+					same_society_as = ROOT
+					is_adult = yes
+					in_command = no
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = incapable }
+					NOT = { has_character_flag = do_not_disturb }
+					NOT = { has_character_modifier = arm_wrestling_challenge_cooldown }
+					NOT = { character = ROOT }
+					OR = { 
+						is_strong_trigger = yes
+						trait = duelist
+						trait = skilled_tactician
+						trait = brilliant_strategist
+						combat_rating = 60
+					}
+				}
+				preferred_limit = { 
+					ai = no
+					is_strong_trigger = yes
+					is_ill = no
+					has_education_martial_trigger = yes
+					has_lifestyle_martial_trigger = yes
+					combat_rating = 60
+				}
+				preferred_limit = { 
+					ai = no
+					is_strong_trigger = yes
+					has_education_martial_trigger = yes
+					has_lifestyle_martial_trigger = yes
+					combat_rating = 60
+				}
+				preferred_limit = { 
+					ai = no
+					is_strong_trigger = yes
+					OR = { 
+						has_education_martial_trigger = yes
+						has_lifestyle_martial_trigger = yes
+					}
+					combat_rating = 60
+				}
+				preferred_limit = { 
+					ai = no
+					OR = { 
+						is_strong_trigger = yes
+						has_education_martial_trigger = yes
+						has_lifestyle_martial_trigger = yes
+					}
+					combat_rating = 60
+				}
+				preferred_limit = { 
+					ai = no
+					combat_rating = 60
+				}
+				preferred_limit = { 
+					is_strong_trigger = yes
+					is_ill = no
+					has_education_martial_trigger = yes
+					has_lifestyle_martial_trigger = yes
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					is_strong_trigger = yes
+					has_education_martial_trigger = yes
+					has_lifestyle_martial_trigger = yes
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					is_strong_trigger = yes
+					OR = { 
+						has_education_martial_trigger = yes
+						has_lifestyle_martial_trigger = yes
+					}
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					OR = { 
+						is_strong_trigger = yes
+						has_education_martial_trigger = yes
+						has_lifestyle_martial_trigger = yes
+					}
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					ai = no
+					is_strong_trigger = yes
+					is_ill = no
+					has_education_martial_trigger = yes
+					has_lifestyle_martial_trigger = yes
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					ai = no
+					is_strong_trigger = yes
+					has_education_martial_trigger = yes
+					has_lifestyle_martial_trigger = yes
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					ai = no
+					is_strong_trigger = yes
+					OR = { 
+						has_education_martial_trigger = yes
+						has_lifestyle_martial_trigger = yes
+					}
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					ai = no
+					OR = { 
+						is_strong_trigger = yes
+						has_education_martial_trigger = yes
+						has_lifestyle_martial_trigger = yes
+					}
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					ai = no
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					is_strong_trigger = yes
+					is_ill = no
+					has_education_martial_trigger = yes
+					has_lifestyle_martial_trigger = yes
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					is_strong_trigger = yes
+					has_education_martial_trigger = yes
+					has_lifestyle_martial_trigger = yes
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					is_strong_trigger = yes
+					OR = { 
+						has_education_martial_trigger = yes
+						has_lifestyle_martial_trigger = yes
+					}
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					OR = { 
+						is_strong_trigger = yes
+						has_education_martial_trigger = yes
+						has_lifestyle_martial_trigger = yes
+					}
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					combat_rating = 90
+				}
+				preferred_limit = { 
+					combat_rating = 60
+				}
+				preferred_limit = { 
+					combat_rating = 20
+				}
+				preferred_limit = { 
+					combat_rating = 10
+				}
+				preferred_limit = { 
+					combat_rating = 0
+				}
+				preferred_limit = { 
+					is_weak_trigger = no
+				}
+				preferred_limit = { 
+					trait = brave
+				}
+				clr_character_flag = arm_wrestling_strong #Safety cleanup
+				clr_character_flag = arm_wrestling_medium
+				clr_character_flag = arm_wrestling_weak
+				save_event_target_as = arm_wrestling_opponent_1
+			}
+			random_society_member = { #Second pick a weakling.
+				limit = {
+					same_society_as = ROOT
+					is_adult = yes
+					in_command = no
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = incapable }
+					NOT = { has_character_flag = do_not_disturb }
+					NOT = { character = ROOT }
+					NOT = { has_character_modifier = arm_wrestling_challenge_cooldown }
+					NOT = { event_target:arm_wrestling_opponent_1 = { character = PREV } }
+					NOR = { 
+						is_strong_trigger = yes
+						has_lifestyle_martial_trigger = yes
+						has_education_martial_trigger = yes
+						combat_rating = 25
+					}
+				}
+				preferred_limit = {
+					ai = no 
+					is_ill = yes
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 0 }
+				}
+				preferred_limit = { 
+					ai = no
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 0 }
+				}
+				preferred_limit = { 
+					ai = no
+					is_weak_trigger = yes
+					NOT = { combat_rating = 0 }
+				}
+				preferred_limit = { 
+					ai = no
+					trait = craven
+					NOT = { combat_rating = 0 }
+				}
+				preferred_limit = { 
+					is_ill = yes
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 0 }
+				}
+				preferred_limit = { 
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 0 }
+				}
+				preferred_limit = { 
+					is_weak_trigger = yes
+					NOT = { combat_rating = 0 }
+				}
+				preferred_limit = { 
+					trait = craven
+					NOT = { combat_rating = 0 }
+				}
+				preferred_limit = {
+					ai = no 
+					is_ill = yes
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 20 }
+				}
+				preferred_limit = { 
+					ai = no
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 20 }
+				}
+				preferred_limit = { 
+					ai = no
+					is_weak_trigger = yes
+					NOT = { combat_rating = 20 }
+				}
+				preferred_limit = { 
+					ai = no
+					trait = craven
+					NOT = { combat_rating = 20 }
+				}
+				preferred_limit = { 
+					is_ill = yes
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 20 }
+				}
+				preferred_limit = { 
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 20 }
+				}
+				preferred_limit = { 
+					is_weak_trigger = yes
+					NOT = { combat_rating = 20 }
+				}
+				preferred_limit = { 
+					trait = craven
+					NOT = { combat_rating = 20 }
+				}
+				preferred_limit = {
+					ai = no 
+					is_ill = yes
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 40 }
+				}
+				preferred_limit = { 
+					ai = no
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 40 }
+				}
+				preferred_limit = { 
+					ai = no
+					is_weak_trigger = yes
+					NOT = { combat_rating = 40 }
+				}
+				preferred_limit = { 
+					ai = no
+					trait = craven
+					NOT = { combat_rating = 40 }
+				}
+				preferred_limit = { 
+					is_ill = yes
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 40 }
+				}
+				preferred_limit = { 
+					age = 40
+					is_weak_trigger = yes
+					NOT = { combat_rating = 40 }
+				}
+				preferred_limit = { 
+					is_weak_trigger = yes
+					NOT = { combat_rating = 40 }
+				}
+				preferred_limit = { 
+					trait = craven
+					NOT = { combat_rating = 40 }
+				}
+				clr_character_flag = arm_wrestling_strong #Safety cleanup
+				clr_character_flag = arm_wrestling_medium
+				clr_character_flag = arm_wrestling_weak
+				save_event_target_as = arm_wrestling_opponent_3
+			}
+			random_society_member = { #Third pick an average guy.
+				limit = {
+					same_society_as = ROOT
+					is_adult = yes
+					in_command = no
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = incapable }
+					NOT = { has_character_flag = do_not_disturb }
+					NOT = { character = ROOT }
+					NOT = { has_character_modifier = arm_wrestling_challenge_cooldown }
+					NOT = { event_target:arm_wrestling_opponent_1 = { character = PREV } }
+					NOT = { event_target:arm_wrestling_opponent_3 = { character = PREV } }
+					NOR = { 
+						is_strong_trigger = yes
+						has_lifestyle_martial_trigger = yes
+						combat_rating = 80
+					}
+				}
+				preferred_limit = { 
+					ai = no
+					is_ill = no
+					has_education_martial_trigger = yes
+					combat_rating = 60
+				}
+				preferred_limit = {
+					ai = no 
+					has_education_martial_trigger = yes
+					combat_rating = 60
+				}
+				preferred_limit = {
+					ai = no
+					combat_rating = 60
+				}
+				preferred_limit = { 
+					ai = no
+					is_ill = no
+					has_education_martial_trigger = yes
+					combat_rating = 25
+				}
+				preferred_limit = { 
+					ai = no
+					has_education_martial_trigger = yes
+					combat_rating = 25
+				}
+				preferred_limit = { 
+					ai = no
+					combat_rating = 25
+				}
+				preferred_limit = { 
+					is_ill = no
+					has_education_martial_trigger = yes
+					combat_rating = 60
+				}
+				preferred_limit = { 
+					has_education_martial_trigger = yes
+					combat_rating = 60
+				}
+				preferred_limit = { 
+					combat_rating = 60
+				}
+				preferred_limit = { 
+					is_ill = no
+					has_education_martial_trigger = yes
+					combat_rating = 25
+				}
+				preferred_limit = { 
+					has_education_martial_trigger = yes
+					combat_rating = 25
+				}
+				preferred_limit = { 
+					combat_rating = 25
+				}
+				preferred_limit = { 
+					is_ill = no
+					has_education_martial_trigger = yes
+					combat_rating = 25
+				}
+				preferred_limit = { 
+					has_education_martial_trigger = yes
+					combat_rating = 25
+				}
+				preferred_limit = { 
+					combat_rating = 25
+				}
+				preferred_limit = { 
+					is_ill = no
+					has_education_martial_trigger = yes
+					combat_rating = 0
+				}
+				preferred_limit = { 
+					has_education_martial_trigger = yes
+					combat_rating = 0
+				}
+				preferred_limit = { 
+					combat_rating = 0
+				}
+				preferred_limit = { 
+					is_weak_trigger = no
+				}
+				clr_character_flag = arm_wrestling_strong #Safety cleanup
+				clr_character_flag = arm_wrestling_medium
+				clr_character_flag = arm_wrestling_weak
+				save_event_target_as = arm_wrestling_opponent_2
+			}
+			#Then assign flag to determine what kind of opponent you are.
+			if = { 
+				limit = { 
+					OR = { 
+						is_strong_trigger = yes
+						combat_rating = 60
+					}
+				}
+				set_character_flag = arm_wrestling_strong
+			}
+			else_if = { 
+				limit = { 
+					NOR = { 
+						is_strong_trigger = yes
+						is_weak_trigger = yes
+						combat_rating = 60
+					}
+					combat_rating = 25
+
+				}
+				set_character_flag = arm_wrestling_medium
+			}
+			else_if = { 
+				limit = { 
+					OR = { 
+						is_weak_trigger = yes
+						NOT= { combat_rating = 25 }
+					}
+				}
+				set_character_flag = arm_wrestling_weak
+			}
+			#Safety check
+			if = { 
+				limit = { 
+					NOR = { 
+						has_character_flag = arm_wrestling_strong
+						has_character_flag = arm_wrestling_medium
+						has_character_flag = arm_wrestling_weak
+					}
+				}
+				set_character_flag = arm_wrestling_medium
+			}
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { 
+				character_event = { id = HF.25301 days = 15 } #Clear flag.
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHF25200
+		custom_tooltip = { text = TT_EVTOPTAHF25200 }
+		trigger = { event_target:arm_wrestling_opponent_1 = { is_alive = yes } }
+		show_portrait = event_target:arm_wrestling_opponent_1
+		hidden_tooltip = { 
+			event_target:arm_wrestling_opponent_1 = { 
+				save_event_target_as = arm_wrestling_fighter_2 
+				set_character_flag = arm_wrestling_strong
+				set_character_flag = do_not_disturb
+				hidden_tooltip = { 
+					character_event = { id = HF.25301 days = 15 } #Clear flag.
+				}
+				character_event = { id = HF.25201 }
+			} 
+			if = { 
+				limit = { event_target:arm_wrestling_opponent_2 = { is_alive = yes } } 
+				 event_target:arm_wrestling_opponent_2 = { 
+					clr_character_flag = arm_wrestling_strong
+					clr_character_flag = arm_wrestling_medium
+					clr_character_flag = arm_wrestling_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			if = { 
+				limit = { event_target:arm_wrestling_opponent_3 = { is_alive = yes } } 
+				 event_target:arm_wrestling_opponent_3 = { 
+					clr_character_flag = arm_wrestling_strong
+					clr_character_flag = arm_wrestling_medium
+					clr_character_flag = arm_wrestling_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+		}
+		
+		ai_chance = { factor = 10 }
+	}
+	option = { 
+		name = EVTOPTBHF25200
+		custom_tooltip = { text = TT_EVTOPTBHF25200 }
+		trigger = { event_target:arm_wrestling_opponent_2 = { is_alive = yes } }
+		show_portrait = event_target:arm_wrestling_opponent_2
+		hidden_tooltip = { 
+			event_target:arm_wrestling_opponent_2 = { 
+				save_event_target_as = arm_wrestling_fighter_2 
+				set_character_flag = arm_wrestling_medium
+				set_character_flag = do_not_disturb
+				hidden_tooltip = { 
+					character_event = { id = HF.25301 days = 15 } #Clear flag.
+				}
+				character_event = { id = HF.25201 }
+			} 
+			if = { 
+				limit = { event_target:arm_wrestling_opponent_1 = { is_alive = yes } } 
+				 event_target:arm_wrestling_opponent_1 = { 
+					clr_character_flag = arm_wrestling_strong
+					clr_character_flag = arm_wrestling_medium
+					clr_character_flag = arm_wrestling_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			if = { 
+				limit = { event_target:arm_wrestling_opponent_3 = { is_alive = yes } } 
+				 event_target:arm_wrestling_opponent_3 = { 
+					clr_character_flag = arm_wrestling_strong
+					clr_character_flag = arm_wrestling_medium
+					clr_character_flag = arm_wrestling_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+		}
+		ai_chance = { factor = 20 }
+	}
+	option = { 
+		name = EVTOPTCHF25200
+		custom_tooltip = { text = TT_EVTOPTCHF25200 }
+		trigger = { event_target:arm_wrestling_opponent_3 = { is_alive = yes } }
+		show_portrait = event_target:arm_wrestling_opponent_3
+		if = { 
+			limit = { 
+				has_character_flag = arm_wrestling_strong
+			}
+			tiered_prestige_negative_effect = yes
+		}
+		hidden_tooltip = { 
+			event_target:arm_wrestling_opponent_3 = { 
+				save_event_target_as = arm_wrestling_fighter_2 
+				set_character_flag = arm_wrestling_weak
+				set_character_flag = do_not_disturb
+				hidden_tooltip = { 
+					character_event = { id = HF.25301 days = 15 } #Clear flag.
+				}
+				character_event = { id = HF.25201 }
+			} 
+			if = { 
+				limit = { event_target:arm_wrestling_opponent_1 = { is_alive = yes } } 
+				 event_target:arm_wrestling_opponent_1 = { 
+					clr_character_flag = arm_wrestling_strong
+					clr_character_flag = arm_wrestling_medium
+					clr_character_flag = arm_wrestling_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			if = { 
+				limit = { event_target:arm_wrestling_opponent_2 = { is_alive = yes } } 
+				 event_target:arm_wrestling_opponent_2 = { 
+					clr_character_flag = arm_wrestling_strong
+					clr_character_flag = arm_wrestling_medium
+					clr_character_flag = arm_wrestling_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+		}
+		ai_chance = { 
+			factor = 30 
+			modifier = { 
+				factor = 2
+				trait = craven
+			}
+			modifier = { 
+				factor = 0.5
+				trait = brave
+			}
+		}
+	}
+	option = { #Not interested. -End of line.
+		name = EVTOPTDHF25200
+		tiered_prestige_negative_effect = yes
+		if = { 
+			limit = { 
+				has_character_flag = arm_wrestling_strong
+			}
+			detract_society_currency_medium_effect = yes
+		}
+		if = { 
+			limit = { 
+				has_character_flag = arm_wrestling_medium
+			}
+			detract_society_currency_minor_effect = yes
+		}
+		if = { 
+			limit = { 
+				has_character_flag = arm_wrestling_weak
+			}
+			detract_society_currency_tiny_effect = yes
+		}
+		hidden_tooltip = { 
+			if = { 
+				limit = {
+					event_target:arm_wrestling_opponent_1 = { is_alive = yes }
+				}
+				event_target:arm_wrestling_opponent_1 = { 
+					clr_character_flag = arm_wrestling_strong
+					clr_character_flag = arm_wrestling_medium
+					clr_character_flag = arm_wrestling_weak
+					clr_character_flag = do_not_disturb
+				}
+			}
+			if = { 
+				limit = {
+					event_target:arm_wrestling_opponent_2 = { is_alive = yes }
+				}
+				event_target:arm_wrestling_opponent_2 = { 
+					clr_character_flag = arm_wrestling_strong
+					clr_character_flag = arm_wrestling_medium
+					clr_character_flag = arm_wrestling_weak
+					clr_character_flag = do_not_disturb
+				}
+			}
+			if = { 
+				limit = {
+					event_target:arm_wrestling_opponent_3 = { is_alive = yes }
+				}
+				event_target:arm_wrestling_opponent_3 = { 
+					clr_character_flag = arm_wrestling_strong
+					clr_character_flag = arm_wrestling_medium
+					clr_character_flag = arm_wrestling_weak
+					clr_character_flag = do_not_disturb
+				}
+			}
+			warrior_lodge_arm_wrestling_cleanup_effect = yes
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+character_event = {		# flyting
+    id = AmzCulSoc.153
+    title = EVTTITLEHF25250
+	desc = EVTDESCHF25250
+	picture = GFX_evt_camaraderie
+	border = GFX_event_normal_frame_diplomacy
+	hide_new = yes
+
+	trigger = { 
+		society_member_of = warrior_lodge_amazonian
+		has_dlc = "Holy Fury"
+		is_adult = yes
+		in_command = no
+		prisoner = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = incapable }
+		NOT = { has_character_flag = do_not_disturb }
+		NOT = { has_character_modifier = flyting_challenge_cooldown }
+		any_society_member = { #Make sure there are enough contenders to pick.
+			same_society_as = ROOT
+			is_adult = yes
+			in_command = no
+			prisoner = no
+			NOT = { is_inaccessible_trigger = yes }
+			NOT = { trait = incapable }
+			NOT = { has_character_flag = do_not_disturb }
+			NOT = { character = ROOT }
+			NOT = { has_character_modifier = flyting_challenge_cooldown }
+			OR = { 
+				is_smart_trigger = yes
+				trait = scholarly_theologian
+				trait = grey_eminence
+				trait = poet
+				diplomacy = 15
+			}
+			any_society_member = { 
+				same_society_as = ROOT
+				is_adult = yes
+				in_command = no
+				prisoner = no
+				NOT = { is_inaccessible_trigger = yes }
+				NOT = { trait = incapable }
+				NOT = { has_character_flag = do_not_disturb }
+				NOT = { character = ROOT }
+				NOT = { character = PREV } #Make sure it doesn't check the same good candidate as above
+				NOT = { has_character_modifier = flyting_challenge_cooldown }
+				NOR = { 
+					is_smart_trigger = yes
+					has_education_diplomacy_trigger = yes
+					has_lifestyle_diplomacy_trigger = yes
+					diplomacy = 15
+				}
+				count = 2
+			}
+		}
+	}
+	immediate = {
+		random_list = { 
+			33 = { sound_effect = pagan_cheering_01 } 
+			33 = { sound_effect = pagan_cheering_02 } 
+			33 = { sound_effect = pagan_cheering_03 } 
+			33 = { sound_effect = warrior_lodge_ambient_02 } 
+		}
+		hidden_tooltip = { #Pick potential contenders 
+			clr_character_flag = flyting_strong #Safety cleanup
+			clr_character_flag = flyting_medium
+			clr_character_flag = flyting_weak
+			save_event_target_as = flyting_contender_1
+			random_society_member = { #First pick a very smart/talkative gal.
+				limit = {
+					same_society_as = ROOT
+					is_adult = yes
+					in_command = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = incapable }
+					NOT = { has_character_flag = do_not_disturb }
+					NOT = { character = ROOT }
+					NOT = { has_character_modifier = flyting_challenge_cooldown }
+					prisoner = no
+					OR = { 
+						is_smart_trigger = yes
+						trait = scholarly_theologian
+						trait = grey_eminence
+						trait = poet
+						diplomacy = 15
+					}
+				}
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					is_ill = no
+					is_smart_trigger = yes
+					has_education_diplomacy_trigger = yes
+					has_lifestyle_diplomacy_trigger = yes
+					diplomacy = 20
+				}
+
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					is_smart_trigger = yes
+					OR = { 
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+					}
+					diplomacy = 20
+				}
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 20
+				}
+				preferred_limit = { 
+					ai = no
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 20
+				}
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					diplomacy = 20
+				}
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 15
+				}
+				preferred_limit = { 
+					ai = no
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 15
+				}
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					diplomacy = 15
+				}
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 10
+				}
+				preferred_limit = { 
+					ai = no
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 10
+				}
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					diplomacy = 10
+				}
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 5
+				}
+				preferred_limit = { 
+					ai = no
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 5
+				}
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					diplomacy = 5
+				}
+				preferred_limit = { 
+					ai = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = { 
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					is_ill = no
+					is_smart_trigger = yes
+					has_education_diplomacy_trigger = yes
+					has_lifestyle_diplomacy_trigger = yes
+					diplomacy = 20
+				}
+
+				preferred_limit = { 
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					is_smart_trigger = yes
+					OR = { 
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+					}
+					diplomacy = 20
+				}
+				preferred_limit = { 
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 20
+				}
+				preferred_limit = { 
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 20
+				}
+				preferred_limit = { 
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					diplomacy = 20
+				}
+				preferred_limit = { 
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 15
+				}
+				preferred_limit = { 
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 15
+				}
+				preferred_limit = { 
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					diplomacy = 15
+				}
+				preferred_limit = { 
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 10
+				}
+				preferred_limit = { 
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 10
+				}
+				preferred_limit = { 
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					diplomacy = 10
+				}
+				preferred_limit = { 
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 5
+				}
+				preferred_limit = { 
+					OR = { 
+						is_smart_trigger = yes
+						has_education_diplomacy_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						trait = gregarious
+					}
+					diplomacy = 5
+				}
+				preferred_limit = { 
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+					diplomacy = 5
+					is_dumb_trigger = no
+				}
+				preferred_limit = { 
+					is_dumb_trigger = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = { 
+					is_dumb_trigger = no
+				}
+				clr_character_flag = flyting_strong
+				clr_character_flag = flyting_medium
+				clr_character_flag = flyting_weak
+				save_event_target_as = flyting_potential_opponent_1
+			}
+			random_society_member = { #Second pick a weakling.
+				limit = {
+					same_society_as = ROOT
+					is_adult = yes
+					in_command = no
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = incapable }
+					NOT = { has_character_flag = do_not_disturb }
+					NOT = { character = ROOT }
+					NOT = { event_target:flyting_potential_opponent_1 = { character = PREV } }
+					NOT = { has_character_modifier = flyting_challenge_cooldown }
+					NOR = { 
+						is_smart_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						diplomacy = 12
+					}
+				}
+				preferred_limit = {
+					ai = no 
+					is_dumb_trigger = yes 
+					NOT = { diplomacy = 5 }
+					OR = {
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = {
+					ai = no 
+					NOT = { diplomacy = 5 }
+					OR = {
+						is_dumb_trigger = yes 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = {
+					ai = no 
+					is_dumb_trigger = yes 
+					NOT = { diplomacy = 10 }
+					OR = {
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = {
+					ai = no 
+					NOT = { diplomacy = 10 }
+					OR = {
+						is_dumb_trigger = yes 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = {
+					is_dumb_trigger = yes 
+					NOT = { diplomacy = 5 }
+					OR = {
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = {
+					NOT = { diplomacy = 5 }
+					OR = {
+						is_dumb_trigger = yes 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = {
+					NOT = { diplomacy = 3 }
+				}
+				preferred_limit = {
+					NOT = { diplomacy = 5 }
+				}
+				preferred_limit = {
+					is_dumb_trigger = yes 
+					NOT = { diplomacy = 10 }
+					OR = {
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = {
+					NOT = { diplomacy = 10 }
+					OR = {
+						is_dumb_trigger = yes 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				clr_character_flag = flyting_strong
+				clr_character_flag = flyting_medium
+				clr_character_flag = flyting_weak
+				save_event_target_as = flyting_potential_opponent_3
+			}
+			random_society_member = { #Third pick an average gal.
+				limit = {
+					same_society_as = ROOT
+					is_adult = yes
+					in_command = no
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = incapable }
+					NOT = { has_character_flag = do_not_disturb }
+					NOT = { character = ROOT }
+					NOT = { event_target:flyting_potential_opponent_1 = { character = PREV } }
+					NOT = { event_target:flyting_potential_opponent_3 = { character = PREV } }
+					NOT = { has_character_modifier = flyting_challenge_cooldown }
+					NOR = { 
+						is_smart_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						diplomacy = 20
+					}
+				}
+				preferred_limit = { 
+					is_ill = no
+					has_education_diplomacy_trigger = yes
+					diplomacy = 5
+					NOT = { diplomacy = 12 }
+				}
+				preferred_limit = {
+					has_education_diplomacy_trigger = yes
+					diplomacy = 5
+					NOT = { diplomacy = 12 }
+				}
+				preferred_limit = {
+					diplomacy = 5
+					NOT = { diplomacy = 12 }
+				}
+				preferred_limit = {
+					is_dumb_trigger = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = { 
+					is_dumb_trigger = no
+				}
+				preferred_limit = { 
+					is_ill = no
+					has_education_diplomacy_trigger = yes
+					diplomacy = 5
+					NOT = { diplomacy = 12 }
+				}
+				preferred_limit = {
+					has_education_diplomacy_trigger = yes
+					diplomacy = 5
+					NOT = { diplomacy = 12 }
+				}
+				preferred_limit = {
+					diplomacy = 5
+					NOT = { diplomacy = 12 }
+				}
+				preferred_limit = {
+					is_dumb_trigger = no
+					NOR = { 
+						trait = shy
+						trait = stutter
+						trait = lisp
+						trait = harelip
+					}
+				}
+				preferred_limit = { 
+					is_dumb_trigger = no
+				}
+				clr_character_flag = flyting_strong
+				clr_character_flag = flyting_medium
+				clr_character_flag = flyting_weak
+				save_event_target_as = flyting_potential_opponent_2
+			}
+			#Then assign flag to determine what kind of opponent you are.
+			if = { 
+				limit = { 
+					OR = { 
+						is_smart_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						diplomacy = 15
+					}
+				}
+				set_character_flag = flyting_strong
+			}
+			else_if = { 
+				limit = { 
+					NOR = { 
+						is_smart_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						diplomacy = 15
+					}
+					diplomacy = 8
+				}
+				set_character_flag = flyting_medium
+			}
+			else_if = { 
+				limit = { 
+					NOR = { 
+						is_smart_trigger = yes
+						has_lifestyle_diplomacy_trigger = yes
+						diplomacy = 8
+						has_education_diplomacy_trigger = yes
+					}
+				}
+				set_character_flag = flyting_weak
+			}
+			#Safety check
+			if = { 
+				limit = { 
+					NOR = { 
+						has_character_flag = flyting_strong
+						has_character_flag = flyting_medium
+						has_character_flag = flyting_weak
+					}
+				}
+				set_character_flag = flyting_medium
+			}
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { 
+				character_event = { id = HF.25301 days = 15 } #Clear flag.
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { #Pick tough fight.
+		name = EVTOPTAHF25250
+		custom_tooltip = { text = TT_EVTOPTAHF25250 }
+		trigger = { event_target:flyting_potential_opponent_1 = { is_alive = yes } }
+		show_portrait = event_target:flyting_potential_opponent_1
+		hidden_tooltip = { 
+			event_target:flyting_potential_opponent_1 = { 
+				save_event_target_as = flyting_contender_2 
+				set_character_flag = flyting_strong
+				set_character_flag = do_not_disturb
+				hidden_tooltip = { 
+					character_event = { id = HF.25301 days = 15 } #Clear flag.
+				}
+			} 
+			if = { 
+				limit = { event_target:flyting_potential_opponent_2 = { is_alive = yes } } 
+				 event_target:flyting_potential_opponent_2 = { 
+					clr_character_flag = flyting_strong
+					clr_character_flag = flyting_medium
+					clr_character_flag = flyting_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			if = { 
+				limit = { event_target:flyting_potential_opponent_3 = { is_alive = yes } } 
+				 event_target:flyting_potential_opponent_3 = { 
+					clr_character_flag = flyting_strong
+					clr_character_flag = flyting_medium
+					clr_character_flag = flyting_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			set_flyting_patience_effect = yes
+			event_target:flyting_contender_2 = { character_event = { id = HF.25253 } }
+		}
+		
+		ai_chance = { factor = 10 }
+	}
+	option = { #Pick average opponent.
+		name = EVTOPTBHF25250
+		custom_tooltip = { text = TT_EVTOPTBHF25250 }
+		trigger = { event_target:flyting_potential_opponent_2 = { is_alive = yes } }
+		show_portrait = event_target:flyting_potential_opponent_2
+		hidden_tooltip = { 
+			event_target:flyting_potential_opponent_2 = { 
+				save_event_target_as = flyting_contender_2 
+				set_character_flag = flyting_medium
+				set_character_flag = do_not_disturb
+				hidden_tooltip = { 
+					character_event = { id = HF.25301 days = 15 } #Clear flag.
+				}
+			} 
+			if = { 
+				limit = { event_target:flyting_potential_opponent_1 = { is_alive = yes } } 
+				 event_target:flyting_potential_opponent_1 = { 
+					clr_character_flag = flyting_strong
+					clr_character_flag = flyting_medium
+					clr_character_flag = flyting_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			if = { 
+				limit = { event_target:flyting_potential_opponent_3 = { is_alive = yes } } 
+				 event_target:flyting_potential_opponent_3 = { 
+					clr_character_flag = flyting_strong
+					clr_character_flag = flyting_medium
+					clr_character_flag = flyting_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			set_flyting_patience_effect = yes
+			event_target:flyting_contender_2 = { character_event = { id = HF.25253 } }
+		}
+		
+		ai_chance = { factor = 20 }
+	}
+	option = { #Pick lousy opponent.
+		name = EVTOPTCHF25250
+		custom_tooltip = { text = TT_EVTOPTCHF25250 }
+		trigger = { event_target:flyting_potential_opponent_3 = { is_alive = yes } }
+		show_portrait = event_target:flyting_potential_opponent_3
+		hidden_tooltip = { 
+			event_target:flyting_potential_opponent_3 = { 
+				save_event_target_as = flyting_contender_2 
+				set_character_flag = flyting_weak
+				set_character_flag = do_not_disturb
+				hidden_tooltip = { 
+					character_event = { id = HF.25301 days = 15 } #Clear flag.
+				}
+			} 
+			if = { 
+				limit = { event_target:flyting_potential_opponent_1 = { is_alive = yes } } 
+				 event_target:flyting_potential_opponent_1 = { 
+					clr_character_flag = flyting_strong
+					clr_character_flag = flyting_medium
+					clr_character_flag = flyting_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			if = { 
+				limit = { event_target:flyting_potential_opponent_2 = { is_alive = yes } } 
+				 event_target:flyting_potential_opponent_2 = { 
+					clr_character_flag = flyting_strong
+					clr_character_flag = flyting_medium
+					clr_character_flag = flyting_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			set_flyting_patience_effect = yes
+			event_target:flyting_contender_2 = { character_event = { id = HF.25253 } }
+		}
+		
+		ai_chance = { 
+			factor = 30 
+			modifier = { 
+				factor = 2
+				trait = craven
+			}
+			modifier = { 
+				factor = 0.5
+				trait = brave
+			}
+		}
+	}
+	option = { #Not interested. -End of line.
+		name = EVTOPTDHF25250
+		tiered_prestige_negative_effect = yes
+		if = { 
+			limit = { 
+				has_character_flag = flyting_strong
+			}
+			detract_society_currency_medium_effect = yes
+		}
+		if = { 
+			limit = { 
+				has_character_flag = flyting_medium
+			}
+			detract_society_currency_minor_effect = yes
+		}
+		if = { 
+			limit = { 
+				has_character_flag = flyting_weak
+			}
+			detract_society_currency_tiny_effect = yes
+		}
+		hidden_tooltip = { 
+			if = { 
+				limit = {
+					event_target:flyting_potential_opponent_1 = { is_alive = yes }
+				}
+				event_target:flyting_potential_opponent_1 = { 
+					clr_character_flag = flyting_strong
+					clr_character_flag = flyting_medium
+					clr_character_flag = flyting_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			if = { 
+				limit = {
+					event_target:flyting_potential_opponent_2 = { is_alive = yes }
+				}
+				event_target:flyting_potential_opponent_2 = { 
+					clr_character_flag = flyting_strong
+					clr_character_flag = flyting_medium
+					clr_character_flag = flyting_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			if = { 
+				limit = {
+					event_target:flyting_potential_opponent_3 = { is_alive = yes }
+				}
+				event_target:flyting_potential_opponent_3 = { 
+					clr_character_flag = flyting_strong
+					clr_character_flag = flyting_medium
+					clr_character_flag = flyting_weak
+					clr_character_flag = do_not_disturb 
+				}
+			}
+			warrior_lodge_flyting_cleanup_effect = yes
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+character_event = {		# drinking
+    id = AmzCulSoc.154
+    title = EVTTITLEHF25280
+	desc = EVTDESCHF25280
+	picture = GFX_evt_camaraderie
+	border = GFX_event_normal_frame_diplomacy
+	hide_new = yes
+
+	is_triggered_only = yes
+
+	trigger = { 
+		society_member_of = warrior_lodge_amazonian
+		has_dlc = "Holy Fury"
+		is_adult = yes
+		in_command = no
+		prisoner = no
+		society_rank = 4
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = incapable }
+		NOT = { has_character_flag = do_not_disturb }
+		NOT = { society_member_of = warrior_lodge_bon }
+		any_society_member = { #Make sure there are enough contenders to join in.
+			same_society_as = ROOT
+			is_adult = yes
+			prisoner = no
+			in_command = no
+			NOT = { is_inaccessible_trigger = yes }
+			NOT = { trait = incapable }
+			NOT = { has_character_flag = do_not_disturb }
+			NOT = { character = ROOT }
+			count = 4 #At least a few other members should be around.
+		}
+	}
+	immediate = { 
+		random_list = { 
+			33 = { sound_effect = pagan_cheering_01 } 
+			33 = { sound_effect = pagan_cheering_02 } 
+			33 = { sound_effect = pagan_cheering_03 } 
+			33 = { sound_effect = warrior_lodge_ambient_02 } 
+		}
+		set_character_flag = do_not_disturb
+		hidden_tooltip = { 
+			character_event = { id = HF.25301 days = 15 } #Clear flag.
+		}
+	}
+	option = { #Start tournament
+		name = EVTOPTAHF25280
+		custom_tooltip = { text = TOOLTIP_EVTOPTAHF25280 }
+		hidden_tooltip = { 
+			any_society_member = { 
+				limit = { 
+					same_society_as = ROOT
+					is_adult = yes
+					in_command = no
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = incapable }
+					NOT = { has_character_flag = do_not_disturb }
+					NOT = { character = ROOT } 
+				}
+				character_event = { id = HF.25281 } #Call in contenders.
+			}
+			save_event_target_as = WL_host_drinking_game
+			character_event = { id = HF.25283 days = 5 } #Actually start.
+		}
+		hidden_tooltip = { character_event = { id = HF.25282 days = 60 } } #Clear flags.
+		ai_chance = { factor = 100 }
+	}
+	option = { #Do not. - End of line.
+		name = EVTOPTBHF25280
+		detract_society_currency_major_effect = yes
+		clr_character_flag = do_not_disturb
+		ai_chance = { factor = 0 }
+	}
+}
+
+character_event = {		# teaching
+    id = AmzCulSoc.155
+    hide_window = yes
+    
+	is_triggered_only = yes
+	
+    trigger = {
+		society_member_of = warrior_lodge_amazonian
+    	has_dlc = "Holy Fury"
+    	is_inaccessible_or_incapable_trigger = no
+    	NOT = { has_character_flag = do_not_disturb }
+	    war = no
+	    is_adult = yes
+
+	    NOT = { has_character_modifier = teaching_moment_cooldown }
+
+    	OR = {
+    		AND = {
+	    		trait = brave
+	    		any_society_member = {
+					is_available_fellow_society_member_trigger = yes
+					NOT = { trait = brave }
+					NOT = { has_character_modifier = teaching_moment_cooldown }
+		        }
+    		}
+    		AND = {
+	    		trait = ambitious
+	    		any_society_member = {
+					is_available_fellow_society_member_trigger = yes
+					NOT = { trait = ambitious }
+					NOT = { has_character_modifier = teaching_moment_cooldown }
+		        }
+    		}
+    		AND = {
+	    		trait = patient
+	    		any_society_member = {
+					is_available_fellow_society_member_trigger = yes
+					NOT = { trait = patient }
+					NOT = { has_character_modifier = teaching_moment_cooldown }
+		        }
+    		}
+    		AND = {
+	    		trait = diligent
+	    		any_society_member = {
+					is_available_fellow_society_member_trigger = yes
+					NOT = { trait = diligent }
+					NOT = { has_character_modifier = teaching_moment_cooldown }
+		        }
+    		}
+    	}
+    }
+    immediate = {
+    	save_event_target_as = teacher
+		
+		add_character_modifier = { name = teaching_moment_cooldown duration = 1825 hidden = yes } #to prevent spam
+
+    	random_list = { # Select a society member to teach a thing or two...
+    		10 = {
+    			trigger = {
+		    		trait = brave
+		    		any_society_member = {
+						is_available_fellow_society_member_trigger = yes
+						NOT = { trait = brave }
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+			        }
+    			}
+    			modifier = { #more likely if someone is actually Craven
+    				factor = 2
+    				any_society_member = {
+						is_available_fellow_society_member_trigger = yes
+						trait = craven
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+			        }
+    			}
+    			random_society_member = {
+    				limit = {
+	    				is_available_fellow_society_member_trigger = yes
+						NOT = { trait = brave }
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+    				}
+    				preferred_limit = {
+    					NOT = { society_rank == 4 }
+    				}
+    				preferred_limit = {
+    					war = no
+    				}
+    				set_character_flag = learning_bravery@event_target:teacher
+    				save_event_target_as = student
+    			}
+    			set_character_flag = teaching_bravery@event_target:student
+    		}
+    		10 = {
+    			trigger = {
+		    		trait = ambitious
+		    		any_society_member = {
+						is_available_fellow_society_member_trigger = yes
+						NOT = { trait = ambitious }
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+			        }
+    			}
+    			modifier = { #more likely if someone is actually Content
+    				factor = 2
+    				any_society_member = {
+						is_available_fellow_society_member_trigger = yes
+						trait = content
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+			        }
+    			}
+    			random_society_member = {
+    				limit = {
+	    				is_available_fellow_society_member_trigger = yes
+						NOT = { trait = ambitious }
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+    				}
+    				preferred_limit = {
+    					NOT = { society_rank == 4 }
+    				}
+    				preferred_limit = {
+    					war = no
+    				}
+    				set_character_flag = learning_ambition@event_target:teacher
+    				save_event_target_as = student
+    			}
+    			set_character_flag = teaching_ambition@event_target:student
+    		}
+    		10 = {
+    			trigger = {
+		    		trait = patient
+		    		any_society_member = {
+						is_available_fellow_society_member_trigger = yes
+						NOT = { trait = patient }
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+			        }
+    			}
+    			random_society_member = {
+    				limit = {
+	    				is_available_fellow_society_member_trigger = yes
+						NOT = { trait = patient }
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+    				}
+    				preferred_limit = {
+    					NOT = { society_rank == 4 }
+    				}
+    				preferred_limit = {
+    					war = no
+    				}
+    				set_character_flag = learning_patience@event_target:teacher
+    				save_event_target_as = student
+    			}
+    			set_character_flag = teaching_patience@event_target:student
+    		}
+    		10 = {
+    			trigger = {
+		    		trait = diligent
+		    		any_society_member = {
+						is_available_fellow_society_member_trigger = yes
+						NOT = { trait = diligent }
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+			        }
+    			}
+    			modifier = { #more likely if someone is actually Slotful
+    				factor = 2
+    				any_society_member = {
+						is_available_fellow_society_member_trigger = yes
+						trait = slothful
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+			        }
+    			}
+    			random_society_member = {
+    				limit = {
+	    				is_available_fellow_society_member_trigger = yes
+						NOT = { trait = diligent }
+						NOT = { has_character_modifier = teaching_moment_cooldown }
+    				}
+    				preferred_limit = {
+    					NOT = { society_rank == 4 }
+    				}
+    				preferred_limit = {
+    					war = no
+    				}
+    				set_character_flag = learning_diligence@event_target:teacher
+    				save_event_target_as = student
+    			}
+    			set_character_flag = teaching_diligence@event_target:student
+    		}
+    	}
+    	event_target:student = {
+    		add_character_modifier = { name = teaching_moment_cooldown duration = 1825 hidden = yes } #to prevent spam
+    	}
+    	character_event = { id = HF.14001 }
+    }
+}
+
+###################
+
+character_event = { # Notify players when a lodge member is killed in a duel, event fired on member who died
+	id = AmzCulSoc.156
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	is_in_society = yes
+
+	trigger = {
+		society_member_of = warrior_lodge_amazonian
+		OR = {
+			death_reason = death_duel
+			death_reason = death_battle_duel
+			death_reason = death_mission_duel
+		}
+	}
+	
+	immediate = {
+		hidden_tooltip = { # Inform players that fellow society member has been killed in a duel
+			save_event_target_as = lodge_member_killed
+			killer = {
+				save_event_target_as = lodge_member_killer
+			}
+			any_player = {
+				limit = {
+					same_society_as = ROOT
+					NOT = {
+						character = ROOT
+					}
+				}
+				character_event = { id = HF.561 }
+			}
+		}
+	}
+}
+

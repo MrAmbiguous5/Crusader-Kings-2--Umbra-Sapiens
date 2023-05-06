@@ -1,0 +1,10 @@
+on_character_convert_religion = {
+	events = {
+		IR.5 #change coat of arms
+		IR.6
+		IR.7
+		IR.8
+		IR.9
+		IR.10
+	}
+}

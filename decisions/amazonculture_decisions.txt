@@ -1,0 +1,5551 @@
+
+decisions = {
+
+# flip themiskyran
+	adopt_themiskyran_culture = { 
+	  is_high_prio = yes 
+	  ai_check_interval = 12
+	  
+		potential = {
+			independent = yes
+			is_adult = yes
+			is_female = yes			
+			prisoner = no
+			culture_group = byzantine
+			NOT = { culture = themiskyran_amz }
+			NAND = {
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = never_amz
+				}
+				ai = yes
+			}
+		}
+		
+		allow = {
+			OR = {
+				realm_size = 36
+				higher_tier_than = DUKE
+			}
+			prestige = 300
+			war = no
+			independent = yes
+			culture_group = byzantine
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		effect = {
+			narrative_event = { id = AmzCul.101 }	
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				OR = { 
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
+				}
+			}
+			modifier = {
+				factor = 0.2 
+			}
+			modifier = {
+				factor = 0.2 
+				AND = {
+					has_global_flag = themiskyran_reborn_flag
+					NOT = { had_global_flag = { flag = themiskyran_reborn_flag years = 100 } }
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_game_rule = {
+						name = gender
+						value = historical
+					}
+					has_game_rule = {
+						name = gender
+						value = default
+					}
+				}
+			}
+			modifier = { 	
+				factor = 2
+				FROM = { 
+					character = yes 
+					current_heir = { 
+						is_female = yes 
+						OR = {
+							is_married = no
+							is_married_matrilineally = yes
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 2
+				completely_controls = c_sinope
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { completely_controls = c_sinope }
+			}
+			modifier = {
+				factor = 0
+				trait = content
+			}
+			modifier = {
+				factor = 10
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = common_amz
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = rare_amz
+				}
+			}
+		}
+	}
+
+# flip valkyrie
+	adopt_valkyrie_culture = { 
+	  is_high_prio = yes 
+	  ai_check_interval = 12
+	  
+		potential = {
+			independent = yes
+			is_adult = yes
+			is_female = yes
+			prisoner = no
+			culture_group = north_germanic
+			NOT = { culture = valkyrie_amz }
+			NAND = {
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = never_amz
+				}
+				ai = yes
+			}
+		}
+		  
+		allow = {
+			OR = {
+				realm_size = 36
+				higher_tier_than = DUKE
+			}
+			prestige = 300
+			war = no
+			independent = yes
+			culture_group = north_germanic
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		effect = {
+			narrative_event = { id = AmzCul.101 }	
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				religion = norse_pagan_reformed
+			}
+			modifier = {
+				factor = 0.2 
+			}
+			modifier = {
+				factor = 0.2 
+				AND = {
+					has_global_flag = valkyrie_reborn_flag
+					NOT = { had_global_flag = { flag = valkyrie_reborn_flag years = 100 } }
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_game_rule = {
+						name = gender
+						value = historical
+					}
+					has_game_rule = {
+						name = gender
+						value = default
+					}
+				}
+			}
+			modifier = { 	
+				factor = 2
+				FROM = { 
+					character = yes 
+					current_heir = { 
+						is_female = yes 
+						OR = {
+							is_married = no
+							is_married_matrilineally = yes
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 2
+				completely_controls = c_uppland
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { completely_controls = c_uppland }
+			}
+			modifier = {
+				factor = 0
+				trait = content
+			}
+			modifier = {
+				factor = 10
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = common_amz
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = rare_amz
+				}
+			}
+		}
+	}
+
+# flip scythian
+	adopt_scythian_culture = { 
+	  is_high_prio = yes 
+	  ai_check_interval = 12
+	  
+		potential = {
+			independent = yes
+			is_adult = yes
+			is_female = yes
+			prisoner = no
+			culture_group = east_slavic
+			NOT = { culture = scythian_amz }
+			NAND = {
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = never_amz
+				}
+				ai = yes
+			}
+		}
+			  
+		allow = {
+			OR = {
+				realm_size = 36
+				higher_tier_than = DUKE
+			}
+			prestige = 300
+			war = no
+			independent = yes
+			culture_group = east_slavic
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		effect = {
+			narrative_event = { id = AmzCul.101 }	
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				religion = tengri_pagan_reformed
+			}
+			modifier = {
+				factor = 0.2 
+			}
+			modifier = {
+				factor = 0.2 
+				AND = {
+					has_global_flag = scythian_reborn_flag
+					NOT = { had_global_flag = { flag = scythian_reborn_flag years = 100 } }
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_game_rule = {
+						name = gender
+						value = historical
+					}
+					has_game_rule = {
+						name = gender
+						value = default
+					}
+				}
+			}
+			modifier = { 	
+				factor = 2
+				FROM = { 
+					character = yes 
+					current_heir = { 
+						is_female = yes 
+						OR = {
+							is_married = no
+							is_married_matrilineally = yes
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 2
+				completely_controls = c_crimea
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { completely_controls = c_crimea }
+			}
+			modifier = {
+				factor = 0
+				trait = content
+			}
+			modifier = {
+				factor = 10
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = common_amz
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = rare_amz
+				}
+			}
+		}
+	}
+
+# flip parthian
+	adopt_parthian_culture = {
+	  is_high_prio = yes 
+	  ai_check_interval = 12
+	  
+		potential = {
+			independent = yes
+			is_adult = yes
+			is_female = yes
+			prisoner = no
+			OR = { 
+				culture_group = iranian 
+				government = nomadic_government
+			}
+			NOR = { 
+				culture = parthian_amz
+				culture = scythian_amz
+			}
+			NAND = {
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = never_amz
+				}
+				ai = yes
+			}
+		}
+		
+		allow = {
+			OR = {
+				realm_size = 36
+				higher_tier_than = DUKE
+			}
+			prestige = 300
+			war = no
+			independent = yes
+			OR = {
+				culture_group = iranian 
+				government = nomadic_government
+			}
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		effect = {
+			narrative_event = { id = AmzCul.101 }	
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				OR = { 
+					religion = zoroastrian
+					religion = mazdaki
+					religion = manichean
+					religion = khurmazta
+					religion = zun_pagan
+					religion = zun_pagan_reformed
+				}
+			}
+			modifier = {
+				factor = 0.2 
+			}
+			modifier = {
+				factor = 0.2 
+				AND = {
+					has_global_flag = parthian_reborn_flag
+					NOT = { had_global_flag = { flag = parthian_reborn_flag years = 100 } }
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_game_rule = {
+						name = gender
+						value = historical
+					}
+					has_game_rule = {
+						name = gender
+						value = default
+					}
+				}
+			}
+			modifier = { 	
+				factor = 2
+				FROM = { 
+					character = yes 
+					current_heir = { 
+						is_female = yes 
+						OR = {
+							is_married = no
+							is_married_matrilineally = yes
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 2
+				completely_controls = c_nishapur
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { completely_controls = c_nishapur }
+			}
+			modifier = {
+				factor = 0
+				trait = content
+			}
+			modifier = {
+				factor = 10
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = common_amz
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = rare_amz
+				}
+			}
+		}
+	}
+
+# flip kushite
+	adopt_kushite_culture = {
+	  is_high_prio = yes 
+	  ai_check_interval = 12
+	  
+		potential = {
+			independent = yes
+			is_adult = yes
+			is_female = yes
+			prisoner = no
+			OR = { 
+				culture = egyptian_arabic 
+				culture_group = east_african
+			}
+			NOT = { culture = kushite_amz }
+			NAND = {
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = never_amz
+				}
+				ai = yes
+			}
+		}
+			  
+		allow = {
+			OR = {
+				realm_size = 36
+				higher_tier_than = DUKE
+			}
+			prestige = 300
+			war = no
+			independent = yes
+			OR = { 
+				culture = egyptian_arabic 
+				culture_group = east_african
+			}
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		effect = {
+			narrative_event = { id = AmzCul.101 }	
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				OR = { 
+					religion = african_pagan_reformed
+					religion = hellenic_pagan_reformed
+				}
+			}
+			modifier = {
+				factor = 0.2 
+			}
+			modifier = {
+				factor = 0.2 
+				AND = {
+					has_global_flag = kushite_reborn_flag
+					NOT = { had_global_flag = { flag = kushite_reborn_flag years = 100 } }
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_game_rule = {
+						name = gender
+						value = historical
+					}
+					has_game_rule = {
+						name = gender
+						value = default
+					}
+				}
+			}
+			modifier = { 	
+				factor = 2
+				FROM = { 
+					character = yes 
+					current_heir = { 
+						is_female = yes 
+						OR = {
+							is_married = no
+							is_married_matrilineally = yes
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 2
+				completely_controls = c_atbara
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { completely_controls = c_atbara }
+			}
+			modifier = {
+				factor = 0
+				trait = content
+			}
+			modifier = {
+				factor = 10
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = common_amz
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = rare_amz
+				}
+			}
+		}
+	}
+	
+# flip carthaginian
+	adopt_carthaginian_culture = { 
+	  is_high_prio = yes 
+	  ai_check_interval = 12
+	  
+		potential = {
+			independent = yes
+			is_adult = yes
+			is_female = yes
+			prisoner = no
+			OR = {
+				culture = maghreb_arabic
+				culture = andalusian_arabic
+			}
+			NOT = { culture = carthaginian_amz }
+			NAND = {
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = never_amz
+				}
+				ai = yes
+			}
+		}
+		
+		allow = {
+			OR = {
+				realm_size = 36
+				higher_tier_than = DUKE
+			}
+			prestige = 300
+			war = no
+			independent = yes
+			OR = {
+				culture = maghreb_arabic
+				culture = andalusian_arabic
+			}
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		effect = {
+			narrative_event = { id = AmzCul.101 }	
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				OR = { 
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
+				}
+			}
+			modifier = {
+				factor = 0.2 
+			}
+			modifier = {
+				factor = 0.2 
+				AND = {
+					has_global_flag = carthaginian_reborn_flag
+					NOT = { had_global_flag = { flag = carthaginian_reborn_flag years = 100 } }
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_game_rule = {
+						name = gender
+						value = historical
+					}
+					has_game_rule = {
+						name = gender
+						value = default
+					}
+				}
+			}
+			modifier = { 	
+				factor = 2
+				FROM = { 
+					character = yes 
+					current_heir = { 
+						is_female = yes 
+						OR = {
+							is_married = no
+							is_married_matrilineally = yes
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 2
+				completely_controls = c_tunis
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { completely_controls = c_tunis }
+			}
+			modifier = {
+				factor = 0
+				trait = content
+			}
+			modifier = {
+				factor = 10
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = common_amz
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = rare_amz
+				}
+			}
+		}
+	}
+	
+# flip etruscan
+	adopt_etruscan_culture = { 
+	  is_high_prio = yes 
+	  ai_check_interval = 12
+	  
+		potential = {
+			independent = yes
+			is_adult = yes
+			is_female = yes
+			prisoner = no
+			OR = {
+				culture = italian
+				culture = roman
+				culture = sardinian
+			}
+			NOT = { culture = etruscan_amz }
+			NAND = {
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = never_amz
+				}
+				ai = yes
+			}
+		}
+		
+		allow = {
+			OR = {
+				realm_size = 36
+				higher_tier_than = DUKE
+			}
+			prestige = 300
+			war = no
+			independent = yes
+			OR = {
+				culture = italian
+				culture = roman
+				culture = sardinian
+			}
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		effect = {
+			narrative_event = { id = AmzCul.101 }	
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				OR = { 
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
+				}
+			}
+			modifier = {
+				factor = 0.2 
+			}
+			modifier = {
+				factor = 0.2 
+				AND = {
+					has_global_flag = etruscan_reborn_flag
+					NOT = { had_global_flag = { flag = etruscan_reborn_flag years = 100 } }
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_game_rule = {
+						name = gender
+						value = historical
+					}
+					has_game_rule = {
+						name = gender
+						value = default
+					}
+				}
+			}
+			modifier = { 	
+				factor = 2
+				FROM = { 
+					character = yes 
+					current_heir = { 
+						is_female = yes 
+						OR = {
+							is_married = no
+							is_married_matrilineally = yes
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 2
+				completely_controls = c_firenze
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { completely_controls = c_firenze }
+			}
+			modifier = {
+				factor = 0
+				trait = content
+			}
+			modifier = {
+				factor = 10
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = common_amz
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = rare_amz
+				}
+			}
+		}
+	}
+	
+# flip pritani
+	adopt_pritani_culture = { 
+	  is_high_prio = yes 
+	  ai_check_interval = 12
+	  
+		potential = {
+			independent = yes
+			is_adult = yes
+			is_female = yes
+			prisoner = no
+			culture_group = celtic
+			NOT = { culture = pritani_amz }
+			NAND = {
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = never_amz
+				}
+				ai = yes
+			}
+		}
+		
+		allow = {
+			OR = {
+				realm_size = 36
+				higher_tier_than = DUKE
+			}
+			prestige = 300
+			war = no
+			independent = yes
+			culture_group = celtic
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		effect = {
+			narrative_event = { id = AmzCul.101 }	
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				religion = pagan_group
+			}
+			modifier = {
+				factor = 0.2 
+			}
+			modifier = {
+				factor = 0.2 
+				AND = {
+					has_global_flag = pritani_reborn_flag
+					NOT = { had_global_flag = { flag = pritani_reborn_flag years = 100 } }
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_game_rule = {
+						name = gender
+						value = historical
+					}
+					has_game_rule = {
+						name = gender
+						value = default
+					}
+				}
+			}
+			modifier = { 	
+				factor = 2
+				FROM = { 
+					character = yes 
+					current_heir = { 
+						is_female = yes 
+						OR = {
+							is_married = no
+							is_married_matrilineally = yes
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 2
+				completely_controls = c_norfolk
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { completely_controls = c_norfolk }
+			}
+			modifier = {
+				factor = 0
+				trait = content
+			}
+			modifier = {
+				factor = 10
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = common_amz
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = rare_amz
+				}
+			}
+		}
+	}
+	
+# flip illyrian
+	adopt_illyrian_culture = { 
+	  is_high_prio = yes 
+	  ai_check_interval = 12
+	  
+		potential = {
+			independent = yes
+			is_adult = yes
+			is_female = yes
+			prisoner = no
+			OR = {
+				culture = bosnian
+				culture = croatian
+				culture = serbian
+			}
+			NOT = { culture = illyrian_amz }
+			NAND = {
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = never_amz
+				}
+				ai = yes
+			}
+		}
+		
+		allow = {
+			OR = {
+				realm_size = 36
+				higher_tier_than = DUKE
+			}
+			prestige = 300
+			war = no
+			independent = yes
+			OR = {
+				culture = bosnian
+				culture = croatian
+				culture = serbian
+			}
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+		}
+		
+		effect = {
+			narrative_event = { id = AmzCul.101 }	
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				religion = slavic_pagan_reformed
+			}
+			modifier = {
+				factor = 0.2 
+			}
+			modifier = {
+				factor = 0.2 
+				AND = {
+					has_global_flag = illyrian_reborn_flag
+					NOT = { had_global_flag = { flag = pritani_reborn_flag years = 100 } }
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_game_rule = {
+						name = gender
+						value = historical
+					}
+					has_game_rule = {
+						name = gender
+						value = default
+					}
+				}
+			}
+			modifier = { 	
+				factor = 2
+				FROM = { 
+					character = yes 
+					current_heir = { 
+						is_female = yes 
+						OR = {
+							is_married = no
+							is_married_matrilineally = yes
+						}
+					} 
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tier = EMPEROR
+			}
+			modifier = {
+				factor = 2
+				completely_controls = c_zeta
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { completely_controls = c_zeta }
+			}
+			modifier = {
+				factor = 0
+				trait = content
+			}
+			modifier = {
+				factor = 10
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = common_amz
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = rare_amz
+				}
+			}
+		}
+	}
+
+
+# vassal adopt amazonian culture from liege 
+
+	adopt_amazonian_culture_liege = { 
+		is_high_prio = yes 
+		ai_check_interval = 6
+	 
+		potential = {
+			prisoner = no
+			OR = {
+				NOR = { 
+					culture = themiskyran_amz
+					culture = valkyrie_amz
+					culture = scythian_amz
+					culture = parthian_amz
+					culture = kushite_amz
+					culture = carthaginian_amz
+					culture = etruscan_amz
+					culture = pritani_amz
+					culture = illyrian_amz
+				}
+				AND = {								# Dukes+ will retain their culture 
+					lower_tier_than = DUKE			# Counts and Barons will convert, but slowly
+					is_landed = yes 
+				}
+			}
+			NOR = {
+				trait = giant_lord
+				trait = giant_king
+			}
+			NOT = { 
+				liege = { culture = ROOT }
+			}
+			AND = {
+				independent = no 
+				OR = {
+					liege = { culture = themiskyran_amz }
+					liege = { culture = valkyrie_amz }
+					liege = { culture = scythian_amz }
+					liege = { culture = parthian_amz }
+					liege = { culture = kushite_amz }
+					liege = { culture = carthaginian_amz }
+					liege = { culture = etruscan_amz }
+					liege = { culture = pritani_amz }
+					liege = { culture = illyrian_amz }
+				}
+			}
+			OR = {
+				is_female = yes
+				AND = {
+					is_female = no
+					is_married_matrilineally = yes
+					is_ruler = no
+					opinion = {
+						who = liege
+						value = 25
+					}
+				}
+				AND = {
+					is_female = no
+					lower_tier_than = DUKE
+					opinion = {
+						who = liege
+						value = 25
+					}
+				}
+				AND = {
+					is_female = no
+					opinion = {
+						who = liege
+						value = 25
+					}
+					liege = { culture = themiskyran_amz }
+					culture_group = byzantine
+				}
+				AND = {
+					is_female = no
+					opinion = {
+						who = liege
+						value = 25
+					}
+					liege = { culture = valkyrie_amz }
+					OR = {
+						culture_group = north_germanic
+						culture_group = central_germanic
+					}
+				}
+				AND = {
+					is_female = no
+					opinion = {
+						who = liege
+						value = 25
+					}
+					liege = { culture = scythian_amz }
+					OR = { 
+						culture_group = east_slavic
+						culture_group = west_slavic
+						culture = hungarian
+					}
+				}
+				AND = {
+					is_female = no
+					opinion = {
+						who = liege
+						value = 25
+					}
+					liege = { culture = parthian_amz }
+					culture_group = iranian
+				}
+				AND = {
+					is_female = no
+					opinion = {
+						who = liege
+						value = 25
+					}
+					liege = { culture = kushite_amz }
+					OR = { 
+						culture = egyptian_arabic 
+						culture_group = east_african
+					}
+				}
+				AND = {
+					is_female = no
+					opinion = {
+						who = liege
+						value = 25
+					}
+					liege = { culture = carthaginian_amz }
+					OR = {
+						culture = maghreb_arabic
+						culture = andalusian_arabic
+						culture = levantine_arabic
+					}
+				}
+				AND = {
+					is_female = no
+					opinion = {
+						who = liege
+						value = 25
+					}
+					liege = { culture = etruscan_amz }
+					OR = {
+						culture = italian
+						culture = roman
+						culture = sardinian
+					}
+				}
+				AND = {
+					is_female = no
+					opinion = {
+						who = liege
+						value = 25
+					}
+					liege = { culture = pritani_amz }
+					culture_group = celtic
+				}
+				AND = {
+					is_female = no
+					opinion = {
+						who = liege
+						value = 25
+					}
+					liege = { culture = illyrian_amz }
+					culture_group = south_slavic
+				}
+				AND = {
+					is_female = no
+					opinion = {
+						who = liege
+						value = 0
+					}
+					liege = { 
+						OR = { 
+							dynasty = ROOT 
+							is_close_relative = ROOT
+						}
+					}
+				}
+			}
+			NOT = {
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = never_amz
+				}
+			}
+		}
+		
+		allow = {
+			NOT = { is_inaccessible_trigger = yes }
+		}
+		
+		effect = {
+			prestige = 25
+			hidden_tooltip = {
+				character_event = { id = AmzCul.102 }	
+			}
+		}
+			
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				opinion = {
+					who = liege
+					value = 50
+				}
+			}
+			modifier = {
+				factor = 0.5
+				opinion = {
+					who = liege
+					value <= 50
+				}
+			}
+			modifier = {
+				factor = 2
+				liege = {		# spread faster through strong females
+					OR = {
+						trait = is_amazonian
+						trait = is_amazonian_immortal
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				top_liege = {		# top liege must have amz culture 
+					NOR = {
+						culture = themiskyran_amz
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+				}
+			}
+			modifier = {
+				factor = 0.25
+				any_liege = {		# trickle down rather than spread 	
+					NOR = {
+						culture = themiskyran_amz
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+				}
+			}
+			modifier = {
+				factor = 0.25
+				lower_tier_than = COUNT
+				is_landed = yes
+			}
+			modifier = {
+				factor = 0.25
+				lower_tier_than = DUKE
+				is_landed = yes
+			}
+			modifier = {
+				factor = 0
+				opinion = {
+					who = liege
+					value <= 0
+				}
+			}
+			modifier = {
+				factor = 1.5
+				is_landed = no 
+			}
+			modifier = {			# prestige-rich less likely, cumulative
+				factor = 0.5
+				monthly_prestige >= 3
+			}
+			modifier = {
+				factor = 0.5
+				monthly_prestige >= 2.5
+			}
+			modifier = {
+				factor = 0.5
+				monthly_prestige >= 2
+			}
+			modifier = {
+				factor = 1
+				monthly_prestige >= 1.5
+			}
+			modifier = {			# prestige-poor more likely
+				factor = 1.5
+				monthly_prestige < 1
+			}
+			modifier = {
+				factor = 2
+				is_female = yes 
+				liege = {
+					culture_group = ROOT 
+				}
+			}
+			modifier = {
+				factor = 10
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = common_amz
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_game_rule = { 		
+					name = culture_freq_amz
+					value = rare_amz
+				}
+			}
+		}
+	}
+
+
+# force enatic-cognatic
+	force_enatic_cognatic_succ = { 
+		is_high_prio = yes
+		ai_check_interval = 1
+	 
+		potential = {
+			OR = { 
+				culture = themiskyran_amz  
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+				AND = {
+					religion = cathar
+					has_global_flag = cathar_enat_cognatic_flag
+				}
+				AND = {
+					religion = messalian
+					has_global_flag = messalian_enat_cognatic_flag
+				}
+				AND = {
+					religion = bogomilist
+					has_global_flag = bogomilist_enat_cognatic_flag
+				}
+				AND = {
+					religion = mazdaki
+					has_global_flag = mazdaki_enat_cognatic_flag
+				}
+			}
+			NOR = { 
+				government = merchant_republic_government
+			}
+			OR = {
+				NOR = {
+					government = theocracy_government 
+					government = order_government
+				}
+				AND = { 
+					OR = {
+						government = order_government
+						government = theocracy_government 
+					}
+					religion_allows_female_temple_holders = yes
+				}
+			}
+			any_demesne_title = { 
+				NOR = { 
+					has_law = enatic_cognatic_succession 
+					has_law = enatic_succession
+				}
+			}
+			ai = yes
+		}
+		
+		allow = {
+			is_alive = yes
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.801 }	
+			}
+		}
+			
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	
+# force enatic, for enatic religions only
+	force_enatic_succ = { 
+		is_high_prio = yes
+		ai_check_interval = 1
+	 
+		potential = {
+			OR = {	
+				AND = {
+					religion = cathar
+					has_global_flag = cathar_enatic_flag
+				}
+				AND = {
+					religion = messalian
+					has_global_flag = messalian_enatic_flag
+				}
+				AND = {
+					religion = bogomilist
+					has_global_flag = bogomilist_enatic_flag
+				}
+				AND = {
+					religion = mazdaki
+					has_global_flag = mazdaki_enatic_flag
+				}
+				has_religion_feature = religion_matriarchal
+			}
+			NOT = { 
+				government = merchant_republic_government 
+			}
+			any_demesne_title = { 
+				NOT = { 
+					has_law = enatic_succession
+				}
+			}
+			ai = yes
+		}
+		
+		allow = { 
+			is_alive = yes
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.802 }	
+			}
+		}
+			
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+
+# force absolute-cognatic non amazon theocracy
+	force_absolute_cognatic_succ_heresy_theocracy = { 
+		is_high_prio = yes
+		ai_check_interval = 1
+	 
+		potential = {
+			NOR = { 
+				culture = themiskyran_amz  
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+			any_demesne_title = { 
+				NOT = { 
+					has_law = cognatic_succession
+				}
+			}
+			religion_allows_female_temple_holders = yes
+			government = theocracy_government
+			ai = yes
+			is_playable = no
+		}
+		
+		allow = {
+			is_alive = yes
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.803 }	
+			}
+		}
+			
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+# force absolute-cognatic non amazon, previously only republic
+	force_absolute_cognatic_succ_heresy_republic = { 
+		is_high_prio = yes
+		ai_check_interval = 1
+	 
+		potential = {
+			NOR = { 
+				culture = themiskyran_amz  
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+			OR = { 
+				AND = {
+					religion = cathar
+					NOR = {
+						has_global_flag = cathar_enat_cognatic_flag
+						has_global_flag = cathar_enatic_flag
+					}
+				}
+				AND = {
+					religion = messalian
+					NOR = {
+						has_global_flag = messalian_enat_cognatic_flag
+						has_global_flag = messalian_enatic_flag
+					}
+				}
+				AND = {
+					religion = bogomilist
+					NOR = {
+						has_global_flag = bogomilist_enat_cognatic_flag
+						has_global_flag = bogomilist_enatic_flag
+					}
+				}
+				AND = {
+					religion = mazdaki
+					NOR = {
+						has_global_flag = mazdaki_enat_cognatic_flag
+						has_global_flag = mazdaki_enatic_flag
+					}
+				}
+			}
+			any_demesne_title = { 
+				NOT = { 
+					has_law = cognatic_succession
+				}
+			}
+			NOT = { government = theocracy_government }
+			religion_allows_female_temple_holders = yes
+			ai = yes
+		}
+		
+		allow = {
+			is_alive = yes
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.803 }	
+			}
+		}
+			
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+# take trait decision
+	add_amazonian_trait = {
+		is_high_prio = yes 
+		ai_check_interval = 2
+		
+		potential = {
+			is_female = yes
+			age = 13
+			prisoner = no
+			is_incapable = no
+			OR = {
+				culture = themiskyran_amz
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+				has_game_rule = { 		# effectively making every culture amazonian
+					name = succession_law_amz
+					value = enatic_amz
+				}
+				any_owned_bloodline = {		# female-preference bloodlines
+					has_bloodline_flag = bloodline_enatic_cognatic   
+					bloodline_is_active_for = ROOT
+				}
+			}
+			NOR = { 
+				trait = is_amazonian 
+				trait = is_amazonian_immortal
+				trait = blind
+			}
+			OR = {
+				NOT = { has_character_flag = amazonian_trial_flag }
+				had_character_flag = { flag = amazonian_trial_flag days = 3 }
+			}
+		}
+		
+		allow = {
+			martial = 8
+			custom_tooltip = { 
+			text = spring_trial_tooltip 
+				OR = {		# spring time, march-june ( 0 is jan )
+					month == 2
+					month == 3
+					month == 4 			
+				}
+			}
+			NOT = { is_inaccessible_trigger = yes }
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				narrative_event = { id = AmzCul.301 }
+				set_character_flag = amazonian_trial_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_injury_trigger = yes
+					is_maimed_trigger = yes
+					has_minor_disease_trigger = yes 
+					has_symptom_trigger = yes
+					has_disease_trigger = yes
+				}
+			}
+		}
+	}
+	
+# set dejure capital to traditional location 
+	set_amz_capital = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+			higher_tier_than = DUKE
+			OR = {
+				AND = {
+					culture = themiskyran_amz
+					has_landed_title = k_trebizond
+					completely_controls = c_sinope 
+					NOT = { has_global_flag = themiskyran_capital_flag }
+				}
+				AND = {
+					culture = kushite_amz
+					has_landed_title = k_nubia
+					completely_controls = c_atbara  
+					NOT = { has_global_flag = kushite_capital_flag }
+				}
+				AND = {
+					culture = etruscan_amz
+					has_landed_title = k_italy
+					completely_controls = c_firenze  
+					NOT = { has_global_flag = etruscan_capital_flag }
+				}
+				AND = {
+					culture = pritani_amz
+					has_landed_title = k_england
+					completely_controls = c_norfolk 
+					NOT = { has_global_flag = pritani_capital_flag }
+				}
+				AND = {
+					culture = illyrian_amz
+					has_landed_title = k_serbia
+					completely_controls = c_zeta 
+					NOT = { has_global_flag = illyrian_capital_flag }
+				}
+			}
+		}
+		
+		allow = {
+			prestige = 400
+			war = no 
+			prisoner = no
+			is_incapable = no
+		}
+		
+		effect = {
+			custom_tooltip = { text = set_amz_capital_tooltip }
+			if = {
+				limit = { culture = themiskyran_amz }
+				set_global_flag = themiskyran_capital_flag
+				k_trebizond = { set_preferred_capital = c_sinope }
+				hidden_tooltip = {
+					d_armeniacon = { set_preferred_capital = c_sinope }
+					if = {
+						limit = { 
+							739 = { num_of_max_settlements < 4 } 
+						}
+						739 = { add_holding_slot = 3 }
+					}
+					if = {
+						limit = { 
+							739 = { num_of_max_settlements < 5 } 
+						}
+						739 = { add_holding_slot = 2 }
+					}
+					if = {
+						limit = { 
+							739 = { num_of_max_settlements < 6 } 
+						}
+						739 = { add_holding_slot = 1 }
+					}
+				}
+			}
+			if = {
+				limit = { culture = kushite_amz }
+				set_global_flag = kushite_capital_flag
+				k_nubia = { set_preferred_capital = c_atbara }
+				hidden_tooltip = {
+					d_nubia = { set_preferred_capital = c_atbara }
+					if = {
+						limit = { 
+							879 = { num_of_max_settlements < 4 } 
+						}
+						879 = { add_holding_slot = 3 }
+					}
+					if = {
+						limit = { 
+							879 = { num_of_max_settlements < 5 } 
+						}
+						879 = { add_holding_slot = 2 }
+					}
+					if = {
+						limit = { 
+							879 = { num_of_max_settlements < 6 } 
+						}
+						879 = { add_holding_slot = 1 }
+					}
+				}
+			}
+			if = {
+				limit = { culture = etruscan_amz }
+				set_global_flag = etruscan_capital_flag
+				k_italy = { set_preferred_capital = c_firenze }
+				hidden_tooltip = {
+					if = {
+						limit = { 
+							328 = { num_of_max_settlements < 4 } 
+						}
+						328 = { add_holding_slot = 3 }
+					}
+					if = {
+						limit = { 
+							328 = { num_of_max_settlements < 5 } 
+						}
+						328 = { add_holding_slot = 2 }
+					}
+					if = {
+						limit = { 
+							328 = { num_of_max_settlements < 6 } 
+						}
+						328 = { add_holding_slot = 1 }
+					}
+				}
+			}
+			if = {
+				limit = { culture = pritani_amz }
+				set_global_flag = pritani_capital_flag
+				k_england = { set_preferred_capital = c_norfolk }
+				hidden_tooltip = {
+					if = {
+						limit = { 
+							70 = { num_of_max_settlements < 4 } 
+						}
+						70 = { add_holding_slot = 3 }
+					}
+					if = {
+						limit = { 
+							70 = { num_of_max_settlements < 5 } 
+						}
+						70 = { add_holding_slot = 2 }
+					}
+					if = {
+						limit = { 
+							70 = { num_of_max_settlements < 6 } 
+						}
+						70 = { add_holding_slot = 1 }
+					}
+				}
+			}
+			if = {
+				limit = { culture = illyrian_amz }
+				set_global_flag = illyrian_capital_flag
+				k_serbia = { set_preferred_capital = c_zeta }
+				hidden_tooltip = {
+					d_dioclea = { set_preferred_capital = c_zeta }
+					if = {
+						limit = { 
+							469 = { num_of_max_settlements < 4 } 
+						}
+						469 = { add_holding_slot = 3 }
+					}
+					if = {
+						limit = { 
+							469 = { num_of_max_settlements < 5 } 
+						}
+						469 = { add_holding_slot = 2 }
+					}
+					if = {
+						limit = { 
+							469 = { num_of_max_settlements < 6 } 
+						}
+						469 = { add_holding_slot = 1 }
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+# set dejure capital of romagna to rome 
+	set_amz_capital_roma = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			NOT = { is_inaccessible_or_incapable_trigger = yes }
+			higher_tier_than = DUKE
+			OR = {	# so AI caths and frats won't give it to popes
+				NOR = { 
+					religion = catholic 
+					religion = fraticelli
+				}
+				ai = no 
+			}
+			has_landed_title = k_romagna	
+			completely_controls = c_roma
+			NOT = { has_global_flag = romagnol_capital_flag }			
+		}
+		
+		allow = {
+			war = no 
+			prisoner = no
+			is_incapable = no
+		}
+		
+		effect = {
+			set_global_flag = romagnol_capital_flag
+			k_romagna = { set_preferred_capital = c_roma }
+			# no extra holding slots, no pretige cost
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+# apply warpaint
+	apply_amazonian_warpaint = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_female = yes
+			is_adult = yes
+			prisoner = no
+			is_incapable = no
+			has_character_flag = not_warpainting_automatically_flag	# it's automatic now 
+			OR = { 
+				trait = is_amazonian 
+				trait = is_amazonian_immortal
+			}
+			NOT = { culture = pritani_amz } # do it automatically
+			NOT = { has_character_modifier = amazonian_warpaint_modifier }
+			NOR = {
+				trait = african_tattoo_1
+				trait = african_tattoo_2
+				trait = african_tattoo_3
+				trait = african_tattoo_4
+				trait = african_tattoo_5
+				trait = african_tattoo_6
+				trait = african_tattoo_7
+				trait = african_tattoo_8
+				trait = african_tattoo_9
+				trait = african_tattoo_10
+				trait = african_tattoo_11
+				trait = african_tattoo_12
+				trait = norse_tattoo_1
+				trait = norse_tattoo_2
+				trait = norse_tattoo_3
+				trait = norse_tattoo_4
+				trait = norse_tattoo_5
+				trait = norse_tattoo_6
+				trait = norse_tattoo_7
+				trait = norse_tattoo_8
+				trait = slavic_tattoo_1
+				trait = slavic_tattoo_2
+				trait = slavic_tattoo_3
+				trait = slavic_tattoo_4
+				trait = slavic_tattoo_5
+				trait = slavic_tattoo_6
+				trait = slavic_tattoo_7
+				trait = slavic_tattoo_8
+			}
+			OR = {
+				trait = robust
+				trait = cruel
+				trait = wroth
+				trait = ambitious
+				trait = brave
+				trait = zealous
+				trait = berserker
+				trait = pagan_branch_3
+				has_crusade_trait_trigger = yes
+			}
+			AND = {
+				war = yes
+				in_command = yes
+			}
+		}
+		
+		allow = {
+			war = yes
+			in_command = yes
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = amazonian_warpaint_modifier   
+				duration = -1
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_character_modifier = amazonian_skirmish_modifier }
+					add_trait = norse_tattoo_1
+				}
+				if = {
+					limit = { has_character_modifier = amazonian_pursue_modifier }
+					add_trait = norse_tattoo_2
+				}
+				if = {
+					limit = { has_character_modifier = amazonian_melee_modifier }
+					add_trait = norse_tattoo_5
+				}
+				if = {
+					limit = { has_character_modifier = amazonian_centre_modifier }
+					add_trait = norse_tattoo_6
+				}
+				if = {
+					limit = { 
+						NOR = { 
+							has_character_modifier = amazonian_skirmish_modifier
+							has_character_modifier = amazonian_pursue_modifier
+							has_character_modifier = amazonian_melee_modifier
+							has_character_modifier = amazonian_centre_modifier 
+						}
+					}
+					random_list = {
+						25 = { add_trait = norse_tattoo_1 }
+						25 = { add_trait = norse_tattoo_2 }
+						25 = { add_trait = norse_tattoo_5 }
+						25 = { add_trait = norse_tattoo_6 }
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				OR = {
+					trait = robust
+					trait = cruel
+					trait = wroth
+					trait = ambitious
+					trait = brave
+					trait = zealous
+					trait = berserker
+					trait = pagan_branch_3
+					has_crusade_trait_trigger = yes
+				}
+			}
+			modifier = {
+				factor = 0.3
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					trait = dull
+					trait = slothful
+					trait = arbitrary
+					trait = temperate
+					trait = humble
+					trait = content
+					trait = craven
+					trait = cynical
+					trait = stubborn
+				}
+			}	
+		}
+	}
+	
+# recruit Amazonian warrior
+	recruit_amazonian = {
+		is_high_prio = no 
+		ai_check_interval = 36
+		
+		potential = {
+			OR = {
+				culture = themiskyran_amz
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+				AND = {					# Amazonian commanders available to all Amazonians
+					OR = {
+						trait = is_amazonian
+						trait = is_amazonian_immortal						
+					}
+					has_game_rule = { 		
+						name = succession_law_amz
+						value = enatic_amz
+					}
+				}
+			}
+			is_playable = yes
+		}
+		
+		allow = {
+			prestige = 50
+			custom_tooltip = { 
+			text = any_amz_province_tooltip
+				any_realm_province = {
+					culture = ROOT
+				}
+			}
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.405 }
+			}
+			scaled_prestige = {
+				value = -3
+				min = -50
+				max = -1000
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				war = no
+			}
+			modifier = {
+				factor = 0
+				prestige < 100
+			}
+			modifier = {
+				factor = 0.5
+				tier = DUKE
+			}
+			modifier = {
+				factor = 0
+				tier = COUNT
+			}
+			modifier = {
+				factor = 0
+				any_courtier_or_vassal = {
+					has_character_flag = elite_amazonian_flag
+					count >= 1
+				}
+			}
+		}
+	}
+	
+# adopt a "daughter"
+	adopt_amazonian_daughter = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_female = yes
+			is_playable = yes
+			age = 45
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+			}
+			OR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			current_heir = {			#	no continuous succession
+				NOT = { dynasty = ROOT }
+			}
+			NOR = {
+				any_child = {			#	no daughter, would defeat the purpose
+					is_female = yes
+				}
+				any_vassal = {			#	no related direct vassal, checks landed
+					dynasty = ROOT
+					is_female = yes
+				}					
+				any_courtier = {		# 	no related courtier, checks unlanded
+					dynasty = ROOT
+					is_female = yes
+				}
+			}
+		}
+		
+		allow = {
+			prestige = 500
+			wealth = 250
+			NOT = { is_inaccessible_trigger = yes }
+		}
+		
+		effect = {
+			character_event = { id = AmzCul.805 }
+			prestige = -500
+			wealth = -250	
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+# Invite Suitor	
+	invite_amz_suitor = {
+		is_high_prio = yes 
+		ai_check_interval = 18
+	
+		potential = {
+			OR = {
+				can_marry = yes
+				AND = {
+					can_marry = no 
+					trait = seductress
+				}
+			}
+			OR = {
+				age < 45	
+				trait = is_amazonian_immortal
+				trait = immortal
+			}
+			is_inaccessible_or_incapable_trigger = no
+			is_ruler = yes
+			is_adult = yes 
+			higher_tier_than = BARON
+			useless_character_trigger = no
+			OR = {
+				TECH_NOBLE_CUSTOMS = 4
+				any_liege = { TECH_NOBLE_CUSTOMS = 4 }
+			}
+			NOR = { 
+				trait = pregnant 
+				trait = blind
+			}
+			OR = {
+				culture = themiskyran_amz
+				culture = valkyrie_amz 
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal
+			}
+			OR = {
+				had_character_flag = { flag = amazonian_suitor_flag years = 3 }
+				NOT = { has_character_flag = amazonian_suitor_flag }
+			}
+		}
+
+		allow = {
+			war = no
+			in_command = no
+			NOT = { is_inaccessible_trigger = yes }
+			prestige = 300
+		}
+
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.120 }
+			}
+			set_character_flag = amazonian_suitor_flag
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				OR = {
+					trait = duelist
+					combat_rating >= 50
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				OR = {
+					trait = hedonist
+					trait = seductress
+					trait = lustful
+					has_ambition = obj_get_married
+				}
+			}
+			
+			modifier = {
+				factor = 0.5 
+			}
+
+			modifier = {
+				factor = 0
+				OR = {
+					trait = shy
+					trait = dull
+					trait = celibate
+					trait = chaste
+					trait = slothful
+					trait = content
+					is_ascetic_trigger = yes
+				}
+			}
+		}
+	}
+	
+
+# founding the amazonian warrior lodge, invitations to hall of heroines
+	create_warrior_lodge_amazonian = {
+		is_high_prio = yes 
+		
+		potential = {
+			ai = no
+			is_female = yes
+			is_adult = yes
+			prisoner = no
+			martial = 16
+			OR = {
+				NOT = { has_global_flag = flag_started_warrior_lodge_amazonian }
+				had_global_flag = { flag = flag_started_warrior_lodge_amazonian months = 3 }
+			}
+			has_dlc = "Holy Fury"
+			NOT = { 
+				warrior_lodge_amazonian = {
+					society_has_members = yes								
+				}
+			}
+		}
+		
+		allow = {
+			is_in_society = no
+			martial = 16
+			scaled_wealth = {
+				value = 2
+				min = 300
+				max = 10000
+			}
+			prestige = 1500
+			NOT = { is_inaccessible_trigger = yes }
+			OR = {			# shieldmaiden qualities
+				trait = brave
+				trait = proud
+				trait = ambitious
+				trait = honest
+				trait = diligent 
+				trait = just
+				trait = gregarious	
+				trait = shieldmaiden
+			}
+			NOR = { 
+				trait = incapable 
+				trait = imbecile
+				trait = inbred
+			}
+		}
+		
+		effect = {
+			scaled_wealth = {
+				value = -2
+				min = -300
+				max = -10000
+			}
+			hidden_tooltip = {
+				set_global_flag = flag_started_warrior_lodge_amazonian 
+			}
+			character_event = { id = AmzCulSoc.901 }
+		}
+	}
+	
+	create_warrior_lodge_amazonian_ai = {
+		is_high_prio = yes
+		ai_check_interval = 1
+		
+		potential = {
+			ai = yes
+			is_female = yes
+			martial = 16
+			OR = {
+				NOT = { has_global_flag = { flag_started_warrior_lodge_amazonian } }
+				had_global_flag = { flag = flag_started_warrior_lodge_amazonian months = 3 }
+			}
+			has_dlc = "Holy Fury"
+			NOT = { 
+				warrior_lodge_amazonian = {
+					society_has_members = yes								
+				}
+			}
+		}
+		
+		allow = {
+			is_in_society = no
+			is_adult = yes
+			martial = 16
+			scaled_wealth = 0.75
+			prestige = 1500
+			OR = {			# shieldmaiden qualities
+				trait = brave
+				trait = proud
+				trait = ambitious
+				trait = honest
+				trait = diligent 
+				trait = just
+				trait = gregarious	
+				trait = shieldmaiden
+			}
+			NOR = { 
+				trait = incapable 
+				trait = imbecile
+				trait = inbred
+			}
+		}
+		
+		effect = {
+			scaled_wealth = -0.75
+			set_global_flag = flag_started_warrior_lodge_amazonian
+			join_society = warrior_lodge_amazonian
+			set_society_grandmaster = yes
+			add_trait = shieldmaiden
+			add_society_currency_massive_effect = yes
+			any_courtier_or_vassal = {
+					limit = {
+						ai = yes
+						can_join_society = warrior_lodge_amazonian
+					}
+					random = { chance = 75 join_society = warrior_lodge_amazonian }
+			}
+			character_event = { id = AmzCulSoc.904 }
+					
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				min_age = 17
+				max_age = 35
+				culture = ROOT
+				religion = ROOT
+				trait = is_amazonian
+				attributes = {
+					martial = 16
+				}
+			}
+			new_character = {
+				save_event_target_as = ai_amazon_lodger_a
+			}	
+			event_target:ai_amazon_lodger_a = {
+				join_society = warrior_lodge_amazonian
+				add_trait = shieldmaiden
+				random_list = {
+					50 = { 
+						add_character_modifier = {
+							name = amazonian_melee_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_pursue_modifier   
+							duration = -1
+						}
+					}
+					75 = { 
+						add_character_modifier = {
+							name = amazonian_centre_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_skirmish_modifier   
+							duration = -1
+						}
+					}
+				}
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				min_age = 17
+				max_age = 35
+				culture = ROOT
+				religion = ROOT
+				trait = is_amazonian
+				attributes = {
+					martial = 16
+				}
+			}
+			new_character = {
+				save_event_target_as = ai_amazon_lodger_b
+			}	
+			event_target:ai_amazon_lodger_b = {
+				join_society = warrior_lodge_amazonian
+				add_trait = shieldmaiden
+				random_list = {
+					50 = { 
+						add_character_modifier = {
+							name = amazonian_melee_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_pursue_modifier   
+							duration = -1
+						}
+					}
+					75 = { 
+						add_character_modifier = {
+							name = amazonian_centre_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_skirmish_modifier   
+							duration = -1
+						}
+					}
+				}
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				min_age = 17
+				max_age = 35
+				culture = ROOT
+				religion = ROOT
+				trait = is_amazonian
+				attributes = {
+					martial = 16
+				}
+			}
+			new_character = {
+				save_event_target_as = ai_amazon_lodger_c
+			}	
+			event_target:ai_amazon_lodger_c = {
+				join_society = warrior_lodge_amazonian
+				add_trait = shieldmaiden
+				random_list = {
+					50 = { 
+						add_character_modifier = {
+							name = amazonian_melee_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_pursue_modifier   
+							duration = -1
+						}
+					}
+					75 = { 
+						add_character_modifier = {
+							name = amazonian_centre_modifier   
+							duration = -1
+						}
+					}
+					25 = { 
+						add_character_modifier = {
+							name = amazonian_skirmish_modifier   
+							duration = -1
+						}
+					}
+				}
+			}
+			any_player = {
+				narrative_event = { id = AmzCulSoc.904 days = 30 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	join_warrior_lodge_relative_ai = {
+		is_high_prio = yes
+		ai_check_interval = 3
+		
+		potential = {
+			ai = yes
+			is_female = yes
+			martial = 16
+			age >= 13
+			is_in_society = no
+			prisoner = no
+			any_close_relative = {		
+				society_member_of = warrior_lodge_amazonian
+			}
+		}
+		
+		allow = {
+			OR = {			# shieldmaiden qualities
+				trait = brave
+				trait = proud
+				trait = ambitious
+				trait = honest
+				trait = diligent 
+				trait = just
+				trait = gregarious	
+				trait = shieldmaiden
+			}
+			NOR = { 
+				trait = incapable 
+				trait = imbecile
+				trait = inbred
+			}
+			NOT = { is_inaccessible_trigger = yes }
+		}
+		
+		effect = {
+			join_society = warrior_lodge_amazonian
+			add_society_currency_massive_effect = yes	
+			add_trait = shieldmaiden
+			if = {
+				limit = {
+					AND = {
+						is_adult = no
+						guardian = {
+							society_member_of = warrior_lodge_amazonian
+						}
+					}
+				}
+				guardian = { 
+					character_event = { id = AmzCulSoc.401 } 
+				}
+			}
+		}	
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+# form titular empire
+	form_amazonian_empire = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 1
+		
+		potential = {
+			is_playable = yes
+			tier = KING
+			is_female = yes
+			holy_order = no
+			OR = {
+				culture = themiskyran_amz
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+			NOT = { tier = EMPEROR }	
+			NOT = {
+				has_game_rule = {
+					name = dynamic_realms
+					value = off
+				}
+			}
+		}
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			war = no
+			NOT = { trait = incapable }
+			independent = yes
+			NOT = { is_inaccessible_trigger = yes }
+			prestige = 3000
+			wealth = 500
+			OR = {
+				realm_size = 150
+				custom_tooltip = {
+					text = form_new_empire_requirement_tooltip
+					hidden_tooltip = {
+						any_demesne_title = {
+							count = 3
+							tier = KING
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			tier = KING
+			hidden_tooltip = {
+				narrative_event = { id = AmzCul.201 }
+			}
+			primary_title = {
+				create_title = {
+					tier = EMPEROR
+					landless = no
+					temporary = no
+					custom_created = yes
+					culture = ROOT
+					holder = ROOT
+					base_title = THIS
+					copy_title_laws = yes
+				}
+
+				new_title = {
+					copy_title_history = PREV
+				}
+
+				hidden_tooltip = {
+					ROOT = {
+						primary_title = {
+							holder_scope = {
+								any_title_under = {
+									limit = {
+										tier = KING
+										NOT = {
+											empire = { has_holder = yes }
+										}
+									}
+									de_jure_liege = PREVPREV
+								}
+								any_title_under = {
+									limit = {
+										tier = DUKE
+										location = {
+											kingdom = {
+												NOT = {
+													empire = { has_holder = yes }
+												}
+												
+												NOT = { de_jure_liege_or_above = PREVPREVPREVPREV }
+												ROOT = {
+													completely_controls = PREV
+												}
+											}
+										}
+									}
+									location = {
+										kingdom = {
+											de_jure_liege = PREVPREVPREVPREV
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					AND = {
+						is_alternate_start = yes
+						has_alternate_start_parameter = {
+							key = dejure_empires
+							value = none
+						}
+					}
+				}
+				wealth = -200
+			}
+			if = {
+				limit = {
+					NOT = {
+						is_alternate_start = yes
+						has_alternate_start_parameter = {
+							key = dejure_empires
+							value = none
+						}
+					}
+				}
+			}
+			
+			custom_tooltip = { text = form_new_empire_tooltip }
+			chronicle = {
+				entry = CHRONICLE_FOUNDED_NEW_KINGDOM_OR_EMPIRE
+				portrait = [Root.GetID]
+			}
+			
+			prestige = 1000	
+			wealth = -500
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+
+# set up amazonian tributary
+	establish_themiskyran_tributary = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			is_nomadic = no
+			NOT = { culture = themiskyran_amz }
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+			}
+			OR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			NOT = { has_character_flag = themiskyran_tributary_flag }
+			tier = EMPEROR
+			has_landed_title = d_armeniacon		# owns duchy
+			OR = { 								# and at least one county in duchy
+				has_landed_title = c_amisos
+				has_landed_title = c_sinope
+			}
+			NOR = {								# not giving away player capital
+				is_capital = c_amisos
+				is_capital = c_sinope
+			}
+		}
+		
+		allow = {
+			war = no
+			prestige = 200
+			TECH_MAJESTY = 4
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.1011 }
+				set_character_flag = themiskyran_tributary_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0.1
+			}
+
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+		}
+	}
+
+	establish_valkyrie_tributary = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			is_nomadic = no
+			NOT = { culture = valkyrie_amz }
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+			}
+			OR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			NOT = { has_character_flag = valkyrie_tributary_flag }
+			tier = EMPEROR
+			has_landed_title = d_uppland		# owns duchy
+			OR = { 								# and at least one county in duchy
+				has_landed_title = c_gastrikland
+				has_landed_title = c_uppland
+				has_landed_title = c_aland
+				has_landed_title = c_sodermanland
+			}
+			NOR = {								# not giving away player capital
+				is_capital = c_gastrikland
+				is_capital = c_uppland
+				is_capital = c_aland
+				is_capital = c_sodermanland
+			}
+		}
+		
+		allow = {
+			war = no
+			prestige = 200
+			TECH_MAJESTY = 4
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.1012 }
+				set_character_flag = valkyrie_tributary_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0.1
+			}
+
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+		}
+	}
+	
+	establish_scythian_tributary = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			is_nomadic = no
+			NOT = { culture = scythian_amz }
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+			}
+			OR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			NOT = { has_character_flag = scythian_tributary_flag }
+			tier = EMPEROR
+			has_landed_title = d_crimea		# owns duchy
+			OR = { 								# and at least one county in duchy
+				has_landed_title = c_lukomorie
+				has_landed_title = c_lower_dniepr
+				has_landed_title = c_crimea
+				has_landed_title = c_lower_don
+			}
+			NOR = {								# not giving away player capital
+				is_capital = c_lukomorie
+				is_capital = c_lower_dniepr
+				is_capital = c_crimea
+				is_capital = c_lower_don
+			}
+		}
+		
+		allow = {
+			war = no
+			prestige = 200
+			TECH_MAJESTY = 4
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.1013 }
+				set_character_flag = scythian_tributary_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0.1
+			}
+
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+		}
+	}
+	
+	establish_parthian_tributary = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			is_nomadic = no
+			NOT = { culture = parthian_amz }
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+			}
+			OR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			NOT = { has_character_flag = parthian_tributary_flag }
+			tier = EMPEROR
+			has_landed_title = d_khorasan		# owns duchy
+			OR = { 								# and at least one county in duchy
+				has_landed_title = c_tus
+				has_landed_title = c_nishapur
+				has_landed_title = c_qohistan
+				has_landed_title = c_birjand
+			}
+			NOR = {								# not giving away player capital
+				is_capital = c_tus
+				is_capital = c_nishapur
+				is_capital = c_qohistan
+				is_capital = c_birjand
+			}
+		}
+		
+		allow = {
+			war = no
+			prestige = 200
+			TECH_MAJESTY = 4
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.1014 }
+				set_character_flag = parthian_tributary_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0.1
+			}
+
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+		}
+	}
+	
+	establish_kushite_tributary = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			is_nomadic = no
+			NOT = { culture = kushite_amz }
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+			}
+			OR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			NOT = { has_character_flag = kushite_tributary_flag }
+			tier = EMPEROR
+			has_landed_title = d_nubia		# owns duchy
+			OR = { 								# and at least one county in duchy
+				has_landed_title = c_atbara
+				has_landed_title = c_makuria
+				has_landed_title = c_napata
+			}
+			NOR = {								# not giving away player capital
+				is_capital = c_atbara
+				is_capital = c_makuria
+				is_capital = c_napata
+			}
+		}
+		
+		allow = {
+			war = no
+			prestige = 200
+			TECH_MAJESTY = 4
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.1015 }
+				set_character_flag = kushite_tributary_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0.1
+			}
+
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+		}
+	}
+	
+	establish_carthaginian_tributary = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			is_nomadic = no
+			NOT = { culture = carthaginian_amz }
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+			}
+			OR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			NOT = { has_character_flag = carthaginian_tributary_flag }
+			tier = EMPEROR
+			has_landed_title = d_tunis		# owns duchy
+			OR = { 								# and at least one county in duchy
+				has_landed_title = c_gabes
+				has_landed_title = c_kairwan
+				has_landed_title = c_mahdia
+				has_landed_title = c_tunis
+				has_landed_title = c_medjerda
+				has_landed_title = c_bizerte
+			}
+			NOR = {								# not giving away player capital
+				is_capital = c_gabes
+				is_capital = c_kairwan
+				is_capital = c_mahdia
+				is_capital = c_tunis
+				is_capital = c_medjerda
+				is_capital = c_bizerte
+			}
+		}
+		
+		allow = {
+			war = no
+			prestige = 200
+			TECH_MAJESTY = 4
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.1016 }
+				set_character_flag = carthaginian_tributary_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0.1
+			}
+
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+		}
+	}
+	
+	establish_etruscan_tributary = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			is_nomadic = no
+			NOT = { culture = etruscan_amz }
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+			}
+			OR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			NOT = { has_character_flag = etruscan_tributary_flag }
+			tier = EMPEROR
+			has_landed_title = d_toscana		# owns duchy
+			OR = { 								# and at least one county in duchy
+				has_landed_title = c_arezzo
+				has_landed_title = c_lucca
+				has_landed_title = c_firenze
+				has_landed_title = c_siena
+			}
+			NOR = {								# not giving away player capital
+				is_capital = c_arezzo
+				is_capital = c_lucca
+				is_capital = c_firenze
+				is_capital = c_siena
+			}
+		}
+		
+		allow = {
+			war = no
+			prestige = 200
+			TECH_MAJESTY = 4
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.1017 }
+				set_character_flag = etruscan_tributary_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0.1
+			}
+
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+		}
+	}
+
+	establish_pritani_tributary = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			is_nomadic = no
+			NOT = { culture = pritani_amz }
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+			}
+			OR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			NOT = { has_character_flag = pritani_tributary_flag }
+			tier = EMPEROR
+			has_landed_title = d_norfolk		# owns duchy
+			OR = { 								# and at least one county in duchy
+				has_landed_title = c_norfolk
+				has_landed_title = c_suffolk
+			}
+			NOR = {								# not giving away player capital
+				is_capital = c_norfolk
+				is_capital = c_suffolk
+			}
+		}
+		
+		allow = {
+			war = no
+			prestige = 200
+			TECH_MAJESTY = 4
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.1018 }
+				set_character_flag = pritani_tributary_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0.1
+			}
+
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+		}
+	}
+
+	establish_illyrian_tributary = {
+		is_high_prio = yes 
+		ai_check_interval = 1
+		
+		potential = {
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			is_nomadic = no
+			NOT = { culture = illyrian_amz }
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+			}
+			OR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			NOT = { has_character_flag = illyrian_tributary_flag }
+			tier = EMPEROR
+			has_landed_title = d_dioclea		# owns duchy
+			OR = { 								# and at least one county in duchy
+				has_landed_title = c_travunia
+				has_landed_title = c_zeta
+			}
+			NOR = {								# not giving away player capital
+				is_capital = c_travunia
+				is_capital = c_zeta
+			}
+		}
+		
+		allow = {
+			war = no
+			prestige = 200
+			TECH_MAJESTY = 4
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.1019 }
+				set_character_flag = illyrian_tributary_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0.1
+			}
+
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+		}
+	}
+	
+
+# convert to a feminist heresy	
+	convert_heresy_amazon = {
+		is_high_prio = yes 
+		ai_check_interval = 36
+		
+		potential = {
+			is_female = yes
+			is_adult = yes
+			prisoner = no
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			OR = {
+				trait = is_amazonian
+				trait = is_amazonian_immortal						
+				trait = amazonian_leader
+			}
+			OR = {
+				has_law = true_cognatic_succession
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+			religion_allows_female_temple_holders = no
+			is_heretic = no
+			has_secret_religion = no
+			has_dlc = "Sons of Abraham"
+			OR = { 
+				religion = catholic
+				religion = orthodox
+				religion = nestorian
+				religion = zoroastrian
+				religion = fraticelli
+				religion = waldensian
+				religion = lollard
+				religion = monothelite
+				religion = iconoclast
+				religion = paulician
+				religion = manichean
+				religion = khurmazta
+			}
+			OR = {
+				NOT = { has_character_flag = amazonian_heresy_flag }
+				had_character_flag = { flag = amazonian_heresy_flag days = 3 }
+			}
+			tier = EMPEROR
+		}
+		
+		allow = {
+			diplomacy = 8
+			learning = 8
+			war = no
+			piety = 500
+			prestige = 1500
+			NOT = { is_inaccessible_trigger = yes }
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.903 }
+				set_character_flag = amazonian_heresy_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			
+			modifier = {
+				factor = 0.5
+				trait = zealous 
+			}
+
+			modifier = {
+				factor = 0.5 
+			}
+
+			modifier = {
+				factor = 0
+				trait = content
+			}
+		}
+	}
+	
+# construct feminist seminary
+	create_feminist_seminary = {
+		is_high_prio = yes 
+		ai_check_interval = 36
+		
+		potential = {
+			is_adult = yes
+			prisoner = no
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			has_secret_religion = no
+			OR = {
+				any_realm_province = {
+					religion = ROOT
+				}
+				realm_character_percent = {		# 25% of characters
+					target = 0.25
+					religion = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					higher_tier_than = DUKE		# normally emperess whatever
+					OR = {
+						AND = {
+							religion = cathar 
+							NOT = { has_global_flag = cathar_seminary_flag }
+						}
+						AND = {
+							religion = messalian 
+							NOT = { has_global_flag = messalian_seminary_flag }
+						}
+						AND = {
+							religion = bogomilist 
+							NOT = { has_global_flag = bogomilist_seminary_flag }
+						}
+						AND = {
+							religion = mazdaki 
+							NOT = { has_global_flag = mazdaki_seminary_flag }
+						}
+					}
+				}
+				AND = {
+					controls_religion = yes # holds a caliphate
+					OR = {
+						AND = {
+							religion = sunni 
+							NOT = { has_global_flag = sunni_seminary_flag }
+						}
+						AND = {
+							religion = zikri 	# don't have a caliph tho
+							NOT = { has_global_flag = zikri_seminary_flag }
+						}
+						AND = {
+							religion = yazidi 
+							NOT = { has_global_flag = yazidi_seminary_flag }
+						}
+						AND = {
+							religion = ibadi 
+							NOT = { has_global_flag = ibadi_seminary_flag }
+						}
+						AND = {
+							religion = kharijite 
+							NOT = { has_global_flag = kharijite_seminary_flag }
+						}
+						AND = {
+							religion = shiite 
+							NOT = { has_global_flag = shiite_seminary_flag }
+						}
+						AND = {
+							religion = druze	 # don't have a caliph tho
+							NOT = { has_global_flag = druze_seminary_flag }
+						}
+						AND = {
+							religion = hurufi 
+							NOT = { has_global_flag = hurufi_seminary_flag }
+						}
+						AND = {
+							religion = qarmatian 
+							NOT = { has_global_flag = qarmatian_seminary_flag }
+						}
+					}
+				}
+			}
+			OR = {		# must be feminist 
+				any_demesne_title = { has_law = true_cognatic_succession }
+				any_demesne_title = { has_law = enatic_cognatic_succession }
+				any_demesne_title = { has_law = enatic_succession }				
+			}
+			NOT = { has_character_flag = constructing_seminary_flag }
+		}
+		
+		allow = {
+			piety = 500
+			wealth = 500
+			war = no
+			NOT = { is_inaccessible_trigger = yes }
+			num_of_holy_sites = 1
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.902 }
+			}
+			set_character_flag = constructing_seminary_flag
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	
+# invite priestess, based on global flag
+	invite_priestess = {
+		ai = no
+		only_playable = yes
+
+		potential = {
+			OR = {
+				AND = {
+					religion = cathar 
+					has_global_flag = cathar_seminary_flag 
+				}
+				AND = {
+					religion = messalian 
+					has_global_flag = messalian_seminary_flag 
+				}
+				AND = {
+					religion = bogomilist 
+					has_global_flag = bogomilist_seminary_flag 
+				}
+				AND = {
+					religion = mazdaki 
+					has_global_flag = mazdaki_seminary_flag 
+				}
+				AND = {
+					religion = sunni 
+					has_global_flag = sunni_seminary_flag 
+				}
+				AND = {
+					religion = zikri 	# don't have a caliph tho
+					has_global_flag = zikri_seminary_flag 
+				}
+				AND = {
+					religion = yazidi 
+					has_global_flag = yazidi_seminary_flag 
+				}
+				AND = {
+					religion = ibadi 
+					has_global_flag = ibadi_seminary_flag 
+				}
+				AND = {
+					religion = kharijite 
+					has_global_flag = kharijite_seminary_flag 
+				}
+				AND = {
+					religion = shiite 
+					has_global_flag = shiite_seminary_flag 
+				}
+				AND = {
+					religion = druze	 # don't have a caliph tho
+					has_global_flag = druze_seminary_flag 
+				}
+				AND = {
+					religion = hurufi 
+					has_global_flag = hurufi_seminary_flag 
+				}
+				AND = {
+					religion = qarmatian 
+					has_global_flag = qarmatian_seminary_flag 
+				}
+			}
+		}
+		
+		allow = {
+			piety = 30
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+			custom_tooltip = { 
+			text = any_feminist_province_tooltip
+				any_realm_province = {
+					religion = ROOT
+				}
+			}
+		}
+		
+		effect = {
+			piety = -30
+			create_random_priest = {
+				random_traits = yes
+				dynasty = random
+				female = yes
+				age = 25
+				attributes = {
+					diplomacy = 3
+					learning = 9
+					stewardship = 2
+					intrigue = 2
+					martial = 2
+				}
+			}
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				
+				remove_trait = mystic
+				remove_trait = socializer
+				remove_trait = gamer
+				remove_trait = hedonist
+				remove_trait = duelist
+				remove_trait = hunter
+				remove_trait = strategist
+				remove_trait = administrator
+				remove_trait = architect
+				remove_trait = gardener
+				remove_trait = schemer
+				remove_trait = impaler
+				remove_trait = seducer
+				remove_trait = seductress
+				remove_trait = theologian
+				remove_trait = scholar
+				
+				random_list = { # Flavor Randomization
+					35 = { 
+						# Nothing
+					}
+					15 = {
+						change_learning = 2
+					}
+					20 = {
+						add_trait = theologian
+					}
+					5 = {
+						if = {
+							limit = { religion_group = muslim }
+							add_trait = faqih
+						}
+						if = {
+							limit = { NOT = { religion_group = muslim } }
+							add_trait = scholar
+						}
+					}
+					5 = {
+						add_trait = mystic
+					}
+					10 = {
+						change_learning = 4
+					}
+					5 = {
+						change_learning = 6
+					}
+					5 = {
+						add_trait = shrewd
+					}
+				}
+				random_list = { # change age slightly
+					20 = { 
+						# remains usual age 
+					}
+					10 = {
+						add_age = 2
+					}
+					10 = {
+						add_age = 1
+					}
+					10 = {
+						add_age = -1
+					}
+					10 = {
+						add_age = -2
+					}
+				}
+				save_event_target_as = invited_character
+			}
+			character_event = { id = NE.1 }
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+
+# reform feminist heresy	
+	reform_heresy_amazon = {
+		is_high_prio = yes 
+		ai_check_interval = 6
+		
+		potential = {
+			is_female = yes
+			is_adult = yes
+			prisoner = no
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			tier = EMPEROR
+			is_heretic = yes
+			has_secret_religion = no
+			has_dlc = "Sons of Abraham"
+			OR = {
+				ai = no 					# players can do it whenever
+				NOT = {						# AI cannot do it if contest from players 
+					any_player = { 
+						religion = ROOT 
+						is_female = yes
+						is_adult = yes
+						prisoner = no
+						is_incapable = no
+						is_ruler = yes
+						independent = yes 
+						tier = EMPEROR
+						has_secret_religion = no
+					} 					
+				}
+			}
+			OR = {
+				AND = {														# succession
+					religion = cathar
+					NOR = {
+						has_global_flag = cathar_abs_cognatic_flag
+						has_global_flag = cathar_enat_cognatic_flag
+						has_global_flag = cathar_enatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 10% of characters
+						target = 0.10
+						religion = ROOT
+					}
+				}
+				AND = {															
+					religion = messalian
+					NOR = {
+						has_global_flag = messalian_abs_cognatic_flag
+						has_global_flag = messalian_enat_cognatic_flag
+						has_global_flag = messalian_enatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 10% of characters
+						target = 0.10
+						religion = ROOT
+					}
+				}
+				AND = {															
+					religion = bogomilist
+					NOR = {
+						has_global_flag = bogomilist_abs_cognatic_flag
+						has_global_flag = bogomilist_enat_cognatic_flag
+						has_global_flag = bogomilist_enatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 10% of characters
+						target = 0.10
+						religion = ROOT
+					}
+				}
+				AND = {															
+					religion = mazdaki
+					NOR = {
+						has_global_flag = mazdaki_abs_cognatic_flag
+						has_global_flag = mazdaki_enat_cognatic_flag
+						has_global_flag = mazdaki_enatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 10% of characters
+						target = 0.10
+						religion = ROOT
+					}
+				}
+				AND = {														# made special feature
+					religion = cathar
+					NOT = { has_global_flag = cathar_special_feature }
+					realm_character_percent = {		# 25% of characters
+						target = 0.25
+						religion = ROOT
+					}
+				}
+				AND = {														
+					religion = messalian
+					NOT = { has_global_flag = messalian_special_feature }
+					realm_character_percent = {		# 25% of characters
+						target = 0.25
+						religion = ROOT
+					}
+				}
+				AND = {														
+					religion = bogomilist
+					NOT = { has_global_flag = bogomilist_special_feature }
+					realm_character_percent = {		# 25% of characters
+						target = 0.25
+						religion = ROOT
+					}
+				}
+				AND = {														
+					religion = mazdaki
+					NOT = { has_global_flag = mazdaki_special_feature }
+					realm_character_percent = {		# 25% of characters
+						target = 0.25
+						religion = ROOT
+					}
+				}
+				AND = {														# made concubinage law
+					religion = cathar
+					NOT = { has_global_flag = cathar_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				AND = {														
+					religion = messalian
+					NOT = { has_global_flag = messalian_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				AND = {														
+					religion = bogomilist
+					NOT = { has_global_flag = bogomilist_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				AND = {														
+					religion = mazdaki
+					NOT = { has_global_flag = mazdaki_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+			}
+		}
+		
+		allow = {
+			piety = 1000
+			war = no
+			custom_tooltip = { 
+			text = no_neg_vassal_op_tooltip
+				NOT = {
+					any_vassal = {
+						limit = { is_powerful_vassal = yes }
+						opinion = {
+							who = liege
+							value < 0
+						}
+					}
+				}
+			}
+			NOT = { is_inaccessible_trigger = yes }
+			num_of_holy_sites = 1
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.905 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+# reform islamic caliphate	
+	reform_caliphate_female = {
+		is_high_prio = yes 
+		ai_check_interval = 6
+		
+		potential = {
+			is_female = yes
+			is_adult = yes
+			prisoner = no
+			is_incapable = no
+			is_ruler = yes
+			independent = yes 
+			controls_religion = yes # holds a caliphate
+			has_secret_religion = no
+			has_dlc = "The Sword of Islam"
+			NOT = { has_character_flag = reforming_caliphate_flag }
+			OR = {		
+				AND = {															# succession
+					religion = sunni
+					NOR = {
+						has_global_flag = sunni_abs_cognatic_flag
+						has_global_flag = sunni_enat_cognatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 20% of characters
+						target = 0.20
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = shiite
+					NOR = {
+						has_global_flag = shiite_abs_cognatic_flag
+						has_global_flag = shiite_enat_cognatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 20% of characters
+						target = 0.20
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = ibadi 
+					NOR = {
+						has_global_flag = ibadi_abs_cognatic_flag
+						has_global_flag = ibadi_enat_cognatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 20% of characters
+						target = 0.20
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = yazidi
+					NOR = {
+						has_global_flag = yazidi_abs_cognatic_flag
+						has_global_flag = yazidi_enat_cognatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 20% of characters
+						target = 0.20
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = kharijite 
+					NOR = {
+						has_global_flag = kharijite_abs_cognatic_flag
+						has_global_flag = kharijite_enat_cognatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 20% of characters
+						target = 0.20
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = hurufi
+					NOR = {
+						has_global_flag = hurufi_abs_cognatic_flag
+						has_global_flag = hurufi_enat_cognatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 20% of characters
+						target = 0.20
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = qarmatian 
+					NOR = {
+						has_global_flag = qarmatian_abs_cognatic_flag
+						has_global_flag = qarmatian_enat_cognatic_flag
+					}
+					OR = {
+						has_game_rule = { 
+							name = succession_law_amz
+							value = default_succession_amz
+						}
+						OR = {
+							culture = themiskyran_amz  
+							culture = valkyrie_amz
+							culture = scythian_amz
+							culture = parthian_amz
+							culture = kushite_amz
+							culture = carthaginian_amz
+							culture = etruscan_amz
+							culture = pritani_amz
+							culture = illyrian_amz
+						}
+					}
+					realm_character_percent = {		# 20% of characters
+						target = 0.20
+						religion = ROOT
+					}
+				}
+				AND = {														# polygyny 
+					religion = sunni
+					NOT = { has_global_flag = sunni_reformed_marriage_flag }
+					realm_character_percent = {		# 40% of characters
+						target = 0.40
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = shiite
+					NOT = { has_global_flag = shiite_reformed_marriage_flag }
+					realm_character_percent = {		# 40% of characters
+						target = 0.40
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = ibadi 
+					NOT = { has_global_flag = ibadi_reformed_marriage_flag }
+					realm_character_percent = {		# 40% of characters
+						target = 0.40
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = yazidi 
+					NOT = { has_global_flag = yazidi_reformed_marriage_flag }
+					realm_character_percent = {		# 40% of characters
+						target = 0.40
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = kharijite 
+					NOT = { has_global_flag = kharijite_reformed_marriage_flag }
+					realm_character_percent = {		# 40% of characters
+						target = 0.40
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = hurufi 
+					NOT = { has_global_flag = hurufi_reformed_marriage_flag }
+					realm_character_percent = {		# 40% of characters
+						target = 0.40
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = qarmatian 
+					NOT = { has_global_flag = qarmatian_reformed_marriage_flag }
+					realm_character_percent = {		# 40% of characters
+						target = 0.40
+						religion = ROOT
+					}
+				}
+				AND = {														# concubines
+					religion = sunni
+					OR = {
+						culture = themiskyran_amz
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+					has_global_flag = sunni_reformed_marriage_flag
+					NOT = { has_global_flag = sunni_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = shiite
+					OR = {
+						culture = themiskyran_amz
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+					has_global_flag = shiite_reformed_marriage_flag
+					NOT = { has_global_flag = shiite_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = ibadi 
+					OR = {
+						culture = themiskyran_amz
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+					has_global_flag = ibadi_reformed_marriage_flag
+					NOT = { has_global_flag = ibadi_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = yazidi 
+					OR = {
+						culture = themiskyran_amz
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+					has_global_flag = yazidi_reformed_marriage_flag
+					NOT = { has_global_flag = yazidi_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = kharijite 
+					OR = {
+						culture = themiskyran_amz
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+					has_global_flag = kharijite_reformed_marriage_flag
+					NOT = { has_global_flag = kharijite_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = hurufi 
+					OR = {
+						culture = themiskyran_amz
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+					has_global_flag = hurufi_reformed_marriage_flag
+					NOT = { has_global_flag = hurufi_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				AND = {
+					religion = qarmatian 
+					OR = {
+						culture = themiskyran_amz
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz
+					}
+					has_global_flag = qarmatian_reformed_marriage_flag
+					NOT = { has_global_flag = qarmatian_concubines_flag }
+					realm_character_percent = {		# 50% of characters
+						target = 0.50
+						religion = ROOT
+					}
+				}
+				AND = {													# sayyida
+					has_global_flag = fatimah_bloodline_flag 
+					NOT = { has_global_flag = sayyida_flag }
+					has_game_rule = { # playing default succession law  
+						name = succession_law_amz
+						value = default_succession_amz
+					}
+					ai = no
+					OR = {
+						AND = {							# succession already active
+							religion = sunni
+							OR = {
+								has_global_flag = sunni_abs_cognatic_flag
+								has_global_flag = sunni_enat_cognatic_flag
+								NOT = {
+									has_game_rule = { 
+										name = succession_law_amz
+										value = default_succession_amz
+									}
+								}
+							}
+						}
+						AND = {
+							religion = shiite
+							OR = {
+								has_global_flag = shiite_abs_cognatic_flag
+								has_global_flag = shiite_enat_cognatic_flag
+								NOT = {
+									has_game_rule = { 
+										name = succession_law_amz
+										value = default_succession_amz
+									}
+								}
+							}
+							realm_character_percent = {		# 50% of characters, only restricted for Shia
+								target = 0.50
+								religion = ROOT
+							}
+						}
+						AND = {
+							religion = ibadi 
+							OR = {
+								has_global_flag = ibadi_abs_cognatic_flag
+								has_global_flag = ibadi_enat_cognatic_flag
+								NOT = {
+									has_game_rule = { 
+										name = succession_law_amz
+										value = default_succession_amz
+									}
+								}
+							}
+						}
+						AND = {
+							religion = yazidi
+							OR = {
+								has_global_flag = yazidi_abs_cognatic_flag
+								has_global_flag = yazidi_enat_cognatic_flag
+								NOT = {
+									has_game_rule = { 
+										name = succession_law_amz
+										value = default_succession_amz
+									}
+								}
+							}
+						}
+						AND = {
+							religion = kharijite 
+							OR = {
+								has_global_flag = kharijite_abs_cognatic_flag
+								has_global_flag = kharijite_enat_cognatic_flag
+								NOT = {
+									has_game_rule = { 
+										name = succession_law_amz
+										value = default_succession_amz
+									}
+								}
+							}
+						}
+						AND = {
+							religion = hurufi
+							OR = {
+								has_global_flag = hurufi_abs_cognatic_flag
+								has_global_flag = hurufi_enat_cognatic_flag
+								NOT = {
+									has_game_rule = { 
+										name = succession_law_amz
+										value = default_succession_amz
+									}
+								}
+							}
+						}
+						AND = {
+							religion = qarmatian 
+							OR = {
+								has_global_flag = qarmatian_abs_cognatic_flag
+								has_global_flag = qarmatian_enat_cognatic_flag
+								NOT = {
+									has_game_rule = { 
+										name = succession_law_amz
+										value = default_succession_amz
+									}
+								}
+							}
+						}
+					}			
+				}
+			}
+		}
+		
+		allow = {
+			piety = 500
+			war = no
+			custom_tooltip = { 
+			text = no_neg_vassal_op_tooltip
+				NOT = {
+					any_vassal = {
+						limit = { is_powerful_vassal = yes }
+						opinion = {
+							who = liege
+							value < 0
+						}
+					}
+				}
+			}
+			NOT = { is_inaccessible_trigger = yes }
+			num_of_holy_sites = 1
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCal.900 }		# Amz Caliphate
+			}
+			set_character_flag = reforming_caliphate_flag
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 0
+				trait = content 
+			}
+		}
+	}
+	
+# restore islamic caliphate	
+	restore_caliphate_male = {
+		is_high_prio = yes 
+		ai_check_interval = 12
+		ai = yes
+		
+		potential = {
+			is_female = no
+			is_adult = yes
+			prisoner = no
+			is_incapable = no
+			is_ruler = yes
+			controls_religion = yes # holds a caliphate
+			has_secret_religion = no
+			has_dlc = "Sons of Abraham"
+			OR = {		
+				AND = {															
+					religion = sunni
+					OR = {
+						has_global_flag = sunni_enat_cognatic_flag
+						has_global_flag = sunni_reformed_marriage_flag
+					}
+				}
+				AND = {
+					religion = shiite
+					OR = {
+						has_global_flag = shiite_enat_cognatic_flag
+						has_global_flag = shiite_reformed_marriage_flag
+						
+					}
+				}
+				AND = {
+					religion = ibadi 
+					OR = {
+						has_global_flag = ibadi_enat_cognatic_flag
+						has_global_flag = ibadi_reformed_marriage_flag 
+					}
+				}
+				AND = {
+					religion = yazidi
+					OR = {
+						has_global_flag = yazidi_enat_cognatic_flag
+						has_global_flag = yazidi_reformed_marriage_flag 
+					}
+				}
+				AND = {
+					religion = kharijite 
+					OR = {
+						has_global_flag = kharijite_enat_cognatic_flag
+						has_global_flag = kharijite_reformed_marriage_flag 
+					}
+				}
+				AND = {
+					religion = hurufi
+					OR = {
+						has_global_flag = hurufi_enat_cognatic_flag
+						has_global_flag = hurufi_reformed_marriage_flag 
+					}
+				}
+				AND = {
+					religion = qarmatian 
+					OR = {
+						has_global_flag = qarmatian_enat_cognatic_flag
+						has_global_flag = qarmatian_reformed_marriage_flag 
+					}
+				}
+			}
+			NOR = {							# Caliphs from Amz cultures can't restore
+				culture = themiskyran_amz
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+			}
+		}
+		
+		allow = {
+			war = no
+			NOT = { is_inaccessible_trigger = yes }
+			num_of_holy_sites = 1
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCal.910 }		# Amz Caliphate
+			}
+			piety = 1000
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel 
+			}
+			modifier = {
+				factor = 1.5
+				trait = greedy 
+			}
+			modifier = {
+				factor = 0
+				trait = content 
+			}
+			modifier = {
+				factor = 0
+				trait = kind 
+			}
+			modifier = {
+				factor = 0
+				trait = charitable 
+			}
+		}
+	}
+	
+	
+############## not amazon-specific events	
+	
+# donate to an orphange	
+	donate_orphanage = {
+		is_high_prio = yes		# not really important but it will notify when tech makes available
+		ai_check_interval = 144
+		
+		potential = {
+			is_female = yes
+			is_adult = yes
+			TECH_CITY_CONSTRUCTION = 3
+			prisoner = no
+			OR = {
+				is_landed = yes
+				spouse = { is_landed = yes }
+			}
+		}
+		
+		allow = {
+			NOT = { is_inaccessible_trigger = yes }
+			wealth = 50
+			custom_tooltip = { 
+			text = no_recent_orphanage_dono_tooltip
+				OR = {
+					had_character_flag = { flag = recent_orphanage_dono_flag years = 3 }
+					NOT = { has_character_flag = recent_orphanage_dono_flag }
+				}
+			}
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.910 }
+			}
+			set_character_flag = recent_orphanage_dono_flag
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = kind 
+			}
+			
+			modifier = {
+				factor = 1.5
+				trait = charitable
+			}
+			
+			modifier = {
+				factor = 0.1 
+			}
+
+			modifier = {
+				factor = 0
+				OR = {
+					trait = greedy
+					trait = slothful
+					trait = envious
+					war = yes
+				}
+			}
+		}
+	}	
+	
+# write a poem
+	compose_poem = {
+		is_high_prio = yes		# not really important but it will notify when tech makes available
+		ai_check_interval = 144
+		
+		potential = {
+			is_female = yes
+			is_adult = yes
+			prisoner = no
+			learning = 8
+			is_playable = yes
+			TECH_CITY_CONSTRUCTION = 3
+			NOR = { 
+				trait = poet 
+				has_character_flag = writing_poetry_flag
+				has_character_flag = written_poetry_flag
+			}
+		}
+		
+		allow = {
+			NOT = { is_inaccessible_trigger = yes }
+			learning = 8
+			custom_tooltip = { 
+			text = no_recent_poetry_tooltip
+				OR = {
+					had_character_flag = { flag = recent_poetry_flag years = 5 }
+					NOT = { has_character_flag = recent_poetry_flag }
+				}
+			}
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.911 }
+			}
+			set_character_flag = recent_poetry_flag
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				OR = {
+					trait = gregarious
+					trait = scholar
+					trait = faqih
+					trait = erudite
+				}
+			}
+			
+			modifier = {
+				factor = 0.1 
+			}
+
+			modifier = {
+				factor = 0
+				OR = {
+					trait = dull
+					trait = slothful
+					trait = inbecile
+					trait = inbred
+					trait = slow
+					trait = shy
+				}
+			}
+		}
+	}	
+
+# paint a painting
+	produce_painting = {
+		is_high_prio = yes		# not really important but it will notify when tech makes available
+		ai_check_interval = 144
+		
+		potential = {
+			is_female = yes
+			prisoner = no
+			TECH_CITY_CONSTRUCTION = 2
+			age = 6
+			learning = 12
+			OR = {
+				is_playable = yes
+				spouse = { is_playable = yes }
+			}
+			NOR = {
+				has_artifact = magnificent_painting
+				trait = blind
+				has_character_flag = painting_picture_flag
+			}
+		}
+		
+		allow = {
+			NOT = { is_inaccessible_trigger = yes }
+			war = no
+			wealth = 10
+			custom_tooltip = { 
+			text = no_recent_painting_tooltip
+				OR = {
+					had_character_flag = { flag = recent_painting_flag years = 1 }
+					NOT = { has_character_flag = recent_painting_flag }
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = recent_painting_flag
+			wealth = -10
+			hidden_tooltip = {
+				character_event = { id = AmzCul.917 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				OR = {
+					trait = genius
+					trait = clever
+					trait = faqih
+					trait = erudite
+					trait = shrewd
+					trait = diligent
+					trait = patient
+					trait = poet
+					is_ascetic_trigger = yes # religious
+					trait = in_hiding
+				}
+			}
+			
+			modifier = {
+				factor = 0.1 
+			}
+
+			modifier = {
+				factor = 0
+				OR = {
+					is_dumb_trigger = yes
+					trait = slothful
+					trait = arbitrary
+					has_injury_trigger = yes
+					is_maimed_trigger = yes
+					has_symptom_trigger = yes
+					has_disease_trigger = yes
+				}
+			}
+		}
+	}	
+
+# hire a midwife
+	hire_midwife = {
+		is_high_prio = yes
+		ai_check_interval = 1
+		
+		potential = {
+			prisoner = no
+			is_ruler = yes
+			OR = {
+				TECH_CITY_CONSTRUCTION = 4
+				any_liege = { TECH_CITY_CONSTRUCTION = 4 }
+				suzerain = { TECH_CITY_CONSTRUCTION = 4 }
+				any_liege = {
+					suzerain = { TECH_CITY_CONSTRUCTION = 4 }
+				}
+			}
+			OR = {
+				AND = {				# strong (potentially independent) woman
+					is_female = yes
+					OR = {
+						trait = pregnant
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+						trait = pregnancy_finishing
+					}
+				}
+				AND = {				# man has a preggers 
+					is_female = no
+					OR = {
+						any_consort = {
+							OR = {
+								trait = pregnant
+								trait = hard_pregnancy
+								trait = troubled_pregnancy
+								trait = pregnancy_finishing
+							}
+						}
+						any_spouse = {
+							OR = {
+								trait = pregnant
+								trait = hard_pregnancy
+								trait = troubled_pregnancy
+								trait = pregnancy_finishing
+							}
+							is_ruler = no		# wife who doesn't own title. if she did, she do ^^that^^
+						}
+						any_lover = {
+							OR = {
+								trait = pregnant
+								trait = hard_pregnancy
+								trait = troubled_pregnancy
+								trait = pregnancy_finishing
+							}
+							is_ruler = no		# wife who doesn't own title. if she did, she do ^^that^^
+						}
+					}
+				}
+				any_courtier = {
+					OR = {
+						NOT = { dynasty = NONE }	# preggers must have a dynasty
+						NOT = { 					# preggers' husband must have dynasty
+							any_spouse = { dynasty = NONE }
+						}
+					}
+					OR = {
+						trait = pregnant
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+						trait = pregnancy_finishing
+					}
+					is_ruler = no	
+					prisoner = no		# event will still appear, but not decision 
+				}
+			}
+			NOT = { has_character_modifier = hired_midwife_modifier }
+			NOT = { has_character_flag = hired_midwife_flag }
+		}
+		
+		allow = {
+			scaled_wealth = 0.05
+		}
+		
+		effect = {
+			scaled_wealth = -0.05
+			hidden_tooltip = {
+				character_event = { id = AmzCul.920 }
+			}
+			set_character_flag = hired_midwife_flag
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.1
+				OR = {
+					trait = genius
+					trait = clever
+					trait = kind
+					trait = shrewd
+					trait = diligent
+					trait = patient
+					trait = charitable
+					trait = just
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = greedy
+					trait = slothful
+					trait = arbitrary
+					trait = cruel
+				}
+			}
+			modifier = {	# very likely to call for themselves
+				factor = 2
+				OR = {
+					trait = pregnant
+					trait = hard_pregnancy
+					trait = troubled_pregnancy
+					trait = pregnancy_finishing
+					any_spouse = {
+						OR = {
+							trait = pregnant
+							trait = hard_pregnancy
+							trait = troubled_pregnancy
+							trait = pregnancy_finishing
+						}
+					}
+				}
+			}
+			modifier = {	# likely to call for dynasty and family
+				factor = 1.2
+				OR = {
+					any_dynasty_member = {
+						host = { character = ROOT }
+						OR = {
+							trait = pregnant
+							trait = hard_pregnancy
+							trait = troubled_pregnancy
+							trait = pregnancy_finishing
+							any_spouse = {
+								OR = {
+									trait = pregnant
+									trait = hard_pregnancy
+									trait = troubled_pregnancy
+									trait = pregnancy_finishing
+								}
+							}
+						}
+					}
+					any_close_relative = {
+						host = { character = ROOT }
+						OR = {
+							trait = pregnant
+							trait = hard_pregnancy
+							trait = troubled_pregnancy
+							trait = pregnancy_finishing
+							any_spouse = {
+								OR = {
+									trait = pregnant
+									trait = hard_pregnancy
+									trait = troubled_pregnancy
+									trait = pregnancy_finishing
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}	
+
+# seek abortion
+	seek_abortifacient = {
+		is_high_prio = no
+		ai_check_interval = 2
+		
+		potential = {
+			prisoner = no
+			is_consort = no
+			is_female = yes
+			OR = {
+				TECH_CULTURE_FLEX = 3
+				any_liege = { TECH_CULTURE_FLEX = 3 }
+				suzerain = { TECH_CULTURE_FLEX = 3 }
+				any_liege = {
+					suzerain = { TECH_CULTURE_FLEX = 3 }
+				}
+			}
+			OR = {
+				trait = pregnant
+				trait = hard_pregnancy
+				trait = troubled_pregnancy
+				trait = pregnancy_finishing
+			}
+			NOT = { has_character_flag = seeking_abortion_flag }
+		}
+		
+		allow = {
+			scaled_wealth = 0.05
+		}
+		
+		effect = {
+			scaled_wealth = -0.05
+			hidden_tooltip = {
+				character_event = { id = AmzCul.947 }
+			}
+			set_character_flag = seeking_abortion_flag
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.2
+				trait = hard_pregnancy
+			}
+			modifier = {
+				factor = 1.5
+				trait = troubled_pregnancy
+			}
+			modifier = {
+				factor = 0.5		# possible but not priority
+				AND = {
+					OR = {
+						has_character_modifier = incestuous_adulteress 
+						has_character_modifier = adulteress 
+						has_character_modifier = adulterous_priest	# might apply to females?
+					}
+					father_of_unborn_known = yes
+					father_of_unborn = {			# father of child is not spouse or consort
+						NOR = {
+							is_main_spouse = yes
+							is_consort = yes
+						}
+					}
+				}
+			}
+			modifier = {			# ai will never take decision unless at risk or known adulterer
+				factor = 0
+				NOR = {
+					trait = hard_pregnancy
+					trait = troubled_pregnancy
+					AND = {
+						OR = {
+							has_character_modifier = incestuous_adulteress 
+							has_character_modifier = adulteress 
+							has_character_modifier = adulterous_priest	
+						}
+						father_of_unborn_known = yes
+						father_of_unborn = {			
+							NOR = {
+								is_main_spouse = yes
+								is_consort = yes
+							}
+						}
+					}
+				}
+			}
+			modifier = {			# ai will never take decision if midwife available and not adulterous
+				factor = 0
+				AND = {
+					OR = {
+						host = { has_character_modifier = hired_midwife_modifier }
+						has_character_modifier = hired_midwife_modifier 
+					}
+					NOR = {
+						has_character_modifier = incestuous_adulteress 
+						has_character_modifier = adulteress 
+						has_character_modifier = adulterous_priest	
+					}
+				}
+			}
+		}
+	}	
+	
+# sponsor the guilds, stewardship
+	sponsor_guilds = {
+		is_high_prio = yes		# not really important but it will notify when tech makes available
+		ai_check_interval = 144
+		
+		potential = {
+			is_adult = yes
+			prisoner = no
+			is_tribal = no
+			is_nomadic = no
+			is_playable = yes
+			has_education_stewardship_trigger = yes
+			TECH_CITY_CONSTRUCTION = 4
+			OR = {
+				had_character_flag = { flag = recent_sponsorship_flag years = 6 }
+				NOT = { has_character_flag = recent_sponsorship_flag }
+			}
+		}
+		
+		allow = {
+			NOT = { is_inaccessible_trigger = yes } 
+			war = no
+			scaled_wealth = 1
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.916 }
+				set_character_flag = recent_sponsorship_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			
+			modifier = {
+				factor = 0.5 
+			}
+
+			modifier = {
+				factor = 0
+				trait = slothful
+			}
+		}
+	}
+	
+# train new recruits, martial
+	train_recruits = {
+		is_high_prio = yes		# not really important but it will notify when tech makes available
+		ai_check_interval = 144
+		
+		potential = {
+			is_adult = yes
+			prisoner = no
+			has_education_martial_trigger = yes
+			is_playable = yes
+			TECH_RECRUITMENT = 4
+			OR = {
+				had_character_flag = { flag = recent_training_flag years = 5 }
+				NOT = { has_character_flag = recent_training_flag }
+			}
+		}
+		
+		allow = {
+			NOT = { is_inaccessible_trigger = yes } 
+			in_command = no
+			war = no 
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.930 }
+				set_character_flag = recent_training_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			
+			modifier = {
+				factor = 0.5 
+			}
+
+			modifier = {
+				factor = 0
+				trait = slothful
+			}
+		}
+	}
+	
+# extort locals, intrigue
+	extort_locals = {
+		is_high_prio = yes		# not really important but it will notify when tech makes available
+		ai_check_interval = 144
+		
+		potential = {
+			is_adult = yes
+			prisoner = no
+			has_education_intrigue_trigger = yes
+			is_playable = yes
+			TECH_MAJESTY = 4
+			OR = {
+				had_character_flag = { flag = recent_extortion_flag years = 5 }
+				NOT = { has_character_flag = recent_extortion_flag }
+			}
+		}
+		
+		allow = {
+			NOT = { is_inaccessible_trigger = yes }
+			war = no
+			scaled_wealth = 0.3
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.937 }
+				set_character_flag = recent_extortion_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			
+			modifier = {
+				factor = 1.5
+				trait = schemer
+			}
+			
+			modifier = {
+				factor = 0.5 
+			}
+
+			modifier = {
+				factor = 0
+				trait = slothful
+			}
+			
+			modifier = {
+				factor = 0
+				trait = honest
+			}
+		}
+	}
+	
+# discontinue extorting locals, intrigue
+	discontinue_extorting = {
+		is_high_prio = yes		# not really important but it will notify when tech makes available
+		ai_check_interval = 6
+		
+		potential = {
+			has_character_modifier = extorting_locals_modifier
+		}
+		
+		allow = {	
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.944 }
+				set_character_flag = recent_extortion_continue_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+			
+			modifier = {
+				factor = 1.5
+				monthly_piety < 1
+			}
+			
+			modifier = {
+				factor = 0.5 
+			}
+
+			modifier = {
+				factor = 0
+				monthly_piety > 5
+			}
+		}
+	}
+	
+# host academic forum, learning
+	host_academics = {
+		is_high_prio = yes		# not really important but it will notify when tech makes available
+		ai_check_interval = 144
+		
+		potential = {
+			is_adult = yes
+			prisoner = no
+			is_tribal = no
+			is_nomadic = no
+			has_education_learning_trigger = yes
+			is_playable = yes
+			TECH_CULTURE_FLEX = 4
+			OR = {
+				had_character_flag = { flag = recent_academics_flag years = 7 }
+				NOT = { has_character_flag = recent_academics_flag }
+			}
+		}
+		
+		allow = {
+			NOT = { is_inaccessible_trigger = yes }
+			war = no
+			scaled_wealth = 0.5
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.940 }
+				set_character_flag = recent_academics_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = scholar
+			}
+			
+			modifier = {
+				factor = 1.5
+				trait = genius
+			}
+			
+			modifier = {
+				factor = 0.5 
+			}
+
+			modifier = {
+				factor = 0
+				trait = imbecile
+			}
+			
+			modifier = {
+				factor = 0
+				trait = honest
+			}
+		}
+	}
+	
+# host public games, diplomacy
+	host_games = {
+		is_high_prio = yes		# not really important but it will notify when tech makes available
+		ai_check_interval = 144
+		
+		potential = {
+			is_adult = yes
+			prisoner = no
+			has_education_diplomacy_trigger = yes
+			is_playable = yes
+			TECH_MAJESTY = 4
+			OR = {
+				AND = {
+					trait = naive_appeaser
+					had_character_flag = { flag = recent_games_flag years = 7 }
+				}
+				AND = {
+					trait = underhanded_rogue
+					had_character_flag = { flag = recent_games_flag years = 5 }
+				}
+				AND = {
+					trait = charismatic_negotiator
+					had_character_flag = { flag = recent_games_flag years = 3 }
+				}
+				AND = {
+					trait = grey_eminence
+					had_character_flag = { flag = recent_games_flag years = 1 }
+				}
+				NOT = { has_character_flag = recent_games_flag }
+			}
+		}
+		
+		allow = {
+			NOT = { is_inaccessible_trigger = yes }
+			capital = { is_occupied = no }
+			war = no
+			scaled_wealth = 0.1
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.941 }
+				set_character_flag = recent_games_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = gregarious
+			}
+			
+			modifier = {
+				factor = 1.5
+				trait = hedonist
+			}
+			
+			modifier = {
+				factor = 0.5 
+			}
+
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			
+			modifier = {
+				factor = 0
+				trait = dull
+			}
+		}
+	}
+	
+# discontinue public games, diplomacy
+	discontinue_games = {
+		is_high_prio = yes		# not really important but it will notify when tech makes available
+		ai_check_interval = 6
+		
+		potential = {
+			has_character_modifier = host_games_modifier
+		}
+		
+		allow = {	
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				character_event = { id = AmzCul.943 }
+				set_character_flag = recent_games_continue_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				war = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				monthly_income < 1
+			}
+			
+			modifier = {
+				factor = 0.5 
+			}
+
+			modifier = {
+				factor = 0
+				monthly_income > 5
+			}
+		}
+	}
+	
+	
+	
+}		# closed decision bracket. don't remove
+
+
+
+
+	
+
+
+
+

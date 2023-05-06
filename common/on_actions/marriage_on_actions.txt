@@ -1,0 +1,5 @@
+on_marriage = {
+    events = {
+        ckrpg_marriage.0001
+    }
+}

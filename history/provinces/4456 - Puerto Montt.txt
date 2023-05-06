@@ -1,0 +1,12 @@
+# County Title
+title = c_montt
+
+# Settlements
+max_settlements = 3
+b_montt = tribal
+
+# Misc
+culture = mapuche
+religion = mapuche_pagan
+
+# History

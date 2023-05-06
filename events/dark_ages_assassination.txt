@@ -1,0 +1,5993 @@
+namespace = darkages
+
+
+###################################################################
+#
+#	SUPPORT FOR ASSASSINATION DECISION
+#
+###################################################################
+
+character_event = {	#TARGET RECEIVES EVENT SETTING UP THE DRAMA
+	id = darkages.72128
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_intrigue
+	desc = {
+		text = EVTDESC1972128_1
+		trigger = {
+			OR = {
+				FROMFROM = {
+					OR = {
+						has_character_flag = assassination1
+						has_character_flag = assassination2
+						has_character_flag = assassination3					
+					}
+				}
+
+				FROMFROM = {
+					NOT = { has_character_flag = assassination1 }
+					NOT = { has_character_flag = assassination2 }
+					NOT = { has_character_flag = assassination3 }
+					NOT = { has_character_flag = assassination4	}						
+				}				
+				
+			}	
+		}
+	}	
+	desc = {
+		text = EVTDESC1972128_2
+		trigger = {
+			FROMFROM = { has_character_flag = assassination4 }
+		}
+	}
+	is_triggered_only = yes
+	hide_from = yes	
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+		random_list = {
+			14 = {
+				modifier = {
+					factor = 1.25
+					trait = trusting
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { intrigue = 8 }
+				}				
+				modifier = {
+					factor = 1.35
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { intrigue = 4 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { intrigue = 2 }
+				}				
+			
+				set_character_flag = unaware
+			}
+			5 = {
+				modifier = {
+					factor = 3
+					trait = assassin
+				}
+				modifier = {
+					factor = 2
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.5
+					has_focus = focus_intrigue
+				}				
+				modifier = {
+					factor = 3
+					trait = paranoid
+				}
+				modifier = {
+					factor = 2.5
+					trait = wary
+				}				
+				modifier = {
+					factor = 2
+					trait = cynical
+				}				
+				modifier = {
+					factor = 2
+					OR = {
+						trait = elusive_shadow
+						trait = intricate_webweaver
+						trait = flamboyant_schemer
+						trait = amateurish_plotter
+					}
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 1.5
+					learning = 12
+				}
+				modifier = {
+					factor = 1.5
+					martial = 12
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 12
+				}				
+				modifier = {
+					factor = 1.5
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 18
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 21
+				}
+				modifier = {
+					factor = 0.5
+					FROMFROM = { trait = deceitful }
+				}
+				modifier = {
+					factor = 2
+					FROMFROM = { trait = honest }
+				}					
+				set_character_flag = suspecting			
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 5
+					trait = assassin
+				}
+				modifier = {
+					factor = 2
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.5
+					has_focus = focus_intrigue
+				}				
+				modifier = {
+					factor = 3
+					trait = paranoid
+				}
+				modifier = {
+					factor = 2.5
+					trait = wary
+				}				
+				modifier = {
+					factor = 2
+					trait = cynical
+				}				
+				modifier = {
+					factor = 2
+					trait = elusive_shadow
+				}
+				modifier = {
+					factor = 1.5
+					learning = 12
+				}
+				modifier = {
+					factor = 1.5
+					martial = 12
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 12
+				}				
+				modifier = {
+					factor = 1.5
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}				
+				modifier = {
+					factor = 2
+					intrigue = 18
+				}
+				modifier = {
+					factor = 3
+					intrigue = 21
+				}
+				modifier = {
+					factor = 0.5
+					FROMFROM = { trait = deceitful }
+				}
+				modifier = {
+					factor = 2
+					FROMFROM = { trait = honest }
+				}				
+				set_character_flag = discover
+			}
+			
+		}
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972128
+		trigger = {	has_character_flag = unaware }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP197 }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_character_modifier = da_assassination_timer }
+			}
+		}
+
+		FROMFROM = {
+			save_event_target_as = darkages_murder_murderer
+		}
+		
+		hidden_tooltip = {
+			if = {
+				limit = { has_character_modifier = da_assassination_timer }
+				FROMFROM = { character_event = { id = darkages.72129 days = 1 } }
+			}
+			if = {
+				limit = { NOT = { has_character_modifier = da_assassination_timer } }
+				clr_character_flag = unaware
+				set_character_flag = fake
+				random_realm_character = {
+					limit = {
+						is_adult = yes
+						ai = yes
+					}
+					letter_event = { id = darkages.72137 }
+				}
+			}			
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTB1972128
+		trigger = { has_character_flag = suspecting }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP198 }		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_character_modifier = da_assassination_timer }
+			}
+		}	
+
+		FROMFROM = {
+			save_event_target_as = darkages_murder_murderer
+		}
+		
+		hidden_tooltip = {
+			if = {
+				limit = { has_character_modifier = da_assassination_timer }
+				FROMFROM = { character_event = { id = darkages.72129 days = 1 } }
+			}
+			if = {
+				limit = { NOT = { has_character_modifier = da_assassination_timer } }
+				clr_character_flag = suspecting
+				set_character_flag = fake
+				random_realm_character = {
+					limit = {
+						is_adult = yes
+					}
+					letter_event = { id = darkages.72137 }
+				}
+			}		
+		}
+	}
+	
+	option = {
+		name = EVTOPTC1972128
+		trigger = { has_character_flag = discover }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP199 }		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_character_modifier = da_assassination_timer }
+			}
+		}
+		
+		FROMFROM = {
+			save_event_target_as = darkages_murder_murderer
+		}		
+		
+		hidden_tooltip = {
+			if = {
+				limit = { has_character_modifier = da_assassination_timer }
+				FROMFROM = { character_event = { id = darkages.72129 days = 1 } }
+			}
+			if = {
+				limit = { NOT = { has_character_modifier = da_assassination_timer } }
+				clr_character_flag = discover
+				set_character_flag = fake
+				random_realm_character = {
+					limit = {
+						is_adult = yes
+					}
+					letter_event = { id = darkages.72137 }
+				}
+			}			
+		}
+	}
+	
+	option = {
+		name = EVTOPTD1972128
+		trigger = { ai = no }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP50 }		
+		set_character_flag = called_guards
+		clr_character_flag = unaware
+		clr_character_flag = suspecting
+		clr_character_flag = discover		
+		hidden_tooltip = {
+			if = { 
+				limit = {
+					NOT = { has_character_modifier = da_assassination_timer } 
+				}
+				random_realm_character = {
+					limit = {
+						is_adult = yes
+					}
+					letter_event = { id = darkages.72137 }
+				}
+			}
+			if = { 
+				limit = {
+					has_character_modifier = da_assassination_timer 
+				}
+				FROMFROM = { character_event = { id = darkages.72129 days = 1 } }
+			}			
+		}
+	}
+
+	option = {
+		name = EVTOPTC1972128
+		trigger = {
+			NOT = { has_character_modifier = da_assassination_timer }
+			ai = yes 
+		}
+		clr_character_flag = unaware
+		clr_character_flag = suspecting
+		clr_character_flag = discover		
+	}	
+	
+}
+
+
+character_event = {					#THE REAL MURDER ATTEMPT
+	id = darkages.72129
+	title = EVTNAME1972129
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = {
+		text = EVTDESC1972129_1
+		trigger = {
+			has_character_flag = assassination1
+		}
+	}	
+	desc = {
+		text = EVTDESC1972129_2
+		trigger = {
+			has_character_flag = assassination2
+		}
+	}	
+	desc = {
+		text = EVTDESC1972129_3
+		trigger = {
+			has_character_flag = assassination3
+		}
+	}
+	desc = {
+		text = EVTDESC1972129_4
+		trigger = {
+			has_character_flag = assassination4
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_game_rule = { name = murder_chance value = increased } 					
+				}
+				modifier = {
+					factor = 1.5
+					trait = assassin
+				}
+				modifier = {
+					factor = 1.25
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.25
+					has_focus = focus_intrigue
+				}				
+				modifier = {
+					factor = 1.25
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.25
+					trait = elusive_shadow
+				}
+				modifier = {
+					factor = 1.5
+					FROM = { trait = dull }
+				}
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}	
+				modifier = {
+					factor = 1.35
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 18
+				}
+				modifier = {
+					factor = 2
+					intrigue = 21
+				}
+				modifier = {
+					factor = 1.25
+					FROM = { NOT = { intrigue = 8 } }
+				}	
+				modifier = {
+					factor = 1.35
+					FROM = { NOT = { intrigue = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					FROM = { NOT = { intrigue = 4 } }
+				}
+				modifier = {
+					factor = 1.75
+					FROM = { NOT = { intrigue = 2 } }
+				}					
+				modifier = {
+					factor = 0
+					FROM = { has_character_flag = called_guards }
+				}				
+				
+				set_character_flag = kill		
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_game_rule = { name = murder_chance value = decreased } 					
+				}			
+				modifier = {
+					factor = 2
+					OR = {
+						has_character_modifier = da_failed_murderer
+						has_character_modifier = known_murderer
+					}
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { intrigue = 4 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { intrigue = 2 }
+				}				
+				modifier = {
+					factor = 1.33
+					FROM = { has_character_flag = suspecting }
+				}
+				modifier = {
+					factor = 1.5
+					FROM = { has_character_flag = discover }
+				}
+				modifier = {
+					factor = 1.5
+					FROM = { trait = shrewd }
+				}
+				modifier = {
+					factor = 1.25
+					FROM = { has_focus = focus_intrigue }
+				}				
+				modifier = {
+					factor = 1.25
+					FROM = { trait = elusive_shadow }
+				}
+				modifier = {
+					factor = 1.25
+					FROM = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { 
+						OR = {
+							intrigue = 15
+							realm_intrigue = 35
+						}
+					}
+				}
+				modifier = {
+					factor = 1.5
+					FROM = { 
+						OR = {
+							intrigue = 18
+							realm_intrigue = 40
+						}
+					}
+				}
+				modifier = {
+					factor = 1.75
+					FROM = { 
+						OR = {
+							intrigue = 21
+							realm_intrigue = 45
+						}
+					}
+				}				
+				
+				set_character_flag = nokill
+			}
+			
+		}
+		
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.5
+					has_game_rule = { name = murder_discovery value = increased } 					
+				}			
+				modifier = {
+					factor = 2
+					OR = {
+						has_character_modifier = da_failed_murderer
+						has_character_modifier = known_murderer
+					}
+				}				
+				modifier = {
+					factor = 1.5
+					FROM = { has_character_flag = suspecting }
+				}
+				modifier = {
+					factor = 2
+					OR = {
+						FROM = { has_character_flag = discover }
+						FROM = { has_character_flag = called_guards }						
+					}
+				}					
+				modifier = {
+					factor = 2
+					FROM = { trait = paranoid }
+				}
+				modifier = {
+					factor = 1.66
+					FROM = { trait = wary }
+				}				
+				modifier = {
+					factor = 1.25
+					FROM = { trait = cynical }
+				}
+				modifier = {
+					factor = 2
+					FROM = { trait = shrewd }
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 1.35
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { intrigue = 4 }
+				}
+				modifier = {
+					factor = 1.75
+					NOT = { intrigue = 2 }
+				}				
+				modifier = {
+					factor = 1.25
+					FROM = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { 
+						OR = {
+							intrigue = 15
+							realm_intrigue = 35						
+						}
+					}
+				}
+				modifier = {
+					factor = 1.5
+					FROM = { 
+						OR = {
+							intrigue = 18
+							realm_intrigue = 40						
+						}
+					}
+				}
+				modifier = {
+					factor = 1.75
+					FROM = { 
+						OR = {
+							intrigue = 21
+							realm_intrigue = 45						
+						}
+					}
+				}				
+				set_character_flag = dirty_assassination 
+			}
+			1 = { 
+				modifier = {
+					factor = 1.5
+					has_game_rule = { name = murder_discovery value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+				modifier = {
+					factor = 1.25
+					trait = assassin
+				}
+				modifier = {
+					factor = 1.1
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.25
+					has_focus = focus_intrigue
+				}				
+				modifier = {
+					factor = 1.25
+					trait = elusive_shadow
+				}
+				modifier = {
+					factor = 2
+					FROM = { trait = dull }
+				}				
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}	
+				modifier = {
+					factor = 1.35
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 18
+				}
+				modifier = {
+					factor = 1.75
+					intrigue = 21
+				}
+				modifier = {
+					factor = 1.25
+					FROM = { NOT = { intrigue = 8 } }
+				}
+				modifier = {
+					factor = 1.35
+					FROM = { NOT = { intrigue = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					FROM = { NOT = { intrigue = 4 } }
+				}
+				modifier = {
+					factor = 1.75
+					FROM = { NOT = { intrigue = 2 } }
+				}				
+				set_character_flag = clean_assassination 
+			}			
+		}
+		
+	
+	}
+	
+	option = {
+		name = EVTOPTA1972129
+		trigger = {	
+			has_character_flag = assassination1
+			has_character_flag = kill
+			has_character_flag = clean_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP54 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards
+			hidden_tooltip = {
+				letter_event = { id = darkages.72133 days = 1 }
+			}
+		}
+		
+		clr_character_flag = clean_assassination
+		clr_character_flag = kill
+		clr_character_flag = assassination1
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972129
+		trigger = {	
+			has_character_flag = assassination1
+			has_character_flag = nokill
+			has_character_flag = clean_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP51 }		
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards
+			hidden_tooltip = {
+				letter_event = { id = darkages.72132 days = 1 }
+			}
+			
+		}
+		add_trait = wounded
+		clr_character_flag = clean_assassination
+		clr_character_flag = nokill
+		clr_character_flag = assassination1
+	}
+	
+	option = {
+		name = EVTOPTC1972129
+		trigger = {	
+			has_character_flag = assassination1
+			has_character_flag = kill
+			has_character_flag = dirty_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP52 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards			
+			hidden_tooltip = {
+				letter_event = { id = darkages.72131 days = 1 }
+			}
+		}
+		prestige = -100
+		add_character_modifier = {
+			name = known_murderer
+			duration = -1
+		}	
+
+		if = {
+			limit = {
+				FROM = { dynasty = ROOT }
+			}
+			
+			add_trait = kinslayer
+			
+			any_dynasty_member = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_dishonorable_scum
+				}
+			}
+		}
+		
+		if = {
+			limit = { independent = no }
+		
+			liege = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_murder_attempt
+				}		
+			}		
+
+		}
+
+		if = {
+			limit = {
+				has_game_rule = {
+					name = infamy
+					value = yes
+				}
+			}
+			
+			if = {
+				limit = { is_landed = yes }
+				liege = {
+					character_event = { id = darkages.72317 days = 7 }
+				}
+			}
+			
+			random_list = {
+				
+				1 = {
+					modifier = {
+						factor = 5
+						NOR = {
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+					}
+					change_infamy = { value = 15 localisation = DA_INFAMY_ACCRUED }
+					
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 6 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+					
+								
+				}
+				
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 1
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary								
+							}						
+						}						
+					}
+					change_infamy = { value = 30 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 12 localisation = DA_INFAMY_ACCRUED }
+						}
+					}				
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 2
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 3
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary								
+							}						
+						}						
+					}
+					change_infamy = { value = 45 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 18 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+				
+				1 = {
+
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 3
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 4
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary
+							}						
+						}						
+					}
+					change_infamy = { value = 60 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 24 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 4
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 5
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary
+							}						
+						}						
+					}
+					change_infamy = { value = 80 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 32 localisation = DA_INFAMY_ACCRUED }
+						}
+					}				
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+							
+						trait = wroth
+						trait = envious
+						trait = cruel
+						trait = deceitful
+						trait = arbitrary						
+					}
+					change_infamy = { value = 100 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 40 localisation = DA_INFAMY_ACCRUED  }
+						}
+					}				
+						
+				}				
+				
+			}
+		}
+		
+		clr_character_flag = dirty_assassination
+		clr_character_flag = kill
+		clr_character_flag = assassination1		
+	}
+
+	option = {
+		name = EVTOPTD1972129
+		trigger = {	
+			has_character_flag = assassination1
+			has_character_flag = nokill
+			has_character_flag = dirty_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP53 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards			
+			hidden_tooltip = {
+				letter_event = { id = darkages.72130 days = 1 }
+			}
+		}
+		prestige = -100
+		add_character_modifier = {
+			name = da_failed_murderer
+			duration = 1825
+		}
+		
+		if = {
+			limit = { independent = no }
+		
+			liege = {
+				opinion = {
+					who = ROOT
+					modifier = opinion_murder_attempt
+				}		
+			}		
+
+		}		
+
+		clr_character_flag = dirty_assassination
+		clr_character_flag = nokill
+		clr_character_flag = assassination1
+	}	
+	
+	
+	
+	
+	
+	
+	
+	option = {
+		name = EVTOPTE1972129
+		trigger = {	
+			has_character_flag = assassination2
+			has_character_flag = kill
+			has_character_flag = clean_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP54 }		
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards			
+			hidden_tooltip = {
+				letter_event = { id = darkages.72133 days = 1 }
+			}
+		}
+		
+		clr_character_flag = clean_assassination
+		clr_character_flag = kill
+		clr_character_flag = assassination2
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972129
+		trigger = {	
+			has_character_flag = assassination2
+			has_character_flag = nokill
+			has_character_flag = clean_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP55 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware	
+			clr_character_flag = called_guards
+			hidden_tooltip = {
+				letter_event = { id = darkages.72132 days = 1 }
+			}
+			
+		}
+		
+		clr_character_flag = clean_assassination
+		clr_character_flag = nokill
+		clr_character_flag = assassination2
+	}
+	
+	option = {
+		name = EVTOPTG1972129
+		trigger = {	
+			has_character_flag = assassination2
+			has_character_flag = kill
+			has_character_flag = dirty_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP56 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware	
+			clr_character_flag = called_guards			
+			hidden_tooltip = {
+				letter_event = { id = darkages.72131 days = 1 }
+			}
+		}
+		prestige = -100
+		add_character_modifier = {
+			name = known_murderer
+			duration = -1
+		}
+		
+		if = {
+			limit = {
+				FROM = { dynasty = ROOT }
+			}
+			
+			add_trait = kinslayer
+			
+			any_dynasty_member = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_dishonorable_scum
+				}
+			}			
+			
+		}
+
+		if = {
+			limit = { independent = no }
+		
+			liege = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_murder_attempt
+				}		
+			}		
+
+		}
+
+		if = {
+			limit = {
+				has_game_rule = {
+					name = infamy
+					value = yes
+				}
+			}
+	
+
+			if = {
+				limit = { is_landed = yes }
+				liege = {
+					character_event = { id = darkages.72317 days = 7 }
+				}
+			}
+
+
+			random_list = {
+				
+				1 = {
+					modifier = {
+						factor = 5
+						NOR = {
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+					}
+					change_infamy = { value = 15 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 6 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 1
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary								
+							}						
+						}						
+					}
+					change_infamy = { value = 30 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 12 localisation = DA_INFAMY_ACCRUED }
+						}
+					}				
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 2
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 3
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary								
+							}						
+						}						
+					}
+					change_infamy = { value = 45 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 18 localisation = DA_INFAMY_ACCRUED }
+						}
+					}				
+				}
+				
+				1 = {
+
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 3
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 4
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary
+							}						
+						}						
+					}
+					change_infamy = { value = 60 localisation = DA_INFAMY_ACCRUED }	
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 24 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 4
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 5
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary
+							}						
+						}						
+					}
+					change_infamy = { value = 80 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 32 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+							
+						trait = wroth
+						trait = envious
+						trait = cruel
+						trait = deceitful
+						trait = arbitrary						
+					}
+					change_infamy = { value = 100 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 40 localisation = DA_INFAMY_ACCRUED }
+						}
+					}				
+						
+				}				
+				
+			}
+		}
+		clr_character_flag = dirty_assassination
+		clr_character_flag = kill
+		clr_character_flag = assassination2		
+	}
+
+	option = {
+		name = EVTOPTH1972129
+		trigger = {	
+			has_character_flag = assassination2
+			has_character_flag = nokill
+			has_character_flag = dirty_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP57 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards
+			hidden_tooltip = {
+				letter_event = { id = darkages.72130 days = 1 }
+			}
+			
+		}
+		add_character_modifier = {
+			name = da_failed_murderer
+			duration = 1825
+		}		
+		prestige = -100
+		
+		if = {
+			limit = { independent = no }
+		
+			liege = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_murder_attempt
+				}		
+			}		
+
+		}		
+		
+		clr_character_flag = dirty_assassination
+		clr_character_flag = nokill
+		clr_character_flag = assassination2
+	}
+
+
+
+
+
+
+
+	option = {
+		name = EVTOPTI1972129
+		trigger = {	
+			has_character_flag = assassination3
+			has_character_flag = kill
+			has_character_flag = clean_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP58 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards			
+			hidden_tooltip = {
+				letter_event = { id = darkages.72133 days = 1 }
+			}
+		}
+		
+		clr_character_flag = clean_assassination
+		clr_character_flag = kill
+		clr_character_flag = assassination3
+		
+	}
+	
+	option = {
+		name = EVTOPTJ1972129
+		trigger = {	
+			has_character_flag = assassination3
+			has_character_flag = nokill
+			has_character_flag = clean_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP59 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards
+			hidden_tooltip = {
+				letter_event = { id = darkages.72132 days = 1 }
+			}
+			
+		}
+		
+		clr_character_flag = clean_assassination
+		clr_character_flag = nokill
+		clr_character_flag = assassination3
+	}
+	
+	option = {
+		name = EVTOPTK1972129
+		trigger = {	
+			has_character_flag = assassination3
+			has_character_flag = kill
+			has_character_flag = dirty_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP60 }		
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards			
+			hidden_tooltip = {
+				letter_event = { id = darkages.72131 days = 1 }
+			}
+		}
+		prestige = -100
+		add_character_modifier = {
+			name = known_murderer
+			duration = -1
+		}
+		
+		if = {
+			limit = {
+				FROM = { dynasty = ROOT }
+			}
+			
+			add_trait = kinslayer
+			
+			any_dynasty_member = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_dishonorable_scum
+				}
+			}			
+			
+		}
+
+		if = {
+			limit = { independent = no }
+		
+			liege = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_murder_attempt
+				}		
+			}		
+
+		}		
+
+		if = {
+			limit = {
+				has_game_rule = {
+					name = infamy
+					value = yes
+				}
+			}
+
+
+			if = {
+				limit = { is_landed = yes }
+				liege = {
+					character_event = { id = darkages.72317 days = 7 }
+				}
+			}
+			
+			random_list = {
+				
+				1 = {
+					modifier = {
+						factor = 5
+						NOR = {
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+					}
+					change_infamy = { value = 15 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 6 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 1
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary								
+							}						
+						}						
+					}
+					change_infamy = { value = 30 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 12 localisation = DA_INFAMY_ACCRUED }
+						}
+					}				
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 2
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 3
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary								
+							}						
+						}						
+					}
+					change_infamy = { value = 45 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 18 localisation = DA_INFAMY_ACCRUED  }
+						}
+					}					
+				}
+				
+				1 = {
+
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 3
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 4
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary
+							}						
+						}						
+					}
+					change_infamy = { value = 60 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 24 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 4
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 5
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary
+							}						
+						}						
+					}
+					change_infamy = { value = 80 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 32 localisation = DA_INFAMY_ACCRUED }
+						}
+					}
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+							
+						trait = wroth
+						trait = envious
+						trait = cruel
+						trait = deceitful
+						trait = arbitrary						
+					}
+					change_infamy = { value = 100 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 40 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+						
+				}				
+				
+			}
+		}
+		
+		clr_character_flag = dirty_assassination
+		clr_character_flag = kill
+		clr_character_flag = assassination3		
+	}
+
+	option = {
+		name = EVTOPTL1972129
+		trigger = {	
+			has_character_flag = assassination3
+			has_character_flag = nokill
+			has_character_flag = dirty_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP61 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards
+			hidden_tooltip = {
+				letter_event = { id = darkages.72130 days = 1 }
+			}
+			
+		}
+		prestige = -100	
+		add_character_modifier = {
+			name = da_failed_murderer
+			duration = 1825
+		}
+
+		if = {
+			limit = { independent = no }
+		
+			liege = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_murder_attempt
+				}		
+			}		
+
+		}
+		
+		clr_character_flag = dirty_assassination
+		clr_character_flag = nokill
+		clr_character_flag = assassination3
+	}
+
+
+
+
+
+	option = {
+		name = EVTOPTM1972129
+		trigger = {	
+			has_character_flag = assassination4
+			has_character_flag = kill
+			has_character_flag = clean_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP62 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards			
+			hidden_tooltip = {
+				letter_event = { id = darkages.72133 days = 1 }
+			}
+		}
+		
+		clr_character_flag = clean_assassination
+		clr_character_flag = kill
+		clr_character_flag = assassination4
+		
+	}
+	
+	option = {
+		name = EVTOPTN1972129
+		trigger = {	
+			has_character_flag = assassination4
+			has_character_flag = nokill
+			has_character_flag = clean_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP63 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards
+			set_character_flag = poisoned			
+			hidden_tooltip = {
+				letter_event = { id = darkages.72132 days = 1 }
+			}
+			
+		}
+		
+		clr_character_flag = clean_assassination
+		clr_character_flag = nokill
+#		clr_character_flag = assassination4 # DELETED LATER TO CHECK FOR ILLNESS
+	}
+	
+	option = {
+		name = EVTOPTO1972129
+		trigger = {	
+			has_character_flag = assassination4
+			has_character_flag = kill
+			has_character_flag = dirty_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP64 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards			
+			hidden_tooltip = {
+				letter_event = { id = darkages.72131 days = 1 }
+			}
+		}
+		
+		add_character_modifier = {
+			name = known_murderer
+			duration = -1
+		}		
+		
+		prestige = -100	
+
+		if = {
+			limit = {
+				FROM = { dynasty = ROOT }
+			}
+			
+			add_trait = kinslayer
+			
+			any_dynasty_member = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_dishonorable_scum
+				}
+			}			
+			
+		}
+		
+		if = {
+			limit = { independent = no }
+		
+			liege = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_murder_attempt
+				}		
+			}		
+
+		}
+
+
+		if = {
+			limit = {
+				has_game_rule = {
+					name = infamy
+					value = yes
+				}
+			}
+
+			if = {
+				limit = { is_landed = yes }
+				liege = {
+					character_event = { id = darkages.72317 days = 7 }
+				}
+			}
+
+			random_list = {
+				
+				1 = {
+					modifier = {
+						factor = 5
+						NOR = {
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+					}
+					change_infamy = { value = 15 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 6 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+				
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 1
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary								
+							}						
+						}						
+					}
+					change_infamy = { value = 30 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 12 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 2
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 3
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary								
+							}						
+						}						
+					}
+					change_infamy = { value = 45 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 18 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+				
+				1 = {
+
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 3
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 4
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary
+							}						
+						}						
+					}
+					change_infamy = { value = 60 localisation = DA_INFAMY_ACCRUED }	
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 24 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+						calc_true_if = {
+							amount = 4
+							trait = wroth
+							trait = envious
+							trait = cruel
+							trait = deceitful
+							trait = arbitrary							
+						}
+						NOT = {
+							calc_true_if = {
+								amount = 5
+								trait = wroth
+								trait = envious
+								trait = cruel
+								trait = deceitful
+								trait = arbitrary
+							}						
+						}						
+					}
+					change_infamy = { value = 80 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 32 localisation = DA_INFAMY_ACCRUED }
+						}
+					}
+				}
+
+				1 = {
+					modifier = {
+						factor = 5
+							
+						trait = wroth
+						trait = envious
+						trait = cruel
+						trait = deceitful
+						trait = arbitrary						
+					}
+					change_infamy = { value = 100 localisation = DA_INFAMY_ACCRUED }
+					if = {
+						limit = { is_landed = yes }
+						liege = {
+							change_infamy = { value = 40 localisation = DA_INFAMY_ACCRUED }
+						}
+					}					
+						
+				}				
+				
+			}
+		}
+
+		
+		clr_character_flag = dirty_assassination
+		clr_character_flag = kill
+		clr_character_flag = assassination4	
+	}
+
+	option = {
+		name = EVTOPTP1972129
+		trigger = {	
+			has_character_flag = assassination4
+			has_character_flag = nokill
+			has_character_flag = dirty_assassination			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP65 }			
+		FROM = {
+			clr_character_flag = discover
+			clr_character_flag = suspecting
+			clr_character_flag = unaware
+			clr_character_flag = called_guards			
+
+			hidden_tooltip = {
+				letter_event = { id = darkages.72130 days = 1 }
+			}
+			
+		}
+		prestige = -100
+		
+		add_character_modifier = {
+			name = da_failed_murderer
+			duration = 1825
+		}		
+
+		if = {
+			limit = { independent = no }
+		
+			liege = {
+				opinion = {
+					who = ROOT
+					modifier = 	opinion_murder_attempt
+				}		
+			}		
+
+		}
+		
+		clr_character_flag = dirty_assassination
+		clr_character_flag = nokill
+		clr_character_flag = assassination4
+	}	
+	
+	
+	
+}
+
+
+letter_event = {	#TARGET INFORMED ABOUT ASSASSINATION ATTEMPT FAIL AND CAN NOW DEAL WITH THE MURDERER
+	id = darkages.72130
+	desc = {
+		trigger = {
+			is_adult = yes
+		}
+		text = EVTDESC1972130A
+	}
+	desc = {
+		trigger = {
+			is_adult = no
+		}
+		text = EVTDESC1972130B
+	}	
+	border = GFX_event_letter_frame_intrigue	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972130
+		trigger = {
+			is_adult = yes
+		}
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.25
+				trait = temperate
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+			modifier = {
+				factor = 1.25
+				trait = craven
+			}	
+			
+		}
+
+		clr_character_flag = poisoned
+		piety = 25
+
+		opinion = {
+			who = FROM
+			modifier = attempted_murder
+			months = 1200
+		}	
+
+		FROM = {
+			letter_event = { id = darkages.72134 days = 1 }
+		}
+
+	
+	}
+	
+	option = {
+		name = EVTOPTB1972130
+		trigger = {
+			is_adult = yes
+		}		
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.25
+				trait = paranoid
+			}
+			modifier = {
+				factor = 1.5
+				trait = envious
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}	
+			modifier = {
+				factor = 3
+				is_rival = FROM
+			}			
+			
+		}
+		clr_character_flag = poisoned		
+		piety = -10
+		
+		if = {
+			limit = { 
+				NOT = { trait = wroth } 
+				ai = no
+			}
+			
+			random = {
+				chance = 50
+				add_trait = wroth
+			}
+			
+		}
+		
+		opinion = {
+			who = FROM
+			modifier = attempted_murder
+			months = 1200
+		}		
+		FROM = {
+			letter_event = { id = darkages.72135 days = 1 }
+		}
+	}
+
+	option = {
+		name = EVTOPTA1972130A
+		trigger = {
+			is_adult = no
+			is_landed = yes
+		}
+		
+		hidden_tooltip = {
+			random_list = {
+				6 = {
+					modifier = {
+						factor = 1.5
+						regent = { trait = content }
+					}
+					modifier = {
+						factor = 2
+						regent = { trait = kind }
+					}
+					modifier = {
+						factor = 1.25
+						regent = { trait = temperate }
+					}
+					modifier = {
+						factor = 1.5
+						regent = { trait = patient }
+					}
+					modifier = {
+						factor = 1.25
+						regent = { trait = craven }
+					}
+					
+					FROM = {
+						letter_event = { id = darkages.72134 days = 1 }
+					}					
+					
+				}
+				4 = {
+					modifier = {
+						factor = 1.5
+						regent = { trait = cruel }
+					}
+					modifier = {
+						factor = 2
+						regent = { trait = wroth }
+					}
+					modifier = {
+						factor = 1.25
+						regent = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.5
+						regent = { trait = envious }
+					}
+					modifier = {
+						factor = 1.25
+						regent = { trait = ambitious }
+					}	
+					modifier = {
+						factor = 3
+						regent = { is_rival = FROM }
+					}	
+
+					FROM = {
+						letter_event = { id = darkages.72135 days = 1 }
+					}
+					
+				}
+			}			
+		}
+		
+		clr_character_flag = poisoned
+
+		opinion = {
+			who = FROM
+			modifier = attempted_murder
+			months = 1200
+		}		
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972130A
+		trigger = {
+			is_adult = no
+			is_landed = no
+		}
+	
+		hidden_tooltip = {
+			random_list = {
+				6 = {
+					modifier = {
+						factor = 1.5
+						liege = { trait = content }
+					}
+					modifier = {
+						factor = 2
+						liege = { trait = kind }
+					}
+					modifier = {
+						factor = 1.25
+						liege = { trait = temperate }
+					}
+					modifier = {
+						factor = 1.5
+						liege = { trait = patient }
+					}
+					modifier = {
+						factor = 1.25
+						liege = { trait = craven }
+					}
+					
+					FROM = {
+						letter_event = { id = darkages.72134 days = 1 }
+					}					
+					
+				}
+				4 = {
+					modifier = {
+						factor = 1.5
+						liege = { trait = cruel }
+					}
+					modifier = {
+						factor = 2
+						liege = { trait = wroth }
+					}
+					modifier = {
+						factor = 1.25
+						liege = { trait = paranoid }
+					}
+					modifier = {
+						factor = 1.5
+						liege = { trait = envious }
+					}
+					modifier = {
+						factor = 1.25
+						liege = { trait = ambitious }
+					}	
+					modifier = {
+						factor = 3
+						liege = { is_rival = FROM }
+					}	
+
+					FROM = {
+						letter_event = { id = darkages.72135 days = 1 }
+					}
+					
+				}
+			}			
+		}
+
+		clr_character_flag = poisoned
+
+		opinion = {
+			who = FROM
+			modifier = attempted_murder
+			months = 1200
+		}		
+	
+	}
+			
+
+}
+
+
+letter_event = {	#TARGET INFORMED ABOUT DEATH, ASSASSIN WAS DISCOVERED
+	id = darkages.72131
+	desc = "EVTDESC1972131"
+	border = GFX_event_letter_frame_intrigue	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972131
+
+		death = {
+			death_reason = death_murder
+			killer = FROM
+		}
+		
+		hidden_tooltip = {
+			FROM = {
+				change_variable = { which = "da_murder_count" value = 1 } 
+
+				if = {
+					limit = {
+						NOT = { lifestyle_traits = 1 }
+						NOT = { has_character_flag = da_assassin_refused }
+					}
+					random = {
+						chance = 25
+						character_event = { id = darkages.72138 }
+					}
+				}
+
+
+			}
+
+		}
+	
+	}
+	
+}
+
+letter_event = {	#TARGET INFORMED ABOUT ASSASSINATION ATTEMPT, ASSASSIN IS NOT DISCOVERED
+	id = darkages.72132
+	desc = {
+		text = EVTDESC1972132_1
+		trigger = {
+			FROM = { has_character_flag = assassination4 }
+		}
+	}
+	desc = {
+		text = EVTDESC1972132_2
+		trigger = {
+			OR = {
+				FROM = { NOT = { has_character_flag = assassination4 } }
+				has_character_flag = fake
+			}
+		}
+	}	
+	border = GFX_event_letter_frame_intrigue	
+	is_triggered_only = yes	
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972132
+		
+		if = { 
+			limit = { has_character_flag = poisoned }
+			add_trait = food_poisoning
+		}
+		FROM = { clr_character_flag = assassination4 }
+		clr_character_flag = poisoned
+		clr_character_flag = fake
+		
+	}
+	
+}
+
+letter_event = {	#TARGET INFORMED ABOUT DEATH, ASSASSIN WAS NOT DISCOVERED
+	id = darkages.72133
+	desc = "EVTDESC1972133"
+	border = GFX_event_letter_frame_intrigue	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972133
+
+		death = {
+			death_reason = death_murder_unknown
+			killer = FROM
+		}
+		
+		hidden_tooltip = {
+			FROM = { 
+				change_variable = { which = "da_murder_count" value = 1 } 
+			
+				if = {
+					limit = {
+						NOT = { lifestyle_traits = 1 }
+						NOT = { has_character_flag = da_assassin_refused }
+					}
+					random = {
+						chance = 25
+						character_event = { id = darkages.72138 }
+					}
+				}			
+			
+			}
+		}		
+		
+	}
+	
+}
+
+letter_event = {	#PAYBACK DIDN'T HAPPEN (CALLED FROM darkages.72130)
+	id = darkages.72134
+	desc = "EVTDESC1972134"
+	border = GFX_event_letter_frame_intrigue	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972134
+
+	}
+	
+}
+
+
+letter_event = {	#PAYBACK (CALLED FROM darkages.72130)
+	id = darkages.72135
+	desc = "EVTDESC1972135"
+	border = GFX_event_letter_frame_intrigue	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972135
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP66 }
+		random_list = {
+			1 = {
+			
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = -5 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -10 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -15 }
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -25 }
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { martial = 10 }
+				}				
+				modifier = {
+					factor = 1.25
+					trait = trusting
+				}
+				
+				random_courtier_or_vassal = {
+					limit = { 
+						ai = yes 
+						has_job_title = job_spymaster
+					}
+					death = {
+						death_reason = death_duel
+						killer = FROM
+					}					
+				}
+				random_courtier_or_vassal = {
+					limit = {
+						ai = yes
+						is_adult = yes
+					}
+					
+					death = {
+						death_reason = death_duel
+						killer = FROM
+					}					
+					
+				}
+				death = {
+					death_reason = death_duel
+					killer = FROM
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 1.1
+					combat_rating = 20
+				}
+				modifier = {
+					factor = 1.25
+					combat_rating = 35
+				}
+				modifier = {
+					factor = 1.25
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 70
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 90
+				}
+				modifier = {
+					factor = 1.5
+					combat_rating = 100
+				}
+				modifier = {
+					factor = 1.25
+					martial = 18
+				}
+				modifier = {
+					factor = 1.5
+					martial = 21
+				}
+				modifier = {
+					factor = 1.25
+					intrigue = 21
+				}							
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}
+				modifier = {
+					factor = 1.25
+					trait = paranoid
+				}
+				modifier = {
+					factor = 1.25
+					trait = wary
+				}				
+				modifier = {
+					factor = 1.25
+					trait = assassin
+				}				
+				modifier = {
+					factor = 1.25
+					OR = {
+						trait = misguided_warrior
+						trait = tough_soldier
+						trait = skilled_tactician
+						trait = brilliant_strategist
+						trait = elusive_shadow
+					}
+				}
+
+				random = {
+					chance = 35
+					add_trait = wounded
+				}
+				
+				random = {
+					chance = 25
+					random_courtier_or_vassal = {
+						limit = {
+							has_job_title = job_spymaster
+							ai = yes
+						}
+						
+						death = {
+							death_reason = death_duel
+							killer = FROM
+						}					
+						
+					}
+				}
+				random = {
+					chance = 35			
+					random_courtier_or_vassal = {
+						limit = {
+							ai = yes
+							is_adult = yes
+						}
+						
+						death = {
+							death_reason = death_duel
+							killer = FROM
+						}					
+						
+					}
+				}
+				
+			}
+		}
+	}
+}
+
+
+character_event = {	# FAKE ASSASSINATION, TARGET CALLED GUARDS
+	id = darkages.72136
+	desc = EVTDESC1972136
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972136
+		clr_character_flag = called_guards
+		prestige = -75
+
+		add_character_modifier = {
+			name = suspected_coward
+			years = 5
+		}	
+
+		add_character_modifier = {
+			name = da_weak_ruler
+			years = 5
+		}
+		
+		if = {
+			limit = { NOT = { trait = paranoid } }
+			random = {
+				chance = 75
+				add_trait = paranoid
+			}			
+		}
+		
+		if = {
+			limit = { NOT = { trait = craven } }
+			random = {
+				chance = 75
+				add_trait = craven
+			}			
+		}		
+
+		FROM = {
+			
+			opinion = {
+				who = ROOT
+				modifier = opinion_shocked
+				years = 5
+			}
+			
+		}				
+		
+		
+	}
+
+}
+
+letter_event = {	# SUPPORT FOR FAKE ASSASSINATION CALLED FROM darkages.72128. MULTIPLEXES TO CALL GUARDS OR TO ACT NORMALLY.
+	id = darkages.72137
+	desc = EVTDESC1972137
+	border = GFX_event_letter_frame_intrigue
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+
+	}
+
+	immediate = {
+		if = {
+			limit = { FROM = { has_character_flag = called_guards } }
+			FROM = { character_event = { id = darkages.72136 } }
+		}
+		if = {
+			limit = { FROM = { NOT = { has_character_flag = called_guards } } }
+			FROM = { letter_event = { id = darkages.72132 } }
+		}		
+
+	}
+	
+	option = {
+		name = EVTOPTA1972137
+	}
+
+}
+
+###############################################################################
+#
+#	ASSASSIN TRAIT
+#
+###############################################################################
+
+character_event = {			# GIVE TRAIT
+	id = darkages.72138
+	title = EVTNAME1972138
+	desc = EVTDESC1972138
+	picture = GFX_evt_bloody_knife_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972138
+		ai_chance = {
+			factor = 55
+		}
+		
+		add_trait = assassin
+		prestige = 500
+		piety = -250
+
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972138
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 4
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+			modifier = {
+				factor = 3
+				trait = just
+			}
+			modifier = {
+				factor = 2
+				trait = honest
+			}			
+			modifier = {
+				factor = 2
+				trait = temperate
+			}			
+		}
+		
+		
+		set_character_flag = da_assassin_refused
+		piety = 100
+		
+	}	
+
+}
+
+
+
+#######################################################
+#
+#	Warn Liege of vassal gaining infamy
+#
+#######################################################
+
+			
+character_event = {			
+	id = darkages.72317
+	title = EVTNAMEKK1972317
+	desc = EVTDESCKK1972317
+	picture = GFX_evt_bloody_knife_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTAKK1972317
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 2
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				trait = patient
+			}			
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTBKK1972317
+		ai_chance = {
+			factor = 14
+			modifier = {
+				factor = 2
+				FROM = { opinion = { who = ROOT value = 10 } }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
+			}			
+		}		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP134 }
+		FROM = {
+			add_character_modifier = {
+				name = da_warn1_infamy
+				duration = 3650
+				hidden = yes
+			}
+			
+			opinion = {
+				who = ROOT
+				modifier = opinion_dislike
+				months = 60
+			}			
+			
+			
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTCKK1972317		
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				FROM = { opinion = { who = ROOT value = 20 } }
+			}
+			modifier = {
+				factor = 0.25
+				FROM = { NOT = { opinion = { who = ROOT value = 10 } } }
+			}			
+		}
+		
+		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP135 }
+		
+		FROM = {
+			add_character_modifier = {
+				name = da_warn2_infamy
+				duration = 7300
+				hidden = yes
+			}
+			
+			opinion = {
+				who = ROOT
+				modifier = opinion_unhappy
+				months = 120
+			}			
+			
+		}
+		
+	}	
+
+}	
+
+character_event = {		#CLEANUP EVENT FOR THE CASE WHEN THE TARGET DIES WHILE THE ATTEMPT IS BEING MADE
+	id = darkages.72344
+	title = EVTNAME1972344
+	desc = EVTDESC1972344
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+
+		clr_character_flag = assassination1
+		clr_character_flag = assassination2
+		clr_character_flag = assassination3		
+		clr_character_flag = assassination4
+		
+	}
+
+	
+}		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#########################################################################################################
+
+#############################################################################################
+#
+#	EVENTS TO SETUP A GENERIC ASSASSINATION ATTEMPT BASED ON NUMBER OF KILLS
+#
+#############################################################################################
+
+#########################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+character_event = {			
+	id = darkages.72565
+	title = EVTNAME1972565
+	desc = EVTDESC1972565
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {
+	
+		is_landed = yes
+		NOT = { has_character_modifier = da_murder_payback_temp }
+		any_kill_list_character = {
+			count = 1
+		}		
+
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			factor = 0.8
+			any_kill_list_character = {
+				count = 3
+			}
+		}
+		
+		modifier = {
+			factor = 0.8
+			any_kill_list_character = {
+				count = 5
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			any_kill_list_character = {
+				count = 8
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			any_kill_list_character = {
+				count = 10
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			any_kill_list_character = {
+				count = 15
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			any_kill_list_character = {
+				count = 20
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			any_kill_list_character = {
+				count = 25
+			}
+		}		
+		
+		modifier = {
+			factor = 0.8
+			any_kill_list_character = {
+				count = 30
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			any_kill_list_character = {
+				count = 35
+			}
+		}
+		
+		modifier = {
+			factor = 0.8
+			any_kill_list_character = {
+				count = 40
+			}
+		}			
+	
+	}	
+	
+	immediate = {
+	
+		add_character_modifier = {
+			name = da_murder_payback_temp
+			duration = 1825
+			hidden = yes
+		}
+
+		random_list = {
+			
+			7 = {
+				modifier = {
+					factor = 1.2
+					trait = kind
+				}
+
+				modifier = {
+					factor = 1.2
+					trait = temperate
+				}				
+
+				modifier = {
+					factor = 1.2
+					trait = charitable
+				}
+				
+			}
+			
+			3 = {
+				
+				modifier = {
+					factor = 1.5
+					any_kill_list_character = {
+						count = 3
+					}
+				}
+				
+				modifier = {
+					factor = 1.25
+					any_kill_list_character = {
+						count = 5
+					}
+				}
+
+				modifier = {
+					factor = 1.25
+					any_kill_list_character = {
+						count = 8
+					}
+				}
+
+				modifier = {
+					factor = 1.33
+					any_kill_list_character = {
+						count = 10
+					}
+				}
+
+				modifier = {
+					factor = 1.25
+					any_kill_list_character = {
+						count = 15
+					}
+				}
+
+				modifier = {
+					factor = 1.25
+					any_kill_list_character = {
+						count = 20
+					}
+				}
+
+				modifier = {
+					factor = 1.25
+					any_kill_list_character = {
+						count = 25
+					}
+				}		
+				
+				modifier = {
+					factor = 1.2
+					any_kill_list_character = {
+						count = 30
+					}
+				}
+
+				modifier = {
+					factor = 1.2
+					any_kill_list_character = {
+						count = 35
+					}
+				}
+				
+				modifier = {
+					factor = 1.2
+					any_kill_list_character = {
+						count = 40
+					}
+				}
+
+				modifier = {
+					factor = 1.4
+					trait = wroth
+				}
+
+				modifier = {
+					factor = 1.4
+					trait = cruel
+				}				
+
+				modifier = {
+					factor = 1.4
+					trait = envious
+				}					
+			
+				set_character_flag = darkages_murder_payback_target
+			
+			}
+		
+		}	
+
+	}
+	
+	option = {
+		name = EVTOPTA1972565	#Adopt strict measures against the possibility
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP275 }
+		
+		scaled_wealth = { value = -0.5 min = -50 max = -250 }
+		
+		if = {
+			limit = { NOT = { trait = paranoid } }
+			random = {
+				chance = 33
+				add_trait = paranoid
+			}
+		}
+		
+		add_character_modifier = {
+			name = da_paranoid_safety_measures
+			duration = 1825
+		}
+		
+		hidden_tooltip = {
+			if = {
+				limit = { has_character_flag = darkages_murder_payback_target }
+				
+				character_event = { id = darkages.72566 days = 60 random = 730 }
+				
+			}
+			else = {
+				character_event = { id = darkages.72567 days = 60 random = 730 }
+			}
+		}
+		
+		clr_character_flag = darkages_murder_payback_target
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972565	#Increase your protection
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP276 }
+		
+		scaled_wealth = { value = -0.25 min = -25 max = -100 }
+		
+		set_character_flag = darkages_increased_protection
+		
+		hidden_tooltip = {
+			if = {
+				limit = { has_character_flag = darkages_murder_payback_target }
+				
+				character_event = { id = darkages.72566 days = 60 random = 730 }
+				
+			}
+			else = {
+				character_event = { id = darkages.72567 days = 60 random = 730 }
+			}
+		}
+
+		clr_character_flag = darkages_murder_payback_target
+		
+	}
+
+	option = {
+		name = EVTOPTC1972565	#Disregard the warning
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP277 }
+		
+		add_character_modifier = {
+			name = da_fearless
+			duration = 1825
+		}
+		
+		random_list = {
+			6 = {
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP278 }			
+			}
+			3 = {
+				add_trait = brave
+			}
+			1 = {
+				add_trait = lunatic
+			}
+		}
+		
+		hidden_tooltip = {
+			if = {
+				limit = { has_character_flag = darkages_murder_payback_target }
+				
+				character_event = { id = darkages.72566 days = 60 random = 730 }
+				
+			}
+			else = {
+				character_event = { id = darkages.72567 days = 60 random = 730 }
+			}
+		}
+
+		clr_character_flag = darkages_murder_payback_target		
+		
+	}
+
+	option = {
+		name = EVTOPTD1972565	#Order an investigation
+		trigger = {
+			OR = {
+				intrigue = 12
+				realm_intrigue = 35
+			}
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP279 }
+		
+		scaled_wealth = { value = -0.35 min = -40 max = -175 }		
+		
+		hidden_tooltip = {
+			character_event = { id = darkages.72568 days = 60 random = 120 }
+		}
+	}	
+	
+}
+
+
+character_event = {			
+	id = darkages.72566
+	title = EVTNAME1972566
+	desc = {
+		trigger = { has_character_flag = darkages_story1 }
+		text = EVTDESC1972566_1
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_story2 }
+		text = EVTDESC1972566_2
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_story3 }
+		text = EVTDESC1972566_3
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_story4 }
+		text = EVTDESC1972566_4
+	}	
+	picture = GFX_evt_da_hooded_char
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		clr_character_flag = darkages_murder_payback_target
+		
+		random_list = {
+			1 = {
+				set_character_flag = darkages_story1
+			}
+			
+			1 = {
+				set_character_flag = darkages_story2
+			}
+			
+			1 = {
+				set_character_flag = darkages_story3			
+			}
+			
+			1 = {
+				set_character_flag = darkages_story4			
+			}
+		}
+		
+		random_list = {
+			1 = { 
+				set_character_flag = darkages_rnk1
+			}
+			2 = {
+			}
+			1 = {
+				set_character_flag = darkages_rnk2
+			}
+			
+		}
+		
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972566	#Approach without fear
+		trigger = {
+			has_character_flag = darkages_rnk1
+			NOT = { trait = craven }
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}			
+			modifier = {
+				factor = 1.5
+				trait = trusting
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP281 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP284 }		
+		
+		if = {
+			limit = { 
+				NOT = { trait = brave } 
+				ai = no
+			}
+			
+			random = {
+				chance = 25
+				add_trait = brave
+			}
+		}
+		else = {
+			prestige = 40
+		}
+		
+		random_list = {
+			4 = {
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}				
+
+				character_event = { id = darkages.72569 tooltip = DA_CUSTOMTOOLTIP282 } #Kill
+			
+			}
+				
+			7 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}				
+
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72570 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}
+
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4
+		
+		clr_character_flag = darkages_rnk1
+	
+	}
+	
+	option = {
+		name = EVTOPTB1972566	#React Aggressively
+		trigger = {
+			has_character_flag = darkages_rnk1
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}			
+			modifier = {
+				factor = 1.5
+				trait = wary
+			}
+			modifier = {
+				factor = 4
+				trait = paranoid
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP285 }	
+		
+
+
+		if = {
+			limit = { 
+				NOT = { trait = paranoid } 
+				ai = no
+			}
+			random = {
+				chance = 40
+				add_trait = paranoid
+				set_character_flag = da_paranoid_given_event
+			}
+		}
+		
+		add_character_modifier = {
+			name = da_weak_ruler
+			duration = 1825
+		}
+
+		random_list = {
+			2 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}			
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}	
+
+				character_event = { id = darkages.72569 tooltip = DA_CUSTOMTOOLTIP282 } #Kill				
+			
+			}
+				
+			7 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}			
+			
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72570 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}		
+		
+		
+		
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4	
+
+		clr_character_flag = darkages_rnk1		
+	}	
+	
+	option = {
+		name = EVTOPTA1972566	#Approach without fear
+		trigger = {
+			has_character_flag = darkages_rnk2
+			NOT = { trait = craven }
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}			
+			modifier = {
+				factor = 1.5
+				trait = trusting
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP281 }	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP288 }			
+		
+		if = {
+			limit = { 
+				NOT = { trait = brave } 
+				ai = no
+			}
+			
+			random = {
+				chance = 50
+				add_trait = brave
+			}
+		}
+		else = {
+			prestige = 80
+		}
+		
+		random_list = {
+			14 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}			
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}		
+
+				character_event = { id = darkages.72569 tooltip = DA_CUSTOMTOOLTIP282 } #Kill
+			
+			}
+				
+			6 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}			
+			
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72570 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}
+
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4
+		
+		clr_character_flag = darkages_rnk2
+	
+	}
+	
+	option = {
+		name = EVTOPTB1972566	#React Aggressively
+		trigger = {
+			has_character_flag = darkages_rnk2
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}			
+			modifier = {
+				factor = 1.5
+				trait = wary
+			}
+			modifier = {
+				factor = 4
+				trait = paranoid
+			}			
+		}	
+
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP289 }			
+
+		if = {
+			limit = { 
+				NOT = { trait = paranoid } 
+				ai = no
+			}
+			random = {
+				chance = 40
+				add_trait = paranoid
+				set_character_flag = da_paranoid_given_event				
+			}
+		}
+		
+		add_character_modifier = {
+			name = da_weak_ruler
+			duration = 1825
+		}
+
+		random_list = {
+			7 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}			
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}	
+
+				character_event = { id = darkages.72569 tooltip = DA_CUSTOMTOOLTIP282 } #Kill				
+			
+			}
+				
+			6 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}			
+			
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72570 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}		
+		
+		
+		
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4	
+
+		clr_character_flag = darkages_rnk2		
+	}
+
+	option = {
+		name = EVTOPTA1972566	#Approach without fear
+		trigger = {
+			NOR = {
+				has_character_flag = darkages_rnk1
+				has_character_flag = darkages_rnk2
+			}
+			NOT = { trait = craven }
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}			
+			modifier = {
+				factor = 1.5
+				trait = trusting
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP281 }	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP286 }			
+		
+		if = {
+			limit = { 
+				NOT = { trait = brave } 
+				ai = no
+			}
+			
+			random = {
+				chance = 33
+				add_trait = brave
+			}
+		}
+		else = {
+			prestige = 60
+		}
+		
+		random_list = {
+			8 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}			
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}		
+
+				character_event = { id = darkages.72569 tooltip = DA_CUSTOMTOOLTIP282 } #Kill
+			
+			}
+				
+			7 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}			
+			
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72570 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}
+
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4
+		
+	
+	}
+	
+	option = {
+		name = EVTOPTB1972566	#React Aggressively
+		trigger = {
+			NOR = {
+				has_character_flag = darkages_rnk1
+				has_character_flag = darkages_rnk2
+			}
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}			
+			modifier = {
+				factor = 1.5
+				trait = wary
+			}
+			modifier = {
+				factor = 4
+				trait = paranoid
+			}			
+		}
+		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP287 }			
+
+		if = {
+			limit = { 
+				NOT = { trait = paranoid } 
+				ai = no
+			}
+			random = {
+				chance = 40
+				add_trait = paranoid
+				set_character_flag = da_paranoid_given_event				
+			}
+		}
+		
+		add_character_modifier = {
+			name = da_weak_ruler
+			duration = 1825
+		}
+
+		random_list = {
+			4 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}			
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}	
+
+				character_event = { id = darkages.72569 tooltip = DA_CUSTOMTOOLTIP282 } #Kill				
+			
+			}
+				
+			8 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}			
+			
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72570 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}		
+		
+		
+		
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4	
+
+	}	
+
+	
+}
+
+
+character_event = {			
+	id = darkages.72567
+	title = EVTNAME1972566
+	desc = {
+		trigger = { has_character_flag = darkages_story1 }
+		text = EVTDESC1972566_1
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_story2 }
+		text = EVTDESC1972566_2
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_story3 }
+		text = EVTDESC1972566_3
+	}
+	desc = {
+		trigger = { has_character_flag = darkages_story4 }
+		text = EVTDESC1972566_4
+	}	
+	picture = GFX_evt_da_hooded_char
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	trigger = {
+	
+	}
+	
+	immediate = {
+		clr_character_flag = darkages_murder_payback_target
+		
+		random_list = {
+			1 = {
+				set_character_flag = darkages_story1
+			}
+			
+			2 = {
+				set_character_flag = darkages_story2
+			}
+			
+			3 = {
+				set_character_flag = darkages_story3			
+			}
+			
+			4 = {
+				set_character_flag = darkages_story4			
+			}
+		}
+		
+		random_list = {
+			2 = { 
+				set_character_flag = darkages_rnk1
+			}
+			3 = {
+			}
+			1 = {
+				set_character_flag = darkages_rnk2
+			}
+			
+		}
+		
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972566	#Approach without fear
+		trigger = {
+			has_character_flag = darkages_rnk1
+			NOT = { trait = craven }
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}			
+			modifier = {
+				factor = 1.5
+				trait = trusting
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP281 }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP284 }		
+		
+		if = {
+			limit = { 
+				NOT = { trait = brave } 
+				ai = no
+			}
+			
+			random = {
+				chance = 25
+				add_trait = brave
+			}
+		}
+		else = {
+			prestige = 40
+		}
+		
+		random_list = {
+			4 = {
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}				
+
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP282 } #Kill
+			
+			}
+				
+			7 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}				
+		
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}
+
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4
+		
+		clr_character_flag = darkages_rnk1
+	
+	}
+	
+	option = {
+		name = EVTOPTB1972566	#React Aggressively
+		trigger = {
+			has_character_flag = darkages_rnk1
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}			
+			modifier = {
+				factor = 1.5
+				trait = wary
+			}
+			modifier = {
+				factor = 4
+				trait = paranoid
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP285 }	
+		
+
+
+		if = {
+			limit = { 
+				NOT = { trait = paranoid } 
+				ai = no
+			}
+			random = {
+				chance = 40
+				add_trait = paranoid
+				set_character_flag = da_paranoid_given_event
+			}
+		}
+		
+		add_character_modifier = {
+			name = da_weak_ruler
+			duration = 1825
+		}
+
+		random_list = {
+			2 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}			
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}	
+
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP282 } #Kill				
+			
+			}
+				
+			7 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}			
+			
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}		
+		
+		
+		
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4	
+
+		clr_character_flag = darkages_rnk1		
+	}	
+	
+	option = {
+		name = EVTOPTA1972566	#Approach without fear
+		trigger = {
+			has_character_flag = darkages_rnk2
+			NOT = { trait = craven }
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}			
+			modifier = {
+				factor = 1.5
+				trait = trusting
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP281 }	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP288 }			
+		
+		if = {
+			limit = { 
+				NOT = { trait = brave } 
+				ai = no
+			}
+			
+			random = {
+				chance = 50
+				add_trait = brave
+			}
+		}
+		else = {
+			prestige = 80
+		}
+		
+		random_list = {
+			14 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}			
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}		
+
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP282 } #Kill
+			
+			}
+				
+			6 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}			
+			
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}
+
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4
+		
+		clr_character_flag = darkages_rnk2
+	
+	}
+	
+	option = {
+		name = EVTOPTB1972566	#React Aggressively
+		trigger = {
+			has_character_flag = darkages_rnk2
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}			
+			modifier = {
+				factor = 1.5
+				trait = wary
+			}
+			modifier = {
+				factor = 4
+				trait = paranoid
+			}			
+		}	
+
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP289 }			
+
+		if = {
+			limit = { 
+				NOT = { trait = paranoid } 
+				ai = no
+			}
+			random = {
+				chance = 40
+				add_trait = paranoid
+				set_character_flag = da_paranoid_given_event				
+			}
+		}
+		
+		add_character_modifier = {
+			name = da_weak_ruler
+			duration = 1825
+		}
+
+		random_list = {
+			7 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}			
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}	
+
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP282 } #Kill				
+			
+			}
+				
+			6 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}			
+			
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}		
+		
+		
+		
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4	
+
+		clr_character_flag = darkages_rnk2		
+	}
+
+	option = {
+		name = EVTOPTA1972566	#Approach without fear
+		trigger = {
+			NOR = {
+				has_character_flag = darkages_rnk1
+				has_character_flag = darkages_rnk2
+			}
+			NOT = { trait = craven }
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}			
+			modifier = {
+				factor = 1.5
+				trait = trusting
+			}			
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP281 }	
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP286 }			
+		
+		if = {
+			limit = { 
+				NOT = { trait = brave } 
+				ai = no
+			}
+			
+			random = {
+				chance = 33
+				add_trait = brave
+			}
+		}
+		else = {
+			prestige = 60
+		}
+		
+		random_list = {
+			8 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}			
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}		
+
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP282 } #Kill
+			
+			}
+				
+			7 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}			
+			
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}
+
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4
+		
+	
+	}
+	
+	option = {
+		name = EVTOPTB1972566	#React Aggressively
+		trigger = {
+			NOR = {
+				has_character_flag = darkages_rnk1
+				has_character_flag = darkages_rnk2
+			}
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}			
+			modifier = {
+				factor = 1.5
+				trait = wary
+			}
+			modifier = {
+				factor = 4
+				trait = paranoid
+			}			
+		}
+		
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP287 }			
+		
+		if = {
+			limit = { 
+				NOT = { trait = paranoid } 
+				ai = no
+			}
+			random = {
+				chance = 40
+				add_trait = paranoid
+				set_character_flag = da_paranoid_given_event				
+			}
+		}
+		
+		add_character_modifier = {
+			name = da_weak_ruler
+			duration = 1825
+		}
+
+		random_list = {
+			4 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = trusting
+				}			
+			
+				modifier = {
+					factor = 1.25
+					NOT = { combat_rating = 0 }
+				}
+				
+				modifier = {
+					factor = 1.35
+					NOT = { combat_rating = -10 }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { combat_rating = -20 }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { combat_rating = -30 }
+				}	
+
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP282 } #Fake Kill				
+			
+			}
+				
+			8 = {
+			
+				modifier = {
+					factor = 1.35
+					trait = wary
+				}			
+			
+				modifier = {
+					factor = 1.33
+					has_character_flag = darkages_increased_protection
+				}
+				
+				modifier = {
+					factor = 2
+					has_character_modifier = da_paranoid_safety_measures
+				}			
+			
+				modifier = {
+					factor = 1.5
+					trait = duelist
+				}			
+
+				modifier = {
+					factor = 1.15
+					combat_rating = 10
+				}
+				
+				modifier = {
+					factor = 1.25
+					combat_rating = 25
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}				
+				
+				modifier = {
+					factor = 1.33
+					combat_rating = 60
+				}				
+				
+				modifier = {
+					factor = 1.5
+					combat_rating = 80
+				}				
+				
+				modifier = {
+					factor = 1.75
+					combat_rating = 100
+				}
+				
+				character_event = { id = darkages.72571 tooltip = DA_CUSTOMTOOLTIP283 } #NoKill				
+
+			}
+		}		
+		
+		
+		
+		
+		clr_character_flag = darkages_story1
+		clr_character_flag = darkages_story2
+		clr_character_flag = darkages_story3
+		clr_character_flag = darkages_story4	
+
+	}	
+
+	
+}
+
+
+character_event = {			
+	id = darkages.72568
+	title = EVTNAME1972568
+	desc = {
+		trigger = {
+			has_character_flag = da_opt_inconclusive
+		}
+		text = EVTDESC1972568_1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = da_opt_safe
+		}
+		text = EVTDESC1972568_2
+	}
+	desc = {
+		trigger = {
+			has_character_flag = da_opt_plot_uncovered
+		}
+		text = EVTDESC1972568_3
+	}	
+	picture = GFX_evt_da_private_discussion
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+	}
+
+	immediate = {
+		random_list = {
+			3 = {	#Inconclusive
+				modifier = {
+					factor = 1.5
+					job_spymaster = { trait = content }
+				}
+				modifier = {
+					factor = 2
+					job_spymaster = { trait = slothful }
+				}
+				modifier = {
+					factor = 1.5
+					job_spymaster = { 
+						intrigue = 8
+						NOT = { intrigue = 12 }
+					}
+				}
+				modifier = {
+					factor = 1.25
+					job_spymaster = { NOT = { opinion = { who = ROOT value = 0 } } }
+				}
+				modifier = {
+					factor = 1.25
+					job_spymaster = { NOT = { opinion = { who = ROOT value = -24 } } }
+				}
+				modifier = {
+					factor = 1.33
+					job_spymaster = { NOT = { opinion = { who = ROOT value = -49 } } }
+				}				
+				modifier = {
+					factor = 1.5
+					job_spymaster = { NOT = { opinion = { who = ROOT value = -74 } } }
+				}				
+				modifier = {
+					factor = 1.75
+					job_spymaster = { NOT = { opinion = { who = ROOT value = -99 } } }
+				}				
+				
+				
+				set_character_flag = da_opt_inconclusive
+
+			}
+			
+			1 = {	#Safe
+				modifier = {
+					factor = 1.66
+					NOT = { has_character_flag = darkages_murder_payback_target }
+				}	
+				modifier = {
+					factor = 1.75
+					has_character_flag = darkages_murder_payback_target
+					job_spymaster = { trait = slow }
+				}
+				
+				modifier = {
+					factor = 1.5
+					has_character_flag = darkages_murder_payback_target
+					job_spymaster = { trait = dim }
+				}				
+				
+				modifier = {
+					factor = 2
+					has_character_flag = darkages_murder_payback_target
+					job_spymaster = { trait = imbecile }
+				}
+				
+				modifier = {
+					factor = 1.5
+					has_character_flag = darkages_murder_payback_target
+					job_spymaster = { trait = trusting }
+				}
+
+				modifier = {
+					factor = 1.5
+					has_character_flag = darkages_murder_payback_target
+					job_spymaster = { 
+						NOT = { intrigue = 8 }
+					}
+				}				
+				
+				modifier = {
+					factor = 2
+					has_character_flag = darkages_murder_payback_target
+					job_spymaster = { 
+						NOT = { intrigue = 6 }
+					}
+				}							
+
+				modifier = {
+					factor = 2
+					has_character_flag = darkages_murder_payback_target
+					job_spymaster = { 
+						NOT = { intrigue = 4 }
+					}
+				}							
+
+				modifier = {
+					factor = 2
+					has_character_flag = darkages_murder_payback_target
+					job_spymaster = { 
+						NOT = { intrigue = 2 }
+					}
+				}								
+
+				modifier = {
+					factor = 1.5
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { trait = wary }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { trait = shrewd }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { trait = bright }
+				}				
+				
+				modifier = {
+					factor = 2.25
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { trait = quick }
+				}				
+
+				modifier = {
+					factor = 3
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { trait = genius }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { trait = diligent }
+				}								
+				
+				modifier = {
+					factor = 1.25
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { trait = ambitious }
+				}
+
+				modifier = {
+					factor = 1.25
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { trait = cynical }
+				}				
+				
+				modifier = {
+					factor = 2
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { trait = schemer }
+				}				
+
+				modifier = {
+					factor = 1.75
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { trait = assassin }
+				}
+
+				modifier = {
+					factor = 1.5
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { 
+						intrigue = 12
+					}
+				}
+
+				modifier = {
+					factor = 2
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { 
+						intrigue = 15
+					}
+				}				
+				
+				modifier = {
+					factor = 2
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { 
+						intrigue = 18
+					}
+				}				
+				
+				modifier = {
+					factor = 2
+					NOT = { has_character_flag = darkages_murder_payback_target }
+					job_spymaster = { 
+						intrigue = 21
+					}
+				}				
+				
+				set_character_flag = da_opt_safe
+				
+			}
+			
+			1 = {	#Plot Uncovered
+			
+				modifier = {
+					factor = 0
+					NOT = { has_character_flag = darkages_murder_payback_target }
+				}	
+
+				modifier = {
+					factor = 1.66
+					has_character_flag = darkages_murder_payback_target
+				}				
+
+				modifier = {
+					factor = 1.75
+					job_spymaster = { trait = wary }
+				}				
+				
+				modifier = {
+					factor = 2
+					job_spymaster = { trait = shrewd }
+				}				
+				
+				modifier = {
+					factor = 1.75
+					job_spymaster = { trait = bright }
+				}				
+				
+				modifier = {
+					factor = 2.25
+					job_spymaster = { trait = quick }
+				}				
+
+				modifier = {
+					factor = 3
+					job_spymaster = { trait = genius }
+				}
+
+				modifier = {
+					factor = 1.75
+					job_spymaster = { trait = diligent }
+				}								
+				
+				modifier = {
+					factor = 1.5
+					job_spymaster = { trait = ambitious }
+				}
+
+				modifier = {
+					factor = 1.5
+					job_spymaster = { trait = cynical }
+				}				
+				
+				modifier = {
+					factor = 2.25
+					job_spymaster = { trait = schemer }
+				}				
+
+				modifier = {
+					factor = 2.25
+					job_spymaster = { trait = assassin }
+				}
+
+				modifier = {
+					factor = 1.75
+					job_spymaster = { 
+						intrigue = 12
+					}
+				}
+
+				modifier = {
+					factor = 2.25
+					job_spymaster = { 
+						intrigue = 15
+					}
+				}				
+				
+				modifier = {
+					factor = 2.25
+					job_spymaster = { 
+						intrigue = 18
+					}
+				}				
+				
+				modifier = {
+					factor = 2.25
+					job_spymaster = { 
+						intrigue = 21
+					}
+				}
+
+				set_character_flag = da_opt_plot_uncovered
+				
+				random_kill_list_character = {
+					save_event_target_as = darkages_dead_vengeance
+				}				
+				
+			}
+		
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972568	#All clear
+		trigger = {
+			has_character_flag = da_opt_safe
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP290 }
+		
+		clr_character_flag = da_opt_safe
+		
+		hidden_tooltip = {
+			if = {
+				limit = { has_character_flag = darkages_murder_payback_target }
+				
+				character_event = { id = darkages.72566 days = 60 random = 550 }
+				
+			}
+			else = {
+				character_event = { id = darkages.72567 days = 60 random = 550 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1972568	#Inconclusive investigation
+		trigger = {
+			has_character_flag = da_opt_inconclusive
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP291 }
+		
+		clr_character_flag = da_opt_inconclusive
+		
+		hidden_tooltip = {
+			if = {
+				limit = { has_character_flag = darkages_murder_payback_target }
+				
+				character_event = { id = darkages.72566 days = 60 random = 550 }
+				
+			}
+			else = {
+				character_event = { id = darkages.72567 days = 60 random = 550 }
+			}
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTC1972568	#Plot uncovered
+		trigger = {
+			has_character_flag = da_opt_plot_uncovered
+		}
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP292 }		
+		
+		clr_character_flag = da_opt_plot_uncovered
+		
+		prestige = 40
+		
+		job_spymaster = { prestige = 40 }
+		
+		clr_character_flag = darkages_murder_payback_target
+	}	
+	
+}
+
+
+character_event = {			
+	id = darkages.72569
+	title = EVTNAME1972569
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story1
+		}
+		text = EVTDESC1972569_1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story2
+		}
+		text = EVTDESC1972569_2
+	}	
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story3
+		}
+		text = EVTDESC1972569_3
+	}	
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story4
+		}
+		text = EVTDESC1972569_4
+	}	
+	picture = GFX_evt_da_back_hit
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+	}
+	
+	immediate = {
+	
+		hidden_tooltip = {
+	
+			random_kill_list_character = {
+				save_event_target_as = darkages_dead_vengeance_final
+			}
+			
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA1972569
+		trigger = {
+			has_character_flag = darkages_story1
+		}
+		
+		death = {
+			death_reason = death_murder_unknown
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972569
+		trigger = {
+			has_character_flag = darkages_story2
+		}		
+		
+		death = {
+			death_reason = death_murder_unknown
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTC1972569
+		trigger = {
+			has_character_flag = darkages_story3
+		}
+
+		event_target:darkages_dead_vengeance_final = {
+			hidden_tooltip = {
+				prestige = 1
+				prestige = -1
+			}
+		}
+		
+		death = {
+			death_reason = death_murder_unknown
+		}
+		
+	}	
+	
+	option = {
+		name = EVTOPTD1972569
+		trigger = {
+			has_character_flag = darkages_story4
+		}	
+
+		event_target:darkages_dead_vengeance_final = {
+			hidden_tooltip = {
+				prestige = 1
+				prestige = -1
+			}
+		}		
+		
+		death = {
+			death_reason = death_murder_unknown
+		}
+		
+	}	
+	
+}
+
+
+character_event = {			
+	id = darkages.72570
+	title = EVTNAME1972570
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story1
+		}
+		text = EVTDESC1972570_1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story2
+		}
+		text = EVTDESC1972570_2
+	}	
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story3
+		}
+		text = EVTDESC1972570_3
+	}	
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story4
+		}
+		text = EVTDESC1972570_4
+	}	
+	picture = GFX_evt_da_court_celebration
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+	}
+	
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972570
+		trigger = {
+			has_character_flag = darkages_story1
+		}
+		
+		prestige = 25
+		
+		if = {
+			limit = { has_character_flag = da_paranoid_given_event }
+			clr_character_flag = da_paranoid_given_event
+			remove_trait = paranoid
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_weak_ruler }
+			remove_character_modifier = da_weak_ruler
+		}
+		
+		clr_character_flag = darkages_murder_payback_target	
+		clr_character_flag = darkages_increased_protection				
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972570
+		trigger = {
+			has_character_flag = darkages_story2
+		}		
+		
+		prestige = 25
+		
+		if = {
+			limit = { has_character_flag = da_paranoid_given_event }
+			clr_character_flag = da_paranoid_given_event
+			remove_trait = paranoid
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_weak_ruler }
+			remove_character_modifier = da_weak_ruler
+		}		
+		
+		clr_character_flag = darkages_murder_payback_target
+		clr_character_flag = darkages_increased_protection				
+		
+	}	
+	
+	option = {
+		name = EVTOPTC1972570
+		trigger = {
+			has_character_flag = darkages_story3
+		}		
+		
+		prestige = 25
+		
+		if = {
+			limit = { has_character_flag = da_paranoid_given_event }
+			clr_character_flag = da_paranoid_given_event
+			remove_trait = paranoid
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_weak_ruler }
+			remove_character_modifier = da_weak_ruler
+		}		
+		
+		clr_character_flag = darkages_murder_payback_target
+		clr_character_flag = darkages_increased_protection				
+		
+	}	
+	
+	option = {
+		name = EVTOPTD1972570
+		trigger = {
+			has_character_flag = darkages_story4
+		}		
+		
+		prestige = 25
+		
+		if = {
+			limit = { has_character_flag = da_paranoid_given_event }
+			clr_character_flag = da_paranoid_given_event
+			remove_trait = paranoid
+		}
+		
+		if = {
+			limit = { has_character_modifier = da_weak_ruler }
+			remove_character_modifier = da_weak_ruler
+		}		
+		
+		clr_character_flag = darkages_murder_payback_target
+		clr_character_flag = darkages_increased_protection				
+		
+	}	
+	
+}
+
+
+character_event = {			
+	id = darkages.72571
+	title = EVTNAME1972571
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story1
+		}
+		text = EVTDESC1972571_1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story2
+		}
+		text = EVTDESC1972571_2
+	}	
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story3
+		}
+		text = EVTDESC1972571_3
+	}	
+	desc = {
+		trigger = {
+			has_character_flag = darkages_story4
+		}
+		text = EVTDESC1972571_4
+	}	
+	picture = GFX_evt_da_tavern
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+		
+	}
+	
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972571
+		trigger = {
+			has_character_flag = darkages_story1
+		}
+		
+		clr_character_flag = darkages_increased_protection	
+		clr_character_flag = da_paranoid_given_event		
+		
+	}
+	
+	option = {
+		name = EVTOPTB1972571
+		trigger = {
+			has_character_flag = darkages_story2
+		}		
+
+		clr_character_flag = darkages_increased_protection	
+		clr_character_flag = da_paranoid_given_event				
+		
+	}	
+	
+	option = {
+		name = EVTOPTC1972571
+		trigger = {
+			has_character_flag = darkages_story3
+		}		
+
+		clr_character_flag = darkages_increased_protection	
+		clr_character_flag = da_paranoid_given_event				
+		
+	}	
+	
+	option = {
+		name = EVTOPTD1972571
+		trigger = {
+			has_character_flag = darkages_story4
+		}		
+
+		clr_character_flag = darkages_increased_protection	
+		clr_character_flag = da_paranoid_given_event				
+		
+	}	
+	
+}

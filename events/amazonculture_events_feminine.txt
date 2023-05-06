@@ -1,0 +1,2157 @@
+
+
+# donate to the orphanage
+	character_event = { 
+		id = AmzCul.910
+		desc = EVTDESCAmzCul.910
+		picture = GFX_evt_child_play
+		border = GFX_event_character_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {
+			name = EVTOPTAAmzCul.910
+			ai_chance = { factor = 10 }
+			wealth = -50
+			piety = 25
+			if = {
+				limit = { NOT = { trait = kind } }
+				random = {
+					chance = 10
+					add_trait = kind
+				}
+			}
+			if = {
+				limit = { NOT = { trait = charitable } }
+				random = {
+					chance = 10
+					add_trait = charitable
+				}
+			}
+			if = {
+				limit = { religion_group = muslim }
+				random = {
+					chance = 10
+					decadence = -5
+				}
+			}
+		}
+		option = {
+			name = EVTOPTBAmzCul.910
+			ai_chance = { factor = 10 }
+			trigger = { wealth = 100 }
+			wealth = -100
+			piety = 50
+			if = {
+				limit = { NOT = { trait = kind } }
+				random = {
+					chance = 20
+					add_trait = kind
+				}
+			}
+			if = {
+				limit = { NOT = { trait = charitable } }
+				random = {
+					chance = 20
+					add_trait = charitable
+				}
+			}
+			if = {
+				limit = { religion_group = muslim }
+				random = {
+					chance = 20
+					decadence = -10
+				}
+			}
+		}
+		option = {
+			name = EVTOPTCAmzCul.910
+			ai_chance = { factor = 10 }
+			trigger = { wealth = 200 }
+			wealth = -200
+			piety = 100
+			if = {
+				limit = { NOT = { trait = kind } }
+				random = {
+					chance = 50
+					add_trait = kind
+				}
+			}
+			if = {
+				limit = { NOT = { trait = charitable } }
+				random = {
+					chance = 50
+					add_trait = charitable
+				}
+			}
+			if = {
+				limit = { religion_group = muslim }
+				random = {
+					chance = 50
+					decadence = -25
+				}
+			}
+		}
+		option = {
+			name = EVTOPTDAmzCul.910
+			ai_chance = { factor = 10 }
+			trigger = { wealth = 500 }
+			wealth = -500
+			piety = 250
+			if = {
+				limit = { NOT = { trait = kind } }
+				random = {
+					chance = 80
+					add_trait = kind
+				}
+			}
+			if = {
+				limit = { NOT = { trait = charitable } }
+				random = {
+					chance = 80
+					add_trait = charitable
+				}
+			}
+			if = {
+				limit = { religion_group = muslim }
+				random = {
+					chance = 80
+					decadence = -40
+				}
+			}
+		}	
+	}
+
+
+# start poetry
+	character_event = { 
+		id = AmzCul.911
+		desc = EVTDESCAmzCul.911
+		picture = GFX_evt_princess_byzantine
+		border = GFX_event_character_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {
+			name = EVTOPTAAmzCul.911
+			ai_chance = { factor = 10 }
+			set_character_flag = writing_poetry_flag
+		}
+		option = {
+			name = EVTOPTDAmzCul.911
+			ai_chance = { factor = 0 }	
+			remove_character_flag = recent_poetry_flag
+		}	
+	}
+
+# poetry examples, can add more
+	long_character_event = { 
+		id = AmzCul.912
+		picture = GFX_evt_pleasing_letter
+		border = GFX_event_long_frame_diplomacy
+		
+		desc = EVTDESCAmzCul.912.1
+		desc = EVTDESCAmzCul.912.2
+		desc = EVTDESCAmzCul.912.3
+		desc = EVTDESCAmzCul.912.4
+		
+		mean_time_to_happen = { days = 60 }
+		
+		trigger = {
+			NOT = { is_inaccessible_trigger = yes }
+			has_character_flag = writing_poetry_flag
+			war = no
+		}
+		
+		option = {
+			name = EVTOPTAAmzCul.912
+			ai_chance = { factor = 10 }
+			clr_character_flag = writing_poetry_flag
+			set_character_flag = written_poetry_flag
+		}
+		option = {
+			name = EVTOPTBAmzCul.912
+			ai_chance = { factor = 10 }			
+		}	
+	}
+
+# poetry reading
+	character_event = { 
+		id = AmzCul.913
+		desc = EVTDESCAmzCul.913
+		picture = GFX_evt_pleasing_letter
+		border = GFX_event_character_frame_diplomacy
+		
+		mean_time_to_happen = { days = 60 }
+		
+		trigger = {
+			NOT = { is_inaccessible_trigger = yes }
+			has_character_flag = written_poetry_flag
+		}
+		
+		option = {
+			name = EVTOPTAAmzCul.913
+			ai_chance = { factor = 10 }
+			clr_character_flag = written_poetry_flag
+			hidden_tooltip = {
+				if = {
+					limit = { learning <= 10 }
+					random_list = {
+						30 = { character_event = { id = AmzCul.914 } }
+						70 = { character_event = { id = AmzCul.915 } }
+					}
+				}
+				if = {
+					limit = { 
+						AND = { 
+							learning >= 11 
+							learning <= 13
+						} 
+					}
+					random_list = {
+						40 = { character_event = { id = AmzCul.914 } }
+						60 = { character_event = { id = AmzCul.915 } }
+					}
+				}
+				if = {
+					limit = { learning >= 14 } 
+					random_list = {
+						50 = { character_event = { id = AmzCul.914 } }
+						50 = { character_event = { id = AmzCul.915 } }
+					}
+				}
+			}
+		}
+	}
+	
+# poetry goes well
+	character_event = { 
+		id = AmzCul.914
+		desc = EVTDESCAmzCul.914
+		picture = GFX_evt_pleasing_letter
+		border = GFX_event_character_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {
+			name = EVTOPTAAmzCul.914
+			ai_chance = { factor = 10 }
+			add_trait = poet
+			prestige = 25
+		}
+	}
+
+# poetry goes badly
+	character_event = { 
+		id = AmzCul.915
+		desc = EVTDESCAmzCul.915
+		picture = GFX_evt_bad_news
+		border = GFX_event_character_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {
+			name = EVTOPTAAmzCul.915
+			ai_chance = { factor = 10 }
+			prestige = -50
+		}
+	}
+	
+# paint a painting
+	character_event = { 
+		id = AmzCul.917
+		desc = EVTDESCAmzCul.917
+		picture = GFX_evt_fishing
+		border = GFX_event_character_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {	# let's get started
+			name = EVTOPTAAmzCul.917
+			ai_chance = { factor = 10 }	
+			set_character_flag = painting_picture_flag
+			
+			hidden_tooltip = {
+				random_list = {
+					50 = {			# success
+						multi_modifier = {			
+							factor = 1.1		
+							trait = genius
+						}
+						multi_modifier = {			
+							factor = 1.1
+							has_mental_disorder_trigger = yes
+						}
+						multi_modifier = {			
+							factor = 1.1		
+							trait = diligent
+						}
+						multi_modifier = {			
+							factor = 1.1		
+							trait = poet
+						}
+						multi_modifier = {			
+							factor = 0.5		
+							OR = {
+								trait = arbitrary
+								has_disease_trigger = yes
+							}
+						}
+						multi_modifier = {			
+							factor = 0.4		
+							OR = {
+								trait = slothful
+								has_symptom_trigger = yes
+							}
+						}
+						multi_modifier = {			
+							factor = 0.3		
+							OR = {
+								is_dumb_trigger = yes
+								has_injury_trigger = yes
+								is_maimed_trigger = yes
+							}
+						}
+						set_character_flag = successful_painting_flag
+					}
+					50 = {		# failure
+						multi_modifier = {			
+							factor = 0.2		
+							trait = genius
+						}
+						multi_modifier = {			
+							factor = 0.9		
+							has_mental_disorder_trigger = yes
+						}
+						multi_modifier = {			
+							factor = 0.5		
+							trait = diligent
+						}
+						multi_modifier = {			
+							factor = 0.2		
+							trait = poet
+						}
+						multi_modifier = {			
+							factor = 1.1		
+							OR = {
+								trait = arbitrary
+								has_disease_trigger = yes
+							}
+						}
+						multi_modifier = {			
+							factor = 1.1		
+							OR = {
+								trait = slothful
+								has_symptom_trigger = yes
+							}
+						}
+						multi_modifier = {			
+							factor = 2		
+							OR = {
+								is_dumb_trigger = yes
+								has_injury_trigger = yes
+								is_maimed_trigger = yes
+							}
+						}
+						set_character_flag = failed_painting_flag
+					}
+				}
+			}
+		}
+	}
+
+# painting is good
+	character_event = { 
+		id = AmzCul.918
+		desc = EVTDESCAmzCul.918
+		picture = GFX_evt_fishing
+		border = GFX_event_character_frame_diplomacy
+		
+		mean_time_to_happen = { days = 150 }
+		
+		trigger = { 
+			has_character_flag = painting_picture_flag 
+			has_character_flag = successful_painting_flag
+			war = no
+			NOT = { is_inaccessible_trigger = yes }	
+			NOT = { has_artifact = magnificent_painting }
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.918
+			ai_chance = { factor = 10 }	
+			clr_character_flag = painting_picture_flag
+			clr_character_flag = successful_painting_flag
+			add_artifact = magnificent_painting
+			prestige = 50
+			if = {
+				limit = { trait = stressed }
+				random = {
+					chance = 30
+					remove_trait = stressed 
+				}
+			}
+			if = {
+				limit = { trait = depressed }
+				random = {
+					chance = 15
+					remove_trait = depressed 
+				}
+			}
+		}
+	}
+	
+# painting is terrible
+	character_event = { 
+		id = AmzCul.919
+		desc = EVTDESCAmzCul.919
+		picture = GFX_evt_moonlit_mountains_hf
+		border = GFX_event_character_frame_diplomacy
+		
+		mean_time_to_happen = { days = 150 }
+		
+		trigger = { 
+			has_character_flag = painting_picture_flag 
+			has_character_flag = failed_painting_flag
+			war = no
+			NOT = { is_inaccessible_trigger = yes }	
+			NOT = { has_artifact = magnificent_painting }			
+		}
+		
+		option = {	
+			name = EVTOPTAAmzCul.919
+			ai_chance = { factor = 10 }	
+			clr_character_flag = painting_picture_flag
+			clr_character_flag = failed_painting_flag
+			prestige = -50
+			if = {
+				limit = { NOT = { trait = stressed } }
+				random = {
+					chance = 30
+					add_trait = stressed 
+				}
+			}
+			if = {
+				limit = { NOT = { trait = depressed } }
+				random = {
+					chance = 15
+					add_trait = depressed 
+				}
+			}
+		}
+	}
+
+# midwife needed notification
+	character_event = { 
+		id = AmzCul.9201
+		desc = EVTDESCAmzCul.9201
+		picture = GFX_evt_birth
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = { days = 30 } 
+		
+		immediate = {
+			set_character_flag = hired_midwife_flag  # decision blocker, so it won't double up
+			random_courtier = {
+				limit = {
+					OR = {
+						NOT = { dynasty = NONE }	# preggers must have a dynasty
+						NOT = { 					# preggers' husband must have dynasty
+							any_spouse = { dynasty = NONE }
+						}
+					}
+					OR = {
+						trait = pregnant
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+						trait = pregnancy_finishing
+					}
+					is_ruler = no		
+				}
+				save_event_target_as = preggers_courtier_target
+			}
+		}
+		
+		portrait = event_target:preggers_courtier_target
+		
+		trigger = {
+			ai = no
+			prisoner = no
+			is_ruler = yes
+			OR = {
+				TECH_CITY_CONSTRUCTION = 4
+				any_liege = { TECH_CITY_CONSTRUCTION = 4 }
+				suzerain = { TECH_CITY_CONSTRUCTION = 4 }
+				any_liege = {
+					suzerain = { TECH_CITY_CONSTRUCTION = 4 }
+				}
+			}
+			OR = {
+				AND = {				# strong (potentially independent) woman
+					is_female = yes
+					OR = {
+						trait = pregnant
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+						trait = pregnancy_finishing
+					}
+				}
+				AND = {				# man has a preggers lady friend  
+					is_female = no
+					OR = {
+						any_consort = {
+							OR = {
+								trait = pregnant
+								trait = hard_pregnancy
+								trait = troubled_pregnancy
+								trait = pregnancy_finishing
+							}
+						}
+						any_spouse = {
+							OR = {
+								trait = pregnant
+								trait = hard_pregnancy
+								trait = troubled_pregnancy
+								trait = pregnancy_finishing
+							}
+							is_ruler = no		# wife who doesn't own title. if she did, she do ^^that^^
+						}
+						any_lover = {
+							OR = {
+								trait = pregnant
+								trait = hard_pregnancy
+								trait = troubled_pregnancy
+								trait = pregnancy_finishing
+							}
+							is_ruler = no		# wife who doesn't own title. if she did, she do ^^that^^
+						}
+					}
+				}
+				any_courtier = {
+					OR = {
+						NOT = { dynasty = NONE }	# preggers must have a dynasty
+						NOT = { 					# preggers' husband must have dynasty
+							any_spouse = { dynasty = NONE }
+						}
+					}
+					OR = {
+						trait = pregnant
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+						trait = pregnancy_finishing
+					}
+					is_ruler = no		
+				}
+			}
+			NOT = { has_character_modifier = hired_midwife_modifier }
+			NOT = { has_character_flag = hired_midwife_flag }
+		}
+
+		option = {	# call the midwife
+			name = EVTOPTAAmzCul.9201
+			ai_chance = { factor = 10 }	
+			scaled_wealth = -0.05
+			add_character_modifier = {
+				name = hired_midwife_modifier   
+				duration = -1
+			}
+			clr_character_flag = hired_midwife_flag
+		}
+		
+		option = {	# I'm sure she can handle it 
+			name = EVTOPTBAmzCul.9201
+			ai_chance = { factor = 0 }
+			clr_character_flag = hired_midwife_flag			
+		}
+	}
+
+# midwife appears
+	character_event = { 
+		id = AmzCul.920
+		desc = EVTDESCAmzCul.920
+		picture = GFX_evt_wise_woman
+		border = GFX_event_character_frame_intrigue
+		
+		is_triggered_only = yes
+		
+		immediate = {
+			random_courtier = {
+				limit = {
+					OR = {
+						NOT = { dynasty = NONE }	# preggers must have a dynasty
+						NOT = { 					# preggers' husband must have dynasty
+							spouse = { dynasty = NONE }
+						}
+					}
+					OR = {
+						trait = pregnant
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+						trait = pregnancy_finishing
+					}
+					is_ruler = no		
+				}
+				save_event_target_as = preggers_courtier_target
+			}
+		}
+		
+		portrait = event_target:preggers_courtier_target
+
+		option = {	# thanks
+			name = EVTOPTAAmzCul.920
+			ai_chance = { factor = 10 }	
+			add_character_modifier = {
+				name = hired_midwife_modifier   
+				duration = -1
+			}
+			clr_character_flag = hired_midwife_flag
+		}
+	}
+
+# midwife removes stressed or depressed, personal
+	character_event = { 
+		id = AmzCul.921
+		desc = EVTDESCAmzCul.921
+		picture = GFX_evt_wise_woman
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = { 
+			days = 150 
+			modifier = {			
+				factor = 0.5		
+				stewardship = 16
+			}
+			modifier = {			
+				factor = 0.75
+				AND = {
+					stewardship <= 15
+					stewardship >= 12
+				}
+			}
+			modifier = {			
+				factor = 1
+				AND = {
+					stewardship <= 11
+					stewardship >= 8
+				}
+			}
+			modifier = {			
+				factor = 1.5
+				stewardship <= 7
+			}
+		}
+		
+		trigger = {
+			is_ruler = yes
+			prisoner = no
+			has_character_modifier = hired_midwife_modifier
+			OR = {
+				trait = pregnant
+				trait = hard_pregnancy
+				trait = troubled_pregnancy
+				trait = pregnancy_finishing
+				has_character_modifier = breastfeeding_infant 
+			}
+			OR = {
+				trait = stressed
+				trait = depressed
+			}
+		}
+
+		option = {	# we laugh
+			name = EVTOPTAAmzCul.921
+			ai_chance = { factor = 10 }	
+			if = {
+				limit = { trait = stressed }
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = depressed }
+				remove_trait = depressed
+			}
+		}
+	}
+
+# midwife removes frail (feeble) and malnourished, personal
+	character_event = { 
+		id = AmzCul.922
+		desc = EVTDESCAmzCul.922
+		picture = GFX_evt_wise_woman
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = { 
+			days = 150 
+			modifier = {			
+				factor = 0.5		
+				stewardship = 16
+			}
+			modifier = {			
+				factor = 0.75
+				AND = {
+					stewardship <= 15
+					stewardship >= 12
+				}
+			}
+			modifier = {			
+				factor = 1
+				AND = {
+					stewardship <= 11
+					stewardship >= 8
+				}
+			}
+			modifier = {			
+				factor = 1.5
+				stewardship <= 7
+			}
+		}
+		
+		trigger = {
+			is_ruler = yes
+			prisoner = no
+			has_character_modifier = hired_midwife_modifier
+			OR = {
+				trait = pregnant
+				trait = hard_pregnancy
+				trait = troubled_pregnancy
+				trait = pregnancy_finishing
+				has_character_modifier = breastfeeding_infant 
+			}
+			OR = {
+				trait = feeble
+				trait = is_malnourished
+			}
+		}
+
+		option = {	# blurgh
+			name = EVTOPTAAmzCul.922
+			ai_chance = { factor = 10 }	
+			if = {
+				limit = { trait = feeble }
+				remove_trait = feeble
+			}
+			if = {
+				limit = { trait = is_malnourished }
+				remove_trait = is_malnourished
+			}
+		}
+	}
+
+# midwife removes difficult pregnancy
+	character_event = { 
+		id = AmzCul.923
+		desc = EVTDESCAmzCul.923
+		picture = GFX_evt_wise_woman
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = { 
+			days = 80 
+			modifier = {			
+				factor = 0.5		
+				stewardship = 16
+			}
+			modifier = {			
+				factor = 0.75
+				AND = {
+					stewardship <= 15
+					stewardship >= 12
+				}
+			}
+			modifier = {			
+				factor = 1
+				AND = {
+					stewardship <= 11
+					stewardship >= 8
+				}
+			}
+			modifier = {			
+				factor = 1.5
+				stewardship <= 7
+			}
+		}
+		
+		trigger = {
+			is_ruler = yes
+			prisoner = no
+			has_character_modifier = hired_midwife_modifier
+			trait = hard_pregnancy
+		}
+
+		option = {	# better
+			name = EVTOPTAAmzCul.923
+			ai_chance = { factor = 10 }	
+			remove_trait = hard_pregnancy
+		}
+	}
+
+# midwife removes troubled pregnancy
+	character_event = { 
+		id = AmzCul.924
+		desc = EVTDESCAmzCul.924
+		picture = GFX_evt_wise_woman
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = { 
+			days = 40 
+			modifier = {			
+				factor = 0.5		
+				stewardship = 16
+			}
+			modifier = {			
+				factor = 0.75
+				AND = {
+					stewardship <= 15
+					stewardship >= 12
+				}
+			}
+			modifier = {			
+				factor = 1
+				AND = {
+					stewardship <= 11
+					stewardship >= 8
+				}
+			}
+			modifier = {			
+				factor = 1.5
+				stewardship <= 7
+			}
+		}
+		
+		trigger = {
+			is_ruler = yes
+			prisoner = no
+			has_character_modifier = hired_midwife_modifier
+			trait = troubled_pregnancy
+		}
+
+		option = {	# helpful
+			name = EVTOPTAAmzCul.924
+			ai_chance = { factor = 10 }	
+			remove_trait = troubled_pregnancy
+			add_trait = hard_pregnancy
+		}
+	}
+
+# midwife removes stressed or depressed or frail (feeble), courtiers and prisoners
+	character_event = { 
+		id = AmzCul.925
+		desc = EVTDESCAmzCul.925
+		picture = GFX_evt_wise_woman
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = { 
+			days = 150 
+			modifier = {			
+				factor = 0.5		
+				host = { stewardship = 16 }
+			}
+			modifier = {			
+				factor = 0.75
+				host = { 
+					AND = {
+						stewardship <= 15
+						stewardship >= 12
+					}
+				}
+			}
+			modifier = {			
+				factor = 1
+				host = { 
+					AND = {
+						stewardship <= 11
+						stewardship >= 8
+					}
+				}
+			}
+			modifier = {			
+				factor = 1.5
+				host = { stewardship <= 7 }
+			}
+		}
+		
+		trigger = {
+			OR = {
+				is_ruler = no
+				prisoner = yes
+			}
+			host = { has_character_modifier = hired_midwife_modifier }
+			OR = {
+				trait = pregnant
+				trait = hard_pregnancy
+				trait = troubled_pregnancy
+				trait = pregnancy_finishing
+				has_character_modifier = breastfeeding_infant 
+			}
+			OR = {
+				trait = stressed
+				trait = depressed
+				trait = feeble
+				trait = is_malnourished
+			}
+		}
+
+		option = {	
+			name = EVTOPTAAmzCul.925
+			ai_chance = { factor = 10 }	
+			if = {
+				limit = { trait = stressed }
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = depressed }
+				remove_trait = depressed
+			}
+			if = {
+				limit = { trait = feeble }
+				remove_trait = feeble
+			}
+			if = {
+				limit = { trait = is_malnourished }
+				remove_trait = is_malnourished
+			}
+		}
+	}
+
+# midwife removes difficult and troubled pregnancy, courtiers and prisoners
+	character_event = { 
+		id = AmzCul.926
+		desc = EVTDESCAmzCul.925
+		picture = GFX_evt_wise_woman
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = { 
+			days = 60 
+			modifier = {			
+				factor = 0.5		
+				host = { stewardship = 16 }
+			}
+			modifier = {			
+				factor = 0.75
+				host = { 
+					AND = {
+						stewardship <= 15
+						stewardship >= 12
+					}
+				}
+			}
+			modifier = {			
+				factor = 1
+				host = { 
+					AND = {
+						stewardship <= 11
+						stewardship >= 8
+					}
+				}
+			}
+			modifier = {			
+				factor = 1.5
+				host = { stewardship <= 7 }
+			}
+		}
+		
+		trigger = {
+			OR = {
+				is_ruler = no
+				prisoner = yes
+			}
+			host = { has_character_modifier = hired_midwife_modifier }
+			OR = {
+				trait = hard_pregnancy
+				trait = troubled_pregnancy
+			}
+		}
+
+		option = {	
+			name = EVTOPTAAmzCul.925
+			ai_chance = { factor = 10 }	
+			if = {
+				limit = { trait = hard_pregnancy }
+				remove_trait = hard_pregnancy
+			}
+			if = {
+				limit = { trait = troubled_pregnancy }
+				remove_trait = troubled_pregnancy
+				add_trait = hard_pregnancy
+			}
+		}
+	}
+	
+# midwife removes frail (feeble) or sickly from child courtier
+	character_event = { 
+		id = AmzCul.927
+		desc = EVTDESCAmzCul.927
+		picture = GFX_evt_wise_woman
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = { 
+			days = 60 
+			modifier = {			
+				factor = 0.5		
+				host = { stewardship = 16 }
+			}
+			modifier = {			
+				factor = 0.75
+				host = { 
+					AND = {
+						stewardship <= 15
+						stewardship >= 12
+					}
+				}
+			}
+			modifier = {			
+				factor = 1
+				host = { 
+					AND = {
+						stewardship <= 11
+						stewardship >= 8
+					}
+				}
+			}
+			modifier = {			
+				factor = 1.5
+				host = { stewardship <= 7 }
+			}
+		}
+		
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						father = { has_character_modifier = hired_midwife_modifier }
+						mother = { has_character_modifier = hired_midwife_modifier }
+						host = { has_character_modifier = hired_midwife_modifier }
+					}
+					prisoner = no
+				}
+				AND = {
+					prisoner = yes
+					host = { has_character_modifier = hired_midwife_modifier }
+				}
+			}
+			age <= 3
+			OR = {
+				trait = sickly
+				trait = feeble
+				trait = is_malnourished
+			}
+		}
+
+		option = {	
+			name = EVTOPTAAmzCul.927
+			ai_chance = { factor = 10 }	
+			if = {
+				limit = { trait = sickly }
+				remove_trait = sickly
+			}
+			if = {
+				limit = { trait = feeble }
+				remove_trait = feeble
+			}
+			if = {
+				limit = { trait = is_malnourished }
+				remove_trait = is_malnourished
+			}
+		}
+	}
+	
+# midwife leaves after job done
+	character_event = { 
+		id = AmzCul.928
+		desc = EVTDESCAmzCul.928
+		picture = GFX_evt_wise_woman
+		border = GFX_event_character_frame_intrigue
+		
+		mean_time_to_happen = { 
+			days = 300 
+			modifier = {			
+				factor = 0.75		
+				tier = BARON
+			}
+			modifier = {			
+				factor = 1.5		
+				tier = COUNT
+			}
+			modifier = {			
+				factor = 2		
+				tier = DUKE
+			}
+			modifier = {			
+				factor = 2.5		
+				tier = KING
+			}
+			modifier = {			
+				factor = 3		
+				tier = EMPEROR
+			}
+		}
+		
+		trigger = {
+			has_character_modifier = hired_midwife_modifier
+			prisoner = no
+			NOR = {
+				OR = {
+					trait = pregnant
+					trait = hard_pregnancy
+					trait = troubled_pregnancy
+					trait = pregnancy_finishing
+					has_character_modifier = breastfeeding_infant 
+				}
+				any_courtier = {
+					OR = {
+						trait = pregnant
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+						trait = pregnancy_finishing
+						trait = sickly
+						age < 1
+						has_character_modifier = breastfeeding_infant 
+					}
+				}
+			}			
+		}
+
+		option = {	
+			name = EVTOPTAAmzCul.928
+			ai_chance = { factor = 10 }	
+			remove_character_modifier = hired_midwife_modifier
+			clr_character_flag = hired_midwife_flag
+			scaled_prestige = 0.1
+		}
+	}
+	
+# midwife leaves if imprisoned
+	character_event = { 
+		id = AmzCul.929
+		desc = EVTDESCAmzCul.929
+		
+		hide_window = yes
+		
+		mean_time_to_happen = { days = 5 }
+		
+		trigger = {
+			has_character_modifier = hired_midwife_modifier
+			OR = {
+				prisoner = yes
+				is_ruler = no
+			}
+		}
+
+		option = {	
+			name = EVTOPTAAmzCul.929
+			ai_chance = { factor = 10 }	
+			remove_character_modifier = hired_midwife_modifier
+		}
+	}
+
+	
+# sponsor the guilds
+	character_event = { 
+		id = AmzCul.916
+		desc = EVTDESCAmzCul.916
+		picture = GFX_evt_construction_site
+		border = GFX_event_normal_frame_economy
+		
+		is_triggered_only = yes
+		
+		option = {			# fund production and manufacturing  
+			name = EVTOPTAAmzCul.916
+			ai_chance = { factor = 10 }
+			scaled_wealth = -1
+			if = {
+				limit = { trait = indulgent_wastrel }
+				add_character_modifier = { 
+					name = diligent_on_cost 
+					years = 2
+				}
+			}
+			if = {
+				limit = { trait = thrifty_clerk }
+				add_character_modifier = { 
+					name = diligent_on_cost 
+					years = 3
+				}
+			}
+			if = {
+				limit = { trait = fortune_builder }
+				add_character_modifier = { 
+					name = diligent_on_cost 
+					years = 4
+				}
+			}
+			if = {
+				limit = { trait = midas_touched }
+				add_character_modifier = { 
+					name = diligent_on_cost 
+					years = 5
+				}
+			}
+		}
+		option = {			# fund new apprenticeships
+			name = EVTOPTBAmzCul.916
+			ai_chance = { factor = 10 }
+			scaled_wealth = -1
+			if = {
+				limit = { trait = indulgent_wastrel }
+				add_character_modifier = { 
+					name = diligent_on_time 
+					years = 2
+				}
+			}
+			if = {
+				limit = { trait = thrifty_clerk }
+				add_character_modifier = { 
+					name = diligent_on_time 
+					years = 3
+				}
+			}
+			if = {
+				limit = { trait = fortune_builder }
+				add_character_modifier = { 
+					name = diligent_on_time 
+					years = 4
+				}
+			}
+			if = {
+				limit = { trait = midas_touched }
+				add_character_modifier = { 
+					name = diligent_on_time 
+					years = 5
+				}
+			}
+		}
+		option = {			# do nothin
+			name = EVTOPTCAmzCul.916
+			ai_chance = { factor = 1 }
+			clr_character_flag = recent_sponsorship_flag
+		}
+	}	
+
+# begin training recruits
+	character_event = { 
+		id = AmzCul.930
+		desc = EVTDESCAmzCul.930
+		picture = GFX_evt_teaching_moment
+		border = GFX_event_character_frame_war
+		
+		is_triggered_only = yes
+
+		option = {	# maggots
+			name = EVTOPTAAmzCul.930
+			ai_chance = { factor = 10 }			
+			set_character_flag = training_recruits_flag_1
+		}
+	}
+
+# second stage of training, archery
+	character_event = { 
+		id = AmzCul.931
+		desc = EVTDESCAmzCul.931
+		picture = GFX_evt_longbowman
+		border = GFX_event_character_frame_war
+		
+		mean_time_to_happen = { days = 60 }
+		
+		trigger = { 
+			has_character_flag = training_recruits_flag_1 
+			NOT = { is_inaccessible_trigger = yes } 
+			in_command = no
+		}
+
+		option = {	# your enemy won't stand still
+			name = EVTOPTAAmzCul.931
+			ai_chance = { factor = 10 }	
+			clr_character_flag = training_recruits_flag_1
+			set_character_flag = training_recruits_flag_2
+		}
+	}
+
+# third stage of training, siege
+	character_event = { 
+		id = AmzCul.932
+		desc = EVTDESCAmzCul.932
+		picture = GFX_evt_machines_of_war
+		border = GFX_event_character_frame_war
+		
+		mean_time_to_happen = { days = 30 }
+		
+		trigger = { 
+			has_character_flag = training_recruits_flag_2 
+			NOT = { is_inaccessible_trigger = yes } 
+			in_command = no
+		}
+
+		option = {	# trebuchet meme
+			name = EVTOPTAAmzCul.932
+			ai_chance = { factor = 10 }	
+			clr_character_flag = training_recruits_flag_2
+			set_character_flag = training_recruits_flag_3
+		}
+	}
+
+# calculate success based on martial education
+	character_event = { 
+		id = AmzCul.933
+		desc = EVTDESCAmzCul.933
+		hide_window = yes
+		
+		mean_time_to_happen = { days = 30 }
+		
+		trigger = { 
+			has_character_flag = training_recruits_flag_3 
+			NOT = { is_inaccessible_trigger = yes } 
+			in_command = no
+		}
+
+		option = {	# calc
+			name = EVTOPTAAmzCul.933
+			ai_chance = { factor = 10 }
+			clr_character_flag = training_recruits_flag_3			
+			if = {
+				limit = { trait = misguided_warrior }
+				random_list = {
+					50 = { character_event = { id = AmzCul.934 } }	# succ
+					50 = { character_event = { id = AmzCul.935 } }	# fail
+				}
+			}
+			if = {
+				limit = { trait = tough_soldier }
+				random_list = {
+					67 = { character_event = { id = AmzCul.934 } }	# succ
+					33 = { character_event = { id = AmzCul.935 } }	# fail
+				}
+			}
+			if = {
+				limit = { trait = skilled_tactician }
+				random_list = {
+					80 = { character_event = { id = AmzCul.934 } }	# succ
+					20 = { character_event = { id = AmzCul.935 } }	# fail
+				}
+			}
+			if = {
+				limit = { trait = brilliant_strategist }
+				random_list = {
+					95 = { character_event = { id = AmzCul.934 } }	# succ
+					5 = { character_event = { id = AmzCul.935 } }	# fail
+				}
+			}
+		}
+	}
+
+# training successful
+	character_event = { 
+		id = AmzCul.934
+		desc = EVTDESCAmzCul.934
+		picture = GFX_evt_large_army
+		border = GFX_event_character_frame_war
+		
+		is_triggered_only = yes
+
+		option = {	# trained them well
+			name = EVTOPTAAmzCul.934
+			ai_chance = { factor = 10 }	
+			scaled_prestige = 1.5
+			add_character_modifier = { 
+				name = diligent_liege_morale   
+				years = 5
+			}
+			add_character_modifier = { 
+				name = levy_reinforcements   
+				years = 5
+			}
+		}
+	}
+	
+# training unsuccessful, village idiot convention
+	character_event = { 
+		id = AmzCul.935
+		desc = EVTDESCAmzCul.935
+		picture = GFX_evt_large_army
+		border = GFX_event_character_frame_war
+		
+		is_triggered_only = yes
+
+		option = {	# useless peasants
+			name = EVTOPTAAmzCul.935
+			ai_chance = { factor = 10 }	
+			scaled_prestige = -1.5
+			add_character_modifier = { 
+				name = stressed_commander    
+				years = 3
+			}
+		}
+	}
+	
+# training cancelled, other commitments
+	character_event = { 
+		id = AmzCul.936
+		desc = EVTDESCAmzCul.936
+		picture = GFX_evt_teaching_moment
+		border = GFX_event_character_frame_war
+		
+		trigger = {
+			has_character_flag = recent_training_flag
+			OR = {
+				has_character_flag = training_recruits_flag_1
+				has_character_flag = training_recruits_flag_2
+				has_character_flag = training_recruits_flag_3
+			}
+			OR = {
+				is_inaccessible_trigger = yes
+				in_command = yes
+			}	
+		}
+
+		option = {	# another time
+			name = EVTOPTAAmzCul.936
+			ai_chance = { factor = 10 }	
+			clr_character_flag = recent_training_flag
+			clr_character_flag = training_recruits_flag_1
+			clr_character_flag = training_recruits_flag_2
+			clr_character_flag = training_recruits_flag_3
+		}
+	}
+	
+# extort locals
+	character_event = { 
+		id = AmzCul.937
+		desc = EVTDESCAmzCul.937
+		picture = GFX_evt_drunk
+		border = GFX_event_normal_frame_intrigue
+		
+		is_triggered_only = yes
+		
+		option = {			# hire thugs
+			name = EVTOPTAAmzCul.937
+			ai_chance = { factor = 10 }
+			scaled_wealth = -0.3
+			hidden_tooltip = {
+				if = {
+					limit = { trait = amateurish_plotter }
+					random_list = {
+						50 = { set_character_flag = succ_extortion_flag }	# succ
+						50 = { set_character_flag = fail_extortion_flag }	# fail
+					}
+				}
+				if = {
+					limit = { trait = flamboyant_schemer }
+					random_list = {
+						67 = { set_character_flag = succ_extortion_flag }	# succ
+						33 = { set_character_flag = fail_extortion_flag }	# fail
+					}
+				}
+				if = {
+					limit = { trait = intricate_webweaver }
+					random_list = {
+						80 = { set_character_flag = succ_extortion_flag }	# succ
+						20 = { set_character_flag = fail_extortion_flag }	# fail
+					}
+				}
+				if = {
+					limit = { trait = elusive_shadow }
+					random_list = {
+						95 = { set_character_flag = succ_extortion_flag }	# succ
+						5 = { set_character_flag = fail_extortion_flag }	# fail
+					}
+				}
+			}
+		}
+		option = {			# do nothin
+			name = EVTOPTBAmzCul.937
+			ai_chance = { factor = 1 }
+			clr_character_flag = recent_extortion_flag
+		}
+	}	
+	
+# thugs successful
+	character_event = { 
+		id = AmzCul.938
+		desc = EVTDESCAmzCul.938
+		picture = GFX_evt_drunk
+		border = GFX_event_normal_frame_intrigue
+		
+		mean_time_to_happen = { days = 50 }
+		trigger = { 
+			has_character_flag = succ_extortion_flag 
+			NOT = { is_inaccessible_trigger = yes } 
+			war = no
+		}
+
+		option = {	# no man rich more for less
+			name = EVTOPTAAmzCul.938
+			ai_chance = { factor = 10 }	
+			scaled_wealth = 0.3
+			add_character_modifier = {
+				name = extorting_locals_modifier
+				years = 3
+			}		
+			clr_character_flag = succ_extortion_flag
+		}
+	}	
+	
+# thugs betray
+	character_event = { 
+		id = AmzCul.939
+		desc = EVTDESCAmzCul.939
+		picture = GFX_evt_drunk
+		border = GFX_event_normal_frame_intrigue
+		
+		mean_time_to_happen = { days = 50 }
+		trigger = { 
+			has_character_flag = fail_extortion_flag 
+			NOT = { is_inaccessible_trigger = yes } 
+			war = no
+		}
+
+		option = {	# damn thugs
+			name = EVTOPTAAmzCul.939
+			ai_chance = { factor = 10 }	
+			scaled_prestige = -1
+			add_character_modifier = { 
+				name = publicly_humiliated   
+				years = 5
+			}
+			clr_character_flag = fail_extortion_flag
+		}
+	}	
+	
+# host academic forum
+	character_event = { 
+		id = AmzCul.940
+		desc = EVTDESCAmzCul.940
+		picture = GFX_evt_open_book_hf
+		border = GFX_event_normal_frame_religion
+		
+		is_triggered_only = yes
+		
+		option = {			# invite foreign academics
+			name = EVTOPTAAmzCul.940
+			ai_chance = { factor = 10 }
+			scaled_wealth = -0.5
+			if = {
+				limit = { trait = detached_priest }
+				capital_scope = {
+					add_province_modifier = { 
+						name = host_academics_modifier 
+						years = 1
+					}
+				}
+			}
+			if = {
+				limit = { trait = martial_cleric }
+				capital_scope = {
+					add_province_modifier = { 
+						name = host_academics_modifier 
+						years = 2
+					}
+				}
+			}
+			if = {
+				limit = { trait = scholarly_theologian }
+				capital_scope = {
+					add_province_modifier = { 
+						name = host_academics_modifier 
+						years = 3
+					}
+				}
+			}
+			if = {
+				limit = { trait = mastermind_theologian }
+				capital_scope = {
+					add_province_modifier = { 
+						name = host_academics_modifier 
+						years = 4
+					}
+				}
+			}
+		}
+		option = {			# do nothin
+			name = EVTOPTBAmzCul.940
+			ai_chance = { factor = 1 }
+			clr_character_flag = recent_academics_flag
+		}
+	}	
+	
+# host public games
+	character_event = { 
+		id = AmzCul.941
+		desc = EVTDESCAmzCul.941
+		picture = GFX_evt_jugglers
+		border = GFX_event_normal_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {			# let the games begin
+			name = EVTOPTAAmzCul.941
+			ai_chance = { factor = 10 }
+			scaled_wealth = -0.1
+			add_character_modifier = { 
+				name = host_games_modifier   
+				years = 3
+				stacking = yes
+			}
+		}
+		option = {			# do nothing
+			name = EVTOPTBAmzCul.941
+			ai_chance = { factor = 1 }
+			clr_character_flag = recent_games_flag
+		}
+	}	
+	
+# public games cancelled
+	character_event = { 
+		id = AmzCul.942
+		desc = EVTDESCAmzCul.942
+		picture = GFX_evt_jugglers
+		border = GFX_event_normal_frame_diplomacy
+		
+		is_triggered_only = yes
+		trigger = {
+			has_character_modifier = host_games_modifier
+			OR = {
+				capital = { is_occupied = yes }
+				wealth < 1
+			}
+		}
+		
+		option = {			# let the games end
+			name = EVTOPTAAmzCul.942
+			ai_chance = { factor = 10 }
+			remove_character_modifier = host_games_modifier
+		}
+	}	
+
+# public games cancelled
+	character_event = { 
+		id = AmzCul.943
+		desc = EVTDESCAmzCul.943
+		picture = GFX_evt_jugglers
+		border = GFX_event_normal_frame_diplomacy
+		
+		is_triggered_only = yes
+		
+		option = {			# let the games end
+			name = EVTOPTAAmzCul.943
+			ai_chance = { factor = 10 }
+			clr_character_flag = recent_games_continue_flag
+			remove_character_modifier = host_games_modifier
+		}
+		
+		option = {			# let the games continue
+			name = EVTOPTBAmzCul.943
+			ai_chance = { factor = 10 }
+			clr_character_flag = recent_games_continue_flag
+		}
+	}		
+	
+# extortion cancelled
+	character_event = { 
+		id = AmzCul.944
+		desc = EVTDESCAmzCul.944
+		picture = GFX_evt_drunk
+		border = GFX_event_normal_frame_intrigue
+		
+		is_triggered_only = yes
+		
+		option = {			# let the villainy end
+			name = EVTOPTAAmzCul.944
+			ai_chance = { factor = 10 }
+			clr_character_flag = recent_extortion_continue_flag
+			remove_character_modifier = extorting_locals_modifier	
+		}
+		
+		option = {			# let the villainy continue
+			name = EVTOPTBAmzCul.944
+			ai_chance = { factor = 10 }
+			clr_character_flag = recent_extortion_continue_flag
+		}
+	}	
+	
+# extortion cancelled through loss of province
+#	character_event = { 
+#		id = AmzCul.945
+#		hide_window = yes
+#		
+#		is_triggered_only = yes
+#		trigger = {
+#			any_demesne_province = {
+#				has_province_modifier = extorting_locals_modifier
+#			}
+#			NOR = {
+#				had_character_flag = { flag = recent_extortion_flag years = 3 }
+#			}
+#		}
+#		
+#		option = {			# let the villainy end
+#			name = EVTOPTAAmzCul.944
+#			ai_chance = { factor = 10 }
+#			any_demesne_province = {
+#				remove_province_modifier = extorting_locals_modifier
+#			}	
+#		}
+#	}
+	
+# academic forum cancelled through loss of province
+#	character_event = { 
+#		id = AmzCul.946
+#		hide_window = yes
+#		
+#		is_triggered_only = yes
+#		trigger = {
+#			any_demesne_province = {
+#				has_province_modifier = host_academics_modifier
+#			}
+#			NOR = {
+#				had_character_flag = { flag = recent_academics_flag years = 4 }
+#			}
+#		}
+#		
+#		option = {			# cancel event
+#			name = EVTOPTAAmzCul.945
+#			ai_chance = { factor = 10 }
+#				remove_province_modifier = host_academics_modifier
+#			}	
+#		}
+#	}	
+	
+# extortion notif
+	character_event = { 
+		id = AmzCul.946
+		desc = EVTDESCAmzCul.946
+		portrait = ROOT
+		notification = yes
+		
+		mean_time_to_happen = { 
+			days = 150 
+			
+			modifier = {			
+				factor = 1		
+				trait = amateurish_plotter
+			}
+			modifier = {			
+				factor = 0.9		
+				trait = flamboyant_schemer
+			}
+			modifier = {			
+				factor = 0.8		
+				trait = intricate_webweaver
+			}
+			modifier = {			
+				factor = 0.7	
+				trait = elusive_shadow
+			}
+		}
+		
+		trigger = {
+			has_character_modifier = extorting_locals_modifier
+		}
+
+		immediate = {
+			random_list = {
+				30 = { scaled_wealth = 0.05 }
+				20 = { scaled_wealth = 0.10 }
+				10 = { scaled_wealth = 0.15 }
+			}
+		}
+	}
+	
+# abortion options
+	character_event = { 
+		id = AmzCul.947
+		desc = EVTDESCAmzCul.947
+		picture = GFX_evt_fishing
+		border = GFX_event_character_frame_religion
+		
+		is_triggered_only = yes
+
+		option = {	# yes abortion
+			name = EVTOPTAAmzCul.947
+			ai_chance = { factor = 10 }	
+		# penalty based on religious views
+			if = {
+				limit = {
+					OR = {					# strictest rules
+						religion_group = christian
+						religion_group = zoroastrian_group
+						religion_group = indian_group
+					}
+					NOR = { 				# permitted by feminist heresies only
+						religion = cathar 
+						religion = bogomilist
+						religion = messalian
+						religion = mazdaki
+					}
+				}
+				scaled_piety = -15.0
+			}
+			if = {
+				limit = {
+					religion_group = muslim
+					NOR = {					# permitted if mother at risk 
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+					}
+				}
+				decadence = 20		# less severe than piety but it's shared across dynasty
+			}
+			if = {
+				limit = {
+					religion_group = jewish_group
+					NOR = {					# permitted if mother at risk 
+						trait = hard_pregnancy
+						trait = troubled_pregnancy
+					}
+				}
+				scaled_piety = -2.5
+				scaled_wealth = -0.75
+			}
+			if = {
+				limit = {
+					religion_group = pagan_group
+					NOR = {					# permitted if feminist or misandrist
+						has_religion_feature = religion_equal
+						has_religion_feature = religion_matriarchal 
+					}
+				}
+				scaled_piety = -2.5
+			}
+		# status of women determines additional piety loss, none for full status	
+			if = {
+				limit = {
+					primary_title = { has_law = status_of_women_0 }
+				}
+				scaled_piety = {
+					value = -2.0
+					min = 20
+				}
+			}
+			if = {
+				limit = {
+					primary_title = { has_law = status_of_women_1 }
+				}
+				scaled_piety = {
+					value = -1.5
+					min = 15
+				}
+			}
+			if = {
+				limit = {
+					primary_title = { has_law = status_of_women_2 }
+				}
+				scaled_piety = {
+					value = -1.0
+					min = 10
+				}
+			}
+			if = {
+				limit = {
+					primary_title = { has_law = status_of_women_3 }
+				}
+				scaled_piety = {
+					value = -0.5
+					min = 05
+				}
+			}	
+		# modifiers based on health
+			if = {
+				limit = { health <= 3 }
+				random_list = {
+					30 = { 
+						add_character_modifier = {
+							name = negative_abortion_modifier   
+							years = 1
+						}
+					}
+					70 = { 
+						add_character_modifier = {
+							name = recent_abortion_modifier   
+							years = 3
+						}
+					}
+				}
+			}
+			if = {
+				limit = { 
+					health > 3 
+					health <= 4 
+				}
+				random_list = {
+					20 = { 
+						add_character_modifier = {
+							name = negative_abortion_modifier   
+							years = 1
+						}
+					}
+					80 = { 
+						add_character_modifier = {
+							name = recent_abortion_modifier   
+							years = 3
+						}
+					}
+				}
+			}
+			if = {
+				limit = { 
+					health > 4 
+					health <= 5 
+				}
+				random_list = {
+					5 = { 
+						add_character_modifier = {
+							name = negative_abortion_modifier   
+							years = 1
+						}
+					}
+					95 = { 
+						add_character_modifier = {
+							name = recent_abortion_modifier   
+							years = 3
+						}
+					}
+				}
+			}
+			if = {
+				limit = { health > 5 }
+				add_character_modifier = {
+					name = recent_abortion_modifier   
+					years = 3
+				}
+			}
+		# removes pregnancy
+			hidden_tooltip = { cancel_pregnancy = yes } 
+			if = {
+				limit = { trait = pregnant }
+				remove_trait = pregnant
+			}
+			if = {
+				limit = { trait = hard_pregnancy }
+				remove_trait = hard_pregnancy
+			}
+			if = {
+				limit = { trait = troubled_pregnancy }
+				remove_trait = troubled_pregnancy
+			}
+			if = {
+				limit = { trait = pregnancy_finishing }
+				remove_trait = pregnancy_finishing
+			}
+			clr_character_flag = seeking_abortion_flag
+			spouse = {
+				character_event = { id = AmzCul.948 days = 5 }
+			}
+		# removal or flags and modifiers 
+			hidden_tooltip = {
+				remove_trait = in_hiding
+				remove_trait = travelling
+				remove_character_modifier = mother_praying_health
+				remove_character_modifier = mother_resting_health
+				remove_character_modifier = mother_partying_health
+				remove_character_modifier = mother_bad_omen
+				remove_character_modifier = mother_vow_chastity
+				remove_character_modifier = mother_vow_humility
+				remove_character_modifier = mother_vow_charity
+				remove_character_modifier = mother_vow_temperance
+				remove_character_modifier = mother_dark_rest
+				remove_character_modifier = mother_chatting
+				remove_character_modifier = mother_minor_rest
+				remove_character_modifier = mother_exposed_to_elements
+				remove_character_modifier = mother_comforted
+				remove_character_modifier = mother_popular
+				remove_character_modifier = mother_fertility_festival_1
+				remove_character_modifier = mother_fertility_festival_2
+				remove_character_modifier = mother_festival_blessing
+				clr_character_flag = mother_asked_retirement 
+				clr_character_flag = flag_mother_dark_rest
+				clr_character_flag = mother_gossip_listening 
+				clr_character_flag = mother_gossip_talking
+				clr_character_flag = mother_gossip_trusting
+				clr_character_flag = mother_gossip_plotting
+				clr_character_flag = mother_gossip_envious
+				clr_character_flag = mother_gossip_shy
+				clr_character_flag = mother_gossip_learning
+				clr_character_flag = mother_gossip_content
+				clr_character_flag = mother_gossip_gluttonous
+				clr_character_flag = flag_vatican_prince
+				clr_character_flag = mother_craved_quail
+				clr_character_flag = mother_craved_hare
+				clr_character_flag = mother_craved_trout
+				clr_character_flag = mom_hopes_child_warrior
+				clr_character_flag = mom_hopes_child_strong
+				clr_character_flag = mom_hopes_child_pretty
+				clr_character_flag = mom_hopes_child_smart
+				clr_character_flag = mom_hopes_child_boy 
+				clr_character_flag = mom_hopes_child_girl 
+				clr_character_flag = drunk_pregnant 
+				clr_character_flag = drunkard_pregnant
+				clr_character_flag = gluttonous_pregnant
+				clr_character_flag = wroth_pregnant 
+				clr_character_flag = depressed_pregnant 
+				clr_character_flag = pregnancy_healer_help
+				clr_character_flag = pregnancy_priest_comfort
+				clr_character_flag = pregnancy_shaman_comfort
+				clr_character_flag = pregnancy_spouse_comfort
+				clr_character_flag = gabriel_baby
+				clr_character_flag = lucifer_baby
+				clr_character_flag = iblis_baby
+				clr_character_flag = thor_baby
+				clr_character_flag = loki_baby
+				clr_character_flag = tengri_baby
+				clr_character_flag = erlik_baby
+				clr_character_flag = troubled_pregnancy_relapse
+				clr_character_flag = flag_mother_festival_gregarious
+				clr_character_flag = flag_mother_festival_kind
+				clr_character_flag = flag_mother_festival_piety
+				clr_character_flag = flag_mother_festival_proud
+				clr_character_flag = flag_mother_festival_ambitious
+				clr_character_flag = flag_mother_festival_prestige
+				clr_character_flag = flag_mother_festival_peasants
+				clr_character_flag = flag_mother_festival_vassals
+				clr_character_flag = flag_mother_festival_gluttonous
+				clr_character_flag = flag_mother_festival_drunkard
+				clr_character_flag = flag_mother_festival_chaste
+				clr_character_flag = flag_mother_festival_lustful
+				clr_character_flag = flag_mother_festival_excited
+				clr_character_flag = flag_mother_festival_humbled
+				clr_character_flag = flag_gossiping_relatives 
+				clr_character_flag = flag_churching_wealth
+				clr_character_flag = flag_churching_prestige
+				clr_character_flag = flag_churching_piety
+				clr_character_flag = flag_churching_nothing
+				clr_character_flag = flag_churching_vision
+				clr_character_flag = flag_churching_positive
+				clr_character_flag = flag_churching_negative
+				clr_character_flag = flag_churching_sinner
+			}
+		}
+		option = {	# no abortion
+			name = EVTOPTBAmzCul.947
+			ai_chance = { factor = 1 }	
+			clr_character_flag = seeking_abortion_flag
+		}
+	}	
+	
+# husband notified of abortion
+	character_event = { 
+		id = AmzCul.948
+		desc = EVTDESCAmzCul.948
+		picture = GFX_evt_fishing
+		border = GFX_event_normal_frame_religion
+		portrait = FROM
+		
+		is_triggered_only = yes
+
+		option = {	# good response
+			name = EVTOPTAAmzCul.948
+			FROM = {
+				show_scope_change = no 
+				opinion = { 
+					who = ROOT
+					modifier = opinion_forgiven
+					years = 5
+				} 
+			}
+			ai_chance = { 
+				factor = 10 
+				modifier = { 
+					factor = 1.25
+					trait = humble
+				}
+				modifier = { 
+					factor = 1.5
+					trait = kind
+				}
+				modifier = { 
+					factor = 1.5
+					trait = trusting
+				}
+				modifier = { 
+					factor = 1.5
+					trait = patient
+				}
+				modifier = { 
+					factor = 2
+					OR = { 				
+						religion = cathar 
+						religion = bogomilist
+						religion = messalian
+						religion = mazdaki
+						has_religion_feature = religion_equal
+						has_religion_feature = religion_matriarchal 
+					}
+				}
+				modifier = { 
+					factor = 2
+					OR = { 				
+						culture = themiskyran_amz  
+						culture = valkyrie_amz
+						culture = scythian_amz
+						culture = parthian_amz
+						culture = kushite_amz
+						culture = carthaginian_amz
+						culture = etruscan_amz
+						culture = pritani_amz
+						culture = illyrian_amz 
+					}
+				}
+			}
+		}
+	#	option = {	# moderate response
+	#		name = EVTOPTBAmzCul.948
+	#		ai_chance = { factor = 1 }	
+	#	}
+		option = {	# bad response
+			name = EVTOPTCAmzCul.948
+			opinion = { 
+				who = ROOT
+				modifier = opinion_executed_child
+				years = 5
+			} 
+			ai_chance = { 
+				factor = 10 
+				modifier = { 
+					factor = 1.25
+					trait = proud
+				}
+				modifier = { 
+					factor = 1.5
+					OR = {					
+						religion_group = christian
+						religion_group = zoroastrian_group
+						religion_group = indian_group
+					}
+					NOR = { 				
+						religion = cathar 
+						religion = bogomilist
+						religion = messalian
+						religion = mazdaki
+					}
+					trait = zealous
+				}
+				modifier = { 
+					factor = 1.5
+					trait = envious
+				}
+				modifier = { 
+					factor = 1.25
+					trait = cruel
+				}
+				modifier = { 
+					factor = 1.25
+					has_children = no
+				}
+			}
+		}
+		option = {	# adulterer response
+			name = EVTOPTDAmzCul.948
+			ai_chance = { factor = 50 }	
+			trigger = {
+				FROM = {
+					OR = {
+						has_character_modifier = incestuous_adulteress 
+						has_character_modifier = adulteress 
+						has_character_modifier = adulterous_priest	
+					}
+				}
+			}
+			scaled_piety = 0.25
+		}
+	}
+	

@@ -1,0 +1,482 @@
+targetted_decisions = {
+
+	grant_priviliges = {
+		is_high_prio = yes
+		ai_target_filter = none
+		filter = vassals
+		ai = no
+		
+		
+		
+		from_potential = {
+			ai = no
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			is_adult = yes
+			higher_real_tier_than = BARON
+			is_feudal = yes
+		}
+		
+		potential = {
+			is_feudal = yes
+			OR = {
+				AND = {
+					liege = { tier = COUNT }
+					among_most_powerful_vassals = 2
+				}
+				AND = {
+					liege = { tier = DUKE }
+					among_most_powerful_vassals = 2
+				}
+				AND = {
+					liege = { tier = KING }
+					among_most_powerful_vassals = 5
+				}
+				AND = {
+					liege = { tier = EMPEROR }
+					among_most_powerful_vassals = 6
+				}
+			}				
+			higher_real_tier_than = BARON
+			NOT = {	has_character_modifier = granted_priviligues }
+			NOT = { character = FROM }
+		}
+		
+		allow = { 
+			
+			NOT = { has_character_flag = dont_exploit_noob }
+			FROM = {
+				NOR = {
+					 has_character_modifier = liege_granted_priviligues_6
+					AND = { 
+						real_tier = COUNT
+						OR = {
+							has_character_modifier = liege_granted_priviligues_2
+						}
+					}			
+									
+					AND = { 
+						real_tier = DUKE
+						OR = {
+							has_character_modifier = liege_granted_priviligues_2
+						}
+					}
+					AND = { 
+						real_tier = KING
+						OR = {
+							has_character_modifier = liege_granted_priviligues_5
+						}
+					}
+				}
+			}
+			
+			
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					ROOT = { has_character_flag = revoked_request }
+				}
+				FROM = {
+					apply_liege_priviligues = yes 
+					set_character_flag = liege_granted_priviliges
+				}				
+				add_character_modifier = { name = granted_priviligues duration = -1 inherit = yes }
+				set_truce = { who = FROM years = 4 }
+				hidden_tooltip = {
+					FROM = { set_truce = { who = ROOT years = 4 } }
+				}
+				
+			}
+			
+			else = {
+				FROM = {
+					apply_liege_priviligues = yes 					
+					set_character_flag = liege_granted_priviliges
+				}
+				add_character_modifier = { name = granted_priviligues duration = -1 inherit = yes }
+				set_truce = { who = FROM years = 8 }
+				hidden_tooltip = {
+					FROM = { set_truce = { who = ROOT years = 8 } }
+				}
+			}
+					
+			
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		ai_acceptance = {
+			factor = 0
+    	}
+	}
+	
+	
+	
+	######################################
+
+	
+	revoke_priviligues = {
+		is_high_prio = yes
+		ai_target_filter = none
+		filter = vassals
+		ai = no		
+				
+		
+		from_potential = {
+			ai = no
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			is_adult = yes
+			higher_real_tier_than = BARON
+			is_feudal = yes
+			NOT = { has_character_modifier = dont_exploit_noob }
+		}
+		
+		potential = {
+			has_character_modifier = granted_priviligues
+		}
+		
+		
+		allow = {
+			OR = {
+				AND = {
+					FROM = { has_opinion_modifier = { who = ROOT modifier = opinion_traitor  } }
+					NOT = { war_with = FROM }
+					NOT = { prisoner = yes }
+					
+				}
+				 AND = {
+					NOT = { war_with = FROM }
+					has_character_modifier = granted_priviligues 
+					NOT = { has_truce = FROM }
+					NOT = { has_character_modifier = priviligues_timer }
+					
+				}
+			}
+		}
+		
+		effect = {
+			FROM = {
+				character_event = { id = sdarkages.006 }
+				FROM = { add_character_modifier = { name = dont_exploit_noob hidden = yes duration = 1 } }
+			}
+			
+		}
+				
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		ai_acceptance = {
+			factor = 0
+    	}
+	}
+	
+	
+	######################################
+	
+	revoke_priviligues_special = {
+		is_high_prio = yes
+		ai_target_filter = none
+		filter = vassals
+		ai = no		
+				
+		
+		from_potential = {
+			ai = no
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			is_adult = yes
+			higher_real_tier_than = BARON
+			is_feudal = yes
+		}
+		
+		potential = {
+			
+			NOT = { war_with = FROM }
+			prisoner = yes
+			has_character_modifier = granted_priviligues
+		}
+		
+		
+		allow = {
+		
+			FROM = { has_opinion_modifier = { who = ROOT modifier = opinion_traitor  } }
+			NOT = { war_with = FROM }
+			prisoner = yes
+			
+		}
+		
+		effect = {
+			remove_character_modifier = granted_priviligues
+			imprison = no
+			FROM = { add_character_modifier = { name = dont_exploit_noob hidden = yes duration = 1 } }
+			
+		}
+				
+		ai_will_do = {
+			factor = 0
+		}
+		
+		ai_acceptance = {
+			factor = 0
+    	}
+	}
+	
+	
+	######################################
+	
+	
+	ask_liege_for_priviligue = {
+		is_high_prio = yes
+		ai_target_filter = none
+		filter = liege
+		ai = no		
+				
+		
+		from_potential = {
+			ai = no
+			is_incapable = no
+			NOT = { trait = resting }
+			prisoner = no
+			is_adult = yes
+			higher_real_tier_than = BARON
+			is_feudal = yes
+		}
+		
+		potential = {
+			war = no
+			higher_real_tier_than = COUNT
+			is_feudal = yes
+			is_adult = yes
+			
+		}
+		
+		
+		allow = {
+			FROM = { NOT = { has_character_modifier = granted_priviligues } }
+			FROM = { NOT = { has_character_modifier = priviligues_timer } }
+			OR = {
+				AND = {
+					FROM = { liege = { tier = COUNT } } 
+					FROM = { among_most_powerful_vassals = 2 }
+				}
+				AND = {
+					FROM = { liege = { tier = DUKE } }
+					FROM = { among_most_powerful_vassals = 2 }
+				}
+				AND = {
+					FROM = { liege = { tier = KING } }
+					FROM = { among_most_powerful_vassals = 5 }
+				}
+				AND = {
+					FROM = { liege = { tier = EMPEROR } }
+					FROM = { among_most_powerful_vassals = 6 }
+				}
+			}
+		
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				random_list = {
+					2 = { #grant player the priviligue. fire event informing him
+					
+						modifier = { 
+							factor = 0.8
+							FROM = { NOT = { learning = 4 } }
+						}
+						modifier = { 
+							factor = 0.8
+							FROM = { NOT = { learning = 6 } }
+						}
+						modifier = { 
+							factor = 0.8
+							FROM = { NOT = { learning = 8 } }
+						}
+						modifier = { 
+							factor = 1.25
+							FROM = { learning = 12 }
+						}
+						modifier = { 
+							factor = 1.35
+							FROM = { learning = 15 }
+						}
+						modifier = { 
+							factor = 1.5
+							FROM = { learning = 18 }
+						}
+						modifier = { 
+							factor = 1.75
+							FROM = { learning = 21 }
+						}
+						modifier = {
+							factor = 3
+							is_friend = FROM
+						}
+						modifier = {
+							factor = 0
+							is_rival = FROM
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = gregarious }
+						}
+						modifier = {
+							factor = 0.5
+							trait = ambitious
+						}
+						modifier = {
+							factor = 0.5
+							trait = greedy
+						}
+						modifier = {
+							factor = 0.5
+							trait = envious
+						}
+						modifier = {
+							factor = 0.5
+							trait = paranoid
+						}
+						modifier = {
+							factor = 2
+							trait = content
+						}
+						modifier = {
+							factor = 2
+							trait = cynical
+						}
+						modifier = {
+							factor = 3.5
+							trait = kind
+						}
+						modifier = {
+							factor = 2.5
+							trait = charitable
+						}
+						modifier = {
+							factor = 1.5
+							trait = humble
+						}
+						modifier = {
+							factor = 1.2
+							opinion = { who = FROM value = 20 }
+						}
+						modifier = {
+							factor = 1.4
+							opinion = { who = FROM value = 40 }
+						}
+						modifier = {
+							factor = 1.6
+							opinion = { who = FROM value = 60 }
+						}
+						modifier = {
+							factor = 1.8
+							opinion = { who = FROM value = 80 }
+						}
+						modifier = {
+							factor = 0.1
+							NOT = { opinion = { who = FROM value = 0 } }
+						}
+						
+						FROM = { letter_event = { id = sdarkages.011 days = 10 } } #infrom player he gets the priviliges, set truce.
+						set_character_flag = yesyesyes
+					}
+					
+					
+					8 = { 
+					
+						modifier = {
+							factor = 0.8
+							NOT = { intrigue = 2 }
+						}
+						modifier = {
+							factor = 0.8
+							NOT = { intrigue = 4 }
+						}
+						modifier = {
+							factor = 0.8
+							NOT = { intrigue = 6 }
+						}
+						modifier = {
+							factor = 0.8
+							NOT = { intrigue = 8 }
+						}
+						modifier = {
+							factor = 1.25
+							intrigue = 12
+						}
+						modifier = {
+							factor = 1.35
+							intrigue = 15
+						}
+						modifier = {
+							factor = 1.5
+							intrigue = 18
+						}
+						modifier = {
+							factor = 1.75
+							intrigue = 21
+						}
+						
+						modifier = {
+							factor = 0.8
+							NOT = { diplomacy = 2 }
+						}
+						modifier = {
+							factor = 0.8
+							NOT = { diplomacy = 4 }
+						}
+						modifier = {
+							factor = 0.8
+							NOT = { diplomacy = 6 }
+						}
+						modifier = {
+							factor = 0.8
+							NOT = { diplomacy = 8 }
+						}
+						modifier = {
+							factor = 1.25
+							diplomacy = 12
+						}
+						modifier = {
+							factor = 1.35
+							diplomacy = 15
+						}
+						modifier = {
+							factor = 1.5
+							diplomacy = 18
+						}
+						modifier = {
+							factor = 1.75
+							diplomacy = 21
+						}
+						
+						FROM = { letter_event = { id = sdarkages.012 days = 10 } } #notify player he got refused, give option to declare war
+						set_character_flag = nonono
+					}
+				}
+			}
+		}
+				
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		ai_acceptance = {
+			factor = 0
+    	}
+		
+	}
+}
+
+		

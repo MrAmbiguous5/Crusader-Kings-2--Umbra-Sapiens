@@ -1,0 +1,77 @@
+namespace = darkages
+
+character_event = { 		#ANNOUNCE FIRST
+	id = darkages.72390
+	title = EVTNAME1972390
+	desc = EVTDESC1972390
+	picture = GFX_evt_da_darkages
+	border = GFX_event_normal_frame_economy
+
+	trigger = {
+		ai = no
+		NOT = { has_character_modifier = da_patreon_first }
+		NOT = { has_character_modifier = da_patreon_75 }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		set_character_flag = da_patreon_flag
+
+		add_character_modifier = {
+			name = da_patreon_first
+			duration = -1
+			hidden = yes
+			inherit = yes
+		}
+		
+		add_character_modifier = {
+			name = da_patreon_75
+			duration = 27375
+			hidden = yes
+			inherit = yes
+		}		
+	}
+	
+	option = {
+		name = EVTOPTA1972390
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP163 }
+	}
+	
+}
+
+character_event = { 		#ANNOUNCE SECOND
+	id = darkages.72391
+	title = EVTNAME1972391
+	desc = EVTDESC1972391
+	picture = GFX_evt_da_darkages
+	border = GFX_event_normal_frame_economy
+
+	trigger = {
+		NOT = { has_character_modifier = da_patreon_finish }		
+		NOT = { has_character_modifier = da_patreon_75 }
+		has_character_modifier = da_patreon_first		
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+	
+		add_character_modifier = {
+			name = da_patreon_finish
+			duration = -1
+			hidden = yes
+			inherit = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1972391
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP164 }
+	}
+	
+}

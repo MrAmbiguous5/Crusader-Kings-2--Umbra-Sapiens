@@ -1,0 +1,238 @@
+﻿#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+#Modifiers
+society_heir;Designated Heir;;;;;;;;;;;;;
+society_heir_desc;This person has been designated as heir to a knightly order;;;;;;;;;;;;;;;
+diplo_horse;Handsome Horse;;;;;;;;;;
+diplo_horse_desc;This person rides a particularly handsome horse;;;;;;;;;;;;
+mil_horse;War Horse;;;;;;;;;;
+mil_horse_desc;This person rides a particularly fearsome horse into battle;;;;;;;;;;;;
+plus_diplo_horse;Very Handsome Horse;;;;;;;;;;
+plus_diplo_horse_desc;This person rides an extraordinarily handsome horse;;;;;;;;;;;;
+plus_mil_horse;Great War Horse;;;;;;;;;;
+plus_mil_horse_desc;This person rides an extraordinarily fearsome horse into battle;;;;;;;;;;;;
+dismissed_courtly;Dismissed Courtly Advances;;;;;;;;;;;;;;
+dismissed_courtly_desc;This person has dismissed the courtly advances of a knight;;;;;;;;;;;;
+partial_book_seclusion;Secluded for Writing;;;;;;;;;;;;
+partial_book_seclusion_desc;This person has secluded themselves in the hopes of writing a great poetic work;;;;;;;;;;;
+
+#Traits
+book_seclusion;Secluded for Writing;;;;;;;;;;;;
+book_seclusion_desc;This person has secluded themselves in the hopes of writing a great poetic work;;;;;;;;;;;
+
+#Squire
+title_knight_squire;Squire;;;;;;;;;;
+title_knight_squire_desc;A squire serves as an attendant to a knight and trains to become a knight themselves;;;;;;;;;;;
+
+#Society names
+military_knights;Order of the Star;;;;;;;;;;;;;x
+military_knights1;Order of the Dragon;;;;;;;;;;;;;x
+military_knights2;Order of Saint George;;;;;;;;;;;;;x
+diplomatic_knights;Order of the Garter;;;;;;;;;;;;;x
+diplomatic_knights1;Order of the Golden Fleece;;;;;;;;;;;;;x
+diplomatic_knights2;Order of the Thistle;;;;;;;;;;;;;x
+
+#Society description
+military_knights_desc;The Order of the Star is a military order of knights, warriors from different lands join together to defend the weak in the name of the Faith, all with the guidance of a great lord. While that is the stated purpose, many also join for fortune and glory.;;;;;;;;;;;;;x
+military_knights1_desc;The Order of the Dragon is a military order of knights, warriors from different lands join together to defend the weak in the name of the Faith, all with the guidance of a great lord. While that is the stated purpose, many also join for fortune and glory.;;;;;;;;;;;;;x
+military_knights2_desc;The Order of Saint George is a military order of knights, warriors from different lands join together to defend the weak in the name of the Faith, all with the guidance of a great lord. While that is the stated purpose, many also join for fortune and glory.;;;;;;;;;;;;;x
+diplomatic_knights_desc;The Order of the Garter is a diplomatic order of knights, nobles from different lands join together to defend the weak in the name of the Faith, all with the guidance of a great lord. While that is the stated purpose, many also join for the prestige that comes with this exclusive club.;;;;;;;;;;;;;x
+diplomatic_knights1_desc;The Order of the Golden Fleece is a diplomatic order of knights, nobles from different lands join together to defend the weak in the name of the Faith, all with the guidance of a great lord. While that is the stated purpose, many also join for the prestige that comes with this exclusive club.;;;;;;;;;;;;;x
+diplomatic_knights2_desc;The Order of the Thistle is a diplomatic order of knights, nobles from different lands join together to defend the weak in the name of the Faith, all with the guidance of a great lord. While that is the stated purpose, many also join for the prestige that comes with this exclusive club.;;;;;;;;;;;;;x
+
+#Leader description
+military_knights_leader_desc;The grandmaster guides and defends the order and will pass it through their family;;;;;;;;;;;;;x
+military_knights1_leader_desc;The grandmaster guides and defends the order and will pass it through their family;;;;;;;;;;;;;x
+military_knights2_leader_desc;The grandmaster guides and defends the order and will pass it through their family;;;;;;;;;;;;;x
+diplomatic_knights_leader_desc;The grandmaster guides and defends the order and will pass it through their family;;;;;;;;;;;;;x
+diplomatic_knights1_leader_desc;The grandmaster guides and defends the order and will pass it through their family;;;;;;;;;;;;;x
+diplomatic_knights2_leader_desc;The grandmaster guides and defends the order and will pass it through their family;;;;;;;;;;;;;x
+
+##Name of the ranks
+
+#Order of the Star
+military_knights_rank_1_female;Knight;;;;;;;;;;;;;x
+military_knights_rank_2_female;Officer;;;;;;;;;;;;;x
+military_knights_rank_3_female;Commander;;;;;;;;;;;;;x
+military_knights_rank_4_female;Grandmaster;;;;;;;;;;;;;x
+military_knights_rank_1_male;Knight;;;;;;;;;;;;;x
+military_knights_rank_2_male;Officer;;;;;;;;;;;;;x
+military_knights_rank_3_male;Commander;;;;;;;;;;;;;x
+military_knights_rank_4_male;Grandmaster;;;;;;;;;;;;;x
+
+#Order of the Dragon
+military_knights1_rank_1_female;Knight;;;;;;;;;;;;;x
+military_knights1_rank_2_female;Officer;;;;;;;;;;;;;x
+military_knights1_rank_3_female;Commander;;;;;;;;;;;;;x
+military_knights1_rank_4_female;Grandmaster;;;;;;;;;;;;;x
+military_knights1_rank_1_male;Knight;;;;;;;;;;;;;x
+military_knights1_rank_2_male;Officer;;;;;;;;;;;;;x
+military_knights1_rank_3_male;Commander;;;;;;;;;;;;;x
+military_knights1_rank_4_male;Grandmaster;;;;;;;;;;;;;x
+
+#Order of Saint George
+military_knights2_rank_1_female;Knight;;;;;;;;;;;;;x
+military_knights2_rank_2_female;Officer;;;;;;;;;;;;;x
+military_knights2_rank_3_female;Commander;;;;;;;;;;;;;x
+military_knights2_rank_4_female;Grandmaster;;;;;;;;;;;;;x
+military_knights2_rank_1_male;Knight;;;;;;;;;;;;;x
+military_knights2_rank_2_male;Officer;;;;;;;;;;;;;x
+military_knights2_rank_3_male;Commander;;;;;;;;;;;;;x
+military_knights2_rank_4_male;Grandmaster;;;;;;;;;;;;;x
+
+#Order of the Garter
+diplomatic_knights_rank_1_female;Knight;;;;;;;;;;;;;x
+diplomatic_knights_rank_2_female;Officer;;;;;;;;;;;;;x
+diplomatic_knights_rank_3_female;Commander;;;;;;;;;;;;;x
+diplomatic_knights_rank_4_female;Grandmaster;;;;;;;;;;;;;x
+diplomatic_knights_rank_1_male;Knight;;;;;;;;;;;;;x
+diplomatic_knights_rank_2_male;Officer;;;;;;;;;;;;;x
+diplomatic_knights_rank_3_male;Commander;;;;;;;;;;;;;x
+diplomatic_knights_rank_4_male;Grandmaster;;;;;;;;;;;;;x
+
+#Order of the Golden Fleece
+diplomatic_knights1_rank_1_female;Knight;;;;;;;;;;;;;x
+diplomatic_knights1_rank_2_female;Officer;;;;;;;;;;;;;x
+diplomatic_knights1_rank_3_female;Commander;;;;;;;;;;;;;x
+diplomatic_knights1_rank_4_female;Grandmaster;;;;;;;;;;;;;x
+diplomatic_knights1_rank_1_male;Knight;;;;;;;;;;;;;x
+diplomatic_knights1_rank_2_male;Officer;;;;;;;;;;;;;x
+diplomatic_knights1_rank_3_male;Commander;;;;;;;;;;;;;x
+diplomatic_knights1_rank_4_male;Grandmaster;;;;;;;;;;;;;x
+
+#Order of Thistle
+diplomatic_knights2_rank_1_female;Knight;;;;;;;;;;;;;x
+diplomatic_knights2_rank_2_female;Officer;;;;;;;;;;;;;x
+diplomatic_knights2_rank_3_female;Commander;;;;;;;;;;;;;x
+diplomatic_knights2_rank_4_female;Grandmaster;;;;;;;;;;;;;x
+diplomatic_knights2_rank_1_male;Knight;;;;;;;;;;;;;x
+diplomatic_knights2_rank_2_male;Officer;;;;;;;;;;;;;x
+diplomatic_knights2_rank_3_male;Commander;;;;;;;;;;;;;x
+diplomatic_knights2_rank_4_male;Grandmaster;;;;;;;;;;;;;x
+
+#Create Order
+military_knights_creation;Create an Order of Military Knights;;;;;;;;;;;
+military_knights_creation_desc;Become the head of a new martial Order of Knights that you and your heirs will guide.;;;;;;;;;;;;;;;
+diplomatic_knights_creation;Create an Order of Diplomatic Knights;;;;;;;;;;;
+diplomatic_knights_creation_desc;Become the head of a new diplomatic Order of Knights that you and your heirs will guide.;;;;;;;;;;;;;;;
+
+#Rank up decision 
+request_to_rank_up_within_military_knights;Request a Promotion.;;;;;;;;;;;;;x
+request_to_rank_up_within_military_knights1;Request a Promotion.;;;;;;;;;;;;;x
+request_to_rank_up_within_military_knights2;Request a Promotion.;;;;;;;;;;;;;x
+request_to_rank_up_within_military_knights_tt;Has Honor greater or equal to [Root.GetKnightlyRankUpTooltip];;;;;;;;;;;;;x
+must_not_have_sent_request_already_tooltip;Must not have sent request already;;;;;;;;;;;;;;
+must_be_allowed_to_rank_up_tooltip;Must be allowed to rank up;;;;;;;;;;;;;;
+must_have_grandmaster_tooltip;Grandmaster exists;;;;;;;;;;;;;
+request_to_rank_up_within_diplomatic_knights;Request a Promotion.;;;;;;;;;;;;;x
+request_to_rank_up_within_diplomatic_knights1;Request a Promotion.;;;;;;;;;;;;;x
+request_to_rank_up_within_diplomatic_knights2;Request a Promotion.;;;;;;;;;;;;;x
+request_to_rank_up_within_diplomatic_knights_tt;Has Honor greater or equal to [Root.GetKnightlyRankUpTooltip];;;;;;;;;;;;;x
+
+#Powers
+military_knights_power_1;Search for a Squire;;;;;;;;;;;;;x
+military_knights_power_1_desc;Send men out to find someone to assist in your knightly duties;;;;;;;;;;;;;x
+military_knights_power_1_power_desc;Send men out to find someone to assist in your knightly duties;;;;;;;;;;;;;x
+military_knights_power_2p;Set Up a Pas d'Armes;;;;;;;;;;;;;x
+military_knights_power_2p_desc;Stake out a travelled spot and challenge any knight who passes to fight you or be dishonored;;;;;;;;;;;;;x
+military_knights_power_2p_power_desc;Engage in a series of duels for honor with fellow knights;;;;;;;;;;;;;x
+diplomatic_knights_power_2b;Write a Knightly Book;;;;;;;;;;;;;x
+diplomatic_knights_power_2b_desc;Use your natural eloquence to write a poetic work about a theme of your choosing;;;;;;;;;;;;;x
+diplomatic_knights_power_2b_power_desc;You may write a book that may also be passed to your descendants;;;;;;;;;;;;;x
+military_knights_power_3;Knight Your Squire;;;;;;;;;;;;;x
+military_knights_power_3_desc;After years of training, your squire is finally ready to become a knight;;;;;;;;;;;;;x
+military_knights_power_3_power_desc;Make your squire a full member of the order;;;;;;;;;;;;;x
+military_knights_power_3s;Attempt to Lose Your Sin;;;;;;;;;;;;;x
+military_knights_power_3s_desc;Attempt to become more pure by losing one of your sins;;;;;;;;;;;;;x
+military_knights_power_3s_power_desc;Attempt to lose one of your sins;;;;;;;;;;;;;x
+military_knights_power_3a;Raise Army of Knights;;;;;;;;;;;;;x
+military_knights_power_3a_desc;Call upon your fellow knights to come and fight with you in this war;;;;;;;;;;;;;x
+military_knights_power_3a_power_desc;Call upon your fellow knights to fight with you during a war;;;;;;;;;;;;;x
+military_knights_power_4t;Organize a Grand Tournament;;;;;;;;;;;;;x
+military_knights_power_4t_desc;Organize a grand tournament for members of your order to prove themselves;;;;;;;;;;;;;x
+military_knights_power_4t_power_desc;Organize a grand tournament with members of your order;;;;;;;;;;;;;x
+diplomatic_knights_power_4f;Organize a Grand Feast;;;;;;;;;;;;;x
+diplomatic_knights_power_4f_desc;Organize a grand feast with members of your order to mingle and prove their eloquence;;;;;;;;;;;;;x
+diplomatic_knights_power_4f_power_desc;Organize a grand feast with members of your order;;;;;;;;;;;;;x
+military_knights_power_2;Duel Sinner;;;;;;;;;;;;;x
+military_knights_power_2_desc;Challenge this sinner to personal combat;;;;;;;;;;;;;x
+military_knights_power_2_power_desc;Duel any catholic with at least two evil traits and less than two positive traits;;;;;;;;;;;;;x
+diplomatic_knights_power_2s;Court;;;;;;;;;;;;;x
+diplomatic_knights_power_2s_desc;Court this person in the spirit of pure courtly love;;;;;;;;;;;;;x
+diplomatic_knights_power_2s_power_desc;You may court any person within diplomatic range in the spirit of courtly love;;;;;;;;;;;;;x
+military_knights_power_4f;Request Favor;;;;;;;;;;;;;x
+military_knights_power_4f_desc;Request a favor from this person using your authority as grandmaster;;;;;;;;;;;;;x
+military_knights_power_4f_power_desc;Request a favor from any member of the Order;;;;;;;;;;;;;x
+military_knights_power_4k;Bestow a Knighthood;;;;;;;;;;;;;x
+military_knights_power_4k_desc;Knight this person and induct them into your order;;;;;;;;;;;;;x
+military_knights_power_4k_power_desc;Knight any catholic with at least 5 martial;;;;;;;;;;;;;x
+military_knights_power_4h;Proclaim Heir;;;;;;;;;;;;;x
+military_knights_power_4h_desc;Choose an heir to your order;;;;;;;;;;;;;x
+military_knights_power_4h_power_desc;By right clicking on your portrait, you can choose the heir to this society from its members;;;;;;;;;;;;;x
+military_knights_power_4hh;Remove Heir;;;;;;;;;;;;;x
+military_knights_power_4hh_desc;Take back your blessing for this person to be your heir;;;;;;;;;;;;;x
+military_knights_power_4hh_power_desc;By right clicking on the designated heir's portrait, you can remove them and choose another heir;;;;;;;;;;;;;x
+
+#Artifact
+veil_of_dymphna;Bloody Veil of Saint Dymphna;;;;;;;;;;;;;
+veil_of_dymphna_desc;Supposedly the blood-stained head covering that Saint Dymphna was wearing when she was martyred.;;;;;;;;;;;;;;;
+ancestor_ring_1;Signet Ring of [From.OriginalOwner.GetTitledFirstName];;;;;;;;;;;
+ancestor_ring_1_desc;The signet ring of a former count provides a bit of legitimacy to members of their dynasty.;;;;;;;;;;;
+ancestor_ring_2;Signet Ring of [From.OriginalOwner.GetTitledFirstName];;;;;;;;;;;
+ancestor_ring_2_desc;The signet ring of a former duke provides some legitimacy to members of their dynasty.;;;;;;;;;;;
+ancestor_ring_3;Signet Ring of [From.OriginalOwner.GetTitledFirstName];;;;;;;;;;;
+ancestor_ring_3_desc;The signet ring of a former king provides quite some legitimacy to members of their dynasty.;;;;;;;;;;;
+ancestor_ring_4;Signet Ring of [From.OriginalOwner.GetTitledFirstName];;;;;;;;;;;
+ancestor_ring_4_desc;The signet ring of a former emperor provides a significant legitimacy to members of their dynasty.;;;;;;;;;;;
+knight_book;Poetic Composition by [From.OriginalOwner.GetTitledFirstName];;;;;;;;;;;;
+knight_book_desc;This valuable book was written by [From.OriginalOwner.GetTitledName] in praise of their time and those who lived in it.;;;;;;;;;;;
+
+#Rule
+
+RULE_GROUP_CHIV;Chivalric Societies;;;;;;;;;;;
+RULE_WOMEN_CHIV;Chivalric Societies: Inclusion of Women;;;;;x
+RULE_WOMEN_CHIV_MARSHALS;Marshals Equality;;;;;;;;;;;
+RULE_WOMEN_CHIV_MARSHALS_DESC;Women will be allowed access to the orders only if the equality laws allow for female marshals;;;;;;;;;;
+RULE_WOMEN_CHIV_ALL;Always;;;;;;;;;
+RULE_WOMEN_CHIV_ALL_DESC;Women will always be allowed access to the orders;;;;;;;;;
+RULE_WOMEN_CHIV_NOT;Never;;;;;;;;;;
+RULE_WOMEN_CHIV_NOT_DESC;Women will never be allowed access to the orders;;;;;;;;;
+
+#Opinions
+
+opinion_courtly_refused;Refused courtly advances;;;;;;;;;;;;
+opinion_courting;Courting;;;;;;;;;;;;
+opinion_courtly_attracted;Attracted by courtship;;;;;;;;;;;
+opinion_courtly_repelled;Repelled by courthsip;;;;;;;;;;;
+opinion_courtly_yearning;Left yearning by courtship;;;;;;;;;;
+opinion_courtly_lover;Courtly lover;;;;;;;;;;;
+
+##Custom Localisation
+
+#Name of the ranks
+military_knights_rank_1;Knight;;;;;;;;;;;;;x
+military_knights_rank_2;Officer;;;;;;;;;;;;;x
+military_knights_rank_3;Commander;;;;;;;;;;;;;x
+military_knights_rank_4;Grandmaster;;;;;;;;;;;;;x
+
+#Name of the currency
+military_knights_currency;Honor;;;;;;;;;;;;;x
+diplomatic_knights_currency;Honor;;;;;;;;;;;;;x
+
+#Rank up tooltips
+GetKnightlyRankUpTooltip1;1000;;;;;;;;;;;;;x
+GetTutorialRankUpTooltip_Standard_Rank2;2000;;;;;;;;;;;;;x
+
+#GetSin
+lust;lust;;;;;;;;;;;;;
+greed;greed;;;;;;;;;;
+wrath;wrath;;;;;;;;;
+sloth;sloth;;;;;;;;;;
+posession;posession;;;;;;;;;;;;
+envy;envy;;;;;;;;;
+pride;pride;;;;;;;;;;;
+love_for_torture;love for torture;;;;;;;;;;;;
+cruelty;cruelty;;;;;;;;;;;
+monstrous_appetite;monstrous appetite;;;;;;;;;;
+
+#GetBeast
+wolf_hunt;Wolf;;;;;;;;;;;

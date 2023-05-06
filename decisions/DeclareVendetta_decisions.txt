@@ -1,0 +1,1486 @@
+# FROM is the person taking the decision
+# ROOT is the person targetted by decision 
+
+targetted_decisions = {
+
+	declarevendetta = {					
+		ai_check_interval = 50
+		is_high_prio = yes
+		filter = all
+		ai_target_filter = all		# ai limited by other conditions, CPU light
+		diplomacy_icon = GFX_duel_decision
+		
+		from_potential = {		# who can take the decision?
+			age = 13
+			OR = {
+				AND = {
+					is_ruler = yes
+					higher_tier_than = BARON
+				}
+				any_close_relative = { ai = no }
+			}
+			OR = {
+				ai = no 
+				NOR = {
+					is_inaccessible_or_incapable_trigger = yes 
+					is_ascetic_trigger = yes
+					is_any_kinslayer_trigger = yes
+					trait = content
+					trait = craven
+					trait = dull
+					trait = kind
+					trait = trusting
+					trait = pagan_branch_2
+					dynasty = none
+				}
+			}
+			NOT = { has_character_modifier = vendetta_modifier }
+		}
+		
+		potential = {			# who can be targetted for a vendetta
+		
+			ROOT = {			# can't already be prisoner of the declarer 
+				NAND = {
+					prisoner = yes
+					host = { character = FROM }
+				}
+			}
+		
+			OR = {
+				FROM = {
+					OR = {			# declaree is responsible for the death of a relative
+						any_child_even_if_dead = {
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+						any_sibling_even_if_dead = {
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+						any_spouse_even_if_dead = {
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+						father_even_if_dead = {
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+						mother_even_if_dead = {
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+						any_child_even_if_dead = {		# grandchildren
+							any_child_even_if_dead = {
+								killer = { character = ROOT }
+								OR = {		# deaths with a known killer? 
+									death_reason = death_murder  
+									death_reason = death_murder_poison  
+									death_reason = death_murder_beheading  
+									death_reason = death_murder_fall  
+									death_reason = death_murder_drowning  
+									death_reason = death_murder_snakes  
+									death_reason = death_murder_butchered 	 
+									death_reason = death_murder_arrow  
+									death_reason = death_murder_strangle   
+									death_reason = death_sacrificed  
+									death_reason = death_sacrificed_norse  
+									death_reason = death_sacrificed_ancestors  
+									death_reason = death_execution  
+									death_reason = death_execution_crushing  
+									death_reason = death_execution_ash  
+									death_reason = death_execution_burning  
+									death_reason = death_execution_hdq  
+									death_reason = death_execution_bear  
+									death_reason = death_execution_lion  
+									death_reason = death_execution_snake_pit  
+									death_reason = death_execution_disembowelment  
+									death_reason = death_execution_boiling  
+									death_reason = death_execution_sawing  
+									death_reason = death_execution_hunt  
+									death_reason = death_execution_live_burial  
+									death_reason = death_execution_hanging  
+									death_reason = death_execution_immurement  
+									death_reason = death_execution_beheading  
+									death_reason = death_execution_wine  
+									death_reason = death_execution_poison 
+									death_reason = death_execution_flaying 
+									death_reason = death_execution_impaling 
+									death_reason = death_execution_tiger 
+									death_reason = death_execution_elephants 
+									death_reason = death_execution_bamboo 
+									death_reason = death_execution_stoning 
+									death_reason = death_execution_crucifixion 
+									death_reason = death_execution_blood_eagle 
+									death_reason = death_execution_scaphism 
+									death_reason = death_execution_drowning_pit 
+									death_reason = death_execution_garrotting 
+									death_reason = death_execution_horses 
+									death_reason = death_execution_back_breaking 
+									death_reason = death_execution_wheel 
+									death_reason = death_execution_boar 
+									death_reason = death_execution_eaten 
+									death_reason = death_execution_aztec_sacrifice 
+									death_reason = death_execution_brazen_bull 
+									death_reason = death_execution_macabre_banquet 
+									death_reason = death_berserker_rage 
+									death_reason = death_execution_wonder_spikes 
+									death_reason = death_execution_wonder_moat_spikes 
+									death_reason = death_execution_wonder_moat_pit 
+									death_reason = death_execution_wonder_moat_water 
+								}
+							}
+						}
+						any_sibling_even_if_dead = {		# niblings
+							any_child_even_if_dead = {
+								killer = { character = ROOT }
+								OR = {		# deaths with a known killer? 
+									death_reason = death_murder  
+									death_reason = death_murder_poison  
+									death_reason = death_murder_beheading  
+									death_reason = death_murder_fall  
+									death_reason = death_murder_drowning  
+									death_reason = death_murder_snakes  
+									death_reason = death_murder_butchered 	 
+									death_reason = death_murder_arrow  
+									death_reason = death_murder_strangle   
+									death_reason = death_sacrificed  
+									death_reason = death_sacrificed_norse  
+									death_reason = death_sacrificed_ancestors  
+									death_reason = death_execution  
+									death_reason = death_execution_crushing  
+									death_reason = death_execution_ash  
+									death_reason = death_execution_burning  
+									death_reason = death_execution_hdq  
+									death_reason = death_execution_bear  
+									death_reason = death_execution_lion  
+									death_reason = death_execution_snake_pit  
+									death_reason = death_execution_disembowelment  
+									death_reason = death_execution_boiling  
+									death_reason = death_execution_sawing  
+									death_reason = death_execution_hunt  
+									death_reason = death_execution_live_burial  
+									death_reason = death_execution_hanging  
+									death_reason = death_execution_immurement  
+									death_reason = death_execution_beheading  
+									death_reason = death_execution_wine  
+									death_reason = death_execution_poison 
+									death_reason = death_execution_flaying 
+									death_reason = death_execution_impaling 
+									death_reason = death_execution_tiger 
+									death_reason = death_execution_elephants 
+									death_reason = death_execution_bamboo 
+									death_reason = death_execution_stoning 
+									death_reason = death_execution_crucifixion 
+									death_reason = death_execution_blood_eagle 
+									death_reason = death_execution_scaphism 
+									death_reason = death_execution_drowning_pit 
+									death_reason = death_execution_garrotting 
+									death_reason = death_execution_horses 
+									death_reason = death_execution_back_breaking 
+									death_reason = death_execution_wheel 
+									death_reason = death_execution_boar 
+									death_reason = death_execution_eaten 
+									death_reason = death_execution_aztec_sacrifice 
+									death_reason = death_execution_brazen_bull 
+									death_reason = death_execution_macabre_banquet 
+									death_reason = death_berserker_rage 
+									death_reason = death_execution_wonder_spikes 
+									death_reason = death_execution_wonder_moat_spikes 
+									death_reason = death_execution_wonder_moat_pit 
+									death_reason = death_execution_wonder_moat_water 
+								}
+							}
+						}
+						any_close_relative = {		# catchall one gen down, assuming connection is alive
+							any_child_even_if_dead = {
+								killer = { character = ROOT }
+								OR = {		# deaths with a known killer? 
+									death_reason = death_murder  
+									death_reason = death_murder_poison  
+									death_reason = death_murder_beheading  
+									death_reason = death_murder_fall  
+									death_reason = death_murder_drowning  
+									death_reason = death_murder_snakes  
+									death_reason = death_murder_butchered 	 
+									death_reason = death_murder_arrow  
+									death_reason = death_murder_strangle   
+									death_reason = death_sacrificed  
+									death_reason = death_sacrificed_norse  
+									death_reason = death_sacrificed_ancestors  
+									death_reason = death_execution  
+									death_reason = death_execution_crushing  
+									death_reason = death_execution_ash  
+									death_reason = death_execution_burning  
+									death_reason = death_execution_hdq  
+									death_reason = death_execution_bear  
+									death_reason = death_execution_lion  
+									death_reason = death_execution_snake_pit  
+									death_reason = death_execution_disembowelment  
+									death_reason = death_execution_boiling  
+									death_reason = death_execution_sawing  
+									death_reason = death_execution_hunt  
+									death_reason = death_execution_live_burial  
+									death_reason = death_execution_hanging  
+									death_reason = death_execution_immurement  
+									death_reason = death_execution_beheading  
+									death_reason = death_execution_wine  
+									death_reason = death_execution_poison 
+									death_reason = death_execution_flaying 
+									death_reason = death_execution_impaling 
+									death_reason = death_execution_tiger 
+									death_reason = death_execution_elephants 
+									death_reason = death_execution_bamboo 
+									death_reason = death_execution_stoning 
+									death_reason = death_execution_crucifixion 
+									death_reason = death_execution_blood_eagle 
+									death_reason = death_execution_scaphism 
+									death_reason = death_execution_drowning_pit 
+									death_reason = death_execution_garrotting 
+									death_reason = death_execution_horses 
+									death_reason = death_execution_back_breaking 
+									death_reason = death_execution_wheel 
+									death_reason = death_execution_boar 
+									death_reason = death_execution_eaten 
+									death_reason = death_execution_aztec_sacrifice 
+									death_reason = death_execution_brazen_bull 
+									death_reason = death_execution_macabre_banquet 
+									death_reason = death_berserker_rage 
+									death_reason = death_execution_wonder_spikes 
+									death_reason = death_execution_wonder_moat_spikes 
+									death_reason = death_execution_wonder_moat_pit 
+									death_reason = death_execution_wonder_moat_water 
+								}
+							}
+						}
+						any_dynasty_member_even_if_dead = {
+							limit = {
+								host = { character = FROM }
+							}
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+					}
+					OR = {		# declaree is not limited by filter if 
+						ai = no 										# declaree is player
+						ROOT = { ai = no }								# the player is the target 
+						any_close_relative = { ai = no }				# the declaree is relative of player
+						ROOT = { any_close_relative = { ai = no } }		# target is a relative of player
+						same_society_as = ROOT							# same society as target
+						same_realm = ROOT								# same top liege as target 
+					}
+				}
+				AND = {
+					ROOT = {		# apply to random dude for ease of testing.
+						has_character_flag = vendetta_target_test_flag
+					}
+					FROM = { ai = no }
+				}
+			}
+		}
+		
+		allow = {
+			FROM = {
+				NOT = { is_inaccessible_or_incapable_trigger = yes }
+				NOT = { has_character_modifier = vendetta_modifier }
+			}
+			ROOT = {				
+				NOT = { dynasty = FROM }		# nor the same dynasty, vendettas are inter-dynastic
+				NOT = { is_close_relative = FROM }  # nor a close family member, could become circular vendetta otherwise
+			}
+		}
+		
+		effect = {
+			FROM = {
+				character_event = { id = DecVend.101 } 
+			}
+			hidden_tooltip = {
+				ROOT = {
+					set_character_flag = vendetta_target_flag
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious 
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 1.5
+				ai_rationality < -50
+			}
+			modifier = {
+				factor = 1.5
+				ai_greed > 50
+			}
+			modifier = {
+				factor = 0.5
+				ai_rationality > 50
+			}
+			modifier = {
+				factor = 0.5
+				ai_greed < -50
+			}
+			modifier = {
+				factor = 5
+				FROM = {
+					opinion = {
+						who = ROOT
+						value <= -50
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					opinion = {
+						who = ROOT
+						value >= 25
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					is_lover = ROOT
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					is_friend = ROOT
+				}
+			}
+			modifier = {	# ai will target the player
+				factor = 50
+				ROOT = {
+					ai = no
+				}
+			}
+			modifier = {	# ai will target player's family 
+				factor = 10
+				ROOT = {
+					any_close_relative = { ai = no }
+				}
+			}
+			modifier = {	# players family likely to target 
+				factor = 5
+				FROM = {
+					any_close_relative = { ai = no }
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = temperate
+			}
+			modifier = {
+				factor = 0.5
+				trait = patient
+			}
+			modifier = {
+				factor = 0.5
+				trait = charitable
+			}
+		}
+	}
+	
+	
+	duel_vendetta_target = {
+		ai_check_interval = 24
+		is_high_prio = yes
+		filter = all
+		ai_target_filter = all		# ai limited by other conditions, CPU light	
+		diplomacy_icon = GFX_duel_decision		
+		
+		from_potential = {		# who can initiate the duel?
+			is_adult = yes
+			prisoner = no
+			is_inaccessible_or_incapable_trigger = no 
+			has_character_modifier = vendetta_modifier 		# must have a vendetta
+		}
+		
+		potential = {			# who can be targetted for a vendetta
+			
+			OR = {			# can already be prisoner of the declarer, or vassal of declarer
+				prisoner = no 
+				AND = {
+					prisoner = yes 
+					OR = {
+						host = { character = FROM }
+						host = {
+							any_liege = { character = FROM }
+						}
+					}
+				}
+			}
+
+			
+			OR = {		# player can challenge AI, AI can challenge AI, AI cannot challenge player
+				AND = {
+					FROM = { ai = no }
+					ROOT = { ai = yes }
+				}
+				AND = {
+					FROM = { ai = yes }
+					ROOT = { ai = yes }
+				}			
+			}
+			
+			ROOT = { is_adult = yes }
+			
+			FROM = {
+				OR = {
+					had_character_flag = { flag = recent_vendetta_challenge months = 6 }
+					NOT = { has_character_flag = recent_vendetta_challenge }
+				}
+			}
+			
+			OR = {
+				FROM = {
+					OR = {			# declaree is responsible for the death of a relative
+						any_child_even_if_dead = {
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+						any_sibling_even_if_dead = {
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+						any_spouse_even_if_dead = {
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+						father_even_if_dead = {
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+						mother_even_if_dead = {
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+						any_child_even_if_dead = {		# grandchildren
+							any_child_even_if_dead = {
+								killer = { character = ROOT }
+								OR = {		# deaths with a known killer? 
+									death_reason = death_murder  
+									death_reason = death_murder_poison  
+									death_reason = death_murder_beheading  
+									death_reason = death_murder_fall  
+									death_reason = death_murder_drowning  
+									death_reason = death_murder_snakes  
+									death_reason = death_murder_butchered 	 
+									death_reason = death_murder_arrow  
+									death_reason = death_murder_strangle   
+									death_reason = death_sacrificed  
+									death_reason = death_sacrificed_norse  
+									death_reason = death_sacrificed_ancestors  
+									death_reason = death_execution  
+									death_reason = death_execution_crushing  
+									death_reason = death_execution_ash  
+									death_reason = death_execution_burning  
+									death_reason = death_execution_hdq  
+									death_reason = death_execution_bear  
+									death_reason = death_execution_lion  
+									death_reason = death_execution_snake_pit  
+									death_reason = death_execution_disembowelment  
+									death_reason = death_execution_boiling  
+									death_reason = death_execution_sawing  
+									death_reason = death_execution_hunt  
+									death_reason = death_execution_live_burial  
+									death_reason = death_execution_hanging  
+									death_reason = death_execution_immurement  
+									death_reason = death_execution_beheading  
+									death_reason = death_execution_wine  
+									death_reason = death_execution_poison 
+									death_reason = death_execution_flaying 
+									death_reason = death_execution_impaling 
+									death_reason = death_execution_tiger 
+									death_reason = death_execution_elephants 
+									death_reason = death_execution_bamboo 
+									death_reason = death_execution_stoning 
+									death_reason = death_execution_crucifixion 
+									death_reason = death_execution_blood_eagle 
+									death_reason = death_execution_scaphism 
+									death_reason = death_execution_drowning_pit 
+									death_reason = death_execution_garrotting 
+									death_reason = death_execution_horses 
+									death_reason = death_execution_back_breaking 
+									death_reason = death_execution_wheel 
+									death_reason = death_execution_boar 
+									death_reason = death_execution_eaten 
+									death_reason = death_execution_aztec_sacrifice 
+									death_reason = death_execution_brazen_bull 
+									death_reason = death_execution_macabre_banquet 
+									death_reason = death_berserker_rage 
+									death_reason = death_execution_wonder_spikes 
+									death_reason = death_execution_wonder_moat_spikes 
+									death_reason = death_execution_wonder_moat_pit 
+									death_reason = death_execution_wonder_moat_water 
+								}
+							}
+						}
+						any_sibling_even_if_dead = {		# niblings
+							any_child_even_if_dead = {
+								killer = { character = ROOT }
+								OR = {		# deaths with a known killer? 
+									death_reason = death_murder  
+									death_reason = death_murder_poison  
+									death_reason = death_murder_beheading  
+									death_reason = death_murder_fall  
+									death_reason = death_murder_drowning  
+									death_reason = death_murder_snakes  
+									death_reason = death_murder_butchered 	 
+									death_reason = death_murder_arrow  
+									death_reason = death_murder_strangle   
+									death_reason = death_sacrificed  
+									death_reason = death_sacrificed_norse  
+									death_reason = death_sacrificed_ancestors  
+									death_reason = death_execution  
+									death_reason = death_execution_crushing  
+									death_reason = death_execution_ash  
+									death_reason = death_execution_burning  
+									death_reason = death_execution_hdq  
+									death_reason = death_execution_bear  
+									death_reason = death_execution_lion  
+									death_reason = death_execution_snake_pit  
+									death_reason = death_execution_disembowelment  
+									death_reason = death_execution_boiling  
+									death_reason = death_execution_sawing  
+									death_reason = death_execution_hunt  
+									death_reason = death_execution_live_burial  
+									death_reason = death_execution_hanging  
+									death_reason = death_execution_immurement  
+									death_reason = death_execution_beheading  
+									death_reason = death_execution_wine  
+									death_reason = death_execution_poison 
+									death_reason = death_execution_flaying 
+									death_reason = death_execution_impaling 
+									death_reason = death_execution_tiger 
+									death_reason = death_execution_elephants 
+									death_reason = death_execution_bamboo 
+									death_reason = death_execution_stoning 
+									death_reason = death_execution_crucifixion 
+									death_reason = death_execution_blood_eagle 
+									death_reason = death_execution_scaphism 
+									death_reason = death_execution_drowning_pit 
+									death_reason = death_execution_garrotting 
+									death_reason = death_execution_horses 
+									death_reason = death_execution_back_breaking 
+									death_reason = death_execution_wheel 
+									death_reason = death_execution_boar 
+									death_reason = death_execution_eaten 
+									death_reason = death_execution_aztec_sacrifice 
+									death_reason = death_execution_brazen_bull 
+									death_reason = death_execution_macabre_banquet 
+									death_reason = death_berserker_rage 
+									death_reason = death_execution_wonder_spikes 
+									death_reason = death_execution_wonder_moat_spikes 
+									death_reason = death_execution_wonder_moat_pit 
+									death_reason = death_execution_wonder_moat_water 
+								}
+							}
+						}
+						any_close_relative = {		# catchall one gen down, assuming connection is alive
+							any_child_even_if_dead = {
+								killer = { character = ROOT }
+								OR = {		# deaths with a known killer? 
+									death_reason = death_murder  
+									death_reason = death_murder_poison  
+									death_reason = death_murder_beheading  
+									death_reason = death_murder_fall  
+									death_reason = death_murder_drowning  
+									death_reason = death_murder_snakes  
+									death_reason = death_murder_butchered 	 
+									death_reason = death_murder_arrow  
+									death_reason = death_murder_strangle   
+									death_reason = death_sacrificed  
+									death_reason = death_sacrificed_norse  
+									death_reason = death_sacrificed_ancestors  
+									death_reason = death_execution  
+									death_reason = death_execution_crushing  
+									death_reason = death_execution_ash  
+									death_reason = death_execution_burning  
+									death_reason = death_execution_hdq  
+									death_reason = death_execution_bear  
+									death_reason = death_execution_lion  
+									death_reason = death_execution_snake_pit  
+									death_reason = death_execution_disembowelment  
+									death_reason = death_execution_boiling  
+									death_reason = death_execution_sawing  
+									death_reason = death_execution_hunt  
+									death_reason = death_execution_live_burial  
+									death_reason = death_execution_hanging  
+									death_reason = death_execution_immurement  
+									death_reason = death_execution_beheading  
+									death_reason = death_execution_wine  
+									death_reason = death_execution_poison 
+									death_reason = death_execution_flaying 
+									death_reason = death_execution_impaling 
+									death_reason = death_execution_tiger 
+									death_reason = death_execution_elephants 
+									death_reason = death_execution_bamboo 
+									death_reason = death_execution_stoning 
+									death_reason = death_execution_crucifixion 
+									death_reason = death_execution_blood_eagle 
+									death_reason = death_execution_scaphism 
+									death_reason = death_execution_drowning_pit 
+									death_reason = death_execution_garrotting 
+									death_reason = death_execution_horses 
+									death_reason = death_execution_back_breaking 
+									death_reason = death_execution_wheel 
+									death_reason = death_execution_boar 
+									death_reason = death_execution_eaten 
+									death_reason = death_execution_aztec_sacrifice 
+									death_reason = death_execution_brazen_bull 
+									death_reason = death_execution_macabre_banquet 
+									death_reason = death_berserker_rage 
+									death_reason = death_execution_wonder_spikes 
+									death_reason = death_execution_wonder_moat_spikes 
+									death_reason = death_execution_wonder_moat_pit 
+									death_reason = death_execution_wonder_moat_water 
+								}
+							}
+						}
+						any_dynasty_member_even_if_dead = {
+							limit = {
+								host = { character = FROM }
+							}
+							killer = { character = ROOT }
+							OR = {		# deaths with a known killer? 
+								death_reason = death_murder  
+								death_reason = death_murder_poison  
+								death_reason = death_murder_beheading  
+								death_reason = death_murder_fall  
+								death_reason = death_murder_drowning  
+								death_reason = death_murder_snakes  
+								death_reason = death_murder_butchered 	 
+								death_reason = death_murder_arrow  
+								death_reason = death_murder_strangle   
+								death_reason = death_sacrificed  
+								death_reason = death_sacrificed_norse  
+								death_reason = death_sacrificed_ancestors  
+								death_reason = death_execution  
+								death_reason = death_execution_crushing  
+								death_reason = death_execution_ash  
+								death_reason = death_execution_burning  
+								death_reason = death_execution_hdq  
+								death_reason = death_execution_bear  
+								death_reason = death_execution_lion  
+								death_reason = death_execution_snake_pit  
+								death_reason = death_execution_disembowelment  
+								death_reason = death_execution_boiling  
+								death_reason = death_execution_sawing  
+								death_reason = death_execution_hunt  
+								death_reason = death_execution_live_burial  
+								death_reason = death_execution_hanging  
+								death_reason = death_execution_immurement  
+								death_reason = death_execution_beheading  
+								death_reason = death_execution_wine  
+								death_reason = death_execution_poison 
+								death_reason = death_execution_flaying 
+								death_reason = death_execution_impaling 
+								death_reason = death_execution_tiger 
+								death_reason = death_execution_elephants 
+								death_reason = death_execution_bamboo 
+								death_reason = death_execution_stoning 
+								death_reason = death_execution_crucifixion 
+								death_reason = death_execution_blood_eagle 
+								death_reason = death_execution_scaphism 
+								death_reason = death_execution_drowning_pit 
+								death_reason = death_execution_garrotting 
+								death_reason = death_execution_horses 
+								death_reason = death_execution_back_breaking 
+								death_reason = death_execution_wheel 
+								death_reason = death_execution_boar 
+								death_reason = death_execution_eaten 
+								death_reason = death_execution_aztec_sacrifice 
+								death_reason = death_execution_brazen_bull 
+								death_reason = death_execution_macabre_banquet 
+								death_reason = death_berserker_rage 
+								death_reason = death_execution_wonder_spikes 
+								death_reason = death_execution_wonder_moat_spikes 
+								death_reason = death_execution_wonder_moat_pit 
+								death_reason = death_execution_wonder_moat_water 
+							}
+						}
+					}
+				}
+				AND = {
+					ROOT = {		# apply to random dude for ease of testing.
+						has_character_flag = vendetta_target_test_flag
+					}
+					FROM = { ai = no }
+				}
+			}
+		}
+	
+		allow = {
+					
+			#Both are healthy
+            custom_tooltip = {
+                text = duel_tooltip_sickness
+                FROM = {
+                	NOR = { #Not in sickly in bed, but sick if well treated is okay
+                		has_character_modifier = bedridden_illness
+                		has_character_modifier = severe_illness
+						trait = incapable
+					}
+                }
+                ROOT = {
+                    NOR = { #Not in sickly in bed, but sick if well treated is okay
+                		has_character_modifier = bedridden_illness
+                		has_character_modifier = severe_illness
+						trait = incapable
+                    }
+                }
+            }
+            custom_tooltip = {
+            	text = duel_tooltip_pregnant
+                FROM = { is_pregnant = no }
+                ROOT = { is_pregnant = no }
+            }
+			custom_tooltip = {
+	            text = duel_tooltip_recent_duel
+	            hidden_tooltip = {
+	                FROM = { NOT = { has_character_modifier = recent_duel_timer } }
+	                NOT = { has_character_modifier = recent_duel_timer }
+	            }
+	        }
+			custom_tooltip = {
+	            #text = duel_tooltip_busy
+	            text = duel_tooltip_no_war
+	            hidden_tooltip = {
+	                FROM = {
+	                    #NOT = { has_character_flag = do_not_disturb }
+	                    NOT = { war = yes }
+	                }
+	                #NOT = { has_character_flag = do_not_disturb }
+	                NOT = { war = yes }
+	            }
+	        }
+			
+			custom_tooltip = {
+				text = recent_vendetta_challenge_tooltip
+				hidden_tooltip = {
+					FROM = {
+						OR = {
+							had_character_flag = { flag = recent_vendetta_challenge months = 6 }
+							NOT = { has_character_flag = recent_vendetta_challenge }
+						}
+					}
+				}
+			}
+			NOT = { trait = blinded }
+			NOT = { is_inaccessible_trigger = yes }
+		}
+			
+		effect = {
+			FROM = { 
+				character_event = { id = DecVend.400 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.1
+				trait = duelist
+			}
+			modifier = {
+				factor = 1.1
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 1.2
+				FROM = { combat_rating_diff = { who = ROOT value = 20 } }
+			}
+			modifier = {
+				factor = 1.0
+				FROM = { combat_rating_diff = { who = ROOT value = 10 } }
+			}
+			modifier = {
+				factor = 0.8
+				FROM = { combat_rating_diff = { who = ROOT value < 10 } }
+			}
+			modifier = {
+				factor = 0.6
+				FROM = { combat_rating_diff = { who = ROOT value < 0 } }
+			}
+			modifier = {
+				factor = 0.4
+				FROM = { combat_rating_diff = { who = ROOT value < -10 } }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					trait = slothful
+					trait = patient
+					trait = kind
+					trait = humble
+					trait = content
+					trait = craven
+					has_injury_trigger = yes
+					is_maimed_trigger = yes
+					has_symptom_trigger = yes
+					has_disease_trigger = yes
+				}
+			}
+		}
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+} # closed decision bracket, don't remove
+
+
+
+
+
+
+
+
+

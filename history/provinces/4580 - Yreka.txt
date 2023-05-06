@@ -1,0 +1,12 @@
+# County Title
+title = c_yreka
+
+# Settlements
+max_settlements = 3
+b_yreka = tribal
+
+# Misc
+culture = yurok
+religion = raven_tales
+
+# History

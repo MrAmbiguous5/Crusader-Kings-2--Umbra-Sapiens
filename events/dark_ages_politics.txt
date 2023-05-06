@@ -1,0 +1,6609 @@
+
+namespace = darkages
+
+#####################################################################################
+#####################################################################################
+#	
+#				POLITICS SERIES
+#
+#####################################################################################
+#####################################################################################
+
+character_event = {			#EVENT TO SELECT THE SUBJECT OF DEBATE
+	id = darkages.72099
+	title = EVTNAME1972099
+	desc = EVTDESC1972099
+	picture = GFX_evt_powerful_ruler
+	border = GFX_event_normal_frame_religion
+
+	hide_window = yes
+	
+	trigger = {
+	
+		is_landed = yes
+		
+		NOR = {
+			is_incapable = yes
+			trait = resting
+			trait = on_pilgrimage
+			trait = on_hajj
+			trait = on_indian_pilgrimage
+			trait = kow_tow_travels
+			trait = travelling
+			has_character_modifier = da_politically_beaten
+			has_character_modifier = da_political_victory
+			AND = {
+				has_regent = yes
+				is_adult = yes
+			}
+		}
+		
+		OR = {
+			is_adult = yes
+			
+			AND = {
+				age = 12
+				OR = {
+					trait = quick
+					trait = bright
+					trait = genius
+					trait = ambitious
+					trait = willful
+				}
+				NOR = {
+					trait = imbecile
+					trait = dim
+					trait = slow
+					trait = content
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+
+		random_list = {
+			2 = {	#Diplomacy
+				character_event = { id = darkages.72100 }
+			}
+
+			2 = {	#Martial
+				character_event = { id = darkages.72104 }
+			}
+			
+			2 = {	#Stewardship (management)
+				character_event = { id = darkages.72108 }
+			}
+
+			2 = {	#Intrigue
+				character_event = { id = darkages.72112 }
+			}			
+			
+			2 = {	#Learning (religion)
+				character_event = { id = darkages.72116 }
+			}			
+			
+		}
+
+	}
+	
+	option = {
+		name = "EVTOPTA1972099"
+
+
+	}
+	
+}
+
+
+
+character_event = {			#OPPORTUNITY FOR DEBATE (DIPLOMACY)
+	id = darkages.72100
+	title = EVTNAME1972100
+	desc = EVTDESC1972100
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+		random_voter = {
+			set_character_flag = darkages_picked
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1972100"	#Aggressive
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP33 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked
+			set_character_flag = debate_foe
+		}
+		
+		character_event = { id = darkages.72101 }
+	}
+
+	option = {
+		name = "EVTOPTB1972100"	#Defensive
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP34 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked		
+			set_character_flag = debate_foe
+		}		
+
+		character_event = { id = darkages.72102 }
+		
+	}
+	
+	option = {
+		name = "EVTOPTC1972100" #Tricky
+		trigger = { NOT = { trait = honest } }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP35 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked		
+			set_character_flag = debate_foe
+		}		
+
+		character_event = { id = darkages.72103 }		
+		
+	}
+
+}
+
+character_event = {			#DIPLOMATIC: STANCE AGRESSIVE
+	id = darkages.72101
+	title = EVTNAME1972101
+	desc = EVTDESC1972101
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972101"
+		
+		random_list = {
+		
+			3 = {	#WIN
+			
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}
+			
+				modifier = {
+					factor = 0.75
+					NOT = { diplomacy = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { diplomacy = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { diplomacy = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { diplomacy = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					diplomacy = 12
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 15
+				}
+				modifier = {
+					factor = 1.75
+					diplomacy = 18
+				}
+				modifier = {
+					factor = 2
+					diplomacy = 21
+				}
+				modifier = {
+					factor = 1.25
+					trait = naive_appeaser
+				}
+				modifier = {
+					factor = 1.5
+					trait = underhanded_rogue
+				}
+				modifier = {
+					factor = 1.75
+					trait = charismatic_negotiator
+				}
+				modifier = {
+					factor = 2
+					trait = grey_eminence
+				}
+				modifier = {
+					factor = 3
+					trait = socializer
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}
+				modifier = {
+					factor = 3
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = brave
+				}
+				modifier = {
+					factor = 0.66
+					trait = craven
+				}
+				modifier = {
+					factor = 1.5
+					trait = ambitious
+				}
+				modifier = {
+					factor = 1.5
+					trait = zealous
+				}				
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }
+			}
+			
+			2 = {	#DRAW
+			
+				modifier = {
+					factor = 3
+					trait = content
+				}
+				modifier = {
+					factor = 0.75
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}			
+			
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }
+			}
+			
+			3 = {	#LOSE
+			
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { diplomacy = 8 }
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { diplomacy = 6 }
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { diplomacy = 4 }
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { diplomacy = 2 }
+						has_character_flag = debate_foe						
+					}
+				}			
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						diplomacy = 12
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						diplomacy = 15
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						diplomacy = 18
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						diplomacy = 21
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = naive_appeaser
+						has_character_flag = debate_foe						
+					}
+
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = underhanded_rogue
+						has_character_flag = debate_foe						
+					}
+
+				}				
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = charismatic_negotiator
+						has_character_flag = debate_foe						
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = grey_eminence
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = socializer
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = wroth
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = cruel
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = brave
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = craven
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = ambitious
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = zealous
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+			
+			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }		
+			
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+
+character_event = {			#DIPLOMATIC: STANCE DEFENSIVE
+	id = darkages.72102
+	title = EVTNAME1972102
+	desc = EVTDESC1972102
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972102"
+		
+		random_list = {
+		
+			2 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 0.75
+					NOT = { diplomacy = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { diplomacy = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { diplomacy = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { diplomacy = 2 }
+				}			
+				modifier = {
+					factor = 1.25
+					diplomacy = 12
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 15
+				}
+				modifier = {
+					factor = 1.75
+					diplomacy = 18
+				}
+				modifier = {
+					factor = 2
+					diplomacy = 21
+				}
+				modifier = {
+					factor = 1.25
+					trait = naive_appeaser
+				}
+				modifier = {
+					factor = 1.5
+					trait = underhanded_rogue
+				}
+				modifier = {
+					factor = 1.75
+					trait = charismatic_negotiator
+				}
+				modifier = {
+					factor = 2
+					trait = grey_eminence
+				}				
+				modifier = {
+					factor = 3
+					trait = socializer
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}				
+				modifier = {
+					factor = 3
+					trait = patient
+				}
+				modifier = {
+					factor = 1.5
+					trait = kind
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = humble
+				}
+				modifier = {
+					factor = 0.66
+					trait = proud
+				}
+				modifier = {
+					factor = 1.5
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }
+			}
+			
+			5 = {	#DRAW
+				modifier = {
+					factor = 5
+					trait = content
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 5
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.8
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			2 = {	#LOSE
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { diplomacy = 8 }
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { diplomacy = 6 }
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { diplomacy = 4 }
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { diplomacy = 2 }
+						has_character_flag = debate_foe						
+					}
+				}			
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						diplomacy = 12
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						diplomacy = 15
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						diplomacy = 18
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						diplomacy = 21
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = naive_appeaser
+						has_character_flag = debate_foe						
+					}
+
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = underhanded_rogue
+						has_character_flag = debate_foe						
+					}
+
+				}				
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = charismatic_negotiator
+						has_character_flag = debate_foe						
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = grey_eminence
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = socializer
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = patient
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = kind
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = humble
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = proud
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = cynical
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }
+			
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+
+character_event = {			#DIPLOMATIC: STANCE TRICKY
+	id = darkages.72103
+	title = EVTNAME1972103
+	desc = EVTDESC1972103
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972103"
+		
+		random_list = {
+		
+			2 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 0.75
+					NOT = { diplomacy = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { diplomacy = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { diplomacy = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { diplomacy = 2 }
+				}			
+				modifier = {
+					factor = 1.25
+					diplomacy = 12
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 15
+				}
+				modifier = {
+					factor = 1.75
+					diplomacy = 18
+				}
+				modifier = {
+					factor = 2
+					diplomacy = 21
+				}
+				modifier = {
+					factor = 1.25
+					trait = naive_appeaser
+				}
+				modifier = {
+					factor = 1.5
+					trait = underhanded_rogue
+				}
+				modifier = {
+					factor = 1.75
+					trait = charismatic_negotiator
+				}
+				modifier = {
+					factor = 2
+					trait = grey_eminence
+				}				
+				modifier = {
+					factor = 3
+					trait = socializer
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}				
+				modifier = {
+					factor = 3
+					trait = deceitful
+				}
+				modifier = {
+					factor = 1.5
+					trait = patient
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = humble
+				}
+				modifier = {
+					factor = 0.66
+					trait = wroth
+				}
+				modifier = {
+					factor = 2.0
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}				
+
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }				
+			}
+			
+			2 = {	#DRAW
+				modifier = {
+					factor = 3
+					trait = content
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.8
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72486 } }
+					#(no effects)
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+				
+			}
+			
+			2 = {	#LOSE
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { diplomacy = 8 }
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { diplomacy = 6 }
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { diplomacy = 4 }
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { diplomacy = 2 }
+						has_character_flag = debate_foe						
+					}
+				}			
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						diplomacy = 12
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						diplomacy = 15
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						diplomacy = 18
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						diplomacy = 21
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = naive_appeaser
+						has_character_flag = debate_foe						
+					}
+
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = underhanded_rogue
+						has_character_flag = debate_foe						
+					}
+
+				}				
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = charismatic_negotiator
+						has_character_flag = debate_foe						
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = grey_eminence
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = socializer
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = deceitful
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = patient
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = humble
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = wroth
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2.0
+					any_voter = {
+						trait = cynical
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }		
+			
+			}
+		
+		}
+		
+	}
+	
+}
+
+#####################################################################################
+
+
+character_event = {			#OPPORTUNITY FOR DEBATE (MARTIAL)
+	id = darkages.72104
+	title = EVTNAME1972104
+	desc = EVTDESC1972104
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+		random_voter = {
+			set_character_flag = darkages_picked
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1972100"	#Aggressive
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP36 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked
+			set_character_flag = debate_foe
+		}
+		
+		character_event = { id = darkages.72105 }
+	}
+
+	option = {
+		name = "EVTOPTB1972100"	#Defensive
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP37 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked		
+			set_character_flag = debate_foe
+		}		
+
+		character_event = { id = darkages.72106 }
+		
+	}
+	
+	option = {
+		name = "EVTOPTC1972100" #Tricky
+		trigger = { NOT = { trait = honest } }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP38 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked		
+			set_character_flag = debate_foe
+		}		
+
+		character_event = { id = darkages.72107 }		
+		
+	}
+
+}
+
+character_event = {			#MILITARY: STANCE AGGRESSIVE
+	id = darkages.72105
+	title = EVTNAME1972101
+	desc = EVTDESC1972101
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972101"
+		
+		random_list = {
+		
+			3 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = misguided_warrior
+				}
+				modifier = {
+					factor = 1.5
+					trait = tough_soldier
+				}
+				modifier = {
+					factor = 1.75
+					trait = skilled_tactician
+				}
+				modifier = {
+					factor = 2
+					trait = brilliant_strategist
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { martial = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { martial = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { martial = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { martial = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					martial = 12
+				}
+				modifier = {
+					factor = 1.5
+					martial = 15
+				}
+				modifier = {
+					factor = 1.75
+					martial = 18
+				}
+				modifier = {
+					factor = 2
+					martial = 21
+				}				
+				modifier = {
+					factor = 3
+					trait = strategist
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}
+				modifier = {
+					factor = 3
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = brave
+				}
+				modifier = {
+					factor = 0.66
+					trait = craven
+				}
+				modifier = {
+					factor = 1.5
+					trait = ambitious
+				}
+				modifier = {
+					factor = 1.5
+					trait = zealous
+				}				
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }				
+			}
+			
+			2 = {	#DRAW
+			
+				modifier = {
+					factor = 3
+					trait = content
+				}
+				modifier = {
+					factor = 0.75
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}			
+			
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			3 = {	#LOSE
+			
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = misguided_warrior
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = tough_soldier
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = skilled_tactician
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = brilliant_strategist
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { martial = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { martial = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { martial = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { martial = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						martial = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						martial = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						martial = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						martial = 21
+						has_character_flag = debate_foe	
+					}
+				}							
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = strategist
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = wroth
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = cruel
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = brave
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = craven
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = ambitious
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = zealous
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+			
+			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }			
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+
+character_event = {			#MILITARY: STANCE DEFENSIVE
+	id = darkages.72106
+	title = EVTNAME1972102
+	desc = EVTDESC1972102
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972102"
+		
+		random_list = {
+		
+			2 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = misguided_warrior
+				}
+				modifier = {
+					factor = 1.5
+					trait = tough_soldier
+				}
+				modifier = {
+					factor = 1.75
+					trait = skilled_tactician
+				}
+				modifier = {
+					factor = 2
+					trait = brilliant_strategist
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { martial = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { martial = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { martial = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { martial = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					martial = 12
+				}
+				modifier = {
+					factor = 1.5
+					martial = 15
+				}
+				modifier = {
+					factor = 1.75
+					martial = 18
+				}
+				modifier = {
+					factor = 2
+					martial = 21
+				}				
+				modifier = {
+					factor = 3
+					trait = strategist
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}				
+				modifier = {
+					factor = 3
+					trait = patient
+				}
+				modifier = {
+					factor = 1.5
+					trait = kind
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = humble
+				}
+				modifier = {
+					factor = 0.66
+					trait = proud
+				}
+				modifier = {
+					factor = 1.5
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }				
+			}
+			
+			5 = {	#DRAW
+				modifier = {
+					factor = 5
+					trait = content
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 5
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.8
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			2 = {	#LOSE
+
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = misguided_warrior
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = tough_soldier
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = skilled_tactician
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = brilliant_strategist
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { martial = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { martial = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { martial = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { martial = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						martial = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						martial = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						martial = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						martial = 21
+						has_character_flag = debate_foe	
+					}
+				}							
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = strategist
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = patient
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = kind
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = humble
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = proud
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = cynical
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }			
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+
+character_event = {			#MILITARY: STANCE TRICKY
+	id = darkages.72107
+	title = EVTNAME1972103
+	desc = EVTDESC1972103
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972103"
+		
+		random_list = {
+		
+			2 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = misguided_warrior
+				}
+				modifier = {
+					factor = 1.5
+					trait = tough_soldier
+				}
+				modifier = {
+					factor = 1.75
+					trait = skilled_tactician
+				}
+				modifier = {
+					factor = 2
+					trait = brilliant_strategist
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { martial = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { martial = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { martial = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { martial = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					martial = 12
+				}
+				modifier = {
+					factor = 1.5
+					martial = 15
+				}
+				modifier = {
+					factor = 1.75
+					martial = 18
+				}
+				modifier = {
+					factor = 2
+					martial = 21
+				}						
+				modifier = {
+					factor = 3
+					trait = strategist
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}				
+				modifier = {
+					factor = 3
+					trait = deceitful
+				}
+				modifier = {
+					factor = 1.5
+					trait = patient
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = humble
+				}
+				modifier = {
+					factor = 0.66
+					trait = wroth
+				}
+				modifier = {
+					factor = 2.0
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}				
+
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }				
+			}
+			
+			2 = {	#DRAW
+				modifier = {
+					factor = 3
+					trait = content
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.8
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			2 = {	#LOSE
+
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = misguided_warrior
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = tough_soldier
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = skilled_tactician
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = brilliant_strategist
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { martial = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { martial = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { martial = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { martial = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						martial = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						martial = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						martial = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						martial = 21
+						has_character_flag = debate_foe	
+					}
+				}	
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = strategist
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = deceitful
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = patient
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = humble
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = wroth
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2.0
+					any_voter = {
+						trait = cynical
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }		
+			
+			}
+		
+		}
+		
+	}
+	
+}
+
+#######################################################################################
+
+
+
+
+
+##########################################
+#########################################
+#############################################
+################################################
+#################################################
+###################################################
+###################################################
+###################################################
+###################################################
+###################################################
+#####################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################################################################
+
+
+character_event = {			#OPPORTUNITY FOR DEBATE (MANAGEMENT)
+	id = darkages.72108
+	title = EVTNAME1972108
+	desc = EVTDESC1972108
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+		random_voter = {
+			set_character_flag = darkages_picked
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1972100"	#Aggressive
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP39 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked
+			set_character_flag = debate_foe
+		}
+		
+		character_event = { id = darkages.72109 }
+	}
+
+	option = {
+		name = "EVTOPTB1972100"	#Defensive
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP40 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked		
+			set_character_flag = debate_foe
+		}		
+
+		character_event = { id = darkages.72110 }
+		
+	}
+	
+	option = {
+		name = "EVTOPTC1972100" #Tricky
+		trigger = { NOT = { trait = honest } }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP41 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked		
+			set_character_flag = debate_foe
+		}		
+
+		character_event = { id = darkages.72111 }		
+		
+	}
+
+}
+
+character_event = {			#MANAGEMENT: STANCE AGGRESSIVE
+	id = darkages.72109
+	title = EVTNAME1972101
+	desc = EVTDESC1972101
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972101"
+		
+		random_list = {
+		
+			3 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = indulgent_wastrel
+				}
+				modifier = {
+					factor = 1.5
+					trait = thrifty_clerk
+				}
+				modifier = {
+					factor = 1.75
+					trait = fortune_builder
+				}
+				modifier = {
+					factor = 2
+					trait = midas_touched
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { stewardship = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { stewardship = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { stewardship = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { stewardship = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					stewardship = 12
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 15
+				}
+				modifier = {
+					factor = 1.75
+					stewardship = 18
+				}
+				modifier = {
+					factor = 2
+					stewardship = 21
+				}				
+				modifier = {
+					factor = 3
+					trait = administrator
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}
+				modifier = {
+					factor = 3
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = brave
+				}
+				modifier = {
+					factor = 0.66
+					trait = craven
+				}
+				modifier = {
+					factor = 1.5
+					trait = ambitious
+				}
+				modifier = {
+					factor = 1.5
+					trait = zealous
+				}				
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }				
+			}
+			
+			2 = {	#DRAW
+			
+				modifier = {
+					factor = 3
+					trait = content
+				}
+				modifier = {
+					factor = 0.75
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}			
+			
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			3 = {	#LOSE
+			
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = indulgent_wastrel
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = thrifty_clerk
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = fortune_builder
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = midas_touched
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { stewardship = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { stewardship = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { stewardship = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { stewardship = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						stewardship = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						stewardship = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						stewardship = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						stewardship = 21
+						has_character_flag = debate_foe	
+					}
+				}							
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = administrator
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = wroth
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = cruel
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = brave
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = craven
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = ambitious
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = zealous
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+			
+			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }			
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+
+character_event = {			#MANAGEMENT: STANCE DEFENSIVE
+	id = darkages.72110
+	title = EVTNAME1972102
+	desc = EVTDESC1972102
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972102"
+		
+		random_list = {
+		
+			2 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = indulgent_wastrel
+				}
+				modifier = {
+					factor = 1.5
+					trait = thrifty_clerk
+				}
+				modifier = {
+					factor = 1.75
+					trait = fortune_builder
+				}
+				modifier = {
+					factor = 2
+					trait = midas_touched
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { stewardship = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { stewardship = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { stewardship = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { stewardship = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					stewardship = 12
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 15
+				}
+				modifier = {
+					factor = 1.75
+					stewardship = 18
+				}
+				modifier = {
+					factor = 2
+					stewardship = 21
+				}				
+				modifier = {
+					factor = 3
+					trait = administrator
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}				
+				modifier = {
+					factor = 3
+					trait = patient
+				}
+				modifier = {
+					factor = 1.5
+					trait = kind
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = humble
+				}
+				modifier = {
+					factor = 0.66
+					trait = proud
+				}
+				modifier = {
+					factor = 1.5
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }				
+			}
+			
+			5 = {	#DRAW
+				modifier = {
+					factor = 5
+					trait = content
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 5
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.8
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			2 = {	#LOSE
+
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = indulgent_wastrel
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = thrifty_clerk
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = fortune_builder
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = midas_touched
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { stewardship = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { stewardship = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { stewardship = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { stewardship = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						stewardship = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						stewardship = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						stewardship = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						stewardship = 21
+						has_character_flag = debate_foe	
+					}
+				}							
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = administrator
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = patient
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = kind
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = humble
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = proud
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = cynical
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }			
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }			
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+
+character_event = {			#MANAGEMENT: STANCE TRICKY
+	id = darkages.72111
+	title = EVTNAME1972103
+	desc = EVTDESC1972103
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972103"
+		
+		random_list = {
+		
+			2 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = indulgent_wastrel
+				}
+				modifier = {
+					factor = 1.5
+					trait = thrifty_clerk
+				}
+				modifier = {
+					factor = 1.75
+					trait = fortune_builder
+				}
+				modifier = {
+					factor = 2
+					trait = midas_touched
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { stewardship = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { stewardship = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { stewardship = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { stewardship = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					stewardship = 12
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 15
+				}
+				modifier = {
+					factor = 1.75
+					stewardship = 18
+				}
+				modifier = {
+					factor = 2
+					stewardship = 21
+				}						
+				modifier = {
+					factor = 3
+					trait = administrator
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}				
+				modifier = {
+					factor = 3
+					trait = deceitful
+				}
+				modifier = {
+					factor = 1.5
+					trait = patient
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = humble
+				}
+				modifier = {
+					factor = 0.66
+					trait = wroth
+				}
+				modifier = {
+					factor = 2.0
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}				
+
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }				
+			}
+			
+			2 = {	#DRAW
+				modifier = {
+					factor = 3
+					trait = content
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.8
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }			
+			}
+			
+			2 = {	#LOSE
+
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = indulgent_wastrel
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = thrifty_clerk
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = fortune_builder
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = midas_touched
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { stewardship = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { stewardship = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { stewardship = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { stewardship = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						stewardship = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						stewardship = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						stewardship = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						stewardship = 21
+						has_character_flag = debate_foe	
+					}
+				}	
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = administrator
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = deceitful
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = patient
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = humble
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = wroth
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2.0
+					any_voter = {
+						trait = cynical
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }		
+			
+			}
+		
+		}
+		
+	}
+	
+}
+
+#######################################################################################
+
+
+
+
+
+##########################################
+#########################################
+#############################################
+################################################
+#################################################
+###################################################
+###################################################
+###################################################
+###################################################
+###################################################
+#####################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################################################################
+
+
+character_event = {			#OPPORTUNITY FOR DEBATE (INTRIGUE)
+	id = darkages.72112
+	title = EVTNAME1972112
+	desc = EVTDESC1972112
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+		random_voter = {
+			set_character_flag = darkages_picked
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1972100"	#Aggressive
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP42 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked
+			set_character_flag = debate_foe
+		}
+		
+		character_event = { id = darkages.72113 }
+	}
+
+	option = {
+		name = "EVTOPTB1972100"	#Defensive
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP43 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked		
+			set_character_flag = debate_foe
+		}		
+
+		character_event = { id = darkages.72114 }
+		
+	}
+	
+	option = {
+		name = "EVTOPTC1972100" #Tricky
+		trigger = { NOT = { trait = honest } }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP44 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked		
+			set_character_flag = debate_foe
+		}		
+
+		character_event = { id = darkages.72115 }		
+		
+	}
+
+}
+
+character_event = {			#INTRIGUE: STANCE AGGRESSIVE
+	id = darkages.72113
+	title = EVTNAME1972101
+	desc = EVTDESC1972101
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972101"
+		
+		random_list = {
+		
+			3 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = amateurish_plotter
+				}
+				modifier = {
+					factor = 1.5
+					trait = flamboyant_schemer
+				}
+				modifier = {
+					factor = 1.75
+					trait = intricate_webweaver
+				}
+				modifier = {
+					factor = 2
+					trait = elusive_shadow
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { intrigue = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { intrigue = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.75
+					intrigue = 18
+				}
+				modifier = {
+					factor = 2
+					intrigue = 21
+				}				
+				modifier = {
+					factor = 3
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}
+				modifier = {
+					factor = 3
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = brave
+				}
+				modifier = {
+					factor = 0.66
+					trait = craven
+				}
+				modifier = {
+					factor = 1.5
+					trait = ambitious
+				}
+				modifier = {
+					factor = 1.5
+					trait = zealous
+				}				
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }				
+			}
+			
+			2 = {	#DRAW
+			
+				modifier = {
+					factor = 3
+					trait = content
+				}
+				modifier = {
+					factor = 0.75
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}			
+			
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			3 = {	#LOSE
+			
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = amateurish_plotter
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = flamboyant_schemer
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = intricate_webweaver
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = elusive_shadow
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { intrigue = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { intrigue = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { intrigue = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { intrigue = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						intrigue = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						intrigue = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						intrigue = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						intrigue = 21
+						has_character_flag = debate_foe	
+					}
+				}							
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = schemer
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = wroth
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = cruel
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = brave
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = craven
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = ambitious
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = zealous
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+			
+			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }		
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+
+character_event = {			#INTRIGUE: STANCE DEFENSIVE
+	id = darkages.72114
+	title = EVTNAME1972102
+	desc = EVTDESC1972102
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972102"
+		
+		random_list = {
+		
+			2 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = amateurish_plotter
+				}
+				modifier = {
+					factor = 1.5
+					trait = flamboyant_schemer
+				}
+				modifier = {
+					factor = 1.75
+					trait = intricate_webweaver
+				}
+				modifier = {
+					factor = 2
+					trait = elusive_shadow
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { intrigue = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { intrigue = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.75
+					intrigue = 18
+				}
+				modifier = {
+					factor = 2
+					intrigue = 21
+				}				
+				modifier = {
+					factor = 3
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}				
+				modifier = {
+					factor = 3
+					trait = patient
+				}
+				modifier = {
+					factor = 1.5
+					trait = kind
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = humble
+				}
+				modifier = {
+					factor = 0.66
+					trait = proud
+				}
+				modifier = {
+					factor = 1.5
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }				
+			}
+			
+			5 = {	#DRAW
+				modifier = {
+					factor = 5
+					trait = content
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 5
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.8
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			2 = {	#LOSE
+
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = amateurish_plotter
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = flamboyant_schemer
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = intricate_webweaver
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = elusive_shadow
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { intrigue = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { intrigue = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { intrigue = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { intrigue = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						intrigue = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						intrigue = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						intrigue = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						intrigue = 21
+						has_character_flag = debate_foe	
+					}
+				}							
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = schemer
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = patient
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = kind
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = humble
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = proud
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = cynical
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }			
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+
+character_event = {			#INTRIGUE: STANCE TRICKY
+	id = darkages.72115
+	title = EVTNAME1972103
+	desc = EVTDESC1972103
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972103"
+		
+		random_list = {
+		
+			2 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = amateurish_plotter
+				}
+				modifier = {
+					factor = 1.5
+					trait = flamboyant_schemer
+				}
+				modifier = {
+					factor = 1.75
+					trait = intricate_webweaver
+				}
+				modifier = {
+					factor = 2
+					trait = elusive_shadow
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { intrigue = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { intrigue = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { intrigue = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { intrigue = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					intrigue = 12
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.75
+					intrigue = 18
+				}
+				modifier = {
+					factor = 2
+					intrigue = 21
+				}						
+				modifier = {
+					factor = 3
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}				
+				modifier = {
+					factor = 3
+					trait = deceitful
+				}
+				modifier = {
+					factor = 1.5
+					trait = patient
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = humble
+				}
+				modifier = {
+					factor = 0.66
+					trait = wroth
+				}
+				modifier = {
+					factor = 2.0
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}				
+
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }				
+			}
+			
+			2 = {	#DRAW
+				modifier = {
+					factor = 3
+					trait = content
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.8
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			2 = {	#LOSE
+
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = amateurish_plotter
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = flamboyant_schemer
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = intricate_webweaver
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = elusive_shadow
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { intrigue = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { intrigue = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { intrigue = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { intrigue = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						intrigue = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						intrigue = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						intrigue = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						intrigue = 21
+						has_character_flag = debate_foe	
+					}
+				}	
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = schemer
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = deceitful
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = patient
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = humble
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = wroth
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2.0
+					any_voter = {
+						trait = cynical
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }			
+			}
+		
+		}
+		
+	}
+	
+}
+
+#######################################################################################
+
+
+
+
+
+##########################################
+#########################################
+#############################################
+################################################
+#################################################
+###################################################
+###################################################
+###################################################
+###################################################
+###################################################
+#####################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################################################################
+
+
+character_event = {			#OPPORTUNITY FOR DEBATE (LEARNING)
+	id = darkages.72116
+	title = EVTNAME1972116
+	desc = EVTDESC1972116
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+		random_voter = {
+			set_character_flag = darkages_picked
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1972100"	#Aggressive
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP45 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked
+			set_character_flag = debate_foe
+		}
+		
+		character_event = { id = darkages.72117 }
+	}
+
+	option = {
+		name = "EVTOPTB1972100"	#Defensive
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP46 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked		
+			set_character_flag = debate_foe
+		}		
+
+		character_event = { id = darkages.72118 }
+		
+	}
+	
+	option = {
+		name = "EVTOPTC1972100" #Tricky
+		trigger = { NOT = { trait = honest } }
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP47 }
+		
+		random_voter = {
+			limit = { has_character_flag = darkages_picked }
+			clr_character_flag = darkages_picked		
+			set_character_flag = debate_foe
+		}		
+
+		character_event = { id = darkages.72119 }		
+		
+	}
+
+}
+
+character_event = {			#LEARNING: STANCE AGGRESSIVE
+	id = darkages.72117
+	title = EVTNAME1972101
+	desc = EVTDESC1972101
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972101"
+		
+		random_list = {
+		
+			3 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = detached_priest
+				}
+				modifier = {
+					factor = 1.5
+					trait = martial_cleric
+				}
+				modifier = {
+					factor = 1.75
+					trait = scholarly_theologian
+				}
+				modifier = {
+					factor = 2
+					trait = mastermind_theologian
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { learning = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { learning = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { learning = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { learning = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					learning = 12
+				}
+				modifier = {
+					factor = 1.5
+					learning = 15
+				}
+				modifier = {
+					factor = 1.75
+					learning = 18
+				}
+				modifier = {
+					factor = 2
+					learning = 21
+				}				
+				modifier = {
+					factor = 3
+					trait = scholar
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}
+				modifier = {
+					factor = 3
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = brave
+				}
+				modifier = {
+					factor = 0.66
+					trait = craven
+				}
+				modifier = {
+					factor = 1.5
+					trait = ambitious
+				}
+				modifier = {
+					factor = 1.5
+					trait = zealous
+				}				
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }			
+			}
+			
+			2 = {	#DRAW
+			
+				modifier = {
+					factor = 3
+					trait = content
+				}
+				modifier = {
+					factor = 0.75
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}			
+			
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			3 = {	#LOSE
+			
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = detached_priest
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = martial_cleric
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = scholarly_theologian
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = mastermind_theologian
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { learning = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { learning = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { learning = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { learning = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						learning = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						learning = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						learning = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						learning = 21
+						has_character_flag = debate_foe	
+					}
+				}							
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = scholar
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = wroth
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = cruel
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = brave
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = craven
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = ambitious
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = zealous
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+			
+			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }			
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+
+character_event = {			#LEARNING: STANCE DEFENSIVE
+	id = darkages.72118
+	title = EVTNAME1972102
+	desc = EVTDESC1972102
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972102"
+		
+		random_list = {
+		
+			2 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = detached_priest
+				}
+				modifier = {
+					factor = 1.5
+					trait = martial_cleric
+				}
+				modifier = {
+					factor = 1.75
+					trait = scholarly_theologian
+				}
+				modifier = {
+					factor = 2
+					trait = mastermind_theologian
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { learning = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { learning = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { learning = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { learning = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					learning = 12
+				}
+				modifier = {
+					factor = 1.5
+					learning = 15
+				}
+				modifier = {
+					factor = 1.75
+					learning = 18
+				}
+				modifier = {
+					factor = 2
+					learning = 21
+				}				
+				modifier = {
+					factor = 3
+					trait = scholar
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}				
+				modifier = {
+					factor = 3
+					trait = patient
+				}
+				modifier = {
+					factor = 1.5
+					trait = kind
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = humble
+				}
+				modifier = {
+					factor = 0.66
+					trait = proud
+				}
+				modifier = {
+					factor = 1.5
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}
+				
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }			
+			}
+			
+			5 = {	#DRAW
+				modifier = {
+					factor = 5
+					trait = content
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 5
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.8
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			2 = {	#LOSE
+
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = detached_priest
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = martial_cleric
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = scholarly_theologian
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = mastermind_theologian
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { learning = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { learning = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { learning = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { learning = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						learning = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						learning = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						learning = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						learning = 21
+						has_character_flag = debate_foe	
+					}
+				}							
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = scholar
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = patient
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = kind
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = humble
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = proud
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = cynical
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }
+			
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+
+character_event = {			#LEARNING: STANCE TRICKY
+	id = darkages.72119
+	title = EVTNAME1972103
+	desc = EVTDESC1972103
+	picture = GFX_evt_council_quarrelling
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA1972103"
+		
+		random_list = {
+		
+			2 = {	#WIN
+				modifier = {
+					factor = 0.7
+					has_game_rule = { name = debates_difficulty value = increased } 					
+				}			
+
+				modifier = {
+					factor = 1.35
+					has_game_rule = { name = debates_difficulty value = decreased } 					
+				}			
+				modifier = {
+					factor = 1.25
+					trait = detached_priest
+				}
+				modifier = {
+					factor = 1.5
+					trait = martial_cleric
+				}
+				modifier = {
+					factor = 1.75
+					trait = scholarly_theologian
+				}
+				modifier = {
+					factor = 2
+					trait = mastermind_theologian
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { learning = 8 }
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { learning = 6 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { learning = 4 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { learning = 2 }
+				}
+				modifier = {
+					factor = 1.25
+					learning = 12
+				}
+				modifier = {
+					factor = 1.5
+					learning = 15
+				}
+				modifier = {
+					factor = 1.75
+					learning = 18
+				}
+				modifier = {
+					factor = 2
+					learning = 21
+				}						
+				modifier = {
+					factor = 3
+					trait = scholar
+				}
+				modifier = {
+					factor = 1.75
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.66
+					trait = shy
+				}				
+				modifier = {
+					factor = 3
+					trait = deceitful
+				}
+				modifier = {
+					factor = 1.5
+					trait = patient
+				}
+				modifier = {
+					factor = 2
+					trait = quick
+				}
+				modifier = {
+					factor = 3
+					trait = genius
+				}
+				modifier = {
+					factor = 2
+					trait = shrewd
+				}				
+				modifier = {
+					factor = 0.5
+					trait = dull
+				}
+				modifier = {
+					factor = 0.5
+					trait = slow
+				}
+				modifier = {
+					factor = 0.33
+					trait = imbecile
+				}
+				modifier = {
+					factor = 1.5
+					trait = humble
+				}
+				modifier = {
+					factor = 0.66
+					trait = wroth
+				}
+				modifier = {
+					factor = 2.0
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = stressed
+				}				
+
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72485 } }
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP214 }			
+			}
+			
+			2 = {	#DRAW
+				modifier = {
+					factor = 3
+					trait = content
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = content
+						has_character_flag = debate_foe
+					}
+				}
+				modifier = {
+					factor = 0.8
+					any_voter = {
+						trait = arbitrary
+						has_character_flag = debate_foe
+					}
+				}
+				
+				###### START OF EFFECTS
+
+					#(no effects)
+				hidden_tooltip = { character_event = { id = darkages.72486 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP215 }				
+			}
+			
+			2 = {	#LOSE
+
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						trait = detached_priest
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = martial_cleric
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = scholarly_theologian
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = mastermind_theologian
+						has_character_flag = debate_foe	
+					}					
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { learning = 8 }
+						has_character_flag = debate_foe	
+					}					
+
+				}
+				modifier = {
+					factor = 0.75
+					any_voter = {
+						NOT = { learning = 6 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { learning = 4 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						NOT = { learning = 2 }
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.25
+					any_voter = {
+						learning = 12
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						learning = 15
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						learning = 18
+						has_character_flag = debate_foe	
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						learning = 21
+						has_character_flag = debate_foe	
+					}
+				}	
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = scholar
+						has_character_flag = debate_foe						
+					}					
+					
+				}
+				modifier = {
+					factor = 1.75
+					any_voter = {
+						trait = gregarious
+						has_character_flag = debate_foe						
+					}
+					
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = shy
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = deceitful
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = patient
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = quick
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 3
+					any_voter = {
+						trait = genius
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2
+					any_voter = {
+						trait = shrewd
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = dull
+						has_character_flag = debate_foe						
+					}
+				}				
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = slow
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.33
+					any_voter = {
+						trait = imbecile
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_voter = {
+						trait = humble
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.66
+					any_voter = {
+						trait = wroth
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 2.0
+					any_voter = {
+						trait = cynical
+						has_character_flag = debate_foe						
+					}
+				}
+				modifier = {
+					factor = 0.5
+					any_voter = {
+						trait = stressed
+						has_character_flag = debate_foe						
+					}
+				}			
+				###### START OF EFFECTS
+				hidden_tooltip = { character_event = { id = darkages.72487 } }				
+				custom_tooltip = { text = DA_CUSTOMTOOLTIP216 }			
+			}
+		
+		}
+		
+	}
+	
+}
+
+
+###########################################################################
+#
+#	ADD DETAIL TO THE DEBATE WITH RESULTS REPORTED
+#
+##########################################################################
+
+character_event = { 		#Success in the debate
+	id = darkages.72485
+	title = EVTNAME1972485
+	desc = EVTDESC1972485
+	picture = GFX_evt_da_council_agreement
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972485
+		
+		prestige = 20
+		
+		add_character_modifier = {
+			name = da_political_victory
+			duration = 1095
+		}
+			
+		random_voter = {
+			limit = {
+				has_character_flag = debate_foe
+			}
+			reverse_add_favor = ROOT
+       		opinion = {
+       			who = ROOT
+   				modifier = opinion_embarrassed
+   				years = 3
+   			}
+			hidden_tooltip = {
+				character_event = { id = darkages.72638 }
+			}			
+			clr_character_flag = debate_foe
+		}
+		
+		
+	}
+	
+}
+
+
+character_event = { 		#Draw in the debate
+	id = darkages.72486
+	title = EVTNAME1972486
+	desc = EVTDESC1972486
+	picture = GFX_evt_da_council_assembled
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972486
+		custom_tooltip = { text = DA_CUSTOMTOOLTIP213 }
+		
+		prestige = -10
+		
+	}
+	
+}
+
+character_event = { 		#Lost the debate
+	id = darkages.72487
+	title = EVTNAME1972487
+	desc = EVTDESC1972487
+	picture = GFX_evt_da_councillor_angry
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = EVTOPTA1972487
+		
+		if = {
+			limit = {
+				any_voter = {
+					has_character_flag = debate_foe
+					opinion = { who = ROOT value = 0 }
+				}
+			}
+			prestige = -25
+		}
+				
+		if = {
+			limit = {
+				any_voter = {
+					has_character_flag = debate_foe
+					NOT = { opinion = { who = ROOT value = 0 } }
+					opinion = { who = ROOT value = -25 }
+				}
+			}
+			prestige = -30
+		}
+
+		if = {
+			limit = {
+				any_voter = {
+					has_character_flag = debate_foe
+					NOT = { opinion = { who = ROOT value = -25 } }
+					opinion = { who = ROOT value = -50 }
+				}
+			}
+			prestige = -35
+		}	
+
+		if = {
+			limit = {
+				any_voter = {
+					has_character_flag = debate_foe
+					NOT = { opinion = { who = ROOT value = -50 } }
+					opinion = { who = ROOT value = -75 }
+				}
+			}
+			prestige = -40
+		}
+
+		if = {
+			limit = {
+				any_voter = {
+					has_character_flag = debate_foe
+					NOT = { opinion = { who = ROOT value = -75 } }
+					opinion = { who = ROOT value = -99 }
+				}
+			}
+			prestige = -45
+		}
+
+		if = {
+			limit = {
+				any_voter = {
+					has_character_flag = debate_foe
+					NOT = { opinion = { who = ROOT value = -99 } }
+				}
+			}
+			prestige = -50
+		}
+
+		if = {
+			limit = {
+				any_voter = {
+					has_character_flag = debate_foe
+					is_rival = ROOT
+				}
+			}
+			prestige = -50
+		}			
+			
+		add_character_modifier = {
+			name = da_politically_beaten
+			duration = 1825
+		}
+				
+		random_voter = {
+			limit = {
+				has_character_flag = debate_foe
+			}
+			hidden_tooltip = {
+				character_event = { id = darkages.72637 }
+			}
+			add_favor = ROOT
+			clr_character_flag = debate_foe
+		}			
+			
+			
+	}
+	
+}
+
+character_event = { 		#Inform Debate Opponent of his victory
+	id = darkages.72637
+	title = EVTNAME1972637
+	desc = EVTDESC1972637
+	picture = GFX_evt_da_council_agreement
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972637
+	}
+	
+}
+
+character_event = { 		#Inform Debate Opponent of his defeat
+	id = darkages.72638
+	title = EVTNAME1972638
+	desc = EVTDESC1972638
+	picture = GFX_evt_da_councillor_angry
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	trigger = {
+	
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = EVTOPTA1972638
+	}
+	
+}

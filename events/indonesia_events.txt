@@ -1,0 +1,474 @@
+namespace = indonesiaevents
+narrative_event = {
+	id = indonesiaevents.1
+	title = EVTTITLEindonesiaevents.1
+	desc = EVTDESCindonesiaevents.1
+	picture = GFX_evt_vikings_arriving_oldgods
+	border = GFX_event_narrative_frame_war
+	major = yes
+	hide_from = yes
+	mean_time_to_happen = {
+	years = 50
+	}
+	only_playable = yes
+	religion = catholic
+	trigger = {
+		NOT = {
+			has_alternate_start_parameter = { key = religion_names value = random }
+		}
+		NOT = { has_global_flag = piracy_age_started }
+		controls_religion = yes # Let it happen for the Pope - he's always around
+	}
+	
+	immediate = {
+		set_global_flag = piracy_age_started
+		any_playable_ruler = {
+			limit = { 
+				liege = { character = PREV } #independent = yes and any_independent_ruler exclude revolts
+				OR ={
+			culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+			}
+			any_realm_province = {
+				if = {
+					limit = {
+						port = yes
+						OR ={
+			culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+					}
+					change_tech = {
+						technology = TECH_NAVAL
+						value = 1
+					}
+				}
+			}
+			any_demesne_title = {
+				if = {
+					limit = {
+						tier = BARON
+						location = {
+							port = yes
+							OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+						}
+						owner = {
+							is_feudal = yes
+							OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+						}
+						NOT = { has_building = ca_shipyard_1 }
+					}
+					add_building = ca_shipyard_1
+				}
+				if = {
+					limit = {
+						tier = BARON
+						location = {
+							port = yes
+							OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+						}
+						owner = {
+							is_republic = yes
+							OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+						}
+						NOT = { has_building = ct_shipyard_1 }
+					}
+					add_building = ct_shipyard_1
+				}
+				if = {
+					limit = {
+						tier = BARON
+						location = {
+							port = yes
+							OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+						}
+						owner = {
+							is_priest = yes
+							OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+						}
+						NOT = { has_building = tp_shipyard_1 }
+					}
+					add_building = tp_shipyard_1
+				}
+				if = {
+					limit = {
+						tier = BARON
+						location = {
+							port = yes
+							OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+						}
+						owner = {
+							is_tribal = yes
+							OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+						}
+						NOT = { has_building = tb_shipyard_1 }
+					}
+					add_building = tb_shipyard_1
+				}
+			}
+			any_realm_lord = {
+				any_demesne_title = {
+					if = {
+						limit = {
+							tier = BARON
+							location = {
+								port = yes
+								OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+							}
+							owner = {
+								is_feudal = yes
+								OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+							}
+							NOT = { has_building = ca_shipyard_1 }
+						}
+						add_building = ca_shipyard_1
+					}
+					if = {
+						limit = {
+							tier = BARON
+							location = {
+								port = yes
+								OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+							}
+							owner = {
+								is_republic = yes
+								OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+							}
+							NOT = { has_building = ct_shipyard_1 }
+						}
+						add_building = ct_shipyard_1
+					}
+					if = {
+						limit = {
+							tier = BARON
+							location = {
+								port = yes
+								OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+							}
+							owner = {
+								is_priest = yes
+								OR ={
+			culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+							}
+							NOT = { has_building = tp_shipyard_1 }
+						}
+						add_building = tp_shipyard_1
+					}
+					if = {
+						limit = {
+							tier = BARON
+							location = {
+								port = yes
+								OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+							}
+							owner = {
+								is_tribal = yes
+								OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+							}
+							NOT = { has_building = tb_shipyard_1 }
+						}
+						add_building = tb_shipyard_1
+					}
+				}
+			}
+		}
+		any_playable_ruler = {
+			limit = {
+				ai = no
+				capital_scope = {
+					NOT = { region = world_europe_west_brittania }
+					NOT = { region = world_steppe }
+					NOT = { region = world_himalayas }
+					NOT = { region = world_africa_west }
+					NOT = { region = world_africa_central }
+					NOT = { region = world_africa_east }
+				}
+			}
+			chronicle = {
+				entry = CHRONICLE_PIRATE_AGE_BEGINS
+				picture = GFX_evt_longships_at_sea_oldgods
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAindonesiaevents.1
+		trigger = {
+			NOR = {  
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+			capital_scope = {
+					NOT = { region = world_europe }
+					NOT = { region = world_africa }
+					NOT = { region = world_america }
+			}
+		}
+		custom_tooltip = { text = pirate_age_shipyards_and_tech_tooltip }
+	}
+	option = {
+		name = EVTOPTBindonesiaevents.1
+		trigger = {
+				OR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+		}
+		custom_tooltip = { text = pirate_age_shipyards_and_tech_tooltip }
+	}
+	option = {
+		name = EVTOPTCindonesiaevents.1
+		trigger = {
+			NOR ={
+				culture_group = malay_group
+				culture_group = javanese_group
+				culture_group = maluku_group
+				culture_group = bornean
+				culture_group = ma_i_an
+				culture_group = sulawesi_group
+				culture_group = polynesians
+				culture_group = taiwanese
+				culture_group = chamic
+				culture_group = vietic
+				culture = ryukyuan
+				}
+				
+			capital_scope = {
+				OR = {
+					 region = world_europe 
+					 region = world_africa 
+					 region = world_america 
+				}
+			}
+		}
+		custom_tooltip = { text = pirate_age_shipyards_and_tech_tooltip }
+	}
+}

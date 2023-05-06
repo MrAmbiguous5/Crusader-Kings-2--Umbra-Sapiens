@@ -1,0 +1,11 @@
+	-- NDefines.NAI.DOW_AGGRESSION_FACTOR = 0.35
+	NDefines.NReligion.REFORM_RELIGION_MIN_HOLY_SITES = 1
+	NDefines.NReligion.REFORM_RELIGION_PIETY_COST = 2500
+	NDefines.NEconomy.PATRICIAN_CAMPAIGN_FUND_FACTOR = 4			-- The effect of money in the Campaign Fund on Doge elections (money * factor)
+	NDefines.NEconomy.PATRICIAN_PRESTIGE_RESPECT_FACTOR = 4			-- The effect of Prestige on the Respect value for Doge elections (prestige * factor)
+	NDefines.NEconomy.PATRICIAN_AGE_RESPECT_FACTOR = 1				-- The effect of Age on the Respect value for Doge elections (age * age * factor)
+	NDefines.NEconomy.DOGE_SUCC_RANDOM_FACTOR = 3000				-- The random Respect factor on actual Doge succession
+	NDefines.NDiplomacy.FORM_NON_AGGRESSION_PACT_INTERACTION_ENABLED = 0
+	NDefines.NDiplomacy.FORM_ALLIANCE_INTERACTION_ENABLED = 0
+	NDefines.NDiplomacy.INVITE_TO_COURT_INTERACTION_ENABLED = 0
+	NDefines.NDiplomacy.BUY_FAVOR_INTERACTION_ENABLED = 0

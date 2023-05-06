@@ -1,0 +1,82 @@
+settlement_decisions = { 
+	destroy_local_wonder = {
+		ai_check_interval = 120
+		filter = realm_owned
+
+		potential = {
+			ROOT = {
+				is_capital = yes
+				location = {
+					has_wonder = yes
+				}
+			}
+		}
+
+		allow = {
+			controlled_by = FROM
+			OR = {
+				AND = {
+					has_game_rule = {
+						name = destroy_wonder_cost
+						value = destroy_wonder_rule_cost_low
+					}
+					FROM = { wealth = 250 }
+				}
+				AND = {
+					has_game_rule = {
+						name = destroy_wonder_cost
+						value = destroy_wonder_rule_cost_med
+					}
+					FROM = { wealth = 500 }
+				}
+				has_game_rule = {
+					name = destroy_wonder_cost
+					value = destroy_wonder_rule_cost_none
+				}
+				has_game_rule = {
+					name = destroy_wonder_cost
+					value = destroy_wonder_rule_cost_return
+				}
+			}
+		}
+
+		effect = {
+			ROOT = {
+				location = {
+					destroy_wonder = yes
+				} 
+			}
+			if = {
+				limit = { 
+					has_game_rule = { 
+						name = destroy_wonder_cost 
+						value = destroy_wonder_rule_cost_return
+					} 
+				}
+				FROM = { wealth = 250 }
+			}
+			else_if = {
+				limit = { 
+					has_game_rule = { 
+						name = destroy_wonder_cost 
+						value = destroy_wonder_rule_cost_low
+					} 
+				}
+				FROM = { wealth = -250 }
+			}
+			else_if = {
+				limit = { 
+					has_game_rule = { 
+						name = destroy_wonder_cost 
+						value = destroy_wonder_rule_cost_med
+					} 
+				}
+				FROM = { wealth = -500 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

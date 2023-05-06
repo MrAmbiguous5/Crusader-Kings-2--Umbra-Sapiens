@@ -1,0 +1,12 @@
+#;;;;;;;;;;;;;;x
+#§
+###############
+## DECISIONS ##
+###############
+lmmpvf_demand_council_position;Demand Council Position;;;;;;;;;;;;;x
+lmmpvf_demand_council_position_desc;Demand that your liege, §Y[Root.GetTitledName]§!, should grant you a position on his council.;;;;;;;;;;;;;x
+lmmifpvf_demand_release_family_member;Demand Release of Family;;;;;;;;;;;;;x
+lmmifpvf_demand_release_family_member_desc;§Y[Root.GetTitledName]§! holds your close family members as prisoners. You can demand that they be released immediately.;;;;;;;;;;;;;x
+
+lmmpvf_ctt_demand_cooldown;Has not demanded something in the past 1 year.;;;;;;;;;;;;;x
+lmmpvf_ctt_not_refused_by_liege_for_several_years;§Y[Root.Liege.GetTitledFirstName]§! is currently willing to listen to such demands from §Y[Root.GetTitledFirstName]§!.;;;;;;;;;;;;;x

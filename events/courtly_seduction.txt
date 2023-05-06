@@ -1,0 +1,5791 @@
+namespace = equus
+
+# Seduce Decision event start - Normal
+character_event = {
+	id = equus.4100
+	title = EVTTITLE_equus_4100
+	desc = EVTDESC_equus_4100
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_courted
+		}
+		save_event_target_as = target_courter
+		set_character_flag = courtship_confirmed
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4100
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 }
+	}
+}
+
+# Seduce Decision event start - Incest scandal risk
+character_event = {
+	id = equus.4102
+	title = EVTTITLE_equus_4100
+	desc = EVTDESC_equus_4102
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_courted
+		}
+		save_event_target_as = target_courter
+		set_character_flag = courtship_confirmed
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4100
+		ai_chance = {
+			factor = 100
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 }
+	}
+	option = {
+		name = EVTOPTB_equus_4102
+		ai_chance = {
+			factor = 0
+		}
+		hidden_tooltip = {
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courting
+			}
+		}
+	}
+}
+
+# Seduce Decision event start - Priest scandal risk
+character_event = {
+	id = equus.4103
+	title = EVTTITLE_equus_4100
+	desc = EVTDESC_equus_4103
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_courted
+		}
+		save_event_target_as = target_courter
+		set_character_flag = courtship_confirmed
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4100
+		ai_chance = {
+			factor = 100
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 }
+	}
+	option = {
+		name = EVTOPTB_equus_4102
+		ai_chance = {
+			factor = 0
+		}
+		hidden_tooltip = {
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courting
+			}
+		}
+	}
+}
+
+# Seduce Decision event start - Homo scandal risk
+character_event = {
+	id = equus.4104
+	title = EVTTITLE_equus_4100
+	desc = EVTDESC_equus_4104
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_courted
+		}
+		save_event_target_as = target_courter
+		set_character_flag = courtship_confirmed
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4100
+		ai_chance = {
+			factor = 100
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 }
+	}
+	option = {
+		name = EVTOPTB_equus_4102
+		ai_chance = {
+			factor = 0
+		}
+		hidden_tooltip = {
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courting
+			}
+		}
+	}
+}
+
+
+# Hidden 'outcome tombola' event
+character_event = {
+	id = equus.4110
+	hide_window = yes
+	
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_character_flag = stopped_courtship }
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				prisoner = yes # I have become imprisoned
+			}
+			character_event = { id = equus.4118 }
+			break = yes # Stop execution here
+		}
+		
+		if = {
+			limit = {
+				trait = incapable # I have become incapable
+			}
+			character_event = { id = equus.4118 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				event_target:target_courted = {
+					OR = {
+						is_married = ROOT
+						is_consort = ROOT
+						is_lover = ROOT
+					}
+				}
+			}
+			character_event = { id = equus.4114 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				event_target:target_courted = {
+					is_alive = no
+				}
+			}
+			character_event = { id = equus.4111 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				event_target:target_courted = {
+					prisoner = yes
+				}
+			}
+			character_event = { id = equus.4112 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				event_target:target_courted = {
+					trait = incapable
+				}
+			}
+			character_event = { id = equus.4113 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					has_regent = yes
+					in_command = yes
+					event_target:target_courted = {
+						OR = {
+							trait = on_hajj
+							trait = on_pilgrimage
+							trait = in_hiding
+							in_command = yes
+							has_character_modifier = in_meditation
+							has_character_modifier = doing_penance
+							AND = {
+								OR = {
+									has_character_modifier = in_seclusion
+									ROOT = { has_character_modifier = in_seclusion }
+								}
+								NOT = { at_location = ROOT }
+							}
+						}
+					}
+				}
+			}
+			character_event = { id = equus.4110 days = 80 random = 40 } # Fire again with no scope changes
+			
+			random = {
+				chance = 80
+				character_event = { id = equus.4115 } # Time to give up?
+			}
+			
+			break = yes
+		}
+		
+		# Slow this down versus distant targets
+		if = {
+			limit = {
+				distance = {
+					who = event_target:target_courted
+					value = 200
+				}
+			}
+			random_list = {
+				100 = {
+					modifier = {
+						factor = 2.0
+						distance = {
+							who = event_target:target_courted
+							value = 300
+						}
+					}
+					modifier = {
+						factor = 2.0
+						distance = {
+							who = event_target:target_courted
+							value = 400
+						}
+					}
+					modifier = {
+						factor = 2.0
+						distance = {
+							who = event_target:target_courted
+							value = 500
+						}
+					}
+					character_event = { id = equus.4110 days = 80 random = 40 } # Fire again with no scope changes
+					
+					random = {
+						chance = 66
+						character_event = { id = equus.4115 } # Time to give up?
+					}
+					
+					break = yes
+				}
+				100 = {
+				}
+			}
+		}
+		
+		if = {
+			# The target likes me
+			limit = {
+				event_target:target_courted = {
+					personal_opinion = {
+						who = ROOT
+						value = 40
+					}
+				}
+			}
+			random_list = {
+				100 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_dance }
+						}
+						event_target:target_courted = { character_event = { id = equus.4300 } } # Dance
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_church } #CHANGE AND EVENT
+						}
+						event_target:target_courted = { character_event = { id = equus.4350 } } # Church
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_travel } #CHANGE AND EVENT
+						}
+						event_target:target_courted = { character_event = { id = equus.4400 } } # Travel
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4300 } } # Dance
+				}
+				100 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_church }
+						}
+						event_target:target_courted = { character_event = { id = equus.4350 } } # Church
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_travel }
+						}
+						event_target:target_courted = { character_event = { id = equus.4400 } } # Travel
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_dance }
+						}
+						event_target:target_courted = { character_event = { id = equus.4300 } } # Dance
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4350 } } # Church
+				}
+				100 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_travel }
+						}
+						event_target:target_courted = { character_event = { id = equus.4400 } } # Travel
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_dance }
+						}
+						event_target:target_courted = { character_event = { id = equus.4300 } } # Dance
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_church }
+						}
+						event_target:target_courted = { character_event = { id = equus.4350 } } # Church
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4400 } } # Travel
+				}
+			}
+			break = yes
+		}
+		
+		if = {
+			# The target does not like me much
+			limit = {
+				event_target:target_courted = {
+					personal_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+			
+			random_list = {
+				# Seduction attempts
+				13 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_dance }
+						}
+						event_target:target_courted = { character_event = { id = equus.4300 } } # Dance
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_church }
+						}
+						event_target:target_courted = { character_event = { id = equus.4350 } } # Church
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_travel }
+						}
+						event_target:target_courted = { character_event = { id = equus.4400 } } # Travel
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4300 } } # Dance
+				}
+				13 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_church }
+						}
+						event_target:target_courted = { character_event = { id = equus.4350 } } # Church
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_travel }
+						}
+						event_target:target_courted = { character_event = { id = equus.4400 } } # Travel
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_dance }
+						}
+						event_target:target_courted = { character_event = { id = equus.4300 } } # Dance
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4350 } } # Church
+				}
+				13 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_travel }
+						}
+						event_target:target_courted = { character_event = { id = equus.4400 } } # Travel
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_dance }
+						}
+						event_target:target_courted = { character_event = { id = equus.4300 } } # Dance
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_church }
+						}
+						event_target:target_courted = { character_event = { id = equus.4350 } } # Church
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4400 } } # Travel
+				}
+				# Gifts/wooing
+				21 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_love_letter }
+						}
+						event_target:target_courted = { character_event = { id = equus.4200 } } # Love letter
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gift }
+						}
+						event_target:target_courted = { character_event = { id = equus.4210 } } # Necklace / Sword
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gossip }
+						}
+						event_target:target_courted = { character_event = { id = equus.4220 } } # Befriend Servant
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4200 } } # Love letter
+				}
+				20 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gift }
+						}
+						event_target:target_courted = { character_event = { id = equus.4210 } } # Necklace / Sword
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gossip }
+						}
+						event_target:target_courted = { character_event = { id = equus.4220 } } # Befriend Servant
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_love_letter }
+						}
+						event_target:target_courted = { character_event = { id = equus.4200 } } # Love letter
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4210 } } # Necklace / Sword
+				}
+				20 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gossip }
+						}
+						event_target:target_courted = { character_event = { id = equus.4220 } } # Befriend Servant
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_love_letter }
+						}
+						event_target:target_courted = { character_event = { id = equus.4200 } } # Love letter
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gift }
+						}
+						event_target:target_courted = { character_event = { id = equus.4210 } } # Necklace / Sword
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4220 } } # Befriend Servant
+				}
+			}
+			
+			break = yes
+		}
+		
+		if = {
+			# The target dislikes me
+			limit = {
+				event_target:target_courted = {
+					NOT = {
+						personal_opinion = {
+							who = ROOT
+							value = 0
+						}
+					}
+				}
+			}
+			
+			random_list = {
+				# Gifts/wooing
+				34 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_love_letter }
+						}
+						event_target:target_courted = { character_event = { id = equus.4200 } } # Love letter
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gift }
+						}
+						event_target:target_courted = { character_event = { id = equus.4210 } } # Necklace / Sword
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gossip }
+						}
+						event_target:target_courted = { character_event = { id = equus.4220 } } # Befriend Servant
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4200 } } # Love letter
+				}
+				33 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gift }
+						}
+						event_target:target_courted = { character_event = { id = equus.4210 } } # Necklace / Sword
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gossip }
+						}
+						event_target:target_courted = { character_event = { id = equus.4220 } } # Befriend Servant
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_love_letter }
+						}
+						event_target:target_courted = { character_event = { id = equus.4200 } } # Love letter
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4210 } } # Necklace / Sword
+				}
+				33 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gossip }
+						}
+						event_target:target_courted = { character_event = { id = equus.4220 } } # Befriend Servant
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_love_letter }
+						}
+						event_target:target_courted = { character_event = { id = equus.4200 } } # Love letter
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = equus_seduce_gift }
+						}
+						event_target:target_courted = { character_event = { id = equus.4210 } } # Necklace / Sword
+						break = yes
+					}
+					event_target:target_courted = { character_event = { id = equus.4220 } } # Befriend Servant
+				}
+			}
+		}
+	}
+}
+
+# My object of seduction has died!
+character_event = {
+	id = equus.4111
+	desc = EVTDESC_equus_4111
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
+	
+	show_from_from_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		character_event = { id = equus.4118 }
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4111
+	}
+}
+
+# My object of seduction has been imprisoned!
+character_event = {
+	id = equus.4112
+	
+	desc = EVTDESC_equus_4112
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	show_from_from_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		character_event = { id = equus.4118 }
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4112
+	}
+}
+
+# My object of seduction has become incapable!
+character_event = {
+	id = equus.4113
+	
+	desc = EVTDESC_equus_4113
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_intrigue
+	
+	show_from_from_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		character_event = { id = equus.4118 }
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4113
+	}
+}
+
+# My object of seduction has become my spouse, concubine or lover
+character_event = {
+	id = equus.4114
+	
+	desc = EVTDESC_equus_4114
+	picture = GFX_evt_marriage
+	border = GFX_event_normal_frame_intrigue
+	
+	show_from_from_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		character_event = { id = equus.4118 }
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4114
+	}
+}
+
+# This is taking too long. Give up?
+character_event = {
+	id = equus.4115
+	
+	desc = {
+		text = EVTDESC_equus_4115_BUSY #I'm busy
+		trigger = {
+			OR = {
+				has_regent = yes
+				in_command = yes
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4115_UNAVAILABLE #Target is busy
+		trigger = {
+			event_target:target_courted = {
+				OR = {
+					trait = on_hajj
+					trait = on_pilgrimage
+					trait = in_hiding
+					in_command = yes
+					has_character_modifier = in_meditation
+					has_character_modifier = doing_penance
+					AND = {
+						has_character_modifier = in_seclusion
+						NOT = { at_location = ROOT }
+					}
+				}
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4115 #Just taking a lot
+		trigger = {
+			NOR = {
+				has_regent = yes
+				in_command = yes
+				event_target:target_courted = {
+					OR = {
+						trait = on_hajj
+						trait = on_pilgrimage
+						trait = in_hiding
+						in_command = yes
+						has_character_modifier = in_meditation
+						has_character_modifier = doing_penance
+						AND = {
+							has_character_modifier = in_seclusion
+							NOT = { at_location = ROOT }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_intrigue
+	
+	show_from_from_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4115 # Keep trying
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				event_target:target_courted = { has_character_modifier = lustful_affair_timer }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_equus_4115 # Give up
+		ai_chance = {
+			factor = 5
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# End of Seduction event to clear out flags, etc
+character_event = {
+	id = equus.4118
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_opinion = {
+			who = event_target:target_courted
+			modifier = opinion_courting
+		}
+		
+		clear_delayed_event = { id = equus.4110 }
+		clr_character_flag = seducing_courtly
+		clr_character_flag = equus_seduce_love_letter
+		clr_character_flag = equus_seduce_gift
+		clr_character_flag = equus_seduce_gossip
+		clr_character_flag = equus_seduce_dance
+		clr_character_flag = equus_seduce_church
+		clr_character_flag = equus_seduce_travel
+		clr_character_flag = courtship_confirmed
+		set_character_flag = stopped_courtship
+	}
+}
+
+#Dismissing event
+character_event = {
+	id = equus.4120
+	desc = EVTDESC_equus_4120
+	picture = GFX_evt_marriage
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { has_character_modifier = dismissed_courtly }
+	}
+
+	option = {
+		name = EVTOPTA_equus_4120
+		tooltip = {
+			FROM = {
+				add_character_modifier = { name = dismissed_courtly years = 5 }
+				opinion = {
+					who = ROOT
+					modifier = opinion_courtly_refused
+					months = 60
+				}
+			}
+		}
+		character_event = { id = equus.4118 }
+	}
+}
+
+
+######################################
+# SEDUCE DECISION OPINION BOOSTERS
+#
+# AI response in these is NOT
+# opinion driven, but based on traits
+# and other factors.
+#
+######################################
+
+# Opinion booster - Love Letter 
+character_event = {
+	id = equus.4200
+	title = EVTTITLE_equus_4200
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = {
+		text = EVTDESC_equus_4200
+		trigger = {
+			OR = {
+				NOT = { is_close_relative = FROM }
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4200_CR
+		trigger = {
+			is_close_relative = FROM
+			NOT = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { set_character_flag = equus_seduce_love_letter }
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4200 # How romantic!
+		trigger = {
+			NOT = { is_close_relative = FROM }
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.25
+				trait = chaste
+			}
+			modifier = {
+				factor = 0.5
+				trait = fair
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = ugly }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = leper }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = imbecile }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = inbred }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = harelip }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = hunchback }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = dwarf }
+			}
+			modifier = {
+				factor = 0.75
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.75
+				trait = paranoid
+			}
+			modifier = {
+				factor = 1.25
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.25
+				trait = trusting
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				trait = harelip
+			}
+			modifier = {
+				factor = 1.25
+				trait = hunchback
+			}
+			modifier = {
+				factor = 1.25
+				trait = dwarf
+			}
+			modifier = {
+				factor = 2.0
+				trait = ugly
+			}
+			modifier = {
+				factor = 2.0
+				trait = imbecile
+			}
+			modifier = {
+				factor = 2.0
+				trait = inbred
+			}
+			modifier = {
+				factor = 2.0
+				trait = leper
+			}
+			modifier = {
+				factor = 0.5
+				trait = hedonist
+			}
+			modifier = {
+				factor = 0.5
+				trait = lustful
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_repelled
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_repelled
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4201 tooltip = EVTTOOLTIP_equus_4201 } }
+	}
+	option = {
+		name = EVTOPTB_equus_4200 # How delightfully perverted!
+		trigger = {
+			is_close_relative = FROM
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.25
+				trait = chaste
+			}
+			modifier = {
+				factor = 0.5
+				trait = fair
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = ugly }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = leper }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = imbecile }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = inbred }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = harelip }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = hunchback }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = dwarf }
+			}
+			modifier = {
+				factor = 0.75
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.75
+				trait = paranoid
+			}
+			modifier = {
+				factor = 1.25
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.25
+				trait = trusting
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				trait = harelip
+			}
+			modifier = {
+				factor = 1.25
+				trait = hunchback
+			}
+			modifier = {
+				factor = 1.25
+				trait = dwarf
+			}
+			modifier = {
+				factor = 2.0
+				trait = ugly
+			}
+			modifier = {
+				factor = 2.0
+				trait = imbecile
+			}
+			modifier = {
+				factor = 2.0
+				trait = inbred
+			}
+			modifier = {
+				factor = 2.0
+				trait = leper
+			}
+			modifier = {
+				factor = 0.5
+				trait = hedonist
+			}
+			modifier = {
+				factor = 0.5
+				trait = lustful
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_repelled
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_repelled
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		FROM = { character_event = { id = equus.4201 tooltip = EVTTOOLTIP_equus_4201 } }
+	}
+	option = {
+		name = EVTOPTC_equus_4200 # What a fool!
+		trigger = {
+			is_married = no
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 1.5
+				trait = lustful
+			}
+			modifier = {
+				factor = 1.5
+				trait = cynical
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4202 tooltip = EVTTOOLTIP_equus_4202 } }
+	}
+	
+	option = {
+		name = EVTOPTD_equus_4200 # I am married!
+		trigger = {
+			is_married = yes
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					OR = {
+						trait = deceitful
+						trait = arbitrary
+					}
+				}
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 25
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					OR = {
+						trait = deceitful
+						trait = arbitrary
+					}
+				}
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					OR = {
+						trait = deceitful
+						trait = arbitrary
+					}
+				}
+				spouse = {
+					is_lover = ROOT
+				}
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4202 tooltip = EVTTOOLTIP_equus_4202 } }
+	}
+	
+	option = {
+		name = EVTOPTE_equus_4200 # I am offended
+		trigger = {
+			NOT = { is_close_relative = FROM }
+		}
+		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					trait = cynical
+					trait = paranoid
+				}
+				OR = {
+					trait = ugly
+					trait = leper
+					trait = dwarf
+					trait = harelip
+					trait = hunchback
+				}
+				FROM = {
+					NOT = {
+						OR = {
+							trait = ugly
+							trait = leper
+							trait = dwarf
+							trait = harelip
+							trait = hunchback
+							trait = inbred
+							trait = imbecile
+						}
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_attracted
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4203 tooltip = EVTTOOLTIP_equus_4203 } }
+	}
+	
+	option = {
+		name = EVTOPTF_equus_4200 # This is sick!
+		trigger = {
+			is_close_relative = FROM
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					trait = cynical
+					trait = paranoid
+				}
+				OR = {
+					trait = ugly
+					trait = leper
+					trait = dwarf
+					trait = harelip
+					trait = hunchback
+				}
+				FROM = {
+					NOT = {
+						OR = {
+							trait = ugly
+							trait = leper
+							trait = dwarf
+							trait = harelip
+							trait = hunchback
+							trait = inbred
+							trait = imbecile
+						}
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_attracted
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4203 tooltip = EVTTOOLTIP_equus_4203 } }
+	}
+
+	option = {
+		name = EVTOPTREFUSE_equus100
+		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				FROM = { ai = no }
+			}
+			modifier = {
+				factor = 0.2
+				is_married = no
+				is_consort = no
+				OR = {
+					is_lowborn = yes
+					NOT = { num_of_dynasty_members = 2 }
+					AND = {
+						lower_tier_than = FROM
+						father = { lower_tier_than = FROM }
+						mother = { lower_tier_than = FROM }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = chaste
+					trait = trusting
+				}
+			}
+			modifier = {
+				factor = 3
+				FROM = {
+					OR = {
+						trait = seductress
+						trait = seducer
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					has_character_modifier = wol_seducer_2
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					has_character_modifier = wol_seducer_1
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = deceitful
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					higher_tier_than = FROM
+					father = { higher_tier_than = FROM }
+					mother = { higher_tier_than = FROM }
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 75
+					}
+				}
+			}
+		}
+		opinion = { who = FROM modifier = opinion_courtly_refused months = 60 }
+		add_character_modifier = { name = dismissed_courtly years = 5 }
+		FROM = { character_event = { id = equus.4120 } }
+	}
+}
+
+# Opinion booster - Love Letter - Positive response
+character_event = {
+	id = equus.4201
+	title = EVTTITLE_equus_4200
+	desc = EVTDESC_equus_4201
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4201 # Great!
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	option = {
+		name = EVTOPTB_equus_4201 # I have tired of this sport
+		ai_chance = {
+			factor = 1
+		}
+		
+		# End the seduction
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# Opinion booster - Love Letter - No response
+character_event = {
+	id = equus.4202
+	title = EVTTITLE_equus_4200
+	desc = EVTDESC_equus_4202
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4202 # Disappointing!
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	option = {
+		name = EVTOPTB_equus_4202 # I have tired of this sport
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 200
+				FROM = { ai = no }
+			}
+		}
+		# End the seduction
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# Opinion booster - Love Letter - Negative response
+character_event = {
+	id = equus.4203
+	title = EVTTITLE_equus_4200
+	desc = EVTDESC_equus_4203
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4203 # Disappointing!
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	option = {
+		name = EVTOPTB_equus_4203 # I have tired of this sport
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 200
+				FROM = { ai = no }
+			}
+		}
+		# End the seduction
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# Opinion booster - Gift (necklace or sword)
+character_event = {
+	id = equus.4210
+	title = EVTTITLE_equus_4210
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = {
+		text = EVTDESC_equus_4210
+		trigger = {
+			is_female = yes
+			OR = {
+				NOT = { is_close_relative = FROM }
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4210_CR
+		trigger = {
+			is_female = yes
+			is_close_relative = FROM
+			NOT = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4210_M
+		trigger = {
+			is_female = no
+			OR = {
+				NOT = { is_close_relative = FROM }
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4210_CR_M
+		trigger = {
+			is_female = no
+			is_close_relative = FROM
+			NOT = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { set_character_flag = equus_seduce_gift }
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4210 # How romantic!
+		trigger = {
+			NOT = { is_close_relative = FROM }
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.25
+				trait = chaste
+			}
+			modifier = {
+				factor = 0.5
+				trait = fair
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = ugly }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = leper }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = imbecile }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = inbred }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = harelip }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = hunchback }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = dwarf }
+			}
+			modifier = {
+				factor = 0.75
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.75
+				trait = paranoid
+			}
+			modifier = {
+				factor = 1.25
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.25
+				trait = trusting
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				trait = harelip
+			}
+			modifier = {
+				factor = 1.25
+				trait = hunchback
+			}
+			modifier = {
+				factor = 1.25
+				trait = dwarf
+			}
+			modifier = {
+				factor = 2.0
+				trait = ugly
+			}
+			modifier = {
+				factor = 2.0
+				trait = imbecile
+			}
+			modifier = {
+				factor = 2.0
+				trait = inbred
+			}
+			modifier = {
+				factor = 2.0
+				trait = leper
+			}
+			modifier = {
+				factor = 0.5
+				trait = hedonist
+			}
+			modifier = {
+				factor = 0.5
+				trait = lustful
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_repelled
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_repelled
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4211 tooltip = EVTTOOLTIP_equus_4201 } }
+	}
+	option = {
+		name = EVTOPTB_equus_4210 # How delightfully perverted!
+		trigger = {
+			is_close_relative = FROM
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.25
+				trait = chaste
+			}
+			modifier = {
+				factor = 0.5
+				trait = fair
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = ugly }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = leper }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = imbecile }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = inbred }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = harelip }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = hunchback }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = dwarf }
+			}
+			modifier = {
+				factor = 0.75
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.75
+				trait = paranoid
+			}
+			modifier = {
+				factor = 1.25
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.25
+				trait = trusting
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				trait = harelip
+			}
+			modifier = {
+				factor = 1.25
+				trait = hunchback
+			}
+			modifier = {
+				factor = 1.25
+				trait = dwarf
+			}
+			modifier = {
+				factor = 2.0
+				trait = ugly
+			}
+			modifier = {
+				factor = 2.0
+				trait = imbecile
+			}
+			modifier = {
+				factor = 2.0
+				trait = inbred
+			}
+			modifier = {
+				factor = 2.0
+				trait = leper
+			}
+			modifier = {
+				factor = 0.5
+				trait = hedonist
+			}
+			modifier = {
+				factor = 0.5
+				trait = lustful
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_repelled
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_repelled
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		FROM = { character_event = { id = equus.4211 tooltip = EVTTOOLTIP_equus_4201 } }
+	}
+	option = {
+		name = EVTOPTC_equus_4200 # What a fool!
+		trigger = {
+			is_married = no
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 1.5
+				trait = lustful
+			}
+			modifier = {
+				factor = 1.5
+				trait = cynical
+			}
+		}
+		FROM = { character_event = { id = equus.4212 tooltip = EVTTOOLTIP_equus_4202 } }
+	}
+	option = {
+		name = EVTOPTD_equus_4200 # I am married
+		trigger = {
+			is_married = yes
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					OR = {
+						trait = deceitful
+						trait = arbitrary
+					}
+				}
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 25
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					OR = {
+						trait = deceitful
+						trait = arbitrary
+					}
+				}
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					OR = {
+						trait = deceitful
+						trait = arbitrary
+					}
+				}
+				spouse = {
+					is_lover = ROOT
+				}
+			}
+		}
+		FROM = { character_event = { id = equus.4212 tooltip = EVTTOOLTIP_equus_4202 } }
+	}
+	option = {
+		name = EVTOPTE_equus_4200 # I am offended
+		trigger = {
+			NOT = { is_close_relative = FROM }
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					trait = cynical
+					trait = paranoid
+				}
+				OR = {
+					trait = ugly
+					trait = leper
+					trait = dwarf
+					trait = harelip
+					trait = hunchback
+				}
+				FROM = {
+					NOT = {
+						OR = {
+							trait = ugly
+							trait = leper
+							trait = dwarf
+							trait = harelip
+							trait = hunchback
+							trait = inbred
+							trait = imbecile
+						}
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_attracted
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4213 tooltip = EVTTOOLTIP_equus_4203 } }
+	}
+	option = {
+		name = EVTOPTF_equus_4200 # This is sick!
+		trigger = {
+			is_close_relative = FROM
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					trait = cynical
+					trait = paranoid
+				}
+				OR = {
+					trait = ugly
+					trait = leper
+					trait = dwarf
+					trait = harelip
+					trait = hunchback
+				}
+				FROM = {
+					NOT = {
+						OR = {
+							trait = ugly
+							trait = leper
+							trait = dwarf
+							trait = harelip
+							trait = hunchback
+							trait = inbred
+							trait = imbecile
+						}
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_attracted
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4213 tooltip = EVTTOOLTIP_equus_4203 } }
+	}
+
+	option = {
+		name = EVTOPTREFUSE_equus100
+		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				FROM = { ai = no }
+			}
+			modifier = {
+				factor = 0.2
+				is_married = no
+				is_consort = no
+				OR = {
+					is_lowborn = yes
+					NOT = { num_of_dynasty_members = 2 }
+					AND = {
+						lower_tier_than = FROM
+						father = { lower_tier_than = FROM }
+						mother = { lower_tier_than = FROM }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = chaste
+					trait = trusting
+				}
+			}
+			modifier = {
+				factor = 3
+				FROM = {
+					OR = {
+						trait = seductress
+						trait = seducer
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					has_character_modifier = wol_seducer_2
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					has_character_modifier = wol_seducer_1
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = deceitful
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					higher_tier_than = FROM
+					father = { higher_tier_than = FROM }
+					mother = { higher_tier_than = FROM }
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 75
+					}
+				}
+			}
+		}
+		opinion = { who = FROM modifier = opinion_courtly_refused months = 60 }
+		add_character_modifier = { name = dismissed_courtly years = 5 }
+		
+		FROM = { character_event = { id = equus.4120 } }
+	}
+}
+
+# Opinion booster - Gift - Positive response
+character_event = {
+	id = equus.4211
+	title = EVTTITLE_equus_4210
+	
+	desc = {
+		text = EVTDESC_equus_4211
+		trigger = {
+			FROM = { is_female = yes }
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_4211_M
+		trigger = {
+			FROM = { is_female = no }
+		}
+	}
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4201 # Great!
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	option = {
+		name = EVTOPTB_equus_4201 # I have tired of this sport
+		ai_chance = {
+			factor = 1
+		}
+		# End the seduction
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# Opinion booster - Gift - No response
+character_event = {
+	id = equus.4212
+	title = EVTTITLE_equus_4210
+	
+	desc = {
+		text = EVTDESC_equus_4212
+		trigger = {
+			FROM = { is_female = yes }
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_4212_M
+		trigger = {
+			FROM = { is_female = no }
+		}
+	}
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4202 # Disappointing!
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	option = {
+		name = EVTOPTB_equus_4202 # I have tired of this sport
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 200
+				FROM = { ai = no }
+			}
+		}
+		# End the seduction
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# Opinion booster - Gift - Negative response
+character_event = {
+	id = equus.4213
+	title = EVTTITLE_equus_4211
+	desc = {
+		text = EVTDESC_equus_4213
+		trigger = {
+			FROM = { is_female = yes }
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_4213_M
+		trigger = {
+			FROM = { is_female = no }
+		}
+	}
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4203 # Disappointing!
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	option = {
+		name = EVTOPTB_equus_4203 # I have tired of this sport
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 200
+				FROM = { ai = no }
+			}
+		}
+		# End the seduction
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# Opinion booster - Befriend maid/squire
+character_event = {
+	id = equus.4220
+	title = EVTTITLE_equus_4220
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = {
+		text = EVTDESC_equus_4220
+		trigger = {
+			is_female = yes
+			OR = {
+				NOT = { is_close_relative = FROM }
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4220_CR
+		trigger = {
+			is_female = yes
+			is_close_relative = FROM
+			NOT = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4220_M
+		trigger = {
+			is_female = no
+			OR = {
+				NOT = { is_close_relative = FROM }
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4220_CR_M
+		trigger = {
+			is_female = no
+			is_close_relative = FROM
+			NOT = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { set_character_flag = equus_seduce_gossip }
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4220 # How romantic!
+		trigger = {
+			NOT = { is_close_relative = FROM }
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.25
+				trait = chaste
+			}
+			modifier = {
+				factor = 0.5
+				trait = fair
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = ugly }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = leper }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = imbecile }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = inbred }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = harelip }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = hunchback }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = dwarf }
+			}
+			modifier = {
+				factor = 0.75
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.75
+				trait = paranoid
+			}
+			modifier = {
+				factor = 1.25
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.25
+				trait = trusting
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				trait = harelip
+			}
+			modifier = {
+				factor = 1.25
+				trait = hunchback
+			}
+			modifier = {
+				factor = 1.25
+				trait = dwarf
+			}
+			modifier = {
+				factor = 2.0
+				trait = ugly
+			}
+			modifier = {
+				factor = 2.0
+				trait = imbecile
+			}
+			modifier = {
+				factor = 2.0
+				trait = inbred
+			}
+			modifier = {
+				factor = 2.0
+				trait = leper
+			}
+			modifier = {
+				factor = 0.5
+				trait = hedonist
+			}
+			modifier = {
+				factor = 0.5
+				trait = lustful
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_repelled
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_repelled
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4221 tooltip = EVTTOOLTIP_equus_4201 } }
+	}
+	option = {
+		name = EVTOPTB_equus_4220 # How delightfully perverted!
+		trigger = {
+			is_close_relative = FROM
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.25
+				trait = chaste
+			}
+			modifier = {
+				factor = 0.5
+				trait = fair
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = ugly }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = leper }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = imbecile }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { trait = inbred }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = harelip }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = hunchback }
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { trait = dwarf }
+			}
+			modifier = {
+				factor = 0.75
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.75
+				trait = paranoid
+			}
+			modifier = {
+				factor = 1.25
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.25
+				trait = trusting
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				trait = harelip
+			}
+			modifier = {
+				factor = 1.25
+				trait = hunchback
+			}
+			modifier = {
+				factor = 1.25
+				trait = dwarf
+			}
+			modifier = {
+				factor = 2.0
+				trait = ugly
+			}
+			modifier = {
+				factor = 2.0
+				trait = imbecile
+			}
+			modifier = {
+				factor = 2.0
+				trait = inbred
+			}
+			modifier = {
+				factor = 2.0
+				trait = leper
+			}
+			modifier = {
+				factor = 0.5
+				trait = hedonist
+			}
+			modifier = {
+				factor = 0.5
+				trait = lustful
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_repelled
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_repelled
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		FROM = { character_event = { id = equus.4221 tooltip = EVTTOOLTIP_equus_4201 } }
+	}
+	option = {
+		name = EVTOPTC_equus_4200 # What a fool!
+		trigger = {
+			is_married = no
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 1.5
+				trait = lustful
+			}
+			modifier = {
+				factor = 1.5
+				trait = cynical
+			}
+		}
+		FROM = { character_event = { id = equus.4222 tooltip = EVTTOOLTIP_equus_4202 } }
+	}
+	option = {
+		name = EVTOPTD_equus_4200 # I am married
+		trigger = {
+			is_married = yes
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					OR = {
+						trait = deceitful
+						trait = arbitrary
+					}
+				}
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 25
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					OR = {
+						trait = deceitful
+						trait = arbitrary
+					}
+				}
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					OR = {
+						trait = deceitful
+						trait = arbitrary
+					}
+				}
+				spouse = {
+					is_lover = ROOT
+				}
+			}
+		}
+		FROM = { character_event = { id = equus.4222 tooltip = EVTTOOLTIP_equus_4202 } }
+	}
+	option = {
+		name = EVTOPTE_equus_4200 # I am offended
+		trigger = {
+			NOT = { is_close_relative = FROM }
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					trait = cynical
+					trait = paranoid
+				}
+				OR = {
+					trait = ugly
+					trait = leper
+					trait = dwarf
+					trait = harelip
+					trait = hunchback
+				}
+				FROM = {
+					NOT = {
+						OR = {
+							trait = ugly
+							trait = leper
+							trait = dwarf
+							trait = harelip
+							trait = hunchback
+							trait = inbred
+							trait = imbecile
+						}
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_attracted
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4223 tooltip = EVTTOOLTIP_equus_4203 } }
+	}
+	option = {
+		name = EVTOPTF_equus_4200 # This is sick!
+		trigger = {
+			is_close_relative = FROM
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					trait = cynical
+					trait = paranoid
+				}
+				OR = {
+					trait = ugly
+					trait = leper
+					trait = dwarf
+					trait = harelip
+					trait = hunchback
+				}
+				FROM = {
+					NOT = {
+						OR = {
+							trait = ugly
+							trait = leper
+							trait = dwarf
+							trait = harelip
+							trait = hunchback
+							trait = inbred
+							trait = imbecile
+						}
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_attracted
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4223 tooltip = EVTTOOLTIP_equus_4203 } }
+	}
+
+	option = {
+		name = EVTOPTREFUSE_equus100
+		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				FROM = { ai = no }
+			}
+			modifier = {
+				factor = 0.2
+				is_married = no
+				is_consort = no
+				OR = {
+					is_lowborn = yes
+					NOT = { num_of_dynasty_members = 2 }
+					AND = {
+						lower_tier_than = FROM
+						father = { lower_tier_than = FROM }
+						mother = { lower_tier_than = FROM }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = chaste
+					trait = trusting
+				}
+			}
+			modifier = {
+				factor = 3
+				FROM = {
+					OR = {
+						trait = seductress
+						trait = seducer
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					has_character_modifier = wol_seducer_2
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					has_character_modifier = wol_seducer_1
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = deceitful
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					higher_tier_than = FROM
+					father = { higher_tier_than = FROM }
+					mother = { higher_tier_than = FROM }
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 75
+					}
+				}
+			}
+		}
+		opinion = { who = FROM modifier = opinion_courtly_refused months = 60 }
+		add_character_modifier = { name = dismissed_courtly years = 5 }
+		
+		FROM = { character_event = { id = equus.4120 } }
+	}
+}
+
+# Opinion booster - Gossip - Positive response
+character_event = {
+	id = equus.4221
+	title = EVTTITLE_equus_4220
+	desc = EVTDESC_equus_4221
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4201 # Great!
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	option = {
+		name = EVTOPTB_equus_4201 # I have tired of this sport
+		ai_chance = {
+			factor = 1
+		}
+		# End the seduction
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# Opinion booster - Gossip - No response
+character_event = {
+	id = equus.4222
+	title = EVTTITLE_equus_4220
+	
+	desc = EVTDESC_equus_4222
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4202 # Disappointing!
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	option = {
+		name = EVTOPTB_equus_4202 # I have tired of this sport
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 200
+				FROM = { ai = no }
+			}
+		}
+		# End the seduction
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# Opinion booster - Gossip - Negative response
+character_event = {
+	id = equus.4223
+	title = EVTTITLE_equus_4210
+	desc = EVTDESC_equus_4223
+	
+	picture = GFX_evt_gift
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4223 # Disappointing!
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	option = {
+		name = EVTOPTB_equus_4223
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 200
+				FROM = { ai = no }
+			}
+		}
+		
+		# End the seduction
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+
+
+
+
+
+######################################
+# SEDUCE DECISION SEDUCTION ATTEMPTS
+#
+# AI response in these is almost
+# purely opinion driven.
+#
+######################################
+
+######################################################
+# Seduction - Dance
+######################################################
+character_event = {
+	id = equus.4300
+	title = EVTTITLE_equus_4300
+	
+	picture = GFX_evt_dancing
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = {
+		text = EVTDESC_equus_4300
+		trigger = {
+			FROM = { is_female = no }
+			OR = {
+				NOT = { is_close_relative = FROM }
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4300_CR
+		trigger = {
+			is_close_relative = FROM
+			NOT = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_equus_4300_M
+		trigger = {
+			FROM = { is_female = yes }
+			OR = {
+				NOT = { is_close_relative = FROM }
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { set_character_flag = equus_seduce_dance }
+	}
+	
+	option = { # Encourage
+		name = {
+			text = EVTOPTA_equus_4300 # Male. Encourage this.
+			trigger = {
+				is_female = no
+				NOT = { is_close_relative = FROM }
+			}
+		}
+		name = {
+			text = EVTOPTA_equus_4300_F # Female. Encourage this.
+			trigger = {
+				is_female = yes
+				NOT = { is_close_relative = FROM }
+			}
+		}
+		name = {
+			text = EVTOPTA_equus_4300_CR # Encourage the pervert
+			trigger = {
+				is_close_relative = FROM
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.5
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = {
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = equus_seducer_2 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROM
+						modifier = opinion_courtly_repelled
+					}
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_courtly_attracted
+			}
+		}
+		
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_repelled
+				}
+			}
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_courtly_repelled
+			}
+		}
+		FROM = { character_event = { id = equus.4301 tooltip = EVTTOOLTIP_equus_4301 } }
+	}
+	
+	option = {
+		name = EVTOPTB_equus_4300 # Rebuff
+		trigger = {
+			is_married = no
+			NOT = {
+				age_diff = {
+					who = FROM
+					years = 25
+				}
+			}
+			OR = {
+				NOT = { is_close_relative = FROM }
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		FROM = { character_event = { id = equus.4302 tooltip = EVTTOOLTIP_equus_4302 } }
+	}
+	option = {
+		name = EVTOPTB_equus_4300_MAR # Rebuff - I am married!
+		trigger = {
+			OR = {
+				is_married = yes
+				is_consort = yes
+			}
+			OR = {
+				NOT = { is_close_relative = FROM }
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5.0
+				is_female = yes
+				NOT = { trait = arbitrary }
+				is_dumb_trigger = no
+				NOT = { has_focus = focus_seduction }
+				OR = {
+					trait = craven
+					any_spouse = {
+						OR = {
+							is_lover = ROOT
+							ROOT = {
+								opinion_diff = {
+									first = PREV
+									second = FROM
+									value = 10
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4302 tooltip = EVTTOOLTIP_equus_4302 } }
+	}
+	option = {
+		name = EVTOPTB_equus_4300_CR # Rebuff - Pervert!
+		trigger = {
+			is_close_relative = FROM
+			NOT = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_courtly_attracted
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5.0
+				is_female = yes
+				OR = {
+					is_married = yes
+					is_consort = yes
+				}
+				NOT = { trait = arbitrary }
+				is_dumb_trigger = no
+				NOT = { has_focus = focus_seduction }
+				OR = {
+					trait = craven
+					any_spouse = {
+						OR = {
+							is_lover = ROOT
+							ROOT = {
+								opinion_diff = {
+									first = PREV
+									second = FROM
+									value = 10
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4302 tooltip = EVTTOOLTIP_equus_4302 } }
+	}
+
+	option = {
+		name = EVTOPTREFUSE_equus100
+		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				FROM = { ai = no }
+			}
+			modifier = {
+				factor = 0.2
+				is_married = no
+				is_consort = no
+				OR = {
+					is_lowborn = yes
+					NOT = { num_of_dynasty_members = 2 }
+					AND = {
+						lower_tier_than = FROM
+						father = { lower_tier_than = FROM }
+						mother = { lower_tier_than = FROM }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_character_modifier = equus_seducer_2
+					trait = seductress
+					trait = seducer
+				}
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					OR = {
+						trait = seductress
+						trait = seducer
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					has_character_modifier = equus_seducer_2
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = deceitful
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					higher_tier_than = FROM
+					father = { higher_tier_than = FROM }
+					mother = { higher_tier_than = FROM }
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 75
+					}
+				}
+			}
+		}
+		opinion = { who = FROM modifier = opinion_courtly_refused months = 60 }
+		add_character_modifier = { name = dismissed_courtly years = 5 }
+		
+		FROM = { character_event = { id = equus.4120 } }
+	}
+}
+
+# Seducer: Seduction - Dance - Advance Encouraged
+character_event = {
+	id = equus.4301
+	title = EVTTITLE_equus_4300
+	
+	picture = GFX_evt_dancing
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = {
+		text = EVTDESC_equus_4301
+		trigger = {
+			same_realm = FROM
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_4301_DISTANT
+		trigger = {
+			NOT = { same_realm = FROM }
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { # Achieve relationship
+		name = EVTOPTA_equus_4301
+		FROM = { character_event = { id = equus.4303 days = 1 tooltip = EVTTOOLTIP_equus_4303 } }
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = { # Charm / increase opinion
+		name = EVTOPTB_equus_4301
+		FROM = { character_event = { id = equus.4304 days = 1 tooltip = EVTTOOLTIP_equus_4304 } }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				trait = lustful
+			}
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	
+	option = { # End it, I'm bored
+		name = EVTOPTC_equus_4301
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				trait = lustful
+			}
+		}
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+			FROM = { character_event = { id = equus.4305 days = 1 } }
+		}
+	}
+}
+
+# Seducer: Seduction - Dance - Advance Rebuffed
+character_event = {
+	id = equus.4302
+	title = EVTTITLE_equus_4300
+	desc = EVTDESC_equus_4302
+	
+	picture = GFX_evt_dancing
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4302 # Fine. Back to the drawing board.
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	
+	option = { # End it, I'm bored
+		name = EVTOPTB_equus_4302
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 200
+				FROM = { ai = no }
+			}
+		}
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# Relationship start
+character_event = {
+	id = equus.4303
+	title = EVTTITLE_equus_4303
+	
+	desc = EVTDESC_equus_4303
+	
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = { # Certainly
+		name = EVTOPTA_equus_4303
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				OR = {
+					is_female = no
+					age = 45
+				}
+			}
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = { religion = messalian }
+				NOT = { religion = zoroastrian }
+				NOT = {
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = equus_seducer_2 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4306 days = 1 tooltip = EVTTOOLTIP_equus_4306 } }
+	}
+	option = { # Rebuff
+		name = EVTOPTB_equus_4303
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.5
+				trait = lustful
+			}
+			modifier = {
+				factor = 0.01
+				trait = cruel
+			}
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = equus.4307 days = 1 } }
+		}
+	}
+	option = { # Cruel rebuff
+		name = EVTOPTC_equus_4303
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2
+				trait = lustful
+			}
+			modifier = {
+				factor = 0
+				NOT = { trait = cruel }
+			}
+		}
+		trigger = {
+			is_female = no
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = equus.4308 days = 1 } }
+		}
+	}
+	option = { # Cruel rebuff
+		name = EVTOPTC_equus_4303_F
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2
+				trait = lustful
+			}
+			modifier = {
+				factor = 0
+				NOT = { trait = cruel }
+			}
+		}
+		trigger = {
+			is_female = yes
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = equus.4308 days = 1 } }
+		}
+	}
+}
+
+# Target: Seduction - Dance - Advance Encouraged - Left yearning
+character_event = {
+	id = equus.4304
+	title = EVTTITLE_equus_4300
+	desc = EVTDESC_equus_4304
+	
+	picture = GFX_evt_dancing
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4304
+		opinion = {
+			who = FROM
+			modifier = opinion_courtly_yearning
+			months = 24
+		}
+	}
+}
+
+# Target: Seduction - Dance - Advance Encouraged - Chase ended
+character_event = {
+	id = equus.4305
+	title = EVTTITLE_equus_4300
+	desc = EVTDESC_equus_4305
+	
+	picture = GFX_evt_dancing
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4305
+	}
+}
+
+# Achieve relationship
+character_event = {
+	id = equus.4306
+	desc = EVTDESC_equus_4306
+	
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {	
+		# End the Seduction
+		character_event = { id = equus.4118 }
+	}
+	
+	option = {
+		name = EVTOPTA_equus_4306 # Our love must grow
+		add_friend = FROM
+		opinion = {
+			who = FROM
+			modifier = opinion_courtly_lover
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_courtly_lover
+			}
+		}
+	}
+}
+
+# Seducer: Seduction - Dance - Rebuff End
+character_event = {
+	id = equus.4307
+	desc = EVTDESC_equus_4307
+	
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4307
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	
+	option = { # End it, I'm bored
+		name = EVTOPTB_equus_4307
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 200
+				FROM = { ai = no }
+			}
+		}
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+# Seducer: Seduction - Dance - Cruel Rebuff End
+character_event = {
+	id = equus.4308
+	desc = EVTDESC_equus_4308
+	
+	picture = GFX_evt_quarrel
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4308
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	
+	option = { # End this
+		name = EVTOPTB_equus_4308
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 500
+				FROM = { ai = no }
+			}
+		}
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+	}
+}
+
+######################################################
+# Seduction - Church meeting
+######################################################
+character_event = {
+	id = equus.4350
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { character_event = { id = equus.4351 } }
+	}
+}
+
+# Seducer: Go to the church
+character_event = {
+	id = equus.4351
+	title = EVTTITLE_equus_4351
+	
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = {
+		text = EVTDESC_equus_4351
+		trigger = {
+			same_realm = FROM
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_4351_DISTANT
+		trigger = {
+			NOT = { same_realm = FROM }
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { # Make eyes from a distance
+		name = EVTOPTA_equus_4351
+		ai_chance = {
+			factor = 100
+		}
+		FROM = {
+			set_character_flag = courtship_church_distance
+		}
+	}
+	option = { # Sit close by
+		name = EVTOPTB_equus_4351
+		ai_chance = {
+			factor = 100
+		}
+		FROM = {
+			set_character_flag = courtship_church_close
+		}
+	}
+	option = { # Ask the priest to steer the sermon (praise your virtue and details about holy love)
+		name = EVTOPTC_equus_4351
+		ai_chance = {
+			factor = 100
+		}
+		FROM = {
+			set_character_flag = courtship_church_sermon
+		}
+	}
+}
+
+# Target: Church seduction
+character_event = {
+	id = equus.4352
+	title = EVTTITLE_equus_4351
+	
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_intrigue
+	desc = {
+		text = EVTDESC_equus_4352_SERMON
+		trigger = {
+			has_character_flag = courtship_church_sermon
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_4352_CLOSE
+		trigger = {
+			has_character_flag = courtship_church_close
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_4352_GAZE
+		trigger = {
+			has_character_flag = courtship_church_distance
+		}
+	}
+
+	
+	is_triggered_only = yes
+	
+	option = { # Fall for sermon
+		name = EVTOPTA_equus_4352_SERMON
+		trigger = { has_character_flag = courtship_church_sermon }
+		ai_chance = {
+			factor = 50 # Lower base chance
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = { religion = messalian }
+				NOT = { religion = zoroastrian }
+				NOT = {
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = equus_seducer_2 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { learning = 5 }
+				NOT = { trait = mastermind_theologian }
+				NOT = { trait = scholarly_theologian }
+			}
+			modifier = {
+				factor = 0.25
+				NOT = { age = 25 }
+				NOT = { trait = mastermind_theologian }
+				NOT = { trait = scholarly_theologian }
+			}
+			modifier = {
+				factor = 10.0
+				trait = zealous
+			}
+			modifier = {
+				factor = 5.0
+				trait = content
+			}
+			modifier = {
+				factor = 3.0
+				trait = trusting
+			}
+			modifier = {
+				factor = 1.5
+				learning = 10
+			}
+			modifier = {
+				factor = 1.5
+				learning = 12
+			}
+			modifier = {
+				factor = 1.5
+				learning = 15
+			}
+			modifier = {
+				factor = 4.0
+				OR = {
+					trait = mastermind_theologian
+					trait = scholarly_theologian
+				}
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					trait = detached_priest
+					trait = martial_cleric
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = wroth
+					trait = lustful
+					trait = gluttonous
+				}
+			}
+			modifier = {
+				factor = 0.1
+				trait = cynical
+			}	
+		}
+		
+		FROM = { character_event = { id = equus.4354 days = 1 tooltip = EVTTOOLTIP_equus_4306_2 } }
+		clr_character_flag = courtship_church_sermon
+	}
+	
+	option = { # Fall for closeness
+		name = EVTOPTA_equus_4352_CLOSE
+		trigger = { has_character_flag = courtship_church_close }
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = { religion = messalian }
+				NOT = { religion = zoroastrian }
+				NOT = {
+					OR = {
+						trait = arbitrary
+						trait = lustful
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = equus_seducer_2 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				trait = lustful
+			}
+			modifier = {
+				factor = 2.0
+				trait = gregarious
+			}
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 0.75
+				trait = honest
+			}
+			modifier = {
+				factor = 0.5
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.25
+				trait = shy
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4354 days = 1 tooltip = EVTTOOLTIP_equus_4306_2 } }
+		clr_character_flag = courtship_church_close
+	}
+	
+	option = { # Fall for gaze
+		name = EVTOPTA_equus_4352_GAZE
+		trigger = { has_character_flag = courtship_church_distance }
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = { religion = messalian }
+				NOT = { religion = zoroastrian }
+				NOT = {
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = equus_seducer_2 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.25
+				trait = paranoid
+			}
+			modifier = {
+				factor = 0.5
+				trait = gregarious
+			}
+			modifier = {
+				factor = 0.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 0.5
+				age = 25
+			}
+			modifier = {
+				factor = 2.0
+				NOT = { age = 25 }
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 1.25
+				trait = honest
+			}
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = shy
+			}
+			modifier = {
+				factor = 2.0
+				trait = trusting
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4354 days = 1 tooltip = EVTTOOLTIP_equus_4306_2 } }
+		clr_character_flag = courtship_church_distance
+	}
+	
+	
+	option = { # Spurn
+		name = {
+			text = EVTOPTB_equus_4352_SERMON
+			trigger = { has_character_flag = courtship_church_sermon }
+		}
+		name = {
+			text = EVTOPTB_equus_4352_CLOSE
+			trigger = { has_character_flag = courtship_church_close }
+		}
+		name = {
+			text = EVTOPTB_equus_4352_GAZE
+			trigger = { has_character_flag = courtship_church_distance }
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 10.0
+				is_female = yes
+				NOT = { trait = lustful }
+				NOT = { trait = hedonist }
+				NOT = { trait = seducer }
+				NOT = { trait = seductress }
+				NOT = { trait = arbitrary }
+				is_dumb_trigger = no
+				OR = {
+					trait = craven
+					any_spouse = {
+						OR = {
+							is_lover = ROOT
+							ROOT = {
+								opinion_diff = {
+									first = PREV
+									second = FROM
+									value = 10
+								}
+							}
+						}
+					}
+					any_consort = {
+						OR = {
+							is_lover = ROOT
+							ROOT = {
+								opinion_diff = {
+									first = PREV
+									second = FROM
+									value = 10
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		hidden_tooltip = {
+			FROM = {
+				set_character_flag = seduction_rebuff_4351
+				character_event = { id = equus.4353 days = 1 }
+			}
+		}
+		
+		clr_character_flag = courtship_church_distance
+		clr_character_flag = courtship_church_close
+		clr_character_flag = courtship_church_sermon
+	}
+
+	option = {
+		name = EVTOPTREFUSE_equus100
+		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				FROM = { ai = no }
+			}
+			modifier = {
+				factor = 0.2
+				is_married = no
+				is_consort = no
+				OR = {
+					is_lowborn = yes
+					NOT = { num_of_dynasty_members = 2 }
+					AND = {
+						lower_tier_than = FROM
+						father = { lower_tier_than = FROM }
+						mother = { lower_tier_than = FROM }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = deceitful
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					higher_tier_than = FROM
+					father = { higher_tier_than = FROM }
+					mother = { higher_tier_than = FROM }
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 75
+					}
+				}
+			}
+		}
+		opinion = { who = FROM modifier = opinion_courtly_refused months = 60 }
+		add_character_modifier = { name = dismissed_courtly years = 5 }
+		
+		FROM = { character_event = { id = equus.4120 } }
+	}
+}
+
+
+# Seducer: Seduction rebuffed!
+character_event = {
+	id = equus.4353
+	title = EVTTITLE_equus_4351
+	desc = EVTDESC_equus_4353
+	
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4307
+		ai_chance = {
+			factor = 100
+		}
+		
+		clr_character_flag = seduction_rebuff_4351
+		clr_character_flag = seduction_rebuff_4401
+		
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	
+	option = { # End it, I'm bored
+		name = EVTOPTB_equus_4307
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				trait = lustful
+				FROM = { ai = yes }
+			}
+			modifier = {
+				factor = 200
+				FROM = { ai = no }
+			}
+		}
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+		
+		clr_character_flag = seduction_rebuff_4351
+		clr_character_flag = seduction_rebuff_4401
+	}
+}
+
+
+# Seducer: Seduction - Church - Advance Encouraged
+character_event = {
+	id = equus.4354
+	title = EVTTITLE_equus_4351	
+	picture = GFX_evt_homage_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = EVTDESC_equus_4354
+	
+	is_triggered_only = yes
+	
+	option = { # Ask for relationship
+		name = EVTOPTA_equus_4354
+		FROM = { character_event = { id = equus.4303 days = 1 tooltip = EVTTOOLTIP_equus_4303 } }
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = { # Charm / increase opinion #It's not the right time
+		name = EVTOPTB_equus_4354
+		FROM = { character_event = { id = equus.4304 days = 1 tooltip = EVTTOOLTIP_equus_4304 } }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				trait = lustful
+			}
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	
+	option = { # End it, I'm bored #Not worth it
+		name = EVTOPTC_equus_4354
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				trait = lustful
+			}
+		}
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+			FROM = { character_event = { id = equus.4305 days = 1 } }
+		}
+	}
+}
+
+
+######################################################
+# Seduction - Travel
+######################################################
+character_event = {
+	id = equus.4400
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { character_event = { id = equus.4401 } }
+	}
+}
+
+# Seducer: Encounter on travel
+character_event = {
+	id = equus.4401
+	title = EVTTITLE_equus_4401
+	
+	picture = GFX_evt_riders_night_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = {
+		text = EVTDESC_equus_4401
+		trigger = {
+			same_realm = FROM
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_4401_DISTANT
+		trigger = {
+			NOT = { same_realm = FROM }
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { # Tell story of valor
+		name = EVTOPTA_equus_4401
+		ai_chance = {
+			factor = 100
+		}
+		FROM = {
+			set_character_flag = courtship_travel_valor
+		}
+	}
+	option = { # Praise self
+		name = EVTOPTB_equus_4401
+		ai_chance = {
+			factor = 100
+		}
+		FROM = {
+			set_character_flag = courtship_travel_self
+		}
+	}
+	option = { # Ask about them
+		name = EVTOPTC_equus_4401
+		ai_chance = {
+			factor = 100
+		}
+		FROM = {
+			set_character_flag = courtship_travel_other
+		}
+	}
+}
+
+# Target: Travel results
+character_event = {
+	id = equus.4402
+	title = EVTTITLE_equus_4401
+	
+	picture = GFX_evt_riders_night_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = {
+		text = EVTDESC_equus_4402_VALOR
+		trigger = {
+			has_character_flag = courtship_travel_valor
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_4402_SELF
+		trigger = {
+			has_character_flag = courtship_travel_self
+		}
+	}
+	desc = {
+		text = EVTDESC_equus_4402_OTHER
+		trigger = {
+			has_character_flag = courtship_travel_other
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { # Talk about valor
+		name = EVTOPTA_equus_4402_VALOR
+		trigger = { has_character_flag = courtship_travel_valor }
+		ai_chance = {
+			factor = 50 # Lower base chance
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = { religion = messalian }
+				NOT = { religion = zoroastrian }
+				NOT = {
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = equus_seducer_2 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 3.0
+				trait = trusting
+			}
+			modifier = {
+				factor = 2.0
+				trait = brave
+			}
+			modifier = {
+				factor = 2.0
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				diplomacy = 10
+			}
+			modifier = {
+				factor = 1.5
+				diplomacy = 12
+			}
+			modifier = {
+				factor = 1.5
+				diplomacy = 15
+			}
+			modifier = {
+				factor = 1.5
+				martial = 10
+			}
+			modifier = {
+				factor = 1.5
+				martial = 12
+			}
+			modifier = {
+				factor = 1.5
+				martial = 15
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}	
+			modifier = {
+				factor = 0.5
+				trait = arbitrary
+			}	
+			modifier = {
+				factor = 0.5
+				trait = craven
+			}	
+		}
+		
+		FROM = { character_event = { id = equus.4404 days = 1 tooltip = EVTTOOLTIP_equus_4404_2 } }
+		clr_character_flag = courtship_travel_valor
+	}
+	
+	option = { # Talk about them(seducer)
+		name = EVTOPTA_equus_4402_SELF
+		trigger = { has_character_flag = courtship_travel_self }
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = { religion = messalian }
+				NOT = { religion = zoroastrian }
+				NOT = {
+					OR = {
+						trait = arbitrary
+						trait = lustful
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = equus_seducer_2 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				trait = humble
+			}
+			modifier = {
+				factor = 1.5
+				trait = shy
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+			modifier = {
+				factor = 1.25
+				trait = trusting
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 0.75
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.75
+				trait = envious
+			}
+			modifier = {
+				factor = 0.5
+				trait = gregarious
+			}
+			modifier = {
+				factor = 0.25
+				trait = proud
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4404 days = 1 tooltip = EVTTOOLTIP_equus_4404_2 } }
+		clr_character_flag = courtship_travel_self
+	}
+	
+	option = { # Talk about self(target)
+		name = EVTOPTA_equus_4402_OTHER
+		trigger = { has_character_flag = courtship_travel_other }
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = { religion = messalian }
+				NOT = { religion = zoroastrian }
+				NOT = {
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = equus_seducer_2 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = humble
+			}
+			modifier = {
+				factor = 0.25
+				trait = shy
+			}
+			modifier = {
+				factor = 2
+				trait = gregarious
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = envious
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+		}
+		
+		FROM = { character_event = { id = equus.4404 days = 1 tooltip = EVTTOOLTIP_equus_4404_2 } }
+		clr_character_flag = courtship_travel_other
+	}
+	
+	
+	option = { # Spurn
+		name = {
+			text = EVTOPTB_equus_4402_VALOR
+			trigger = { has_character_flag = courtship_travel_valor }
+		}
+		name = {
+			text = EVTOPTB_equus_4402_SELF
+			trigger = { has_character_flag = courtship_travel_self }
+		}
+		name = {
+			text = EVTOPTB_equus_4402_OTHER
+			trigger = { has_character_flag = courtship_travel_other }
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 10.0
+				is_female = yes
+				NOT = { trait = lustful }
+				NOT = { trait = hedonist }
+				NOT = { trait = seducer }
+				NOT = { trait = seductress }
+				NOT = { trait = arbitrary }
+				is_dumb_trigger = no
+				OR = {
+					trait = craven
+					any_spouse = {
+						OR = {
+							is_lover = ROOT
+							ROOT = {
+								opinion_diff = {
+									first = PREV
+									second = FROM
+									value = 10
+								}
+							}
+						}
+					}
+					any_consort = {
+						OR = {
+							is_lover = ROOT
+							ROOT = {
+								opinion_diff = {
+									first = PREV
+									second = FROM
+									value = 10
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		hidden_tooltip = {
+			FROM = {
+				set_character_flag = seduction_rebuff_4401
+				character_event = { id = equus.4403 days = 1 }
+			}
+		}
+		
+		clr_character_flag = courtship_travel_valor
+		clr_character_flag = courtship_travel_self
+		clr_character_flag = courtship_travel_other
+	}
+
+	option = {
+		name = EVTOPTREFUSE_equus100
+		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				FROM = { ai = no }
+			}
+			modifier = {
+				factor = 0.2
+				is_married = no
+				is_consort = no
+				OR = {
+					is_lowborn = yes
+					NOT = { num_of_dynasty_members = 2 }
+					AND = {
+						lower_tier_than = FROM
+						father = { lower_tier_than = FROM }
+						mother = { lower_tier_than = FROM }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = deceitful
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					higher_tier_than = FROM
+					father = { higher_tier_than = FROM }
+					mother = { higher_tier_than = FROM }
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 75
+					}
+				}
+			}
+		}
+		opinion = { who = FROM modifier = opinion_courtly_refused months = 60 }
+		add_character_modifier = { name = dismissed_courtly years = 5 }
+		
+		FROM = { character_event = { id = equus.4120 } }
+	}
+}
+
+
+# Seducer: Seduction rebuffed!
+character_event = {
+	id = equus.4403
+	title = EVTTITLE_equus_4401
+	desc = EVTDESC_equus_4403
+	
+	picture = GFX_evt_riders_night_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_equus_4307
+		ai_chance = {
+			factor = 100
+		}
+		
+		clr_character_flag = seduction_rebuff_4401
+		clr_character_flag = seduction_rebuff_4401
+		
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	
+	option = { # End it, I'm bored
+		name = EVTOPTB_equus_4307
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				trait = lustful
+				FROM = { ai = yes }
+			}
+			modifier = {
+				factor = 200
+				FROM = { ai = no }
+			}
+		}
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+		}
+		
+		clr_character_flag = seduction_rebuff_4401
+		clr_character_flag = seduction_rebuff_4401
+	}
+}
+
+# Seducer: Seduction - Travel - Advance Encouraged
+character_event = {
+	id = equus.4404
+	title = EVTTITLE_equus_4401
+	desc = EVTDESC_equus_4404
+	picture = GFX_evt_riders_night_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = { # Ask for relationship
+		name = EVTOPTA_equus_4301
+		FROM = { character_event = { id = equus.4303 days = 1 tooltip = EVTTOOLTIP_equus_4303 } }
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = { # Charm / increase opinion #It's not the right time
+		name = EVTOPTB_equus_4301
+		FROM = { character_event = { id = equus.4304 days = 1 tooltip = EVTTOOLTIP_equus_4304 } }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				trait = lustful
+			}
+		}
+		if = {
+			limit = {
+				is_female = no
+				FROM = {
+					is_female = yes
+					OR = {
+						higher_tier_than = duke
+						any_spouse = { higher_tier_than = duke }
+						any_consort = { higher_tier_than = duke }
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = equus.4110 days = 120 random = 60 } # Back to the tombola
+			}
+			break = yes
+		}
+		character_event = { id = equus.4110 days = 80 random = 40 tooltip = EVTTOOLTIP_equus_4110 } # Back to the tombola
+	}
+	
+	option = { # End it, I'm bored #Not worth it
+		name = EVTOPTC_equus_4301
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				trait = lustful
+			}
+		}
+		custom_tooltip = {
+			text = equus_SEDUCE_END_TOOLTIP
+		}
+		hidden_tooltip = {
+			character_event = { id = equus.4118 }
+			FROM = { character_event = { id = equus.4305 days = 1 } }
+		}
+	}
+}
+
+#End relationship
+character_event = {
+	id = equus.4410
+	picture = GFX_evt_sway_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	text = EVTDESC_equus_4410
+	
+	trigger = {
+		OR = {
+			any_friend = {
+				has_opinion_modifier = {
+					who = ROOT 
+					modifier = opinion_courtly_lover
+				}
+				is_lover = ROOT
+			}
+			any_rival = {
+				has_opinion_modifier = {
+					who = ROOT 
+					modifier = opinion_courtly_lover
+				}
+			}
+			any_realm_character = {
+				has_opinion_modifier = {
+					who = ROOT 
+					modifier = opinion_courtly_lover
+				}
+				OR = {
+					NOT = { is_friend = ROOT }
+					is_lover = ROOT
+				}
+			}
+			any_spouse = {
+				has_opinion_modifier = {
+					who = ROOT 
+					modifier = opinion_courtly_lover
+				}
+			}
+		}
+	}	
+	
+	mean_time_to_happen = { days = 1 }
+	
+	immediate = {
+		any_friend = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT 
+					modifier = opinion_courtly_lover
+				}
+				is_lover = ROOT
+			}
+			save_event_target_as = lost_courtly
+		}
+		any_rival = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT 
+					modifier = opinion_courtly_lover
+				}
+			}
+			save_event_target_as = lost_courtly
+		}
+		any_realm_character = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT 
+					modifier = opinion_courtly_lover
+				}
+				OR = {
+					NOT = { is_friend = ROOT }
+					is_lover = ROOT
+				}
+			}
+			save_event_target_as = lost_courtly
+		}
+		any_spouse = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT 
+					modifier = opinion_courtly_lover
+				}
+			}
+			save_event_target_as = lost_courtly
+		}
+	}	
+	
+	option = { #Bye
+		trigger = {
+			event_target:lost_courtly = { 
+				NOT = { is_friend = ROOT }
+				NOT = { is_married = ROOT }
+				NOT = { is_rival = ROOT }
+				NOT = { is_lover = ROOT }
+			}
+		}
+		name = EVTOPTA_equus_4410
+		event_target:lost_courtly = {
+			remove_opinion = {
+				who = ROOT
+				modifier = opinion_courtly_lover
+			}
+		}
+		ROOT = {
+			remove_opinion = {
+				who = event_target:lost_courtly
+				modifier = opinion_courtly_lover
+			}
+		}
+	}
+	option = { #Not so platonic
+		trigger = {
+			event_target:lost_courtly = { 
+				is_married = ROOT
+				is_lover = ROOT
+			}
+		}
+		name = EVTOPTB_equus_4410
+		event_target:lost_courtly = {
+			remove_opinion = {
+				who = ROOT
+				modifier = opinion_courtly_lover
+			}
+		}
+		ROOT = {
+			remove_opinion = {
+				who = event_target:lost_courtly
+				modifier = opinion_courtly_lover
+			}
+		}
+	}
+	option = { #Good riddance
+		trigger = {
+			event_target:lost_courtly = { 
+				is_rival = ROOT
+			}
+		}
+		name = EVTOPTC_equus_4410
+		event_target:lost_courtly = {
+			remove_opinion = {
+				who = ROOT
+				modifier = opinion_courtly_lover
+			}
+		}
+		ROOT = {
+			remove_opinion = {
+				who = event_target:lost_courtly
+				modifier = opinion_courtly_lover
+			}
+		}
+	}
+}
+
+#Lover died
+character_event = {
+	id = equus.4411
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_friend = {
+			has_opinion_modifier = {
+				who = ROOT 
+				modifier = opinion_courtly_lover
+			}
+		}
+	}
+
+	immediate = {
+		any_friend = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT 
+					modifier = opinion_courtly_lover
+				}
+				is_lover = ROOT
+			}
+			character_event = { id = equus.4412 }
+		}
+	}
+}
+
+#Letter of adieu from the dying lover
+character_event = {
+	id = equus.4412
+	picture = GFX_evt_woman_at_window_hf
+	border = GFX_event_normal_frame_intrigue
+	desc = EVTDESC_equus_4412
+	
+	is_triggered_only = yes
+
+	option = { #Alas
+		name = EVTOPTA_equus_4412
+		random_list = {
+			50 = {
+			}
+			30 = {
+				add_trait = stressed
+			}
+			20 = {
+				add_trait = depressed
+			}
+		}
+	}
+}

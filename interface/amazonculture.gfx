@@ -1,0 +1,457 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_trait_is_amazonian"
+		texturefile = "gfx/traits/is_amazonian.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	
+	spriteType = {
+		name = "GFX_trait_is_amazonian_immortal"
+		texturefile = "gfx/traits/is_amazonian_immortal.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	
+	spriteType = {
+		name = "GFX_trait_giant_lord"
+		texturefile = "gfx/traits/giant_lord.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	
+	spriteType = {
+		name = "GFX_trait_giant_king"
+		texturefile = "gfx/traits/giant_king.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	
+	spriteType = {
+		name = "GFX_adopt_themiskyran_culture"
+		texturefile = "gfx/decisions/adopt_themiskyran_culture.dds"
+	}
+		
+	spriteType = {
+		name = "GFX_adopt_valkyrie_culture"
+		texturefile = "gfx/decisions/adopt_valkyrie_culture.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_adopt_scythian_culture"
+		texturefile = "gfx/decisions/adopt_scythian_culture.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_adopt_parthian_culture"
+		texturefile = "gfx/decisions/adopt_parthian_culture.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_adopt_kushite_culture"
+		texturefile = "gfx/decisions/adopt_kushite_culture.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_adopt_carthaginian_culture"
+		texturefile = "gfx/decisions/adopt_carthaginian_culture.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_adopt_etruscan_culture"
+		texturefile = "gfx/decisions/adopt_etruscan_culture.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_adopt_pritani_culture"
+		texturefile = "gfx/decisions/adopt_pritani_culture.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_adopt_illyrian_culture"
+		texturefile = "gfx/decisions/adopt_illyrian_culture.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_adopt_amazonian_culture_liege"
+		texturefile = "gfx/decisions/adopt_amazonian_culture_liege.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_add_amazonian_trait"
+		texturefile = "gfx/decisions/add_amazonian_trait.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_set_amz_capital"
+		texturefile = "gfx/decisions/set_amz_capital.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_set_amz_capital_roma"
+		texturefile = "gfx/decisions/set_amz_capital_roma.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_apply_amazonian_warpaint"
+		texturefile = "gfx/decisions/apply_amazonian_warpaint.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_form_amazonian_empire"
+		texturefile = "gfx/decisions/form_amazonian_empire.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_force_enatic_cognatic_succ"
+		texturefile = "gfx/decisions/force_enatic_cognatic_succ.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_force_enatic_succ"
+		texturefile = "gfx/decisions/force_enatic_succ.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_allow_consorts_amazon"
+		texturefile = "gfx/decisions/allow_consorts_amazon.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_invite_amz_suitor"
+		texturefile = "gfx/decisions/invite_amz_suitor.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_create_feminist_seminary"
+		texturefile = "gfx/decisions/create_feminist_seminary.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_invite_priestess"
+		texturefile = "gfx/decisions/invite_priestess.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_convert_heresy_amazon"
+		texturefile = "gfx/decisions/convert_heresy_amazon.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_reform_heresy_amazon"
+		texturefile = "gfx/decisions/reform_heresy_amazon.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_reform_caliphate_female"
+		texturefile = "gfx/decisions/reform_caliphate_female.dds"
+	}
+		
+	spriteType = {
+		name = "GFX_recruit_amazonian"
+		texturefile = "gfx/decisions/recruit_amazonian.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_adopt_amazonian_daughter"
+		texturefile = "gfx/decisions/adopt_amazonian_daughter.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_donate_orphanage"
+		texturefile = "gfx/decisions/donate_orphanage.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_compose_poem"
+		texturefile = "gfx/decisions/compose_poem.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_produce_painting"
+		texturefile = "gfx/decisions/produce_painting.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_hire_midwife"
+		texturefile = "gfx/decisions/hire_midwife.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_seek_abortifacient"
+		texturefile = "gfx/decisions/seek_abortifacient.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_sponsor_guilds"
+		texturefile = "gfx/decisions/sponsor_guilds.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_train_recruits"
+		texturefile = "gfx/decisions/train_recruits.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_extort_locals"
+		texturefile = "gfx/decisions/extort_locals.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_discontinue_extorting"
+		texturefile = "gfx/decisions/discontinue_extorting.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_host_academics"
+		texturefile = "gfx/decisions/host_academics.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_host_games"
+		texturefile = "gfx/decisions/host_games.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_discontinue_games"
+		texturefile = "gfx/decisions/discontinue_games.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_themiskyran"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_themiskyran.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_valkyrie"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_valkyrie.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_scythian"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_scythian.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_parthian"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_parthian.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_kushite"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_kushite.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_carthaginian"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_carthaginian.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_etruscan"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_etruscan.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_pritani"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_pritani.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_illyrian"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_illyrian.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_establish_themiskyran_tributary"
+		texturefile = "gfx/decisions/establish_themiskyran_tributary.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_establish_valkyrie_tributary"
+		texturefile = "gfx/decisions/establish_valkyrie_tributary.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_establish_scythian_tributary"
+		texturefile = "gfx/decisions/establish_scythian_tributary.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_establish_parthian_tributary"
+		texturefile = "gfx/decisions/establish_parthian_tributary.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_establish_kushite_tributary"
+		texturefile = "gfx/decisions/establish_kushite_tributary.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_establish_carthaginian_tributary"
+		texturefile = "gfx/decisions/establish_carthaginian_tributary.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_establish_etruscan_tributary"
+		texturefile = "gfx/decisions/establish_etruscan_tributary.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_establish_pritani_tributary"
+		texturefile = "gfx/decisions/establish_pritani_tributary.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_establish_illyrian_tributary"
+		texturefile = "gfx/decisions/establish_illyrian_tributary.dds"
+	}
+	
+	spriteType = { 
+		name = "GFX_warrior_lodge_amazonian_ranks" 
+		texturefile = "gfx/interface/societies/rank_icons_warrior_lodge_amazonian.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { 
+		name = "GFX_warrior_lodge_amazonian_ranks_highlight"
+		texturefile = "gfx/interface/societies/rank_icons_warrior_lodge_amazonian_highlight.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { 
+		name = "GFX_warrior_lodge_amazonian_ranks_locked"
+		texturefile = "gfx/interface/societies/rank_icons_warrior_lodge_amazonian_locked.dds"
+		noOfFrames = 4
+	}
+	
+	spriteType = { 
+		name = "GFX_society_main_background_warrior_lodge_amazonian"
+		texturefile = "gfx/interface/societies/society_bg_warrior_lodge_amazonian.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_society_expansion_background_warrior_lodge_amazonian"
+		texturefile = "gfx/interface/societies/society_exp_bg_warrior_lodge_amazonian.dds"
+	}
+	
+	spriteType = { 
+		name = "GFX_icon_small_warrior_lodge_amazonian"
+		texturefile = "gfx/interface/societies/symbol_small_warrior_lodge_amazonian.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = { 
+		name = "GFX_society_influence_warrior_lodge_amazonian"
+		texturefile = "gfx/interface/societies/society_influence_warrior_lodge_amazonian.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_society_portrait_ring_warrior_lodge_amazonian"
+		texturefile = "gfx/interface/societies/portrait_ring_warrior_lodge_amazonian.dds"
+	}
+	
+	spriteType = { 
+		name = "GFX_society_portrait_ring_small_warrior_lodge_amazonian"
+		texturefile = "gfx/interface/societies/portrait_ring_small_warrior_lodge_amazonian.dds"
+	}
+	
+	spriteType = { 
+		name = "GFX_society_currency_warrior_lodge_amazonian"
+		texturefile = "gfx/interface/societies/society_currency_warrior_lodge_amazonian.dds"
+	}
+	
+	spriteType = { 
+		name = "GFX_event_window_society_quest_background_warrior_lodge_amazonian"
+		textureFile = "gfx/interface/society_quest/mission_bg_warrior_lodge_amazonian.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_create_warrior_lodge_amazonian"
+		texturefile = "gfx/decisions/create_warrior_lodge_amazonian.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_amazonian_shieldmaiden_oath"
+		texturefile = "gfx/decisions/amazonian_shieldmaiden_oath.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_take_lodge_trait"
+		texturefile = "gfx/decisions/take_lodge_trait.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_summon_lodge_shieldmaiden"
+		texturefile = "gfx/decisions/summon_lodge_shieldmaiden.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_amazonian_unit_specialisation"
+		texturefile = "gfx/decisions/amazonian_unit_specialisation.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_study_martial_education"
+		texturefile = "gfx/decisions/study_martial_education.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_summon_amazonian_horde"
+		texturefile = "gfx/decisions/summon_amazonian_horde.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_take_amazonian_leadership_trait"
+		texturefile = "gfx/decisions/take_amazonian_leadership_trait.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_trait_amazonian_leader"
+		texturefile = "gfx/traits/amazonian_leader.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	
+	spriteType = {
+		name = "GFX_commission_heroine_gear"
+		texturefile = "gfx/decisions/commission_heroine_gear.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_challenge_grandmistress"
+		texturefile = "gfx/decisions/challenge_grandmistress.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_heroine_legacy"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_heroine_legacy.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_heroine_dread"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_heroine_dread.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_heroine_champion"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_heroine_champion.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_bloodlines_symbol_amazonian_heroine_hooded"
+		texturefile = "gfx/interface/bloodlines/bloodlines_symbol_amazonian_heroine_hooded.dds"
+	}
+		
+	spriteType = {
+		name = "GFX_begin_legendary_quest"
+		texturefile = "gfx/decisions/begin_legendary_quest.dds"
+	}
+	
+	
+}

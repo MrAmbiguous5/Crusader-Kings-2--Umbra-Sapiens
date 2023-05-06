@@ -1,0 +1,76 @@
+
+namespace = darkages
+###################################################################
+#
+#	REMOVE STRESSED BY REST DECISION
+#
+###################################################################
+
+character_event = {
+	id = darkages.72012
+	desc = EVTDESC1972012
+	picture = GFX_evt_fishing
+	border = GFX_event_normal_frame_religion
+
+	
+	trigger = {
+		trait = resting
+	}
+
+	mean_time_to_happen = {
+		months = 18
+		
+		modifier = {
+			factor = 0.75
+			trait = patient
+		}
+		modifier = {
+			factor = 0.75
+			trait = slothful
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				trait = hunter
+				trait = falconer
+				trait = poet
+				trait = mystic
+			}
+		}
+		modifier = {
+			factor = 0.5
+			trait = content
+		}		
+		modifier = {
+			factor = 0.5
+			trait = gardener
+		}		
+		modifier = {
+			factor = 1.25
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.25
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.25
+			OR = {
+				trait = lustful
+				trait = wroth
+				trait = duelist
+				trait = envious
+			}
+		}		
+		modifier = {
+			factor = 5
+			war = yes
+		}		
+	}
+	
+	option = {
+		name = EVTOPTA1972012
+		remove_trait = resting
+	}
+
+}

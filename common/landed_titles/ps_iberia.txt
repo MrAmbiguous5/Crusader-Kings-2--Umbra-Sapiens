@@ -1,0 +1,192 @@
+b_barcelona = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}					
+}
+
+b_urgell = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 170
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+
+b_puigcerda = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 181
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+
+b_empuries = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 196
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_girona = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 9
+			texture_internal = 176
+			emblem = 0
+			color = 2
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_cerdana = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 22
+			emblem = 0
+			color = 0
+			color = 2
+			color = 0
+		}
+	}				
+}
+b_besalu = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 120
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_cervera = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 46
+			emblem = 0
+			color = 2
+			color = 1
+			color = 0
+		}
+	}				
+}
+b_tarragona = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 30
+			emblem = 0
+			color = 3
+			color = 0
+			color = 0
+		}
+	}				
+}
+	
+### 
+
+b_portalegre = {
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 6
+            color = 1
+            color = 0
+        }
+		religion = orthodox		
+    }				
+}
+b_alvito = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 0
+			emblem = 31
+			color = 2
+			color = 0
+			color = 0
+		}
+	}
+}
+
+###
+
+b_alcaladelosgazules = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 0
+			texture_internal = 197
+			emblem = 0
+			color = 5
+			color = 0
+			color = 0
+		}
+	}				
+}
+b_moguer = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 133
+			emblem = 0
+			color = 0
+			color = 4
+			color = 0
+		}
+	}				
+}
+b_villena = {
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 149
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}				
+}	

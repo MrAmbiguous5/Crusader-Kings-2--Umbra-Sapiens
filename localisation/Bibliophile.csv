@@ -1,0 +1,494 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+#
+#
+#
+#########ARTIFACT SLOTS <--------------------------------------------------------------------------- <-------------------------------------------------------------------------------------
+girdle_book;Girdle Book;;;;;;;;;;;;;x
+battle_standard;Battle Standard;;;;;;;;;;;;;x
+#
+#
+#
+#########RANDOM
+aesops_fables;Fables of Aesop;;;;;;;;;;;;;x
+aesops_fables_desc;A collection of fables attributed to a Greek slave and storyteller who lived in the sixth or seventh century before Christ.;;;;;;;;;;;;;x
+lais_marie_de_france;Lais of Marie de France;;;;;;;;;;;;;x
+lais_marie_de_france_desc;A collection of twelve poetic lais written - in late twelfth century England - for entertainment and moral instruction.;;;;;;;;;;;;;x
+on_the_things_of_wars;On the Things of War;;;;;;;;;;;;;x
+on_the_things_of_wars_desc;On the Things of War - De rebus bellicis - is a work from the fourth or fifth century exploring possible remedies for the problems afflicting the Roman Empire.;;;;;;;;;;;;;x
+sum_of_logic;Sum of Logic;Summa Logicae;Summa Logicae;;Summa Logicae;;;;;;;;;x
+sum_of_logic_desc;A textbook on logic by William of Ockham written in 1323.;;;;;;;;;;;;;x
+testament_solomon;Testament of Solomon;;;;;;;;;;;;;x
+testament_solomon_desc; A magical grimoire of uncertain date and origin.;;;;;;;;;;;;;x
+book_of_monsters;The Book of Monsters of Various Kinds;Liber Monstrorum;Liber Monstrorum;;Liber Monstrorum;;;;;;;;;x
+book_of_monsters_desc; A beastiary drawing from both Christian and Norse Pagan tradition.;;;;;;;;;;;;;x
+song_of_william;Song of William;Chanson de Guillaume;Wilhelmslied;;La canción de Guillaume;;;;;;;;;x
+song_of_william_desc;A poetic work based on the martial exploits of Guillaume - Duke of Toulouse - composed centuries after his death.;;;;;;;;;;;;;x
+song_of_william2;Song of William;Chanson de Guillaume;Wilhelmslied;;La canción de Guillaume;;;;;;;;;x
+song_of_william2_desc;A poetic work based on the martial exploits of Guillaume - Duke of Toulouse - composed centuries after his death.;;;;;;;;;;;;;x
+#
+#
+#
+#########TREE
+cedar_of_god_sapling;Cedar of God Sapling;;;;;;;;;;;;;x
+cedar_of_god_sapling_desc;From time immemorial the great cedars of Mount Lebanon have bolstered construction and trade and expansion. With them the Mesopotamians built great structures and the Phoenicians became the first naval power.;;;;;;;;;;;;;x
+#
+#
+#
+#########CHRONICLES AND ANNALS
+deeds_done;History of Deeds Done Beyond the Sea;;;;;;;;;;;;;x
+deeds_done_desc;This was chronicle penned by William - Archbishop of Tyre - during the zenith of the Crusader Kingdom. Already it has been copied and is circulating more and more.;;;;;;;;;;;;;x
+man_chronicle;Chronicle of Man;;;;;;;;;;;;;x
+man_chronicle_desc;A chronicle started in the eleventh century.;;;;;;;;;;;;;x
+melrose_chronicle;Chronicle of Melrose;;;;;;;;;;;;;x
+melrose_chronicle_desc;A chronicle started c. 1140 - though drawing on the Anglo-Saxon Chronicle and other historical works. Early entries date back to the eighth century.;;;;;;;;;;;;;x
+iona_chronicle;Iona Chronicle;;;;;;;;;;;;;x
+iona_chronicle_desc;The Iona Chronicle record events from the early fifth century with entries before 563 drawing on earlier texts. After merging with another chronicle in the seventh century a copy was relocated to Ireland.;;;;;;;;;;;;;x
+osraige_chronicle;Ossory Chronicle;;;;;;;;;;;;;x
+osraige_chronicle_desc;A ninth century chronicle of Ossory occupied centrally by the great and glorious King Cerball and his exploits against Leinster and Munster and the Norse.;;;;;;;;;;;;;x
+annals_of_inisfallen;Annals of Inisfallen;;;;;;;;;;;;;x
+annals_of_inisfallen_desc;A chronicle started c. 1092 - though drawing on the Annals of Tigernach at Clonmacnoise and other sources. Early entries record events from the early fifth century.;;;;;;;;;;;;;x
+annals_of_clonmacnoise;Annals of Tigernach;;;;;;;;;;;;;x
+annals_of_clonmacnoise_desc;The Iona Chronicle records events from the early fifth century with entries before 563 drawing on earlier texts. After merging with another chronicle in the seventh century and moving monastery several times this offshoot is based out of Clonmacnoise.;;;;;;;;;;;;;x
+annals_of_armagh;Annals of Armagh;;;;;;;;;;;;;x
+annals_of_armagh_desc;The Iona Chronicle records events from the early fifth century with entries before 563 drawing on earlier texts. After merging with another chronicle in the seventh century and moving monastery several times this offshoot is based out of Armagh.;;;;;;;;;;;;;x
+chronicle_of_the_princes;Chronicle of the Princes;;;;;;;;;;;;;x
+chronicle_of_the_princes_desc;An annalistic Welsh history beginning in the late seventh-century and continuing up to the present.;;;;;;;;;;;;;x
+annales_cambriae;Annales Cambriae;Annales Cambriae;Annales Cambriae;;Annales Cambriae;;;;;;;;;x
+annales_cambriae_desc;Annales Cambriae - or the Annals of Wales - is an extensive chronicle of history both in Wales and outside it compiled at St. Davids Cathedral. Some portions date back as far as the fifth century.;;;;;;;;;;;;;x
+annales_cambriae2;Annales Cambriae;Annales Cambriae;Annales Cambriae;;Annales Cambriae;;;;;;;;;x
+annales_cambriae2_desc;Annales Cambriae - or the Annals of Wales - is an extensive chronicle of history both in Wales and outside it compiled at St. Davids Cathedral. This is an abridged copy.;;;;;;;;;;;;;x
+winchcombe_annals;Winchcombe Annals;Annales Winchecumbenses;Annales Winchecumbenses;;Annales Winchecumbenses;;;;;;;;;x
+winchcombe_annals_desc;The compiled annals of Winchcombe Abbey between year of our lord 1049 and year of our lord 1232. Surely something interesting happened.;;;;;;;;;;;;;x
+annals_of_winchcombe;Annals of Winchcombe;Annales Winchecumbenses;Annales Winchecumbenses;;Annales Winchecumbenses;;;;;;;;;x
+annals_of_winchcombe_desc;The annals of Winchcombe Abbey. Compelling reading.;;;;;;;;;;;;;x
+tewkesbury_annals;Tewkesbury Annals;Chronicon de Teukesburia;Chronicon de Teukesburia;;Chronicon de Teukesburia;;;;;;;;;x
+tewkesbury_annals_desc;The compiled annals of Tewkesbury Abbey in Gloustershire of whom the de Clare family are patrons. The content reflects this.;;;;;;;;;;;;;x
+margan_annals;Margam Annals;Annales de Margan;Annales de Margan;;Annales de Margan;;;;;;;;;x
+margan_annals_desc;The annals of the Welsh Cistercian abbey of Margam in Glamorgan.;;;;;;;;;;;;;x
+coventry_chronicle;Coventry Chronicle;;;;;;;;;;;;;x
+coventry_chronicle_desc;A Latin chronicle kept by the Benedictine monks of Coventry from circa 1150 through to 1202.;;;;;;;;;;;;;x
+chronica_prophetica;Chronica Prophetica;;;;;;;;;;;;;x
+chronica_prophetica_desc; A Visigothic chronicle from the 9th-century interpreting a biblical prophecy and glorifying King Alfonso the Great of Asturias.;;;;;;;;;;;;;x
+#
+#
+#
+#########ARMORIALS
+armorial_of_king_henry;Armorial Roll of King Henry III;;;;;;;;;;;;;x
+armorial_of_king_henry_desc; A roll containing the arms of a respectable fraction of the baronage of England.;;;;;;;;;;;;;x
+armorial_of_wales;Armorial Roll of Wales;;;;;;;;;;;;;x
+armorial_of_wales_desc; A roll containing the arms of Welsh lords and barons.;;;;;;;;;;;;;x
+armorial_of_savoy;Savoyard Rolls of Arms;;;;;;;;;;;;;x
+armorial_of_savoy_desc; An collection of armorial rolls compiled by the Dukes of Savoy.;;;;;;;;;;;;;x
+#
+#
+#
+#########CULTURAL WORKS
+cattle_raid_of_cooley;The Cattle Raid of Cooley;;;;;;;;;;;;;x
+cattle_raid_of_cooley_desc;A written recounting of Táin Bó Cúailnge - the central story of the Ulster Cycle.;;;;;;;;;;;;;x
+knight_in_the_panther_skin;The Knight in the Panther Skin;;;;;;;;;;;;;x
+knight_in_the_panther_skin_desc;A romantic epic poem dedicated to Queen Tamari of Georgia in the late twelfth century.;;;;;;;;;;;;;x
+knight_in_the_panther_skin2;The Knight in the Panther Skin;;;;;;;;;;;;;x
+knight_in_the_panther_skin2_desc;A romantic epic poem dedicated to Queen Tamari of Georgia in the late twelfth century.;;;;;;;;;;;;;x
+knight_in_the_panther_skin3;The Knight in the Panther Skin;;;;;;;;;;;;;x
+knight_in_the_panther_skin3_desc;A romantic epic poem dedicated to Queen Tamari of Georgia in the late twelfth century.;;;;;;;;;;;;;x
+#FAKE
+ystrad_clud;Ystrad Clud;;;;;;;;;;;;;x
+ystrad_clud_desc;A history of the Kingdom of Strathclyde.;;;;;;;;;;;;;x
+#
+#
+#
+#########MULTI-VOLUME WORKS
+deeds_of_the_danes1;Deeds of the Danes - Book I;Gesta Danorum I;Gesta Danorum I;;Gesta Danorum I;;;;;;;;;x
+deeds_of_the_danes1_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes2;Deeds of the Danes - Book II;Gesta Danorum II;Gesta Danorum II;;Gesta Danorum II;;;;;;;;;x
+deeds_of_the_danes2_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes3;Deeds of the Danes - Book III;Gesta Danorum III;Gesta Danorum III;;Gesta Danorum III;;;;;;;;;x
+deeds_of_the_danes3_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes4;Deeds of the Danes - Book IV;;;;;;;;;;;;;x
+deeds_of_the_danes4_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes5;Deeds of the Danes - Book V;;;;;;;;;;;;;x
+deeds_of_the_danes5_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes6;Deeds of the Danes - Book VI;;;;;;;;;;;;;x
+deeds_of_the_danes6_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes7;Deeds of the Danes - Book VII;;;;;;;;;;;;;x
+deeds_of_the_danes7_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes8;Deeds of the Danes - Book VIII;;;;;;;;;;;;;x
+deeds_of_the_danes8_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes9;Deeds of the Danes - Book IX;;;;;;;;;;;;;x
+deeds_of_the_danes9_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes10;Deeds of the Danes - Book X;;;;;;;;;;;;;x
+deeds_of_the_danes10_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes11;Deeds of the Danes - Book XI;;;;;;;;;;;;;x
+deeds_of_the_danes11_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes12;Deeds of the Danes - Book XII;;;;;;;;;;;;;x
+deeds_of_the_danes12_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes13;Deeds of the Danes - Book XIII;;;;;;;;;;;;;x
+deeds_of_the_danes13_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes14;Deeds of the Danes - Book XIV;;;;;;;;;;;;;x
+deeds_of_the_danes14_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes15;Deeds of the Danes - Book XV;;;;;;;;;;;;;x
+deeds_of_the_danes15_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+deeds_of_the_danes16;Deeds of the Danes - Book XVI;;;;;;;;;;;;;x
+deeds_of_the_danes16_desc;The Gesta Danorum  - or the Deeds of the Danes - is a history in 16 parts written by Saxo the Literate.;;;;;;;;;;;;;x
+#
+antiquities_of_the_jews_a_1;Antiquities of the Jews - Book I;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_1_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_2;Antiquities of the Jews - Book II;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_2_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_3;Antiquities of the Jews - Book III;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_3_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_4;Antiquities of the Jews - Book IV;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_4_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_5;Antiquities of the Jews - Book V;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_5_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_6;Antiquities of the Jews - Book VI;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_6_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_7;Antiquities of the Jews - Book VII;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_7_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_8;Antiquities of the Jews - Book VIII;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_8_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_9;Antiquities of the Jews - Book IX;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_9_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_10;Antiquities of the Jews - Book X;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_10_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_11;Antiquities of the Jews - Book XI;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_11_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_12;Antiquities of the Jews - Book XII;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_12_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_13;Antiquities of the Jews - Book XIII;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_13_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_14;Antiquities of the Jews - Book XIV;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_14_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_15;Antiquities of the Jews - Book XV;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_15_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_16;Antiquities of the Jews - Book XVI;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_16_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_17;Antiquities of the Jews - Book XVII;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_17_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_18;Antiquities of the Jews - Book XVIII;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_18_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_19;Antiquities of the Jews - Book XIX;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_19_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_20;Antiquities of the Jews - Book XX;;;;;;;;;;;;;x
+antiquities_of_the_jews_a_20_desc;A twenty-volume histriography dating to the first-century A.D. by Flavius Josephus.;;;;;;;;;;;;;x
+#
+pandects1;Pandects - Book I;;;;;;;;;;;;;x
+pandects1_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects2;Pandects - Book II;;;;;;;;;;;;;x
+pandects2_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects3;Pandects - Book III;;;;;;;;;;;;;x
+pandects3_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects4;Pandects - Book IV;;;;;;;;;;;;;x
+pandects4_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects5;Pandects - Book V;;;;;;;;;;;;;x
+pandects5_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects6;Pandects - Book VI;;;;;;;;;;;;;x
+pandects6_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects7;Pandects - Book VII;;;;;;;;;;;;;x
+pandects7_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects8;Pandects - Book VIII;;;;;;;;;;;;;x
+pandects8_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects9;Pandects - Book IX;;;;;;;;;;;;;x
+pandects9_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects10;Pandects - Book X;;;;;;;;;;;;;x
+pandects10_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects11;Pandects - Book XI;;;;;;;;;;;;;x
+pandects11_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects12;Pandects - Book XII;;;;;;;;;;;;;x
+pandects12_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects13;Pandects - Book XIII;;;;;;;;;;;;;x
+pandects13_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects14;Pandects - Book XIV;;;;;;;;;;;;;x
+pandects14_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects15;Pandects - Book XV;;;;;;;;;;;;;x
+pandects15_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects16;Pandects - Book XVI;;;;;;;;;;;;;x
+pandects16_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects17;Pandects - Book XVII;;;;;;;;;;;;;x
+pandects17_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects18;Pandects - Book XVIII;;;;;;;;;;;;;x
+pandects18_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects19;Pandects - Book XIX;;;;;;;;;;;;;x
+pandects19_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects20;Pandects - Book XX;;;;;;;;;;;;;x
+pandects20_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects21;Pandects - Book XXI;;;;;;;;;;;;;x
+pandects21_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects22;Pandects - Book XXII;;;;;;;;;;;;;x
+pandects22_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects23;Pandects - Book XXIII;;;;;;;;;;;;;x
+pandects23_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects24;Pandects - Book XXIV;;;;;;;;;;;;;x
+pandects24_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects25;Pandects - Book XXV;;;;;;;;;;;;;x
+pandects25_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects26;Pandects - Book XXVI;;;;;;;;;;;;;x
+pandects26_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects27;Pandects - Book XXVII;;;;;;;;;;;;;x
+pandects27_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects28;Pandects - Book XXVIII;;;;;;;;;;;;;x
+pandects28_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects29;Pandects - Book XXIX;;;;;;;;;;;;;x
+pandects29_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+pandects30;Pandects - Book XXX;;;;;;;;;;;;;x
+pandects30_desc;A book on medicine written by Aaron of Alexandria in early seventh-century - only decades before the fall of the city to the Rashidun Caliphate in 641. The first Arabic copies date to the 680s.;;;;;;;;;;;;;x
+
+#
+#
+#
+#########MAJOR ARTIFACTS
+horn_of_lehel;Horn of Lehel;;;;;;;;;;;;;x
+horn_of_lehel_desc;They advised against it - but you scoffed at them. If it was a good enough weapon for Lehel to kill the Duke of Bavarian in his own castle than surely this war horn is a fine weapon to take into battle for any warrior with true stones.;;;;;;;;;;;;;x
+stone_of_scone;Stone of Scone;;;;;;;;;;;;;x
+stone_of_scone_desc;The coronation stone of Scotland. From whence doeth the Stone of Destiny come? It cometh across the sea from Ireland with the first King of the Scots - or so the bards claim.;;;;;;;;;;;;;x
+blade_of_an_assassin;Blade of an Assassin;;;;;;;;;;;;;x
+blade_of_an_assassin_desc;A blade taken from the corpse of an Assassin in Acre by King Edward I after an attempt on his life in 1272.;;;;;;;;;;;;;x
+roman_helmet;Roman Helmet;;;;;;;;;;;;;x
+roman_helmet_desc;This helmet dates back to the Roman Empire and probably belonged to some godless pagan.;;;;;;;;;;;;;x
+nikephoros_cup;Nikephoros Drinking Cup;;;;;;;;;;;;;x
+nikephoros_cup_desc;A drinking cup fashioned from the skull of the Byzantine Emperor Nikephoros by Krum of Bulgaria.;;;;;;;;;;;;;x
+bayeux_tapestry;Bayeux Tapestry;Tapisserie de Bayeux;Teppich von Bayeux;;Tapiz de Bayeux;;;;;;;;;x
+bayeux_tapestry_desc;This embroidered hanging depicts the Norman conquest of England and was commisioned by Bishop Odo - Earl of Kent - who was the most powerful of vassals until his reaching ambition led to his impious ruin.;;;;;;;;;;;;;x
+#
+#
+#
+#########THRONES
+throne_of_charlemagne;Throne of Charlemagne;;;;;;;;;;;;;x
+throne_of_charlemagne_desc;This seat - which they call the Archstool of the Whole Realm - was erected at the order of Charlemagne in a year not later than 800 A.D. It is atop this throne that the Holy Roman Emperors are coronated.;;;;;;;;;;;;;x
+king_edwards_chair;Chair of King Edward;;;;;;;;;;;;;x
+king_edwards_chair_desc;After King Edward I captured the Stone of Scone from the Scots he commisioned this coronation chair to house it.;;;;;;;;;;;;;x
+st_peters_chair;Chair of St. Peter;;;;;;;;;;;;;x
+st_peters_chair_desc;The chair which tradition ascribes to the Apostle Peter is a relic of uncertain provenance but surpassing holiness. There have been earlier chairs associated with Saint Peter - it is said - but this one was a gift from the Holy Roman Emperor.;;;;;;;;;;;;;x
+throne_of_northumbria;Throne of Northumbria;;;;;;;;;;;;;x
+throne_of_northumbria_desc;Sore is the bottom that sits the throne which it is said Ida - the first King of Bernicia - had carved by the very finest Anglian stone-workers.;;;;;;;;;;;;;x
+throne_of_man;Throne of Man;;;;;;;;;;;;;x
+throne_of_man_desc;The Golden Throne is a Herculean constructi... alas, this humble monk has erred in providing the wrong entry. Nobody is sure how old the Throne of Manaw is but it wobbles and creaks like a windmill in a gale.;;;;;;;;;;;;;x
+#
+#
+#
+#########RELIGIOUS BOOKS - CHRISTIAN
+city_of_god;The City of God Against the Pagans;;;;;;;;;;;;;x
+city_of_god_desc;A fifth-century apologist tome written the Bishop of Hippo attacking Roman Paganism, and asserting that Church was not responsible for the decline of the Roman Empire.;;;;;;;;;;;;;x
+book_of_pontiffs;The Book of the Pontiffs;;;;;;;;;;;;;x
+book_of_pontiffs_desc;The Liber Pontificalis is a collection of papal biographies from Saint Peter up to the present.;;;;;;;;;;;;;x
+consolation_of_philosphy;The Consolation of Philosophy;De Consolatione Philosophiae;De Consolatione Philosophiae;;De Consolatione Philosophiae;;;;;;;;;x
+consolation_of_philosphy_desc;This last and most influential work of Boethius was written in 523 as he awaited execution by the King of the Ostrogoths.;;;;;;;;;;;;;x
+consolation_of_philosphy2;The Consolation of Philosophy;De Consolatione Philosophiae;De Consolatione Philosophiae;;De Consolatione Philosophiae;;;;;;;;;x
+consolation_of_philosphy2_desc;This last and most influential work of Boethius was written in 523 as he awaited execution by the King of the Ostrogoths.;;;;;;;;;;;;;x
+ecclesiatical_history1;Ecclesiatical History of the English People - Book I;;;;;;;;;;;;;x
+ecclesiatical_history1_desc;A history of Christianity in England written by Bede.;;;;;;;;;;;;;x
+ecclesiatical_history2;Ecclesiatical History of the English People - Book II;;;;;;;;;;;;;x
+ecclesiatical_history2_desc;A history of Christianity in England written by Bede.;;;;;;;;;;;;;x
+ecclesiatical_history3;Ecclesiatical History of the English People - Book III;;;;;;;;;;;;;x
+ecclesiatical_history3_desc;A history of Christianity in England written by Bede.;;;;;;;;;;;;;x
+ecclesiatical_history4;Ecclesiatical History of the English People - Book IV;;;;;;;;;;;;;x
+ecclesiatical_history4_desc;A history of Christianity in England written by Bede.;;;;;;;;;;;;;x
+ecclesiatical_history5;Ecclesiatical History of the English People - Book V;;;;;;;;;;;;;x
+ecclesiatical_history5_desc;A history of Christianity in England written by Bede.;;;;;;;;;;;;;x
+benedictional_aethelwold;Benedictional of St. Æthelwold;;;;;;;;;;;;;x
+benedictional_aethelwold_desc; An Anglo-Saxon illuminated benedictional from the 10th-century Winchester. Pretty.;;;;;;;;;;;;;x
+in_praise_of_the_new_knighthood;Book to the Knights of the Temple in Praise of the New Knighthood;;;;;;;;;;;;;x
+in_praise_of_the_new_knighthood_desc;A book written by Bernard of Clairvaux addressed directly to Hugh of Payns and heaping praise upon the Templars.;;;;;;;;;;;;;x
+gospel_of_henry_the_lion;Gospel of Heinrich the Lion;Évangéliaire dHenri le Lion;Evangeliar Heinrichs des Löwen;;SPANISH;;;;;;;;;x
+gospel_of_henry_the_lion_desc;An illuminated manuscript to the greater glory of God.;;;;;;;;;;;;;x
+#
+#
+#
+#########RELIGIOUS ARTIFACTS
+cross_of_aethlburh;Cross of Æthelburh;;;;;;;;;;;;;x
+cross_of_aethlburh_desc;This golden cross was removed to Kent by the sainted Queen Æthelburh of Northumberland - fleeing after the death of her husband Eadwine at the Battle of Hatfield Chase in 633. She thereafter became an abbess.;;;;;;;;;;;;;x
+altar_of_campodonum;Altar of Campodonum;;;;;;;;;;;;;x
+altar_of_campodonum_desc;This stone altar survived the burning of the basilica of King Eadwine of Northumberland.;;;;;;;;;;;;;x
+bishop_crozier1;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier1_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+bishop_crozier2;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier2_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+bishop_crozier_ormond;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier_ormond_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+bishop_crozier_desmond;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier_desmond_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+bishop_crozier_orthodox;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier_orthodox_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+bishop_crozier3;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier3_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+bishop_crozier_saint_anno;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier_saint_anno_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+bishop_crozier_twelfth;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier_twelfth_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+bishop_crozier_thirteenth;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier_thirteenth_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+bishop_crozier_celtic;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier_celtic_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+bishop_crozier_coptic;Bishop's Crozier;;;;;;;;;;;;;x
+bishop_crozier_coptic_desc;The symbol of office of a bishop and a reminder - however somuch ostentation is present - that he is first and foremost a shepherd to his flock.;;;;;;;;;;;;;x
+#
+#
+#
+#########PAPAL BULLS AND POLITICAL DOCUMENTS
+letter_to_irish_bishops;Letter to the Lord Bishops and Abbots of Ireland;;;;;;;;;;;;;x
+letter_to_irish_bishops_desc;A letter written sometime in the first two decades of the seveth century by Archbishop Laurence of Canterbury urging them to celebrate Easter at the same date as the Roman Church.;;;;;;;;;;;;;x
+book_pastoral_office;The Book of Pastoral Rule;Liber Regulae Pastoralis;Liber Regulae Pastoralis;;Liber Regulae Pastoralis;;;;;;;;;x
+book_pastoral_office_desc;This treatise - being written c. 590 by Pope Gregory - details the responsibities and proper standards of the clergy.;;;;;;;;;;;;;x
+book_pastoral_office_freds_copy;The Book of Pastoral Rule;Liber Regulae Pastoralis;Liber Regulae Pastoralis;;Liber Regulae Pastoralis;;;;;;;;;x
+book_pastoral_office_freds_copy_desc;This treatise - being written c. 590 by Pope Gregory - details the responsibities and proper standards of the clergy. This copy was personally translated by Alfred the Great.;;;;;;;;;;;;;x
+letter_to_aethelbert;Letter to Æthelberht I;;;;;;;;;;;;;x
+letter_to_aethelbert_desc;A missive from Pope Gregory to the anglo-saxon King of Kent instructing him on how best to aide Augustine - the first Archbishop of Canterbury - in the conversion of his people.;;;;;;;;;;;;;x
+papal_bull_1059;Papal Bull - In the Name of the Lord;;;;;;;;;;;;;x
+papal_bull_1059_desc;A bull issued by Pope Nicholas II in 1059 reforming the papal electoral process.;;;;;;;;;;;;;x
+papal_bull_1120;Papal Bull - Thus to the Jews;;;;;;;;;;;;;x
+papal_bull_1120_desc;A bull issued by Pope Callixtus II in 1120 forbiding Christians from forbicibly converting or stealing from or attacking the Jews - on pain of excommunication.;;;;;;;;;;;;;x
+papal_bull_1144;Papal Bull - Soldiers of the Temple;;;;;;;;;;;;;x
+papal_bull_1144_desc;A bull issued by Pope Celestine II in 1144 extending clergy protections to the Knights Templar and encouraging donations.;;;;;;;;;;;;;x
+papal_bull_1155;Papal Bull - Laudably;;;;;;;;;;;;;x
+papal_bull_1155_desc;A bull issued by Pope Adrian IV in 1155 giving Henry II - King of England - lordship over Ireland. Nobody expects an English Pope.;;;;;;;;;;;;;x
+papal_bull_1235;Papal Bull - Since the Eleventh Hour;;;;;;;;;;;;;x
+papal_bull_1235_desc;A bull issued by Pope Gregory IX in 1235 encouraging friars to preach in pagan nations.;;;;;;;;;;;;;x
+papal_bull_1252;Papal Bull - For The Elimination;;;;;;;;;;;;;x
+papal_bull_1252_desc;A bull issued by Pope Innocent IV in 1252 authorizing the use of torture against Cathar heretics.;;;;;;;;;;;;;x
+book_consulate;Book of the Consulate of Sea;;;;;;;;;;;;;x
+book_consulate_desc;A compendium of martime laws and customs governing Mediterranean trade - those of the Spanish, French, Italians and Byzantines.;;;;;;;;;;;;;x
+magna_carta_libertatum;Exemplification of the Magna Carta;;;;;;;;;;;;;x
+magna_carta_libertatum_desc;An official copy of the Magna Carta Libertatum - or Great Charter of the Liberties - dating to 1215.;;;;;;;;;;;;;x
+crenellate_rochester;Licence to Crenellate - Rochester;;;;;;;;;;;;;x
+crenellate_rochester_desc;A licence to crenellate signed by King Henry I dated 1127 granting rights to build fortifications in the vicinity of Rochester.;;;;;;;;;;;;;x
+crenellate_colchester;Licence to Crenellate - Colchester;;;;;;;;;;;;;x
+crenellate_colchester_desc;A licence to crenellate signed by King Stephen dated 1141 granting rights to build fortifications within Essex.;;;;;;;;;;;;;x
+crenellate_gainsborough;Licence to Crenellate - Gainsborough;;;;;;;;;;;;;x
+crenellate_gainsborough_desc;A licence to crenellate signed by King Stephen dated 1142 granting rights to build fortifications in the vicinity of Gainsborough.;;;;;;;;;;;;;x
+crenellate_devon;Licence to Crenellate - Devon;;;;;;;;;;;;;x
+crenellate_devon_desc;A licence to crenellate signed by King John dated 1200 granting rights to build fortifications within Devon.;;;;;;;;;;;;;x
+crenellate_coventry;Licence to Crenellate - Coventry;;;;;;;;;;;;;x
+crenellate_coventry_desc;A licence to crenellate signed by King John dated 1200 granting rights to build fortifications in the vicinity of Coventry.;;;;;;;;;;;;;x
+crenellate_norwich;Licence to Crenellate - Norwich;;;;;;;;;;;;;x
+crenellate_coventry_desc;A licence to crenellate signed by King Henry III dated 1252 granting rights to build fortifications in the vicinity of Norwich.;;;;;;;;;;;;;x
+#
+#
+#
+#########CASTLE PLANS
+plans_chepstow;Castle Plans of Chepstow;;;;;;;;;;;;;x
+plans_chepstow_desc;The builders plans of Chepstow Castle. Construction began immediately upon the Norman invasion of Wales in 1067 - being located at the strategic crossing of the Wye between the ancient towns of Gloucester and Caerwent.;;;;;;;;;;;;;x
+plans_tower;Castle Plans of the White Tower;;;;;;;;;;;;;x
+plans_tower_desc;The builders plans of the White Tower of London. Work began in 1078 - replacing earlier timber fortifications.;;;;;;;;;;;;;x
+blueprints_siege_engine;Siege Engine Blueprints;;;;;;;;;;;;;x
+blueprints_siege_engine_desc;The blueprints of a mighty and terrible engine of siege.;;;;;;;;;;;;;x
+#
+#
+#
+#########ARABAIC
+book_of_kings;The Book of Kings;;;;;;;;;;;;;x
+book_of_kings_desc;The Shahnameh - Book of Kings - is an epic poem detailing the history of the Persian Empire from the creation of the world to the Arab conquest of Iran in the seventh century.;;;;;;;;;;;;;x
+the_garden_of_pages;The Garden of Pages;;;;;;;;;;;;;x
+the_garden_of_pages_desc;A companion book to the Chronicle of the Kings of Morocco and the History of the City of Fes written in 1326.;;;;;;;;;;;;;x
+ring_of_the_dove;The Ring of the Dove;;;;;;;;;;;;;x
+ring_of_the_dove_desc;An eleventh-century treaty on love by Ibn Hazm. It borrows heavily from Plato's Phaedrus.;;;;;;;;;;;;;x
+tale_of_danishmend;Tale of Danishmend;;;;;;;;;;;;;x
+tale_of_danishmend_desc;An allegorical epic romance derived from the oral traditions surronding Danishmend Ghazi who fought at Dorylaeum in 1097 during the First Crusade.;;;;;;;;;;;;;x
+dangerous_diseases;The Treatment of Dangerous Diseases Appearing Superficially on the Body;;;;;;;;;;;;;x
+dangerous_diseases_desc;A book on medicine.;;;;;;;;;;;;;x
+
+#
+#
+#
+#########PLATO
+phaedrus;Phaedrus;;;;;;;;;;;;;x
+phaedrus_desc;A work of Plato written as a dialogue on the subject of love and art and madness and reincarnation.;;;;;;;;;;;;;x
+gorgias;Gorgias;;;;;;;;;;;;;x
+gorgias_desc;A work of Plato written as a dialogue on the subject of rhetoric and politics.;;;;;;;;;;;;;x
+cratylus;Cratylus;;;;;;;;;;;;;x
+cratylus_desc;A work of Plato written as a dialogue on names and language.;;;;;;;;;;;;;x
+statesman;Statesman;;;;;;;;;;;;;x
+statesman_desc;A work of Plato written as a dialogue on the proper political virtues.;;;;;;;;;;;;;x
+apology;Apology of Socrates;;;;;;;;;;;;;x
+apology_desc;A work of Plato written as a dialogue depicting Socrates's legal defense at his trial for impiety and corruption.;;;;;;;;;;;;;x
+symposium;Symposium;;;;;;;;;;;;;x
+symposium_desc;A work of Plato written as a dialogue depicting a banquet and speeches in praise of the god Eros.;;;;;;;;;;;;;x
+critias;Critias;;;;;;;;;;;;;x
+critias_desc;A work of Plato written as a dialogue on the failed attempt of the avaricious Atlanteans to conquer the righteous Athenians.;;;;;;;;;;;;;x
+republic1;Republic - Book I;;;;;;;;;;;;;x
+republic1_desc;A work of Plato written as a dialogue on justice and the character of a just city-state.;;;;;;;;;;;;;x
+republic2;Republic - Book II;;;;;;;;;;;;;x
+republic2_desc;A work of Plato written as a dialogue on justice and the character of a just city-state.;;;;;;;;;;;;;x
+republic3;Republic - Book III;;;;;;;;;;;;;x
+republic3_desc;A work of Plato written as a dialogue on justice and the character of a just city-state.;;;;;;;;;;;;;x
+republic4;Republic - Book IV;;;;;;;;;;;;;x
+republic4_desc;A work of Plato written as a dialogue on justice and the character of a just city-state.;;;;;;;;;;;;;x
+republic5;Republic - Book V;;;;;;;;;;;;;x
+republic5_desc;A work of Plato written as a dialogue on justice and the character of a just city-state.;;;;;;;;;;;;;x
+republic6;Republic - Book VI;;;;;;;;;;;;;x
+republic6_desc;A work of Plato written as a dialogue on justice and the character of a just city-state.;;;;;;;;;;;;;x
+republic7;Republic - Book VII;;;;;;;;;;;;;x
+republic7_desc;A work of Plato written as a dialogue on justice and the character of a just city-state.;;;;;;;;;;;;;x
+republic8;Republic - Book VIII;;;;;;;;;;;;;x
+republic8_desc;A work of Plato written as a dialogue on justice and the character of a just city-state.;;;;;;;;;;;;;x
+republic9;Republic - Book IX;;;;;;;;;;;;;x
+republic9_desc;A work of Plato written as a dialogue on justice and the character of a just city-state.;;;;;;;;;;;;;x
+republic10;Republic - Book X;;;;;;;;;;;;;x
+republic10_desc;A work of Plato written as a dialogue on justice and the character of a just city-state.;;;;;;;;;;;;;x
+lysis;Lysis;;;;;;;;;;;;;x
+lysis_desc;A work of Plato written as a dialogue on the nature of love and of friendship.;;;;;;;;;;;;;x
+#
+#
+#
+#########BATTLE STANDARDS
+aegean_standard;Greek Battle Standard;;;;;;;;;;;;;x
+aegean_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+breton_standard;Breton Battle Standard;;;;;;;;;;;;;x
+breton_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+denmark_standard;Germanic Battle Standard;;;;;;;;;;;;;x
+denmark_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+georgian_standard;Caucasian Battle Standard;;;;;;;;;;;;;x
+georgian_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+ulster_standard;Irish Battle Standard;;;;;;;;;;;;;x
+ulster_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+roman_aquila;Roman Aquila;;;;;;;;;;;;;x
+roman_aquila_desc;A battle standard intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+roman_labarum;Roman Labarum;;;;;;;;;;;;;x
+roman_labarum_desc;A battle standard intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+welsh_standard;Welsh Battle Standard;;;;;;;;;;;;;x
+welsh_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+cornwall_standard;Breton Battle Standard;;;;;;;;;;;;;x
+cornwall_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+motley_standard;Battle Standard in Motley;;;;;;;;;;;;;x
+motley_standard_desc;A mockery of a battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+oriflamme_standard;Oriflamme - Battle Standard of the King of France;;;;;;;;;;;;;x
+oriflamme_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+mongol_standard;Mongol Battle Standard;;;;;;;;;;;;;x
+mongol_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+henry_ii_standard;Battle Standard of Henry II;;;;;;;;;;;;;x
+henry_ii_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+dragon_standard;Anglo-Saxon Battle Standard;;;;;;;;;;;;;x
+dragon_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+moorish_standard;Moorish Battle Standard;;;;;;;;;;;;;x
+moorish_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+mierce_standard;Anglo-Saxon Battle Standard;;;;;;;;;;;;;x
+mierce_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+connacht_standard;Irish Battle Standard;;;;;;;;;;;;;x
+connacht_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+desmond_standard;Irish Battle Standard;;;;;;;;;;;;;x
+desmond_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+gwynedd_standard;Welsh Battle Standard;;;;;;;;;;;;;x
+gwynedd_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+athens_crusader_standard;Greek Battle Standard;;;;;;;;;;;;;x
+athens_crusader_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+megenzer_standard;Germanic Battle Standard;;;;;;;;;;;;;x
+megenzer_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+scotland_standard;Scottish Battle Standard;;;;;;;;;;;;;x
+scotland_standard_desc;A battle flag intended to bolster organisation and morale on the battlefield.;;;;;;;;;;;;;x
+#
+#
+#
+########GIRDLE BOOKS
+armorial_girdle;Armorial;;;;;;;;;;;;;x
+armorial_girdle_desc; A roll containing the arms of lords and barons. This copy takes the form of a girdle book - worn as much for fashion as easy reference.;;;;;;;;;;;;;x
+consolation_of_philosphy_girdle;The Consolation of Philosophy;De Consolatione Philosophiae;De Consolatione Philosophiae;;De Consolatione Philosophiae;;;;;;;;;x
+consolation_of_philosphy_girdle_desc;This last and most influential work of Boethius was written in 523 as he awaited execution by the King of the Ostrogoths. This copy takes the form of a girdle book - worn as much for fashion as easy reference.;;;;;;;;;;;;;x
+ecclesiatical_history_girdle1;Ecclesiatical History of the English People - Book I;;;;;;;;;;;;;x
+ecclesiatical_history_girdle1_desc;A history of Christianity in England written by Bede. This copy takes the form of a girdle book - worn as much for fashion as easy reference.;;;;;;;;;;;;;x
+ecclesiatical_history_girdle2;Ecclesiatical History of the English People - Book II;;;;;;;;;;;;;x
+ecclesiatical_history_girdle2_desc;A history of Christianity in England written by Bede. This copy takes the form of a girdle book - worn as much for fashion as easy reference.;;;;;;;;;;;;;x
+ecclesiatical_history_girdle3;Ecclesiatical History of the English People - Book III;;;;;;;;;;;;;x
+ecclesiatical_history_girdle3_desc;A history of Christianity in England written by Bede. This copy takes the form of a girdle book - worn as much for fashion as easy reference.;;;;;;;;;;;;;x
+ecclesiatical_history_girdle4;Ecclesiatical History of the English People - Book IV;;;;;;;;;;;;;x
+ecclesiatical_history_girdle4_desc;A history of Christianity in England written by Bede. This copy takes the form of a girdle book - worn as much for fashion as easy reference.;;;;;;;;;;;;;x
+ecclesiatical_history_girdle5;Ecclesiatical History of the English People - Book V;;;;;;;;;;;;;x
+ecclesiatical_history_girdle5_desc;A history of Christianity in England written by Bede. This copy takes the form of a girdle book - worn as much for fashion as easy reference.;;;;;;;;;;;;;x

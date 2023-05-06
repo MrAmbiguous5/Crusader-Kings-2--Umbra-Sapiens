@@ -1,0 +1,1566 @@
+
+long_character_event = {							# invite suitor
+	id = AmzCul.120
+	desc = EVTDESCAmzCul.120
+	picture = GFX_evt_homage_hf
+	border = GFX_event_long_frame_intrigue
+
+	is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			female = no
+			min_age = 20
+			max_age = 36
+			religion = ROOT
+			culture = random
+			attributes = {
+				diplomacy = 3
+				martial = 3
+				stewardship = 3
+				intrigue = 3
+				learning = 3
+			}
+		}
+		new_character = {
+			prestige = 420
+			wealth = 7
+			piety = 69
+			save_event_target_as = invited_suitor
+			banish = yes
+			religion = liege
+			
+			random = {
+				chance = 40
+				add_character_modifier = {
+					name = master_duelist   
+					duration = -1
+				}
+			}
+			random = {
+				chance = 20
+				add_character_modifier = {
+					name = the_dour_duellist   
+					duration = -1
+				}
+			}
+			random = {
+				chance = 10
+				add_character_modifier = {
+					name = wolf_blood   
+					duration = -1
+				}
+			}
+			random = {
+				chance = 20
+				add_character_modifier = {
+					name = hunters_physique   
+					duration = -1
+				}
+			}
+			random = {
+				chance = 20
+				add_character_modifier = {
+					name = fought_bear     
+					duration = -1
+					stacking = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_character_modifier = {
+					name = fought_bear     
+					duration = -1
+					stacking = yes
+				}
+			}
+			random = {
+				chance = 50
+				add_character_modifier = {
+					name = duel_exp_1       
+					duration = -1
+					stacking = yes
+				}
+			}
+			random = {
+				chance = 50
+				add_character_modifier = {
+					name = duel_exp_1       
+					duration = -1
+					stacking = yes
+				}
+			}
+			random = {
+				chance = 50
+				add_character_modifier = {
+					name = duel_exp_1       
+					duration = -1
+					stacking = yes
+				}
+			}
+			random_list = {
+				20 = { add_artifact = sword_tier_2_new }
+				20 = { add_artifact = scimitar_tier_2_new }
+				50 = {  }	# nada
+			}
+			remove_education_effect = yes
+			remove_all_negative_congenital_traits_effect = yes
+			random_list = {
+				20 = { add_trait = brilliant_strategist }
+				20 = { add_trait = grey_eminence }
+				20 = { add_trait = midas_touched }
+				20 = { add_trait = elusive_shadow }
+				20 = { add_trait = mastermind_theologian }
+			}
+			random_list = {
+				40 = { add_trait = fair }
+				15 = { add_trait = genius }
+				20 = { add_trait = quick }
+				40 = { add_trait = strong }
+				20 = {  }	# nada
+			}
+			random_list = {
+				40 = { add_trait = duelist }
+				20 = { add_trait = hunter }
+				40 = {  }	# nada
+			}
+			random_list = {
+				20 = { add_trait = gregarious }
+				20 = { add_trait = honest }
+				20 = { add_trait = just }
+			}
+			random = {
+				chance = 30
+				add_trait = scarred	
+			}
+			random = {
+				chance = 10
+				add_trait = one_eyed	
+			}
+			random = {
+				chance = 10
+				add_trait = bastard	
+			}
+			random = {
+				chance = 15
+				add_trait = lefthanded	
+			}
+			random = {
+				chance = 5
+				add_trait = seducer	
+			}
+			random = {
+				chance = 5
+				add_trait = hedonist	
+			}
+			random = {
+				chance = 5
+				add_trait = socializer	
+			}
+			random = {
+				chance = 5
+				add_trait = poet	
+			}
+			random = {
+				chance = 5
+				add_trait = shrewd	
+			}
+			random = {
+				chance = 10
+				add_trait = pirate	
+			}
+			random = {
+				chance = 30
+				add_trait = robust	
+			}
+			random = {
+				chance = 40
+				add_trait = ambitious	
+			}
+			random = {
+				chance = 50
+				add_trait = brave	
+			}
+			random = {
+				chance = 30
+				add_trait = adventurer	
+			}
+			if = {
+				limit = {
+					trait = brilliant_strategist
+				}
+				random_list = {  
+					10 = {
+						add_trait = aggressive_leader
+					}
+					10 = {
+						add_trait = inspiring_leader
+					}
+					10 = {
+						add_trait = trickster
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_dharmic_religion_trigger = yes
+				}
+				add_trait = kshatriya
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = hellenic_pagan
+						religion = hellenic_pagan_reformed
+						has_religion_feature = religion_astrology
+					}
+				}
+				hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+			}
+			if = {
+				limit = {
+					has_religion_feature = religion_no_leader
+					religion_group = pagan_group
+				}
+				random_list = {  
+					5 = {
+						add_trait = pagan_branch_1
+					}
+					25 = {
+						add_trait = pagan_branch_2
+					}
+					25 = {
+						add_trait = pagan_branch_3
+					}
+					25 = {
+						add_trait = pagan_branch_4
+					}
+				}
+			}
+			if = {
+				limit = {
+					religion_group = christian
+				}
+				random = {
+					chance = 30
+					add_trait = pilgrim	
+				}
+			}
+			if = {
+				limit = {
+					religion_group = muslim
+				}
+				random = {
+					chance = 30
+					add_trait = sayyid	
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = norse_pagan
+						religion = norse_pagan_reformed
+					}
+				}
+				random = {
+					chance = 30
+					add_trait = berserker	
+				}
+			}
+		}	
+	}	
+
+	option ={
+		name = EVTOPTAAmzCul.120
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = accept_suitor_challenge_tt }
+		long_character_event = { id = AmzCul.121 }
+	}
+	
+	option ={
+		name = EVTOPTBAmzCul.120
+		ai_chance = { factor = 1 }
+		custom_tooltip = { text = deny_suitor_challenge_tt }
+		hidden_tooltip = {
+			event_target:invited_suitor = { 
+				any_artifact = { destroy_artifact = yes }
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+		prestige = -200
+		clr_character_flag = amazonian_suitor_flag
+	}
+}	
+
+long_character_event = {							# first round
+	id = AmzCul.121
+	desc = EVTDESCAmzCul.121
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_long_frame_war
+	portrait = invited_suitor
+
+	is_triggered_only = yes
+
+	option = { # fight
+		name = EVTOPTAAmzCul.121
+		ai_chance = { factor = 10 }
+		if = {											# BEGINNING OF GENIUS COMBAT CALCULATION (weaker version)
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:invited_suitor value = 25 } }
+			}
+			random_list = {
+				70 = {
+					add_character_modifier = {
+						name = duel_experience        
+						duration = -1
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+				}
+				30 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:invited_suitor value = 0 } } 
+			}
+			random_list = {
+				50 = { 
+					add_character_modifier = {
+						name = duel_experience        
+						duration = -1
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+				}
+				50 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:invited_suitor value < 0 } } 
+			}
+			random_list = {
+				40 = {
+					add_character_modifier = {
+						name = duel_experience        
+						duration = -1
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+				}
+				60 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}													# END OF GENIUS COMBAT CALCULATION
+		long_character_event = { id = AmzCul.122 }
+	}
+	option = { # flirt						
+		name = EVTOPTBAmzCul.121
+		ai_chance = { factor = 5 }
+		if = {											# BEGINNING OF GENIUS COMBAT CALCULATION (weaker version)
+			limit = {
+				opinion_diff = { first = ROOT second = event_target:invited_suitor value = 25 } 
+			}
+			random_list = {
+				70 = {
+					event_target:invited_suitor = {
+						add_character_modifier = {
+							name = distracted_modifier       
+							days = 30
+							stacking = yes
+						}
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				30 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				opinion_diff = { first = ROOT second = event_target:invited_suitor value = 0 } 
+			}
+			random_list = {
+				50 = {
+					event_target:invited_suitor = {
+						add_character_modifier = {
+							name = distracted_modifier       
+							days = 30
+							stacking = yes
+						}
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				50 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				opinion_diff = { first = ROOT second = event_target:invited_suitor value < 0 }  
+			}
+			random_list = {
+				40 = {
+					event_target:invited_suitor = {
+						add_character_modifier = {
+							name = distracted_modifier       
+							days = 30
+							stacking = yes
+						}
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				60 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}												# END OF GENIUS COMBAT CALCULATION
+		long_character_event = { id = AmzCul.122 }
+	}
+}
+
+long_character_event = {							# second round
+	id = AmzCul.122
+	desc = EVTDESCAmzCul.122
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_long_frame_war
+	portrait = invited_suitor
+
+	is_triggered_only = yes
+
+	option = { # fight
+		name = EVTOPTAAmzCul.122
+		ai_chance = { factor = 10 }
+		if = {											# BEGINNING OF GENIUS COMBAT CALCULATION (weaker version)
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:invited_suitor value = 25 } }
+			}
+			random_list = {
+				70 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:invited_suitor = {
+						add_character_modifier = { 
+							name = black_eye 
+							days = 30
+						}	
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				30 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:invited_suitor value = 0 } } 
+			}
+			random_list = {
+				50 = { 
+					# not hurt
+					sound_effect = duel_win
+					event_target:invited_suitor = {
+						add_character_modifier = { 
+							name = black_eye 
+							days = 30
+						}	
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				50 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:invited_suitor value < 0 } } 
+			}
+			random_list = {
+				40 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:invited_suitor = {
+						add_character_modifier = { 
+							name = black_eye 
+							days = 30
+						}	
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				60 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}												# END OF GENIUS COMBAT CALCULATION
+		long_character_event = { id = AmzCul.123 }
+	}
+	option = { # flirt						
+		name = EVTOPTBAmzCul.122
+		ai_chance = { factor = 5 }
+		if = {											# BEGINNING OF GENIUS COMBAT CALCULATION (weaker version)
+			limit = {
+				opinion_diff = { first = ROOT second = event_target:invited_suitor value = 25 } 
+			}
+			random_list = {
+				70 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:invited_suitor = {
+						add_character_modifier = { 
+							name = distracted_modifier 
+							days = 30
+							stacking = yes
+						}
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				30 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				opinion_diff = { first = ROOT second = event_target:invited_suitor value = 0 }  
+			}
+			random_list = {
+				50 = { 
+					# not hurt
+					sound_effect = duel_win
+					event_target:invited_suitor = {
+						add_character_modifier = { 
+							name = distracted_modifier 
+							days = 30
+							stacking = yes
+						}	
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				50 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				opinion_diff = { first = ROOT second = event_target:invited_suitor value < 0 }  
+			}
+			random_list = {
+				40 = {
+					# not hurt
+					sound_effect = duel_win
+					event_target:invited_suitor = {
+						add_character_modifier = { 
+							name = distracted_modifier 
+							days = 30
+							stacking = yes
+						}	
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				60 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}												# END OF GENIUS COMBAT CALCULATION
+		long_character_event = { id = AmzCul.123 }
+	}
+}
+
+long_character_event = {							# third final round
+	id = AmzCul.123
+	desc = EVTDESCAmzCul.123
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_long_frame_war
+	portrait = invited_suitor
+
+	is_triggered_only = yes
+
+	option = { # fight
+		name = EVTOPTAAmzCul.123
+		ai_chance = { factor = 10 }
+		if = {											# BEGINNING OF GENIUS COMBAT CALCULATION (weaker version)
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:invited_suitor value = 25 } }
+			}
+			random_list = {
+				70 = {
+					sound_effect = duel_win
+					add_character_modifier = {
+						name = duel_experience        
+						duration = -1
+						stacking = yes
+					}	
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+				}
+				30 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:invited_suitor value = 0 } } 
+			}
+			random_list = {
+				50 = { 
+					sound_effect = duel_win
+					add_character_modifier = {
+						name = duel_experience        
+						duration = -1
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+				}
+				50 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				ROOT = { combat_rating_diff = { who = event_target:invited_suitor value < 0 } } 
+			}
+			random_list = {
+				40 = {
+					sound_effect = duel_win
+					add_character_modifier = {
+						name = duel_experience        
+						duration = -1
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+				}
+				60 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}													# END OF GENIUS COMBAT CALCULATION
+		long_character_event = { id = AmzCul.124 }
+	}
+	option = { # flirt						
+		name = EVTOPTBAmzCul.123
+		ai_chance = { factor = 5 }
+		if = {											# BEGINNING OF GENIUS COMBAT CALCULATION (weaker version)
+			limit = {
+				opinion_diff = { first = ROOT second = event_target:invited_suitor value = 25 } 
+			}
+			random_list = {
+				70 = {
+					sound_effect = duel_win
+					event_target:invited_suitor = {
+						add_character_modifier = {
+							name = distracted_modifier       
+							days = 30
+							stacking = yes
+						}	
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				30 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				opinion_diff = { first = ROOT second = event_target:invited_suitor value = 0 }  
+			}
+			random_list = {
+				50 = {
+					sound_effect = duel_win
+					event_target:invited_suitor = {
+						add_character_modifier = {
+							name = distracted_modifier       
+							days = 30
+							stacking = yes
+						}	
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				50 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}
+		else_if = {
+			limit = {
+				opinion_diff = { first = ROOT second = event_target:invited_suitor value < 0 }  
+			}
+			random_list = {
+				40 = {
+					sound_effect = duel_win
+					event_target:invited_suitor = {
+						add_character_modifier = {
+							name = distracted_modifier       
+							days = 30
+							stacking = yes
+						}	
+						hidden_tooltip = {
+							add_trait = monk
+							remove_trait = monk 
+						}
+					}
+				}
+				60 = {
+					add_character_modifier = { 
+						name = embarrassed_duelist_modifier  
+						days = 30
+						stacking = yes
+					}
+					hidden_tooltip = {
+						add_trait = monk
+						remove_trait = monk 
+					}
+					sound_effect = duel_lose
+				}
+			}	
+		}												# END OF GENIUS COMBAT CALCULATION
+		long_character_event = { id = AmzCul.124 }
+	}
+}
+
+long_character_event = {							# calculate the winner
+	id = AmzCul.124
+	desc = EVTDESCAmzCul.124
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_long_frame_war
+	portrait = invited_suitor
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	option = { # challenge successful, as strong or stronger
+		name = EVTOPTAAmzCul.124
+		ai_chance = { factor = 10 }
+		trigger = {
+			ROOT = { combat_rating_diff = { who = event_target:invited_suitor value = 0 } } 
+		}
+		long_character_event = { id = AmzCul.125 }
+	}
+	option = { # challenge failed, weaker
+		name = EVTOPTBAmzCul.124
+		ai_chance = { factor = 10 }
+		trigger = {
+			ROOT = { combat_rating_diff = { who = event_target:invited_suitor value < 0 } } 
+		}
+		set_character_flag = lost_suitor_duel_flag
+		long_character_event = { id = AmzCul.126 }
+	}
+}
+
+long_character_event = {		# won
+	id = AmzCul.125
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_long_frame_war
+	portrait = invited_suitor
+	
+	desc = EVTDESCAmzCul.125a
+	desc = EVTDESCAmzCul.125b
+
+	is_triggered_only = yes
+
+	option = { # I am victorious
+		name = EVTOPTAAmzCul.125
+		ai_chance = { factor = 10 }
+		add_character_modifier = {
+			name = duel_experience        
+			duration = -1
+			stacking = yes
+		}
+		hidden_tooltip = {
+			add_trait = monk
+			remove_trait = monk 
+		}
+		long_character_event = { id = AmzCul.127 }
+	}
+}
+
+long_character_event = {		# lost
+	id = AmzCul.126
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_long_frame_war
+	portrait = invited_suitor
+	
+	desc = EVTDESCAmzCul.126a
+	desc = EVTDESCAmzCul.126b
+
+	is_triggered_only = yes
+
+	option = { # damn it
+		name = EVTOPTAAmzCul.126
+		ai_chance = { factor = 10 }
+		add_character_modifier = { 
+			name = embarrassed_duelist_modifier  
+			days = 30
+			stacking = yes
+		}
+		hidden_tooltip = {
+			add_trait = monk
+			remove_trait = monk 
+		}
+		long_character_event = { id = AmzCul.127 }
+	}
+}
+
+long_character_event = {		# sexy times?
+	id = AmzCul.127
+	picture = GFX_evt_dark_love
+	border = GFX_event_long_frame_intrigue
+	portrait = invited_suitor
+	
+	desc = {
+		text = EVTDESCAmzCul.127a	# victory
+		trigger = { NOT = { has_character_flag = lost_suitor_duel_flag } }
+	}
+	
+	desc = {
+		text = EVTDESCAmzCul.127b	# defeat
+		trigger = { has_character_flag = lost_suitor_duel_flag }		
+	}
+	
+	is_triggered_only = yes
+
+	option = { # get undressed
+		name = EVTOPTAAmzCul.127
+		custom_tooltip = { text = bed_suitor_tt }
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 5
+				trait = homosexual
+			}
+		}
+		if = {
+			limit = { fertility = 1.0 }
+			random = {
+				chance = 50
+				impregnate = event_target:invited_suitor
+			}
+		}
+		else_if = {
+			limit = { fertility = 0.8 }
+			random = {
+				chance = 40
+				impregnate = event_target:invited_suitor
+			}
+		}
+		else_if = {
+			limit = { fertility = 0.6 }
+			random = {
+				chance = 30
+				impregnate = event_target:invited_suitor
+			}
+		}
+		else_if = {
+			limit = { fertility = 0.4 }
+			random = {
+				chance = 20
+				impregnate = event_target:invited_suitor
+			}
+		}
+		else_if = {
+			limit = { fertility < 0.4 }
+			random = {
+				chance = 10
+				impregnate = event_target:invited_suitor
+			}
+		}
+		if = {
+			limit = { NOT = { has_character_flag = lost_suitor_duel_flag } }
+			prestige = 50
+			add_character_modifier = {
+				name = amazonian_siren_modifier       
+				years = 5
+			}
+		}
+		clr_character_flag = lost_suitor_duel_flag
+	}
+	option = { # You've impressed me vagrant
+		name = EVTOPTBAmzCul.127
+		custom_tooltip = { text = marry_suitor_tt }
+		ai_chance = { 
+			factor = 3 
+			modifier = {
+				factor = 5
+				has_ambition = obj_get_married
+			}
+		}
+		trigger = {
+			can_marry = yes
+		}
+		add_lover = event_target:invited_suitor
+		add_spouse_matrilineal = event_target:invited_suitor
+		if = {
+			limit = { NOT = { has_character_flag = lost_suitor_duel_flag } }
+			prestige = 100
+		}
+		if = {
+			limit = { has_character_flag = lost_suitor_duel_flag }
+			prestige = 200
+		}
+		clr_character_flag = lost_suitor_duel_flag
+	}
+	option = { # take as consort, 
+		name = EVTOPTCAmzCul.127
+		custom_tooltip = { text = consort_suitor_tt }
+		ai_chance = { factor = 3 }
+		trigger = {
+			has_concubinage = yes
+			num_of_consorts <= 2 
+			NOT = { has_character_flag = lost_suitor_duel_flag }
+		}
+		add_consort = event_target:invited_suitor
+		prestige = 100
+		clr_character_flag = lost_suitor_duel_flag
+	}
+	option = { # you don't deserve it
+		name = EVTOPTDAmzCul.127
+		custom_tooltip = { text = leave_won_suitor_tt }
+		ai_chance = { factor = 1 }
+		trigger = {
+			NOT = { has_character_flag = lost_suitor_duel_flag } 
+		}
+		hidden_tooltip = {
+			event_target:invited_suitor = { 
+				any_artifact = { destroy_artifact = yes }
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+		clr_character_flag = lost_suitor_duel_flag
+	}
+	option = { # changed mind
+		name = EVTOPTEAmzCul.127
+		custom_tooltip = { text = leave_lost_suitor_tt }
+		ai_chance = { factor = 1 }
+		trigger = {
+			has_character_flag = lost_suitor_duel_flag 
+		}
+		prestige = -300
+		hidden_tooltip = {
+			event_target:invited_suitor = { 
+				any_artifact = { destroy_artifact = yes }
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+		clr_character_flag = lost_suitor_duel_flag
+	}
+}
+
+#################
+
+# as a random event
+
+long_character_event = {							# suitor appears from nowhere
+	id = AmzCul.130
+	desc = EVTDESCAmzCul.130
+	picture = GFX_evt_homage_hf
+	border = GFX_event_long_frame_intrigue
+
+	mean_time_to_happen = { 
+		years = 150 
+		modifier = {
+			factor = 0.9
+			OR = {
+				trait = duelist
+				combat_rating >= 50
+			}
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				trait = hedonist
+				trait = seductress
+				trait = lustful
+				has_ambition = obj_get_married
+			}
+		}
+		modifier = {
+			factor = 3
+			OR = {
+				trait = shy
+				trait = dull
+				trait = celibate
+				trait = chaste
+				trait = slothful
+				trait = content
+				is_ascetic_trigger = yes
+			}
+		}
+	}
+	
+	trigger = {
+		OR = {
+			can_marry = yes
+			AND = {
+				can_marry = no 
+				is_adult = yes
+				trait = seductress
+			}
+		}
+		OR = {
+			age <= 36
+			trait = is_amazonian_immortal
+			trait = immortal					
+		}
+		is_inaccessible_or_incapable_trigger = no
+		is_ruler = yes
+		higher_tier_than = BARON
+		useless_character_trigger = no
+		NOR = { 
+			trait = pregnant 
+			trait = blind
+		}
+		NOR = {
+			culture = themiskyran_amz
+			culture = valkyrie_amz 
+			culture = scythian_amz
+			culture = parthian_amz
+			culture = kushite_amz
+			culture = carthaginian_amz
+			culture = etruscan_amz
+			culture = pritani_amz
+			culture = illyrian_amz
+		}
+		OR = {
+			trait = is_amazonian
+			trait = is_amazonian_immortal
+		}
+		NOT = { has_character_flag = amazonian_suitor_flag }
+	}
+
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			female = no
+			min_age = 20
+			max_age = 36
+			religion = ROOT
+			culture = random
+			attributes = {
+				diplomacy = 3
+				martial = 3
+				stewardship = 3
+				intrigue = 3
+				learning = 3
+			}
+		}
+		new_character = {
+			prestige = 420
+			wealth = 7
+			piety = 69
+			save_event_target_as = invited_suitor
+			banish = yes
+			religion = liege
+			
+			random = {
+				chance = 40
+				add_character_modifier = {
+					name = master_duelist   
+					duration = -1
+				}
+			}
+			random = {
+				chance = 20
+				add_character_modifier = {
+					name = the_dour_duellist   
+					duration = -1
+				}
+			}
+			random = {
+				chance = 10
+				add_character_modifier = {
+					name = wolf_blood   
+					duration = -1
+				}
+			}
+			random = {
+				chance = 20
+				add_character_modifier = {
+					name = hunters_physique   
+					duration = -1
+				}
+			}
+			random = {
+				chance = 20
+				add_character_modifier = {
+					name = fought_bear     
+					duration = -1
+					stacking = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_character_modifier = {
+					name = fought_bear     
+					duration = -1
+					stacking = yes
+				}
+			}
+			random = {
+				chance = 50
+				add_character_modifier = {
+					name = duel_exp_1       
+					duration = -1
+					stacking = yes
+				}
+			}
+			random = {
+				chance = 50
+				add_character_modifier = {
+					name = duel_exp_1       
+					duration = -1
+					stacking = yes
+				}
+			}
+			random = {
+				chance = 50
+				add_character_modifier = {
+					name = duel_exp_1       
+					duration = -1
+					stacking = yes
+				}
+			}
+			random_list = {
+				20 = { add_artifact = sword_tier_2_new }
+				20 = { add_artifact = scimitar_tier_2_new }
+				50 = {  }	# nada
+			}
+			remove_education_effect = yes
+			remove_all_negative_congenital_traits_effect = yes
+			random_list = {
+				20 = { add_trait = brilliant_strategist }
+				20 = { add_trait = grey_eminence }
+				20 = { add_trait = midas_touched }
+				20 = { add_trait = elusive_shadow }
+				20 = { add_trait = mastermind_theologian }
+			}
+			random_list = {
+				40 = { add_trait = fair }
+				15 = { add_trait = genius }
+				20 = { add_trait = quick }
+				40 = { add_trait = strong }
+				20 = {  }	# nada
+			}
+			random_list = {
+				40 = { add_trait = duelist }
+				20 = { add_trait = hunter }
+				40 = {  }	# nada
+			}
+			random_list = {
+				20 = { add_trait = gregarious }
+				20 = { add_trait = honest }
+				20 = { add_trait = just }
+			}
+			random = {
+				chance = 30
+				add_trait = scarred	
+			}
+			random = {
+				chance = 10
+				add_trait = one_eyed	
+			}
+			random = {
+				chance = 10
+				add_trait = bastard	
+			}
+			random = {
+				chance = 15
+				add_trait = lefthanded	
+			}
+			random = {
+				chance = 5
+				add_trait = seducer	
+			}
+			random = {
+				chance = 5
+				add_trait = hedonist	
+			}
+			random = {
+				chance = 5
+				add_trait = socializer	
+			}
+			random = {
+				chance = 5
+				add_trait = poet	
+			}
+			random = {
+				chance = 5
+				add_trait = shrewd	
+			}
+			random = {
+				chance = 10
+				add_trait = pirate	
+			}
+			random = {
+				chance = 30
+				add_trait = robust	
+			}
+			random = {
+				chance = 40
+				add_trait = ambitious	
+			}
+			random = {
+				chance = 50
+				add_trait = brave	
+			}
+			random = {
+				chance = 30
+				add_trait = adventurer	
+			}
+			if = {
+				limit = {
+					trait = brilliant_strategist
+				}
+				random_list = {  
+					10 = {
+						add_trait = aggressive_leader
+					}
+					10 = {
+						add_trait = inspiring_leader
+					}
+					10 = {
+						add_trait = trickster
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_dharmic_religion_trigger = yes
+				}
+				add_trait = kshatriya
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = hellenic_pagan
+						religion = hellenic_pagan_reformed
+						has_religion_feature = religion_astrology
+					}
+				}
+				hidden_tooltip = { add_western_zodiac_trait_effect = yes }
+			}
+			if = {
+				limit = {
+					has_religion_feature = religion_no_leader
+					religion_group = pagan_group
+				}
+				random_list = {  
+					5 = {
+						add_trait = pagan_branch_1
+					}
+					25 = {
+						add_trait = pagan_branch_2
+					}
+					25 = {
+						add_trait = pagan_branch_3
+					}
+					25 = {
+						add_trait = pagan_branch_4
+					}
+				}
+			}
+			if = {
+				limit = {
+					religion_group = christian
+				}
+				random = {
+					chance = 30
+					add_trait = pilgrim	
+				}
+			}
+			if = {
+				limit = {
+					religion_group = muslim
+				}
+				random = {
+					chance = 30
+					add_trait = sayyid	
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = norse_pagan
+						religion = norse_pagan_reformed
+					}
+				}
+				random = {
+					chance = 30
+					add_trait = berserker	
+				}
+			}
+		}	
+	}	
+
+	option ={
+		name = EVTOPTAAmzCul.130
+		ai_chance = { factor = 10 }
+		custom_tooltip = { text = accept_suitor_challenge_tt }
+		long_character_event = { id = AmzCul.121 }
+		set_character_flag = amazonian_suitor_flag
+	}
+	
+	option ={
+		name = EVTOPTBAmzCul.130
+		ai_chance = { factor = 1 }
+		custom_tooltip = { text = deny_suitor_challenge_tt }
+		hidden_tooltip = {
+			event_target:invited_suitor = { 
+				any_artifact = { destroy_artifact = yes }
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+		set_character_flag = amazonian_suitor_flag
+	}
+}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

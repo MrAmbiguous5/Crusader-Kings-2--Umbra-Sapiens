@@ -1,0 +1,223 @@
+
+#
+# base combat = 5
+#	mm = 10
+#	fm = 10	
+#	mf = 5
+#	ff = 5
+#	noble = 10
+#	peasant = 5
+#
+# base prestige = 0
+#	mm = 0.10
+#
+# base piety = 0
+#	faith = 0.05
+#
+# base fertility = 0
+#	mf = 0.10
+#
+# base plot power = 0
+#	mf = 0.05
+#	ff = 0.10
+#
+# base plot defence = 0.15
+#	ff = 0.05
+#	noble = -0.10
+#	peasant = 0.05
+#	infidel = 0.10
+#
+# base sex appeal = 0
+#	fm = -5
+#	ff = 5
+#
+# base vassal opinion = 0
+#	noble = 5
+#	peasant = -5
+#
+# base revolt risk = 0
+#	peasant = -0.01
+#
+# base same religion opinion = 0
+#	faith = 5
+#	infidel = -5
+#
+#
+
+
+honour_guard_1_modifier = {		# mm noble faith
+	monthly_character_prestige = 0.10
+	vassal_opinion = 5
+	defensive_plot_power_modifier = 0.05
+	same_religion_opinion = 5
+	monthly_character_piety = 0.05
+	combat_rating = 25
+	icon = 123
+}
+
+honour_guard_2_modifier = {		# mf noble faith
+	fertility = 0.10
+	plot_power_modifier = 0.05
+	vassal_opinion = 5
+	defensive_plot_power_modifier = 0.05
+	same_religion_opinion = 5
+	monthly_character_piety = 0.05
+	combat_rating = 20
+	icon = 123
+}
+
+honour_guard_3_modifier = {		# fm noble faith
+	sex_appeal_opinion = -5
+	vassal_opinion = 5
+	defensive_plot_power_modifier = 0.05
+	same_religion_opinion = 5
+	monthly_character_piety = 0.05
+	combat_rating = 30
+	icon = 123
+}
+
+honour_guard_4_modifier = {		# ff noble faith
+	sex_appeal_opinion = 5
+	plot_power_modifier = 0.10
+	vassal_opinion = 5
+	defensive_plot_power_modifier = 0.10
+	same_religion_opinion = 5
+	monthly_character_piety = 0.05
+	combat_rating = 20
+	icon = 123
+}
+
+honour_guard_5_modifier = {		# mm peasant faith
+	monthly_character_prestige = 0.10
+	vassal_opinion = -5
+	defensive_plot_power_modifier = 0.20
+	global_revolt_risk = -0.01
+	same_religion_opinion = 5
+	monthly_character_piety = 0.05
+	combat_rating = 20
+	icon = 123
+}
+
+honour_guard_6_modifier = {		# mf peasant faith
+	plot_power_modifier = 0.05
+	fertility = 0.10
+	vassal_opinion = -5
+	defensive_plot_power_modifier = 0.20
+	global_revolt_risk = -0.01
+	same_religion_opinion = 5
+	monthly_character_piety = 0.05
+	combat_rating = 15
+	icon = 123
+}
+
+honour_guard_7_modifier = {		# fm peasant faith
+	
+	sex_appeal_opinion = -5
+	vassal_opinion = -5
+	defensive_plot_power_modifier = 0.20
+	global_revolt_risk = -0.01
+	same_religion_opinion = 5
+	monthly_character_piety = 0.05
+	combat_rating = 25
+	icon = 123
+}
+
+honour_guard_8_modifier = {		# ff peasant faith
+	sex_appeal_opinion = 5
+	plot_power_modifier = 0.10
+	vassal_opinion = -5
+	defensive_plot_power_modifier = 0.25
+	global_revolt_risk = -0.01
+	same_religion_opinion = 5
+	monthly_character_piety = 0.05
+	combat_rating = 15
+	icon = 123
+}
+
+honour_guard_9_modifier = {		# mm noble infidel
+	monthly_character_prestige = 0.10
+	vassal_opinion = 5
+	defensive_plot_power_modifier = 0.15
+	same_religion_opinion = -5
+	combat_rating = 25
+	icon = 123
+}
+
+honour_guard_10_modifier = {	# mf noble infidel
+	plot_power_modifier = 0.05
+	fertility = 0.10
+	vassal_opinion = 5
+	defensive_plot_power_modifier = 0.15
+	same_religion_opinion = -5
+	combat_rating = 20
+	icon = 123
+}
+
+honour_guard_11_modifier = {	# fm noble infidel
+	
+	sex_appeal_opinion = -5
+	vassal_opinion = 5
+	defensive_plot_power_modifier = 0.15
+	same_religion_opinion = -5
+	combat_rating = 30
+	icon = 123
+}
+
+honour_guard_12_modifier = {	# ff noble infidel
+	sex_appeal_opinion = 5
+	plot_power_modifier = 0.10
+	vassal_opinion = 5
+	defensive_plot_power_modifier = 0.20
+	same_religion_opinion = -5
+	combat_rating = 20
+	icon = 123
+}
+
+honour_guard_13_modifier = {	# mm peasant infidel
+	monthly_character_prestige = 0.10
+	vassal_opinion = -5
+	defensive_plot_power_modifier = 0.30
+	global_revolt_risk = -0.01
+	same_religion_opinion = -5
+	combat_rating = 20
+	icon = 123
+}
+
+honour_guard_14_modifier = {	# mf peasant infidel
+	plot_power_modifier = 0.05
+	fertility = 0.10
+	vassal_opinion = -5
+	defensive_plot_power_modifier = 0.30
+	global_revolt_risk = -0.01
+	same_religion_opinion = -5
+	combat_rating = 15
+	icon = 123
+}
+
+honour_guard_15_modifier = {	# fm peasant infidel
+	sex_appeal_opinion = -5
+	vassal_opinion = -5
+	defensive_plot_power_modifier = 0.30
+	global_revolt_risk = -0.01
+	same_religion_opinion = -5
+	combat_rating = 25
+	icon = 123
+}
+
+honour_guard_16_modifier = {	# ff peasant infidel
+	sex_appeal_opinion = 5
+	plot_power_modifier = 0.10
+	vassal_opinion = -5
+	defensive_plot_power_modifier = 0.35
+	global_revolt_risk = -0.01
+	same_religion_opinion = -5
+	combat_rating = 15
+	icon = 123
+}
+
+
+
+
+
+
+

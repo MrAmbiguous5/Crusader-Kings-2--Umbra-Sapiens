@@ -1,0 +1,420 @@
+
+character_event = { # dragon mountain ping
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.201
+	desc = EVTDESC_AmzCulSoc_201
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_intrigue
+
+	hide_window = yes			# ping event
+
+	mean_time_to_happen = {
+		years = 100
+	}
+
+	is_in_society = yes
+	trigger = {
+		society_member_of = warrior_lodge_amazonian
+		is_adult = yes
+		prisoner = no
+		is_pregnant = no
+		war = no
+		ai = no
+		NOR = { 
+			has_character_flag = fought_dragon_flag 
+			trait = craven
+			trait = brave
+		}
+		NOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_dragon } }
+		NOT = { is_inaccessible_trigger = yes }
+	}	
+	
+	option = {	
+		name = EVTOPTA_AmzCulSoc_201
+		random_dynasty_member = {
+			limit = { 
+				same_society_as = ROOT 
+				is_adult = yes
+				prisoner = no
+				is_pregnant = no
+				ai = yes
+				NOR = { 
+					trait = craven
+					trait = brave
+				}
+				NOT = { is_inaccessible_trigger = yes }
+			}
+			save_event_target_as = mountain_challenger_target
+			character_event = { id = AmzCulSoc.202 }
+		}	
+	}
+}
+
+character_event = { # dragon mountain ping return
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.202
+	desc = EVTDESC_AmzCulSoc_202
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_intrigue
+
+	hide_window = yes			# ping return event
+
+	is_triggered_only = yes	
+	
+	immediate = {
+		FROM = { 
+			narrative_event = { id = AmzCulSoc.203 } 
+		}
+	}
+	
+	option = {	
+		name = EVTOPTA_AmzCulSoc_202
+	}
+}
+
+narrative_event = { # dragon mountain invitation
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.203
+	desc = EVTDESC_AmzCulSoc_203
+	picture = GFX_evt_feast
+	border = GFX_event_narrative_frame_intrigue
+	portrait = event_target:mountain_challenger_target
+
+	is_triggered_only = yes	
+	
+	option = {	# you're on
+		name = EVTOPTA_AmzCulSoc_203
+		set_character_flag = fought_dragon_flag 
+		narrative_event = { id = AmzCulSoc.204 days = 14 } 
+		add_trait = travelling
+		event_target:mountain_challenger_target = {
+			add_trait = travelling
+		}
+	}
+	
+	option = {	# another time
+		name = EVTOPTB_AmzCulSoc_203
+		set_character_flag = fought_dragon_flag 
+		character_event = { id = AmzCulSoc.205 } 
+	}
+}
+
+character_event = { # laughing stock
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.205
+	desc = EVTDESC_AmzCulSoc_205
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_intrigue
+	portrait = event_target:mountain_challenger_target
+
+	is_triggered_only = yes	
+	
+	option = {	# how embarrassing
+		name = EVTOPTA_AmzCulSoc_205
+		change_society_currency = -50
+		add_trait = dull
+	}
+}
+
+narrative_event = { # begin climb
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.204
+	desc = EVTDESC_AmzCulSoc_204
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_narrative_frame_intrigue
+	portrait = event_target:mountain_challenger_target
+
+	is_triggered_only = yes	
+	
+	option = {	# 3 2 1 go
+		name = EVTOPTA_AmzCulSoc_204
+		narrative_event = { id = AmzCulSoc.206 days = 1 } 
+	}
+}
+
+narrative_event = { # reach plateau
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.206
+	desc = EVTDESC_AmzCulSoc_206
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_narrative_frame_intrigue
+	portrait = event_target:mountain_challenger_target
+
+	is_triggered_only = yes	
+	
+	option = {	# phew
+		name = EVTOPTA_AmzCulSoc_206
+		random_list = {
+			50 = { 
+				wealth = 25
+				hidden_tooltip = { narrative_event = { id = AmzCulSoc.207 } } # win
+			}
+			50 = { 
+				wealth = -25
+				hidden_tooltip = { narrative_event = { id = AmzCulSoc.208 } } # lose
+			}
+		}
+	}
+}
+
+narrative_event = { # win
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.207
+	desc = EVTDESC_AmzCulSoc_207
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_narrative_frame_intrigue
+	portrait = event_target:mountain_challenger_target
+
+	is_triggered_only = yes	
+	
+	option = {	# zzz
+		name = EVTOPTA_AmzCulSoc_207
+		narrative_event = { id = AmzCulSoc.209 }
+	}
+}
+
+narrative_event = { # lose
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.208
+	desc = EVTDESC_AmzCulSoc_208
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_narrative_frame_intrigue
+	portrait = event_target:mountain_challenger_target
+
+	is_triggered_only = yes	
+	
+	option = {	# zzz
+		name = EVTOPTA_AmzCulSoc_208
+		narrative_event = { id = AmzCulSoc.209 }
+	}
+}
+
+narrative_event = { # wake up
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.209
+	desc = EVTDESC_AmzCulSoc_209
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_narrative_frame_intrigue
+	portrait = event_target:mountain_challenger_target
+
+	is_triggered_only = yes	
+	
+	option = {	# uhhhh
+		name = EVTOPTA_AmzCulSoc_209
+		narrative_event = { id = AmzCulSoc.210 }
+	}
+}
+
+narrative_event = { # dragon attacks
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.210
+	desc = EVTDESC_AmzCulSoc_210
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_narrative_frame_intrigue
+	portrait = event_target:mountain_challenger_target
+
+	is_triggered_only = yes	
+	
+	option = {	# wait for me
+		name = EVTOPTA_AmzCulSoc_210
+		narrative_event = { id = AmzCulSoc.211 days = 14 }
+	}
+	
+	option = {	# ralph
+		name = EVTOPTB_AmzCulSoc_210
+		add_trait = brave
+		narrative_event = { id = AmzCulSoc.212 }
+		hidden_tooltip = {
+			event_target:mountain_challenger_target = {
+				remove_trait = travelling
+			}
+		}
+	}
+}
+
+narrative_event = { # return defeat
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.211
+	desc = EVTDESC_AmzCulSoc_211
+	picture = GFX_evt_bad_news 
+	border = GFX_event_narrative_frame_intrigue
+	portrait = event_target:mountain_challenger_target
+
+	is_triggered_only = yes	
+	
+	option = {	# know what I saw
+		name = EVTOPTA_AmzCulSoc_211
+		change_society_currency = -500
+		remove_trait = travelling
+		random_list = {
+			50 = { 
+				add_trait = craven
+			}
+			50 = { 
+				add_trait = deceitful
+			}
+		}
+		event_target:mountain_challenger_target = {
+			remove_trait = travelling
+			random_list = {
+				50 = { 
+					add_trait = craven
+				}
+				50 = { 
+					add_trait = deceitful
+				}
+			}
+		}
+		
+	}
+}
+
+narrative_event = { # find weapon
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.212
+	desc = EVTDESC_AmzCulSoc_212
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_narrative_frame_intrigue
+
+	is_triggered_only = yes	
+	
+	option = {	# better than nothing
+		name = EVTOPTA_AmzCulSoc_212
+		add_artifact = famous_ancient_weapon
+		narrative_event = { id = AmzCulSoc.213 }
+	}
+}
+
+narrative_event = { # kill dragon
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.213
+	desc = EVTDESC_AmzCulSoc_213
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_narrative_frame_intrigue
+
+	is_triggered_only = yes	
+	
+	option = {	# nice
+		name = EVTOPTA_AmzCulSoc_213
+		destroy_artifact = famous_ancient_weapon
+		add_artifact = sword_tier_4_heartseeker
+		add_blood_splatter_effect = yes
+		narrative_event = { id = AmzCulSoc.214 }
+	}
+}
+
+narrative_event = { # find treasure
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.214
+	desc = EVTDESC_AmzCulSoc_214
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes	
+	
+	option = {	# take money
+		name = EVTOPTA_AmzCulSoc_214
+		narrative_event = { id = AmzCulSoc.215 days = 14 }
+		scaled_wealth = {
+			value = 3
+			min = 420
+		}
+	}
+	option = {	# take egg
+		name = EVTOPTB_AmzCulSoc_214
+		character_event = { id = AmzCulSoc.215 days = 14 }
+		narrative_event = { id = AmzCulSoc.216 days = 99 }
+	}
+}
+
+narrative_event = { # return victorious
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.215
+	desc = EVTDESC_AmzCulSoc_215
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_narrative_frame_intrigue
+	portrait = event_target:mountain_challenger_target
+
+	is_triggered_only = yes	
+	
+	option = {	# like the name
+		name = EVTOPTA_AmzCulSoc_215
+		give_nickname = nick_the_brave
+		change_society_currency = 1000
+		remove_trait = travelling
+	}
+}
+
+character_event = { # dragon egg lives
+	title = EVTTITLAmzCulSoc_201
+	id = AmzCulSoc.216
+	desc = EVTDESC_AmzCulSoc_216
+	picture = GFX_evt_moonlit_mountains_hf 
+	border = GFX_event_normal_frame_intrigue
+	portrait = event_target:mountain_dragon_target
+
+	is_triggered_only = yes	
+	
+	immediate = {
+		hidden_tooltip = {
+			create_random_steward = {
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				age = 1724
+				religion = pagan
+				culture = dragon_culture
+				trait = wroth
+				trait = greedy
+				trait = giant
+				trait = strong
+				trait = scarred_high
+				trait = master_of_flame
+				trait = lefthanded
+			}
+			new_character = {
+				add_blood_splatter_effect = yes
+				save_event_target_as = mountain_dragon_target
+			}
+		}
+	
+		create_character = {
+			random_traits = no
+			dynasty = ROOT
+			female = random
+			age = 1
+			religion = ROOT
+			culture = dragon_culture
+			trait = lefthanded
+		}
+		new_character = {
+			add_friend = ROOT
+			save_event_target_as = mountain_dragon_egg_target
+			set_mother = event_target:mountain_dragon_target
+			random = {
+				chance = 50
+				add_trait = strong
+			}
+		}
+		
+		hidden_tooltip = {
+			event_target:mountain_dragon_target = {
+				banish = yes
+				add_blood_splatter_effect = yes
+				add_rival = ROOT
+				create_bloodline = {
+					type = ancient_mountain_dragon			#Beast of Blackrock
+				}
+				death = {			#Would have killed it earlier but can't make it the egg mother if it's already dead
+				   death_reason = death_duel
+				   killer = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {	# aliiive
+		name = EVTOPTA_AmzCulSoc_216
+		custom_tooltip = { text = keep_eye_on_this_tt }
+	}
+}

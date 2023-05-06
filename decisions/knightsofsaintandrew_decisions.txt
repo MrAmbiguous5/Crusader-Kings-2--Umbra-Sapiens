@@ -1,0 +1,76 @@
+decisions = {
+
+	form_knights_of_andrew = {
+		is_high_prio = yes
+		only_playable = yes
+		ai_check_interval = 60
+
+		potential = {
+			NOT = {
+			is_title_active = d_knights_of_andrew
+			}
+			has_global_flag = christian_crusades_unlocked
+			religion = catholic
+			OR = {
+			culture = scottish
+			has_landed_title = k_scotland
+			}
+
+			independent = yes
+
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+		}
+
+		allow = {
+		OR = {
+			has_landed_title = k_scotland
+			culture = scottish
+			}
+			any_demesne_title = {
+			higher_tier_than = DUKE
+			}
+			piety = 400
+			wealth = 300
+			is_heretic = no
+
+		}
+
+		effect = {
+			wealth = -300
+			piety = -400
+
+			custom_tooltip = {
+
+				create_random_soldier = {
+					random_traits = yes
+					dynasty = random
+					culture = scottish
+					religion = catholic
+					age = 25
+				}
+				new_character = {
+					set_government_type = order_government
+					add_trait = zealous
+					add_trait = organizer
+					add_trait = tough_soldier
+					
+					grant_title_no_opinion = d_knights_of_andrew
+
+					opinion = {
+						name = opinion_formed_order
+						who = ROOT
+						years = 25
+					}
+					add_friend = ROOT
+					set_defacto_liege = ROOT
+				}
+			}
+
+			sound_effect = generic_click_01
+		}
+	}
+
+}
+

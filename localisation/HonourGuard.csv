@@ -1,0 +1,84 @@
+# the real honour guard was the adventures we had and the friends we made along the way
+
+RETTYPE_HONOURGUARD;[Root.GetTitle]'s Honour Guard;;;;;;;;;;;;x
+
+recruit_honour_guard;Form an Honour Guard;;;;;;;;;;;;x
+recruit_honour_guard_desc;Assemble a special Honour Guard tasked with defending your person against mortal dangers, from court plots to battlefield challengers.;;;;;;;;;;;;x
+
+disband_honour_guard;Disband the Honour Guard;;;;;;;;;;;;x
+disband_honour_guard_desc;Release your personal guards from service.;;;;;;;;;;;;x
+
+EVTDESC_HonourGuard_101;An honour guard is charged primarily with the defence of their [Root.GetTitle], but their place at my side has significance beyond the sword at theirs. The configuration of my honour guard will be a reflection of my reign. I must therefore be certain in my decision, as choosing unwisely may not achieve the protection I need.;;;;;;;;;;;;x
+EVTOPTA_HonourGuard_101;Let's begin.;;;;;;;;;;;;x
+EVTOPTB_HonourGuard_101;Not right now.;;;;;;;;;;;;x
+
+EVTDESC_HonourGuard_102;First I must choose whether my guard be comprised of men or women. Men are typically better suited to such martial roles, though women's intuition could save my life against malicious plots. How will I be viewed if I surround myself with one or the other?;;;;;;;;;;;;x
+EVTOPTA_HonourGuard_102;Sworn men-at-arms would presumably die for their [Root.GetTitle].;;;;;;;;;;;;x
+EVTOPTB_HonourGuard_102;Women may be more useful in other ways.;;;;;;;;;;;;x
+EVTOPTC_HonourGuard_102;Sworn men-at-arms would die quite willingly for their [Root.GetTitle].;;;;;;;;;;;;x
+EVTOPTD_HonourGuard_102;I trust other women more than I trust men.;;;;;;;;;;;;x
+
+EVTDESC_HonourGuard_103;My vassals would obviously prefer that I select champions from among the ranks of gentlefolk, though my guards' loyalty to me would always be in question. On the other hand, warriors of common birth may be less inclined to stab me in the back. What the peasants lack in formal training they most certainly make up for in street smarts, but the nobility would not be pleased.;;;;;;;;;;;;x
+EVTOPTA_HonourGuard_103;Skilled knights are what I seek.;;;;;;;;;;;;x
+EVTOPTB_HonourGuard_103;My protectors ought to be indifferent to court intrigue.;;;;;;;;;;;;x
+
+EVTDESC_HonourGuard_104;Finally, I must consider whether to draw my guards from within my realm or look beyond our borders. A devout [Root.GetTitle] would certainly prefer the company of like-minded faithful, but like-mindedness isn't always beneficial. Equally, infidels with few allies at court would support whoever tolerates them - a contract that protects them as much as it does me.;;;;;;;;;;;;x
+EVTOPTA_HonourGuard_104;I'll not suffer the presence of infidels.;;;;;;;;;;;;x
+EVTOPTB_HonourGuard_104;Infidels and I could find mutual protection in one another.;;;;;;;;;;;;x
+
+EVTDESC_HonourGuard_105;Am I satisfied with these choices or might I consider an alternative arrangement?;;;;;;;;;;;;x
+EVTOPTA_HonourGuard_105;I shall notify the relevant parties immediately.;;;;;;;;;;;;x
+EVTOPTB_HonourGuard_105;A different design may be preferable.;;;;;;;;;;;;x
+EVTOPTC_HonourGuard_105;Perhaps I should focus on more important things.;;;;;;;;;;;;x
+
+EVTDESC_HonourGuard_110;A distinguished member of the outgoing honour guard, [honour_guard_target.GetDynName], humbly requests to remain in my service.;;;;;;;;;;;;x
+EVTOPTA_HonourGuard_110;[honour_guard_target.GetSheHeCap]'s welcome to join us.;;;;;;;;;;;;x
+honour_guard_welcomed_tt;[honour_guard_target.GetDynName] is grateful for your hospitality.;;;;;;;;;;;;x
+EVTOPTB_HonourGuard_110;I have no need of [honour_guard_target.GetHerHim].;;;;;;;;;;;;x
+honour_guard_banished_tt;[honour_guard_target.GetDynName] seeks adventure elsewhere.;;;;;;;;;;;;x
+
+EVTDESC_HonourGuard_201;As a lesser noble, my honour guard has decided to seek employment in more prestigious courts.;;;;;;;;;;;;x
+EVTDESC_HonourGuard_202;Unable to protect me in my prison cell, my honour guard has been disbanded.;;;;;;;;;;;;x
+EVTDESC_HonourGuard_203;As my coffers run dry, my disloyal honour guards abandon their post.;;;;;;;;;;;;x
+
+EVTDESC_HonourGuard_301; maybe get an honour guard after battle?;;;;;;;;;;;;x
+EVTDESC_HonourGuard_302; calculate what kind of honour guard.;;;;;;;;;;;;x
+EVTDESC_HonourGuard_303;As the dust settles on our recent victory, I'm still inspired by the troops who fought alongside me. I often found myself at ease in their company, secure in the knowledge that they held my safety in the highest regard.;;;;;;;;;;;;x
+EVTOPTA_HonourGuard_303;Indeed, they shall form the basis of my new Honour Guard.;;;;;;;;;;;;x
+EVTOPTB_HonourGuard_303;They were merely doing their duty.;;;;;;;;;;;;x
+
+honour_guard_1_modifier;Valiant Honour Guard;;;;;;;;;;;;x		# mm noble faith
+honour_guard_1_modifier_desc;These sons of nobility make dangerous opponents.;;;;;;;;;;;;x
+honour_guard_2_modifier;Mino Honour Guard;;;;;;;;;;;;x		# mf noble faith
+honour_guard_2_modifier_desc;This personal retinue of shieldmaidens keeps the entire court in check.;;;;;;;;;;;;x
+honour_guard_3_modifier;Swornsword Honour Guard;;;;;;;;;;;;x		# fm noble faith
+honour_guard_3_modifier_desc;A [Root.GetTitle] can find no greater protection than a battalion of highborn warriors.;;;;;;;;;;;;x
+honour_guard_4_modifier;Amazonian Honour Guard;;;;;;;;;;;;x		# ff noble faith
+honour_guard_4_modifier_desc;These Amazons defend their [Root.GetTitle] with unwavering loyalty.;;;;;;;;;;;;x
+honour_guard_5_modifier;Unsullied Honour Guard;;;;;;;;;;;;x		# mm peasant faith
+honour_guard_5_modifier_desc;Though low of status, these bodyguards display unquestionable devotion.;;;;;;;;;;;;x
+honour_guard_6_modifier;Distaff Honour Guard;;;;;;;;;;;;x		# mf peasant faith
+honour_guard_6_modifier_desc;A squad of warrior women protect their [Root.GetTitle] from harm.;;;;;;;;;;;;x
+honour_guard_7_modifier;Ascetic Honour Guard;;;;;;;;;;;;x		# fm peasant faith
+honour_guard_7_modifier_desc;Warrior priests defend their [Root.GetTitle] with all the zeal of their faith.;;;;;;;;;;;;x
+honour_guard_8_modifier;Vestal Honour Guard;;;;;;;;;;;;x		# ff peasant faith
+honour_guard_8_modifier_desc;A devout squad of warrior women protect their [Root.GetTitle] from harm.;;;;;;;;;;;;x
+honour_guard_9_modifier;Extrinsic Honour Guard;;;;;;;;;;;;x		# mm noble infidel
+honour_guard_9_modifier_desc;These sons of foreign nobility make expert defenders, shielded against political intrigue.;;;;;;;;;;;;x
+honour_guard_10_modifier;Exotic Honour Guard;;;;;;;;;;;;x		# mf noble infidel
+honour_guard_10_modifier_desc;Any [Root.GetTitle] would find advantage in being surrounded by the daughters of foreign dignitaries.;;;;;;;;;;;;x
+honour_guard_11_modifier;Impenetrable Honour Guard;;;;;;;;;;;;x		# fm noble infidel
+honour_guard_11_modifier_desc;For the [Root.GetTitle] who does not want to be bothered with trivial matters.;;;;;;;;;;;;x
+honour_guard_12_modifier;Widow's Honour Guard;;;;;;;;;;;;x		# ff noble infidel
+honour_guard_12_modifier_desc;As dangerous as they are loyal, these guards defend their [Root.GetTitle] from enemies both within and without.;;;;;;;;;;;;x
+honour_guard_13_modifier;Varangian Honour Guard;;;;;;;;;;;;x		# mm peasant infidel
+honour_guard_13_modifier_desc;Drawn from the lowest classes of foreign realms, these warriors swear oaths to defend their charge.;;;;;;;;;;;;x
+honour_guard_14_modifier;Ribald Honour Guard;;;;;;;;;;;;x		# mf peasant infidel
+honour_guard_14_modifier_desc;For the [Root.GetTitle] who cares little for the opinions of lesser men.;;;;;;;;;;;;x
+honour_guard_15_modifier;Elusive Honour Guard;;;;;;;;;;;;x		# fm peasant infidel
+honour_guard_15_modifier_desc;Sometimes the best protection is served from the shadows, killing mischievous little rats.;;;;;;;;;;;;x
+honour_guard_16_modifier;Trusted Honour Guard;;;;;;;;;;;;x		# ff peasant infidel
+honour_guard_16_modifier_desc;Broads with broadswords from abroad make fierce fighters and loyal servants.;;;;;;;;;;;;x
+
+
+;;;;;;;;;;;;x

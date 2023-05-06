@@ -1,0 +1,218 @@
+#spawn Amazonian exile
+	character_event = { 
+		id = AmzCul.601
+		desc = EVTDESCAmzCul.601
+		picture = GFX_evt_emissary
+		border = GFX_event_normal_frame_intrigue
+		
+		hide_from = yes
+		
+		mean_time_to_happen = {
+			years = 150
+		}
+		
+		trigger = {
+			is_playable = yes
+			is_female = no
+			war = no
+			is_married = no
+			NOT = { 
+				culture = themiskyran_amz
+				culture = valkyrie_amz
+				culture = scythian_amz
+				culture = parthian_amz
+				culture = kushite_amz
+				culture = carthaginian_amz
+				culture = etruscan_amz
+				culture = pritani_amz
+				culture = illyrian_amz
+				has_character_flag = amazonian_exile_flag
+			}
+			AND = {
+				trait = cruel
+				trait = lustful
+			}
+			NOT = { is_inaccessible_trigger = yes }
+		}
+		
+		option = {	#trade
+			name = EVTOPTAAmzCul.601
+			character_event = { id = AmzCul.602 days = 3 } 
+			ai_chance = {
+				factor = 5
+			}
+			set_character_flag = amazonian_exile_flag
+		}
+		
+		option = {	#ignore
+			name = EVTOPTBAmzCul.601
+			ai_chance = {
+				factor = 1
+			}
+		}
+	}
+
+
+# buying the exile
+	narrative_event = { 
+		title = EVTTITLAmzCul.602
+		id = AmzCul.602
+		desc = EVTDESCAmzCul.602
+		picture = GFX_evt_into_the_dungeon
+		border = GFX_event_narrative_frame_intrigue
+		
+		is_triggered_only = yes
+
+		option = {	#buy
+			name = EVTOPTAAmzCul.602
+			ai_chance = {
+				factor = 5
+			}
+			custom_tooltip = { text = purchase_amazonian_tt }
+			scaled_wealth = {
+				value = -0.5
+			}
+			
+			hidden_tooltip = {
+				random_list = {
+					20 = { 
+						create_random_soldier = {
+							random_traits = no
+							dynasty = actually_culture 
+							female = yes
+							age = 25
+							religion = ROOT
+							culture = themiskyran_amz
+							trait = tribal_kinslayer
+							trait = hedonist
+							trait = strong
+							trait = robust
+						}
+					}
+					20 = { 
+						create_random_soldier = {
+							random_traits = no
+							dynasty = actually_culture 
+							female = yes
+							age = 25
+							religion = ROOT
+							culture = valkyrie_amz
+							trait = tribal_kinslayer
+							trait = hedonist
+							trait = strong
+							trait = robust
+						}
+					}
+					20 = { 
+						create_random_soldier = {
+							random_traits = no
+							dynasty = actually_culture 
+							female = yes
+							age = 25
+							religion = ROOT
+							culture = scythian_amz
+							trait = tribal_kinslayer
+							trait = hedonist
+							trait = strong
+							trait = robust
+						}
+					}
+					20 = { 
+						create_random_soldier = {
+							random_traits = no
+							dynasty = actually_culture 
+							female = yes
+							age = 25
+							religion = ROOT
+							culture = parthian_amz
+							trait = tribal_kinslayer
+							trait = hedonist
+							trait = strong
+							trait = robust
+						}
+					}
+					20 = { 
+						create_random_soldier = {
+							random_traits = no
+							dynasty = actually_culture 
+							female = yes
+							age = 25
+							religion = ROOT
+							culture = kushite_amz
+							trait = tribal_kinslayer
+							trait = hedonist
+							trait = strong
+							trait = robust
+						}
+					}
+					20 = { 
+						create_random_soldier = {
+							random_traits = no
+							dynasty = actually_culture 
+							female = yes
+							age = 25
+							religion = ROOT
+							culture = carthaginian_amz
+							trait = tribal_kinslayer
+							trait = hedonist
+							trait = strong
+							trait = robust
+						}
+					}
+					20 = { 
+						create_random_soldier = {
+							random_traits = no
+							dynasty = actually_culture 
+							female = yes
+							age = 25
+							religion = ROOT
+							culture = etruscan_amz
+							trait = tribal_kinslayer
+							trait = hedonist
+							trait = strong
+							trait = robust
+						}
+					}
+					20 = { 
+						create_random_soldier = {
+							random_traits = no
+							dynasty = actually_culture 
+							female = yes
+							age = 25
+							religion = ROOT
+							culture = pritani_amz
+							trait = tribal_kinslayer
+							trait = hedonist
+							trait = strong
+							trait = robust
+						}
+					}
+					20 = { 
+						create_random_soldier = {
+							random_traits = no
+							dynasty = actually_culture 
+							female = yes
+							age = 25
+							religion = ROOT
+							culture = illyrian_amz
+							trait = tribal_kinslayer
+							trait = hedonist
+							trait = strong
+							trait = robust
+						}
+					}
+				}
+			}
+		}
+
+		option = { 	#refuse
+			name = EVTOPTBAmzCul.602
+			ai_chance = {
+				factor = 1
+			}
+		}
+	}
+
+
+
+

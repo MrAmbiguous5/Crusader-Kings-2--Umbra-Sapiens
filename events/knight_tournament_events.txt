@@ -1,0 +1,5067 @@
+namespace = equus
+
+#Force ai to have a tournament
+
+character_event = {
+	id = equus.1199
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			society_member_of = military_knights 
+			society_member_of = military_knights1
+			society_member_of = military_knights2
+		}
+		society_rank == 4
+		NOT = { has_character_flag = recent_grand_tourney }
+	}
+
+	immediate = {
+		character_event = { id = equus.1200 }
+	}
+}
+
+
+### INVITATIONS TO THE TOURNAMENT
+
+# Invitations have gone out
+character_event = {
+	id = equus.1200
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1200
+	picture = GFX_evt_tournament_gallery
+
+	is_triggered_only = yes
+
+	immediate = {
+		ROOT = { character_event = { id = equus.1202 days = 14 }}
+		ROOT = { set_character_flag = recent_grand_tourney days = 3650 }
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1200" # the tournament begins soon
+		hidden_tooltip = {
+			any_society_member = {
+				limit = {
+					NOT = { character = ROOT }
+					same_society_as = ROOT
+					is_adult = yes
+					prisoner = no
+					OR = {
+						is_feudal = yes
+						is_tribal = yes
+					}
+					NOT = {
+						trait = incapable
+					}
+				}
+				character_event = { id = equus.1201 }
+			}
+		}
+	}
+}
+
+# Man of the realm receives the invitation
+character_event = {
+	id = equus.1201
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1201
+	picture = GFX_evt_tournament_gallery
+
+	is_triggered_only = yes
+
+	trigger = { NOT = { is_inaccessible_trigger = yes } }
+
+	option = {
+		name = "EVTOPTA_equus.1201" # A chance to prove our worth
+		trigger = {
+			NOT = { age = 70 }
+			NOT = { health_traits = 3 }
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 1.5
+				OR = {
+					trait = duelist
+					trait = impaler
+					trait = hunter
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				combat_rating = 20
+			}
+			modifier = {
+				factor = 1.25
+				combat_rating = 24
+			}
+			modifier = {
+				factor = 1.25
+				combat_rating = 28
+			}
+			modifier = {
+				factor = 1.25
+				combat_rating = 32
+			}
+			modifier = {
+				factor = 1.25
+				combat_rating = 36
+			}
+			modifier = {
+				factor = 2
+				combat_rating = 40
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { combat_rating = 16 }
+			}
+			modifier = {
+				factor = 0.25
+				NOT = { combat_rating = 8 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { combat_rating = 4 }
+			}
+		}
+		prestige = 100
+		set_character_flag = attending_mil_tournament
+		hidden_tooltip = {
+			change_variable = { which = "lifestyle_martial" value = 1 }
+			character_event = { id = equus.1299 days = 180 } # Safety catch flag clearing
+		}
+		if = {
+			limit = { is_inaccessible_trigger = yes	}
+			end_inaccessibility_effect = yes
+		}
+		if  = {
+			limit = { ai = no }
+			character_event = { id = equus.1260 days = 10 } #First contest
+		}
+		character_event = { id = equus.1250 days = 3 random = 25 } #player trigger event
+	}
+	option = {
+		name = "EVTOPTB_equus.1201" # I will watch from the stands
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.1
+				OR = {
+					trait = duelist
+					trait = impaler
+					trait = hunter
+				}
+			}
+			modifier = {
+				factor = 0
+				trait = brave
+			}
+			modifier = {
+				factor = 0
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0
+				trait = proud
+			}
+			modifier = {
+				factor = 0
+				combat_rating = 20
+			}
+			modifier = {
+				factor = 4
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 1.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 4
+				NOT = { combat_rating = 12 }
+			}
+		}
+		set_character_flag = spectating_mil_tournament
+		hidden_tooltip = {
+			character_event = { id = equus.1299 days = 180 } # Safety catch flag clearing
+		}
+		if = {
+			limit = { is_inaccessible_trigger = yes	}
+			end_inaccessibility_effect = yes
+		}		
+		character_event = { id = equus.1251 days = 3 random = 25 } #specttator trigger event
+	}
+	option = {
+		name = "EVTOPTC_equus.1201" # A foolish risk for fleeting glory
+		trigger = {
+			NOT = { age = 60 }
+			NOT = { health_traits = 1 }
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 10
+				is_inaccessible_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = scholar
+					trait = gardener
+				}
+			}
+			modifier = {
+				factor = 4
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 1.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				NOT = { combat_rating = 8 }
+			}
+			modifier = {
+				factor = 2
+				age = 40
+			}
+			modifier = {
+				factor = 2
+				age = 50
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD_equus.1201" # I will not be attending
+		trigger = {
+			OR = {
+				age = 70
+				health_traits = 2
+			}
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 10
+				is_inaccessible_trigger = yes
+			}
+		}
+	}
+}
+
+### TOURNAMENT START & END EVENTS
+
+# Start of tournament
+character_event = {
+	id = equus.1202
+	title = EVTTITLE_equus.1200
+	picture = GFX_evt_tournament_gallery
+	desc = EVTDESC_equus.1202
+	is_triggered_only = yes 
+
+	option = {
+		name = "EVTOPTA_equus.1202" #I will be taking my place among the fighters!
+		trigger = {
+			is_female = no
+			NOT = { trait = incapable }
+			NOT = { trait = infirm }
+		}
+		ai_chance = {
+			factor = 120
+			modifier = {
+				factor = 0
+				NOT = { health = 3.1 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { health = 4.1 }
+			}
+			modifier = {
+				factor = 0.75
+				health = 4
+				NOT = { health = 5.1 }
+			}
+			modifier = {
+				factor = 2
+				combat_rating = 24
+			}
+			modifier = {
+				factor = 2
+				combat_rating = 28
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = duelist
+			}
+		}
+		hidden_tooltip = {
+			change_variable = { which = "lifestyle_martial" value = 1 }
+			set_global_flag = mil_tournament_begins
+			set_character_flag = attending_mil_tournament
+			character_event = { id = equus.1250 days = 3 random = 25 } #participant trigger event
+			any_society_member = {
+				limit = { 
+					has_character_flag = attending_mil_tournament 
+				}
+				character_event = { id = equus.1250 days = 3 random = 25 } #participant trigger event
+			}
+			any_society_member = {
+				limit = { 
+					has_character_flag = spectating_mil_tournament
+				}				
+				character_event = { id = equus.1251 days = 3 random = 25 } #specttator trigger event
+			}
+		}
+		chronicle = {
+			entry = CHRONICLE_GRAND_TOURNAMENT
+			picture = GFX_evt_joust
+		}
+		if  = {
+			limit = { ai = no }
+			character_event = { id = equus.1260 days = 10 } #First contest
+		}
+	}
+	option = {
+		name = "EVTOPTB_equus.1202" #I look forward to watching the jousts
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 1.25
+				NOT = { combat_rating = 20 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { combat_rating = 16 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { combat_rating = 10 }
+			}
+			modifier = {
+				factor = 0.5
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = humble
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+		}
+		hidden_tooltip = {
+			set_global_flag = mil_tournament_begins
+			set_character_flag = spectating_mil_tournament
+			character_event = { id = equus.1251 days = 3 random = 25 } #specttator trigger event
+			any_society_member = {
+				limit = { 
+					has_character_flag = attending_mil_tournament
+				}
+				character_event = { id = equus.1250 days = 3 random = 25 } #participant trigger event
+			}
+			any_society_member = {
+				limit = { 
+					has_character_flag = spectating_mil_tournament
+				}
+				character_event = { id = equus.1251 days = 3 random = 25 } #specttator trigger event
+			}
+		}
+		chronicle = {
+			entry = CHRONICLE_GRAND_TOURNAMENT
+			picture = GFX_evt_joust
+		}
+	}
+	option = {
+		name = "EVTOPTC_equus.1202" #I will fight in the tournament myself!
+		trigger = {
+			is_female = yes
+			NOT = { trait = incapable }
+			NOT = { trait = infirm }
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				is_pregnant = yes
+			}
+			modifier = {
+				factor = 0
+				NOT = { health = 3.1 }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { trait = brave }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					trait = craven
+					trait = humble
+					trait = content
+					is_weak_trigger = yes
+					NOT = { combat_rating = 16 }
+					age = 50
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { combat_rating = 24 }
+			}
+			modifier = {
+				factor = 2
+				combat_rating = 30
+			}
+			modifier = {
+				factor = 2
+				combat_rating = 40
+			}
+			modifier = {
+				factor = 2
+				combat_rating = 45 # only JoA should have this much
+			}
+			modifier = {
+				factor = 1.25
+				is_strong_trigger = yes
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = skilled_tactician
+					trait = brilliant_strategist
+				}
+			}
+		}
+		hidden_tooltip = {
+			change_variable = { which = "lifestyle_martial" value = 1 }
+			set_global_flag = mil_tournament_begins
+			set_character_flag = attending_mil_tournament
+			character_event = { id = equus.1250 days = 3 random = 25 } #participant trigger event
+			any_society_member = {
+				limit = { 
+					has_character_flag = attending_mil_tournament 
+				}
+				character_event = { id = equus.1250 days = 3 random = 25 } #participant trigger event
+			}
+			any_society_member = {
+				limit = { 
+					has_character_flag = attending_mil_tournament 
+				}
+				character_event = { id = equus.1251 days = 3 random = 25 } #specttator trigger event
+			}
+		}
+		chronicle = {
+			entry = CHRONICLE_GRAND_TOURNAMENT
+			picture = GFX_evt_joust
+		}
+	}
+}
+
+# Tournament is over
+character_event = {
+	id = equus.1203
+	title = EVTTITLE_equus.1200	
+	picture = GFX_evt_tournament_gallery
+	desc = EVTDESC_equus.1203
+	only_rulers = yes
+	min_age = 16
+	is_triggered_only = yes
+	
+	trigger = {			
+		has_global_flag = joust_third				
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1203"
+		if = {
+			limit = {
+				has_dlc = "Reapers"
+			}
+			custom_tooltip = {
+				text = capital_prospers_custom_tooltip
+				hidden_tooltip = {
+					capital_scope = {
+						change_variable = { which = prosperity_value value = 15 }
+					}
+				}
+			}
+		}
+		hidden_tooltip = {
+			clr_global_flag = mil_tournament_begins
+			clr_character_flag = joust_winner
+			clr_character_flag = joust_second
+			clr_character_flag = joust_third
+			clr_character_flag = attending_mil_tournament
+			clr_character_flag = attending_mil_tournament_sexism
+			clr_character_flag = attending_mil_tournament_event
+			clr_character_flag = attending_mil_tournament_fear
+			clr_character_flag = attending_mil_tournament_MartialEd
+			clr_character_flag = attending_mil_tournament_gay
+			clr_character_flag = attending_mil_tournament_syph
+			clr_character_flag = attending_mil_tournament_drunk
+			clr_character_flag = attending_mil_tournament_duelist
+			clr_character_flag = attending_mil_tournament_intrigue
+			clr_character_flag = attending_mil_tournament_stew
+			clr_character_flag = attending_mil_tournament_dip
+			clr_character_flag = lady_pride
+			clr_character_flag = lady_shyness
+			clr_character_flag = lady_honesty
+			clr_character_flag = lady_lust
+			clr_character_flag = tournament_joust_third
+			clr_character_flag = tournament_joust_second
+			clr_character_flag = tournament_joust_winner
+			clr_character_flag = beauty_joust_winner
+			clr_character_flag = mil_tournament_romance
+			clr_character_flag = spectating_mil_tournament
+			clr_character_flag = attending_mil_tournament_wound
+			clr_character_flag = no_msg_death
+			clr_character_flag = no_msg_maimed
+			clr_character_flag = no_msg_wounded
+			clr_character_flag = attending_mil_tournament_magician
+			clr_character_flag = attending_mil_tournament_brothel
+			clr_character_flag = attending_mil_tournament_witch
+			clr_character_flag = attending_mil_tournament_gambling
+			clr_character_flag = attending_mil_tournament_robber
+			clr_character_flag = attending_mil_tournament_fake_relic
+			clr_character_flag = attending_mil_tournament_real_relic
+			clr_character_flag = winner
+			clr_character_flag = loser
+			clr_character_flag = joust_1
+			clr_character_flag = joust_2
+			clr_character_flag = joust_3
+			clr_character_flag = joust_4
+			clr_character_flag = joust_5
+			clr_character_flag = joust_6w
+			clr_character_flag = joust_6l
+			clr_character_flag = first_place_joust
+			clr_character_flag = second_place_joust
+			clr_character_flag = third_place_joust
+			clr_global_flag = joust_winner
+			clr_global_flag = joust_second
+			clr_global_flag = joust_third
+		}
+		hidden_tooltip = {
+			any_society_member = {
+				limit = {
+					NOT = { character = ROOT }
+					has_character_flag = attending_mil_tournament
+					OR = {
+						has_character_flag = tournament_joust_third
+						has_character_flag = tournament_joust_second
+						has_character_flag = tournament_joust_winner
+					}
+				}
+				set_character_flag = mil_tournament_has_ended
+				opinion = {
+					modifier = opinion_tournament_participant
+					who = ROOT
+					years = 2
+				}
+			}
+			any_society_member = {
+				limit = {
+					has_character_flag = attending_mil_tournament
+					NOT = { character = ROOT }
+					NOT = { has_character_flag = tournament_joust_third }
+					NOT = { has_character_flag = tournament_joust_second }
+					NOT = { has_character_flag = tournament_joust_winner }
+					ai = yes
+				}
+				hidden_tooltip = {
+					random_list = { 
+						10 = { 
+							character_event = { id = equus.1204 } #Did well
+						}
+						10 = {
+							character_event = { id = equus.1205 } #Did really well
+						}
+						10 = {
+							character_event = { id = equus.1206 } #Did poorly
+						}
+						10 = {
+							character_event = { id = equus.1207 } #Did really poorly
+						}
+						10 = {
+							character_event = { id = equus.1208 } #Gain Martial
+						}	
+						10 = {	
+							character_event = { id = equus.1209 } #Lose Martial
+						}
+					}
+				}
+				opinion = {
+					modifier = opinion_tournament_participant
+					who = ROOT
+					years = 2
+				}
+			}
+		}
+		hidden_tooltip = {
+			any_society_member = {
+				limit = {
+					OR = {
+						has_character_flag = spectating_mil_tournament
+						has_character_flag = attending_mil_tournament
+					}
+				}
+				hidden_tooltip = {
+					remove_do_not_disturb_effect = yes
+					clr_character_flag = attending_mil_tournament
+					clr_character_flag = attending_mil_tournament_event
+					clr_character_flag = attending_mil_tournament_sexism
+					clr_character_flag = attending_mil_tournament_fear
+					clr_character_flag = attending_mil_tournament_MartialEd
+					clr_character_flag = attending_mil_tournament_gay
+					clr_character_flag = attending_mil_tournament_syph
+					clr_character_flag = attending_mil_tournament_drunk
+					clr_character_flag = attending_mil_tournament_duelist
+					clr_character_flag = attending_mil_tournament_intrigue
+					clr_character_flag = attending_mil_tournament_stew
+					clr_character_flag = attending_mil_tournament_dip
+					clr_character_flag = lady_pride
+					clr_character_flag = lady_shyness
+					clr_character_flag = lady_honesty
+					clr_character_flag = lady_lust
+					clr_character_flag = tournament_joust_third
+					clr_character_flag = tournament_joust_second
+					clr_character_flag = tournament_joust_winner
+					clr_character_flag = mil_tournament_romance
+					clr_character_flag = spectating_mil_tournament
+					clr_character_flag = attending_mil_tournament_wound
+					clr_character_flag = championing_liege_lady
+					clr_character_flag = attending_mil_tournament_magician
+					clr_character_flag = attending_mil_tournament_brothel
+					clr_character_flag = attending_mil_tournament_witch
+					clr_character_flag = attending_mil_tournament_robber
+					clr_character_flag = attending_mil_tournament_gambling
+					clr_character_flag = attending_mil_tournament_fake_relic
+					clr_character_flag = attending_mil_tournament_real_relic
+					clr_character_flag = winner
+					clr_character_flag = loser
+					clr_character_flag = joust_1
+					clr_character_flag = joust_2
+					clr_character_flag = joust_3
+					clr_character_flag = joust_4
+					clr_character_flag = joust_5
+					clr_character_flag = joust_6w
+					clr_character_flag = joust_6l
+					clr_character_flag = first_place_joust
+					clr_character_flag = second_place_joust
+					clr_character_flag = third_place_joust
+					clr_global_flag = joust_winner
+					clr_global_flag = joust_second
+					clr_global_flag = joust_third
+				}
+			}
+		}
+	}
+}
+
+###These don't need localisation because they are for ai
+
+# Did well
+character_event = {
+	id = equus.1204
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		prestige = 100
+	}
+}
+
+# Did very well
+character_event = {
+	id = equus.1205
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		prestige = 200
+	}
+}
+
+# Did badly
+character_event = {
+	id = equus.1206
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		prestige = -100
+	}
+}
+
+# Did very badly
+character_event = {
+	id = equus.1207
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		prestige = -200
+	}
+}
+
+# Improve martial
+character_event = {
+	id = equus.1208
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		change_combat_rating = 2
+	}
+}
+
+# Lose martial
+character_event = {
+	id = equus.1209
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		change_martial = -1
+	}
+}
+
+
+### EVENT TRIGGERS 
+
+#looping trigger event for participants
+character_event = {
+	id = equus.1250
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = attending_mil_tournament		
+	}
+	
+	immediate = {
+		random_list = {
+			500 = {	#no event				
+			}			
+			1 = {	#character is killed
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_wound
+				}
+				modifier = {
+					factor = 0
+					ai = no
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 40
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 38
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 36
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 34
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 32
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 28
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 26
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 24
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 22
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 20 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 18 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 16 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 14 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 12 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 8 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 6 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 4 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 2 }
+				}
+				modifier = {
+					factor = 0.5
+					trait = craven
+				}
+				modifier = {
+					factor = 2
+					trait = brave
+				}
+				modifier = {
+					factor = 2
+					is_maimed_trigger = yes
+				}
+				character_event = { id = equus.1242 }
+			}
+			2 = {   #character is maimed
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_wound
+				}
+				modifier = {
+					factor = 0
+					ai = no
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 40
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 38
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 36
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 34
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 32
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 28
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 26
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 24
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 22
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 20 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 18 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 16 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 14 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 12 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 8 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 6 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 4 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 2 }
+				}
+				modifier = {
+					factor = 0.5
+					trait = craven
+				}
+				modifier = {
+					factor = 2
+					trait = brave
+				}
+				modifier = {
+					factor = 2
+					trait = wounded
+				}
+				character_event = { id = equus.1243 }
+			}
+			3 = {   #character is wounded
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_wound
+				}
+				modifier = {
+					factor = 0
+					ai = no
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 40
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 38
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 36
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 34
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 32
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 28
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 26
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 24
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 22
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 20 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 18 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 16 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 14 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 12 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 8 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 6 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 4 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 2 }
+				}
+				modifier = {
+					factor = 0.5
+					trait = craven
+				}
+				modifier = {
+					factor = 2
+					trait = brave
+				}
+				character_event = { id = equus.1244 }
+			}
+			10 = { #character gets more fearful
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_fear
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 40
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 38
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 36
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 34
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 32
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 28
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 26
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 24
+				}
+				modifier = {
+					factor = 0.9
+					combat_rating = 22
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 20 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 18 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 16 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 14 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 12 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 8 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 6 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 4 }
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { combat_rating = 2 }
+				}
+				character_event = { id = equus.1213 }
+			}
+			
+			10 = {	#character gets braver
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_fear
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 40
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 38
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 36
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 34
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 32
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 28
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 26
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 24
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 22
+				}
+				modifier = {
+					factor = 0.9
+					NOT = { combat_rating = 20 }
+				}
+				modifier = {
+					factor = 0.9
+					NOT = { combat_rating = 18 }
+				}
+				modifier = {
+					factor = 0.9
+					NOT = { combat_rating = 16 }
+				}
+				modifier = {
+					factor = 0.9
+					NOT = { combat_rating = 14 }
+				}
+				modifier = {
+					factor = 0.9
+					NOT = { combat_rating = 12 }
+				}
+				modifier = {
+					factor = 0.9
+					NOT = { combat_rating = 10 }
+				}
+				modifier = {
+					factor = 0.9
+					NOT = { combat_rating = 8 }
+				}
+				modifier = {
+					factor = 0.9
+					NOT = { combat_rating = 6 }
+				}
+				modifier = {
+					factor = 0.9
+					NOT = { combat_rating = 4 }
+				}
+				modifier = {
+					factor = 0.9
+					NOT = { combat_rating = 2 }
+				}
+				character_event = { id = equus.1214 }
+			}
+			
+			10 = { #character gains a Martial Education level
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_martial
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						trait = brilliant_strategist
+						NOR = {
+							trait = misguided_warrior
+							trait = tough_soldier
+							trait = skilled_tactician
+							trait = brilliant_strategist
+						}
+					}
+				}
+				if = {
+					limit = { trait = skilled_tactician }
+					character_event = { id = equus.1217 }
+				}
+				if = {
+					limit = { trait = tough_soldier }
+					character_event = { id = equus.1216 }
+				}
+				if = {
+					limit = { trait = misguided_warrior }
+					character_event = { id = equus.1215 }
+				}
+			}
+			10 = { #character loses a Martial Education level
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_martial
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						trait = misguided_warrior
+						NOR ={
+							trait = misguided_warrior
+							trait = tough_soldier
+							trait = skilled_tactician
+							trait = brilliant_strategist
+						}
+					}
+				}
+				if = {
+					limit = { trait = tough_soldier }
+					character_event = { id = equus.1220 }
+				}
+				if = {
+					limit = { trait = skilled_tactician }
+					character_event = { id = equus.1219 }
+				}
+				if = {
+					limit = { trait = brilliant_strategist }
+					character_event = { id = equus.1218 }
+				}
+			}
+			5 = { #brothel temptation
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = attending_mil_tournament_brothel
+						trait = eunuch
+						trait = celibate
+					}
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 2
+					trait = hedonist
+				}
+				modifier = {
+					factor = 1.33
+					trait = lustful
+				}
+				modifier = {
+					factor = 0.75
+					trait = temperate
+				}
+				modifier = {
+					factor = 0.5
+					trait = chaste
+				}
+				modifier = {
+					factor = 0.5
+					trait = zealous
+				}
+				character_event = { id = equus.1221 }
+			}
+			5 = { #magician
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_magician
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 2
+					trait = hedonist
+				}
+				modifier = {
+					factor = 1.33
+					diplomacy = 10
+				}
+				modifier = {
+					factor = 1.33
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.75
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = shy
+				}
+				modifier = {
+					factor = 1.33
+					trait = zealous
+				}
+				character_event = { id = equus.1222 }
+			}
+			5 = { #witch
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_witch
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 2
+					trait = hedonist
+				}
+				modifier = {
+					factor = 1.33
+					diplomacy = 10
+				}
+				modifier = {
+					factor = 1.33
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.75
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = shy
+				}
+				modifier = {
+					factor = 1.33
+					trait = zealous
+				}
+				character_event = { id = equus.1223 }
+			}
+			2 = { #character becomes homosexual
+				modifier = {
+					factor = 0
+					OR = {
+						trait = homosexual
+						trait = eunuch
+						trait = celibate
+						has_character_flag = attending_mil_tournament_gay
+						is_female = yes
+					}
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.33
+					trait = hedonist
+				}
+				modifier = {
+					factor = 1.1
+					trait = lustful
+				}
+				modifier = {
+					factor = 0.5
+					trait = temperate
+				}
+				modifier = {
+					factor = 0.33
+					trait = chaste
+				}
+				modifier = {
+					factor = 0.33
+					trait = zealous
+				}
+				character_event = { id = equus.1224 }				
+			}
+			2 = { #character becomes syphilitic
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = attending_mil_tournament_syph
+						has_character_flag = spectating_mil_tournament_syph
+						trait = eunuch
+						trait = celibate
+						trait = syphilitic
+					}
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 2
+					trait = hedonist
+				}
+				modifier = {
+					factor = 1.33
+					trait = lustful
+				}
+				modifier = {
+					factor = 0.5
+					trait = temperate
+				}
+				modifier = {
+					factor = 0.33
+					trait = chaste
+				}
+				modifier = {
+					factor = 0.33
+					trait = zealous
+				}
+				character_event = { id = equus.1225 }
+			}
+			2 = { #character becomes drunkard
+				modifier = {
+					factor = 0
+					OR = {
+						trait = drunkard
+						has_character_flag = attending_mil_tournament_drunk
+					}
+				}
+				modifier = {
+					factor = 1.33
+					trait = gluttonous
+				}
+				modifier = {
+					factor = 1.1
+					trait = lustful
+				}
+				modifier = {
+					factor = 0.33
+					trait = temperate
+				}
+				modifier = {
+					factor = 0.5
+					trait = chaste
+				}
+				character_event = { id = equus.1226 }
+			}
+			3 = { #character becomes duelist
+				modifier = {
+					factor = 0
+					OR = {
+						has_dlc = "Way of Life" 					
+						has_character_flag = attending_mil_tournament_duelist
+						NOT = { combat_rating = 10 }					
+						trait = content
+						trait = kind
+						trait = craven
+						is_weak_trigger = yes
+						lifestyle_traits = 1					
+					}
+				}
+				modifier = {
+					factor = 1.33
+					trait = diligent
+				}
+				modifier = {
+					factor = 1.33
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.33
+					trait = brave
+				}
+				modifier = {
+					factor = 1.33
+					is_strong_trigger = yes
+				}
+				modifier = {
+					factor = 1.33
+					combat_rating = 20
+				}
+				modifier = {
+					factor = 1.33
+					combat_rating = 30
+				}
+				modifier = {
+					factor = 1.33
+					combat_rating = 40
+				}
+				character_event = { id = equus.1227 }
+			}
+			10 = { #female contestant draws flak
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_sexism
+				}
+				modifier = {
+					factor = 0
+					is_female = no
+				}
+				modifier = {
+					factor = 1.5
+					trait = proud
+				}
+				modifier = {
+					factor = 1.25
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.25
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.25
+					trait = zealous
+				}
+				modifier = {
+					factor = 1.5
+					trait = ambitious
+				}
+				modifier = {
+					factor = 1.25
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.8
+					is_strong_trigger = yes
+				}
+				modifier = {
+					factor = 0.8
+					trait = humble
+				}
+				modifier = {
+					factor = 0.8
+					trait = shy
+				}
+				modifier = {
+					factor = 0.66
+					combat_rating = 40
+				}
+				modifier = {
+					factor = 0.66
+					combat_rating = 45
+				}	
+				character_event = { id = equus.1228 }
+			}
+			5 = { #robber
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_robber
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 2
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.33
+					trait = paranoid
+				}
+				modifier = {
+					factor = 1.33
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.75
+					trait = craven
+				}
+				modifier = {
+					factor = 0.5
+					trait = shy
+				}
+				modifier = {
+					factor = 1.33
+					trait = brave
+				}
+				character_event = { id = equus.1229 }
+			}
+			5 = { #gambling
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_gambling
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 2
+					trait = greedy
+				}
+				modifier = {
+					factor = 1.33
+					trait = ambitious
+				}
+				modifier = {
+					factor = 0.75
+					trait = content
+				}
+				modifier = {
+					factor = 1.33
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.75
+					learning = 10
+				}
+				modifier = {
+					factor = 0.75
+					trait = zealous
+				}
+				modifier = {
+					factor = 0.75
+					trait = shy
+				}
+				modifier = {
+					factor = 1.33
+					intrigue = 10
+				}
+				character_event = { id = equus.1230 }
+			}
+			5 = { #fake relic salesman
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_fake_relic
+					has_character_flag = attending_mil_tournament_real_relic
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 1.33
+					learning = 10
+				}
+				modifier = {
+					factor = 2
+					learning = 15
+				}
+				modifier = {
+					factor = 1.33
+					trait = ambitious
+				}
+				modifier = {
+					factor = 1.33
+					trait = mystic
+				}
+				modifier = {
+					factor = 1.33
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.75
+					trait = cynical
+				}
+				modifier = {
+					factor = 1.33
+					trait = zealous
+				}
+				modifier = {
+					factor = 1.33
+					NOT = { intrigue = 10 }
+				}
+				modifier = {
+					factor = 1.33
+					NOT = { intrigue = 5 }
+				}
+				modifier = {
+					factor = 0.75
+					trait = shy
+				}
+				modifier = {
+					factor = 1.33
+					trait = theologian
+				}
+				character_event = { id = equus.1233 }
+			}
+			5 = { #real relic salesman
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_real_relic
+					has_character_flag = attending_mil_tournament_fake_relic
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 1.33
+					learning = 10
+				}
+				modifier = {
+					factor = 2
+					learning = 15
+				}
+				modifier = {
+					factor = 1.33
+					trait = ambitious
+				}
+				modifier = {
+					factor = 1.33
+					trait = mystic
+				}
+				modifier = {
+					factor = 1.33
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.75
+					trait = cynical
+				}
+				modifier = {
+					factor = 1.33
+					trait = zealous
+				}
+				modifier = {
+					factor = 0.75
+					trait = shy
+				}
+				modifier = {
+					factor = 1.33
+					trait = theologian
+				}
+				character_event = { id = equus.1236 }
+			}
+		}
+		repeat_event = { id = equus.1250 days = 5 random = 5 }
+	}
+}
+
+#looping trigger event for spectators
+character_event = {
+	id = equus.1251
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = spectating_mil_tournament			
+	}
+	
+	immediate = {
+		random_list = {
+			250 = {	#no event 
+			}			
+			5 = { #brothel temptation
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = attending_mil_tournament_brothel
+						trait = eunuch
+						trait = celibate
+					}
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 2
+					trait = hedonist
+				}
+				modifier = {
+					factor = 1.33
+					trait = lustful
+				}
+				modifier = {
+					factor = 0.75
+					trait = temperate
+				}
+				modifier = {
+					factor = 0.5
+					trait = chaste
+				}
+				modifier = {
+					factor = 0.5
+					trait = zealous
+				}
+				character_event = { id = equus.1221 }
+			}
+			5 = { #magician
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_magician
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 2
+					trait = hedonist
+				}
+				modifier = {
+					factor = 1.33
+					diplomacy = 10
+				}
+				modifier = {
+					factor = 1.33
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.75
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = shy
+				}
+				modifier = {
+					factor = 1.33
+					trait = zealous
+				}
+				character_event = { id = equus.1222 }
+			}
+			5 = { #witch
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_witch
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 2
+					trait = hedonist
+				}
+				modifier = {
+					factor = 1.33
+					diplomacy = 10
+				}
+				modifier = {
+					factor = 1.33
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.75
+					trait = cynical
+				}
+				modifier = {
+					factor = 0.5
+					trait = shy
+				}
+				modifier = {
+					factor = 1.33
+					trait = zealous
+				}
+				character_event = { id = equus.1223 }
+			}
+			2 = { #character becomes homosexual
+				modifier = {
+					factor = 0
+					OR = {
+						trait = homosexual
+						trait = eunuch
+						trait = celibate
+						has_character_flag = attending_mil_tournament_gay
+						is_female = yes
+					}
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.33
+					trait = hedonist
+				}
+				modifier = {
+					factor = 1.1
+					trait = lustful
+				}
+				modifier = {
+					factor = 0.5
+					trait = temperate
+				}
+				modifier = {
+					factor = 0.33
+					trait = chaste
+				}
+				modifier = {
+					factor = 0.33
+					trait = zealous
+				}
+				character_event = { id = equus.1224 }				
+			}
+			2 = { #character becomes syphilitic
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = attending_mil_tournament_syph
+						has_character_flag = spectating_mil_tournament_syph
+						trait = eunuch
+						trait = celibate
+						trait = syphilitic
+					}
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 2
+					trait = hedonist
+				}
+				modifier = {
+					factor = 1.33
+					trait = lustful
+				}
+				modifier = {
+					factor = 0.5
+					trait = temperate
+				}
+				modifier = {
+					factor = 0.33
+					trait = chaste
+				}
+				modifier = {
+					factor = 0.33
+					trait = zealous
+				}
+				character_event = { id = equus.1225 }
+			}
+			3 = { #character becomes drunkard
+				modifier = {
+					factor = 0
+					OR = {
+						trait = drunkard
+						has_character_flag = attending_mil_tournament_drunk
+					}
+				}
+				modifier = {
+					factor = 1.33
+					trait = gluttonous
+				}
+				modifier = {
+					factor = 1.1
+					trait = lustful
+				}
+				modifier = {
+					factor = 0.33
+					trait = temperate
+				}
+				modifier = {
+					factor = 0.5
+					trait = chaste
+				}
+				character_event = { id = equus.1226 }
+			}
+			5 = { #robber
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_robber
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 2
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.33
+					trait = paranoid
+				}
+				modifier = {
+					factor = 1.33
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.75
+					trait = craven
+				}
+				modifier = {
+					factor = 0.5
+					trait = shy
+				}
+				modifier = {
+					factor = 1.33
+					trait = brave
+				}
+				character_event = { id = equus.1229 }
+			}
+			5 = { #gambling
+				modifier = {
+					factor = 0
+					has_character_flag = attending_mil_tournament_gambling
+				}
+				modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { age = 25 }
+				}
+				modifier = {
+					factor = 2
+					trait = greedy
+				}
+				modifier = {
+					factor = 1.33
+					trait = ambitious
+				}
+				modifier = {
+					factor = 0.75
+					trait = content
+				}
+				modifier = {
+					factor = 1.33
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.75
+					learning = 10
+				}
+				modifier = {
+					factor = 0.75
+					trait = zealous
+				}
+				modifier = {
+					factor = 0.75
+					trait = shy
+				}
+				modifier = {
+					factor = 1.33
+					intrigue = 10
+				}
+				character_event = { id = equus.1230 }
+			}
+		}	
+		repeat_event = { id = equus.1251 days = 5 random = 5 }
+	}
+}
+
+
+### DEATH & INJURY OF PARTICIPANTS
+
+# Character is killed
+character_event = {
+	id = equus.1242
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		ai = yes
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_wound }
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}	
+
+	immediate = {
+		clr_character_flag = attending_mil_tournament
+		death = {
+			death_reason = death_battle
+		}
+	}
+}
+
+# Character is maimed
+character_event = {
+	id = equus.1243
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		ai = yes
+		has_character_flag = attending_mil_tournament
+		can_be_maimed_trigger = yes
+		NOT = {
+			has_character_flag = attending_mil_tournament_wound			
+		}
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}
+
+	immediate = {
+		clr_character_flag = attending_mil_tournament
+		add_maimed_trait_effect = yes
+	}
+}
+
+# Character is wounded
+character_event = {
+	id = equus.1244
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		ai = yes
+		has_character_flag = attending_mil_tournament
+		can_be_maimed_trigger = yes
+		NOR = {
+			trait = wounded			
+			has_character_flag = attending_mil_tournament_wound
+		}
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}	
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_wound
+		add_trait = wounded
+	}
+}
+
+### TOURNAMENT PARTICIPANT EVENTS
+
+# Character becomes craven
+character_event = {
+	id = equus.1213
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1213
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_fear }
+		NOR = { 
+			trait = craven 
+			trait = berserker
+		}
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_fear
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1213"
+		if = {
+			limit = { trait = brave }
+			remove_trait = brave
+			break = yes
+		}
+		add_trait = craven
+	}
+}
+
+# Character becomes brave
+character_event = {
+	id = equus.1214
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1214
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_fear }
+		NOT = { trait = brave }
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 250
+		modifier = {
+			factor = 0.9
+			combat_rating = 40
+		}
+		modifier = {
+			factor = 0.9
+			combat_rating = 38
+		}
+		modifier = {
+			factor = 0.9
+			combat_rating = 36
+		}
+		modifier = {
+			factor = 0.9
+			combat_rating = 34
+		}
+		modifier = {
+			factor = 0.9
+			combat_rating = 32
+		}
+		modifier = {
+			factor = 0.9
+			combat_rating = 30
+		}
+		modifier = {
+			factor = 0.9
+			combat_rating = 28
+		}
+		modifier = {
+			factor = 0.9
+			combat_rating = 26
+		}
+		modifier = {
+			factor = 0.9
+			combat_rating = 24
+		}
+		modifier = {
+			factor = 0.9
+			combat_rating = 22
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { combat_rating = 20 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { combat_rating = 18 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { combat_rating = 16 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { combat_rating = 14 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { combat_rating = 12 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { combat_rating = 10 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { combat_rating = 8 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { combat_rating = 6 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { combat_rating = 4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { combat_rating = 2 }
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_fear
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1214"
+		if = {
+			limit = { trait = craven }
+			remove_trait = craven
+			break = yes
+		}
+		add_trait = brave
+	}
+}
+
+# Character becomes tough soldier
+character_event = {
+	id = equus.1215
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1215
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_MartialEd }
+		trait = misguided_warrior
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_MartialEd
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1215"
+		remove_trait = misguided_warrior
+		add_trait = tough_soldier
+	}
+}
+
+# Character becomes skilled tactician
+character_event = {
+	id = equus.1216
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1215
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_MartialEd }
+		trait = tough_soldier
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_MartialEd
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1215"
+		remove_trait = tough_soldier
+		add_trait = skilled_tactician
+	}
+}
+
+# Character becomes brilliant strategist
+character_event = {
+	id = equus.1217
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1215
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_MartialEd }
+		trait = skilled_tactician
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_MartialEd
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1215"
+		remove_trait = skilled_tactician
+		add_trait = brilliant_strategist
+	}
+}
+
+# Character becomes skilled tactician
+character_event = {
+	id = equus.1218
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1218
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_MartialEd }
+		trait = brilliant_strategist
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_MartialEd
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1218"
+		remove_trait = brilliant_strategist
+		add_trait = skilled_tactician
+	}
+}
+
+# Character becomes tough soldier
+character_event = {
+	id = equus.1219
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1218
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_MartialEd }
+		trait = skilled_tactician
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_MartialEd
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1218"
+		remove_trait = skilled_tactician
+		add_trait = tough_soldier
+	}
+}
+
+# Character becomes misguided warrior
+character_event = {
+	id = equus.1220
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1218
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_MartialEd }
+		trait = tough_soldier
+		top_liege = {
+			has_character_flag = mil_tournament_begins
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_MartialEd
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1218"
+		remove_trait = tough_soldier
+		add_trait = misguided_warrior
+	}
+}
+
+#Brothel temptation
+character_event = {
+	id = equus.1221
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1221
+	picture = "GFX_evt_brothel"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_brothel }
+		NOR = {
+			trait = homosexual
+			trait = celibate
+		}
+		NOT = { trait = eunuch }
+	}
+	immediate = {
+		set_character_flag = attending_mil_tournament_brothel
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1221" #Go
+		add_trait = lustful
+		if = { 
+			limit = { is_female = yes }
+			add_trait = homosexual
+		}
+		if = {
+			limit = { trait = chaste }
+			remove_trait = chaste
+		}
+	}
+
+	option = {
+		name = "EVTOPTB_equus.1221" #Don't
+		piety = 100
+		if = {
+			limit = { trait = lustful }
+			remove_trait = lustful
+		}
+		add_trait = chaste
+	}
+	
+	option = {
+		name = "EVTOPTC_equus.1221" #Stableboy
+		add_trait = lustful
+		if = { 
+			limit = { is_female = no }
+			add_trait = homosexual
+		}
+		if = {
+			limit = { trait = chaste }
+			remove_trait = chaste
+		}
+	}
+}
+
+#Magician
+character_event = {
+	id = equus.1222
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1222
+	picture = "GFX_evt_jugglers"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_magician }
+	}
+	immediate = {
+		set_character_flag = attending_mil_tournament_magician
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1222" #Silly tricks
+		add_trait = cynical
+		if = {
+			limit = { trait = zealous }
+			remove_trait = zealous
+		}
+	}
+
+	option = {
+		name = "EVTOPTB_equus.1222" #This is immoral
+		piety = 100
+		add_trait = zealous
+		if = {
+			limit = { trait = cynical }
+			remove_trait = cynical
+		}
+	}
+	
+	option = {
+		name = "EVTOPTC_equus.1222" #Display some of your skills
+		trigger = {
+			NOT = { 
+				trait = shy
+				trait = zealous
+				trait = slothful
+				trait = cynical
+			}
+		}
+		prestige = 50
+		add_trait = gregarious
+	}
+}
+
+#Witch
+character_event = {
+	id = equus.1223
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1223
+	picture = "GFX_evt_market"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_magician }
+	}
+	immediate = {
+		set_character_flag = attending_mil_tournament_magician
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1223" #Foolish pesants
+		add_trait = cynical
+	}
+
+	option = {
+		name = "EVTOPTB_equus.1223" #Arrest her
+		piety = 100
+		add_trait = zealous
+		remove_trait = kind
+	}
+	
+	option = {
+		name = "EVTOPTC_equus.1223" #Ask for her help
+		trigger = {
+			NOT = { 
+				trait = zealous
+				trait = cynical
+			}
+		}
+		random_list = {
+			40 = {
+				add_character_modifier = {
+					name = invigorated
+					duration = 1800
+				}
+			}
+			30 = {
+			}
+			30 = {
+				add_character_modifier = {
+					name = nauseous_from_potion
+					duration = 1800
+				}
+			}
+		}
+	}
+}
+# Character becomes homosexual
+character_event = {
+	id = equus.1224
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1224
+	picture = GFX_evt_shadowy_cabal
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_gay }
+		NOR = {
+			trait = homosexual
+			trait = celibate
+		}
+		NOT = { trait = eunuch }
+	}
+
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_gay
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1224"
+		add_trait = homosexual
+	}
+}
+
+# Character becomes syphilitic
+character_event = {
+	id = equus.1225
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1225
+	picture = "GFX_evt_lovers"
+
+	min_age = 16
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = attending_mil_tournament
+			has_character_flag = spectating_mil_tournament
+		}
+		NOR = {
+			has_character_flag = attending_mil_tournament_syph			
+			trait = syphilitic
+			trait = celibate
+		}
+		NOT = { trait = eunuch }
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_syph		
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1225"
+		add_trait = syphilitic
+	}
+}
+
+# Character becomes drunkard
+character_event = {
+	id = equus.1226
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1226
+	picture = "GFX_evt_drunk"
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_drunk }
+		NOT = {
+			trait = drunkard
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_drunk
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1226"
+		add_trait = drunkard
+	}
+}
+
+# Character becomes duelist
+character_event = {
+	id = equus.1227
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1227
+	picture = "GFX_evt_melee"
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	lacks_dlc = "Way of Life"
+
+	trigger = {		
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_duelist }
+		combat_rating = 10
+		NOR = {
+			trait = content
+			trait = kind
+			trait = craven
+			is_weak_trigger = yes
+			lifestyle_traits = 1
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_duelist
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1227"
+		add_trait = duelist
+	}
+}
+
+# Men react poorly to lady contestant
+character_event = {
+	id = equus.1228
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1228	
+	picture = "GFX_evt_whispers"
+
+	is_triggered_only = yes
+	
+	min_age = 16
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+	has_character_flag = attending_mil_tournament
+
+	trigger = {
+		NOR = {
+			has_character_flag = attending_mil_tournament_sexism
+			has_character_flag = mil_tournament_has_ended
+		}
+		top_liege = {
+			has_character_flag = tournament_begins
+			NOT = { has_character_flag = mil_tournament_has_ended }
+		}
+	}
+	
+	immediate = {
+		set_character_flag = attending_mil_tournament_sexism
+	}
+	
+	option = {
+		name = EVTOPTA_equus.1228 #RAGE
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				trait = patient
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = humble
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+		}
+		piety = -25
+		add_trait = wroth
+		if = {
+			limit = {
+				NOR = {
+					trait = diligent
+					trait = slothful
+				}
+			}
+			random = {
+				chance = 30
+				add_trait = diligent
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					trait = proud
+					trait = humble
+				}
+			}
+			random = {
+				chance = 50
+				add_trait = proud
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_equus.1228 #zen
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 1.5
+				trait = humble
+			}
+			modifier = {
+				factor = 1.5
+				trait = craven
+			}
+		}
+		prestige = -50
+		add_trait = patient
+		if = {
+			limit = {
+				NOR = {
+					trait = diligent
+					trait = slothful
+				}
+			}
+			random = {
+				chance = 30
+				add_trait = slothful
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					trait = humble
+					trait = proud
+				}
+			}
+			random = {
+				chance = 50
+				add_trait = humble
+			}
+		}
+	}
+}
+#Traveller being robbed
+character_event = {
+	id = equus.1229
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1229
+	picture = "GFX_evt_bandits"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_robber }
+	}
+	immediate = {
+		set_character_flag = attending_mil_tournament_robber
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1229" #Help
+		prestige = 10
+		add_trait = kind
+	}
+
+	option = {
+		name = "EVTOPTB_equus.1229" #Hush money
+		piety = -100
+		wealth = 50
+	}
+}
+#Gambling
+character_event = {
+	id = equus.1230
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1230
+	picture = GFX_evt_shadowy_cabal
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_gambling }
+	}
+	
+	immediate = {
+		set_character_flag = attending_mil_tournament_gambling
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1230" #Try 
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					character_event = { id = equus.1231 }
+					modifier = {
+						factor = 0.9
+						NOT = { intrigue = 5 }
+					}
+					modifier = {
+						factor = 0.9
+						NOT = { intrigue = 4 }
+					}
+					modifier = {
+						factor = 0.9
+						NOT = { intrigue = 3 }
+					}
+					modifier = {
+						factor = 0.9
+						NOT = { intrigue = 2 }
+					}
+					modifier = {
+						factor = 0.9
+						NOT = { intrigue = 1 }
+					}
+					modifier = {
+						factor = 0.66
+						trait = trusting
+					}
+				}
+				40 = {
+					character_event = { id = equus.1232 }
+					modifier = {
+						factor = 0.66
+						trait = paranoid
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTB_equus.1230" #Leave
+		piety = 50
+	}
+	
+	option = {
+		name = "EVTOPTC_equus.1230" #Fix the dice
+		trigger = { intrigue = 10 }
+		tooltip_info = intrigue
+		piety = -100
+		wealth = 50
+	}
+}
+#Win gamble
+character_event = {
+	id = equus.1231
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1231
+	picture = GFX_evt_shadowy_cabal
+	min_age = 16
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.1231"  
+		wealth = 50
+	}
+}
+#Lose gamble
+character_event = {
+	id = equus.1232
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1232
+	picture = GFX_evt_shadowy_cabal
+	min_age = 16
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.1232"  
+		wealth = -50
+	}
+}
+
+#Fake relic salesman 
+character_event = {
+	id = equus.1233
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1233
+	picture = "GFX_evt_market"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_fake_relic }
+		NOT = { has_character_flag = attending_mil_tournament_real_relic }
+	}
+	
+	immediate = {
+		set_character_flag = attending_mil_tournament_fake_relic
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1233" #Buy
+		character_event = { id = equus.1234 }
+		cash = -100
+	}
+
+	option = {
+		name = "EVTOPTB_equus.1233" #Don't
+	}
+	
+	option = {
+		name = "EVTOPTC_equus.1233" #Denounce
+		trigger = { intrigue = 10 }
+		tooltip_info = intrigue
+		character_event = { id = equus.1235 }
+	}
+}
+
+#Discover fraud
+character_event = {
+	id = equus.1234
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1234
+	picture = "GFX_evt_market"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.1234"
+		prestige = -50
+	}
+}
+
+#Confront salesman
+character_event = {
+	id = equus.1235
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1235
+	picture = "GFX_evt_market"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.1235" #Arrest
+		piety = 100
+	}
+	option = {
+		name = "EVTOPTB_equus.1235" #Demand hush money
+		piety = -100
+		cash = 50
+	}
+}
+
+#Real relic salesman 
+character_event = {
+	id = equus.1236
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1233
+	picture = "GFX_evt_market"
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = attending_mil_tournament_real_relic }
+		NOT = { has_character_flag = attending_mil_tournament_fake_relic }
+	}
+	
+	immediate = {
+		set_character_flag = attending_mil_tournament_real_relic
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1233" #Buy
+		wealth = -100
+		hidden_tooltip = {
+			random_list = {
+				#Generic artifacts
+				20 = { #Famous Head
+					modifier = {
+						factor = 0
+						has_artifact = famous_head
+					}
+					add_artifact = famous_head #receive "Head of a <GetArtifactSourceCap>" 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { #Famous Tongue
+					modifier = {
+						factor = 0
+						has_artifact = famous_tongue
+					}
+					add_artifact = famous_tongue #receive "Tongue of a <GetArtifactSourceCap>" 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { #Infamous Tongue
+					modifier = {
+						factor = 0
+						has_artifact = infamous_tongue
+					}
+					add_artifact = infamous_tongue #receive "Tongue of an Unbeliever" 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { #Famous Hand
+					modifier = {
+						factor = 0
+						has_artifact = famous_hand
+					}
+					add_artifact = famous_hand #receive "Hand of a <GetArtifactSourceCap>" 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { #Famous Arm
+					modifier = {
+						factor = 0
+						has_artifact = famous_arm
+					}
+					add_artifact = famous_arm #receive "Arm of a <GetArtifactSourceCap>" 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { #Famous Foot
+					modifier = { 
+						factor = 0
+						has_artifact = famous_foot
+					}
+					add_artifact = famous_foot #receive "Foot of a <GetArtifactSourceCap>" 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				20 = { #Famous Ancient Rusty Weapon
+					modifier = {
+						factor = 0
+						has_artifact = famous_ancient_weapon
+					}
+					add_artifact = famous_ancient_weapon #receive "Ancient Rusty Weapon" 
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				#Christian artifacts
+				20 = {
+					modifier = {
+						factor = 0
+						has_artifact = fingerbone_of_saint
+					}
+					#Insert artifact event here
+					add_artifact = fingerbone_of_saint #Fingerbone of Saint
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						has_artifact = chains_of_st_peter
+					}
+					#Insert artifact event here
+					add_artifact = chains_of_st_peter #Chains of St. Peter
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						has_artifact = right_hand_st_demetrius
+					}
+					#Insert artifact event here
+					add_artifact = right_hand_st_demetrius #Right Hand of St. Demetrius
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+					10 = {
+					modifier = {
+						factor = 0
+						has_artifact = veil_of_veronica
+					}
+					#Insert artifact event here
+					add_artifact = veil_of_veronica #Veil of Veronica
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						has_artifact = remains_of_st_cessianus
+					}
+					#Insert artifact event here
+					add_artifact = remains_of_st_cessianus #Remains of St. Cessianus
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						has_artifact = weeping_statue
+					}
+					#Insert artifact event here
+					add_artifact = weeping_statue #Weeping Statue
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						has_artifact = veil_of_dymphna
+					}
+					#Insert artifact event here
+					add_artifact = veil_of_dymphna #Bloody Veil of Saint Dymphna
+					new_artifact = {
+						set_creation_date = 1.1.1
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTB_equus.1233" #Don't
+	}
+
+}
+
+### JOUSTS
+
+# Joust
+character_event = {
+	id = equus.1260
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1260
+	picture = GFX_evt_joust
+	is_triggered_only = yes
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	has_character_flag = attending_mil_tournament
+
+	trigger = {
+		NOT = {
+			has_character_flag = first_place_joust
+			has_character_flag = second_place_joust
+			has_character_flag = third_place_joust
+		}
+	}
+
+	immediate = {
+	 	clear_event_target = opponent_knight
+	 	if = {
+	 		limit = {
+	 			NOT = {
+	 				has_character_flag = joust_1
+	 				has_character_flag = joust_2
+	 				has_character_flag = joust_3
+	 				has_character_flag = joust_4
+	 				has_character_flag = joust_5
+	 				has_character_flag = joust_6w
+	 				has_character_flag = joust_6l
+	 			}
+	 		}
+	 		set_character_flag = joust_1
+	 	}
+	 	
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				NOT = { had_character_flag = { flag = opponent_knight days = 9 }}
+				NOT = { character = ROOT }
+			}
+			save_event_target_as = opponent_knight
+			set_character_flag = opponent_knight
+	 		if = { 
+	 			limit = {
+	 				ROOT = { has_character_flag = joust_2 }
+	 				event_target:opponent_knight = { NOT = { combat_rating = 24 }}
+	 			}
+	 			change_combat_rating = 4
+	 		}
+	 		if = { 
+	 			limit = {
+	 				ROOT = { has_character_flag = joust_3 }
+	 				event_target:opponent_knight = { NOT = { combat_rating = 28 }}
+	 			}
+	 			change_combat_rating = 6
+	 		}
+	 		if = { 
+	 			limit = {
+	 				ROOT = { has_character_flag = joust_4 }
+	 				event_target:opponent_knight = { NOT = { combat_rating = 32 }}
+	 			}
+	 			change_combat_rating = 8
+	 		}
+	 		if = { 
+	 			limit = {
+	 				OR = {
+	 					ROOT = { has_character_flag = joust_5 }
+	 					ROOT = { has_character_flag = joust_6l }
+	 				}
+	 				event_target:opponent_knight = { NOT = { combat_rating = 36 }}
+	 			}
+	 			change_combat_rating = 10
+	 		}
+	 		if = { 
+	 			limit = {
+	 				ROOT = { has_character_flag = joust_6w }
+	 				event_target:opponent_knight = { NOT = { combat_rating = 40 }}
+	 			}
+	 			change_combat_rating = 12
+	 		}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1260"
+		hidden_tooltip = {
+			character_event = { id = equus.9260 }
+		}
+	}
+}
+
+character_event = {
+	id = equus.9260
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		random_list = {
+			50 = { #Opponent wins
+				set_character_flag = loser
+				random_list = { #Different localisation for joust_5, joust_6w, joust_6l
+					4 = {
+						character_event = { id = equus.1261 } #injury
+					}
+					2 = {
+						character_event = { id = equus.1262 } #maiming
+					}
+					1 = {
+						character_event = { id = equus.1263 } #death
+					}
+					100 = {
+						character_event = { id = equus.1264 } #simple loss
+					}
+				}
+				if = {
+					limit = {
+						has_character_flag = joust_5
+					}
+					set_character_flag = joust_6l
+					if = {
+						limit = { ai = yes }
+						random_list = {
+							60 = {
+								set_character_flag = third_place_joust
+							}
+							40 = {
+								
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_character_flag = joust_6w
+					}
+					set_character_flag = second_place_joust
+				}
+				clr_character_flag = joust_1
+				clr_character_flag = joust_2
+				clr_character_flag = joust_3
+				clr_character_flag = joust_4
+				clr_character_flag = joust_5
+				has_character_flag = joust_6w
+				modifier = {
+					factor = 3
+					event_target:opponent_knight = { trait = poor_warrior }
+				}
+				modifier = {
+					factor = 6
+					event_target:opponent_knight = { trait = trained_warrior }
+				}
+				modifier = {
+					factor = 9
+					event_target:opponent_knight = { trait = skilled_warrior }
+				}
+				modifier = {
+					factor = 12
+					event_target:opponent_knight = { trait = master_warrior }
+				}
+				modifier = {
+					factor = 3
+					event_target:opponent_knight = { trait = duelist }
+				}
+				
+				# Martial Education Effects
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { trait = misguided_warrior }
+				}
+				modifier = {
+					factor = 3
+					event_target:opponent_knight = { trait = tough_soldier }
+				}
+				modifier = {
+					factor = 4.5
+					event_target:opponent_knight = { trait = skilled_tactician }
+				}
+				modifier = {
+					factor = 6
+					event_target:opponent_knight = { trait = brilliant_strategist }
+				}				
+				
+				# Generic Combat Rating Difference
+				modifier = {
+					factor = 1.25
+					event_target:opponent_knight = { combat_rating_diff = { who = ROOT value = 10 } }				
+				}
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { combat_rating_diff = { who = ROOT value = 25 } }				
+				}
+				modifier = {
+					factor = 1.75
+					event_target:opponent_knight = { combat_rating_diff = { who = ROOT value = 45 } }				
+				}
+				modifier = {
+					factor = 2
+					event_target:opponent_knight = { combat_rating_diff = { who = ROOT value = 65 } }				
+				}
+				modifier = {
+					factor = 2.5
+					event_target:opponent_knight = { combat_rating_diff = { who = ROOT value = 85 } }				
+				}
+				
+				# Physical Strength Effects
+				modifier = {
+					factor = 2
+					event_target:opponent_knight = { trait = strong }
+				}
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { trait = robust }
+				}
+				modifier = {
+					factor = 2
+					ROOT = { trait = weak }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { trait = feeble }
+				}
+				
+				# Cunning/Intelligence Effects
+				modifier = {
+					factor = 2
+					event_target:opponent_knight = { trait = genius }
+				}
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { trait = quick }
+				}
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { trait = shrewd }
+				}
+				modifier = {
+					factor = 2
+					ROOT = { trait = imbecile }
+				}
+					modifier = {
+					factor = 1.5
+					ROOT = { trait = slow }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { trait = dull }
+				}
+				
+				# Personality Effects
+				modifier = {
+					factor = 2
+					event_target:opponent_knight = { trait = brave }
+				}
+				modifier = {
+					factor = 2
+					event_target:opponent_knight = { trait = wroth }
+				}
+				modifier = {
+					factor = 2
+					ROOT = { trait = craven }
+				}
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { trait = deceitful }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { trait = honest }
+				}
+				
+				# Opponent Wound Effects
+				modifier = {
+					factor = 2
+					ROOT = { trait = wounded }
+				}
+				modifier = {
+					factor = 4
+					ROOT = { 
+						OR = {
+							trait = severely_injured
+							resolve_severely_injured_effect = yes
+							is_maimed_trigger = yes
+						} 
+					}
+				}
+				modifier = {
+					factor = 10
+					ROOT = { trait = blinded }
+				}
+				modifier = {
+					factor = 999999
+					ROOT = { trait = incapable }
+				}
+				
+				# Opponent Health Effects
+				modifier = {
+					factor = 1.5
+					ROOT = { is_ill = yes }
+				}
+				modifier = {
+					factor = 2
+					ROOT = { trait = pneumonic }
+				}
+				modifier = {
+					factor = 8
+					ROOT = { trait = leper }
+				}
+				modifier = {
+					factor = 4
+					ROOT = { trait = infirm }
+				}
+				modifier = {
+					factor = 6
+					ROOT = {
+						has_epidemic_disease_trigger = yes
+					}
+				}
+				
+				# Body Shape Effects
+				modifier = {
+					factor = 4
+					ROOT = { trait = hunchback }
+				}
+				modifier = {
+					factor = 4
+					ROOT = { trait = dwarf }
+				}
+				modifier = {
+					factor = 4
+					ROOT = { trait = clubfooted }
+				}
+			}
+			60 = { #Player wins
+				set_character_flag = winner
+				random_list = { #Different localisation for joust_5, joust_6w, joust_6l
+					2 = {
+						character_event = { id = equus.1261 } #injury
+					}
+					1 = {
+						character_event = { id = equus.1262 } #maiming
+					}
+					100 = {
+						character_event = { id = equus.1265 } #simple win
+					}
+				}
+				if = {
+					limit = {
+						has_character_flag = joust_6w
+					}
+					set_character_flag = first_place_joust
+					clr_character_flag = joust_6w
+				}
+				if = {
+					limit = {
+						has_character_flag = joust_6l
+					}
+					set_character_flag = third_place_joust
+					clr_character_flag = joust_6l
+				}
+				if = {
+					limit = {
+						has_character_flag = joust_5
+					}
+					set_character_flag = joust_6w
+					clr_character_flag = joust_5
+					if = {
+						limit = { ai = yes }
+						random_list = {
+							60 = {
+								set_character_flag = first_place_joust
+							}
+							40 = {
+								set_character_flag = second_place_joust
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_character_flag = joust_4
+					}
+					set_character_flag = joust_5
+					clr_character_flag = joust_4
+				}
+				if = {
+					limit = {
+						has_character_flag = joust_3
+					}
+					set_character_flag = joust_4
+					clr_character_flag = joust_3
+				}
+				if = {
+					limit = {
+						has_character_flag = joust_2
+					}
+					set_character_flag = joust_3
+					clr_character_flag = joust_2
+				}
+				if = {
+					limit = {
+						has_character_flag = joust_1
+					}
+					set_character_flag = joust_2
+					clr_character_flag = joust_1
+				}
+				
+				
+				# Skill-at-Arms Effects
+				modifier = {
+					factor = 3
+					ROOT = { trait = duelist }
+				}
+				
+				# Martial Education Effects
+				modifier = {
+					factor = 1.5
+					ROOT = { trait = misguided_warrior }
+				}
+				modifier = {
+					factor = 3
+					ROOT = { trait = tough_soldier }
+				}
+				modifier = {
+					factor = 4.5
+					ROOT = { trait = skilled_tactician }
+				}
+				modifier = {
+					factor = 6
+					ROOT = { trait = brilliant_strategist }
+				}
+				
+				# Generic Combat Rating Difference
+				modifier = {
+					factor = 1.25
+					ROOT = { combat_rating_diff = { who = event_target:opponent_knight value = 10 } }				
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { combat_rating_diff = { who = event_target:opponent_knight value = 25 } }				
+				}
+				modifier = {
+					factor = 1.75
+					ROOT = { combat_rating_diff = { who = event_target:opponent_knight value = 45 } }				
+				}
+				modifier = {
+					factor = 2
+					ROOT = { combat_rating_diff = { who = event_target:opponent_knight value = 65 } }				
+				}
+				modifier = {
+					factor = 2.5
+					ROOT = { combat_rating_diff = { who = event_target:opponent_knight value = 85 } }				
+				}
+				
+				# Physical Strength Effects
+				modifier = {
+					factor = 2
+					ROOT = { trait = strong }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { trait = robust }
+				}
+				modifier = {
+					factor = 2
+					event_target:opponent_knight = { trait = weak }
+				}
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { trait = feeble }
+				}
+				
+				# Cunning/Intelligence Effects
+				modifier = {
+					factor = 2
+					ROOT = { trait = genius }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { trait = quick }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { trait = shrewd }
+				}
+				modifier = {
+					factor = 2
+					event_target:opponent_knight = { trait = imbecile }
+				}
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { trait = slow }
+				}
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { trait = dull }
+				}
+				
+				# Personality Effects
+				modifier = {
+					factor = 2
+					ROOT = { trait = brave }
+				}
+				modifier = {
+					factor = 2
+					ROOT = { trait = wroth }
+				}
+				modifier = {
+					factor = 2
+					event_target:opponent_knight = { trait = craven }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { trait = deceitful }
+				}
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { trait = honest }
+				}
+				
+				# Opponent Wound Effects
+				modifier = {
+				factor = 2
+					event_target:opponent_knight = { trait = wounded }
+				}
+				modifier = {
+					factor = 4
+					event_target:opponent_knight = {
+						OR = {
+							trait = severely_injured
+							resolve_severely_injured_effect = yes
+							is_maimed_trigger = yes 
+						}
+					}
+				}
+				modifier = {
+					factor = 999999
+					event_target:opponent_knight = { trait = incapable }
+				}
+				
+				# Opponent Health Effects
+				modifier = {
+					factor = 1.5
+					event_target:opponent_knight = { is_ill = yes }
+				}
+				modifier = {
+					factor = 2
+					event_target:opponent_knight = { trait = pneumonic }
+				}
+				modifier = {
+					factor = 8
+					event_target:opponent_knight = { trait = leper }
+				}
+				modifier = {
+					factor = 4
+					event_target:opponent_knight = { trait = infirm }
+				}
+				modifier = {
+					factor = 6
+					event_target:opponent_knight = {
+						has_epidemic_disease_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 10
+					event_target:opponent_knight = { trait = blinded }
+				}
+				
+				# Body Shape Effects
+				modifier = {
+					factor = 4
+					event_target:opponent_knight = { trait = hunchback }
+				}
+				modifier = {
+					factor = 4
+					event_target:opponent_knight = { trait = dwarf }
+				}
+				modifier = {
+					factor = 4
+					event_target:opponent_knight = { trait = clubfooted }
+				}
+			}
+		}
+	}
+}
+
+#Injured
+character_event = {
+	id = equus.1261
+	title = EVTTITLE_equus.1200
+	
+	desc = {
+		trigger = {
+			has_character_flag = winner 
+		}
+		text = EVTDESC_equus.1261w
+	}
+	desc = {
+		trigger = {
+			has_character_flag = loser 
+			NOT = { has_character_flag = joust_6l }
+		}
+		text = EVTDESC_equus.1261l
+	}
+	desc = {
+		trigger = {
+			has_character_flag = loser 
+			has_character_flag = joust_6l
+		}
+		text = EVTDESC_equus.1261lf
+	}
+	
+	picture = "GFX_evt_bloody_man"
+	is_triggered_only = yes
+	
+	immediate = {
+		if = { 
+			limit = { ai = no }
+			random_list = {
+				3 = {
+					character_event = { id = equus.1266 days = 2 } #Friend
+				}
+				7 = {
+					character_event = { id = equus.1267 days = 2 } #Enemy
+				}
+				100 = {
+					#Nothing
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_equus.1261" #Keep going
+		trigger = {
+			OR = {
+				has_character_flag = winner
+				has_character_flag = joust_6l
+			}
+		}
+		trait = wounded
+		clr_character_flag = winner
+		clr_character_flag = loser
+		if = {
+			limit = {
+				ai = no
+			}
+			character_event = { id = equus.1260 days = 10 }
+		}		
+	}
+	option = {
+		name = "EVTOPTB_equus.1261" #Pull out
+		prestige = -200
+		trait = wounded
+		clr_character_flag = winner
+		clr_character_flag = loser
+		clr_character_flag = joust_1
+		clr_character_flag = joust_2
+		clr_character_flag = joust_3
+		clr_character_flag = joust_4
+		clr_character_flag = joust_5
+		clr_character_flag = joust_6l
+		clr_character_flag = joust_6w
+	}
+} 
+
+#Maimed
+character_event = {
+	id = equus.1262
+	title = EVTTITLE_equus.1200
+	
+	desc = {
+		trigger = {
+			has_character_flag = winner 
+		}
+		text = EVTDESC_equus.1262w
+	}
+	desc = {
+		trigger = {
+			has_character_flag = loser 
+			NOT = { has_character_flag = joust_6l }
+		}
+		text = EVTDESC_equus.1262l
+	}
+	desc = {
+		trigger = {
+			has_character_flag = loser 
+			has_character_flag = joust_6l
+		}
+		text = EVTDESC_equus.1262lf
+	}
+	
+	picture = "GFX_evt_bloody_man"
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = severely_injured
+			resolve_severely_injured_effect = yes
+			random_list = {
+				200 = {
+					add_trait = one_eyed
+				}
+				33 = {
+					add_trait = one_handed
+				}
+				29 = {
+					add_trait = one_legged
+				}
+				18 = {
+					add_trait = disfigured
+				}
+				7 = {
+					add_trait = mangled
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { has_dlc = "Reapers" }}
+			add_trait = maimed
+		}
+		if = { 
+			limit = { ai = no }
+			random_list = {
+				2 = {
+					character_event = { id = equus.1266 days = 2 } #Friend
+				}
+				8 = {
+					character_event = { id = equus.1267 days = 2 } #Enemy
+				}
+				100 = {
+					#Nothing
+				}
+			}
+		}
+	}	
+	
+	option = {
+		name = "EVTOPTA_equus.1261" #Keep going
+		trigger = {
+			OR = {
+				has_character_flag = winner
+				has_character_flag = joust_6l
+			}
+		}
+		clr_character_flag = winner
+		clr_character_flag = loser
+		if = {
+			limit = {
+				ai = no
+			}
+			character_event = { id = equus.1260 days = 10 }
+		}		
+	}
+	option = {
+		name = "EVTOPTB_equus.1261" #Pull out
+		prestige = -200
+		clr_character_flag = winner
+		clr_character_flag = loser
+		clr_character_flag = joust_1
+		clr_character_flag = joust_2
+		clr_character_flag = joust_3
+		clr_character_flag = joust_4
+		clr_character_flag = joust_5
+		clr_character_flag = joust_6l
+		clr_character_flag = joust_6w
+	}
+} 
+
+#Die
+character_event = {
+	id = equus.1263
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1263
+	picture = "GFX_evt_bloody_man"
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_equus.1263" #Arggh
+		if = {
+			limit = { ai = yes } 
+			death = { death_reason = death_duel killer = ROOT }
+		}
+		if = {
+			limit = { ai = no } 
+			death = { death_reason = death_duel killer = event_target:opponent_knight }
+		}
+	}
+} 
+
+
+#Simple loss
+character_event = {
+	id = equus.1264
+	title = EVTTITLE_equus.1200
+	desc = {
+		trigger = {
+			has_character_flag = loser 
+			NOT = { has_character_flag = joust_6l }
+		}
+		text = EVTDESC_equus.1264l
+	}
+	desc = {
+		trigger = {
+			has_character_flag = loser 
+			has_character_flag = joust_6l
+		}
+		text = EVTDESC_equus.1264lf
+	}
+	
+	picture = GFX_evt_joust
+	is_triggered_only = yes
+	immediate = {
+		if = { 
+			limit = { ai = no }
+			random_list = {
+				4 = {
+					character_event = { id = equus.1266 days = 2 } #Friend
+				}
+				6 = {
+					character_event = { id = equus.1267 days = 2 } #Enemy
+				}
+				100 = {
+					#Nothing
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_equus.1264" #Finalina
+		trigger = {
+			has_character_flag = joust_6l
+		}
+		clr_character_flag = winner
+		clr_character_flag = loser
+		if = {
+			limit = {
+				ai = no
+			}
+			character_event = { id = equus.1260 days = 10 }
+		}		
+	}
+	option = {
+		name = "EVTOPTB_equus.1264" #Leave
+		clr_character_flag = winner
+		clr_character_flag = loser
+		clr_character_flag = joust_1
+		clr_character_flag = joust_2
+		clr_character_flag = joust_3
+		clr_character_flag = joust_4
+		clr_character_flag = joust_5
+		clr_character_flag = joust_6l
+		clr_character_flag = joust_6w
+	}
+}
+
+#Simple win
+character_event = {
+	id = equus.1265
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1265
+	picture = GFX_evt_joust
+	is_triggered_only = yes
+	
+	immediate = {
+		if = { 
+			limit = { ai = no }
+			random_list = {
+				6 = {
+					character_event = { id = equus.1266 days = 2 } #Friend
+				}
+				4 = {
+					character_event = { id = equus.1267 days = 2 } #Enemy
+				}
+				100 = {
+					#Nothing
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_equus.1264" #Onwards
+		clr_character_flag = winner
+		clr_character_flag = loser
+		if = {
+			limit = {
+				ai = no
+			}
+			character_event = { id = equus.1260 days = 10 }
+		}	
+	}
+} 
+
+#Friend
+character_event = {
+	id = equus.1266
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1266
+	picture = GFX_evt_joust
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_equus.1266" 
+		add_friend = event_target:opponent_knight
+	}
+} 
+
+#Enemy
+character_event = {
+	id = equus.1267
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1267
+	picture = GFX_evt_joust
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_equus.1267" 
+		add_rival = event_target:opponent_knight
+	}
+} 
+
+
+### TOURNAMENT CHAMPION EVENTS
+
+# Character wins the tournament
+character_event = {
+	id = equus.1270
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1270
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	has_character_flag = attending_mil_tournament
+
+	trigger = {
+		NOT = { has_global_flag = joust_winner }
+		NOT = { has_character_flag = second_place_joust }
+		NOT = { has_character_flag = third_place_joust }
+		has_character_flag = attending_mil_tournament
+		OR = {
+			AND = {
+				had_global_flag = { flag = mil_tournament_begins days = 80 } 
+				ai = yes
+			}
+			has_character_flag = first_place_joust
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0
+			has_character_flag = first_place_joust
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = mil_tournament_begins days = 90 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = mil_tournament_begins days = 100 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = mil_tournament_begins days = 110 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = mil_tournament_begins days = 120 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = mil_tournament_begins days = 130 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = wounded
+		}
+		#This shouldn't happen at all, but still...
+		modifier = {
+			factor = 3
+			is_maimed_trigger = yes
+		}
+		modifier = {
+			factor = 1.5
+			health_traits = 1
+		}
+		modifier = {
+			factor = 0.75
+			trait = duelist
+		}
+		modifier = {
+			factor = 0.75
+			trait = brave
+		}
+		modifier = {
+			factor = 1.25
+			trait = craven
+		}
+		modifier = {
+			factor = 2
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 45 }
+			}
+		}
+		modifier = {
+			factor = 1.75
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 35 }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 25 }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 10 }
+			}
+		}
+		modifier = {
+			factor = 3
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 4 }
+			}
+		}
+		modifier = {
+			factor = 2.5
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 3 }
+			}
+		}
+		modifier = {
+			factor = 2
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 2 }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 1 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				any_society_member = {
+					has_character_flag = attending_mil_tournament
+					same_society_as = ROOT
+					NOT = { character = ROOT }
+					martial = ROOT
+				}
+			}
+		}
+	}
+
+	immediate = {
+		set_global_flag = joust_winner
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1270"
+		wealth = 200
+		prestige = 500
+		hidden_tooltip = {
+			any_society_member = {
+				limit = {
+					has_character_flag = attending_mil_tournament
+					NOT = { character = ROOT }
+				}
+				character_event = { id = equus.1271 }
+			}
+		}
+	}
+}
+
+# Inform about joust_winner
+character_event = {
+	id = equus.1271
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1271
+	picture = GFX_evt_joust
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.1271"
+	}
+}
+
+# Character wins second place in the tournament
+character_event = {
+	id = equus.1272
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1272
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	has_character_flag = attending_mil_tournament
+
+	trigger = {
+		had_global_flag = { flag = joust_winner days = 1 }
+		NOT = { has_global_flag = joust_second }
+		NOT = { has_character_flag = first_place_joust }
+		NOT = { has_character_flag = third_place_joust }
+		has_character_flag = attending_mil_tournament
+		has_character_flag = attending_mil_tournament
+		NOT = { has_character_flag = tournament_joust_winner }
+		OR = {
+			AND = {
+				had_global_flag = { flag = joust_winner days = 10 }
+				ai = yes
+			}
+			has_character_flag = second_place_joust
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0
+			has_character_flag = second_place_joust
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = joust_winner days = 10 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = joust_winner days = 20 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = joust_winner days = 30 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = joust_winner days = 40 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = joust_winner days = 50 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = wounded
+		}
+		modifier = {
+			factor = 3
+			is_maimed_trigger = yes
+		}
+		modifier = {
+			factor = 1.5
+			health_traits = 1
+		}
+		modifier = {
+			factor = 0.75
+			trait = duelist
+		}
+		modifier = {
+			factor = 0.75
+			trait = brave
+		}
+		modifier = {
+			factor = 1.25
+			trait = craven
+		}
+		modifier = {
+			factor = 2
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 45 }
+			}
+		}
+		modifier = {
+			factor = 1.75
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 35 }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 25 }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 10 }
+			}
+		}
+		modifier = {
+			factor = 3
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 4 }
+			}
+		}
+		modifier = {
+			factor = 2.5
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 3 }
+			}
+		}
+		modifier = {
+			factor = 2
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 2 }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 1 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				any_society_member = {
+					has_character_flag = attending_mil_tournament
+					same_society_as = ROOT
+					NOT = { character = ROOT }
+					martial = ROOT
+				}
+			}
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_event
+		set_global_flag = joust_second
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1272"
+		wealth = 100
+		prestige = 250
+		hidden_tooltip = {
+			any_society_member = {
+				limit = {
+					NOT = { character = ROOT }
+					has_character_flag = attending_mil_tournament
+				}
+				character_event = { id = equus.1273 }
+			}
+		}
+	}
+}
+
+# Inform about second place
+character_event = {
+	id = equus.1273
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1273
+	picture = GFX_evt_joust
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.1273"
+	}
+}
+
+# Character wins third place in the tournament
+character_event = {
+	id = equus.1274
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1274
+	picture = GFX_evt_melee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	has_character_flag = attending_mil_tournament
+
+	trigger = {
+		had_global_flag = { flag = joust_second days = 1 }
+		NOT = { has_global_flag = joust_third }
+		NOT = { has_character_flag = first_place_joust }
+		NOT = { has_character_flag = second_place_joust }
+		has_character_flag = attending_mil_tournament
+		OR = {
+			AND = {
+				had_global_flag = { flag = joust_second days = 10 }
+				ai = yes
+			}
+			has_character_flag = third_place_joust
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0
+			has_character_flag = third_place_joust
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = joust_second days = 10 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = joust_second days = 20 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = joust_second days = 30 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = joust_second days = 40 }
+		}
+		modifier = {
+			factor = 0.5
+			had_global_flag = { flag = joust_second days = 50 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = wounded
+		}
+		modifier = {
+			factor = 3
+			is_maimed_trigger = yes
+		}
+		modifier = {
+			factor = 1.5
+			health_traits = 1
+		}
+		modifier = {
+			factor = 0.75
+			trait = duelist
+		}
+		modifier = {
+			factor = 0.75
+			trait = brave
+		}
+		modifier = {
+			factor = 1.25
+			trait = craven
+		}
+		modifier = {
+			factor = 2
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 45 }
+			}
+		}
+		modifier = {
+			factor = 1.75
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 35 }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 25 }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				NOT = { attribute_diff = { character = ROOT attribute = martial value = 1 } }
+				ROOT = { NOT = { attribute_diff = { character = PREV attribute = martial value = 1 } } }
+				combat_rating_diff = { character = ROOT value = 10 }
+			}
+		}
+		modifier = {
+			factor = 3
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 4 }
+			}
+		}
+		modifier = {
+			factor = 2.5
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 3 }
+			}
+		}
+		modifier = {
+			factor = 2
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 2 }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			any_society_member = {
+				has_character_flag = attending_mil_tournament
+				same_society_as = ROOT
+				NOT = { character = ROOT }
+				attribute_diff = { character = ROOT attribute = martial value = 1 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				any_society_member = {
+					has_character_flag = attending_mil_tournament
+					same_society_as = ROOT
+					NOT = { character = ROOT }
+					martial = ROOT
+				}
+			}
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_mil_tournament_event
+		set_global_flag = joust_third
+	}
+
+	option = {
+		name = "EVTOPTA_equus.1274"
+		wealth = 50
+		prestige = 125
+		hidden_tooltip = {
+			any_society_member = {
+				limit = {
+					has_character_flag = attending_mil_tournament
+					NOT = { character = ROOT }
+				}
+				character_event = { id = equus.1275 }
+			}
+			any_society_member = {
+				limit = {
+					has_character_flag = attending_mil_tournament
+				}
+				character_event = { id = equus.1203 }
+			}
+		}
+	}
+}
+
+# Inform about third place
+character_event = {
+	id = equus.1275
+	title = EVTTITLE_equus.1200
+	desc = EVTDESC_equus.1275
+	picture = GFX_evt_joust
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_equus.1275"
+	}
+}
+
+###########################################
+# Flag management                         #
+###########################################
+
+# Safety catch - clears character flags and modifiers
+character_event = {
+	id = equus.1299
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_global_flag = mil_tournament_begins
+		clr_character_flag = joust_winner
+		clr_character_flag = joust_second
+		clr_character_flag = joust_third
+		clr_character_flag = attending_mil_tournament
+		clr_character_flag = attending_mil_tournament_event
+		clr_character_flag = tournament_joust_third
+		clr_character_flag = tournament_joust_second
+		clr_character_flag = tournament_joust_winner
+		clr_character_flag = mil_tournament_has_ended
+		clr_character_flag = attending_mil_tournament_wound
+		clr_character_flag = no_msg_death
+		clr_character_flag = no_msg_maimed
+		clr_character_flag = no_msg_wounded
+		clr_character_flag = winner
+		clr_character_flag = loser
+		clr_character_flag = joust_1
+		clr_character_flag = joust_2
+		clr_character_flag = joust_3
+		clr_character_flag = joust_4
+		clr_character_flag = joust_5
+		clr_character_flag = joust_6w
+		clr_character_flag = joust_6l
+		clr_character_flag = first_place_joust
+		clr_character_flag = second_place_joust
+		clr_character_flag = third_place_joust
+		clr_global_flag = joust_winner
+		clr_global_flag = joust_second
+		clr_global_flag = joust_third
+	}
+}
+

@@ -1,0 +1,56 @@
+decisions = {
+
+	rdu_more_options = {
+	is_high_prio = yes
+
+		potential = {
+		OR = {
+		trait = rdu_more_options
+		has_character_flag = ruler_designer_unlocked_char
+		}		
+		NOT = { has_character_flag = remove_ruler_designer_unlocked_char }	
+		}
+		
+		allow = {
+		
+		}
+		
+		effect = {
+		character_event = { id = rdu_events.2 }	
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	remove_rdu_more_options = {
+
+		potential = {
+		OR = {
+		trait = rdu_more_options
+		has_character_flag = ruler_designer_unlocked_char
+		}		
+		NOT = { has_character_flag = remove_ruler_designer_unlocked_char }	
+		}
+		
+		allow = {
+		
+		}
+		
+		effect = {
+		character_event = { id = rdu_events.17 }	
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+}

@@ -1,0 +1,60 @@
+beheaded_in_a_second = {
+	violent = yes
+	long_desc = "BEHEADED_IN_A_SECOND"
+	can_nokiller = yes
+	execution = yes
+	sound_list = {
+		female = {
+			"neutral_beheading_01"
+		}
+		male = {
+			"neutral_beheading_01"
+		}
+	}
+}
+
+death_by_marshal_arrow = {
+	violent = yes
+	long_desc = "DEATH_BY_MARSHAL_ARROW"
+	can_nokiller = yes
+	execution = yes
+	sound_list = {
+		female = {
+			"neutral_beheading_01"
+		}
+		male = {
+			"neutral_beheading_01"
+		}
+	}
+}
+
+killed_collateral_damage = {	
+	violent = yes
+	long_desc = "KILLED_COLLATERAL_DAMAGE"
+	can_nokiller = yes
+	execution = yes
+	sound_list = {
+		female = {
+			"neutral_beheading_01"
+		}
+		male = {
+			"neutral_beheading_01"
+		}
+	}
+}
+
+killed_in_epic_duel_fight = {
+	violent = yes
+	long_desc = "EPIC_DUEL_FIGHT_WHAT"
+	can_nokiller = yes
+	execution = yes
+	sound_list = {
+		female = {
+			"neutral_beheading_01"
+		}
+		male = {
+			"neutral_beheading_01"
+		}
+	}
+}
+
