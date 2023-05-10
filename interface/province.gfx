@@ -1819,7 +1819,7 @@ spriteTypes = {
 	
 	spriteType = {
 		name = "GFX_settlement_temple_bodpagfx_hellenicgfx"
-		texturefile = "gfx\\interface\\placeholder_temple_hellenic_mongol.dds"
+		texturefile = "gfx\\interface\\placeholder_temple_hellenic_mongol.tga"
 		noOfFrames = 1
 		norefcount = yes
 	}
@@ -4614,6 +4614,14 @@ spriteTypes = {
 		noOfFrames = 1
 		norefcount = yes
 	}
+
+	# Hellenic temples
+	spriteType = {
+		name = "GFX_settlement_temple_japanesegfx_hellenicgfx"
+		texturefile = "gfx\\interface\\placeholder_temple_japan.tga"
+		noOfFrames = 1
+		norefcount = yes
+	}
 	
 	### Castle
 	spriteType = {
@@ -4895,6 +4903,13 @@ spriteTypes = {
 
 	spriteType = {
 		name = "GFX_settlement_temple_tibetangfx_tibetangfx"
+		texturefile = "gfx\\interface\\placeholder_temple_tibetan.tga"
+		noOfFrames = 1
+		norefcount = yes
+	}
+
+	spriteType = {
+		name = "GFX_settlement_temple_tibetangfx_hellenicgfx"
 		texturefile = "gfx\\interface\\placeholder_temple_tibetan.tga"
 		noOfFrames = 1
 		norefcount = yes
@@ -6511,6 +6526,13 @@ spriteType = {
 	}
 	spriteType = {
 		name = "GFX_settlement_temple_hangfx"
+		texturefile = "gfx\\interface\\placeholder_temple_chinese.tga"
+		noOfFrames = 1
+		norefcount = yes
+	}
+
+	spriteType = {
+		name = "GFX_settlement_temple_hellenicgfx"
 		texturefile = "gfx\\interface\\placeholder_temple_chinese.tga"
 		noOfFrames = 1
 		norefcount = yes
